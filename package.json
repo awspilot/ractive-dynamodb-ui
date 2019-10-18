@@ -4,6 +4,7 @@
 	"description": "",
 	"main": "src/index.js",
 	"scripts": {
+		"start": "webpack -w & node_modules/node-static/bin/cli.js",
 		"build": "webpack",
 		"watch": "webpack --config webpack.config.js --watch"
 	},
