@@ -18,6 +18,9 @@
 	},
 	"homepage": "https://github.com/awspilot/dynamodb-ui#readme",
 	"devDependencies": {
+		"babel-core": "^6.26.3",
+		"babel-loader": "^8.0.6",
+		"node-static": "^0.7.11",
 		"webpack": "^4.41.2",
 		"webpack-cli": "^3.3.9"
 	},
