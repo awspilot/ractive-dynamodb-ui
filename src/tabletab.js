@@ -1,5 +1,11 @@
+
+import tableinfo from './tableinfo';
+
 export default Ractive.extend({
 	isolated: true,
+	components: {
+		tableinfo: tableinfo,
+	},
 	template: "\
 		<div class='tableview {{#if active}}active{{/if}}'>\
 			<div class='tableview-table-tabs noselect'>\
