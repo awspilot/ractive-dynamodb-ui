@@ -2,6 +2,7 @@
 import tableinfo from './tableinfo';
 import tablealarms from './tablealarms';
 import tablecapacity from './tablecapacity';
+import tableindexes from './tableindexes';
 
 export default Ractive.extend({
 	isolated: true,
@@ -9,6 +10,7 @@ export default Ractive.extend({
 		tableinfo: tableinfo,
 		tablealarms: tablealarms,
 		tablecapacity: tablecapacity,
+		tableindexes: tableindexes,
 	},
 	template: "\
 		<div class='tableview {{#if active}}active{{/if}}'>\
