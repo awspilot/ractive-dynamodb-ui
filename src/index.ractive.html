@@ -1,15 +1,35 @@
 <style>
-
+.hsplit {position: absolute;top:0px;left: 0px;right: 0px;bottom: 0px;}
+left {position:absolute;display: block;top: 0px;left: 0px;width: 260px;bottom: 0px;}
+content {position:absolute;display: block;top: 0px;left: 265px;right: 0px;bottom: 0px;}
 </style>
 
-<div>This is component.</div>
+<hsplit style='top: 56px;'>
+  <left>
+    <minitablelist />
+  </left>
+  <content>
+    <tabs active_id='tables' />
+  </content>
+</hsplit>
 
 <script>
 
     import Ractive from 'ractive';
 
+    var hsplit = Ractive.extend({
+    	isolated: false,
+    	data: {
+    		direction: 'horizontal'
+    	},
+    	template: '<div class="hsplit {{class}} " style="{{style}}">{{yield}}</div>',
+    })
+
+
+
     export default Ractive.extend({
         template: $TEMPLATE,
+        components: { hsplit: hsplit, },
         css: $CSS,
         data: function() {
             return {
