@@ -187,6 +187,10 @@ content {position:absolute;display: block;top: 0px;left: 265px;right: 0px;bottom
 		on: {
 			init: function() {
 
+				this.on('open-table', function(e, table ) {
+					this.findComponent('tabs').newtab('tabletab', table )
+				})
+
 				// if (this.get('account.endpoint')) {
 				// 	credentials.endpoint = this.get('account.endpoint')
 				// 	if (this.get('account.endpoint').indexOf( location.protocol + '//' + location.host ) === 0) {
