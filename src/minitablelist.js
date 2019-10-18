@@ -39,7 +39,7 @@ export default Ractive.extend({
 		this.refresh_tables()
 		var ractive = this
 		ractive.on('open-table', function(e, table ) {
-			ractive.root.fire('open-table', table )
+			ractive.parent.fire('open-table', table )
 		})
 		ractive.on('create', function() {
 			ractive.root.findComponent('tabs').newtab('tablecreate', 'Create Table' )
