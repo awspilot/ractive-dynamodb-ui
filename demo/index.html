@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <script src="https://sdk.amazonaws.com/js/aws-sdk-2.552.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ractive/1.3.8/ractive.js"></script>
+        <script src="../dist/ractive-dynamodb-ui.js"></script>
+    </head>
+    <body>
+
+
+    </body>
+    <script>
+      Ractive.components['dynamodb-ui'] = window['dynamodb-ui'];
+
+      var ractive = new Ractive({
+        el: 'body',
+        template: `
+          <dynamodb-ui />
+        `
+      })
+    </Script>
+</html>
