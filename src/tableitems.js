@@ -1,5 +1,6 @@
 
 import tabledata from './tabledata';
+import itemview from './itemview';
 
 export default Ractive.extend({
 	components: {
@@ -788,8 +789,11 @@ export default Ractive.extend({
 				var vid = "window"+(Math.random()*0xFFFFFF<<0).toString(16)
 				$window.content('<div id="' + vid + '"/>').then(function() {
 					var ractive = new Ractive({
+						components: {
+							itemview: itemview,
+						},
 						el: $('#'+vid).get(0),
-						template: '<ViewItem describeTable="{{describeTable}}" item="{{item}}" />',
+						template: '<itemview describeTable="{{describeTable}}" item="{{item}}" />',
 						data: {
 							describeTable: describeTable,
 							item: item,

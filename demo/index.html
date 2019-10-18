@@ -6,29 +6,37 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.css" />
+		<link rel="stylesheet" href="css/ractive-window.css" />
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/async/3.1.0/async.js"></script>
+		<script src="js/jquery.js"></script>
 		<script src="js/aws-sdk-2.552.0.min.js"></script>
 		<script src="js/dynamodbjs.js"></script>
 		<script src="js/ractive-1.3.8.js"></script>
+		<script src="js/ractive-window.min.js"></script>
 		<script src="../dist/ractive-dynamodb-ui.js"></script>
 	</head>
 	<body class="theme_light">
 	</body>
-    <script>
+	<script>
 
-      var ddb;
+		var ddb;
 		var cloudwatch;
-      var DynamodbFactory;
-      var DynamoDB;
+		var DynamodbFactory;
+		var DynamoDB;
 
-      Ractive.components['dynamodb-ui'] = window['dynamodb-ui'];
+		Ractive.components['dynamodb-ui'] = window['dynamodb-ui'];
 
       var ractive = new Ractive({
         el: 'body',
+		components: {
+			Window: RactiveWindow.default.Window,
+			WindowHost: RactiveWindow.default.WindowHost,
+		},
         template: `
+			<WindowHost />
           <dynamodb-ui region="us-east-1" endpoint="https://djaorxfotj9hr.cloudfront.net/v1/dynamodb" cwendpoint="https://djaorxfotj9hr.cloudfront.net/v1/cloudwatch" />
         `
       })
-    </Script>
+	</Script>
 </html>
