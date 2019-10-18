@@ -7,6 +7,7 @@ import tableglobal from './tableglobal';
 import tablebackup from './tablebackup';
 import tabletriggers from './tabletriggers';
 import tablemetrics from './tablemetrics';
+import tableitems from './tableitems';
 
 export default Ractive.extend({
 	isolated: true,
@@ -19,6 +20,7 @@ export default Ractive.extend({
 		tablebackup: tablebackup,
 		tabletriggers: tabletriggers,
 		tablemetrics: tablemetrics,
+		tableitems: tableitems,
 	},
 	template: "\
 		<div class='tableview {{#if active}}active{{/if}}'>\
