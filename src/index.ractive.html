@@ -1,45 +1,152 @@
 <style>
 .hsplit {position: absolute;top:0px;left: 0px;right: 0px;bottom: 0px;}
 left {position:absolute;display: block;top: 0px;left: 0px;width: 260px;bottom: 0px;}
+miniheader {display: block;height: 28px;line-height: 28px;font-size: 12px;padding-left: 10px;}
+miniheader .icon:hover {box-shadow: 0px 0px 1px rgba(255,255,255,.3);}
+.miniheaderbody {left: 0px;top: 29px;right: 0px;bottom: 0px;}
+
+left tables > div {display: block;height: 30px; line-height: 30px;font-size: 13px;padding: 0px 10px;border-top: 1px solid transparent;border-left: 1px solid transparent;;margin-bottom: 0px;cursor: pointer}
+
+
+
+
+
+body.theme_light {background-color: #f0f0f0;color: #999999;}
+body.theme_light header {background-color: #232f3e;/*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);*/ }
+body.theme_light miniheader {background: linear-gradient(#eee , #e0e0e0);border: 1px solid #b9b8b6;border-top: 1px solid #fff;border-bottom: 1px solid #ccc;}
+body.theme_light left {background-color: #ffffff}
+body.theme_light left > .scrollarea {border: 1px solid #b9b8b6;}
+body.theme_light left tables > div {border-bottom: 1px solid #e0e0e0;color: #146eb4}
+body.theme_light left tables > div:hover {background-color: #eaf3fe;/*border: 1px solid #636363;*/}
+body.theme_light content {border: 1px solid #b9b8b6;background-color: #ffffff;border-top: 1px solid #fff;border-right: 0px;}
+body.theme_light content tabhead {background-color: #ececec;background: linear-gradient(#eee , #e0e0e0);}
+body.theme_light content tabhead tab:first-child {}
+body.theme_light content tabhead tab {border-right: 1px solid #cccccc;}
+body.theme_light content tabhead tab.active {background-color: #ffffff;color: #000000;}
+body.theme_light content tabcontent {background-color: #ffffff;}
+body.theme_light content tabcontent .tableview-table-tabs {background: #ffffff}
+body.theme_light .btn-tableview-tab {background-color: #eee;border: 1px solid #ccc;border-bottom: 1px solid #bbb;color: #635858;font-weight: bold;font-size: 12px;padding: 0px 12px;}
+body.theme_light .btn-tableview-tab.active {background-color: #fff;border-bottom: 1px solid #fff;color: #000000;}
+body.theme_light content tabcontent .tablequery {background-color: #444;}
+body.theme_light content tabcontent .tablesqlquery {}
+body.theme_light content tabcontent .tabledatacontrols {background-color: #ffffff;border-bottom: 1px solid #383838;}
+body.theme_light content tabcontent .tabledata {border-top: 1px solid #e0e0e0;}
+body.theme_light content tabcontent .tabledata .tabledatahead {background: linear-gradient(#eee , #e0e0e0);border-top: 1px solid #fff;border-bottom: 1px solid #ccc;}
+body.theme_light content tabcontent .tabledata .tabledatahead > div {border-right: 1px solid #c3b7b7;border-left: 1px solid #ffffff;}
+
+body.theme_light content tabcontent .tabledata .tabledatarow {border-bottom: 1px solid #e0e0e0;}
+
+
+
+body.theme_light content tabcontent .tabledata .tabledatarow {
+	.tabledatacell {border-right: 1px solid #c3b7b7;border-left: 1px solid #ffffff;}
+
+	.tabledatacell.t-K {color: #8ea7aa;}
+	.tabledatacell.t-HASH {color:#004b91;cursor: pointer;}
+	.tabledatacell.t-HASH:hover a {text-decoration: underline;}
+	.tabledatacell.t-S {color: #a79b9b;}
+	.tabledatacell.t-N {color: green;}
+	.tabledatacell.t-BOOL {color: #ff7676;}
+	.tabledatacell.t-NULL {color: grey}
+	.tabledatacell.t-SS {}
+	.tabledatacell.t-NS {}
+	.tabledatacell.t-L {}
+	.tabledatacell.t-M {}
+	.tabledatacell.t-U {background-color: #f9f3f3;}
+}
+body.theme_light content tabcontent .tabledata .tabledatarow:hover {
+	background-color: @light-table-row-hover-background;
+	.tabledatacell {color: #a59797;}
+	.tabledatacell.t-HASH {color:#004b91;}
+
+}
+
+body.theme_light content tabcontent .tabledata .tabledatarow.selected {
+	background-color: @light-table-row-selected-background;
+	.tabledatacell {color: #396396;}
+}
+
+body.theme_light content tabcontent .tabledata .tabledatarow.selected:hover {
+	background-color: @light-table-row-hover-and-selected-background !important;
+	.tabledatacell {color: #fff;}
+}
+
+
+
 content {position:absolute;display: block;top: 0px;left: 265px;right: 0px;bottom: 0px;}
 </style>
 
 <hsplit style='top: 56px;'>
-  <left>
-    <minitablelist />
-  </left>
-  <content>
-    <tabs active_id='tables' />
-  </content>
+	<left>
+		<minitablelist />
+	</left>
+	<content>
+		<tabs active_id='tables' />
+	</content>
 </hsplit>
 
 <script>
 
-    import Ractive from 'ractive';
+	import Ractive from 'ractive';
+	import minitablelist from './minitablelist';
 
-    var hsplit = Ractive.extend({
-    	isolated: false,
-    	data: {
-    		direction: 'horizontal'
-    	},
-    	template: '<div class="hsplit {{class}} " style="{{style}}">{{yield}}</div>',
-    })
+	var hsplit = Ractive.extend({
+		isolated: false,
+		data: {
+			direction: 'horizontal'
+		},
+		template: '<div class="hsplit {{class}} " style="{{style}}">{{yield}}</div>',
+	})
 
 
 
-    export default Ractive.extend({
-        template: $TEMPLATE,
-        components: { hsplit: hsplit, },
-        css: $CSS,
-        data: function() {
-            return {
-            }
-        },
-        delegate: false,
-        elToFocus: null,
-        on: {
-          init: function() {
-          }
-        },
-    });
+	export default Ractive.extend({
+		template: $TEMPLATE,
+		components: {
+			hsplit: hsplit,
+			minitablelist: minitablelist,
+		},
+		css: $CSS,
+		data: function() {
+			return {}
+		},
+		delegate: false,
+		elToFocus: null,
+		on: {
+			init: function() {
+
+				// if (this.get('account.endpoint')) {
+				// 	credentials.endpoint = this.get('account.endpoint')
+				// 	if (this.get('account.endpoint').indexOf( location.protocol + '//' + location.host ) === 0) {
+				// 		// dynamodb is proxied via same host, force version signature 3 so Authorization header is not used
+				// 		credentials.signatureVersion = 'v3'
+				// 		// httpOptions: { xhrWithCredentials: true },
+				// 	}
+				// }
+
+				ddb = new AWS.DynamoDB({
+					endpoint: this.get('endpoint'),
+					region: this.get('region'),
+					credentials: {
+						accessKeyId: 'myKeyId',
+						secretAccessKey: 'y',
+					}
+				});
+
+				DynamodbFactory = window['@awspilot/dynamodb']
+				DynamoDB  = new DynamodbFactory(ddb)
+
+				// cloudwatch = new AWS.CloudWatch({
+				// 	endpoint: location.protocol + '//' + location.host + '/v1/cloudwatch',
+				// 	region: deparam( location.href ).region || 'us-east-1',
+				// 	credentials: {
+				// 		accessKeyId: 'myKeyId',
+				// 		secretAccessKey: 'y',
+				// 	}
+				// })
+
+
+				}
+		},
+	});
 </script>
