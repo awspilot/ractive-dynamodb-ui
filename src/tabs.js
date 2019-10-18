@@ -1,10 +1,12 @@
 
 import tablelistfull from './tablelistfull';
+import tablecreate from './tablecreate';
 
 export default Ractive.extend({
 	//isolated: true,
 	components: {
 		tablelistfull: tablelistfull,
+		tablecreate: tablecreate,
 	},
 	template:
 		"\
