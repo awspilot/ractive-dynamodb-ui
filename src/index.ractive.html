@@ -212,14 +212,14 @@ content {position:absolute;display: block;top: 0px;left: 265px;right: 0px;bottom
 				DynamodbFactory = window['@awspilot/dynamodb']
 				DynamoDB  = new DynamodbFactory(ddb)
 
-				// cloudwatch = new AWS.CloudWatch({
-				// 	endpoint: location.protocol + '//' + location.host + '/v1/cloudwatch',
-				// 	region: deparam( location.href ).region || 'us-east-1',
-				// 	credentials: {
-				// 		accessKeyId: 'myKeyId',
-				// 		secretAccessKey: 'y',
-				// 	}
-				// })
+				cloudwatch = new AWS.CloudWatch({
+					endpoint: this.get('cwendpoint'),
+					region: this.get('region'),
+					credentials: {
+						accessKeyId: 'myKeyId',
+						secretAccessKey: 'y',
+					}
+				})
 
 
 				}
