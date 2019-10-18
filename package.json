@@ -1,0 +1,27 @@
+{
+	"name": "dynamodb-ui",
+	"version": "1.0.0",
+	"description": "",
+	"main": "src/index.js",
+	"scripts": {
+		"build": "webpack",
+		"watch": "webpack --config webpack.config.js --watch"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/awspilot/dynamodb-ui.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/awspilot/dynamodb-ui/issues"
+	},
+	"homepage": "https://github.com/awspilot/dynamodb-ui#readme",
+	"devDependencies": {
+		"webpack": "^4.41.0",
+		"webpack-cli": "^3.3.9"
+	},
+	"dependencies": {
+
+	}
+}
