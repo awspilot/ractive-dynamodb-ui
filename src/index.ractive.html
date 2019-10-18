@@ -1,0 +1,25 @@
+<style>
+
+</style>
+
+<div>This is component.</div>
+
+<script>
+
+    import Ractive from 'ractive';
+
+    export default Ractive.extend({
+        template: $TEMPLATE,
+        css: $CSS,
+        data: function() {
+            return {
+            }
+        },
+        delegate: false,
+        elToFocus: null,
+        on: {
+          init: function() {
+          }
+        },
+    });
+</script>
