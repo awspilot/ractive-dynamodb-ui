@@ -32,10 +32,10 @@ export default Ractive.extend({
 							<tr>\
 								<td align='right' width='350'><b>Stream enabled</b></td>\
 								<td>\
-									{{#if !describeTable.StreamSpecification}}\
+									{{#if !selfDescribeTable.StreamSpecification}}\
 										no\
 									{{else}}\
-										{{#if describeTable.StreamSpecification.StreamEnabled === true }}\
+										{{#if selfDescribeTable.StreamSpecification.StreamEnabled === true }}\
 										yes\
 										{{else}}\
 										no\
@@ -46,26 +46,26 @@ export default Ractive.extend({
 							<tr>\
 								<td align='right' width='350'><b>View type	</b></td>\
 								<td>\
-									{{#if !describeTable.StreamSpecification}}\
+									{{#if !selfDescribeTable.StreamSpecification}}\
 										-\
 									{{else}}\
-										{{describeTable.StreamSpecification.StreamViewType}}\
+										{{selfDescribeTable.StreamSpecification.StreamViewType}}\
 									{{/if}}\
 								</td>\
 							</tr>\
 							<tr>\
 								<td align='right' width='350'><b>Latest stream ARN</b></td>\
 								<td>\
-									{{#if !describeTable.LatestStreamArn}}\
+									{{#if !selfDescribeTable.LatestStreamArn}}\
 										-\
 									{{else}}\
-										{{describeTable.LatestStreamArn}}\
+										{{selfDescribeTable.LatestStreamArn}}\
 									{{/if}}\
 								</td>\
 							</tr>\
 							<tr>\
 								<td align='right' width='350'>\
-									{{#if describeTable.StreamSpecification.StreamEnabled === true}}\
+									{{#if selfDescribeTable.StreamSpecification.StreamEnabled === true}}\
 										<a class='btn btn-xs btn-default' on-click='disable-stream'>Disable Stream</a>\
 									{{else}}\
 										<a class='btn btn-xs btn-default' on-click='manage-stream'>Manage Stream</a>\
@@ -87,20 +87,20 @@ export default Ractive.extend({
 					<table>\
 						<tr>\
 							<td align='right' width='350'><b>Table ID</b></td>\
-							<td> {{ describeTable.TableId }}</td>\
+							<td> {{ selfDescribeTable.TableId }}</td>\
 						</tr>\
 						<tr>\
 							<td align='right' width='350'><b>Table name</b></td>\
-							<td> {{ describeTable.TableName }}</td>\
+							<td> {{ selfDescribeTable.TableName }}</td>\
 						</tr>\
 						<tr>\
 							<td align='right'><b>Primary partition key</b></td>\
 							<td>\
-								{{#describeTable.KeySchema:i}}\
+								{{#selfDescribeTable.KeySchema:i}}\
 									{{#if .KeyType === 'HASH'}}\
 										{{.AttributeName}}\
-										{{# ~/describeTable.AttributeDefinitions }}\
-											{{#if .AttributeName === ~/.describeTable.KeySchema[i].AttributeName }}\
+										{{# ~/selfDescribeTable.AttributeDefinitions }}\
+											{{#if .AttributeName === ~/.selfDescribeTable.KeySchema[i].AttributeName }}\
 												{{#if .AttributeType === 'S'}}\
 													( String )\
 												{{/if}}\
@@ -113,17 +113,17 @@ export default Ractive.extend({
 											{{/if}}\
 										{{/}}\
 									{{/if}}\
-								{{/describeTable.KeySchema}}\
+								{{/selfDescribeTable.KeySchema}}\
 							</td>\
 						</tr>\
 						<tr>\
 							<td align='right'><b>Primary sort key</b></td>\
 							<td>\
-								{{#describeTable.KeySchema:i}}\
+								{{#selfDescribeTable.KeySchema:i}}\
 									{{#if .KeyType === 'RANGE'}}\
 										{{.AttributeName}}\
-										{{# ~/describeTable.AttributeDefinitions }}\
-											{{#if .AttributeName === ~/.describeTable.KeySchema[i].AttributeName }}\
+										{{# ~/selfDescribeTable.AttributeDefinitions }}\
+											{{#if .AttributeName === ~/.selfDescribeTable.KeySchema[i].AttributeName }}\
 												{{#if .AttributeType === 'S'}}\
 													( String )\
 												{{/if}}\
@@ -136,7 +136,7 @@ export default Ractive.extend({
 											{{/if}}\
 										{{/}}\
 									{{/if}}\
-								{{/describeTable.KeySchema}}\
+								{{/selfDescribeTable.KeySchema}}\
 							</td>\
 						</tr>\
 						<tr>\
@@ -181,52 +181,52 @@ export default Ractive.extend({
 						</tr>\
 						<tr>\
 							<td align='right'><b>Table status</b></td>\
-							<td>{{describeTable.TableStatus}}</td>\
+							<td>{{selfDescribeTable.TableStatus}}</td>\
 						</tr>\
 						<tr>\
 							<td align='right'><b>Creation date</b></td>\
-							<td>{{describeTable.CreationDateTime}}</td>\
+							<td>{{selfDescribeTable.CreationDateTime}}</td>\
 						</tr>\
 						<tr>\
 							<td align='right'><b>Read/write capacity mode</b></td>\
 							<td>\
-								{{#if describeTable.BillingModeSummary.BillingMode === 'PROVISIONED'}}Provisioned{{/if}}\
-								{{#if describeTable.BillingModeSummary.BillingMode === 'PAY_PER_REQUEST'}}On-Demand{{/if}}\
+								{{#if selfDescribeTable.BillingModeSummary.BillingMode === 'PROVISIONED'}}Provisioned{{/if}}\
+								{{#if selfDescribeTable.BillingModeSummary.BillingMode === 'PAY_PER_REQUEST'}}On-Demand{{/if}}\
 							</td>\
 						</tr>\
 						<tr>\
 							<td align='right'><b>Provisioned read capacity units</b></td>\
 							<td>\
-								{{#if describeTable.BillingModeSummary.BillingMode === 'PROVISIONED'}}\
-									{{describeTable.ProvisionedThroughput.ReadCapacityUnits}}\
+								{{#if selfDescribeTable.BillingModeSummary.BillingMode === 'PROVISIONED'}}\
+									{{selfDescribeTable.ProvisionedThroughput.ReadCapacityUnits}}\
 								{{/if}}\
-								{{#if describeTable.BillingModeSummary.BillingMode === 'PAY_PER_REQUEST'}}-{{/if}}\
+								{{#if selfDescribeTable.BillingModeSummary.BillingMode === 'PAY_PER_REQUEST'}}-{{/if}}\
 							</td>\
 						</tr>\
 						<tr>\
 							<td align='right'><b>Provisioned write capacity units</b></td>\
 							<td>\
-								{{#if describeTable.BillingModeSummary.BillingMode === 'PROVISIONED'}}\
-									{{describeTable.ProvisionedThroughput.WriteCapacityUnits}}\
+								{{#if selfDescribeTable.BillingModeSummary.BillingMode === 'PROVISIONED'}}\
+									{{selfDescribeTable.ProvisionedThroughput.WriteCapacityUnits}}\
 								{{/if}}\
-								{{#if describeTable.BillingModeSummary.BillingMode === 'PAY_PER_REQUEST'}}-{{/if}}\
+								{{#if selfDescribeTable.BillingModeSummary.BillingMode === 'PAY_PER_REQUEST'}}-{{/if}}\
 							</td>\
 						</tr>\
 						<tr>\
 							<td align='right'><b>Last decrease time</b></td>\
-							<td>{{describeTable.ProvisionedThroughput.LastDecreaseDateTime || '-' }}</td>\
+							<td>{{selfDescribeTable.ProvisionedThroughput.LastDecreaseDateTime || '-' }}</td>\
 						</tr>\
 						<tr>\
 							<td align='right'><b>Last increase time</b></td>\
-							<td>{{describeTable.ProvisionedThroughput.LastIncreaseDateTime || '-'}}</td>\
+							<td>{{selfDescribeTable.ProvisionedThroughput.LastIncreaseDateTime || '-'}}</td>\
 						</tr>\
 						<tr>\
 							<td align='right'><b>Storage size (in bytes)</b></td>\
-							<td>{{describeTable.TableSizeBytes }}</td>\
+							<td>{{selfDescribeTable.TableSizeBytes }}</td>\
 						</tr>\
 						<tr>\
 							<td align='right'><b>Item count</b></td>\
-							<td>{{ describeTable.ItemCount }}</td>\
+							<td>{{ selfDescribeTable.ItemCount }}</td>\
 						</tr>\
 						<tr>\
 							<td align='right'><b>Region</b></td>\
@@ -234,7 +234,7 @@ export default Ractive.extend({
 						</tr>\
 						<tr>\
 							<td align='right'><b>Amazon Resource Name (ARN)</b></td>\
-							<td> {{describeTable.TableArn}}</td>\
+							<td> {{selfDescribeTable.TableArn}}</td>\
 						</tr>\
 					</table>\
 					<small>Storage size and item count are not updated in real-time. They are updated periodically, roughly every six hours.</small>\
@@ -246,7 +246,7 @@ export default Ractive.extend({
 	refresh_table: function() {
 		var ractive=this;
 
-		ractive.set('describeTable')
+		ractive.set('selfDescribeTable')
 		ractive.set('TimeToLiveDescriptionEditing')
 		ractive.set('TimeToLiveDescription')
 		ractive.set('TimeToLiveDescriptionErr')
@@ -261,7 +261,7 @@ export default Ractive.extend({
 					if (err)
 						return cb(err);
 
-					ractive.set('describeTable', data.Table)
+					ractive.set('selfDescribeTable', data.Table)
 					cb()
 				})
 			},
@@ -284,9 +284,15 @@ export default Ractive.extend({
 
 
 	},
-	data: function() { return {} },
+	data: function() {
+		return {
+			selfDescribeTable: null,
+		}
+	},
 	oninit: function() {
 		var ractive = this;
+
+		ractive.set('selfDescribeTable', ractive.get('describeTable'))
 
 		ractive.on('manage-ttl', function() {
 			ractive.set('TimeToLiveDescriptionEditing', true )
