@@ -57,11 +57,9 @@ export default Ractive.extend({
 	oninit: function() {
 		this.on('cellclick', function( e ) {
 			var col = this.get( e.resolve() )
-			console.log("cellclick", e.resolve(), this.get( e.resolve()), this.get('rows') )
-
-
-
-			this.fire('colclick', undefined, col.item, col.item )
+			//console.log("cellclick", e.resolve(), " = ",this.get( e.resolve())  )
+			//console.log( this.get(e.resolve().split('.').slice(0,-1).join('.')) )
+			this.fire('colclick', undefined, col.item, col.raw )
 		})
 	}
 })
