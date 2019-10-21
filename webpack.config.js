@@ -8,10 +8,12 @@ module.exports = {
     target: 'web',
     context: path.resolve(__dirname, 'src'),
     optimization: {
-        minimize: true,
-        minimizer: [new UglifyJsPlugin({
-            include: /\.min\.js$/
-        })]
+		minimize: true,
+		minimizer: [new UglifyJsPlugin({
+			uglifyOptions: { ecma: 7 },
+			sourceMap: true,
+			include: /\.min\.js$/
+		})]
     },
     plugins: [
     ],
