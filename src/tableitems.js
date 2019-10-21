@@ -375,7 +375,8 @@ export default Ractive.extend({
 		display_data: function() {
 			var ractive = this;
 
-			var dbrows = this.get('rawdata');
+			var dbrows_json = this.get('dbrows_json');
+			var dbrows_raw  = this.get('dbrows_raw');
 
 			var columns = [null]
 			var rows = []
@@ -388,7 +389,7 @@ export default Ractive.extend({
 
 
 
-			dbrows.map(function(row) {
+			dbrows_json.map(function(row, idx ) {
 				var thisrow = []
 
 				columns.map(function(column_name) {
@@ -404,6 +405,7 @@ export default Ractive.extend({
 								thisrow.push({
 									HASH:row[column_name],
 									item: row,
+									raw: dbrows_raw[idx],
 								})
 							} else if (typeof row[column_name] === 'string')
 								thisrow.push({'S':row[column_name]})
@@ -440,7 +442,8 @@ export default Ractive.extend({
 			this.set('columns', [])
 			this.set('rows', [])
 
-			var dbrows = null
+			var dbrows_json = null
+			var dbrows_raw = null
 			var hash_key = null
 			var range_key = null
 			var fields = {}
@@ -509,7 +512,9 @@ export default Ractive.extend({
 							return alert("scan error")
 
 
-						dbrows = data;
+
+						dbrows_json = data;
+						dbrows_raw  = raw.Items
 
 						ractive.push('scan.LastEvaluatedKey', data.LastEvaluatedKey )
 						ractive.set('end_reached' ,data.LastEvaluatedKey ? false : true )
@@ -632,14 +637,15 @@ export default Ractive.extend({
 
 					console.log("query_partition_name=",query_partition_name)
 
-					dbrows = []
+					dbrows_json = []
 					ddb.query(function(err, data, raw ) {
 						if (err) {
 							alert("query error")
 							return cb(err)
 						}
 
-						dbrows = data;
+						dbrows_json = data;
+						dbrows_raw  = raw.Items;
 
 						ractive.push('scan.LastEvaluatedKey', data.LastEvaluatedKey )
 
@@ -654,7 +660,8 @@ export default Ractive.extend({
 
 				// save raw data
 				function(cb ) {
-					ractive.set('rawdata', dbrows )
+					ractive.set('dbrows_json', dbrows_json )
+					ractive.set('dbrows_raw', dbrows_raw )
 					cb()
 				}
 			], function(err) {
@@ -667,7 +674,7 @@ export default Ractive.extend({
 
 
 				if (ractive.get('autocolumns')) {
-					dbrows.map(function(row) {
+					dbrows_json.map(function(row) {
 						Object.keys(row).map(function(column_name) {
 							if (!fields.hasOwnProperty(column_name)) {
 								if (columns.length > 10) {
@@ -692,7 +699,7 @@ export default Ractive.extend({
 
 
 
-				dbrows.map(function(row) {
+				dbrows_.map(function(row) {
 					var thisrow = []
 
 					columns.map(function(column_name) {
@@ -772,11 +779,11 @@ export default Ractive.extend({
 
 
 
-		this.on('open-item', function( e, col, item ) {
+		this.on('open-item', function( e, col, item, rawitem ) {
 			var describeTable = this.get('describeTable')
 			var hash  = this._hash_key_name()
 			var range = this._range_key_name()
-			console.log("open-item", "table=",describeTable.TableName, "hash=",hash, "range=", range, "item=", item  )
+			console.log("open-item", "table=",describeTable.TableName, "hash=",hash, "range=", range, "item=", item, rawitem  )
 			window.ractive.findComponent('WindowHost').newWindow(function($window) {
 				$window.set({
 					title: 'View Item',
@@ -793,10 +800,11 @@ export default Ractive.extend({
 							itemview: itemview,
 						},
 						el: $('#'+vid).get(0),
-						template: '<itemview describeTable="{{describeTable}}" item="{{item}}" />',
+						template: '<itemview describeTable="{{describeTable}}" item="{{item}}" rawitem="{{rawitem}}" />',
 						data: {
 							describeTable: describeTable,
 							item: item,
+							rawitem: rawitem,
 						}
 					})
 				// 	ractive.on('CreateItem.close-window', function() {
