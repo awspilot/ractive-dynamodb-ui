@@ -107,10 +107,8 @@ export default Ractive.extend({
 	oninit: function() {
 
 		var ractive = this
-		ractive.observe('tab', function( tab ) {
-			//console.log("tab", tab )
-		})
-
+		//ractive.observe('tab', function( tab ) {
+		//})
 		ractive.describe_table()
 
 	},
