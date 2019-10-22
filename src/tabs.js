@@ -17,10 +17,12 @@ export default Ractive.extend({
 				<i class='icon zmdi zmdi-view-dashboard'></i>\
 			</tab>\
 		{{#tabs}}\
+			{{#if .closed !== true}}\
 			<tab class='{{#if .id === active_id }}active{{/if}}' on-click='@this.fire(\"activetab\",.id)'>\
 				{{.name}}\
-				<i class='icon zmdi zmdi-close' on-click='@this.fire(\"closetab\",.id)'></i>\
+				<i class='icon zmdi zmdi-close' on-click='closetab'></i>\
 			</tab>\
+			{{/if}}\
 		{{/tabs}}\
 		</tabhead>\
 		<tabcontent>\
@@ -28,12 +30,16 @@ export default Ractive.extend({
 				<tablelistfull />\
 			{{else}}\
 				{{#tabs}}\
+					{{#if .closed === true}}\
+						<div class='closedtab'></div>\
+					{{else}}\
 						{{#if .type === 'tablecreate' }}\
 							<tablecreate active={{ .id === active_id  }} />\
 						{{/if}}\
 						{{#if .type === 'tabletab' }}\
 							<tabletab table={{.}} active={{ .id === active_id  }} />\
 						{{/if}}\
+					{{/if}}\
 				{{/tabs}}\
 			{{/if}}\
 		</tabcontent>\
@@ -68,16 +74,20 @@ export default Ractive.extend({
 			ractive.activetabcontent()
 		})
 
-		this.on('closetab', function(e, id) {
+		this.on('closetab', function(e) {
 
-			this.active_cache = this.active_cache.filter(function(tid) { return tid !== id })
-			this.set('tabs', this.get('tabs').filter(function(t) { return t.id !== id }) )
+			console.log("close", e.resolve() )
 
-			if (this.get('active_id') === id ) {
-				// the current tab was closed
-				this.set('active_id', this.active_cache.pop() )
-			}
-			ractive.activetabcontent()
+			this.set( e.resolve() + '.closed', true )
+
+			// this.active_cache = this.active_cache.filter(function(tid) { return tid !== id })
+			// this.set('tabs', this.get('tabs').filter(function(t) { return t.id !== id }) )
+			//
+			// if (this.get('active_id') === id ) {
+			// 	// the current tab was closed
+			// 	this.set('active_id', this.active_cache.pop() )
+			// }
+			// ractive.activetabcontent()
 			return false;
 		})
 		this.on('activetab', function(e, id) {
