@@ -12,7 +12,7 @@ export default Ractive.extend({
 	},
 	template:
 		'\
-		<jsoneditor item={{itemtoedit}} navigationBar="{{false}}" convert_uint8_to_base64="{{true}}" style="position: absolute;top: 10px;left: 10px;right: 10px;bottom: 50px;width: auto;height: auto;border: 1px solid #97b0f8" menu-style="background-color: #d5ddf6;border-bottom: 1px solid #97b0f8;color: #444;" />\
+		<jsoneditor item={{itemtoedit}} navigationBar="{{false}}" convert_uint8_to_base64="{{true}}" out-binary="buffer" style="position: absolute;top: 10px;left: 10px;right: 10px;bottom: 50px;width: auto;height: auto;border: 1px solid #97b0f8" menu-style="background-color: #d5ddf6;border-bottom: 1px solid #97b0f8;color: #444;" />\
 		<div style="position: absolute;left: 0px;right:10px;bottom:10px;height: 30px;box-sizing: border-box;">\
 			<a class="btn btn-sm btn-primary pull-right" on-click="update-item">Save</a>\
 		</div>\
@@ -40,20 +40,18 @@ export default Ractive.extend({
 		//var rawitem = this.get('rawitem')
 		//this.set({itemtoedit: { ...rawitem }  })
 
-
-
 		var debug = this.get('itemtoedit');
-		console.log("debug", debug )
-		//console.log("debug converted", btoa(String.fromCharCode.apply(null, debug.binary.B )) )
-
 
 		this.on('update-item', function() {
 			//console.log("table=","HASH=", this._hash_key_name(), " RANGE=", this._range_key_name() )
 
 			var originalitem = this.get('rawitem')
-			var updateditem = JSON.parse(JSON.stringify(this.get('itemtoedit')))
+			var updateditem = this.get('itemtoedit')
 
-			console.log("originalitem", originalitem.binary, typeof originalitem.binary )
+			//console.log("originalitem", originalitem.binary, typeof originalitem.binary )
+
+			//console.log('hello', updateditem )
+
 
 			var updateItemCall = {
 				TableName: this.get('describeTable.TableName'),
