@@ -4,7 +4,7 @@
 	"description": "",
 	"main": "src/index.js",
 	"scripts": {
-		"start": "webpack -w & node_modules/node-static/bin/cli.js",
+		"start": "webpack -w & node_modules/node-static/bin/cli.js -p 8888",
 		"build": "webpack",
 		"watch": "webpack --config webpack.config.js --watch"
 	},
@@ -32,6 +32,6 @@
 	},
 	"dependencies": {
 		"lodash": "^4.17.15",
-		"@awspilot/ractive-dynamodb-json-editor": "1.0.3"
+		"@awspilot/ractive-dynamodb-json-editor": "1.0.4"
 	}
 }
