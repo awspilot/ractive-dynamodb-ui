@@ -922,7 +922,8 @@ export default Ractive.extend({
 			if (!to_delete.length)
 				return alert('No Items Selected')
 
-			to_remove_from_list = []
+			var to_remove_from_list = []
+
 
 
 			async.each(to_delete, function(item, cb) {
