@@ -77,17 +77,18 @@ export default Ractive.extend({
 		this.on('closetab', function(e) {
 
 			console.log("close", e.resolve() )
+			var id = this.get( e.resolve() + '.id')
 
 			this.set( e.resolve() + '.closed', true )
 
-			// this.active_cache = this.active_cache.filter(function(tid) { return tid !== id })
-			// this.set('tabs', this.get('tabs').filter(function(t) { return t.id !== id }) )
-			//
-			// if (this.get('active_id') === id ) {
-			// 	// the current tab was closed
-			// 	this.set('active_id', this.active_cache.pop() )
-			// }
-			// ractive.activetabcontent()
+			this.active_cache = this.active_cache.filter(function(tid) { return tid !== id })
+			//this.set('tabs', this.get('tabs').filter(function(t) { return t.id !== id }) )
+
+			if (this.get('active_id') === id ) {
+				// the current tab was closed
+				this.set('active_id', this.active_cache.pop() )
+			}
+			ractive.activetabcontent()
 			return false;
 		})
 		this.on('activetab', function(e, id) {
