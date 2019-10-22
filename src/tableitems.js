@@ -25,26 +25,26 @@ export default Ractive.extend({
 						{{#if .type === 'scan' }}\
 						<select value='{{ .scan.table }}'>\
 							<option value=''>\
-								[ Table ] {{ describeTable.TableName }}: {{ _hash_key_name() }} ( {{ _hash_key_type_name() }} )\
+								[ Table ] {{ describeTable.TableName }}: {{ @this._hash_key_name() }} ( {{ @this._hash_key_type_name() }} )\
 								{{#if describeTable.KeySchema.length === 2}}\
-									, {{ _range_key_name() }} ( {{ _range_key_type_name() }} )\
+									, {{ @this._range_key_name() }} ( {{ @this._range_key_type_name() }} )\
 								{{/if}}\
 							</option>\
 \
 							{{#describeTable.LocalSecondaryIndexes:j}}\
 							<option value='lsi:{{ .IndexName }}'>\
-								[ LSI ] {{ .IndexName }}: {{ _lsi_hash_key_name( .IndexName ) }} ( {{ _lsi_hash_key_type_name( .IndexName ) }} )\
+								[ LSI ] {{ .IndexName }}: {{ @this._lsi_hash_key_name( .IndexName ) }} ( {{ @this._lsi_hash_key_type_name( .IndexName ) }} )\
 								{{#if .KeySchema.length === 2}}\
-									, {{ _lsi_range_key_name( .IndexName ) }} (  {{ _lsi_range_key_type_name( .IndexName ) }} )\
+									, {{ @this._lsi_range_key_name( .IndexName ) }} (  {{ @this._lsi_range_key_type_name( .IndexName ) }} )\
 								{{/if}}\
 							</option>\
 							{{/describeTable.LocalSecondaryIndexes}}\
 \
 							{{#describeTable.GlobalSecondaryIndexes:j}}\
 							<option value='gsi:{{ .IndexName }}'>\
-								[ GSI ] {{ .IndexName }}: {{ _gsi_hash_key_name( .IndexName ) }} ( {{ _gsi_hash_key_type_name( .IndexName ) }} )\
+								[ GSI ] {{ .IndexName }}: {{ @this._gsi_hash_key_name( .IndexName ) }} ( {{ @this._gsi_hash_key_type_name( .IndexName ) }} )\
 								{{#if .KeySchema.length === 2}}\
-									, {{ _gsi_range_key_name( .IndexName ) }} (  {{ _gsi_range_key_type_name( .IndexName ) }} )\
+									, {{ @this._gsi_range_key_name( .IndexName ) }} (  {{ @this._gsi_range_key_type_name( .IndexName ) }} )\
 								{{/if}}\
 							</option>\
 							{{/describeTable.GlobalSecondaryIndexes}}\
@@ -54,27 +54,27 @@ export default Ractive.extend({
 						{{#if .type === 'query' }}\
 						<select value='{{ .query.table }}'>\
 							<option value=''>\
-								[ Table ] {{ describeTable.TableName }}: {{ _hash_key_name() }} ( {{ _hash_key_type_name() }} )\
+								[ Table ] {{ describeTable.TableName }}: {{ @this._hash_key_name() }} ( {{ @this._hash_key_type_name() }} )\
 								{{#if describeTable.KeySchema.length === 2}}\
-									, {{ _range_key_name() }} ( {{ _range_key_type_name() }} )\
+									, {{ @this._range_key_name() }} ( {{ @this._range_key_type_name() }} )\
 								{{/if}}\
 \
 							</option>\
 \
 							{{#describeTable.LocalSecondaryIndexes:j}}\
 							<option value='lsi:{{ .IndexName }}'>\
-								[ LSI ] {{ .IndexName }}: {{ _lsi_hash_key_name( .IndexName ) }} ( {{ _lsi_hash_key_type_name( .IndexName ) }} )\
+								[ LSI ] {{ .IndexName }}: {{ @this._lsi_hash_key_name( .IndexName ) }} ( {{ @this._lsi_hash_key_type_name( .IndexName ) }} )\
 								{{#if .KeySchema.length === 2}}\
-									, {{ _lsi_range_key_name( .IndexName ) }} (  {{ _lsi_range_key_type_name( .IndexName ) }} )\
+									, {{ @this._lsi_range_key_name( .IndexName ) }} (  {{ @this._lsi_range_key_type_name( .IndexName ) }} )\
 								{{/if}}\
 							</option>\
 							{{/describeTable.LocalSecondaryIndexes}}\
 \
 							{{#describeTable.GlobalSecondaryIndexes:j}}\
 							<option value='gsi:{{ .IndexName }}'>\
-								[ GSI ] {{ .IndexName }}: {{ _gsi_hash_key_name( .IndexName ) }} ( {{ _gsi_hash_key_type_name( .IndexName ) }} )\
+								[ GSI ] {{ .IndexName }}: {{ @this._gsi_hash_key_name( .IndexName ) }} ( {{ @this._gsi_hash_key_type_name( .IndexName ) }} )\
 								{{#if .KeySchema.length === 2}}\
-									, {{ _gsi_range_key_name( .IndexName ) }} (  {{ _gsi_range_key_type_name( .IndexName ) }} )\
+									, {{ @this._gsi_range_key_name( .IndexName ) }} (  {{ @this._gsi_range_key_type_name( .IndexName ) }} )\
 								{{/if}}\
 							</option>\
 							{{/describeTable.GlobalSecondaryIndexes}}\
@@ -87,18 +87,18 @@ export default Ractive.extend({
 					<td>Partition</td>\
 					{{#if .query.table === ''  }}\
 						<td>{{ _hash_key_name() }}</td>\
-						<td><select><option>{{ _hash_key_type_name() }}</option></select></td>\
+						<td><select><option>{{ @this._hash_key_type_name() }}</option></select></td>\
 					{{/if}}\
 					{{#describeTable.LocalSecondaryIndexes:j}}\
 						{{#if ~/.query.table === ('lsi:' +  .IndexName)  }}\
-							<td>{{ _lsi_hash_key_name( .IndexName ) }}</td>\
-							<td><select><option>{{ _lsi_hash_key_type_name( .IndexName ) }}</option></select></td>\
+							<td>{{ @this._lsi_hash_key_name( .IndexName ) }}</td>\
+							<td><select><option>{{ @this._lsi_hash_key_type_name( .IndexName ) }}</option></select></td>\
 						{{/if}}\
 					{{/describeTable.LocalSecondaryIndexes}}\
 					{{#describeTable.GlobalSecondaryIndexes:j}}\
 						{{#if ~/.query.table === ('gsi:' +  .IndexName)  }}\
-							<td>{{ _gsi_hash_key_name( .IndexName ) }}</td>\
-							<td><select><option>{{ _gsi_hash_key_type_name( .IndexName ) }}</option></select></td>\
+							<td>{{ @this._gsi_hash_key_name( .IndexName ) }}</td>\
+							<td><select><option>{{ @this._gsi_hash_key_type_name( .IndexName ) }}</option></select></td>\
 						{{/if}}\
 					{{/describeTable.GlobalSecondaryIndexes}}\
 					<td><select><option>=</option></select></td>\
@@ -108,8 +108,8 @@ export default Ractive.extend({
 					{{#if describeTable.KeySchema.length === 2}}\
 					<tr>\
 						<td>Sort</td>\
-						<td>{{ _range_key_name() }}</td>\
-						<td><select><option>{{ _range_key_type_name( ) }}</option></select></td>\
+						<td>{{ @this._range_key_name() }}</td>\
+						<td><select><option>{{ @this._range_key_type_name( ) }}</option></select></td>\
 						<td>\
 							<select value='{{ ~/query.sort.op }}'>\
 								<option value='eq'>=</option>\
@@ -137,8 +137,8 @@ export default Ractive.extend({
 						{{#if .KeySchema.length === 2}}\
 						<tr>\
 							<td>Sort</td>\
-							<td>{{ _gsi_range_key_name( .IndexName ) }}</td>\
-							<td><select><option>{{ _gsi_range_key_type_name( .IndexName ) }}</option></select></td>\
+							<td>{{ @this._gsi_range_key_name( .IndexName ) }}</td>\
+							<td><select><option>{{ @this._gsi_range_key_type_name( .IndexName ) }}</option></select></td>\
 							<td>\
 								<select value='{{ ~/query.sort.op }}'>\
 									<option value='eq'>=</option>\
@@ -147,7 +147,7 @@ export default Ractive.extend({
 									<option value='lt'>&lt;</option>\
 									<option value='le'>&lt;=</option>\
 									<option value='between'>between</option>\
-									{{#if _gsi_range_key_type( .IndexName )  === 'S' }}\
+									{{#if @this._gsi_range_key_type( .IndexName )  === 'S' }}\
 										<option value='begins_with'>begins with</option>\
 									{{/if}}\
 								</select>\
@@ -167,8 +167,8 @@ export default Ractive.extend({
 						{{#if .KeySchema.length === 2}}\
 						<tr>\
 							<td>Sort</td>\
-							<td>{{ _lsi_range_key_name( .IndexName ) }}</td>\
-							<td><select><option>{{ _lsi_range_key_type_name( .IndexName ) }}</option></select></td>\
+							<td>{{ @this._lsi_range_key_name( .IndexName ) }}</td>\
+							<td><select><option>{{ @this._lsi_range_key_type_name( .IndexName ) }}</option></select></td>\
 							<td>\
 								<select value='{{ ~/query.sort.op }}'>\
 									<option value='eq'>=</option>\
@@ -177,7 +177,7 @@ export default Ractive.extend({
 									<option value='lt'>&lt;</option>\
 									<option value='le'>&lt;=</option>\
 									<option value='between'>between</option>\
-									{{#if _lsi_range_key_type( .IndexName )  === 'S' }}\
+									{{#if @this._lsi_range_key_type( .IndexName )  === 'S' }}\
 										<option value='begins_with'>begins with</option>\
 									{{/if}}\
 								</select>\
@@ -226,7 +226,6 @@ export default Ractive.extend({
 		{{/if}}\
 	</div>\
 		",
-
 		_hash_key_name: function() {
 			return (this.get('describeTable').KeySchema.filter(function(k) { return k.KeyType === 'HASH'})[0] || {}).AttributeName
 		},
