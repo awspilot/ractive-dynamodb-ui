@@ -13,7 +13,8 @@ export default Ractive.extend({
 	template:
 		'\
 		<jsoneditor item={{itemtoedit}} navigationBar="{{false}}" convert_uint8_to_base64="{{true}}" out-binary="buffer" style="position: absolute;top: 10px;left: 10px;right: 10px;bottom: 50px;width: auto;height: auto;border: 1px solid #97b0f8" menu-style="background-color: #d5ddf6;border-bottom: 1px solid #97b0f8;color: #444;" />\
-		<div style="position: absolute;left: 0px;right:10px;bottom:10px;height: 30px;box-sizing: border-box;">\
+		<div style="position: absolute;left: 10px;right:10px;bottom:10px;height: 30px;box-sizing: border-box;">\
+			<span style="color: red;line-height: 30px;">{{errorMessage}}</span>\
 			<a class="btn btn-sm btn-primary pull-right" on-click="update-item">Save</a>\
 		</div>\
 		',
@@ -35,18 +36,21 @@ export default Ractive.extend({
 
 		this.set({itemtoedit: cloneDeep(this.get('rawitem'))  })
 
+		this.observe('itemtoedit', function(n,o,kp) {
+			this.set({errorMessage: ''})
+		})
 
 
 		//var rawitem = this.get('rawitem')
 		//this.set({itemtoedit: { ...rawitem }  })
 
-		var debug = this.get('itemtoedit');
+		//var debug = this.get('itemtoedit');
 
 		this.on('update-item', function() {
 			//console.log("table=","HASH=", this._hash_key_name(), " RANGE=", this._range_key_name() )
 
 			var originalitem = this.get('rawitem')
-			var updateditem = this.get('itemtoedit')
+			var updateditem = cloneDeep(this.get('itemtoedit'))
 
 			//console.log("originalitem", originalitem.binary, typeof originalitem.binary )
 
@@ -89,7 +93,8 @@ export default Ractive.extend({
 			//console.log("should update item", this.get('item') )
 			console.log("updateItem", updateItemCall  )
 			DynamoDB.client.updateItem(updateItemCall, function(err,data) {
-				console.log(err,data)
+				if (err)
+					return ractive.set('errorMessage', err.message)
 
 				ractive.get('window').close()
 				//ractive.parent.fire('close-window')
