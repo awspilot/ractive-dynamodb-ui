@@ -90,6 +90,9 @@ export default Ractive.extend({
 			console.log("updateItem", updateItemCall  )
 			DynamoDB.client.updateItem(updateItemCall, function(err,data) {
 				console.log(err,data)
+
+				ractive.get('window').close()
+				//ractive.parent.fire('close-window')
 			})
 		})
 

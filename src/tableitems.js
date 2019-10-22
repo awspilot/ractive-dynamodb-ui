@@ -799,17 +799,16 @@ export default Ractive.extend({
 							itemview: itemview,
 						},
 						el: $('#'+vid).get(0).parentNode,
-						template: '<itemview describeTable="{{describeTable}}" item="{{item}}" rawitem="{{rawitem}}" />',
+						template: '<itemview describeTable="{{describeTable}}" item="{{item}}" rawitem="{{rawitem}}" window={{window}} />',
 						data: {
 							describeTable: describeTable,
 							item: item,
 							rawitem: rawitem,
+							window: $window,
 						}
 					})
-				// 	ractive.on('CreateItem.close-window', function() {
-				// 		$window.close()
-				// 	})
 				})
+
 			})
 		})
 
