@@ -3,6 +3,7 @@
 export default Ractive.extend({
 	//isolated: true,
 	template: "\
+		<div class='tableview {{#if active}}active{{/if}}'>\
 		<div style='position: absolute;top: 0px;left: 0px;bottom: 0px;right: 0px;overflow-x: auto;'>\
 			<div style='padding: 30px'>\
 				<h3>Create DynamoDB table</h3>\
@@ -217,6 +218,7 @@ export default Ractive.extend({
 				<a class='btn btn-md btn-primary' on-click='create'>Create</a>\
 				<br>\
 			</div>\
+		</div>\
 		</div>\
 	",
 	data: function() {

@@ -28,14 +28,12 @@ export default Ractive.extend({
 				<tablelistfull />\
 			{{else}}\
 				{{#tabs}}\
-					{{#if .id === active_id}}\
 						{{#if .type === 'tablecreate' }}\
-							<tablecreate />\
+							<tablecreate active={{ .id === active_id  }} />\
 						{{/if}}\
 						{{#if .type === 'tabletab' }}\
-							<tabletab table={{.}}  />\
+							<tabletab table={{.}} active={{ .id === active_id  }} />\
 						{{/if}}\
-					{{/if}}\
 				{{/tabs}}\
 			{{/if}}\
 		</tabcontent>\
