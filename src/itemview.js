@@ -1,11 +1,18 @@
+
+
+//var jsoneditor = require('@awspilot/ractive-dynamodb-json-editor');
+import jsoneditor from '@awspilot/ractive-dynamodb-json-editor';
+
 export default Ractive.extend({
-	//isolated: true,
+	isolated: true,
+	components: {
+		jsoneditor: jsoneditor,
+	},
 	template:
 		'\
-		<div id="jsoneditor" style="position: absolute;top:0;left:0;bottom:40px;right:0;">\
-		</div>\
-		<div style="position: absolute;left: 0px;right:0px;bottom:0px;height: 40px;box-sizing: border-box;padding: 5px;">\
-			<!-- <a class="btn btn-sm btn-primary pull-right" on-click="create-item">Save</a> -->\
+		<jsoneditor item={{rawitem}} navigationBar="{{false}}" style="position: absolute;top: 10px;left: 10px;right: 10px;bottom: 50px;width: auto;height: auto;border: 1px solid #97b0f8" menu-style="background-color: #d5ddf6;border-bottom: 1px solid #97b0f8;color: #444;" />\
+		<div style="position: absolute;left: 0px;right:10px;bottom:10px;height: 30px;box-sizing: border-box;">\
+			<a class="btn btn-sm btn-primary pull-right" on-click="create-item">Save</a>\
 		</div>\
 		',
 	data: function() {
@@ -19,31 +26,25 @@ export default Ractive.extend({
 		//console.log("createItem",  )
 	},
 	oncomplete: function() {
-		var ractive = this;
-		var container = document.getElementById('jsoneditor');
-		var options = {
-			//statusBar
-			//mainMenuBar
-			history: false,
-			colorPicker: false,
-			//timestampTag
-			autocomplete: false,
-			navigationBar: false,
-			search: false,
-			enableSort: false,
-			sortObjectKeys: false,
-			enableTransform: false,
-
-			mode: 'view',
-		};
-		ractive.editor = new JSONEditor(container, options);
-
-		//var dt = ractive.get('describeTable')
-		//var json = {}
-		//dt.KeySchema.map(function(ks) {
-		//	json[ks.AttributeName] = ''
-		//})
-
-		ractive.editor.set(ractive.get('item'))
+		//console.log("will show rawitem", this.get('rawitem') )
+		// var ractive = this;
+		// var container = document.getElementById('jsoneditor');
+		// var options = {
+		// 	//statusBar
+		// 	//mainMenuBar
+		// 	history: false,
+		// 	colorPicker: false,
+		// 	//timestampTag
+		// 	autocomplete: false,
+		// 	navigationBar: false,
+		// 	search: false,
+		// 	enableSort: false,
+		// 	sortObjectKeys: false,
+		// 	enableTransform: false,
+		//
+		// 	mode: 'view',
+		// };
+		//ractive.editor = new JSONEditor(container, options);
+		//ractive.editor.set(ractive.get('item'))
 	}
 })
