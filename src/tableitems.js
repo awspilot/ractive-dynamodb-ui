@@ -29,7 +29,6 @@ export default Ractive.extend({
 								{{#if describeTable.KeySchema.length === 2}}\
 									, {{ _range_key_name() }} ( {{ _range_key_type_name() }} )\
 								{{/if}}\
-\
 							</option>\
 \
 							{{#describeTable.LocalSecondaryIndexes:j}}\
@@ -783,7 +782,7 @@ export default Ractive.extend({
 			var describeTable = this.get('describeTable')
 			var hash  = this._hash_key_name()
 			var range = this._range_key_name()
-			console.log("open-item", "table=",describeTable.TableName, "hash=",hash, "range=", range, "item=", item, rawitem  )
+			//console.log("open-item", "table=",describeTable.TableName, "hash=",hash, "range=", range, "item=", item, rawitem  )
 			window.ractive.findComponent('WindowHost').newWindow(function($window) {
 				$window.set({
 					title: 'View Item',
@@ -799,7 +798,7 @@ export default Ractive.extend({
 						components: {
 							itemview: itemview,
 						},
-						el: $('#'+vid).get(0),
+						el: $('#'+vid).get(0).parentNode,
 						template: '<itemview describeTable="{{describeTable}}" item="{{item}}" rawitem="{{rawitem}}" />',
 						data: {
 							describeTable: describeTable,
