@@ -29,11 +29,11 @@ export default Ractive.extend({
 			{{else}}\
 				{{#tabs}}\
 					{{#if .id === active_id}}\
-						{{#if .type === 'tabletab' }}\
-							<tabletab table={{.}}  />\
-						{{/if}}\
 						{{#if .type === 'tablecreate' }}\
 							<tablecreate />\
+						{{/if}}\
+						{{#if .type === 'tabletab' }}\
+							<tabletab table={{.}}  />\
 						{{/if}}\
 					{{/if}}\
 				{{/tabs}}\
