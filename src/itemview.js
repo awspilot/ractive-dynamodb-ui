@@ -75,6 +75,14 @@ export default Ractive.extend({
 			if ( this._range_key_name() && ( JSON.stringify(updateditem[this._range_key_name()]) !== JSON.stringify(originalitem[ this._range_key_name()]) ) )
 				return alert('SORT_KEY(' + this._range_key_name() + ') changed value. Operation not permitted')
 
+			Object.keys(originalitem).map(function( k ) {
+				if (!updateditem.hasOwnProperty(k))
+					updateItemCall.AttributeUpdates[k] = {
+						Action: 'DELETE',
+					}
+			})
+
+
 			updateItemCall.Key[this._hash_key_name()] = updateditem[this._hash_key_name()]
 			delete updateditem[this._hash_key_name()]
 
