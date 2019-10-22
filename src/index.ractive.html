@@ -107,42 +107,41 @@ body.theme_light content tabcontent .tabledata .tabledatarow {border-bottom: 1px
 
 
 
-body.theme_light content tabcontent .tabledata .tabledatarow {
-	.tabledatacell {border-right: 1px solid #c3b7b7;border-left: 1px solid #ffffff;}
 
-	.tabledatacell.t-K {color: #8ea7aa;}
-	.tabledatacell.t-HASH {color:#004b91;cursor: pointer;}
-	.tabledatacell.t-HASH:hover a {text-decoration: underline;}
-	.tabledatacell.t-S {color: #a79b9b;}
-	.tabledatacell.t-N {color: green;}
-	.tabledatacell.t-BOOL {color: #ff7676;}
-	.tabledatacell.t-NULL {color: grey}
-	.tabledatacell.t-SS {}
-	.tabledatacell.t-NS {}
-	.tabledatacell.t-L {}
-	.tabledatacell.t-M {}
-	.tabledatacell.t-U {background-color: #f9f3f3;}
-}
-body.theme_light content tabcontent .tabledata .tabledatarow:hover {
-	background-color: @light-table-row-hover-background;
-	.tabledatacell {color: #a59797;}
-	.tabledatacell.t-HASH {color:#004b91;}
+body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell {border-right: 1px solid #c3b7b7;border-left: 1px solid #ffffff;}
+body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-K {color: #8ea7aa;}
+body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-HASH {color:#004b91;cursor: pointer;}
+body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-HASH:hover a {text-decoration: underline;}
+body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-S {color: #a79b9b;}
+body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-N {color: green;}
+body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-BOOL {color: #ff7676;}
+body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-NULL {color: grey}
+body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-SS {}
+body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-NS {}
+body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-L {}
+body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-M {}
+body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-U {background-color: #f9f3f3;}
 
-}
 
-body.theme_light content tabcontent .tabledata .tabledatarow.selected {
-	background-color: @light-table-row-selected-background;
-	.tabledatacell {color: #396396;}
-}
 
-body.theme_light content tabcontent .tabledata .tabledatarow.selected:hover {
-	background-color: @light-table-row-hover-and-selected-background !important;
-	.tabledatacell {color: #fff;}
-}
 
+body.theme_light content tabcontent .tabledata .tabledatarow:hover {background-color: #f3f3f3;}
+body.theme_light content tabcontent .tabledata .tabledatarow:hover .tabledatacell {color: #a59797;}
+body.theme_light content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-HASH {color:#004b91;}
+
+
+
+body.theme_light content tabcontent .tabledata .tabledatarow.selected {background-color: #ddecff;}
+body.theme_light content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: #396396;}
+
+
+body.theme_light content tabcontent .tabledata .tabledatarow.selected:hover {background-color: #0747a0 !important;}
+body.theme_light content tabcontent .tabledata .tabledatarow.selected:hover .tabledatacell {color: #fff;}
 
 
 content {position:absolute;display: block;top: 0px;left: 265px;right: 0px;bottom: 0px;}
+
+
 </style>
 
 <hsplit style='top: 56px;'>
