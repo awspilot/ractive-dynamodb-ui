@@ -1,6 +1,8 @@
 <style>
-.hsplit {position: absolute;top:0px;left: 0px;right: 0px;bottom: 0px; background-color: #f0f0f0; color: #999999;}
-left {position:absolute;display: block;top: 0px;left: 0px;width: 260px;bottom: 0px;}
+.hsplit {position: absolute;top:0px;left: 0px;right: 0px;bottom: 0px; /*background-color: #f0f0f0;*/background-color: #c9c9c9; color: #999999;}
+left {position:absolute;display: block;top: 0px;left: 0px;width: 260px;bottom: 0px;margin-top: 5px;}
+content {position:absolute;display: block;top: 0px;left: 265px;right: 0px;bottom: 0px;margin-top: 5px;}
+
 miniheader {display: block;height: 28px;line-height: 28px;font-size: 12px;padding-left: 10px;}
 miniheader .icon:hover {box-shadow: 0px 0px 1px rgba(255,255,255,.3);}
 .miniheaderbody {left: 0px;top: 29px;right: 0px;bottom: 0px;}
@@ -8,7 +10,7 @@ miniheader .icon:hover {box-shadow: 0px 0px 1px rgba(255,255,255,.3);}
 left tables > div {display: block;height: 30px; line-height: 30px;font-size: 13px;padding: 0px 10px;border-top: 1px solid transparent;border-left: 1px solid transparent;;margin-bottom: 0px;cursor: pointer}
 
 
-content {position:absolute;display: block;top: 0px;left: 265px;right: 0px;bottom: 0px;}
+
 content tabhead {position: absolute;top: 0px;left: 0px;right:0px;height: 28px;overflow: hidden;font-size: 0px;}
 content tabhead tab {display: inline-block;height: 28px;line-height: 28px;padding: 0px 10px;cursor: pointer;font-size: 14px;}
 content tabhead tab.active {}
@@ -84,7 +86,7 @@ body.theme_light {background-color: #f0f0f0;color: #999999;}
 body.theme_light header {background-color: #232f3e;/*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);*/ }
 body.theme_light miniheader {background: linear-gradient(#eee , #e0e0e0);border: 1px solid #b9b8b6;border-top: 1px solid #fff;border-bottom: 1px solid #ccc;}
 body.theme_light left {background-color: #ffffff}
-body.theme_light left > .scrollarea {border: 1px solid #b9b8b6;}
+body.theme_light left > .scrollarea {border-right: 1px solid #b9b8b6;}
 body.theme_light left tables > div {border-bottom: 1px solid #e0e0e0;color: #146eb4}
 body.theme_light left tables > div:hover {background-color: #eaf3fe;/*border: 1px solid #636363;*/}
 body.theme_light content {border: 1px solid #b9b8b6;background-color: #ffffff;border-top: 1px solid #fff;border-right: 0px;}
@@ -144,7 +146,7 @@ content {position:absolute;display: block;top: 0px;left: 265px;right: 0px;bottom
 
 </style>
 
-<hsplit style='top: 56px;'>
+<hsplit style=''>
 	<left>
 		<minitablelist />
 	</left>
