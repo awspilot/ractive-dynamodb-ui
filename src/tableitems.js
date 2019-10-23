@@ -801,7 +801,7 @@ export default Ractive.extend({
 						template: '<itemedit describeTable="{{describeTable}}" item="{{item}}" rawitem="{{rawitem}}" window={{window}} />',
 						data: {
 							describeTable: describeTable,
-							item: item,
+							//item: item,
 							rawitem: rawitem,
 							window: $window,
 						}
@@ -886,7 +886,54 @@ export default Ractive.extend({
 
 		})
 		ractive.on('create-item-window', function() {
+
+
+
+
+
 			var describeTable = this.get('describeTable')
+
+			var rawitem = {}
+
+
+			/* add partition */
+			var htype = this._hash_key_type()
+
+			var to_add = null;
+			if (htype === "S")
+				to_add = {S: ""}
+
+			if (htype === "N")
+				to_add = {N: ""}
+
+			if (htype === "B")
+				to_add = {B: Uint8Array.from(atob("InsertBase64Here"), function (c) { return c.charCodeAt(0) } ) }
+
+			rawitem[this._hash_key_name()] = to_add;
+
+
+
+			/* add sort */
+			if ( this._range_key_name() ) {
+				var rtype = this._range_key_type()
+				var to_add = null;
+				if (rtype === "S")
+					to_add = {S: ""}
+
+				if (rtype === "N")
+					to_add = {N: ""}
+
+				if (rtype === "B")
+					to_add = {B: Uint8Array.from(atob("InsertBase64Here"), function (c) { return c.charCodeAt(0) } ) }
+
+
+				rawitem[this._range_key_name()] = to_add;
+			}
+
+
+			console.log(rawitem)
+
+
 			window.ractive.findComponent('WindowHost').newWindow(function($window) {
 				$window.set({
 					title: 'Create Item',
@@ -899,17 +946,47 @@ export default Ractive.extend({
 				var vid = "window"+(Math.random()*0xFFFFFF<<0).toString(16)
 				$window.content('<div id="' + vid + '"/>').then(function() {
 					var ractive = new Ractive({
-						el: $('#'+vid).get(0),
-						template: '<CreateItem describeTable="{{describeTable}}" />',
+						components: {
+							itemedit: itemedit,
+						},
+						el: $('#'+vid).get(0).parentNode,
+						template: '<itemedit describeTable="{{describeTable}}" item="{{item}}" rawitem="{{rawitem}}" window={{window}} />',
 						data: {
 							describeTable: describeTable,
+							// item: {
+							//
+							// },
+							rawitem: rawitem,
+							window: $window,
 						}
-					})
-					ractive.on('CreateItem.close-window', function() {
-						$window.close()
 					})
 				})
 			})
+
+
+/*
+
+
+
+
+
+					var ractive = new Ractive({
+						components: {
+							itemedit: itemedit,
+						},
+						el: $('#'+vid).get(0).parentNode,
+						template: '<itemedit describeTable="{{describeTable}}" item="{{item}}" rawitem="{{rawitem}}" window={{window}} />',
+						data: {
+							describeTable: describeTable,
+							item: item,
+							rawitem: rawitem,
+							window: $window,
+						}
+					})
+
+
+*/
+
 		})
 		ractive.on('delete-selected', function(context) {
 			//console.log(ractive.findComponent('tabledata').get('rows'))
