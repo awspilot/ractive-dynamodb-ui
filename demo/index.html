@@ -27,16 +27,16 @@
 
 		Ractive.components['dynamodb-ui'] = window['dynamodb-ui'];
 
-      var ractive = new Ractive({
-        el: 'body',
-		components: {
-			Window: RactiveWindow.default.Window,
-			WindowHost: RactiveWindow.default.WindowHost,
-		},
-        template: `
-			<WindowHost />
-          <dynamodb-ui region="us-east-1" endpoint="https://djaorxfotj9hr.cloudfront.net/v1/dynamodb" cwendpoint="https://djaorxfotj9hr.cloudfront.net/v1/cloudwatch" />
-        `
-      })
-	</Script>
+		var ractive = new Ractive({
+			el: 'body',
+			components: {
+				Window: RactiveWindow.default.Window,
+				WindowHost: RactiveWindow.default.WindowHost,
+			},
+			template: `
+				<WindowHost />
+				<dynamodb-ui region="us-east-1" accessKeyId="myKeyId" secretAccessKey="y" endpoint="https://djaorxfotj9hr.cloudfront.net/v1/dynamodb" cwendpoint="https://djaorxfotj9hr.cloudfront.net/v1/cloudwatch" />
+			`
+		})
+	</script>
 </html>
