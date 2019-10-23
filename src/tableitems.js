@@ -13,7 +13,7 @@ export default Ractive.extend({
 		{{#if !describeTable }}\
 			<br>reading table schema...\
 		{{else}}\
-		<div class='tablequery' style='padding: 10px;margin-top: 6px;'>\
+		<div class='tablequery'>\
 			<table width='100%' style='border-collapse: separate;border-spacing: 5px;'>\
 				<tr>\
 					<td>\

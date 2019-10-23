@@ -1,7 +1,7 @@
 <style>
 
 .ractive-dynamodb-ui {font-family: sans-serif;}
-.ractive-dynamodb-ui * {bos-sizing: border-box }
+.ractive-dynamodb-ui * {box-sizing: border-box }
 
 .hsplit {position: absolute;top:0px;left: 0px;right: 0px;bottom: 0px; /*background-color: #f0f0f0;*/background-color: #c9c9c9; color: #999999;}
 left {position:absolute;display: block;top: 0px;left: 0px;width: 260px;bottom: 0px;margin-top: 5px;}
@@ -33,7 +33,9 @@ content tabcontent .tableview.active { visibility: visible }
 content tabcontent .tableview .tablebrowse {display: block;position: absolute;top: 0px;left:0px;right: 0px;bottom: 0px;}
 
 content tabcontent .tablesqlquery {display: block;position: absolute;top: 0;left:0px;right: 0px;height: 119px;overflow: hidden;}
-content tabcontent .tablequery {display: block;position: absolute;top: 0;left:0px;right: 0px;height: 119px;overflow: hidden;}
+content tabcontent .tablequery {display: block;position: absolute;top: 0;left:0px;right: 0px;height: 119px;overflow: hidden; padding: 10px;margin-top: 6px;}
+content tabcontent .tablequery select { background-color: #6d6565; outline: none; color: #ccc; border-radius: 5px; border: 0px;}
+content tabcontent .tablequery input[type=text] {background-color: #6d6565; border: 0px; border-radius: 5px; outline: none;height: 19px;padding: 0px 7px; color: #ccc; }
 content tabcontent .tabledatacontrols {position: absolute;top: 120px;left: 0px;right: 0px;height: 28px;padding: 3px 0px 0px 30px;}
 
 
