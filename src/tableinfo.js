@@ -28,7 +28,7 @@ export default Ractive.extend({
 							</tr>\
 						</table>\
 					{{else}}\
-						<table>\
+						<table style='border-collapse: separate;border-spacing: 10px;'>\
 							<tr>\
 								<td align='right' width='350'><b>Stream enabled</b></td>\
 								<td>\
@@ -84,7 +84,7 @@ export default Ractive.extend({
 					</h3>\
 					<div style='color:red'>{{ err }}</div>\
 					<hr>\
-					<table>\
+					<table style='border-collapse: separate;border-spacing: 10px;'>\
 						<tr>\
 							<td align='right' width='350'><b>Table ID</b></td>\
 							<td> {{ selfDescribeTable.TableId }}</td>\
