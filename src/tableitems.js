@@ -1,6 +1,6 @@
 
 import tabledata from './tabledata';
-import itemview from './itemview';
+import itemview from './itemedit';
 
 export default Ractive.extend({
 	components: {
