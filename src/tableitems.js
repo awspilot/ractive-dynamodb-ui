@@ -1,6 +1,6 @@
 
 import tabledata from './tabledata';
-import itemview from './itemedit';
+import itemedit from './itemedit';
 
 export default Ractive.extend({
 	components: {
@@ -784,7 +784,7 @@ export default Ractive.extend({
 			//console.log("open-item", "table=",describeTable.TableName, "hash=",hash, "range=", range, "item=", item, rawitem  )
 			window.ractive.findComponent('WindowHost').newWindow(function($window) {
 				$window.set({
-					title: 'View Item',
+					title: 'Edit Item',
 					'geometry.width': window.innerWidth - 100,
 					'geometry.height': window.innerHeight - 100,
 					'geometry.left': 50,
@@ -795,10 +795,10 @@ export default Ractive.extend({
 				$window.content('<div id="' + vid + '"/>').then(function() {
 					var ractive = new Ractive({
 						components: {
-							itemview: itemview,
+							itemedit: itemedit,
 						},
 						el: $('#'+vid).get(0).parentNode,
-						template: '<itemview describeTable="{{describeTable}}" item="{{item}}" rawitem="{{rawitem}}" window={{window}} />',
+						template: '<itemedit describeTable="{{describeTable}}" item="{{item}}" rawitem="{{rawitem}}" window={{window}} />',
 						data: {
 							describeTable: describeTable,
 							item: item,
