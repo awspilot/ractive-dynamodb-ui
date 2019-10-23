@@ -13,7 +13,7 @@ export default Ractive.extend({
 				DynamoDB is a schema-less database that only requires a table name and primary key. The table's primary key is made up of one or two attributes that uniquely identify items, partition the data, and sort data within each partition.\
 \
 				<br><br>\
-				<table cellpadding='10'>\
+				<table style='border-collapse: separate;border-spacing: 10px;'>\
 					<tr>\
 						<td>Table name</td>\
 						<td><input type='text' value='{{newtable.TableName}}' on-focus='focus'></td>\
@@ -49,7 +49,7 @@ export default Ractive.extend({
 				</table>\
 				<br><br>\
 				<h4>Secondary indexes</h4>\
-				<table cellpadding='10' border='0'>\
+				<table style='border-collapse: separate;border-spacing: 10px;'>\
 					<tr style='background-color: #eadfdf'>\
 						<td>Name</td>\
 						<td>Type</td>\
@@ -171,7 +171,7 @@ export default Ractive.extend({
 					See the <a target='_blank' href='http://aws.amazon.com/dynamodb/pricing'>DynamoDB pricing page</a> and <a target='_blank' href='http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ProvisionedThroughput.html'>DynamoDB Developer Guide</a> to learn more.\
 					<br><br>Read/write capacity mode can be changed later.\
 				</div>\
-				<table cellpadding='10'>\
+				<table style='border-collapse: separate;border-spacing: 10px;'>\
 					<tr>\
 						<td></td>\
 						<td><input type='radio' name='{{newtable.BillingMode}}' value='PROVISIONED'> Provisioned</td>\
