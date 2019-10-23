@@ -1,6 +1,7 @@
 
 import tabledata from './tabledata';
 import itemedit from './item/edit';
+import itemadd from './item/add';
 
 export default Ractive.extend({
 	components: {
@@ -947,10 +948,10 @@ export default Ractive.extend({
 				$window.content('<div id="' + vid + '"/>').then(function() {
 					var ractive = new Ractive({
 						components: {
-							itemedit: itemedit,
+							itemadd:  itemadd,
 						},
 						el: $('#'+vid).get(0).parentNode,
-						template: '<itemedit describeTable="{{describeTable}}" item="{{item}}" rawitem="{{rawitem}}" window={{window}} />',
+						template: '<itemadd describeTable="{{describeTable}}" item="{{item}}" rawitem="{{rawitem}}" window={{window}} />',
 						data: {
 							describeTable: describeTable,
 							// item: {
