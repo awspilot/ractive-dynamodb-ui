@@ -1,1 +1,1 @@
-# dynamodb-ui
+# ractive-dynamodb-ui
