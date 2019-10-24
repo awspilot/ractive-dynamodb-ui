@@ -1,6 +1,6 @@
 
 import tableinfo from './table/info';
-import tablealarms from './tablealarms';
+import tablealarms from './table/alarms';
 import tablecapacity from './tablecapacity';
 import tableindexes from './tableindexes';
 import tableglobal from './tableglobal';

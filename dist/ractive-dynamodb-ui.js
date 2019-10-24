@@ -2219,9 +2219,9 @@ var _info = __webpack_require__(48);
 
 var _info2 = _interopRequireDefault(_info);
 
-var _tablealarms = __webpack_require__(49);
+var _alarms = __webpack_require__(49);
 
-var _tablealarms2 = _interopRequireDefault(_tablealarms);
+var _alarms2 = _interopRequireDefault(_alarms);
 
 var _tablecapacity = __webpack_require__(50);
 
@@ -2257,7 +2257,7 @@ exports.default = Ractive.extend({
 	isolated: true,
 	components: {
 		tableinfo: _info2.default,
-		tablealarms: _tablealarms2.default,
+		tablealarms: _alarms2.default,
 		tablecapacity: _tablecapacity2.default,
 		tableindexes: _tableindexes2.default,
 		tableglobal: _tableglobal2.default,
@@ -2499,11 +2499,7 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 exports.default = Ractive.extend({
-	template: "\
-		<div style='padding: 30px'>\
-			<h3>Alarms</h3>\
-		</div>\
-	"
+	template: "\n\t\t<div style='padding: 30px'>\n\t\t\t<h3>Alarms</h3>\n\t\t</div>\n\t"
 });
 
 /***/ }),
