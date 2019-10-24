@@ -2227,9 +2227,9 @@ var _capacity = __webpack_require__(50);
 
 var _capacity2 = _interopRequireDefault(_capacity);
 
-var _tableindexes = __webpack_require__(51);
+var _indexes = __webpack_require__(51);
 
-var _tableindexes2 = _interopRequireDefault(_tableindexes);
+var _indexes2 = _interopRequireDefault(_indexes);
 
 var _tableglobal = __webpack_require__(52);
 
@@ -2259,7 +2259,7 @@ exports.default = Ractive.extend({
 		tableinfo: _info2.default,
 		tablealarms: _alarms2.default,
 		tablecapacity: _capacity2.default,
-		tableindexes: _tableindexes2.default,
+		tableindexes: _indexes2.default,
 		tableglobal: _tableglobal2.default,
 		tablebackup: _tablebackup2.default,
 		tabletriggers: _tabletriggers2.default,
@@ -2611,99 +2611,7 @@ exports.default = Ractive.extend({
 	components: {
 		tabledata: _tabledata2.default
 	},
-	template: "\
-		<div style='padding: 30px'>\
-			{{#if tab === 'create'}}\
-				<h3>Create Global Secondary Index</h3>\
-				<table cellpadding='10' border='0'>\
-					<tr style='background-color: #ffefef'>\
-						<td style='background-color: #eadfdf'>Name</td>\
-						<td><input type='text' value='{{newindex.IndexName}}' on-focus='focus' /></td>\
-					</tr>\
-					<tr style='background-color: #ffefef'>\
-						<td style='background-color: #eadfdf'>Type</td>\
-						<td>GSI</td>\
-					</tr>\
-					<tr style='background-color: #ffefef'>\
-						<td style='background-color: #eadfdf'>Partition key</td>\
-						<td>\
-							<input type='text' value='{{ newindex.KeySchema.0.AttributeName }}' on-focus='focus' />\
-							<select value='{{ newindex.KeySchema.0.AttributeType }}'>\
-								<option value='S'>String</option>\
-								<option value='N'>Number</option>\
-								<option value='B'>Binary</option>\
-							</select>\
-						</td>\
-					</tr>\
-					<tr style='background-color: #ffefef'>\
-						<td style='background-color: #eadfdf'>Sort key</td>\
-						<td>\
-							<input type='text' value='{{ newindex.KeySchema.1.AttributeName }}' on-focus='focus' />\
-							<select value='{{ newindex.KeySchema.1.AttributeType }}'>\
-								<option value='S'>String</option>\
-								<option value='N'>Number</option>\
-								<option value='B'>Binary</option>\
-							</select>\
-						</td>\
-					</tr>\
-					<tr style='background-color: #ffefef'>\
-						<td style='background-color: #eadfdf'>Projection type</td>\
-						<td>\
-							<select value='{{ newindex.Projection.ProjectionType}}'>\
-								<option value='ALL'>ALL</option>\
-								<option value='KEYS_ONLY'>KEYS_ONLY</option>\
-								<option value='INCLUDE'>INCLUDE</option>\
-							</select>\
-						</td>\
-					</tr>\
-					{{#if newindex.Projection.ProjectionType === 'INCLUDE' }}\
-					<tr style='background-color: #ffefef'>\
-						<td style='background-color: #eadfdf'>Projected attributes</td>\
-						<td>\
-							{{#if newindex.Projection.ProjectionType === 'INCLUDE'}}\
-\
-							{{#newindex.Projection.NonKeyAttributes}}\
-								<span class='badge badge-info'>{{.}}</span><br>\
-							{{/newindex.Projection.NonKeyAttributes}}\
-\
-							<input type='text' value='{{ ~/nonkeyattribute }}' on-focus='focus' /><a class='btn btn-xs btn-primary' on-click='add-nonkey-attribute'><i class='icon zmdi zmdi-plus'></i></a>\
-\
-							{{/if}}\
-						</td>\
-					</tr>\
-					{{/if}}\
-					<tr style='background-color: #ffefef'>\
-						<td style='background-color: #eadfdf'>Read capacity</td>\
-						<td>\
-							<input type='text' value='{{ newindex.ProvisionedThroughput.ReadCapacityUnits }}'  size='4' on-focus='focus' />\
-						</td>\
-					</tr>\
-					<tr style='background-color: #ffefef'>\
-						<td style='background-color: #eadfdf'>Write capacity</td>\
-						<td>\
-							<input type='text' value='{{ newindex.ProvisionedThroughput.WriteCapacityUnits}}' size='4' on-focus='focus' />\
-						</td>\
-					</tr>\
-\
-				</table>\
-				<br>\
-				<div style='color:red'>{{ err }}&nbsp;</div>\
-				<br>\
-				<a class='btn btn-md btn-primary' on-click='create-gsi'>Create</a>\
-				<a class='btn btn-md btn-default' on-click='cancel-gsi'>Cancel</a>\
-				<br>\
-			{{else}}\
-				<h3>Indexes</h3>\
-				<div>\
-					<a class='btn btn-sm btn-primary' on-click='create'>Create index</a>\
-					<a class='btn btn-sm btn-default' on-click='delete'>Delete index</a>\
-\
-					<a class='btn btn-sm btn-default pull-right' on-click='refresh-table'><i class='icon zmdi zmdi-refresh'></i></a>\
-				</div>\
-				<tabledata columns='{{columns}}' rows='{{rows}}' style='top: 128px'/>\
-			{{/if}}\
-		</div>\
-	",
+	template: '\n\t\t<div style=\'padding: 30px\'>\n\t\t\t{{#if tab === \'create\'}}\n\t\t\t\t<h3>Create Global Secondary Index</h3>\n\t\t\t\t<table cellpadding=\'10\' border=\'0\'>\n\t\t\t\t\t<tr style=\'background-color: #ffefef\'>\n\t\t\t\t\t\t<td style=\'background-color: #eadfdf\'>Name</td>\n\t\t\t\t\t\t<td><input type=\'text\' value=\'{{newindex.IndexName}}\' on-focus=\'focus\' /></td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr style=\'background-color: #ffefef\'>\n\t\t\t\t\t\t<td style=\'background-color: #eadfdf\'>Type</td>\n\t\t\t\t\t\t<td>GSI</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr style=\'background-color: #ffefef\'>\n\t\t\t\t\t\t<td style=\'background-color: #eadfdf\'>Partition key</td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<input type=\'text\' value=\'{{ newindex.KeySchema.0.AttributeName }}\' on-focus=\'focus\' />\n\t\t\t\t\t\t\t<select value=\'{{ newindex.KeySchema.0.AttributeType }}\'>\n\t\t\t\t\t\t\t\t<option value=\'S\'>String</option>\n\t\t\t\t\t\t\t\t<option value=\'N\'>Number</option>\n\t\t\t\t\t\t\t\t<option value=\'B\'>Binary</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr style=\'background-color: #ffefef\'>\n\t\t\t\t\t\t<td style=\'background-color: #eadfdf\'>Sort key</td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<input type=\'text\' value=\'{{ newindex.KeySchema.1.AttributeName }}\' on-focus=\'focus\' />\n\t\t\t\t\t\t\t<select value=\'{{ newindex.KeySchema.1.AttributeType }}\'>\n\t\t\t\t\t\t\t\t<option value=\'S\'>String</option>\n\t\t\t\t\t\t\t\t<option value=\'N\'>Number</option>\n\t\t\t\t\t\t\t\t<option value=\'B\'>Binary</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr style=\'background-color: #ffefef\'>\n\t\t\t\t\t\t<td style=\'background-color: #eadfdf\'>Projection type</td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<select value=\'{{ newindex.Projection.ProjectionType}}\'>\n\t\t\t\t\t\t\t\t<option value=\'ALL\'>ALL</option>\n\t\t\t\t\t\t\t\t<option value=\'KEYS_ONLY\'>KEYS_ONLY</option>\n\t\t\t\t\t\t\t\t<option value=\'INCLUDE\'>INCLUDE</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t{{#if newindex.Projection.ProjectionType === \'INCLUDE\' }}\n\t\t\t\t\t<tr style=\'background-color: #ffefef\'>\n\t\t\t\t\t\t<td style=\'background-color: #eadfdf\'>Projected attributes</td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t{{#if newindex.Projection.ProjectionType === \'INCLUDE\'}}\n\n\t\t\t\t\t\t\t{{#newindex.Projection.NonKeyAttributes}}\n\t\t\t\t\t\t\t\t<span class=\'badge badge-info\'>{{.}}</span><br>\n\t\t\t\t\t\t\t{{/newindex.Projection.NonKeyAttributes}}\n\n\t\t\t\t\t\t\t<input type=\'text\' value=\'{{ ~/nonkeyattribute }}\' on-focus=\'focus\' /><a class=\'btn btn-xs btn-primary\' on-click=\'add-nonkey-attribute\'><i class=\'icon zmdi zmdi-plus\'></i></a>\n\n\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t{{/if}}\n\t\t\t\t\t<tr style=\'background-color: #ffefef\'>\n\t\t\t\t\t\t<td style=\'background-color: #eadfdf\'>Read capacity</td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<input type=\'text\' value=\'{{ newindex.ProvisionedThroughput.ReadCapacityUnits }}\'  size=\'4\' on-focus=\'focus\' />\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr style=\'background-color: #ffefef\'>\n\t\t\t\t\t\t<td style=\'background-color: #eadfdf\'>Write capacity</td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<input type=\'text\' value=\'{{ newindex.ProvisionedThroughput.WriteCapacityUnits}}\' size=\'4\' on-focus=\'focus\' />\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\n\t\t\t\t</table>\n\t\t\t\t<br>\n\t\t\t\t<div style=\'color:red\'>{{ err }}&nbsp;</div>\n\t\t\t\t<br>\n\t\t\t\t<a class=\'btn btn-md btn-primary\' on-click=\'create-gsi\'>Create</a>\n\t\t\t\t<a class=\'btn btn-md btn-default\' on-click=\'cancel-gsi\'>Cancel</a>\n\t\t\t\t<br>\n\t\t\t{{else}}\n\t\t\t\t<h3>Indexes</h3>\n\t\t\t\t<div>\n\t\t\t\t\t<a class=\'btn btn-sm btn-primary\' on-click=\'create\'>Create index</a>\n\t\t\t\t\t<a class=\'btn btn-sm btn-default\' on-click=\'delete\'>Delete index</a>\n\n\t\t\t\t\t<a class=\'btn btn-sm btn-default pull-right\' on-click=\'refresh-table\'><i class=\'icon zmdi zmdi-refresh\'></i></a>\n\t\t\t\t</div>\n\t\t\t\t<tabledata columns=\'{{columns}}\' rows=\'{{rows}}\' style=\'top: 128px\'/>\n\t\t\t{{/if}}\n\t\t</div>\n\t',
 
 	refresh_table_indexes: function refresh_table_indexes() {
 		var ractive = this;
