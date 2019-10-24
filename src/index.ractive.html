@@ -319,6 +319,8 @@ content {position:absolute;display: block;top: 0px;left: 265px;right: 0px;bottom
 	var ddb;
 	var DynamodbFactory;
 
+	DynamodbFactory = window['@awspilot/dynamodb']
+
 	import tabs from './tabs';
 
 	var hsplit = Ractive.extend({
@@ -369,7 +371,7 @@ content {position:absolute;display: block;top: 0px;left: 265px;right: 0px;bottom
 					}
 				});
 
-				DynamodbFactory = window['@awspilot/dynamodb']
+
 				DynamoDB  = new DynamodbFactory(ddb)
 
 				cloudwatch = new AWS.CloudWatch({
