@@ -3,22 +3,22 @@
 export default Ractive.extend({
 	//isolated: true,
 	template:
-		"\
-		<miniheader>\
-			Tables\
-			<div class='pull-right' style='margin-right: 5px;'>\
-				<a class='btn btn-xs btn-default' on-click='create' as-tooltip=' \" Create Table \" '><i class='icon zmdi zmdi-plus'></i></a>\
-				<a class='btn btn-xs btn-default' on-click='@this.refresh_tables()'><i class='icon zmdi zmdi-refresh'></i></a>\
-			</div>\
-		</miniheader>\
-		<scrollarea class='scrollarea miniheaderbody' style='position: absolute;'>\
-		<tables>\
-			{{#tables}}\
-			<div on-click='@this.fire(\"open-table\",.)'> {{.}} </div>\
-			{{/tables}}\
-		</tables>\
-		</scrollarea>\
-		",
+		`
+		<miniheader>
+			Tables
+			<div class='pull-right' style='margin-right: 5px;'>
+				<a class='btn btn-xs btn-default' on-click='create'><i class='icon zmdi zmdi-plus'></i></a>
+				<a class='btn btn-xs btn-default' on-click='@this.refresh_tables()'><i class='icon zmdi zmdi-refresh'></i></a>
+			</div>
+		</miniheader>
+		<scrollarea class='scrollarea miniheaderbody' style='position: absolute;'>
+		<tables>
+			{{#tables}}
+			<div on-click='@this.fire( "open-table",.)'> {{.}} </div>
+			{{/tables}}
+		</tables>
+		</scrollarea>
+		`,
 	data: function() { return {} },
 	refresh_tables: function() {
 		var ractive = this
