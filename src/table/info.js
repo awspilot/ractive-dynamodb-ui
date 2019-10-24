@@ -1,8 +1,7 @@
 
 export default Ractive.extend({
 	template: `
-		<div class='tableinfo'>
-			<scrollarea class='scrollarea' style='position: absolute;top: 0px;left: 0px;bottom: 0px;right: 0px;'>
+		<div class='tableinfo' style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;overflow: auto;font-size: 14px;">
 				<div style='padding: 30px'>
 					<h3>
 						Stream details
@@ -239,7 +238,6 @@ export default Ractive.extend({
 					</table>
 					<small>Storage size and item count are not updated in real-time. They are updated periodically, roughly every six hours.</small>
 				</div>
-			</scrollarea>
 		</div>
 	`,
 
