@@ -2223,9 +2223,9 @@ var _alarms = __webpack_require__(49);
 
 var _alarms2 = _interopRequireDefault(_alarms);
 
-var _tablecapacity = __webpack_require__(50);
+var _capacity = __webpack_require__(50);
 
-var _tablecapacity2 = _interopRequireDefault(_tablecapacity);
+var _capacity2 = _interopRequireDefault(_capacity);
 
 var _tableindexes = __webpack_require__(51);
 
@@ -2258,7 +2258,7 @@ exports.default = Ractive.extend({
 	components: {
 		tableinfo: _info2.default,
 		tablealarms: _alarms2.default,
-		tablecapacity: _tablecapacity2.default,
+		tablecapacity: _capacity2.default,
 		tableindexes: _tableindexes2.default,
 		tableglobal: _tableglobal2.default,
 		tablebackup: _tablebackup2.default,
@@ -2513,57 +2513,7 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 exports.default = Ractive.extend({
-	template: "\
-		<scrollarea class='scrollarea' style='position: absolute;top: 0px;left: 0px;bottom: 0px;right: 0px;'>\
-			<div style='padding: 30px'>\
-				<h3>\
-					Provisioned capacity\
-					<a class='btn btn-xs btn-default pull-right' on-click='refresh-table'><i class='icon zmdi zmdi-refresh'></i></a>\
-				</h3>\
-				<hr>\
-					{{#if describeTable.BillingModeSummary.BillingMode === 'PAY_PER_REQUEST'}}\
-						Not applicable because read/write capacity mode is on-demand.<br>\
-					{{else}}\
-						<table>\
-							<tr>\
-								<td width='160' align='right'></td>\
-								<td width='160'>Read capacity units</td>\
-								<td width='160'>Write capacity units</td>\
-							</tr>\
-							<tr>\
-								<td>Table</td>\
-								<td><input type='text' size='4' value='{{describeTable.ProvisionedThroughput.ReadCapacityUnits}}' on-focus='focus' /></td>\
-								<td><input type='text' size='4' value='{{describeTable.ProvisionedThroughput.WriteCapacityUnits}}' on-focus='focus' /></td>\
-							</tr>\
-							{{#describeTable.GlobalSecondaryIndexes}}\
-							<tr>\
-								<td>{{ .IndexName }}</td>\
-								<td><input type='text' size='4' value='{{.ProvisionedThroughput.ReadCapacityUnits}}' on-focus='focus' /></td>\
-								<td><input type='text' size='4' value='{{.ProvisionedThroughput.WriteCapacityUnits}}' on-focus='focus' /></td>\
-							</tr>\
-							{{/describeTable.GlobalSecondaryIndexes}}\
-						</table>\
-					{{/if}}\
-\
-\
-\
-				<h3>Auto Scaling</h3>\
-				<hr/>\
-					<small>Auto Scaling not supported by this UI</small>\
-					<br>\
-					<div style='color:red'>{{ err }}&nbsp;</div>\
-					<table>\
-						<tr>\
-							<td width='160'>\
-							<td>\
-								<a class='btn btn-md btn-primary' on-click='save'>Save</a>\
-								<a class='btn btn-md btn-default' on-click='cancel'>Cancel</a>\
-							</td>\
-						</tr>\
-					</table>\
-			</div>\
-		</scrollarea>\
-	",
+	template: '\n\n\t\t\t<div style=\'padding: 30px\'>\n\t\t\t\t<h3>\n\t\t\t\t\tProvisioned capacity\n\t\t\t\t\t<a class=\'btn btn-xs btn-default pull-right\' on-click=\'refresh-table\'><i class=\'icon zmdi zmdi-refresh\'></i></a>\n\t\t\t\t</h3>\n\t\t\t\t<hr>\n\t\t\t\t\t{{#if describeTable.BillingModeSummary.BillingMode === \'PAY_PER_REQUEST\'}}\n\t\t\t\t\t\tNot applicable because read/write capacity mode is on-demand.<br>\n\t\t\t\t\t{{else}}\n\t\t\t\t\t\t<table>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td width=\'160\' align=\'right\'></td>\n\t\t\t\t\t\t\t\t<td width=\'160\'>Read capacity units</td>\n\t\t\t\t\t\t\t\t<td width=\'160\'>Write capacity units</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td>Table</td>\n\t\t\t\t\t\t\t\t<td><input type=\'text\' size=\'4\' value=\'{{describeTable.ProvisionedThroughput.ReadCapacityUnits}}\' on-focus=\'focus\' /></td>\n\t\t\t\t\t\t\t\t<td><input type=\'text\' size=\'4\' value=\'{{describeTable.ProvisionedThroughput.WriteCapacityUnits}}\' on-focus=\'focus\' /></td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t{{#describeTable.GlobalSecondaryIndexes}}\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td>{{ .IndexName }}</td>\n\t\t\t\t\t\t\t\t<td><input type=\'text\' size=\'4\' value=\'{{.ProvisionedThroughput.ReadCapacityUnits}}\' on-focus=\'focus\' /></td>\n\t\t\t\t\t\t\t\t<td><input type=\'text\' size=\'4\' value=\'{{.ProvisionedThroughput.WriteCapacityUnits}}\' on-focus=\'focus\' /></td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t{{/describeTable.GlobalSecondaryIndexes}}\n\t\t\t\t\t\t</table>\n\t\t\t\t\t{{/if}}\n\n\n\n\t\t\t\t<h3>Auto Scaling</h3>\n\t\t\t\t<hr/>\n\t\t\t\t\t<small>Auto Scaling not supported by this UI</small>\n\t\t\t\t\t<br>\n\t\t\t\t\t<div style=\'color:red\'>{{ err }}&nbsp;</div>\n\t\t\t\t\t<table>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td width=\'160\'>\n\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t<a class=\'btn btn-md btn-primary\' on-click=\'save\'>Save</a>\n\t\t\t\t\t\t\t\t<a class=\'btn btn-md btn-default\' on-click=\'cancel\'>Cancel</a>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</table>\n\t\t\t</div>\n\n\t',
 	oninit: function oninit() {
 		var ractive = this;
 		var refresh_table = function refresh_table() {
