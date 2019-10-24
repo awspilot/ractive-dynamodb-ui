@@ -10,8 +10,8 @@ module.exports = {
 	optimization: {
 		minimize: true,
 		minimizer: [new UglifyJsPlugin({
-			uglifyOptions: { ecma: 7 },
-			sourceMap: true,
+			//uglifyOptions: { ecma: 7 },
+			//sourceMap: true,
 			include: /\.min\.js$/
 		})]
 	},
@@ -24,7 +24,7 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: '[name].js',
-		library: 'dynamodb-ui',
+		library: 'ractive-dynamodb-ui',
 
 		// var, this, window, umd
 		libraryTarget: 'umd',
