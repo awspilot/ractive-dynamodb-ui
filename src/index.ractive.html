@@ -316,6 +316,9 @@ content {position:absolute;display: block;top: 0px;left: 265px;right: 0px;bottom
 	import Ractive from 'ractive';
 	import minitablelist from './minitablelist';
 
+	var ddb;
+	var DynamodbFactory;
+
 	import tabs from './tabs';
 
 	var hsplit = Ractive.extend({
@@ -369,7 +372,7 @@ content {position:absolute;display: block;top: 0px;left: 265px;right: 0px;bottom
 				DynamodbFactory = window['@awspilot/dynamodb']
 				DynamoDB  = new DynamodbFactory(ddb)
 
-				cloudwatch = new AWS.CloudWatch({
+				cloudwatch = new AWS.Cloudwatch({
 					endpoint: this.get('cwendpoint'),
 					region: this.get('region'),
 					credentials: {
