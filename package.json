@@ -10,7 +10,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/awspilot/dynamodb-ui.git"
+		"url": "git+https://github.com/awspilot/ractive-dynamodb-ui.git"
 	},
 	"author": "",
 	"license": "ISC",
