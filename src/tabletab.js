@@ -1,5 +1,5 @@
 
-import tableinfo from './tableinfo';
+import tableinfo from './table/info';
 import tablealarms from './tablealarms';
 import tablecapacity from './tablecapacity';
 import tableindexes from './tableindexes';
