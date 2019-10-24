@@ -7,7 +7,7 @@
 		exports["ractive-dynamodb-ui"] = factory(require("ractive"));
 	else
 		root["ractive-dynamodb-ui"] = factory(root["Ractive"]);
-})(window, function(__WEBPACK_EXTERNAL_MODULE__11__) {
+})(window, function(__WEBPACK_EXTERNAL_MODULE__22__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -91,14 +91,14 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 111);
+/******/ 	return __webpack_require__(__webpack_require__.s = 42);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var freeGlobal = __webpack_require__(26);
+var freeGlobal = __webpack_require__(27);
 
 /** Detect free variable `self`. */
 var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
@@ -113,8 +113,8 @@ module.exports = root;
 /* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseIsNative = __webpack_require__(53),
-    getValue = __webpack_require__(58);
+var baseIsNative = __webpack_require__(70),
+    getValue = __webpack_require__(75);
 
 /**
  * Gets the native function at `key` of `object`.
@@ -134,41 +134,6 @@ module.exports = getNative;
 
 /***/ }),
 /* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var baseClone = __webpack_require__(41);
-
-/** Used to compose bitmasks for cloning. */
-var CLONE_DEEP_FLAG = 1,
-    CLONE_SYMBOLS_FLAG = 4;
-
-/**
- * This method is like `_.clone` except that it recursively clones `value`.
- *
- * @static
- * @memberOf _
- * @since 1.0.0
- * @category Lang
- * @param {*} value The value to recursively clone.
- * @returns {*} Returns the deep cloned value.
- * @see _.clone
- * @example
- *
- * var objects = [{ 'a': 1 }, { 'b': 2 }];
- *
- * var deep = _.cloneDeep(objects);
- * console.log(deep[0] === objects[0]);
- * // => false
- */
-function cloneDeep(value) {
-  return baseClone(value, CLONE_DEEP_FLAG | CLONE_SYMBOLS_FLAG);
-}
-
-module.exports = cloneDeep;
-
-
-/***/ }),
-/* 3 */
 /***/ (function(module, exports) {
 
 /**
@@ -205,7 +170,7 @@ module.exports = isObject;
 
 
 /***/ }),
-/* 4 */
+/* 3 */
 /***/ (function(module, exports) {
 
 /**
@@ -240,14 +205,14 @@ module.exports = isObjectLike;
 
 
 /***/ }),
-/* 5 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var listCacheClear = __webpack_require__(43),
-    listCacheDelete = __webpack_require__(44),
-    listCacheGet = __webpack_require__(45),
-    listCacheHas = __webpack_require__(46),
-    listCacheSet = __webpack_require__(47);
+var listCacheClear = __webpack_require__(60),
+    listCacheDelete = __webpack_require__(61),
+    listCacheGet = __webpack_require__(62),
+    listCacheHas = __webpack_require__(63),
+    listCacheSet = __webpack_require__(64);
 
 /**
  * Creates an list cache object.
@@ -278,10 +243,10 @@ module.exports = ListCache;
 
 
 /***/ }),
-/* 6 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var eq = __webpack_require__(24);
+var eq = __webpack_require__(25);
 
 /**
  * Gets the index at which the `key` is found in `array` of key-value pairs.
@@ -305,12 +270,12 @@ module.exports = assocIndexOf;
 
 
 /***/ }),
-/* 7 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Symbol = __webpack_require__(14),
-    getRawTag = __webpack_require__(54),
-    objectToString = __webpack_require__(55);
+var Symbol = __webpack_require__(12),
+    getRawTag = __webpack_require__(71),
+    objectToString = __webpack_require__(72);
 
 /** `Object#toString` result references. */
 var nullTag = '[object Null]',
@@ -339,7 +304,7 @@ module.exports = baseGetTag;
 
 
 /***/ }),
-/* 8 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var getNative = __webpack_require__(1);
@@ -351,10 +316,10 @@ module.exports = nativeCreate;
 
 
 /***/ }),
-/* 9 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isKeyable = __webpack_require__(68);
+var isKeyable = __webpack_require__(85);
 
 /**
  * Gets the data for `map`.
@@ -375,11 +340,11 @@ module.exports = getMapData;
 
 
 /***/ }),
-/* 10 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var assignValue = __webpack_require__(28),
-    baseAssignValue = __webpack_require__(29);
+var assignValue = __webpack_require__(29),
+    baseAssignValue = __webpack_require__(30);
 
 /**
  * Copies properties of `source` to `object`.
@@ -421,19 +386,85 @@ module.exports = copyObject;
 
 
 /***/ }),
-/* 11 */
-/***/ (function(module, exports) {
-
-module.exports = __WEBPACK_EXTERNAL_MODULE__11__;
-
-/***/ }),
-/* 12 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
-!function(t,e){ true?module.exports=e(__webpack_require__(11)):undefined}(window,function(n){return(i={},r.m=o=[function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default=Ractive.extend({template:"\n\t\t<tr>\n\t\t\t<td>\n\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-dragarea' ></button>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-contextmenu' ></button>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ level * 24 }}px;'>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-invisible' ></button>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t\t<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>{{key}} </div>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\x3c!-- <td class='jsoneditor-datatype'>String</td> --\x3e\n\t\t\t\t\t\t\t<td class='jsoneditor-separator'>:</td>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree' style='width: 100%;'>\n\t\t\t\t\t\t\t\t{{#if editing}}\n\t\t\t\t\t\t\t\t\t<textarea class='jsoneditor-input jsoneditor-string' style='height: {{textarea_height}}px;line-height: {{line_height}}px' on-focus='focus' on-blur='blur' on-keyup='keyup' value='{{value}}'></textarea>\n\t\t\t\t\t\t\t\t{{else}}\n\t\t\t\t\t\t\t\t\t<input class='jsoneditor-input jsoneditor-string' value='{{ JSON.stringify(value) }}' readonly='true' on-click='startEditing' />\n\t\t\t\t\t\t\t\t\t\x3c!--<div class='jsoneditor-value jsoneditor-string' style='cursor: pointer;height: {{line_height}}px;line-height: {{line_height}}px;overflow: hidden;' on-click='startEditing'>{{ JSON.stringify(value) }}</div>--\x3e\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\n\t\t\t\t\t<div class='trash-solid icon'></div>\n\t\t\t\t</button>\n\t\t\t</td>\n\t\t</tr>\n\t\t",data:function(){return{line_height:22,textarea_height:22}},on:{startEditing:function(t){var e=t.node.parentNode;this.set("editing",!0),e.getElementsByTagName("textarea").length&&e.getElementsByTagName("textarea")[0].focus()},focus:function(){var t=this.get("value").split("\n").length;this.set("textarea_height",t*this.get("line_height"))},blur:function(){this.set("editing",!1)},keyup:function(){var t=this.get("value").split("\n").length;this.set("textarea_height",t*this.get("line_height"))},delete:function(){this.parent.delete_key(this.get("key"))}}})},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default=Ractive.extend({template:"\n\t<tr>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-dragarea' ></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-contextmenu' ></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ level * 24 }}px;'>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-invisible' ></button>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>{{key}}</div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\x3c!--<td class='jsoneditor-datatype'>Number</td>--\x3e\n\t\t\t\t\t\t<td class='jsoneditor-separator'>:</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree' style='width: 100%;'>\n\t\t\t\t\t\t\t<input type='number' value='{{mirror_value}}' class='jsoneditor-input jsoneditor-number'  />\n\t\t\t\t\t\t\t\x3c!--\n\t\t\t\t\t\t\t<div contenteditable='true' spellcheck='false' class='jsoneditor-value jsoneditor-number' >{{ value }}</div>\n\t\t\t\t\t\t\t--\x3e\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t</td>\n\t\t<td>\n\t\t\t<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\n\t\t\t\t<div class='trash-solid icon'></div>\n\t\t\t</button>\n\t\t</td>\n\t</tr>\n\t",data:function(){return{mirror_value:""}},on:{delete:function(){this.parent.delete_key(this.get("key"))},init:function(){var t=this.get("value");this.set("mirror_value",t),this.observe("mirror_value",function(t,e,n){this.set({value:parseFloat(t)?t.toString():""})})}}})},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default=Ractive.extend({template:"\n\t<tr>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-dragarea' ></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-contextmenu' ></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ level * 24 }}px;'>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-invisible' ></button>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>{{key}}</div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-datatype'>Binary</td>\n\t\t\t\t\t\t<td class='jsoneditor-separator'>:</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree' style='width: 100%;'>\n\t\t\t\t\t\t\t<input value='{{updated_value}}' class='jsoneditor-input jsoneditor-binary' />\n\t\t\t\t\t\t\t\x3c!--\n\t\t\t\t\t\t\t<div contenteditable='true' spellcheck='false' class='jsoneditor-value jsoneditor-binary' >{{ updated_value }}</div>\n\t\t\t\t\t\t\t--\x3e\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t</td>\n\t\t<td>\n\t\t\t<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\n\t\t\t\t<div class='trash-solid icon'></div>\n\t\t\t</button>\n\t\t</td>\n\t</tr>\n\t",data:function(){return{updated_value:""}},on:{init:function(){var r=this.get("value");"string"==typeof r&&(this.set({updated_value:JSON.parse(JSON.stringify(r))}),r=Uint8Array.from(atob(r),function(t){return t.charCodeAt(0)}),this.set({value:r})),r instanceof Uint8Array&&this.set({updated_value:btoa(String.fromCharCode.apply(null,r))}),this.observe("updated_value",function(t,e,n){if(console.log("changed",t,e),"string"==typeof r)return this.set("value",t);try{var o=Uint8Array.from(atob(t),function(t){return t.charCodeAt(0)});this.set({value:o}),console.log(o)}catch(t){}})},delete:function(){this.parent.delete_key(this.get("key"))}}})},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default=Ractive.extend({template:"\n\t<tr>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-dragarea' ></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-contextmenu' ></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ level * 24 }}px;'>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-invisible' ></button>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>{{key}}</div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\x3c!--<td class='jsoneditor-datatype'>Boolean</td> --\x3e\n\t\t\t\t\t\t<td class='jsoneditor-separator'>:</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree' style='width: 100%;'>\n\t\t\t\t\t\t\t<input value='{{value}}' class='jsoneditor-input jsoneditor-boolean {{#if (value !== true ) && (value !== false) }}error{{/if}}' on-keyup='validate' on-blur='validate' />\n\t\t\t\t\t\t\t\x3c!--\n\t\t\t\t\t\t\t<div contenteditable='true' spellcheck='false' class='jsoneditor-value jsoneditor-boolean' >{{ value ? true : false }}</div>\n\t\t\t\t\t\t\t--\x3e\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t</td>\n\t\t<td>\n\t\t\t<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\n\t\t\t\t<div class='trash-solid icon'></div>\n\t\t\t</button>\n\t\t</td>\n\t</tr>\n\t",on:{init:function(){},validate:function(){"true"===this.get("value")&&this.set("value",!0),"false"===this.get("value")&&this.set("value",!1)},delete:function(){this.parent.delete_key(this.get("key"))}}})},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default=Ractive.extend({template:"\n\t<tr>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-dragarea' ></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-contextmenu' ></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ level * 24 }}px;'>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-invisible' ></button>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>{{key}}</div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\x3c!--<td class='jsoneditor-datatype'>Null</td>--\x3e\n\t\t\t\t\t\t<td class='jsoneditor-separator'>:</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div class='jsoneditor-input jsoneditor-null' >null</div>\n\t\t\t\t\t\t\t\x3c!--<div class='jsoneditor-value jsoneditor-null' >null</div>--\x3e\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t</td>\n\t\t<td>\n\t\t\t<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\n\t\t\t\t<div class='trash-solid icon'></div>\n\t\t\t</button>\n\t\t</td>\n\t</tr>\n\t",on:{delete:function(){this.parent.delete_key(this.get("key"))}}})},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var o,r=n(0),i=(o=r)&&o.__esModule?o:{default:o};e.default=Ractive.extend({components:{S:i.default},template:"\n\n\t<tr class=' jsoneditor-expandable'>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-dragarea'></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-contextmenu'></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ level * 24 }}px;'>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<button type='button' class='jsoneditor-button {{#if open}}jsoneditor-expanded{{else}}jsoneditor-collapsed{{/if}}' on-click='@this.toggle('open')'></button>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>{{key}}</div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-datatype'>StringSet[{{ value.length }}]</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'></td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div class='jsoneditor-value jsoneditor-array'></div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t</td>\n\t\t<td>\n\t\t\t<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\n\t\t\t\t<div class='trash-solid icon'></div>\n\t\t\t</button>\n\t\t</td>\n\t</tr>\n\n\t{{#if open}}\n\t<tr class='jsoneditor-appender'>\n\t\t<td></td><td></td><td>\n\t\t\t<div style='margin-left: {{ 24 * level + 40 }}px;' on-click='prepend'></div>\n\t\t</td><td></td>\n\t</tr>\n\t{{#value}}\n\t\t<S key={{@index}} value={{ . }} level='{{ level + 1 }}' />\n\t\t<tr class='jsoneditor-appender'>\n\t\t\t<td></td><td></td><td>\n\t\t\t\t<div style='margin-left: {{ 24 * level + 40 }}px;' on-click='elementinsert'></div>\n\t\t\t</td><td></td>\n\t\t</tr>\n\t{{/value}}\n\t{{/if}}\n\n\t<tr class='jsoneditor-append'></tr>\n\n\t",delete_key:function(o){var t=this.get("value");t=t.filter(function(t,e,n){return e!==o}),this.set({value:t})},data:function(){return{open:!1}},on:{delete:function(){this.parent.delete_key(this.get("key"))},prepend:function(){var t=this.get("value");t=[""].concat(t),this.set({value:t})},elementinsert:function(t){var e=this.get("value"),n=parseInt(t.resolve().split(".").pop());e.splice(n+1,0,""),this.set({value:e})}}})},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var o,r=n(1),i=(o=r)&&o.__esModule?o:{default:o};e.default=Ractive.extend({components:{N:i.default},template:"\n\n\t<tr class=' jsoneditor-expandable'>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-dragarea'></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-contextmenu'></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ level * 24 }}px;'>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<button type='button' class='jsoneditor-button {{#if open}}jsoneditor-expanded{{else}}jsoneditor-collapsed{{/if}}' on-click='@this.toggle('open')'></button>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>{{key}}</div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-datatype'>NumberSet[{{ value.length }}]</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'></td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div class='jsoneditor-value jsoneditor-array'></div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t</td>\n\t\t<td>\n\t\t\t<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\n\t\t\t\t<div class='trash-solid icon'></div>\n\t\t\t</button>\n\t\t</td>\n\t</tr>\n\n\t{{#if open}}\n\t<tr class='jsoneditor-appender'>\n\t\t<td></td><td></td><td>\n\t\t\t<div style='margin-left: {{ 24 * level + 40 }}px;' on-click='prepend'></div>\n\t\t</td><td></td>\n\t</tr>\n\t{{#value}}\n\t\t{{#if !hide}}\n\t\t<N key={{@index}} value={{ . }} level='{{ level + 1 }}' />\n\t\t<tr class='jsoneditor-appender'>\n\t\t\t<td></td><td></td><td>\n\t\t\t\t<div style='margin-left: {{ 24 * level + 40 }}px;' on-click='elementinsert'></div>\n\t\t\t</td><td></td>\n\t\t</tr>\n\t\t{{/if}}\n\t{{/value}}\n\t{{/if}}\n\n\t<tr class='jsoneditor-append'></tr>\n\n\t",delete_key:function(o){var t=this.get("value");t=t.filter(function(t,e,n){return e!==o}),this.set({value:t})},data:function(){return{open:!1,hide:!1}},on:{delete:function(){this.parent.delete_key(this.get("key"))},prepend:function(){var t=this.get("value");t=[""].concat(t),this.set({value:t}),this.set("hide",!0),this.set("hide",!1)},elementinsert:function(t){var e=this.get("value"),n=parseInt(t.resolve().split(".").pop());e.splice(n+1,0,""),this.set({value:e}),this.set("hide",!0),this.set("hide",!1)}}})},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var o,r=n(2),i=(o=r)&&o.__esModule?o:{default:o};e.default=Ractive.extend({components:{B:i.default},template:"\n\n\t<tr class=' jsoneditor-expandable'>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-dragarea'></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-contextmenu'></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ level * 24 }}px;'>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<button type='button' class='jsoneditor-button {{#if open}}jsoneditor-expanded{{else}}jsoneditor-collapsed{{/if}}' on-click='@this.toggle('open')'></button>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>{{key}}</div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-datatype'>BinarySet[{{ value.length }}]</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'></td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div class='jsoneditor-value jsoneditor-array'></div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t</td>\n\t\t<td>\n\t\t\t<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\n\t\t\t\t<div class='trash-solid icon'></div>\n\t\t\t</button>\n\t\t</td>\n\t</tr>\n\n\t{{#if open}}\n\t\t<tr class='jsoneditor-appender'>\n\t\t\t<td></td><td></td><td>\n\t\t\t\t<div style='margin-left: {{ 24 * level + 40 }}px;'  on-click='prepend'></div>\n\t\t\t</td><td></td>\n\t\t</tr>\n\t{{#value}}\n\t\t{{#if !hide}}\n\t\t<B key={{@index}} value={{ . }} level='{{ level + 1 }}' />\n\t\t<tr class='jsoneditor-appender'>\n\t\t\t<td></td><td></td><td>\n\t\t\t\t<div style='margin-left: {{ 24 * level + 40 }}px;' on-click='elementinsert'></div>\n\t\t\t</td><td></td>\n\t\t</tr>\n\t\t{{/if}}\n\t{{/value}}\n\t{{/if}}\n\n\t<tr class='jsoneditor-append'></tr>\n\n\t",delete_key:function(o){var t=this.get("value");t=t.filter(function(t,e,n){return e!==o}),this.set({value:t})},data:function(){return{open:!1,hide:!1}},on:{delete:function(){this.parent.delete_key(this.get("key"))},prepend:function(){var t=this.get("value");t=[Uint8Array.from(atob("InsertBase64Here"),function(t){return t.charCodeAt(0)})].concat(t),this.set({value:t}),this.set("hide",!0),this.set("hide",!1)},elementinsert:function(t){var e=this.get("value"),n=parseInt(t.resolve().split(".").pop());e.splice(n+1,0,Uint8Array.from(atob("InsertBase64Here"),function(t){return t.charCodeAt(0)})),this.set({value:e}),this.set("hide",!0),this.set("hide",!1)}}})},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var o=f(n(0)),r=f(n(1)),i=f(n(3)),s=f(n(4)),d=f(n(2)),l=f(n(5)),a=f(n(6)),u=f(n(7)),c=f(n(9)),p=f(n(13));function f(t){return t&&t.__esModule?t:{default:t}}var b=Ractive.extend({components:{S:o.default,N:r.default,BOOL:i.default,NULL:s.default,B:d.default,SS:l.default,NS:a.default,BS:u.default,M:c.default,appender:p.default},onconfig:function(){this.components.L=b},template:"\n\n\t<tr class=' jsoneditor-expandable'>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-dragarea'></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-contextmenu'></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ level * 24 }}px;'>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<button type='button' class='jsoneditor-button {{#if open}}jsoneditor-expanded{{else}}jsoneditor-collapsed{{/if}}' on-click='@this.toggle('open')'></button>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>{{key}}</div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-datatype'>List[{{ value.length }}]</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'></td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div class='jsoneditor-value jsoneditor-array'></div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t</td>\n\t\t<td>\n\t\t\t<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\n\t\t\t\t<div class='trash-solid icon'></div>\n\t\t\t</button>\n\t\t</td>\n\t</tr>\n\n\t{{#if open}}\n\t\t<appender level={{level}} index={{null}}/>\n\t{{#value}}\n\t\t{{#if .hasOwnProperty('S')}}\n\t\t\t<S key={{@index}} value={{ .S }} level='{{ level + 1 }}' />\n\t\t{{/if}}\n\n\t\t{{#if .hasOwnProperty('N')}}\n\t\t\t<N key={{@index}} value={{ .N }} level='{{ level + 1 }}' />\n\t\t{{/if}}\n\n\t\t{{#if .hasOwnProperty('BOOL')}}\n\t\t\t<BOOL key={{@index}} value={{ .BOOL }} level='{{ level + 1 }}' />\n\t\t{{/if}}\n\n\t\t{{#if .hasOwnProperty('NULL')}}\n\t\t\t<NULL key={{@index}} level='1' level='{{ level + 1 }}' />\n\t\t{{/if}}\n\n\t\t{{#if .hasOwnProperty('B')}}\n\t\t\t<B key={{@index}} value={{ .B }} level='{{ level + 1 }}' />\n\t\t{{/if}}\n\n\t\t{{#if .hasOwnProperty('L')}}\n\t\t\t<L key={{@index}} value={{ .L }} level='{{ level + 1 }}' />\n\t\t{{/if}}\n\n\t\t{{#if .hasOwnProperty('M')}}\n\t\t\t<M key={{@index}} value={{ .M }} level='{{ level + 1 }}' />\n\t\t{{/if}}\n\n\t\t{{#if .hasOwnProperty('SS')}}\n\t\t\t<SS key={{@index}} value={{ .SS }} level='{{ level + 1 }}' />\n\t\t{{/if}}\n\n\t\t{{#if .hasOwnProperty('NS')}}\n\t\t\t<NS key={{@index}} value={{ .NS }} level='{{ level + 1 }}' />\n\t\t{{/if}}\n\n\t\t{{#if .hasOwnProperty('BS')}}\n\t\t\t<BS key={{@index}} value={{ .BS }} level='{{ level + 1 }}' />\n\t\t{{/if}}\n\n\t\t<appender level={{level}} index={{@index}}/>\n\n\t{{/value}}\n\t{{/if}}\n\n\t<tr class='jsoneditor-append'></tr>\n\n\t",delete_key:function(o){var t=this.get("value");t=t.filter(function(t,e,n){return e!==o}),this.set({value:t})},data:function(){return{open:!1}},prepend_attribute:function(t,e){var n,o=this.get("value");"S"===t&&(n={S:""}),"N"===t&&(n={N:""}),"BOOL"===t&&(n={BOOL:""}),"NULL"===t&&(n={NULL:!0}),"B"===t&&(n={B:Uint8Array.from(atob("InsertBase64Here"),function(t){return t.charCodeAt(0)})}),"SS"===t&&(n={SS:[]}),"NS"===t&&(n={NS:[]}),"BS"===t&&(n={BS:[]}),"L"===t&&(n={L:[]}),"M"===t&&(n={M:{}}),null===e?o=[n].concat(o):o.splice(e+1,0,n),this.set({value:o})},on:{delete:function(){this.parent.delete_key(this.get("key"))}}});e.default=b},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var o=f(n(0)),r=f(n(1)),i=f(n(3)),s=f(n(4)),d=f(n(2)),l=f(n(5)),a=f(n(6)),u=f(n(7)),c=f(n(8)),p=f(n(10));function f(t){return t&&t.__esModule?t:{default:t}}var b=Ractive.extend({components:{S:o.default,N:r.default,BOOL:i.default,NULL:s.default,B:d.default,SS:l.default,NS:a.default,BS:u.default,L:c.default,appender:p.default},onconfig:function(){this.components.M=b,this.components.L=c.default},template:"\n\n\t\t<tr class=' jsoneditor-expandable'>\n\t\t\t<td>\n\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-dragarea'></button>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-contextmenu' ></button>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ level * 24 }}px;'>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t\t<button type='button' class='jsoneditor-button {{#if open}}jsoneditor-expanded{{else}}jsoneditor-collapsed{{/if}}' on-click='@this.toggle('open')'></button>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t\t<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>{{key}}</div>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td class='jsoneditor-datatype'>Map{{ '{' + Object.keys(value).length + '}' }}</td>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree'></td>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t\t<div class='jsoneditor-value jsoneditor-object'></div>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\n\t\t\t\t\t<div class='trash-solid icon'></div>\n\t\t\t\t</button>\n\t\t\t</td>\n\t\t</tr>\n\n\t\t{{#if open}}\n\t\t\t<appender level={{level}} index={{null}}/>\n\t\t{{#each value }}\n\t\t\t{{#if .hasOwnProperty('S')}}\n\t\t\t\t<S key={{@key}} value={{ .S }} level='{{ level + 1 }}' />\n\t\t\t{{/if}}\n\n\t\t\t{{#if .hasOwnProperty('N')}}\n\t\t\t\t<N key={{@key}} value={{ .N }} level='{{ level + 1 }}' />\n\t\t\t{{/if}}\n\n\t\t\t{{#if .hasOwnProperty('BOOL')}}\n\t\t\t\t<BOOL key={{@key}} value={{ .BOOL }} level='{{ level + 1 }}' />\n\t\t\t{{/if}}\n\n\t\t\t{{#if .hasOwnProperty('NULL')}}\n\t\t\t\t<NULL key={{@key}} level='1' level='{{ level + 1 }}' />\n\t\t\t{{/if}}\n\n\t\t\t{{#if .hasOwnProperty('B')}}\n\t\t\t\t<B key={{@key}} value={{ .B }} level='{{ level + 1 }}' />\n\t\t\t{{/if}}\n\n\t\t\t{{#if .hasOwnProperty('L')}}\n\t\t\t\t<L key={{@key}} value={{ .L }} level='{{ level + 1 }}' />\n\t\t\t{{/if}}\n\n\t\t\t{{#if .hasOwnProperty('M')}}\n\t\t\t\t<M key={{@key}} value={{ .M }} level='{{ level + 1 }}' />\n\t\t\t{{/if}}\n\n\t\t\t{{#if .hasOwnProperty('SS')}}\n\t\t\t\t<SS key={{@key}} value={{ .SS }} level='{{ level + 1 }}' />\n\t\t\t{{/if}}\n\n\t\t\t{{#if .hasOwnProperty('NS')}}\n\t\t\t\t<NS key={{@key}} value={{ .NS }} level='{{ level + 1 }}' />\n\t\t\t{{/if}}\n\n\t\t\t{{#if .hasOwnProperty('BS')}}\n\t\t\t\t<BS key={{@key}} value={{ .BS }} level='{{ level + 1 }}' />\n\t\t\t{{/if}}\n\t\t\t<appender level={{level}} index={{@key}}/>\n\n\t\t{{/each}}\n\t\t{{/if}}\n\n\n\t\t<tr class='jsoneditor-append'></tr>\n\n\t",delete_key:function(t){var e=this.get("value");delete e[t],this.set({value:e})},data:function(){return{open:!1}},prepend_attribute:function(t,e,n){console.log("prepend",t,e,n);var o,r=this.get("value");"S"===t&&(o={S:""}),"N"===t&&(o={N:""}),"BOOL"===t&&(o={BOOL:""}),"NULL"===t&&(o={NULL:!0}),"B"===t&&(o={B:Uint8Array.from(atob("InsertBase64Here"),function(t){return t.charCodeAt(0)})}),"SS"===t&&(o={SS:[]}),"NS"===t&&(o={NS:[]}),"BS"===t&&(o={BS:[]}),"L"===t&&(o={L:[]}),"M"===t&&(o={M:{}});var i={};null===e?(i[n]=o,Object.keys(r).map(function(t){i[t]=r[t]})):Object.keys(r).map(function(t){i[t]=r[t],t===e&&(i[n]=o)}),this.set({value:{}}),this.set({value:i})},on:{delete:function(){this.parent.delete_key(this.get("key"))}}});e.default=b},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default=Ractive.extend({template:"\n\t{{#if type === null}}\n\t<tr class='jsoneditor-appender'>\n\t\t<td></td><td></td><td>\n\t\t\t\t<div style='margin-left: {{ 24 * level + 40 }}px;' on-click='pickatype'></div>\n\t\t</td><td></td>\n\t</tr>\n\t{{/if}}\n\n\t{{#if type !== null }}\n\t\t<tr>\n\t\t\t<td>\n\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-dragarea' ></button>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-contextmenu' ></button>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ (level+1) * 24 }}px;'>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-invisible' ></button>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t\t<input value={{field_name}} placeholder='Attribute Name' style='margin-top: 3px;' />\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td class='jsoneditor-separator'>:</td>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree' style='width: 100%;'>\n\t\t\t\t\t\t\t\t<select value={{type}} on-change='typepicked' style='margin-top: 3px;'>\n\t\t\t\t\t\t\t\t\t<option value=''>Select Data Type</option>\n\t\t\t\t\t\t\t\t\t<option value='S'>String</option>\n\t\t\t\t\t\t\t\t\t<option value='N'>Number</option>\n\t\t\t\t\t\t\t\t\t<option value='BOOL'>Boolean</option>\n\t\t\t\t\t\t\t\t\t<option value='NULL'>Null</option>\n\t\t\t\t\t\t\t\t\t<option value='B'>Binary</option>\n\t\t\t\t\t\t\t\t\t<option value='SS'>StringSet</option>\n\t\t\t\t\t\t\t\t\t<option value='NS'>NumberSet</option>\n\t\t\t\t\t\t\t\t\t<option value='BS'>BinarySet</option>\n\t\t\t\t\t\t\t\t\t<option value='L'>List</option>\n\t\t\t\t\t\t\t\t\t<option value='M'>Map</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\n\t\t\t\t\t<div class='trash-solid icon'></div>\n\t\t\t\t</button>\n\t\t\t</td>\n\t\t</tr>\n\t{{/if}}\n\t",data:function(){return{type:null,field_name:""}},on:{delete:function(){this.set({type:null})},pickatype:function(){this.set({type:""})},typepicked:function(){this.parent.prepend_attribute(this.get("type"),this.get("index"),this.get("field_name")),this.set({type:null})}}})},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var o=v(n(12)),r=v(n(0)),i=v(n(1)),s=v(n(3)),d=v(n(4)),l=v(n(2)),a=v(n(5)),u=v(n(6)),c=v(n(7)),p=v(n(8)),f=v(n(9)),b=v(n(10));function v(t){return t&&t.__esModule?t:{default:t}}e.default=o.default.extend({template:{v:4,t:[{t:7,e:"div",m:[{t:13,n:"class",f:"jsoneditor",g:1},{n:"style",f:[{t:2,r:"style"}],t:13}],f:[{t:7,e:"div",m:[{n:"class",f:["jsoneditor-menu ",{t:2,rx:{r:".",m:[{r:[],s:'"menu-class"'}]}}],t:13},{n:"style",f:[{t:2,rx:{r:".",m:[{r:[],s:'"menu-style"'}]}}],t:13}],f:[{t:7,e:"select",m:[{n:"value",f:[{t:2,r:"mode"}],t:13},{n:"style",f:"height: 20px;margin: 6px;",t:13}],f:[{t:7,e:"option",m:[{n:"value",f:"tree",t:13}],f:["Tree"]}," ",{t:7,e:"option",m:[{n:"value",f:"code",t:13}],f:["Code"]}]}]}," ",{t:4,f:[{t:7,e:"div",m:[{n:"class",f:["jsoneditor-navbar ",{t:2,x:{r:["navbar","class"],s:"_0-_1"}}],t:13},{n:"style",f:[{t:2,rx:{r:".",m:[{r:[],s:'"navbar-style"'}]}}],t:13}]}],n:50,x:{r:["mode","navigationBar"],s:'(_0==="tree")&&(_1===true)'}}," ",{t:7,e:"div",m:[{n:"class",f:["jsoneditor-outer has-main-menu-bar ",{t:4,f:["has-nav-bar"],n:50,x:{r:["mode","navigationBar"],s:'(_0==="tree")&&(_1===true)'}}],t:13}],f:[{t:4,f:[{t:7,e:"textarea",m:[{n:"style",f:"width: 100%;height: 100%;border: 0px;margin: 0px;padding: 0px;",t:13}],f:[{t:2,x:{r:["item"],s:'JSON.stringify(_0,null,"\\t")'}}]}],n:50,x:{r:["mode"],s:'_0==="code"'}},{t:4,f:[{t:7,e:"div",m:[{t:13,n:"class",f:"jsoneditor-tree",g:1}],f:[{t:7,e:"div",m:[{t:13,n:"class",f:"jsoneditor-tree-inner",g:1}],f:[{t:7,e:"table",m:[{t:13,n:"class",f:"jsoneditor-tree",g:1},{n:"border",f:"0",t:13,g:1}],f:[{t:7,e:"colgroup",f:[{t:7,e:"col",m:[{n:"width",f:"24px",t:13,g:1}]},{t:7,e:"col",m:[{n:"width",f:"24px",t:13,g:1}]},{t:7,e:"col"}]}," ",{t:7,e:"tbody",f:[{t:7,e:"tr",m:[{t:13,n:"class",f:" jsoneditor-expandable",g:1}],f:[{t:7,e:"td"}," ",{t:7,e:"td",f:[{t:7,e:"button",m:[{t:13,n:"class",f:"jsoneditor-button jsoneditor-contextmenu",g:1},{n:"type",f:"button",t:13,g:1}]}]}," ",{t:7,e:"td",f:[{t:7,e:"table",m:[{t:13,n:"style",f:"border-collapse: collapse; margin-left: 0px;",g:1},{t:13,n:"class",f:"jsoneditor-values",g:1}],f:[{t:7,e:"tbody",f:[{t:7,e:"tr",f:[{t:7,e:"td",m:[{t:13,n:"class",f:"jsoneditor-tree",g:1}],f:[{t:7,e:"button",m:[{n:"type",f:"button",t:13,g:1},{n:"class",f:["jsoneditor-button ",{t:4,f:["jsoneditor-expanded"],n:50,r:"open"},{t:4,f:["jsoneditor-collapsed"],n:51,l:1}],t:13},{n:["click"],t:70,f:{r:["@this"],s:'[_0.toggle("open")]'}}]}]}," ",{t:7,e:"td",m:[{t:13,n:"class",f:"jsoneditor-tree",g:1}],f:[{t:7,e:"div",m:[{t:13,n:"class",f:"jsoneditor-readonly",g:1},{n:"contenteditable",f:"false",t:13}],f:["Item"]}]}," ",{t:7,e:"td",m:[{t:13,n:"class",f:"jsoneditor-tree",g:1}]}," ",{t:7,e:"td",m:[{t:13,n:"class",f:"jsoneditor-tree",g:1}],f:[{t:7,e:"div",m:[{t:13,n:"class",f:"jsoneditor-value jsoneditor-object",g:1}],f:["{ ",{t:2,x:{r:["item"],s:"Object.keys(_0).length"}}," }"]}]}]}]}]}]}," ",{t:7,e:"td",f:[]}]}," ",{t:4,f:[{t:7,e:"appender",m:[{n:"level",f:[{t:2,x:{r:[],s:"0"}}],t:13},{n:"index",f:[{t:2,x:{r:[],s:"null"}}],t:13}]}," ",{t:4,f:[{t:4,f:[{t:7,e:"S",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"value",f:[{t:2,r:".S"}],t:13},{n:"level",f:"1",t:13,g:1}]}],n:50,x:{r:["."],s:'_0.hasOwnProperty("S")'}}," ",{t:4,f:[{t:7,e:"N",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"value",f:[{t:2,r:".N"}],t:13},{n:"level",f:"1",t:13,g:1}]}],n:50,x:{r:["."],s:'_0.hasOwnProperty("N")'}}," ",{t:4,f:[{t:7,e:"BOOL",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"value",f:[{t:2,r:".BOOL"}],t:13},{n:"level",f:"1",t:13,g:1}]}],n:50,x:{r:["."],s:'_0.hasOwnProperty("BOOL")'}}," ",{t:4,f:[{t:7,e:"NULL",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"level",f:"1",t:13,g:1},{n:"level",f:"1",t:13,g:1}]}],n:50,x:{r:["."],s:'_0.hasOwnProperty("NULL")'}}," ",{t:4,f:[{t:7,e:"B",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"value",f:[{t:2,r:".B"}],t:13},{n:"level",f:"1",t:13,g:1}]}],n:50,x:{r:["."],s:'_0.hasOwnProperty("B")'}}," ",{t:4,f:[{t:7,e:"L",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"value",f:[{t:2,r:".L"}],t:13},{n:"level",f:"1",t:13,g:1}]}],n:50,x:{r:["."],s:'_0.hasOwnProperty("L")'}}," ",{t:4,f:[{t:7,e:"M",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"value",f:[{t:2,r:".M"}],t:13},{n:"level",f:"1",t:13,g:1}]}],n:50,x:{r:["."],s:'_0.hasOwnProperty("M")'}}," ",{t:4,f:[{t:7,e:"SS",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"value",f:[{t:2,r:".SS"}],t:13},{n:"level",f:"1",t:13,g:1}]}],n:50,x:{r:["."],s:'_0.hasOwnProperty("SS")'}}," ",{t:4,f:[{t:7,e:"NS",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"value",f:[{t:2,r:".NS"}],t:13},{n:"level",f:"1",t:13,g:1}]}],n:50,x:{r:["."],s:'_0.hasOwnProperty("NS")'}}," ",{t:4,f:[{t:7,e:"BS",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"value",f:[{t:2,r:".BS"}],t:13},{n:"level",f:"1",t:13,g:1}]}],n:50,x:{r:["."],s:'_0.hasOwnProperty("BS")'}}," ",{t:7,e:"appender",m:[{n:"level",f:[{t:2,x:{r:[],s:"0"}}],t:13},{n:"index",f:[{t:2,r:"@key"}],t:13}]}],n:52,r:"item"}],n:50,r:"open"}]}]}]}]}],n:51,l:1}]}]}],e:{0:function(){return 0},'"menu-class"':function(){return"menu-class"},'"menu-style"':function(){return"menu-style"},"_0-_1":function(t,e){return t-e},'"navbar-style"':function(){return"navbar-style"},'(_0==="tree")&&(_1===true)':function(t,e){return"tree"===t&&!0===e},'JSON.stringify(_0,null,"\\t")':function(t){return JSON.stringify(t,null,"\t")},'_0==="code"':function(t){return"code"===t},'[_0.toggle("open")]':function(t){return[t.toggle("open")]},"Object.keys(_0).length":function(t){return Object.keys(t).length},null:function(){return null},'_0.hasOwnProperty("S")':function(t){return t.hasOwnProperty("S")},'_0.hasOwnProperty("N")':function(t){return t.hasOwnProperty("N")},'_0.hasOwnProperty("BOOL")':function(t){return t.hasOwnProperty("BOOL")},'_0.hasOwnProperty("NULL")':function(t){return t.hasOwnProperty("NULL")},'_0.hasOwnProperty("B")':function(t){return t.hasOwnProperty("B")},'_0.hasOwnProperty("L")':function(t){return t.hasOwnProperty("L")},'_0.hasOwnProperty("M")':function(t){return t.hasOwnProperty("M")},'_0.hasOwnProperty("SS")':function(t){return t.hasOwnProperty("SS")},'_0.hasOwnProperty("NS")':function(t){return t.hasOwnProperty("NS")},'_0.hasOwnProperty("BS")':function(t){return t.hasOwnProperty("BS")}}},components:{S:r.default,N:i.default,BOOL:s.default,NULL:d.default,B:l.default,SS:a.default,NS:u.default,BS:c.default,L:p.default,M:f.default,appender:b.default},css:".jsoneditor { display: 'inline-block'; color: #1a1a1a; border: thin solid #f4a460; box-sizing: border-box; width: 100%; height: 100%; position: relative; padding: 0; line-height: 100%; width: 534px; background-color: #fff; } .jsoneditor-menu { width: 100%; height: 35px; padding: 2px; margin: 0; box-sizing: border-box; color: #fff; border-bottom: 1px solid #3883fa; background-color: #f4a460; border-color: #f4a460; } .jsoneditor-navbar { width: 100%; height: 26px; line-height: 26px; padding: 0; margin: 0; box-sizing: border-box; color: grey; overflow: hidden; font-family: arial,sans-serif; font-size: 10pt; border-bottom: 1px solid #d3d3d3; background-color: #ebebeb; } .jsoneditor-outer { overflow: auto; position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; box-sizing: border-box; } .jsoneditor-outer.has-main-menu-bar { top: 35px; } .jsoneditor-outer.has-main-menu-bar.has-nav-bar { top: 61px; } .jsoneditor table { border-collapse: collapse; width: auto; } div.jsoneditor-tree table.jsoneditor-tree { border-collapse: collapse; border-spacing: 0; width: 100%; } div.jsoneditor td, div.jsoneditor th, div.jsoneditor tr { padding: 0;margin: 0; } div.jsoneditor tr:hover {background-color: #f0f0f0;} div.jsoneditor tr.jsoneditor-appender {} div.jsoneditor tr.jsoneditor-appender > td:nth-child(3) {position: relative;height: 4px;} div.jsoneditor tr.jsoneditor-appender > td:nth-child(3) > div {cursor: row-resize;} div.jsoneditor tr.jsoneditor-appender > td:nth-child(4) {width: 32px;} div.jsoneditor tr.jsoneditor-appender:hover {background-color: transparent;} div.jsoneditor tr.jsoneditor-appender:hover > td:nth-child(3) {} div.jsoneditor tr.jsoneditor-appender:hover > td:nth-child(3) > div {height: 4px;background-color: #000099} .jsoneditor-field {white-space: nowrap} .jsoneditor-popover, .jsoneditor-schema-error, div.jsoneditor td, div.jsoneditor textarea, div.jsoneditor th, div.jsoneditor-field, div.jsoneditor-value, pre.jsoneditor-preview { font-family: \"dejavu sans mono\",\"droid sans mono\",consolas,monaco,\"lucida console\",\"courier new\",courier,monospace,sans-serif; font-size: 10pt; color: #1a1a1a; } div.jsoneditor-default, div.jsoneditor-field, div.jsoneditor-readonly, div.jsoneditor-value { border: 1px solid transparent; min-height: 16px; min-width: 32px; padding: 2px; margin: 1px; word-wrap: break-word; float: left; } div.jsoneditor td { vertical-align: top; } .jsoneditor td, .jsoneditor th { padding: 0; display: table-cell; text-align: left; vertical-align: inherit; border-radius: inherit; } div.jsoneditor-tree button.jsoneditor-contextmenu { background-position: -48px -72px; } /* buttons */ div.jsoneditor-tree button.jsoneditor-button { width: 24px; height: 24px; padding: 0; margin: 0; border: none; cursor: pointer; background-color: transparent; outline: none; } div.jsoneditor-tree button.jsoneditor-invisible { visibility: hidden; } div.jsoneditor-tree button.jsoneditor-expanded { background-color: '#4499ff'; position: relative; outline: none; } div.jsoneditor-tree button.jsoneditor-expanded:after { content: ' '; position: absolute; top: 9px; left: 9px; width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 5px solid #000; } div.jsoneditor-tree button.jsoneditor-collapsed { background-color: '#4499ff'; position: relative; outline: none; } div.jsoneditor-tree button.jsoneditor-collapsed:after { content: ' '; position: absolute; top: 9px; left: 9px; width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 5px solid #000; } div.jsoneditor td.jsoneditor-tree { vertical-align: top; } div.jsoneditor td.jsoneditor-separator { padding: 3px 0; vertical-align: top; color: grey; } div.jsoneditor td.jsoneditor-separator { padding: 3px 0; vertical-align: top; color: grey; } div.jsoneditor td.jsoneditor-datatype { padding: 3px 0; vertical-align: top; color: grey; } .jsoneditor-contextmenu { position: absolute; box-sizing: content-box; z-index: 99; } div.jsoneditor-value.jsoneditor-string { color: #006000; } input.jsoneditor-input.jsoneditor-string { border: 0px;padding: 0px;margin: 0px;font-size: 14px;vertical-align: sub;outline: none;color: #006000;width: 100%;background-color: transparent; } input.jsoneditor-input.jsoneditor-string:focus { background-color: #bcffa0; } textarea.jsoneditor-input.jsoneditor-string { border: 0px;padding: 0px;margin: 0px;outline: none;color: #006000;width:100%;box-sizing:border-box;display:block;max-width:100%;font:13px Tahoma, cursive; } textarea.jsoneditor-input.jsoneditor-string:focus { background-color: #bcffa0; } div.jsoneditor-value.jsoneditor-number { color: #ee422e; } input.jsoneditor-input.jsoneditor-number { border: 0px;padding: 0px;margin: 0px;font-size: 14px;vertical-align: sub;outline: none;color: #ee422e;width: 100%;background-color: transparent; } input.jsoneditor-input.jsoneditor-number:focus { background-color: #bcffa0; } div.jsoneditor-value.jsoneditor-boolean { color: #ff8c00; } input.jsoneditor-input.jsoneditor-boolean { border: 0px;padding: 0px;margin: 0px;font-size: 14px;vertical-align: sub;outline: none;color: #ff8c00;width: 100%;background-color: transparent; } input.jsoneditor-input.jsoneditor-boolean:focus { background-color: #bcffa0; } input.jsoneditor-input.jsoneditor-boolean.error { background-color: red !important; } div.jsoneditor-value.jsoneditor-binary { color: #004ed0; } input.jsoneditor-input.jsoneditor-binary { border: 0px;padding: 0px;margin: 0px;font-size: 14px;vertical-align: sub;outline: none;color: #004ed0;width: 100%;background-color: transparent; } input.jsoneditor-input.jsoneditor-binary:focus { background-color: #bcffa0; } div.jsoneditor-value.jsoneditor-null { color: #004ed0; } .jsoneditor-input.jsoneditor-null { border: 0px;padding: 0px;margin: 0px;font-size: 14px;vertical-align: sub;outline: none;color: #004ed0;width: 100%;background-color: transparent;line-height: 27px; } /* icons and btns */ .btn-delete-attribute {display: none;} tr:hover .btn-delete-attribute {display: inline-block;} .trash-solid.icon { color: #aaa; position: absolute; margin-left: 5px; margin-top: 0px; width: 8px; height: 8px; border-left: solid 1px currentColor; border-right: solid 1px currentColor; border-bottom: solid 1px currentColor; border-radius: 0 0 2px 2px; background-color: currentColor; } .trash-solid.icon:hover {color: #999;} .trash-solid.icon:before { content: ''; position: absolute; left: -4px; top: -2px; width: 17px; height: 1px; background-color: currentColor; } .trash-solid.icon:after { content: ''; position: absolute; left: 0px; top: -5px; width: 7px; height: 2px; border-left: solid 1px currentColor; border-right: solid 1px currentColor; border-top: solid 1px currentColor; background-color: currentColor; border-radius: 4px 4px 0 0; } ",data:function(){return{open:!0,mode:"tree",mainMenuBar:!0,navigationBar:!0,statusBar:!0}},prepend_attribute:function(t,e,n){console.log("prepend",t,e,n);var o,r=this.get("item");"S"===t&&(o={S:""}),"N"===t&&(o={N:""}),"BOOL"===t&&(o={BOOL:""}),"NULL"===t&&(o={NULL:!0}),"B"===t&&(o={B:Uint8Array.from(atob("InsertBase64Here"),function(t){return t.charCodeAt(0)})}),"SS"===t&&(o={SS:[]}),"NS"===t&&(o={NS:[]}),"BS"===t&&(o={BS:[]}),"L"===t&&(o={L:[]}),"M"===t&&(o={M:{}});var i={};null===e?(i[n]=o,Object.keys(r).map(function(t){i[t]=r[t]})):Object.keys(r).map(function(t){i[t]=r[t],t===e&&(i[n]=o)}),this.set({item:{}}),this.set({item:i})},delegate:!1,elToFocus:null,delete_key:function(t){var e=this.get("item");delete e[t],this.set({item:e})},on:{}})},function(t,e){t.exports=n},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default=Ractive.extend({template:"\n\t{{#if type === null}}\n\t<tr class='jsoneditor-appender'>\n\t\t<td></td><td></td><td>\n\t\t\t\t<div style='margin-left: {{ 24 * level + 40 }}px;' on-click='pickatype'></div>\n\t\t</td><td></td>\n\t</tr>\n\t{{/if}}\n\n\t{{#if type !== null }}\n\t\t<tr>\n\t\t\t<td>\n\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-dragarea' ></button>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-contextmenu' ></button>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ (level+1) * 24 }}px;'>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-invisible' ></button>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t\t<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>*</div>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td class='jsoneditor-separator'>:</td>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree' style='width: 100%;'>\n\t\t\t\t\t\t\t\t<select value={{type}} on-change='typepicked' style='margin-top: 3px;'>\n\t\t\t\t\t\t\t\t\t<option value=''>Select Data Type</option>\n\t\t\t\t\t\t\t\t\t<option value='S'>String</option>\n\t\t\t\t\t\t\t\t\t<option value='N'>Number</option>\n\t\t\t\t\t\t\t\t\t<option value='BOOL'>Boolean</option>\n\t\t\t\t\t\t\t\t\t<option value='NULL'>Null</option>\n\t\t\t\t\t\t\t\t\t<option value='B'>Binary</option>\n\t\t\t\t\t\t\t\t\t<option value='SS'>StringSet</option>\n\t\t\t\t\t\t\t\t\t<option value='NS'>NumberSet</option>\n\t\t\t\t\t\t\t\t\t<option value='BS'>BinarySet</option>\n\t\t\t\t\t\t\t\t\t<option value='L'>List</option>\n\t\t\t\t\t\t\t\t\t<option value='M'>Map</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\n\t\t\t\t\t<div class='trash-solid icon'></div>\n\t\t\t\t</button>\n\t\t\t</td>\n\t\t</tr>\n\t{{/if}}\n\t",data:function(){return{type:null}},on:{delete:function(){this.set({type:null})},pickatype:function(){this.set({type:""})},typepicked:function(){this.parent.prepend_attribute(this.get("type"),this.get("index")),this.set({type:null})}}})}],r.c=i,r.d=function(t,e,n){r.o(t,e)||Object.defineProperty(t,e,{enumerable:!0,get:n})},r.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},r.t=function(e,t){if(1&t&&(e=r(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var n=Object.create(null);if(r.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var o in e)r.d(n,o,function(t){return e[t]}.bind(null,o));return n},r.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return r.d(e,"a",e),e},r.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},r.p="",r(r.s=11)).default;function r(t){if(i[t])return i[t].exports;var e=i[t]={i:t,l:!1,exports:{}};return o[t].call(e.exports,e,e.exports,r),e.l=!0,e.exports}var o,i});
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.default = Ractive.extend({
+	isolated: true,
+	template: "\
+		<div class='tabledata' style='{{style}}'>\
+			<div class='tabledatahead'>\
+				{{#columns:i}}\
+					<div style='width: {{#if i === 0}}22px{{else}}{{100/columns.length}}%{{/if}} '>{{.}}</div>\
+				{{/columns}}\
+			</div>\
+			<div class='tabledatacontent'>\
+		\
+				{{#if rows.length === 0}}\
+					<br><small>Empty</small>\
+				{{/if}}\
+				{{#if rows === null }}\
+					<br><small>Loading...</small>\
+				{{/if}}\
+		\
+				{{#rows:row}}\
+				<div class='tabledatarow {{#if .[0].selected}}selected{{/if}}' on-click='selectrow'>\
+					{{#each .:i}}\
+					<div class='tabledatacell\
+						{{#if .KEY}}t-K{{/if}}\
+						{{#if .HASH}}t-HASH{{/if}}\
+						{{#if .S}}t-S{{/if}}\
+						{{#if .N}}t-N{{/if}}\
+						{{#if .BOOL}}t-BOOL{{/if}}\
+						{{#if .NULL}}t-NULL{{/if}}\
+						{{#if .L}}t-L{{/if}}\
+						{{#if .M}}t-M{{/if}}\
+						{{#if .U}}t-U{{/if}}\
+						' style='width: {{#if i === 0}}22px{{else}}{{100/columns.length}}%{{/if}} '\
+						{{#if .HASH}}on-click='cellclick'{{/if}}\
+						>\
+						{{#if .KEY}}\
+							{{#if .selected}}\
+								<i class='zmdi selectrow zmdi-hc-fw zmdi-check-square'></i>\
+							{{else}}\
+								<i class='zmdi selectrow zmdi-hc-fw zmdi-square-o'></i>\
+							{{/if}}\
+						{{/if}}\
+						{{#if .HASH}}<a>{{.HASH}}</a>{{/if}}\
+						{{#if .S}}{{.S}}{{/if}}\
+						{{#if .N}}{{.N}}{{else}}{{#if .N === 0}}0{{/if}}{{/if}}\
+						{{#if .BOOL}}{{.BOOL}}{{/if}}\
+						{{#if .NULL}}NULL{{/if}}\
+						{{#if .L}}[...]{{/if}}\
+						{{#if .M}}{...}{{/if}}\
+					</div>\
+					{{/each}}\
+				</div>\
+				{{/rows}}\
+			</div>\
+		</div>",
+
+	data: function data() {
+		return {};
+	},
+	oninit: function oninit() {
+		this.on('cellclick', function (e) {
+			var col = this.get(e.resolve());
+			//console.log("cellclick", e.resolve(), " = ",this.get( e.resolve())  )
+			//console.log( this.get(e.resolve().split('.').slice(0,-1).join('.')) )
+			this.fire('colclick', undefined, col.item, col.raw);
+		});
+	}
+});
 
 /***/ }),
-/* 13 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var getNative = __webpack_require__(1),
@@ -446,7 +477,7 @@ module.exports = Map;
 
 
 /***/ }),
-/* 14 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var root = __webpack_require__(0);
@@ -458,12 +489,12 @@ module.exports = Symbol;
 
 
 /***/ }),
-/* 15 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var arrayLikeKeys = __webpack_require__(30),
-    baseKeys = __webpack_require__(82),
-    isArrayLike = __webpack_require__(34);
+var arrayLikeKeys = __webpack_require__(31),
+    baseKeys = __webpack_require__(99),
+    isArrayLike = __webpack_require__(35);
 
 /**
  * Creates an array of the own enumerable property names of `object`.
@@ -501,7 +532,7 @@ module.exports = keys;
 
 
 /***/ }),
-/* 16 */
+/* 14 */
 /***/ (function(module, exports) {
 
 /**
@@ -533,7 +564,7 @@ module.exports = isArray;
 
 
 /***/ }),
-/* 17 */
+/* 15 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -561,7 +592,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 18 */
+/* 16 */
 /***/ (function(module, exports) {
 
 /**
@@ -581,10 +612,10 @@ module.exports = baseUnary;
 
 
 /***/ }),
-/* 19 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(module) {var freeGlobal = __webpack_require__(26);
+/* WEBPACK VAR INJECTION */(function(module) {var freeGlobal = __webpack_require__(27);
 
 /** Detect free variable `exports`. */
 var freeExports =  true && exports && !exports.nodeType && exports;
@@ -615,10 +646,10 @@ var nodeUtil = (function() {
 
 module.exports = nodeUtil;
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(17)(module)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(15)(module)))
 
 /***/ }),
-/* 20 */
+/* 18 */
 /***/ (function(module, exports) {
 
 /** Used for built-in method references. */
@@ -642,11 +673,11 @@ module.exports = isPrototype;
 
 
 /***/ }),
-/* 21 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var arrayFilter = __webpack_require__(90),
-    stubArray = __webpack_require__(36);
+var arrayFilter = __webpack_require__(107),
+    stubArray = __webpack_require__(37);
 
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
@@ -678,16 +709,16 @@ module.exports = getSymbols;
 
 
 /***/ }),
-/* 22 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var DataView = __webpack_require__(94),
-    Map = __webpack_require__(13),
-    Promise = __webpack_require__(95),
-    Set = __webpack_require__(96),
-    WeakMap = __webpack_require__(97),
-    baseGetTag = __webpack_require__(7),
-    toSource = __webpack_require__(27);
+var DataView = __webpack_require__(111),
+    Map = __webpack_require__(11),
+    Promise = __webpack_require__(112),
+    Set = __webpack_require__(113),
+    WeakMap = __webpack_require__(114),
+    baseGetTag = __webpack_require__(6),
+    toSource = __webpack_require__(28);
 
 /** `Object#toString` result references. */
 var mapTag = '[object Map]',
@@ -742,10 +773,10 @@ module.exports = getTag;
 
 
 /***/ }),
-/* 23 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Uint8Array = __webpack_require__(100);
+var Uint8Array = __webpack_require__(117);
 
 /**
  * Creates a clone of `arrayBuffer`.
@@ -764,7 +795,54 @@ module.exports = cloneArrayBuffer;
 
 
 /***/ }),
+/* 22 */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE__22__;
+
+/***/ }),
+/* 23 */
+/***/ (function(module, exports, __webpack_require__) {
+
+!function(t,e){ true?module.exports=e(__webpack_require__(22)):undefined}(window,function(n){return(i={},r.m=o=[function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default=Ractive.extend({template:"\n\t\t<tr>\n\t\t\t<td>\n\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-dragarea' ></button>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-contextmenu' ></button>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ level * 24 }}px;'>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-invisible' ></button>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t\t<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>{{key}} </div>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\x3c!-- <td class='jsoneditor-datatype'>String</td> --\x3e\n\t\t\t\t\t\t\t<td class='jsoneditor-separator'>:</td>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree' style='width: 100%;'>\n\t\t\t\t\t\t\t\t{{#if editing}}\n\t\t\t\t\t\t\t\t\t<textarea class='jsoneditor-input jsoneditor-string' style='height: {{textarea_height}}px;line-height: {{line_height}}px' on-focus='focus' on-blur='blur' on-keyup='keyup' value='{{value}}'></textarea>\n\t\t\t\t\t\t\t\t{{else}}\n\t\t\t\t\t\t\t\t\t<input class='jsoneditor-input jsoneditor-string' value='{{ JSON.stringify(value) }}' readonly='true' on-click='startEditing' />\n\t\t\t\t\t\t\t\t\t\x3c!--<div class='jsoneditor-value jsoneditor-string' style='cursor: pointer;height: {{line_height}}px;line-height: {{line_height}}px;overflow: hidden;' on-click='startEditing'>{{ JSON.stringify(value) }}</div>--\x3e\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\n\t\t\t\t\t<div class='trash-solid icon'></div>\n\t\t\t\t</button>\n\t\t\t</td>\n\t\t</tr>\n\t\t",data:function(){return{line_height:22,textarea_height:22}},on:{startEditing:function(t){var e=t.node.parentNode;this.set("editing",!0),e.getElementsByTagName("textarea").length&&e.getElementsByTagName("textarea")[0].focus()},focus:function(){var t=this.get("value").split("\n").length;this.set("textarea_height",t*this.get("line_height"))},blur:function(){this.set("editing",!1)},keyup:function(){var t=this.get("value").split("\n").length;this.set("textarea_height",t*this.get("line_height"))},delete:function(){this.parent.delete_key(this.get("key"))}}})},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default=Ractive.extend({template:"\n\t<tr>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-dragarea' ></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-contextmenu' ></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ level * 24 }}px;'>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-invisible' ></button>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>{{key}}</div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\x3c!--<td class='jsoneditor-datatype'>Number</td>--\x3e\n\t\t\t\t\t\t<td class='jsoneditor-separator'>:</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree' style='width: 100%;'>\n\t\t\t\t\t\t\t<input type='number' value='{{mirror_value}}' class='jsoneditor-input jsoneditor-number'  />\n\t\t\t\t\t\t\t\x3c!--\n\t\t\t\t\t\t\t<div contenteditable='true' spellcheck='false' class='jsoneditor-value jsoneditor-number' >{{ value }}</div>\n\t\t\t\t\t\t\t--\x3e\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t</td>\n\t\t<td>\n\t\t\t<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\n\t\t\t\t<div class='trash-solid icon'></div>\n\t\t\t</button>\n\t\t</td>\n\t</tr>\n\t",data:function(){return{mirror_value:""}},on:{delete:function(){this.parent.delete_key(this.get("key"))},init:function(){var t=this.get("value");this.set("mirror_value",t),this.observe("mirror_value",function(t,e,n){this.set({value:parseFloat(t)?t.toString():""})})}}})},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default=Ractive.extend({template:"\n\t<tr>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-dragarea' ></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-contextmenu' ></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ level * 24 }}px;'>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-invisible' ></button>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>{{key}}</div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-datatype'>Binary</td>\n\t\t\t\t\t\t<td class='jsoneditor-separator'>:</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree' style='width: 100%;'>\n\t\t\t\t\t\t\t<input value='{{updated_value}}' class='jsoneditor-input jsoneditor-binary' />\n\t\t\t\t\t\t\t\x3c!--\n\t\t\t\t\t\t\t<div contenteditable='true' spellcheck='false' class='jsoneditor-value jsoneditor-binary' >{{ updated_value }}</div>\n\t\t\t\t\t\t\t--\x3e\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t</td>\n\t\t<td>\n\t\t\t<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\n\t\t\t\t<div class='trash-solid icon'></div>\n\t\t\t</button>\n\t\t</td>\n\t</tr>\n\t",data:function(){return{updated_value:""}},on:{init:function(){var r=this.get("value");"string"==typeof r&&(this.set({updated_value:JSON.parse(JSON.stringify(r))}),r=Uint8Array.from(atob(r),function(t){return t.charCodeAt(0)}),this.set({value:r})),r instanceof Uint8Array&&this.set({updated_value:btoa(String.fromCharCode.apply(null,r))}),this.observe("updated_value",function(t,e,n){if(console.log("changed",t,e),"string"==typeof r)return this.set("value",t);try{var o=Uint8Array.from(atob(t),function(t){return t.charCodeAt(0)});this.set({value:o}),console.log(o)}catch(t){}})},delete:function(){this.parent.delete_key(this.get("key"))}}})},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default=Ractive.extend({template:"\n\t<tr>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-dragarea' ></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-contextmenu' ></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ level * 24 }}px;'>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-invisible' ></button>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>{{key}}</div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\x3c!--<td class='jsoneditor-datatype'>Boolean</td> --\x3e\n\t\t\t\t\t\t<td class='jsoneditor-separator'>:</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree' style='width: 100%;'>\n\t\t\t\t\t\t\t<input value='{{value}}' class='jsoneditor-input jsoneditor-boolean {{#if (value !== true ) && (value !== false) }}error{{/if}}' on-keyup='validate' on-blur='validate' />\n\t\t\t\t\t\t\t\x3c!--\n\t\t\t\t\t\t\t<div contenteditable='true' spellcheck='false' class='jsoneditor-value jsoneditor-boolean' >{{ value ? true : false }}</div>\n\t\t\t\t\t\t\t--\x3e\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t</td>\n\t\t<td>\n\t\t\t<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\n\t\t\t\t<div class='trash-solid icon'></div>\n\t\t\t</button>\n\t\t</td>\n\t</tr>\n\t",on:{init:function(){},validate:function(){"true"===this.get("value")&&this.set("value",!0),"false"===this.get("value")&&this.set("value",!1)},delete:function(){this.parent.delete_key(this.get("key"))}}})},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default=Ractive.extend({template:"\n\t<tr>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-dragarea' ></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-contextmenu' ></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ level * 24 }}px;'>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-invisible' ></button>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>{{key}}</div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\x3c!--<td class='jsoneditor-datatype'>Null</td>--\x3e\n\t\t\t\t\t\t<td class='jsoneditor-separator'>:</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div class='jsoneditor-input jsoneditor-null' >null</div>\n\t\t\t\t\t\t\t\x3c!--<div class='jsoneditor-value jsoneditor-null' >null</div>--\x3e\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t</td>\n\t\t<td>\n\t\t\t<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\n\t\t\t\t<div class='trash-solid icon'></div>\n\t\t\t</button>\n\t\t</td>\n\t</tr>\n\t",on:{delete:function(){this.parent.delete_key(this.get("key"))}}})},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var o,r=n(0),i=(o=r)&&o.__esModule?o:{default:o};e.default=Ractive.extend({components:{S:i.default},template:"\n\n\t<tr class=' jsoneditor-expandable'>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-dragarea'></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-contextmenu'></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ level * 24 }}px;'>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<button type='button' class='jsoneditor-button {{#if open}}jsoneditor-expanded{{else}}jsoneditor-collapsed{{/if}}' on-click='@this.toggle('open')'></button>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>{{key}}</div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-datatype'>StringSet[{{ value.length }}]</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'></td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div class='jsoneditor-value jsoneditor-array'></div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t</td>\n\t\t<td>\n\t\t\t<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\n\t\t\t\t<div class='trash-solid icon'></div>\n\t\t\t</button>\n\t\t</td>\n\t</tr>\n\n\t{{#if open}}\n\t<tr class='jsoneditor-appender'>\n\t\t<td></td><td></td><td>\n\t\t\t<div style='margin-left: {{ 24 * level + 40 }}px;' on-click='prepend'></div>\n\t\t</td><td></td>\n\t</tr>\n\t{{#value}}\n\t\t<S key={{@index}} value={{ . }} level='{{ level + 1 }}' />\n\t\t<tr class='jsoneditor-appender'>\n\t\t\t<td></td><td></td><td>\n\t\t\t\t<div style='margin-left: {{ 24 * level + 40 }}px;' on-click='elementinsert'></div>\n\t\t\t</td><td></td>\n\t\t</tr>\n\t{{/value}}\n\t{{/if}}\n\n\t<tr class='jsoneditor-append'></tr>\n\n\t",delete_key:function(o){var t=this.get("value");t=t.filter(function(t,e,n){return e!==o}),this.set({value:t})},data:function(){return{open:!1}},on:{delete:function(){this.parent.delete_key(this.get("key"))},prepend:function(){var t=this.get("value");t=[""].concat(t),this.set({value:t})},elementinsert:function(t){var e=this.get("value"),n=parseInt(t.resolve().split(".").pop());e.splice(n+1,0,""),this.set({value:e})}}})},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var o,r=n(1),i=(o=r)&&o.__esModule?o:{default:o};e.default=Ractive.extend({components:{N:i.default},template:"\n\n\t<tr class=' jsoneditor-expandable'>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-dragarea'></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-contextmenu'></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ level * 24 }}px;'>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<button type='button' class='jsoneditor-button {{#if open}}jsoneditor-expanded{{else}}jsoneditor-collapsed{{/if}}' on-click='@this.toggle('open')'></button>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>{{key}}</div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-datatype'>NumberSet[{{ value.length }}]</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'></td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div class='jsoneditor-value jsoneditor-array'></div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t</td>\n\t\t<td>\n\t\t\t<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\n\t\t\t\t<div class='trash-solid icon'></div>\n\t\t\t</button>\n\t\t</td>\n\t</tr>\n\n\t{{#if open}}\n\t<tr class='jsoneditor-appender'>\n\t\t<td></td><td></td><td>\n\t\t\t<div style='margin-left: {{ 24 * level + 40 }}px;' on-click='prepend'></div>\n\t\t</td><td></td>\n\t</tr>\n\t{{#value}}\n\t\t{{#if !hide}}\n\t\t<N key={{@index}} value={{ . }} level='{{ level + 1 }}' />\n\t\t<tr class='jsoneditor-appender'>\n\t\t\t<td></td><td></td><td>\n\t\t\t\t<div style='margin-left: {{ 24 * level + 40 }}px;' on-click='elementinsert'></div>\n\t\t\t</td><td></td>\n\t\t</tr>\n\t\t{{/if}}\n\t{{/value}}\n\t{{/if}}\n\n\t<tr class='jsoneditor-append'></tr>\n\n\t",delete_key:function(o){var t=this.get("value");t=t.filter(function(t,e,n){return e!==o}),this.set({value:t})},data:function(){return{open:!1,hide:!1}},on:{delete:function(){this.parent.delete_key(this.get("key"))},prepend:function(){var t=this.get("value");t=[""].concat(t),this.set({value:t}),this.set("hide",!0),this.set("hide",!1)},elementinsert:function(t){var e=this.get("value"),n=parseInt(t.resolve().split(".").pop());e.splice(n+1,0,""),this.set({value:e}),this.set("hide",!0),this.set("hide",!1)}}})},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var o,r=n(2),i=(o=r)&&o.__esModule?o:{default:o};e.default=Ractive.extend({components:{B:i.default},template:"\n\n\t<tr class=' jsoneditor-expandable'>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-dragarea'></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-contextmenu'></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ level * 24 }}px;'>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<button type='button' class='jsoneditor-button {{#if open}}jsoneditor-expanded{{else}}jsoneditor-collapsed{{/if}}' on-click='@this.toggle('open')'></button>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>{{key}}</div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-datatype'>BinarySet[{{ value.length }}]</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'></td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div class='jsoneditor-value jsoneditor-array'></div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t</td>\n\t\t<td>\n\t\t\t<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\n\t\t\t\t<div class='trash-solid icon'></div>\n\t\t\t</button>\n\t\t</td>\n\t</tr>\n\n\t{{#if open}}\n\t\t<tr class='jsoneditor-appender'>\n\t\t\t<td></td><td></td><td>\n\t\t\t\t<div style='margin-left: {{ 24 * level + 40 }}px;'  on-click='prepend'></div>\n\t\t\t</td><td></td>\n\t\t</tr>\n\t{{#value}}\n\t\t{{#if !hide}}\n\t\t<B key={{@index}} value={{ . }} level='{{ level + 1 }}' />\n\t\t<tr class='jsoneditor-appender'>\n\t\t\t<td></td><td></td><td>\n\t\t\t\t<div style='margin-left: {{ 24 * level + 40 }}px;' on-click='elementinsert'></div>\n\t\t\t</td><td></td>\n\t\t</tr>\n\t\t{{/if}}\n\t{{/value}}\n\t{{/if}}\n\n\t<tr class='jsoneditor-append'></tr>\n\n\t",delete_key:function(o){var t=this.get("value");t=t.filter(function(t,e,n){return e!==o}),this.set({value:t})},data:function(){return{open:!1,hide:!1}},on:{delete:function(){this.parent.delete_key(this.get("key"))},prepend:function(){var t=this.get("value");t=[Uint8Array.from(atob("InsertBase64Here"),function(t){return t.charCodeAt(0)})].concat(t),this.set({value:t}),this.set("hide",!0),this.set("hide",!1)},elementinsert:function(t){var e=this.get("value"),n=parseInt(t.resolve().split(".").pop());e.splice(n+1,0,Uint8Array.from(atob("InsertBase64Here"),function(t){return t.charCodeAt(0)})),this.set({value:e}),this.set("hide",!0),this.set("hide",!1)}}})},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var o=f(n(0)),r=f(n(1)),i=f(n(3)),s=f(n(4)),d=f(n(2)),l=f(n(5)),a=f(n(6)),u=f(n(7)),c=f(n(9)),p=f(n(13));function f(t){return t&&t.__esModule?t:{default:t}}var b=Ractive.extend({components:{S:o.default,N:r.default,BOOL:i.default,NULL:s.default,B:d.default,SS:l.default,NS:a.default,BS:u.default,M:c.default,appender:p.default},onconfig:function(){this.components.L=b},template:"\n\n\t<tr class=' jsoneditor-expandable'>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-dragarea'></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-contextmenu'></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ level * 24 }}px;'>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<button type='button' class='jsoneditor-button {{#if open}}jsoneditor-expanded{{else}}jsoneditor-collapsed{{/if}}' on-click='@this.toggle('open')'></button>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>{{key}}</div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-datatype'>List[{{ value.length }}]</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'></td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div class='jsoneditor-value jsoneditor-array'></div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t</td>\n\t\t<td>\n\t\t\t<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\n\t\t\t\t<div class='trash-solid icon'></div>\n\t\t\t</button>\n\t\t</td>\n\t</tr>\n\n\t{{#if open}}\n\t\t<appender level={{level}} index={{null}}/>\n\t{{#value}}\n\t\t{{#if .hasOwnProperty('S')}}\n\t\t\t<S key={{@index}} value={{ .S }} level='{{ level + 1 }}' />\n\t\t{{/if}}\n\n\t\t{{#if .hasOwnProperty('N')}}\n\t\t\t<N key={{@index}} value={{ .N }} level='{{ level + 1 }}' />\n\t\t{{/if}}\n\n\t\t{{#if .hasOwnProperty('BOOL')}}\n\t\t\t<BOOL key={{@index}} value={{ .BOOL }} level='{{ level + 1 }}' />\n\t\t{{/if}}\n\n\t\t{{#if .hasOwnProperty('NULL')}}\n\t\t\t<NULL key={{@index}} level='1' level='{{ level + 1 }}' />\n\t\t{{/if}}\n\n\t\t{{#if .hasOwnProperty('B')}}\n\t\t\t<B key={{@index}} value={{ .B }} level='{{ level + 1 }}' />\n\t\t{{/if}}\n\n\t\t{{#if .hasOwnProperty('L')}}\n\t\t\t<L key={{@index}} value={{ .L }} level='{{ level + 1 }}' />\n\t\t{{/if}}\n\n\t\t{{#if .hasOwnProperty('M')}}\n\t\t\t<M key={{@index}} value={{ .M }} level='{{ level + 1 }}' />\n\t\t{{/if}}\n\n\t\t{{#if .hasOwnProperty('SS')}}\n\t\t\t<SS key={{@index}} value={{ .SS }} level='{{ level + 1 }}' />\n\t\t{{/if}}\n\n\t\t{{#if .hasOwnProperty('NS')}}\n\t\t\t<NS key={{@index}} value={{ .NS }} level='{{ level + 1 }}' />\n\t\t{{/if}}\n\n\t\t{{#if .hasOwnProperty('BS')}}\n\t\t\t<BS key={{@index}} value={{ .BS }} level='{{ level + 1 }}' />\n\t\t{{/if}}\n\n\t\t<appender level={{level}} index={{@index}}/>\n\n\t{{/value}}\n\t{{/if}}\n\n\t<tr class='jsoneditor-append'></tr>\n\n\t",delete_key:function(o){var t=this.get("value");t=t.filter(function(t,e,n){return e!==o}),this.set({value:t})},data:function(){return{open:!1}},prepend_attribute:function(t,e){var n,o=this.get("value");"S"===t&&(n={S:""}),"N"===t&&(n={N:""}),"BOOL"===t&&(n={BOOL:""}),"NULL"===t&&(n={NULL:!0}),"B"===t&&(n={B:Uint8Array.from(atob("InsertBase64Here"),function(t){return t.charCodeAt(0)})}),"SS"===t&&(n={SS:[]}),"NS"===t&&(n={NS:[]}),"BS"===t&&(n={BS:[]}),"L"===t&&(n={L:[]}),"M"===t&&(n={M:{}}),null===e?o=[n].concat(o):o.splice(e+1,0,n),this.set({value:o})},on:{delete:function(){this.parent.delete_key(this.get("key"))}}});e.default=b},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var o=f(n(0)),r=f(n(1)),i=f(n(3)),s=f(n(4)),d=f(n(2)),l=f(n(5)),a=f(n(6)),u=f(n(7)),c=f(n(8)),p=f(n(10));function f(t){return t&&t.__esModule?t:{default:t}}var b=Ractive.extend({components:{S:o.default,N:r.default,BOOL:i.default,NULL:s.default,B:d.default,SS:l.default,NS:a.default,BS:u.default,L:c.default,appender:p.default},onconfig:function(){this.components.M=b,this.components.L=c.default},template:"\n\n\t\t<tr class=' jsoneditor-expandable'>\n\t\t\t<td>\n\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-dragarea'></button>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-contextmenu' ></button>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ level * 24 }}px;'>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t\t<button type='button' class='jsoneditor-button {{#if open}}jsoneditor-expanded{{else}}jsoneditor-collapsed{{/if}}' on-click='@this.toggle('open')'></button>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t\t<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>{{key}}</div>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td class='jsoneditor-datatype'>Map{{ '{' + Object.keys(value).length + '}' }}</td>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree'></td>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t\t<div class='jsoneditor-value jsoneditor-object'></div>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\n\t\t\t\t\t<div class='trash-solid icon'></div>\n\t\t\t\t</button>\n\t\t\t</td>\n\t\t</tr>\n\n\t\t{{#if open}}\n\t\t\t<appender level={{level}} index={{null}}/>\n\t\t{{#each value }}\n\t\t\t{{#if .hasOwnProperty('S')}}\n\t\t\t\t<S key={{@key}} value={{ .S }} level='{{ level + 1 }}' />\n\t\t\t{{/if}}\n\n\t\t\t{{#if .hasOwnProperty('N')}}\n\t\t\t\t<N key={{@key}} value={{ .N }} level='{{ level + 1 }}' />\n\t\t\t{{/if}}\n\n\t\t\t{{#if .hasOwnProperty('BOOL')}}\n\t\t\t\t<BOOL key={{@key}} value={{ .BOOL }} level='{{ level + 1 }}' />\n\t\t\t{{/if}}\n\n\t\t\t{{#if .hasOwnProperty('NULL')}}\n\t\t\t\t<NULL key={{@key}} level='1' level='{{ level + 1 }}' />\n\t\t\t{{/if}}\n\n\t\t\t{{#if .hasOwnProperty('B')}}\n\t\t\t\t<B key={{@key}} value={{ .B }} level='{{ level + 1 }}' />\n\t\t\t{{/if}}\n\n\t\t\t{{#if .hasOwnProperty('L')}}\n\t\t\t\t<L key={{@key}} value={{ .L }} level='{{ level + 1 }}' />\n\t\t\t{{/if}}\n\n\t\t\t{{#if .hasOwnProperty('M')}}\n\t\t\t\t<M key={{@key}} value={{ .M }} level='{{ level + 1 }}' />\n\t\t\t{{/if}}\n\n\t\t\t{{#if .hasOwnProperty('SS')}}\n\t\t\t\t<SS key={{@key}} value={{ .SS }} level='{{ level + 1 }}' />\n\t\t\t{{/if}}\n\n\t\t\t{{#if .hasOwnProperty('NS')}}\n\t\t\t\t<NS key={{@key}} value={{ .NS }} level='{{ level + 1 }}' />\n\t\t\t{{/if}}\n\n\t\t\t{{#if .hasOwnProperty('BS')}}\n\t\t\t\t<BS key={{@key}} value={{ .BS }} level='{{ level + 1 }}' />\n\t\t\t{{/if}}\n\t\t\t<appender level={{level}} index={{@key}}/>\n\n\t\t{{/each}}\n\t\t{{/if}}\n\n\n\t\t<tr class='jsoneditor-append'></tr>\n\n\t",delete_key:function(t){var e=this.get("value");delete e[t],this.set({value:e})},data:function(){return{open:!1}},prepend_attribute:function(t,e,n){console.log("prepend",t,e,n);var o,r=this.get("value");"S"===t&&(o={S:""}),"N"===t&&(o={N:""}),"BOOL"===t&&(o={BOOL:""}),"NULL"===t&&(o={NULL:!0}),"B"===t&&(o={B:Uint8Array.from(atob("InsertBase64Here"),function(t){return t.charCodeAt(0)})}),"SS"===t&&(o={SS:[]}),"NS"===t&&(o={NS:[]}),"BS"===t&&(o={BS:[]}),"L"===t&&(o={L:[]}),"M"===t&&(o={M:{}});var i={};null===e?(i[n]=o,Object.keys(r).map(function(t){i[t]=r[t]})):Object.keys(r).map(function(t){i[t]=r[t],t===e&&(i[n]=o)}),this.set({value:{}}),this.set({value:i})},on:{delete:function(){this.parent.delete_key(this.get("key"))}}});e.default=b},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default=Ractive.extend({template:"\n\t{{#if type === null}}\n\t<tr class='jsoneditor-appender'>\n\t\t<td></td><td></td><td>\n\t\t\t\t<div style='margin-left: {{ 24 * level + 40 }}px;' on-click='pickatype'></div>\n\t\t</td><td></td>\n\t</tr>\n\t{{/if}}\n\n\t{{#if type !== null }}\n\t\t<tr>\n\t\t\t<td>\n\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-dragarea' ></button>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-contextmenu' ></button>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ (level+1) * 24 }}px;'>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-invisible' ></button>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t\t<input value={{field_name}} placeholder='Attribute Name' style='margin-top: 3px;' />\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td class='jsoneditor-separator'>:</td>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree' style='width: 100%;'>\n\t\t\t\t\t\t\t\t<select value={{type}} on-change='typepicked' style='margin-top: 3px;'>\n\t\t\t\t\t\t\t\t\t<option value=''>Select Data Type</option>\n\t\t\t\t\t\t\t\t\t<option value='S'>String</option>\n\t\t\t\t\t\t\t\t\t<option value='N'>Number</option>\n\t\t\t\t\t\t\t\t\t<option value='BOOL'>Boolean</option>\n\t\t\t\t\t\t\t\t\t<option value='NULL'>Null</option>\n\t\t\t\t\t\t\t\t\t<option value='B'>Binary</option>\n\t\t\t\t\t\t\t\t\t<option value='SS'>StringSet</option>\n\t\t\t\t\t\t\t\t\t<option value='NS'>NumberSet</option>\n\t\t\t\t\t\t\t\t\t<option value='BS'>BinarySet</option>\n\t\t\t\t\t\t\t\t\t<option value='L'>List</option>\n\t\t\t\t\t\t\t\t\t<option value='M'>Map</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\n\t\t\t\t\t<div class='trash-solid icon'></div>\n\t\t\t\t</button>\n\t\t\t</td>\n\t\t</tr>\n\t{{/if}}\n\t",data:function(){return{type:null,field_name:""}},on:{delete:function(){this.set({type:null})},pickatype:function(){this.set({type:""})},typepicked:function(){this.parent.prepend_attribute(this.get("type"),this.get("index"),this.get("field_name")),this.set({type:null})}}})},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var o=v(n(12)),r=v(n(0)),i=v(n(1)),s=v(n(3)),d=v(n(4)),l=v(n(2)),a=v(n(5)),u=v(n(6)),c=v(n(7)),p=v(n(8)),f=v(n(9)),b=v(n(10));function v(t){return t&&t.__esModule?t:{default:t}}e.default=o.default.extend({template:{v:4,t:[{t:7,e:"div",m:[{t:13,n:"class",f:"jsoneditor",g:1},{n:"style",f:[{t:2,r:"style"}],t:13}],f:[{t:7,e:"div",m:[{n:"class",f:["jsoneditor-menu ",{t:2,rx:{r:".",m:[{r:[],s:'"menu-class"'}]}}],t:13},{n:"style",f:[{t:2,rx:{r:".",m:[{r:[],s:'"menu-style"'}]}}],t:13}],f:[{t:7,e:"select",m:[{n:"value",f:[{t:2,r:"mode"}],t:13},{n:"style",f:"height: 20px;margin: 6px;",t:13}],f:[{t:7,e:"option",m:[{n:"value",f:"tree",t:13}],f:["Tree"]}," ",{t:7,e:"option",m:[{n:"value",f:"code",t:13}],f:["Code"]}]}]}," ",{t:4,f:[{t:7,e:"div",m:[{n:"class",f:["jsoneditor-navbar ",{t:2,x:{r:["navbar","class"],s:"_0-_1"}}],t:13},{n:"style",f:[{t:2,rx:{r:".",m:[{r:[],s:'"navbar-style"'}]}}],t:13}]}],n:50,x:{r:["mode","navigationBar"],s:'(_0==="tree")&&(_1===true)'}}," ",{t:7,e:"div",m:[{n:"class",f:["jsoneditor-outer has-main-menu-bar ",{t:4,f:["has-nav-bar"],n:50,x:{r:["mode","navigationBar"],s:'(_0==="tree")&&(_1===true)'}}],t:13}],f:[{t:4,f:[{t:7,e:"textarea",m:[{n:"style",f:"width: 100%;height: 100%;border: 0px;margin: 0px;padding: 0px;",t:13}],f:[{t:2,x:{r:["item"],s:'JSON.stringify(_0,null,"\\t")'}}]}],n:50,x:{r:["mode"],s:'_0==="code"'}},{t:4,f:[{t:7,e:"div",m:[{t:13,n:"class",f:"jsoneditor-tree",g:1}],f:[{t:7,e:"div",m:[{t:13,n:"class",f:"jsoneditor-tree-inner",g:1}],f:[{t:7,e:"table",m:[{t:13,n:"class",f:"jsoneditor-tree",g:1},{n:"border",f:"0",t:13,g:1}],f:[{t:7,e:"colgroup",f:[{t:7,e:"col",m:[{n:"width",f:"24px",t:13,g:1}]},{t:7,e:"col",m:[{n:"width",f:"24px",t:13,g:1}]},{t:7,e:"col"}]}," ",{t:7,e:"tbody",f:[{t:7,e:"tr",m:[{t:13,n:"class",f:" jsoneditor-expandable",g:1}],f:[{t:7,e:"td"}," ",{t:7,e:"td",f:[{t:7,e:"button",m:[{t:13,n:"class",f:"jsoneditor-button jsoneditor-contextmenu",g:1},{n:"type",f:"button",t:13,g:1}]}]}," ",{t:7,e:"td",f:[{t:7,e:"table",m:[{t:13,n:"style",f:"border-collapse: collapse; margin-left: 0px;",g:1},{t:13,n:"class",f:"jsoneditor-values",g:1}],f:[{t:7,e:"tbody",f:[{t:7,e:"tr",f:[{t:7,e:"td",m:[{t:13,n:"class",f:"jsoneditor-tree",g:1}],f:[{t:7,e:"button",m:[{n:"type",f:"button",t:13,g:1},{n:"class",f:["jsoneditor-button ",{t:4,f:["jsoneditor-expanded"],n:50,r:"open"},{t:4,f:["jsoneditor-collapsed"],n:51,l:1}],t:13},{n:["click"],t:70,f:{r:["@this"],s:'[_0.toggle("open")]'}}]}]}," ",{t:7,e:"td",m:[{t:13,n:"class",f:"jsoneditor-tree",g:1}],f:[{t:7,e:"div",m:[{t:13,n:"class",f:"jsoneditor-readonly",g:1},{n:"contenteditable",f:"false",t:13}],f:["Item"]}]}," ",{t:7,e:"td",m:[{t:13,n:"class",f:"jsoneditor-tree",g:1}]}," ",{t:7,e:"td",m:[{t:13,n:"class",f:"jsoneditor-tree",g:1}],f:[{t:7,e:"div",m:[{t:13,n:"class",f:"jsoneditor-value jsoneditor-object",g:1}],f:["{ ",{t:2,x:{r:["item"],s:"Object.keys(_0).length"}}," }"]}]}]}]}]}]}," ",{t:7,e:"td",f:[]}]}," ",{t:4,f:[{t:7,e:"appender",m:[{n:"level",f:[{t:2,x:{r:[],s:"0"}}],t:13},{n:"index",f:[{t:2,x:{r:[],s:"null"}}],t:13}]}," ",{t:4,f:[{t:4,f:[{t:7,e:"S",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"value",f:[{t:2,r:".S"}],t:13},{n:"level",f:"1",t:13,g:1}]}],n:50,x:{r:["."],s:'_0.hasOwnProperty("S")'}}," ",{t:4,f:[{t:7,e:"N",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"value",f:[{t:2,r:".N"}],t:13},{n:"level",f:"1",t:13,g:1}]}],n:50,x:{r:["."],s:'_0.hasOwnProperty("N")'}}," ",{t:4,f:[{t:7,e:"BOOL",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"value",f:[{t:2,r:".BOOL"}],t:13},{n:"level",f:"1",t:13,g:1}]}],n:50,x:{r:["."],s:'_0.hasOwnProperty("BOOL")'}}," ",{t:4,f:[{t:7,e:"NULL",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"level",f:"1",t:13,g:1},{n:"level",f:"1",t:13,g:1}]}],n:50,x:{r:["."],s:'_0.hasOwnProperty("NULL")'}}," ",{t:4,f:[{t:7,e:"B",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"value",f:[{t:2,r:".B"}],t:13},{n:"level",f:"1",t:13,g:1}]}],n:50,x:{r:["."],s:'_0.hasOwnProperty("B")'}}," ",{t:4,f:[{t:7,e:"L",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"value",f:[{t:2,r:".L"}],t:13},{n:"level",f:"1",t:13,g:1}]}],n:50,x:{r:["."],s:'_0.hasOwnProperty("L")'}}," ",{t:4,f:[{t:7,e:"M",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"value",f:[{t:2,r:".M"}],t:13},{n:"level",f:"1",t:13,g:1}]}],n:50,x:{r:["."],s:'_0.hasOwnProperty("M")'}}," ",{t:4,f:[{t:7,e:"SS",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"value",f:[{t:2,r:".SS"}],t:13},{n:"level",f:"1",t:13,g:1}]}],n:50,x:{r:["."],s:'_0.hasOwnProperty("SS")'}}," ",{t:4,f:[{t:7,e:"NS",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"value",f:[{t:2,r:".NS"}],t:13},{n:"level",f:"1",t:13,g:1}]}],n:50,x:{r:["."],s:'_0.hasOwnProperty("NS")'}}," ",{t:4,f:[{t:7,e:"BS",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"value",f:[{t:2,r:".BS"}],t:13},{n:"level",f:"1",t:13,g:1}]}],n:50,x:{r:["."],s:'_0.hasOwnProperty("BS")'}}," ",{t:7,e:"appender",m:[{n:"level",f:[{t:2,x:{r:[],s:"0"}}],t:13},{n:"index",f:[{t:2,r:"@key"}],t:13}]}],n:52,r:"item"}],n:50,r:"open"}]}]}]}]}],n:51,l:1}]}]}],e:{0:function(){return 0},'"menu-class"':function(){return"menu-class"},'"menu-style"':function(){return"menu-style"},"_0-_1":function(t,e){return t-e},'"navbar-style"':function(){return"navbar-style"},'(_0==="tree")&&(_1===true)':function(t,e){return"tree"===t&&!0===e},'JSON.stringify(_0,null,"\\t")':function(t){return JSON.stringify(t,null,"\t")},'_0==="code"':function(t){return"code"===t},'[_0.toggle("open")]':function(t){return[t.toggle("open")]},"Object.keys(_0).length":function(t){return Object.keys(t).length},null:function(){return null},'_0.hasOwnProperty("S")':function(t){return t.hasOwnProperty("S")},'_0.hasOwnProperty("N")':function(t){return t.hasOwnProperty("N")},'_0.hasOwnProperty("BOOL")':function(t){return t.hasOwnProperty("BOOL")},'_0.hasOwnProperty("NULL")':function(t){return t.hasOwnProperty("NULL")},'_0.hasOwnProperty("B")':function(t){return t.hasOwnProperty("B")},'_0.hasOwnProperty("L")':function(t){return t.hasOwnProperty("L")},'_0.hasOwnProperty("M")':function(t){return t.hasOwnProperty("M")},'_0.hasOwnProperty("SS")':function(t){return t.hasOwnProperty("SS")},'_0.hasOwnProperty("NS")':function(t){return t.hasOwnProperty("NS")},'_0.hasOwnProperty("BS")':function(t){return t.hasOwnProperty("BS")}}},components:{S:r.default,N:i.default,BOOL:s.default,NULL:d.default,B:l.default,SS:a.default,NS:u.default,BS:c.default,L:p.default,M:f.default,appender:b.default},css:".jsoneditor { display: 'inline-block'; color: #1a1a1a; border: thin solid #f4a460; box-sizing: border-box; width: 100%; height: 100%; position: relative; padding: 0; line-height: 100%; width: 534px; background-color: #fff; } .jsoneditor-menu { width: 100%; height: 35px; padding: 2px; margin: 0; box-sizing: border-box; color: #fff; border-bottom: 1px solid #3883fa; background-color: #f4a460; border-color: #f4a460; } .jsoneditor-navbar { width: 100%; height: 26px; line-height: 26px; padding: 0; margin: 0; box-sizing: border-box; color: grey; overflow: hidden; font-family: arial,sans-serif; font-size: 10pt; border-bottom: 1px solid #d3d3d3; background-color: #ebebeb; } .jsoneditor-outer { overflow: auto; position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; box-sizing: border-box; } .jsoneditor-outer.has-main-menu-bar { top: 35px; } .jsoneditor-outer.has-main-menu-bar.has-nav-bar { top: 61px; } .jsoneditor table { border-collapse: collapse; width: auto; } div.jsoneditor-tree table.jsoneditor-tree { border-collapse: collapse; border-spacing: 0; width: 100%; } div.jsoneditor td, div.jsoneditor th, div.jsoneditor tr { padding: 0;margin: 0; } div.jsoneditor tr:hover {background-color: #f0f0f0;} div.jsoneditor tr.jsoneditor-appender {} div.jsoneditor tr.jsoneditor-appender > td:nth-child(3) {position: relative;height: 4px;} div.jsoneditor tr.jsoneditor-appender > td:nth-child(3) > div {cursor: row-resize;} div.jsoneditor tr.jsoneditor-appender > td:nth-child(4) {width: 32px;} div.jsoneditor tr.jsoneditor-appender:hover {background-color: transparent;} div.jsoneditor tr.jsoneditor-appender:hover > td:nth-child(3) {} div.jsoneditor tr.jsoneditor-appender:hover > td:nth-child(3) > div {height: 4px;background-color: #000099} .jsoneditor-field {white-space: nowrap} .jsoneditor-popover, .jsoneditor-schema-error, div.jsoneditor td, div.jsoneditor textarea, div.jsoneditor th, div.jsoneditor-field, div.jsoneditor-value, pre.jsoneditor-preview { font-family: \"dejavu sans mono\",\"droid sans mono\",consolas,monaco,\"lucida console\",\"courier new\",courier,monospace,sans-serif; font-size: 10pt; color: #1a1a1a; } div.jsoneditor-default, div.jsoneditor-field, div.jsoneditor-readonly, div.jsoneditor-value { border: 1px solid transparent; min-height: 16px; min-width: 32px; padding: 2px; margin: 1px; word-wrap: break-word; float: left; } div.jsoneditor td { vertical-align: top; } .jsoneditor td, .jsoneditor th { padding: 0; display: table-cell; text-align: left; vertical-align: inherit; border-radius: inherit; } div.jsoneditor-tree button.jsoneditor-contextmenu { background-position: -48px -72px; } /* buttons */ div.jsoneditor-tree button.jsoneditor-button { width: 24px; height: 24px; padding: 0; margin: 0; border: none; cursor: pointer; background-color: transparent; outline: none; } div.jsoneditor-tree button.jsoneditor-invisible { visibility: hidden; } div.jsoneditor-tree button.jsoneditor-expanded { background-color: '#4499ff'; position: relative; outline: none; } div.jsoneditor-tree button.jsoneditor-expanded:after { content: ' '; position: absolute; top: 9px; left: 9px; width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 5px solid #000; } div.jsoneditor-tree button.jsoneditor-collapsed { background-color: '#4499ff'; position: relative; outline: none; } div.jsoneditor-tree button.jsoneditor-collapsed:after { content: ' '; position: absolute; top: 9px; left: 9px; width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 5px solid #000; } div.jsoneditor td.jsoneditor-tree { vertical-align: top; } div.jsoneditor td.jsoneditor-separator { padding: 3px 0; vertical-align: top; color: grey; } div.jsoneditor td.jsoneditor-separator { padding: 3px 0; vertical-align: top; color: grey; } div.jsoneditor td.jsoneditor-datatype { padding: 3px 0; vertical-align: top; color: grey; } .jsoneditor-contextmenu { position: absolute; box-sizing: content-box; z-index: 99; } div.jsoneditor-value.jsoneditor-string { color: #006000; } input.jsoneditor-input.jsoneditor-string { border: 0px;padding: 0px;margin: 0px;font-size: 14px;vertical-align: sub;outline: none;color: #006000;width: 100%;background-color: transparent; } input.jsoneditor-input.jsoneditor-string:focus { background-color: #bcffa0; } textarea.jsoneditor-input.jsoneditor-string { border: 0px;padding: 0px;margin: 0px;outline: none;color: #006000;width:100%;box-sizing:border-box;display:block;max-width:100%;font:13px Tahoma, cursive; } textarea.jsoneditor-input.jsoneditor-string:focus { background-color: #bcffa0; } div.jsoneditor-value.jsoneditor-number { color: #ee422e; } input.jsoneditor-input.jsoneditor-number { border: 0px;padding: 0px;margin: 0px;font-size: 14px;vertical-align: sub;outline: none;color: #ee422e;width: 100%;background-color: transparent; } input.jsoneditor-input.jsoneditor-number:focus { background-color: #bcffa0; } div.jsoneditor-value.jsoneditor-boolean { color: #ff8c00; } input.jsoneditor-input.jsoneditor-boolean { border: 0px;padding: 0px;margin: 0px;font-size: 14px;vertical-align: sub;outline: none;color: #ff8c00;width: 100%;background-color: transparent; } input.jsoneditor-input.jsoneditor-boolean:focus { background-color: #bcffa0; } input.jsoneditor-input.jsoneditor-boolean.error { background-color: red !important; } div.jsoneditor-value.jsoneditor-binary { color: #004ed0; } input.jsoneditor-input.jsoneditor-binary { border: 0px;padding: 0px;margin: 0px;font-size: 14px;vertical-align: sub;outline: none;color: #004ed0;width: 100%;background-color: transparent; } input.jsoneditor-input.jsoneditor-binary:focus { background-color: #bcffa0; } div.jsoneditor-value.jsoneditor-null { color: #004ed0; } .jsoneditor-input.jsoneditor-null { border: 0px;padding: 0px;margin: 0px;font-size: 14px;vertical-align: sub;outline: none;color: #004ed0;width: 100%;background-color: transparent;line-height: 27px; } /* icons and btns */ .btn-delete-attribute {display: none;} tr:hover .btn-delete-attribute {display: inline-block;} .trash-solid.icon { color: #aaa; position: absolute; margin-left: 5px; margin-top: 0px; width: 8px; height: 8px; border-left: solid 1px currentColor; border-right: solid 1px currentColor; border-bottom: solid 1px currentColor; border-radius: 0 0 2px 2px; background-color: currentColor; } .trash-solid.icon:hover {color: #999;} .trash-solid.icon:before { content: ''; position: absolute; left: -4px; top: -2px; width: 17px; height: 1px; background-color: currentColor; } .trash-solid.icon:after { content: ''; position: absolute; left: 0px; top: -5px; width: 7px; height: 2px; border-left: solid 1px currentColor; border-right: solid 1px currentColor; border-top: solid 1px currentColor; background-color: currentColor; border-radius: 4px 4px 0 0; } ",data:function(){return{open:!0,mode:"tree",mainMenuBar:!0,navigationBar:!0,statusBar:!0}},prepend_attribute:function(t,e,n){console.log("prepend",t,e,n);var o,r=this.get("item");"S"===t&&(o={S:""}),"N"===t&&(o={N:""}),"BOOL"===t&&(o={BOOL:""}),"NULL"===t&&(o={NULL:!0}),"B"===t&&(o={B:Uint8Array.from(atob("InsertBase64Here"),function(t){return t.charCodeAt(0)})}),"SS"===t&&(o={SS:[]}),"NS"===t&&(o={NS:[]}),"BS"===t&&(o={BS:[]}),"L"===t&&(o={L:[]}),"M"===t&&(o={M:{}});var i={};null===e?(i[n]=o,Object.keys(r).map(function(t){i[t]=r[t]})):Object.keys(r).map(function(t){i[t]=r[t],t===e&&(i[n]=o)}),this.set({item:{}}),this.set({item:i})},delegate:!1,elToFocus:null,delete_key:function(t){var e=this.get("item");delete e[t],this.set({item:e})},on:{}})},function(t,e){t.exports=n},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default=Ractive.extend({template:"\n\t{{#if type === null}}\n\t<tr class='jsoneditor-appender'>\n\t\t<td></td><td></td><td>\n\t\t\t\t<div style='margin-left: {{ 24 * level + 40 }}px;' on-click='pickatype'></div>\n\t\t</td><td></td>\n\t</tr>\n\t{{/if}}\n\n\t{{#if type !== null }}\n\t\t<tr>\n\t\t\t<td>\n\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-dragarea' ></button>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-contextmenu' ></button>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ (level+1) * 24 }}px;'>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-invisible' ></button>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t\t<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>*</div>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td class='jsoneditor-separator'>:</td>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree' style='width: 100%;'>\n\t\t\t\t\t\t\t\t<select value={{type}} on-change='typepicked' style='margin-top: 3px;'>\n\t\t\t\t\t\t\t\t\t<option value=''>Select Data Type</option>\n\t\t\t\t\t\t\t\t\t<option value='S'>String</option>\n\t\t\t\t\t\t\t\t\t<option value='N'>Number</option>\n\t\t\t\t\t\t\t\t\t<option value='BOOL'>Boolean</option>\n\t\t\t\t\t\t\t\t\t<option value='NULL'>Null</option>\n\t\t\t\t\t\t\t\t\t<option value='B'>Binary</option>\n\t\t\t\t\t\t\t\t\t<option value='SS'>StringSet</option>\n\t\t\t\t\t\t\t\t\t<option value='NS'>NumberSet</option>\n\t\t\t\t\t\t\t\t\t<option value='BS'>BinarySet</option>\n\t\t\t\t\t\t\t\t\t<option value='L'>List</option>\n\t\t\t\t\t\t\t\t\t<option value='M'>Map</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\n\t\t\t\t\t<div class='trash-solid icon'></div>\n\t\t\t\t</button>\n\t\t\t</td>\n\t\t</tr>\n\t{{/if}}\n\t",data:function(){return{type:null}},on:{delete:function(){this.set({type:null})},pickatype:function(){this.set({type:""})},typepicked:function(){this.parent.prepend_attribute(this.get("type"),this.get("index")),this.set({type:null})}}})}],r.c=i,r.d=function(t,e,n){r.o(t,e)||Object.defineProperty(t,e,{enumerable:!0,get:n})},r.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},r.t=function(e,t){if(1&t&&(e=r(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var n=Object.create(null);if(r.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var o in e)r.d(n,o,function(t){return e[t]}.bind(null,o));return n},r.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return r.d(e,"a",e),e},r.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},r.p="",r(r.s=11)).default;function r(t){if(i[t])return i[t].exports;var e=i[t]={i:t,l:!1,exports:{}};return o[t].call(e.exports,e,e.exports,r),e.l=!0,e.exports}var o,i});
+
+/***/ }),
 /* 24 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var baseClone = __webpack_require__(58);
+
+/** Used to compose bitmasks for cloning. */
+var CLONE_DEEP_FLAG = 1,
+    CLONE_SYMBOLS_FLAG = 4;
+
+/**
+ * This method is like `_.clone` except that it recursively clones `value`.
+ *
+ * @static
+ * @memberOf _
+ * @since 1.0.0
+ * @category Lang
+ * @param {*} value The value to recursively clone.
+ * @returns {*} Returns the deep cloned value.
+ * @see _.clone
+ * @example
+ *
+ * var objects = [{ 'a': 1 }, { 'b': 2 }];
+ *
+ * var deep = _.cloneDeep(objects);
+ * console.log(deep[0] === objects[0]);
+ * // => false
+ */
+function cloneDeep(value) {
+  return baseClone(value, CLONE_DEEP_FLAG | CLONE_SYMBOLS_FLAG);
+}
+
+module.exports = cloneDeep;
+
+
+/***/ }),
+/* 25 */
 /***/ (function(module, exports) {
 
 /**
@@ -807,11 +885,11 @@ module.exports = eq;
 
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseGetTag = __webpack_require__(7),
-    isObject = __webpack_require__(3);
+var baseGetTag = __webpack_require__(6),
+    isObject = __webpack_require__(2);
 
 /** `Object#toString` result references. */
 var asyncTag = '[object AsyncFunction]',
@@ -850,7 +928,7 @@ module.exports = isFunction;
 
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports) {
 
 /** Detect free variable `global` from Node.js. */
@@ -860,7 +938,7 @@ module.exports = freeGlobal;
 
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports) {
 
 /** Used for built-in method references. */
@@ -892,11 +970,11 @@ module.exports = toSource;
 
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseAssignValue = __webpack_require__(29),
-    eq = __webpack_require__(24);
+var baseAssignValue = __webpack_require__(30),
+    eq = __webpack_require__(25);
 
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
@@ -926,10 +1004,10 @@ module.exports = assignValue;
 
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var defineProperty = __webpack_require__(73);
+var defineProperty = __webpack_require__(90);
 
 /**
  * The base implementation of `assignValue` and `assignMergeValue` without
@@ -957,15 +1035,15 @@ module.exports = baseAssignValue;
 
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseTimes = __webpack_require__(75),
-    isArguments = __webpack_require__(76),
-    isArray = __webpack_require__(16),
-    isBuffer = __webpack_require__(31),
-    isIndex = __webpack_require__(79),
-    isTypedArray = __webpack_require__(80);
+var baseTimes = __webpack_require__(92),
+    isArguments = __webpack_require__(93),
+    isArray = __webpack_require__(14),
+    isBuffer = __webpack_require__(32),
+    isIndex = __webpack_require__(96),
+    isTypedArray = __webpack_require__(97);
 
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
@@ -1012,11 +1090,11 @@ module.exports = arrayLikeKeys;
 
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(module) {var root = __webpack_require__(0),
-    stubFalse = __webpack_require__(78);
+    stubFalse = __webpack_require__(95);
 
 /** Detect free variable `exports`. */
 var freeExports =  true && exports && !exports.nodeType && exports;
@@ -1054,10 +1132,10 @@ var isBuffer = nativeIsBuffer || stubFalse;
 
 module.exports = isBuffer;
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(17)(module)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(15)(module)))
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports) {
 
 /** Used as references for various `Number` constants. */
@@ -1098,7 +1176,7 @@ module.exports = isLength;
 
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports) {
 
 /**
@@ -1119,11 +1197,11 @@ module.exports = overArg;
 
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isFunction = __webpack_require__(25),
-    isLength = __webpack_require__(32);
+var isFunction = __webpack_require__(26),
+    isLength = __webpack_require__(33);
 
 /**
  * Checks if `value` is array-like. A value is considered array-like if it's
@@ -1158,12 +1236,12 @@ module.exports = isArrayLike;
 
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var arrayLikeKeys = __webpack_require__(30),
-    baseKeysIn = __webpack_require__(85),
-    isArrayLike = __webpack_require__(34);
+var arrayLikeKeys = __webpack_require__(31),
+    baseKeysIn = __webpack_require__(102),
+    isArrayLike = __webpack_require__(35);
 
 /**
  * Creates an array of the own and inherited enumerable property names of `object`.
@@ -1196,7 +1274,7 @@ module.exports = keysIn;
 
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports) {
 
 /**
@@ -1225,13 +1303,13 @@ module.exports = stubArray;
 
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var arrayPush = __webpack_require__(38),
-    getPrototype = __webpack_require__(39),
-    getSymbols = __webpack_require__(21),
-    stubArray = __webpack_require__(36);
+var arrayPush = __webpack_require__(39),
+    getPrototype = __webpack_require__(40),
+    getSymbols = __webpack_require__(19),
+    stubArray = __webpack_require__(37);
 
 /* Built-in method references for those with the same name as other `lodash` methods. */
 var nativeGetSymbols = Object.getOwnPropertySymbols;
@@ -1256,7 +1334,7 @@ module.exports = getSymbolsIn;
 
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports) {
 
 /**
@@ -1282,10 +1360,10 @@ module.exports = arrayPush;
 
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var overArg = __webpack_require__(33);
+var overArg = __webpack_require__(34);
 
 /** Built-in value references. */
 var getPrototype = overArg(Object.getPrototypeOf, Object);
@@ -1294,11 +1372,11 @@ module.exports = getPrototype;
 
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var arrayPush = __webpack_require__(38),
-    isArray = __webpack_require__(16);
+var arrayPush = __webpack_require__(39),
+    isArray = __webpack_require__(14);
 
 /**
  * The base implementation of `getAllKeys` and `getAllKeysIn` which uses
@@ -1320,2242 +1398,282 @@ module.exports = baseGetAllKeys;
 
 
 /***/ }),
-/* 41 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Stack = __webpack_require__(42),
-    arrayEach = __webpack_require__(72),
-    assignValue = __webpack_require__(28),
-    baseAssign = __webpack_require__(74),
-    baseAssignIn = __webpack_require__(84),
-    cloneBuffer = __webpack_require__(87),
-    copyArray = __webpack_require__(88),
-    copySymbols = __webpack_require__(89),
-    copySymbolsIn = __webpack_require__(91),
-    getAllKeys = __webpack_require__(92),
-    getAllKeysIn = __webpack_require__(93),
-    getTag = __webpack_require__(22),
-    initCloneArray = __webpack_require__(98),
-    initCloneByTag = __webpack_require__(99),
-    initCloneObject = __webpack_require__(105),
-    isArray = __webpack_require__(16),
-    isBuffer = __webpack_require__(31),
-    isMap = __webpack_require__(107),
-    isObject = __webpack_require__(3),
-    isSet = __webpack_require__(109),
-    keys = __webpack_require__(15);
-
-/** Used to compose bitmasks for cloning. */
-var CLONE_DEEP_FLAG = 1,
-    CLONE_FLAT_FLAG = 2,
-    CLONE_SYMBOLS_FLAG = 4;
-
-/** `Object#toString` result references. */
-var argsTag = '[object Arguments]',
-    arrayTag = '[object Array]',
-    boolTag = '[object Boolean]',
-    dateTag = '[object Date]',
-    errorTag = '[object Error]',
-    funcTag = '[object Function]',
-    genTag = '[object GeneratorFunction]',
-    mapTag = '[object Map]',
-    numberTag = '[object Number]',
-    objectTag = '[object Object]',
-    regexpTag = '[object RegExp]',
-    setTag = '[object Set]',
-    stringTag = '[object String]',
-    symbolTag = '[object Symbol]',
-    weakMapTag = '[object WeakMap]';
-
-var arrayBufferTag = '[object ArrayBuffer]',
-    dataViewTag = '[object DataView]',
-    float32Tag = '[object Float32Array]',
-    float64Tag = '[object Float64Array]',
-    int8Tag = '[object Int8Array]',
-    int16Tag = '[object Int16Array]',
-    int32Tag = '[object Int32Array]',
-    uint8Tag = '[object Uint8Array]',
-    uint8ClampedTag = '[object Uint8ClampedArray]',
-    uint16Tag = '[object Uint16Array]',
-    uint32Tag = '[object Uint32Array]';
-
-/** Used to identify `toStringTag` values supported by `_.clone`. */
-var cloneableTags = {};
-cloneableTags[argsTag] = cloneableTags[arrayTag] =
-cloneableTags[arrayBufferTag] = cloneableTags[dataViewTag] =
-cloneableTags[boolTag] = cloneableTags[dateTag] =
-cloneableTags[float32Tag] = cloneableTags[float64Tag] =
-cloneableTags[int8Tag] = cloneableTags[int16Tag] =
-cloneableTags[int32Tag] = cloneableTags[mapTag] =
-cloneableTags[numberTag] = cloneableTags[objectTag] =
-cloneableTags[regexpTag] = cloneableTags[setTag] =
-cloneableTags[stringTag] = cloneableTags[symbolTag] =
-cloneableTags[uint8Tag] = cloneableTags[uint8ClampedTag] =
-cloneableTags[uint16Tag] = cloneableTags[uint32Tag] = true;
-cloneableTags[errorTag] = cloneableTags[funcTag] =
-cloneableTags[weakMapTag] = false;
-
-/**
- * The base implementation of `_.clone` and `_.cloneDeep` which tracks
- * traversed objects.
- *
- * @private
- * @param {*} value The value to clone.
- * @param {boolean} bitmask The bitmask flags.
- *  1 - Deep clone
- *  2 - Flatten inherited properties
- *  4 - Clone symbols
- * @param {Function} [customizer] The function to customize cloning.
- * @param {string} [key] The key of `value`.
- * @param {Object} [object] The parent object of `value`.
- * @param {Object} [stack] Tracks traversed objects and their clone counterparts.
- * @returns {*} Returns the cloned value.
- */
-function baseClone(value, bitmask, customizer, key, object, stack) {
-  var result,
-      isDeep = bitmask & CLONE_DEEP_FLAG,
-      isFlat = bitmask & CLONE_FLAT_FLAG,
-      isFull = bitmask & CLONE_SYMBOLS_FLAG;
-
-  if (customizer) {
-    result = object ? customizer(value, key, object, stack) : customizer(value);
-  }
-  if (result !== undefined) {
-    return result;
-  }
-  if (!isObject(value)) {
-    return value;
-  }
-  var isArr = isArray(value);
-  if (isArr) {
-    result = initCloneArray(value);
-    if (!isDeep) {
-      return copyArray(value, result);
-    }
-  } else {
-    var tag = getTag(value),
-        isFunc = tag == funcTag || tag == genTag;
-
-    if (isBuffer(value)) {
-      return cloneBuffer(value, isDeep);
-    }
-    if (tag == objectTag || tag == argsTag || (isFunc && !object)) {
-      result = (isFlat || isFunc) ? {} : initCloneObject(value);
-      if (!isDeep) {
-        return isFlat
-          ? copySymbolsIn(value, baseAssignIn(result, value))
-          : copySymbols(value, baseAssign(result, value));
-      }
-    } else {
-      if (!cloneableTags[tag]) {
-        return object ? value : {};
-      }
-      result = initCloneByTag(value, tag, isDeep);
-    }
-  }
-  // Check for circular references and return its corresponding clone.
-  stack || (stack = new Stack);
-  var stacked = stack.get(value);
-  if (stacked) {
-    return stacked;
-  }
-  stack.set(value, result);
-
-  if (isSet(value)) {
-    value.forEach(function(subValue) {
-      result.add(baseClone(subValue, bitmask, customizer, subValue, value, stack));
-    });
-  } else if (isMap(value)) {
-    value.forEach(function(subValue, key) {
-      result.set(key, baseClone(subValue, bitmask, customizer, key, value, stack));
-    });
-  }
-
-  var keysFunc = isFull
-    ? (isFlat ? getAllKeysIn : getAllKeys)
-    : (isFlat ? keysIn : keys);
-
-  var props = isArr ? undefined : keysFunc(value);
-  arrayEach(props || value, function(subValue, key) {
-    if (props) {
-      key = subValue;
-      subValue = value[key];
-    }
-    // Recursively populate clone (susceptible to call stack limits).
-    assignValue(result, key, baseClone(subValue, bitmask, customizer, key, value, stack));
-  });
-  return result;
-}
-
-module.exports = baseClone;
-
-
-/***/ }),
 /* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var ListCache = __webpack_require__(5),
-    stackClear = __webpack_require__(48),
-    stackDelete = __webpack_require__(49),
-    stackGet = __webpack_require__(50),
-    stackHas = __webpack_require__(51),
-    stackSet = __webpack_require__(52);
+"use strict";
 
-/**
- * Creates a stack cache object to store key-value pairs.
- *
- * @private
- * @constructor
- * @param {Array} [entries] The key-value pairs to cache.
- */
-function Stack(entries) {
-  var data = this.__data__ = new ListCache(entries);
-  this.size = data.size;
-}
 
-// Add methods to `Stack`.
-Stack.prototype.clear = stackClear;
-Stack.prototype['delete'] = stackDelete;
-Stack.prototype.get = stackGet;
-Stack.prototype.has = stackHas;
-Stack.prototype.set = stackSet;
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
 
-module.exports = Stack;
+var _ractive = __webpack_require__(22);
 
+var _ractive2 = _interopRequireDefault(_ractive);
+
+var _minitablelist = __webpack_require__(43);
+
+var _minitablelist2 = _interopRequireDefault(_minitablelist);
+
+var _tabs = __webpack_require__(44);
+
+var _tabs2 = _interopRequireDefault(_tabs);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var ddb;
+var DynamodbFactory;
+
+var DynamodbFactory = window['@awspilot/dynamodb'];
+//var DynamodbFactory = require('@awspilot/dynamodb')
+
+var hsplit = _ractive2.default.extend({
+	isolated: false,
+	data: {
+		direction: 'horizontal'
+	},
+	template: '<div class="hsplit {{class}} " style="{{style}}">{{yield}}</div>'
+});
+
+exports.default = _ractive2.default.extend({
+	template: { v: 4, t: [{ t: 7, e: "hsplit", m: [{ t: 13, n: "style", f: ";", g: 1 }, { t: 13, n: "class", f: "ractive-dynamodb-ui", g: 1 }], f: [{ t: 7, e: "left", f: [{ t: 7, e: "minitablelist" }] }, " ", { t: 7, e: "content", f: [{ t: 7, e: "tabs", m: [{ n: "active_id", f: "tables", t: 13, g: 1 }] }] }] }] },
+	components: {
+		hsplit: hsplit,
+		minitablelist: _minitablelist2.default,
+		tabs: _tabs2.default
+	},
+	css: " /* bootstrap */ .pull-right { float: right!important; } a { color: #337ab7; text-decoration: none; } a.btn.disabled, fieldset[disabled] a.btn { pointer-events: none; } .btn.disabled, .btn[disabled], fieldset[disabled] .btn { cursor: not-allowed; filter: alpha(opacity=65); -webkit-box-shadow: none; box-shadow: none; opacity: .65; } .btn-group .dropdown-toggle:active, .btn-group.open .dropdown-toggle { outline: 0; } .btn { display: inline-block; padding: 6px 12px; margin-bottom: 0; font-size: 14px; font-weight: 400; line-height: 1.42857143; text-align: center; white-space: nowrap; vertical-align: middle; -ms-touch-action: manipulation; touch-action: manipulation; cursor: pointer; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; background-image: none; border: 1px solid transparent; border-radius: 4px; } .btn-default { color: #333; background-color: #fff; border-color: #ccc; } .btn-group>.btn { position: relative; float: left; } .btn-group, .btn-group-vertical { position: relative; display: inline-block; vertical-align: middle; } .btn-group>.btn:first-child { margin-left: 0; } .btn-group>.btn:first-child:not(:last-child):not(.dropdown-toggle) { border-top-right-radius: 0; border-bottom-right-radius: 0; } .btn-group-xs>.btn, .btn-xs { padding: 1px 5px; font-size: 12px; line-height: 1.5; border-radius: 3px; } .btn-group>.btn:last-child:not(:first-child), .btn-group>.dropdown-toggle:not(:first-child) { border-top-left-radius: 0; border-bottom-left-radius: 0; } .btn-group>.btn+.dropdown-toggle { padding-right: 8px; padding-left: 8px; } .btn-group .btn+.btn, .btn-group .btn+.btn-group, .btn-group .btn-group+.btn, .btn-group .btn-group+.btn-group { margin-left: -1px; } .btn-default.active.focus, .btn-default.active:focus, .btn-default.active:hover, .btn-default:active.focus, .btn-default:active:focus, .btn-default:active:hover, .open>.dropdown-toggle.btn-default.focus, .open>.dropdown-toggle.btn-default:focus, .open>.dropdown-toggle.btn-default:hover { color: #333; background-color: #d4d4d4; border-color: #8c8c8c; } .btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus { outline: 5px auto -webkit-focus-ring-color; outline-offset: -2px; } .btn-group-sm>.btn, .btn-sm { padding: 5px 10px; font-size: 12px; line-height: 1.5; border-radius: 3px; } .dropdown-menu { position: absolute; top: 100%; left: 0; z-index: 1000; display: none; float: left; min-width: 160px; padding: 5px 0; margin: 2px 0 0; font-size: 14px; text-align: left; list-style: none; background-color: #fff; -webkit-background-clip: padding-box; background-clip: padding-box; border: 1px solid #ccc; border: 1px solid rgba(0,0,0,.15); border-radius: 4px; -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175); box-shadow: 0 6px 12px rgba(0,0,0,.175); } .dropdown-menu.pull-right { right: 0; left: auto; } .show { display: block!important; } .btn-primary {color: #fff;background-color: #337ab7;border-color: #2e6da4;} .btn-danger {color: #fff;background-color: #d9534f;border-color: #d43f3a;} /* */ .ractive-dynamodb-ui {font-family: sans-serif;} .ractive-dynamodb-ui * {box-sizing: border-box } .hsplit {position: absolute;top:0px;left: 0px;right: 0px;bottom: 0px; /*background-color: #f0f0f0;*/background-color: #c9c9c9; color: #999999;} left {position:absolute;display: block;top: 0px;left: 0px;width: 260px;bottom: 0px;margin-top: 5px;} content {position:absolute;display: block;top: 0px;left: 265px;right: 0px;bottom: 0px;margin-top: 5px;} miniheader {display: block;height: 28px;line-height: 28px;font-size: 12px;padding-left: 10px;} miniheader .icon:hover {box-shadow: 0px 0px 1px rgba(255,255,255,.3);} .miniheaderbody {left: 0px;top: 29px;right: 0px;bottom: 0px;} left tables > div {display: block;height: 30px; line-height: 30px;font-size: 13px;padding: 0px 10px;border-top: 1px solid transparent;border-left: 1px solid transparent;;margin-bottom: 0px;cursor: pointer} content tabhead {position: absolute;top: 0px;left: 0px;right:0px;height: 28px;overflow: hidden;font-size: 0px;} content tabhead tab {display: inline-block;height: 28px;line-height: 28px;padding: 0px 10px;cursor: pointer;font-size: 14px;} content tabhead tab.active {} content tabhead tab .icon {width: 15px;height: 15px;line-height: 15px;text-align: center;margin-top: 2px;cursor: pointer;font-size: 14px;} content tabhead tab .icon:hover {box-shadow: 0px 0px 1px rgba(255,255,255,.3);} content tabcontent {position: absolute;top: 28px;left: 0px;right: 0px;bottom: 0px;} .btn-tableview-tab {display: inline-block;height: 30px;line-height: 30px;text-align: center;vertical-align: middle;border-radius: 3px 3px 0px 0px;text-decoration: none;} .btn-tableview-tab:hover {cursor: pointer;} .btn-tableview-tab i {line-height: 40px;line-height: 30px;margin: 5px;width: 30px;height: 30px;border-radius: 5px;} content tabcontent .tableview-table-tabs {position: absolute;top: 10px;left: 30px;height: 30px;right: 30px;border-bottom: 1px solid #bbb;padding: 0px 20px;} content tabcontent .tableview { visibility: hidden } content tabcontent .tableview.active { visibility: visible } content tabcontent .tableview .tablebrowse {display: block;position: absolute;top: 0px;left:0px;right: 0px;bottom: 0px;} content tabcontent .tablesqlquery {display: block;position: absolute;top: 0;left:0px;right: 0px;height: 119px;overflow: hidden;} content tabcontent .tablequery {display: block;position: absolute;top: 0;left:0px;right: 0px;height: 119px;overflow: hidden; padding: 10px;margin-top: 6px;} content tabcontent .tablequery select { background-color: #6d6565; outline: none; color: #ccc; border-radius: 5px; border: 0px;} content tabcontent .tablequery input[type=text] {background-color: #6d6565; border: 0px; border-radius: 5px; outline: none;height: 19px;padding: 0px 7px; color: #ccc; } content tabcontent .tabledatacontrols {position: absolute;top: 120px;left: 0px;right: 0px;height: 28px;padding: 3px 0px 0px 30px;} content tabcontent .tabledata {display: block;position: absolute;left:0px;right: 0px;bottom: 0px;overflow: hidden;} content tabcontent .tabledata .tabledatahead, content tabcontent .tabledata .tabledatarow { display: flex;width: 100%;justify-content: stretch} content tabcontent .tabledata .tabledatahead {position: absolute;top: 0px;left: 0px;right: 0px;height: 20px;} content tabcontent .tabledata .tabledatarow .zmdi.selectrow {font-size: 14px;} content tabcontent .tabledata .tabledatahead > div, content tabcontent .tabledata .tabledatarow .tabledatacell {display: flex;height: 20px;align-items: center;overflow: hidden;white-space: nowrap;padding-left: 6px;position: relative;} content tabcontent .tabledata .tabledatarow .tabledatacell:before {content: ' ';position:absolute;top: 0px;left: 0px;bottom: 0px;width: 5px;} content tabcontent .tabledata .tabledatarow .tabledatacell:after {content: ' ';position:absolute;top: 0px;right: 0px;bottom: 0px;width: 5px;} content tabcontent .tabledata .tabledatacontent {position: absolute;top: 23px;left: 0px;right: 0px;bottom: 0px;overflow-x: auto;} content tabcontent .tabledata .tabledatahead > div {font-size: 12px;} content tabcontent .tabledata .tabledatarow .tabledatacell {font-size: 11px;} .scrollarea:hover > span {position: absolute; right: 0px;width: 3px;background-color: rgba(255, 255, 255, 0.3);z-index: 1;} .pull-right {float: right;} body.theme_light {background-color: #f0f0f0;color: #999999;} body.theme_light header {background-color: #232f3e;/*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);*/ } body.theme_light miniheader {background: linear-gradient(#eee , #e0e0e0);border: 1px solid #b9b8b6;border-top: 1px solid #fff;border-bottom: 1px solid #ccc;} body.theme_light left {background-color: #ffffff} body.theme_light left > .scrollarea {border-right: 1px solid #b9b8b6;} body.theme_light left tables > div {border-bottom: 1px solid #e0e0e0;color: #146eb4} body.theme_light left tables > div:hover {background-color: #eaf3fe;/*border: 1px solid #636363;*/} body.theme_light content {border: 1px solid #b9b8b6;background-color: #ffffff;border-top: 1px solid #fff;border-right: 0px;} body.theme_light content tabhead {background-color: #ececec;background: linear-gradient(#eee , #e0e0e0);} body.theme_light content tabhead tab:first-child {} body.theme_light content tabhead tab {border-right: 1px solid #cccccc;} body.theme_light content tabhead tab.active {background-color: #ffffff;color: #000000;} body.theme_light content tabcontent {background-color: #ffffff;} body.theme_light content tabcontent .tableview-table-tabs {background: #ffffff} body.theme_light .btn-tableview-tab {background-color: #eee;border: 1px solid #ccc;border-bottom: 1px solid #bbb;color: #635858;font-weight: bold;font-size: 12px;padding: 0px 12px;} body.theme_light .btn-tableview-tab.active {background-color: #fff;border-bottom: 1px solid #fff;color: #000000;} body.theme_light content tabcontent .tablequery {background-color: #444;} body.theme_light content tabcontent .tablesqlquery {} body.theme_light content tabcontent .tabledatacontrols {background-color: #ffffff;border-bottom: 1px solid #383838;} body.theme_light content tabcontent .tabledata {border-top: 1px solid #e0e0e0;} body.theme_light content tabcontent .tabledata .tabledatahead {background: linear-gradient(#eee , #e0e0e0);border-top: 1px solid #fff;border-bottom: 1px solid #ccc;} body.theme_light content tabcontent .tabledata .tabledatahead > div {border-right: 1px solid #c3b7b7;border-left: 1px solid #ffffff;} body.theme_light content tabcontent .tabledata .tabledatarow {border-bottom: 1px solid #e0e0e0;} body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell {border-right: 1px solid #c3b7b7;border-left: 1px solid #ffffff;} body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-K {color: #8ea7aa;} body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-HASH {color:#004b91;cursor: pointer;} body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-HASH:hover a {text-decoration: underline;} body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-S {color: #a79b9b;} body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-N {color: green;} body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-BOOL {color: #ff7676;} body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-NULL {color: grey} body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-SS {} body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-NS {} body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-L {} body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-M {} body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-U {background-color: #f9f3f3;} body.theme_light content tabcontent .tabledata .tabledatarow:hover {background-color: #f3f3f3;} body.theme_light content tabcontent .tabledata .tabledatarow:hover .tabledatacell {color: #a59797;} body.theme_light content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-HASH {color:#004b91;} body.theme_light content tabcontent .tabledata .tabledatarow.selected {background-color: #ddecff;} body.theme_light content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: #396396;} body.theme_light content tabcontent .tabledata .tabledatarow.selected:hover {background-color: #0747a0 !important;} body.theme_light content tabcontent .tabledata .tabledatarow.selected:hover .tabledatacell {color: #fff;} content {position:absolute;display: block;top: 0px;left: 265px;right: 0px;bottom: 0px;} ",
+	data: function data() {
+		return {};
+	},
+	delegate: false,
+	elToFocus: null,
+	on: {
+		init: function init() {
+
+			this.on('open-table', function (e, table) {
+				this.findComponent('tabs').newtab('tabletab', table);
+			});
+
+			// if (this.get('account.endpoint')) {
+			// 	credentials.endpoint = this.get('account.endpoint')
+			// 	if (this.get('account.endpoint').indexOf( location.protocol + '//' + location.host ) === 0) {
+			// 		// dynamodb is proxied via same host, force version signature 3 so Authorization header is not used
+			// 		credentials.signatureVersion = 'v3'
+			// 		// httpOptions: { xhrWithCredentials: true },
+			// 	}
+			// }
+
+			ddb = new AWS.DynamoDB({
+				endpoint: this.get('endpoint'),
+				region: this.get('region'),
+				credentials: {
+					accessKeyId: this.get('accessKeyId'),
+					secretAccessKey: this.get('secretAccessKey')
+				}
+			});
+
+			DynamoDB = new DynamodbFactory(ddb);
+
+			cloudwatch = new AWS.CloudWatch({
+				endpoint: this.get('cwendpoint'),
+				region: this.get('region'),
+				credentials: {
+					accessKeyId: this.get('accessKeyId'),
+					secretAccessKey: this.get('secretAccessKey')
+				}
+			});
+		}
+	}
+});
 
 /***/ }),
 /* 43 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-/**
- * Removes all key-value entries from the list cache.
- *
- * @private
- * @name clear
- * @memberOf ListCache
- */
-function listCacheClear() {
-  this.__data__ = [];
-  this.size = 0;
-}
+"use strict";
 
-module.exports = listCacheClear;
 
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.default = Ractive.extend({
+	//isolated: true,
+	template: '\n\t\t<miniheader>\n\t\t\tTables\n\t\t\t<div class=\'pull-right\' style=\'margin-right: 5px;\'>\n\t\t\t\t<a class=\'btn btn-xs btn-default\' on-click=\'create\'><i class=\'icon zmdi zmdi-plus\'></i></a>\n\t\t\t\t<a class=\'btn btn-xs btn-default\' on-click=\'@this.refresh_tables()\'><i class=\'icon zmdi zmdi-refresh\'></i></a>\n\t\t\t</div>\n\t\t</miniheader>\n\t\t<scrollarea class=\'scrollarea miniheaderbody\' style=\'position: absolute;\'>\n\t\t<tables>\n\t\t\t{{#tables}}\n\t\t\t<div on-click=\'@this.fire( "open-table",.)\'> {{.}} </div>\n\t\t\t{{/tables}}\n\t\t</tables>\n\t\t</scrollarea>\n\t\t',
+	data: function data() {
+		return {};
+	},
+	refresh_tables: function refresh_tables() {
+		var ractive = this;
+
+		ractive.set('tables');
+
+		DynamoDB.query('SHOW TABLES', function (err, data) {
+
+			if (err) return ractive.set('err', err);
+
+			ractive.set('err');
+			ractive.set('tables', data);
+		});
+	},
+	oninit: function oninit() {
+		this.refresh_tables();
+		var ractive = this;
+		ractive.on('open-table', function (e, table) {
+			ractive.parent.fire('open-table', table);
+		});
+		ractive.on('create', function () {
+			ractive.root.findComponent('tabs').newtab('tablecreate', 'Create Table');
+		});
+	}
+});
 
 /***/ }),
 /* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var assocIndexOf = __webpack_require__(6);
+"use strict";
 
-/** Used for built-in method references. */
-var arrayProto = Array.prototype;
 
-/** Built-in value references. */
-var splice = arrayProto.splice;
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
 
-/**
- * Removes `key` and its value from the list cache.
- *
- * @private
- * @name delete
- * @memberOf ListCache
- * @param {string} key The key of the value to remove.
- * @returns {boolean} Returns `true` if the entry was removed, else `false`.
- */
-function listCacheDelete(key) {
-  var data = this.__data__,
-      index = assocIndexOf(data, key);
+var _tablelistfull = __webpack_require__(45);
 
-  if (index < 0) {
-    return false;
-  }
-  var lastIndex = data.length - 1;
-  if (index == lastIndex) {
-    data.pop();
-  } else {
-    splice.call(data, index, 1);
-  }
-  --this.size;
-  return true;
-}
+var _tablelistfull2 = _interopRequireDefault(_tablelistfull);
 
-module.exports = listCacheDelete;
+var _tablecreate = __webpack_require__(46);
 
+var _tablecreate2 = _interopRequireDefault(_tablecreate);
+
+var _tabletab = __webpack_require__(47);
+
+var _tabletab2 = _interopRequireDefault(_tabletab);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = Ractive.extend({
+	//isolated: true,
+	components: {
+		tablelistfull: _tablelistfull2.default,
+		tablecreate: _tablecreate2.default,
+		tabletab: _tabletab2.default
+	},
+	template: "\
+		<tabhead>\
+			<tab class='{{#if active_id === \"tables\" }}active{{/if}}' on-click='@this.fire(\"activetab\", \"tables\")'>\
+				<i class='icon zmdi zmdi-view-dashboard'></i>\
+			</tab>\
+		{{#tabs}}\
+			{{#if .closed !== true}}\
+			<tab class='{{#if .id === active_id }}active{{/if}}' on-click='@this.fire(\"activetab\",.id)'>\
+				{{.name}}\
+				<i class='icon zmdi zmdi-close' on-click='closetab'></i>\
+			</tab>\
+			{{/if}}\
+		{{/tabs}}\
+		</tabhead>\
+		<tabcontent>\
+			{{#if active_id === \"tables\" }}\
+				<tablelistfull />\
+			{{else}}\
+				{{#tabs}}\
+					{{#if .closed === true}}\
+						<div class='closedtab'></div>\
+					{{else}}\
+						{{#if .type === 'tablecreate' }}\
+							<tablecreate active={{ .id === active_id  }} />\
+						{{/if}}\
+						{{#if .type === 'tabletab' }}\
+							<tabletab table={{.}} active={{ .id === active_id  }} />\
+						{{/if}}\
+					{{/if}}\
+				{{/tabs}}\
+			{{/if}}\
+		</tabcontent>\
+		",
+	data: function data() {
+		return {};
+	},
+	active_cache: [],
+	activetabcontent: function activetabcontent() {
+		var ractive = this;
+		ractive.active_cache.push(ractive.get('active_id'));
+		ractive.findAllComponents('tabletab').map(function (tableview_c) {
+			tableview_c.set('active', tableview_c.get('table.id') === ractive.get('active_id'));
+		});
+	},
+	newtab: function newtab(component_name, param1) {
+		var id = Math.random();
+		this.set('active_id', id);
+		this.push('tabs', {
+			id: id,
+
+			name: param1,
+			type: component_name,
+
+			sql: "\nSCAN * FROM `" + param1 + "` LIMIT 100\n"
+		});
+		this.activetabcontent();
+	},
+	oninit: function oninit() {
+		var ractive = this;
+
+		this.observe('active_id', function (newvalue, oldvalue, keypath) {
+			ractive.activetabcontent();
+		});
+
+		this.on('closetab', function (e) {
+
+			console.log("close", e.resolve());
+			var id = this.get(e.resolve() + '.id');
+
+			this.set(e.resolve() + '.closed', true);
+
+			this.active_cache = this.active_cache.filter(function (tid) {
+				return tid !== id;
+			});
+			//this.set('tabs', this.get('tabs').filter(function(t) { return t.id !== id }) )
+
+			if (this.get('active_id') === id) {
+				// the current tab was closed
+				this.set('active_id', this.active_cache.pop());
+			}
+			ractive.activetabcontent();
+			return false;
+		});
+		this.on('activetab', function (e, id) {
+			this.set('active_id', id);
+			return false;
+		});
+	}
+});
 
 /***/ }),
 /* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var assocIndexOf = __webpack_require__(6);
-
-/**
- * Gets the list cache value for `key`.
- *
- * @private
- * @name get
- * @memberOf ListCache
- * @param {string} key The key of the value to get.
- * @returns {*} Returns the entry value.
- */
-function listCacheGet(key) {
-  var data = this.__data__,
-      index = assocIndexOf(data, key);
-
-  return index < 0 ? undefined : data[index][1];
-}
-
-module.exports = listCacheGet;
-
-
-/***/ }),
-/* 46 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var assocIndexOf = __webpack_require__(6);
-
-/**
- * Checks if a list cache value for `key` exists.
- *
- * @private
- * @name has
- * @memberOf ListCache
- * @param {string} key The key of the entry to check.
- * @returns {boolean} Returns `true` if an entry for `key` exists, else `false`.
- */
-function listCacheHas(key) {
-  return assocIndexOf(this.__data__, key) > -1;
-}
-
-module.exports = listCacheHas;
-
-
-/***/ }),
-/* 47 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var assocIndexOf = __webpack_require__(6);
-
-/**
- * Sets the list cache `key` to `value`.
- *
- * @private
- * @name set
- * @memberOf ListCache
- * @param {string} key The key of the value to set.
- * @param {*} value The value to set.
- * @returns {Object} Returns the list cache instance.
- */
-function listCacheSet(key, value) {
-  var data = this.__data__,
-      index = assocIndexOf(data, key);
-
-  if (index < 0) {
-    ++this.size;
-    data.push([key, value]);
-  } else {
-    data[index][1] = value;
-  }
-  return this;
-}
-
-module.exports = listCacheSet;
-
-
-/***/ }),
-/* 48 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var ListCache = __webpack_require__(5);
-
-/**
- * Removes all key-value entries from the stack.
- *
- * @private
- * @name clear
- * @memberOf Stack
- */
-function stackClear() {
-  this.__data__ = new ListCache;
-  this.size = 0;
-}
-
-module.exports = stackClear;
-
-
-/***/ }),
-/* 49 */
-/***/ (function(module, exports) {
-
-/**
- * Removes `key` and its value from the stack.
- *
- * @private
- * @name delete
- * @memberOf Stack
- * @param {string} key The key of the value to remove.
- * @returns {boolean} Returns `true` if the entry was removed, else `false`.
- */
-function stackDelete(key) {
-  var data = this.__data__,
-      result = data['delete'](key);
-
-  this.size = data.size;
-  return result;
-}
-
-module.exports = stackDelete;
-
-
-/***/ }),
-/* 50 */
-/***/ (function(module, exports) {
-
-/**
- * Gets the stack value for `key`.
- *
- * @private
- * @name get
- * @memberOf Stack
- * @param {string} key The key of the value to get.
- * @returns {*} Returns the entry value.
- */
-function stackGet(key) {
-  return this.__data__.get(key);
-}
-
-module.exports = stackGet;
-
-
-/***/ }),
-/* 51 */
-/***/ (function(module, exports) {
-
-/**
- * Checks if a stack value for `key` exists.
- *
- * @private
- * @name has
- * @memberOf Stack
- * @param {string} key The key of the entry to check.
- * @returns {boolean} Returns `true` if an entry for `key` exists, else `false`.
- */
-function stackHas(key) {
-  return this.__data__.has(key);
-}
-
-module.exports = stackHas;
-
-
-/***/ }),
-/* 52 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var ListCache = __webpack_require__(5),
-    Map = __webpack_require__(13),
-    MapCache = __webpack_require__(59);
-
-/** Used as the size to enable large array optimizations. */
-var LARGE_ARRAY_SIZE = 200;
-
-/**
- * Sets the stack `key` to `value`.
- *
- * @private
- * @name set
- * @memberOf Stack
- * @param {string} key The key of the value to set.
- * @param {*} value The value to set.
- * @returns {Object} Returns the stack cache instance.
- */
-function stackSet(key, value) {
-  var data = this.__data__;
-  if (data instanceof ListCache) {
-    var pairs = data.__data__;
-    if (!Map || (pairs.length < LARGE_ARRAY_SIZE - 1)) {
-      pairs.push([key, value]);
-      this.size = ++data.size;
-      return this;
-    }
-    data = this.__data__ = new MapCache(pairs);
-  }
-  data.set(key, value);
-  this.size = data.size;
-  return this;
-}
-
-module.exports = stackSet;
-
-
-/***/ }),
-/* 53 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var isFunction = __webpack_require__(25),
-    isMasked = __webpack_require__(56),
-    isObject = __webpack_require__(3),
-    toSource = __webpack_require__(27);
-
-/**
- * Used to match `RegExp`
- * [syntax characters](http://ecma-international.org/ecma-262/7.0/#sec-patterns).
- */
-var reRegExpChar = /[\\^$.*+?()[\]{}|]/g;
-
-/** Used to detect host constructors (Safari). */
-var reIsHostCtor = /^\[object .+?Constructor\]$/;
-
-/** Used for built-in method references. */
-var funcProto = Function.prototype,
-    objectProto = Object.prototype;
-
-/** Used to resolve the decompiled source of functions. */
-var funcToString = funcProto.toString;
-
-/** Used to check objects for own properties. */
-var hasOwnProperty = objectProto.hasOwnProperty;
-
-/** Used to detect if a method is native. */
-var reIsNative = RegExp('^' +
-  funcToString.call(hasOwnProperty).replace(reRegExpChar, '\\$&')
-  .replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, '$1.*?') + '$'
-);
-
-/**
- * The base implementation of `_.isNative` without bad shim checks.
- *
- * @private
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a native function,
- *  else `false`.
- */
-function baseIsNative(value) {
-  if (!isObject(value) || isMasked(value)) {
-    return false;
-  }
-  var pattern = isFunction(value) ? reIsNative : reIsHostCtor;
-  return pattern.test(toSource(value));
-}
-
-module.exports = baseIsNative;
-
-
-/***/ }),
-/* 54 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Symbol = __webpack_require__(14);
-
-/** Used for built-in method references. */
-var objectProto = Object.prototype;
-
-/** Used to check objects for own properties. */
-var hasOwnProperty = objectProto.hasOwnProperty;
-
-/**
- * Used to resolve the
- * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
- * of values.
- */
-var nativeObjectToString = objectProto.toString;
-
-/** Built-in value references. */
-var symToStringTag = Symbol ? Symbol.toStringTag : undefined;
-
-/**
- * A specialized version of `baseGetTag` which ignores `Symbol.toStringTag` values.
- *
- * @private
- * @param {*} value The value to query.
- * @returns {string} Returns the raw `toStringTag`.
- */
-function getRawTag(value) {
-  var isOwn = hasOwnProperty.call(value, symToStringTag),
-      tag = value[symToStringTag];
-
-  try {
-    value[symToStringTag] = undefined;
-    var unmasked = true;
-  } catch (e) {}
-
-  var result = nativeObjectToString.call(value);
-  if (unmasked) {
-    if (isOwn) {
-      value[symToStringTag] = tag;
-    } else {
-      delete value[symToStringTag];
-    }
-  }
-  return result;
-}
-
-module.exports = getRawTag;
-
-
-/***/ }),
-/* 55 */
-/***/ (function(module, exports) {
-
-/** Used for built-in method references. */
-var objectProto = Object.prototype;
-
-/**
- * Used to resolve the
- * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
- * of values.
- */
-var nativeObjectToString = objectProto.toString;
-
-/**
- * Converts `value` to a string using `Object.prototype.toString`.
- *
- * @private
- * @param {*} value The value to convert.
- * @returns {string} Returns the converted string.
- */
-function objectToString(value) {
-  return nativeObjectToString.call(value);
-}
-
-module.exports = objectToString;
-
-
-/***/ }),
-/* 56 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var coreJsData = __webpack_require__(57);
-
-/** Used to detect methods masquerading as native. */
-var maskSrcKey = (function() {
-  var uid = /[^.]+$/.exec(coreJsData && coreJsData.keys && coreJsData.keys.IE_PROTO || '');
-  return uid ? ('Symbol(src)_1.' + uid) : '';
-}());
-
-/**
- * Checks if `func` has its source masked.
- *
- * @private
- * @param {Function} func The function to check.
- * @returns {boolean} Returns `true` if `func` is masked, else `false`.
- */
-function isMasked(func) {
-  return !!maskSrcKey && (maskSrcKey in func);
-}
-
-module.exports = isMasked;
-
-
-/***/ }),
-/* 57 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var root = __webpack_require__(0);
-
-/** Used to detect overreaching core-js shims. */
-var coreJsData = root['__core-js_shared__'];
-
-module.exports = coreJsData;
-
-
-/***/ }),
-/* 58 */
-/***/ (function(module, exports) {
-
-/**
- * Gets the value at `key` of `object`.
- *
- * @private
- * @param {Object} [object] The object to query.
- * @param {string} key The key of the property to get.
- * @returns {*} Returns the property value.
- */
-function getValue(object, key) {
-  return object == null ? undefined : object[key];
-}
-
-module.exports = getValue;
-
-
-/***/ }),
-/* 59 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var mapCacheClear = __webpack_require__(60),
-    mapCacheDelete = __webpack_require__(67),
-    mapCacheGet = __webpack_require__(69),
-    mapCacheHas = __webpack_require__(70),
-    mapCacheSet = __webpack_require__(71);
-
-/**
- * Creates a map cache object to store key-value pairs.
- *
- * @private
- * @constructor
- * @param {Array} [entries] The key-value pairs to cache.
- */
-function MapCache(entries) {
-  var index = -1,
-      length = entries == null ? 0 : entries.length;
-
-  this.clear();
-  while (++index < length) {
-    var entry = entries[index];
-    this.set(entry[0], entry[1]);
-  }
-}
-
-// Add methods to `MapCache`.
-MapCache.prototype.clear = mapCacheClear;
-MapCache.prototype['delete'] = mapCacheDelete;
-MapCache.prototype.get = mapCacheGet;
-MapCache.prototype.has = mapCacheHas;
-MapCache.prototype.set = mapCacheSet;
-
-module.exports = MapCache;
-
-
-/***/ }),
-/* 60 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Hash = __webpack_require__(61),
-    ListCache = __webpack_require__(5),
-    Map = __webpack_require__(13);
-
-/**
- * Removes all key-value entries from the map.
- *
- * @private
- * @name clear
- * @memberOf MapCache
- */
-function mapCacheClear() {
-  this.size = 0;
-  this.__data__ = {
-    'hash': new Hash,
-    'map': new (Map || ListCache),
-    'string': new Hash
-  };
-}
-
-module.exports = mapCacheClear;
-
-
-/***/ }),
-/* 61 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var hashClear = __webpack_require__(62),
-    hashDelete = __webpack_require__(63),
-    hashGet = __webpack_require__(64),
-    hashHas = __webpack_require__(65),
-    hashSet = __webpack_require__(66);
-
-/**
- * Creates a hash object.
- *
- * @private
- * @constructor
- * @param {Array} [entries] The key-value pairs to cache.
- */
-function Hash(entries) {
-  var index = -1,
-      length = entries == null ? 0 : entries.length;
-
-  this.clear();
-  while (++index < length) {
-    var entry = entries[index];
-    this.set(entry[0], entry[1]);
-  }
-}
-
-// Add methods to `Hash`.
-Hash.prototype.clear = hashClear;
-Hash.prototype['delete'] = hashDelete;
-Hash.prototype.get = hashGet;
-Hash.prototype.has = hashHas;
-Hash.prototype.set = hashSet;
-
-module.exports = Hash;
-
-
-/***/ }),
-/* 62 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var nativeCreate = __webpack_require__(8);
-
-/**
- * Removes all key-value entries from the hash.
- *
- * @private
- * @name clear
- * @memberOf Hash
- */
-function hashClear() {
-  this.__data__ = nativeCreate ? nativeCreate(null) : {};
-  this.size = 0;
-}
-
-module.exports = hashClear;
-
-
-/***/ }),
-/* 63 */
-/***/ (function(module, exports) {
-
-/**
- * Removes `key` and its value from the hash.
- *
- * @private
- * @name delete
- * @memberOf Hash
- * @param {Object} hash The hash to modify.
- * @param {string} key The key of the value to remove.
- * @returns {boolean} Returns `true` if the entry was removed, else `false`.
- */
-function hashDelete(key) {
-  var result = this.has(key) && delete this.__data__[key];
-  this.size -= result ? 1 : 0;
-  return result;
-}
-
-module.exports = hashDelete;
-
-
-/***/ }),
-/* 64 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var nativeCreate = __webpack_require__(8);
-
-/** Used to stand-in for `undefined` hash values. */
-var HASH_UNDEFINED = '__lodash_hash_undefined__';
-
-/** Used for built-in method references. */
-var objectProto = Object.prototype;
-
-/** Used to check objects for own properties. */
-var hasOwnProperty = objectProto.hasOwnProperty;
-
-/**
- * Gets the hash value for `key`.
- *
- * @private
- * @name get
- * @memberOf Hash
- * @param {string} key The key of the value to get.
- * @returns {*} Returns the entry value.
- */
-function hashGet(key) {
-  var data = this.__data__;
-  if (nativeCreate) {
-    var result = data[key];
-    return result === HASH_UNDEFINED ? undefined : result;
-  }
-  return hasOwnProperty.call(data, key) ? data[key] : undefined;
-}
-
-module.exports = hashGet;
-
-
-/***/ }),
-/* 65 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var nativeCreate = __webpack_require__(8);
-
-/** Used for built-in method references. */
-var objectProto = Object.prototype;
-
-/** Used to check objects for own properties. */
-var hasOwnProperty = objectProto.hasOwnProperty;
-
-/**
- * Checks if a hash value for `key` exists.
- *
- * @private
- * @name has
- * @memberOf Hash
- * @param {string} key The key of the entry to check.
- * @returns {boolean} Returns `true` if an entry for `key` exists, else `false`.
- */
-function hashHas(key) {
-  var data = this.__data__;
-  return nativeCreate ? (data[key] !== undefined) : hasOwnProperty.call(data, key);
-}
-
-module.exports = hashHas;
-
-
-/***/ }),
-/* 66 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var nativeCreate = __webpack_require__(8);
-
-/** Used to stand-in for `undefined` hash values. */
-var HASH_UNDEFINED = '__lodash_hash_undefined__';
-
-/**
- * Sets the hash `key` to `value`.
- *
- * @private
- * @name set
- * @memberOf Hash
- * @param {string} key The key of the value to set.
- * @param {*} value The value to set.
- * @returns {Object} Returns the hash instance.
- */
-function hashSet(key, value) {
-  var data = this.__data__;
-  this.size += this.has(key) ? 0 : 1;
-  data[key] = (nativeCreate && value === undefined) ? HASH_UNDEFINED : value;
-  return this;
-}
-
-module.exports = hashSet;
-
-
-/***/ }),
-/* 67 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var getMapData = __webpack_require__(9);
-
-/**
- * Removes `key` and its value from the map.
- *
- * @private
- * @name delete
- * @memberOf MapCache
- * @param {string} key The key of the value to remove.
- * @returns {boolean} Returns `true` if the entry was removed, else `false`.
- */
-function mapCacheDelete(key) {
-  var result = getMapData(this, key)['delete'](key);
-  this.size -= result ? 1 : 0;
-  return result;
-}
-
-module.exports = mapCacheDelete;
-
-
-/***/ }),
-/* 68 */
-/***/ (function(module, exports) {
-
-/**
- * Checks if `value` is suitable for use as unique object key.
- *
- * @private
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is suitable, else `false`.
- */
-function isKeyable(value) {
-  var type = typeof value;
-  return (type == 'string' || type == 'number' || type == 'symbol' || type == 'boolean')
-    ? (value !== '__proto__')
-    : (value === null);
-}
-
-module.exports = isKeyable;
-
-
-/***/ }),
-/* 69 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var getMapData = __webpack_require__(9);
-
-/**
- * Gets the map value for `key`.
- *
- * @private
- * @name get
- * @memberOf MapCache
- * @param {string} key The key of the value to get.
- * @returns {*} Returns the entry value.
- */
-function mapCacheGet(key) {
-  return getMapData(this, key).get(key);
-}
-
-module.exports = mapCacheGet;
-
-
-/***/ }),
-/* 70 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var getMapData = __webpack_require__(9);
-
-/**
- * Checks if a map value for `key` exists.
- *
- * @private
- * @name has
- * @memberOf MapCache
- * @param {string} key The key of the entry to check.
- * @returns {boolean} Returns `true` if an entry for `key` exists, else `false`.
- */
-function mapCacheHas(key) {
-  return getMapData(this, key).has(key);
-}
-
-module.exports = mapCacheHas;
-
-
-/***/ }),
-/* 71 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var getMapData = __webpack_require__(9);
-
-/**
- * Sets the map `key` to `value`.
- *
- * @private
- * @name set
- * @memberOf MapCache
- * @param {string} key The key of the value to set.
- * @param {*} value The value to set.
- * @returns {Object} Returns the map cache instance.
- */
-function mapCacheSet(key, value) {
-  var data = getMapData(this, key),
-      size = data.size;
-
-  data.set(key, value);
-  this.size += data.size == size ? 0 : 1;
-  return this;
-}
-
-module.exports = mapCacheSet;
-
-
-/***/ }),
-/* 72 */
-/***/ (function(module, exports) {
-
-/**
- * A specialized version of `_.forEach` for arrays without support for
- * iteratee shorthands.
- *
- * @private
- * @param {Array} [array] The array to iterate over.
- * @param {Function} iteratee The function invoked per iteration.
- * @returns {Array} Returns `array`.
- */
-function arrayEach(array, iteratee) {
-  var index = -1,
-      length = array == null ? 0 : array.length;
-
-  while (++index < length) {
-    if (iteratee(array[index], index, array) === false) {
-      break;
-    }
-  }
-  return array;
-}
-
-module.exports = arrayEach;
-
-
-/***/ }),
-/* 73 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var getNative = __webpack_require__(1);
-
-var defineProperty = (function() {
-  try {
-    var func = getNative(Object, 'defineProperty');
-    func({}, '', {});
-    return func;
-  } catch (e) {}
-}());
-
-module.exports = defineProperty;
-
-
-/***/ }),
-/* 74 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var copyObject = __webpack_require__(10),
-    keys = __webpack_require__(15);
-
-/**
- * The base implementation of `_.assign` without support for multiple sources
- * or `customizer` functions.
- *
- * @private
- * @param {Object} object The destination object.
- * @param {Object} source The source object.
- * @returns {Object} Returns `object`.
- */
-function baseAssign(object, source) {
-  return object && copyObject(source, keys(source), object);
-}
-
-module.exports = baseAssign;
-
-
-/***/ }),
-/* 75 */
-/***/ (function(module, exports) {
-
-/**
- * The base implementation of `_.times` without support for iteratee shorthands
- * or max array length checks.
- *
- * @private
- * @param {number} n The number of times to invoke `iteratee`.
- * @param {Function} iteratee The function invoked per iteration.
- * @returns {Array} Returns the array of results.
- */
-function baseTimes(n, iteratee) {
-  var index = -1,
-      result = Array(n);
-
-  while (++index < n) {
-    result[index] = iteratee(index);
-  }
-  return result;
-}
-
-module.exports = baseTimes;
-
-
-/***/ }),
-/* 76 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var baseIsArguments = __webpack_require__(77),
-    isObjectLike = __webpack_require__(4);
-
-/** Used for built-in method references. */
-var objectProto = Object.prototype;
-
-/** Used to check objects for own properties. */
-var hasOwnProperty = objectProto.hasOwnProperty;
-
-/** Built-in value references. */
-var propertyIsEnumerable = objectProto.propertyIsEnumerable;
-
-/**
- * Checks if `value` is likely an `arguments` object.
- *
- * @static
- * @memberOf _
- * @since 0.1.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is an `arguments` object,
- *  else `false`.
- * @example
- *
- * _.isArguments(function() { return arguments; }());
- * // => true
- *
- * _.isArguments([1, 2, 3]);
- * // => false
- */
-var isArguments = baseIsArguments(function() { return arguments; }()) ? baseIsArguments : function(value) {
-  return isObjectLike(value) && hasOwnProperty.call(value, 'callee') &&
-    !propertyIsEnumerable.call(value, 'callee');
-};
-
-module.exports = isArguments;
-
-
-/***/ }),
-/* 77 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var baseGetTag = __webpack_require__(7),
-    isObjectLike = __webpack_require__(4);
-
-/** `Object#toString` result references. */
-var argsTag = '[object Arguments]';
-
-/**
- * The base implementation of `_.isArguments`.
- *
- * @private
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is an `arguments` object,
- */
-function baseIsArguments(value) {
-  return isObjectLike(value) && baseGetTag(value) == argsTag;
-}
-
-module.exports = baseIsArguments;
-
-
-/***/ }),
-/* 78 */
-/***/ (function(module, exports) {
-
-/**
- * This method returns `false`.
- *
- * @static
- * @memberOf _
- * @since 4.13.0
- * @category Util
- * @returns {boolean} Returns `false`.
- * @example
- *
- * _.times(2, _.stubFalse);
- * // => [false, false]
- */
-function stubFalse() {
-  return false;
-}
-
-module.exports = stubFalse;
-
-
-/***/ }),
-/* 79 */
-/***/ (function(module, exports) {
-
-/** Used as references for various `Number` constants. */
-var MAX_SAFE_INTEGER = 9007199254740991;
-
-/** Used to detect unsigned integer values. */
-var reIsUint = /^(?:0|[1-9]\d*)$/;
-
-/**
- * Checks if `value` is a valid array-like index.
- *
- * @private
- * @param {*} value The value to check.
- * @param {number} [length=MAX_SAFE_INTEGER] The upper bounds of a valid index.
- * @returns {boolean} Returns `true` if `value` is a valid index, else `false`.
- */
-function isIndex(value, length) {
-  var type = typeof value;
-  length = length == null ? MAX_SAFE_INTEGER : length;
-
-  return !!length &&
-    (type == 'number' ||
-      (type != 'symbol' && reIsUint.test(value))) &&
-        (value > -1 && value % 1 == 0 && value < length);
-}
-
-module.exports = isIndex;
-
-
-/***/ }),
-/* 80 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var baseIsTypedArray = __webpack_require__(81),
-    baseUnary = __webpack_require__(18),
-    nodeUtil = __webpack_require__(19);
-
-/* Node.js helper references. */
-var nodeIsTypedArray = nodeUtil && nodeUtil.isTypedArray;
-
-/**
- * Checks if `value` is classified as a typed array.
- *
- * @static
- * @memberOf _
- * @since 3.0.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a typed array, else `false`.
- * @example
- *
- * _.isTypedArray(new Uint8Array);
- * // => true
- *
- * _.isTypedArray([]);
- * // => false
- */
-var isTypedArray = nodeIsTypedArray ? baseUnary(nodeIsTypedArray) : baseIsTypedArray;
-
-module.exports = isTypedArray;
-
-
-/***/ }),
-/* 81 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var baseGetTag = __webpack_require__(7),
-    isLength = __webpack_require__(32),
-    isObjectLike = __webpack_require__(4);
-
-/** `Object#toString` result references. */
-var argsTag = '[object Arguments]',
-    arrayTag = '[object Array]',
-    boolTag = '[object Boolean]',
-    dateTag = '[object Date]',
-    errorTag = '[object Error]',
-    funcTag = '[object Function]',
-    mapTag = '[object Map]',
-    numberTag = '[object Number]',
-    objectTag = '[object Object]',
-    regexpTag = '[object RegExp]',
-    setTag = '[object Set]',
-    stringTag = '[object String]',
-    weakMapTag = '[object WeakMap]';
-
-var arrayBufferTag = '[object ArrayBuffer]',
-    dataViewTag = '[object DataView]',
-    float32Tag = '[object Float32Array]',
-    float64Tag = '[object Float64Array]',
-    int8Tag = '[object Int8Array]',
-    int16Tag = '[object Int16Array]',
-    int32Tag = '[object Int32Array]',
-    uint8Tag = '[object Uint8Array]',
-    uint8ClampedTag = '[object Uint8ClampedArray]',
-    uint16Tag = '[object Uint16Array]',
-    uint32Tag = '[object Uint32Array]';
-
-/** Used to identify `toStringTag` values of typed arrays. */
-var typedArrayTags = {};
-typedArrayTags[float32Tag] = typedArrayTags[float64Tag] =
-typedArrayTags[int8Tag] = typedArrayTags[int16Tag] =
-typedArrayTags[int32Tag] = typedArrayTags[uint8Tag] =
-typedArrayTags[uint8ClampedTag] = typedArrayTags[uint16Tag] =
-typedArrayTags[uint32Tag] = true;
-typedArrayTags[argsTag] = typedArrayTags[arrayTag] =
-typedArrayTags[arrayBufferTag] = typedArrayTags[boolTag] =
-typedArrayTags[dataViewTag] = typedArrayTags[dateTag] =
-typedArrayTags[errorTag] = typedArrayTags[funcTag] =
-typedArrayTags[mapTag] = typedArrayTags[numberTag] =
-typedArrayTags[objectTag] = typedArrayTags[regexpTag] =
-typedArrayTags[setTag] = typedArrayTags[stringTag] =
-typedArrayTags[weakMapTag] = false;
-
-/**
- * The base implementation of `_.isTypedArray` without Node.js optimizations.
- *
- * @private
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a typed array, else `false`.
- */
-function baseIsTypedArray(value) {
-  return isObjectLike(value) &&
-    isLength(value.length) && !!typedArrayTags[baseGetTag(value)];
-}
-
-module.exports = baseIsTypedArray;
-
-
-/***/ }),
-/* 82 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var isPrototype = __webpack_require__(20),
-    nativeKeys = __webpack_require__(83);
-
-/** Used for built-in method references. */
-var objectProto = Object.prototype;
-
-/** Used to check objects for own properties. */
-var hasOwnProperty = objectProto.hasOwnProperty;
-
-/**
- * The base implementation of `_.keys` which doesn't treat sparse arrays as dense.
- *
- * @private
- * @param {Object} object The object to query.
- * @returns {Array} Returns the array of property names.
- */
-function baseKeys(object) {
-  if (!isPrototype(object)) {
-    return nativeKeys(object);
-  }
-  var result = [];
-  for (var key in Object(object)) {
-    if (hasOwnProperty.call(object, key) && key != 'constructor') {
-      result.push(key);
-    }
-  }
-  return result;
-}
-
-module.exports = baseKeys;
-
-
-/***/ }),
-/* 83 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var overArg = __webpack_require__(33);
-
-/* Built-in method references for those with the same name as other `lodash` methods. */
-var nativeKeys = overArg(Object.keys, Object);
-
-module.exports = nativeKeys;
-
-
-/***/ }),
-/* 84 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var copyObject = __webpack_require__(10),
-    keysIn = __webpack_require__(35);
-
-/**
- * The base implementation of `_.assignIn` without support for multiple sources
- * or `customizer` functions.
- *
- * @private
- * @param {Object} object The destination object.
- * @param {Object} source The source object.
- * @returns {Object} Returns `object`.
- */
-function baseAssignIn(object, source) {
-  return object && copyObject(source, keysIn(source), object);
-}
-
-module.exports = baseAssignIn;
-
-
-/***/ }),
-/* 85 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var isObject = __webpack_require__(3),
-    isPrototype = __webpack_require__(20),
-    nativeKeysIn = __webpack_require__(86);
-
-/** Used for built-in method references. */
-var objectProto = Object.prototype;
-
-/** Used to check objects for own properties. */
-var hasOwnProperty = objectProto.hasOwnProperty;
-
-/**
- * The base implementation of `_.keysIn` which doesn't treat sparse arrays as dense.
- *
- * @private
- * @param {Object} object The object to query.
- * @returns {Array} Returns the array of property names.
- */
-function baseKeysIn(object) {
-  if (!isObject(object)) {
-    return nativeKeysIn(object);
-  }
-  var isProto = isPrototype(object),
-      result = [];
-
-  for (var key in object) {
-    if (!(key == 'constructor' && (isProto || !hasOwnProperty.call(object, key)))) {
-      result.push(key);
-    }
-  }
-  return result;
-}
-
-module.exports = baseKeysIn;
-
-
-/***/ }),
-/* 86 */
-/***/ (function(module, exports) {
-
-/**
- * This function is like
- * [`Object.keys`](http://ecma-international.org/ecma-262/7.0/#sec-object.keys)
- * except that it includes inherited enumerable properties.
- *
- * @private
- * @param {Object} object The object to query.
- * @returns {Array} Returns the array of property names.
- */
-function nativeKeysIn(object) {
-  var result = [];
-  if (object != null) {
-    for (var key in Object(object)) {
-      result.push(key);
-    }
-  }
-  return result;
-}
-
-module.exports = nativeKeysIn;
-
-
-/***/ }),
-/* 87 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(module) {var root = __webpack_require__(0);
-
-/** Detect free variable `exports`. */
-var freeExports =  true && exports && !exports.nodeType && exports;
-
-/** Detect free variable `module`. */
-var freeModule = freeExports && typeof module == 'object' && module && !module.nodeType && module;
-
-/** Detect the popular CommonJS extension `module.exports`. */
-var moduleExports = freeModule && freeModule.exports === freeExports;
-
-/** Built-in value references. */
-var Buffer = moduleExports ? root.Buffer : undefined,
-    allocUnsafe = Buffer ? Buffer.allocUnsafe : undefined;
-
-/**
- * Creates a clone of  `buffer`.
- *
- * @private
- * @param {Buffer} buffer The buffer to clone.
- * @param {boolean} [isDeep] Specify a deep clone.
- * @returns {Buffer} Returns the cloned buffer.
- */
-function cloneBuffer(buffer, isDeep) {
-  if (isDeep) {
-    return buffer.slice();
-  }
-  var length = buffer.length,
-      result = allocUnsafe ? allocUnsafe(length) : new buffer.constructor(length);
-
-  buffer.copy(result);
-  return result;
-}
-
-module.exports = cloneBuffer;
-
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(17)(module)))
-
-/***/ }),
-/* 88 */
-/***/ (function(module, exports) {
-
-/**
- * Copies the values of `source` to `array`.
- *
- * @private
- * @param {Array} source The array to copy values from.
- * @param {Array} [array=[]] The array to copy values to.
- * @returns {Array} Returns `array`.
- */
-function copyArray(source, array) {
-  var index = -1,
-      length = source.length;
-
-  array || (array = Array(length));
-  while (++index < length) {
-    array[index] = source[index];
-  }
-  return array;
-}
-
-module.exports = copyArray;
-
-
-/***/ }),
-/* 89 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var copyObject = __webpack_require__(10),
-    getSymbols = __webpack_require__(21);
-
-/**
- * Copies own symbols of `source` to `object`.
- *
- * @private
- * @param {Object} source The object to copy symbols from.
- * @param {Object} [object={}] The object to copy symbols to.
- * @returns {Object} Returns `object`.
- */
-function copySymbols(source, object) {
-  return copyObject(source, getSymbols(source), object);
-}
-
-module.exports = copySymbols;
-
-
-/***/ }),
-/* 90 */
-/***/ (function(module, exports) {
-
-/**
- * A specialized version of `_.filter` for arrays without support for
- * iteratee shorthands.
- *
- * @private
- * @param {Array} [array] The array to iterate over.
- * @param {Function} predicate The function invoked per iteration.
- * @returns {Array} Returns the new filtered array.
- */
-function arrayFilter(array, predicate) {
-  var index = -1,
-      length = array == null ? 0 : array.length,
-      resIndex = 0,
-      result = [];
-
-  while (++index < length) {
-    var value = array[index];
-    if (predicate(value, index, array)) {
-      result[resIndex++] = value;
-    }
-  }
-  return result;
-}
-
-module.exports = arrayFilter;
-
-
-/***/ }),
-/* 91 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var copyObject = __webpack_require__(10),
-    getSymbolsIn = __webpack_require__(37);
-
-/**
- * Copies own and inherited symbols of `source` to `object`.
- *
- * @private
- * @param {Object} source The object to copy symbols from.
- * @param {Object} [object={}] The object to copy symbols to.
- * @returns {Object} Returns `object`.
- */
-function copySymbolsIn(source, object) {
-  return copyObject(source, getSymbolsIn(source), object);
-}
-
-module.exports = copySymbolsIn;
-
-
-/***/ }),
-/* 92 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var baseGetAllKeys = __webpack_require__(40),
-    getSymbols = __webpack_require__(21),
-    keys = __webpack_require__(15);
-
-/**
- * Creates an array of own enumerable property names and symbols of `object`.
- *
- * @private
- * @param {Object} object The object to query.
- * @returns {Array} Returns the array of property names and symbols.
- */
-function getAllKeys(object) {
-  return baseGetAllKeys(object, keys, getSymbols);
-}
-
-module.exports = getAllKeys;
-
-
-/***/ }),
-/* 93 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var baseGetAllKeys = __webpack_require__(40),
-    getSymbolsIn = __webpack_require__(37),
-    keysIn = __webpack_require__(35);
-
-/**
- * Creates an array of own and inherited enumerable property names and
- * symbols of `object`.
- *
- * @private
- * @param {Object} object The object to query.
- * @returns {Array} Returns the array of property names and symbols.
- */
-function getAllKeysIn(object) {
-  return baseGetAllKeys(object, keysIn, getSymbolsIn);
-}
-
-module.exports = getAllKeysIn;
-
-
-/***/ }),
-/* 94 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var getNative = __webpack_require__(1),
-    root = __webpack_require__(0);
-
-/* Built-in method references that are verified to be native. */
-var DataView = getNative(root, 'DataView');
-
-module.exports = DataView;
-
-
-/***/ }),
-/* 95 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var getNative = __webpack_require__(1),
-    root = __webpack_require__(0);
-
-/* Built-in method references that are verified to be native. */
-var Promise = getNative(root, 'Promise');
-
-module.exports = Promise;
-
-
-/***/ }),
-/* 96 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var getNative = __webpack_require__(1),
-    root = __webpack_require__(0);
-
-/* Built-in method references that are verified to be native. */
-var Set = getNative(root, 'Set');
-
-module.exports = Set;
-
-
-/***/ }),
-/* 97 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var getNative = __webpack_require__(1),
-    root = __webpack_require__(0);
-
-/* Built-in method references that are verified to be native. */
-var WeakMap = getNative(root, 'WeakMap');
-
-module.exports = WeakMap;
-
-
-/***/ }),
-/* 98 */
-/***/ (function(module, exports) {
-
-/** Used for built-in method references. */
-var objectProto = Object.prototype;
-
-/** Used to check objects for own properties. */
-var hasOwnProperty = objectProto.hasOwnProperty;
-
-/**
- * Initializes an array clone.
- *
- * @private
- * @param {Array} array The array to clone.
- * @returns {Array} Returns the initialized clone.
- */
-function initCloneArray(array) {
-  var length = array.length,
-      result = new array.constructor(length);
-
-  // Add properties assigned by `RegExp#exec`.
-  if (length && typeof array[0] == 'string' && hasOwnProperty.call(array, 'index')) {
-    result.index = array.index;
-    result.input = array.input;
-  }
-  return result;
-}
-
-module.exports = initCloneArray;
-
-
-/***/ }),
-/* 99 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var cloneArrayBuffer = __webpack_require__(23),
-    cloneDataView = __webpack_require__(101),
-    cloneRegExp = __webpack_require__(102),
-    cloneSymbol = __webpack_require__(103),
-    cloneTypedArray = __webpack_require__(104);
-
-/** `Object#toString` result references. */
-var boolTag = '[object Boolean]',
-    dateTag = '[object Date]',
-    mapTag = '[object Map]',
-    numberTag = '[object Number]',
-    regexpTag = '[object RegExp]',
-    setTag = '[object Set]',
-    stringTag = '[object String]',
-    symbolTag = '[object Symbol]';
-
-var arrayBufferTag = '[object ArrayBuffer]',
-    dataViewTag = '[object DataView]',
-    float32Tag = '[object Float32Array]',
-    float64Tag = '[object Float64Array]',
-    int8Tag = '[object Int8Array]',
-    int16Tag = '[object Int16Array]',
-    int32Tag = '[object Int32Array]',
-    uint8Tag = '[object Uint8Array]',
-    uint8ClampedTag = '[object Uint8ClampedArray]',
-    uint16Tag = '[object Uint16Array]',
-    uint32Tag = '[object Uint32Array]';
-
-/**
- * Initializes an object clone based on its `toStringTag`.
- *
- * **Note:** This function only supports cloning values with tags of
- * `Boolean`, `Date`, `Error`, `Map`, `Number`, `RegExp`, `Set`, or `String`.
- *
- * @private
- * @param {Object} object The object to clone.
- * @param {string} tag The `toStringTag` of the object to clone.
- * @param {boolean} [isDeep] Specify a deep clone.
- * @returns {Object} Returns the initialized clone.
- */
-function initCloneByTag(object, tag, isDeep) {
-  var Ctor = object.constructor;
-  switch (tag) {
-    case arrayBufferTag:
-      return cloneArrayBuffer(object);
-
-    case boolTag:
-    case dateTag:
-      return new Ctor(+object);
-
-    case dataViewTag:
-      return cloneDataView(object, isDeep);
-
-    case float32Tag: case float64Tag:
-    case int8Tag: case int16Tag: case int32Tag:
-    case uint8Tag: case uint8ClampedTag: case uint16Tag: case uint32Tag:
-      return cloneTypedArray(object, isDeep);
-
-    case mapTag:
-      return new Ctor;
-
-    case numberTag:
-    case stringTag:
-      return new Ctor(object);
-
-    case regexpTag:
-      return cloneRegExp(object);
-
-    case setTag:
-      return new Ctor;
-
-    case symbolTag:
-      return cloneSymbol(object);
-  }
-}
-
-module.exports = initCloneByTag;
-
-
-/***/ }),
-/* 100 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var root = __webpack_require__(0);
-
-/** Built-in value references. */
-var Uint8Array = root.Uint8Array;
-
-module.exports = Uint8Array;
-
-
-/***/ }),
-/* 101 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var cloneArrayBuffer = __webpack_require__(23);
-
-/**
- * Creates a clone of `dataView`.
- *
- * @private
- * @param {Object} dataView The data view to clone.
- * @param {boolean} [isDeep] Specify a deep clone.
- * @returns {Object} Returns the cloned data view.
- */
-function cloneDataView(dataView, isDeep) {
-  var buffer = isDeep ? cloneArrayBuffer(dataView.buffer) : dataView.buffer;
-  return new dataView.constructor(buffer, dataView.byteOffset, dataView.byteLength);
-}
-
-module.exports = cloneDataView;
-
-
-/***/ }),
-/* 102 */
-/***/ (function(module, exports) {
-
-/** Used to match `RegExp` flags from their coerced string values. */
-var reFlags = /\w*$/;
-
-/**
- * Creates a clone of `regexp`.
- *
- * @private
- * @param {Object} regexp The regexp to clone.
- * @returns {Object} Returns the cloned regexp.
- */
-function cloneRegExp(regexp) {
-  var result = new regexp.constructor(regexp.source, reFlags.exec(regexp));
-  result.lastIndex = regexp.lastIndex;
-  return result;
-}
-
-module.exports = cloneRegExp;
-
-
-/***/ }),
-/* 103 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var Symbol = __webpack_require__(14);
-
-/** Used to convert symbols to primitives and strings. */
-var symbolProto = Symbol ? Symbol.prototype : undefined,
-    symbolValueOf = symbolProto ? symbolProto.valueOf : undefined;
-
-/**
- * Creates a clone of the `symbol` object.
- *
- * @private
- * @param {Object} symbol The symbol object to clone.
- * @returns {Object} Returns the cloned symbol object.
- */
-function cloneSymbol(symbol) {
-  return symbolValueOf ? Object(symbolValueOf.call(symbol)) : {};
-}
-
-module.exports = cloneSymbol;
-
-
-/***/ }),
-/* 104 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var cloneArrayBuffer = __webpack_require__(23);
-
-/**
- * Creates a clone of `typedArray`.
- *
- * @private
- * @param {Object} typedArray The typed array to clone.
- * @param {boolean} [isDeep] Specify a deep clone.
- * @returns {Object} Returns the cloned typed array.
- */
-function cloneTypedArray(typedArray, isDeep) {
-  var buffer = isDeep ? cloneArrayBuffer(typedArray.buffer) : typedArray.buffer;
-  return new typedArray.constructor(buffer, typedArray.byteOffset, typedArray.length);
-}
-
-module.exports = cloneTypedArray;
-
-
-/***/ }),
-/* 105 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var baseCreate = __webpack_require__(106),
-    getPrototype = __webpack_require__(39),
-    isPrototype = __webpack_require__(20);
-
-/**
- * Initializes an object clone.
- *
- * @private
- * @param {Object} object The object to clone.
- * @returns {Object} Returns the initialized clone.
- */
-function initCloneObject(object) {
-  return (typeof object.constructor == 'function' && !isPrototype(object))
-    ? baseCreate(getPrototype(object))
-    : {};
-}
-
-module.exports = initCloneObject;
-
-
-/***/ }),
-/* 106 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var isObject = __webpack_require__(3);
-
-/** Built-in value references. */
-var objectCreate = Object.create;
-
-/**
- * The base implementation of `_.create` without support for assigning
- * properties to the created object.
- *
- * @private
- * @param {Object} proto The object to inherit from.
- * @returns {Object} Returns the new object.
- */
-var baseCreate = (function() {
-  function object() {}
-  return function(proto) {
-    if (!isObject(proto)) {
-      return {};
-    }
-    if (objectCreate) {
-      return objectCreate(proto);
-    }
-    object.prototype = proto;
-    var result = new object;
-    object.prototype = undefined;
-    return result;
-  };
-}());
-
-module.exports = baseCreate;
-
-
-/***/ }),
-/* 107 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var baseIsMap = __webpack_require__(108),
-    baseUnary = __webpack_require__(18),
-    nodeUtil = __webpack_require__(19);
-
-/* Node.js helper references. */
-var nodeIsMap = nodeUtil && nodeUtil.isMap;
-
-/**
- * Checks if `value` is classified as a `Map` object.
- *
- * @static
- * @memberOf _
- * @since 4.3.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a map, else `false`.
- * @example
- *
- * _.isMap(new Map);
- * // => true
- *
- * _.isMap(new WeakMap);
- * // => false
- */
-var isMap = nodeIsMap ? baseUnary(nodeIsMap) : baseIsMap;
-
-module.exports = isMap;
-
-
-/***/ }),
-/* 108 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var getTag = __webpack_require__(22),
-    isObjectLike = __webpack_require__(4);
-
-/** `Object#toString` result references. */
-var mapTag = '[object Map]';
-
-/**
- * The base implementation of `_.isMap` without Node.js optimizations.
- *
- * @private
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a map, else `false`.
- */
-function baseIsMap(value) {
-  return isObjectLike(value) && getTag(value) == mapTag;
-}
-
-module.exports = baseIsMap;
-
-
-/***/ }),
-/* 109 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var baseIsSet = __webpack_require__(110),
-    baseUnary = __webpack_require__(18),
-    nodeUtil = __webpack_require__(19);
-
-/* Node.js helper references. */
-var nodeIsSet = nodeUtil && nodeUtil.isSet;
-
-/**
- * Checks if `value` is classified as a `Set` object.
- *
- * @static
- * @memberOf _
- * @since 4.3.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a set, else `false`.
- * @example
- *
- * _.isSet(new Set);
- * // => true
- *
- * _.isSet(new WeakSet);
- * // => false
- */
-var isSet = nodeIsSet ? baseUnary(nodeIsSet) : baseIsSet;
-
-module.exports = isSet;
-
-
-/***/ }),
-/* 110 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var getTag = __webpack_require__(22),
-    isObjectLike = __webpack_require__(4);
-
-/** `Object#toString` result references. */
-var setTag = '[object Set]';
-
-/**
- * The base implementation of `_.isSet` without Node.js optimizations.
- *
- * @private
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a set, else `false`.
- */
-function baseIsSet(value) {
-  return isObjectLike(value) && getTag(value) == setTag;
-}
-
-module.exports = baseIsSet;
-
-
-/***/ }),
-/* 111 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-
-// EXTERNAL MODULE: external {"commonjs":"ractive","commonjs2":"ractive","amd":"ractive","root":"Ractive"}
-var external_commonjs_ractive_commonjs2_ractive_amd_ractive_root_Ractive_ = __webpack_require__(11);
-var external_commonjs_ractive_commonjs2_ractive_amd_ractive_root_Ractive_default = /*#__PURE__*/__webpack_require__.n(external_commonjs_ractive_commonjs2_ractive_amd_ractive_root_Ractive_);
-
-// CONCATENATED MODULE: ./minitablelist.js
 
 
-/* harmony default export */ var minitablelist = (Ractive.extend({
-	//isolated: true,
-	template:
-		"\
-		<miniheader>\
-			Tables\
-			<div class='pull-right' style='margin-right: 5px;'>\
-				<a class='btn btn-xs btn-default' on-click='create' as-tooltip=' \" Create Table \" '><i class='icon zmdi zmdi-plus'></i></a>\
-				<a class='btn btn-xs btn-default' on-click='@this.refresh_tables()'><i class='icon zmdi zmdi-refresh'></i></a>\
-			</div>\
-		</miniheader>\
-		<scrollarea class='scrollarea miniheaderbody' style='position: absolute;'>\
-		<tables>\
-			{{#tables}}\
-			<div on-click='@this.fire(\"open-table\",.)'> {{.}} </div>\
-			{{/tables}}\
-		</tables>\
-		</scrollarea>\
-		",
-	data: function() { return {} },
-	refresh_tables: function() {
-		var ractive = this
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
 
-		ractive.set('tables')
+var _tabledata = __webpack_require__(10);
 
-		DynamoDB.query('SHOW TABLES', function(err, data ) {
+var _tabledata2 = _interopRequireDefault(_tabledata);
 
-				if (err)
-					return ractive.set('err', err )
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-				ractive.set('err')
-				ractive.set('tables', data )
-
-		})
-	},
-	oninit: function() {
-		this.refresh_tables()
-		var ractive = this
-		ractive.on('open-table', function(e, table ) {
-			ractive.parent.fire('open-table', table )
-		})
-		ractive.on('create', function() {
-			ractive.root.findComponent('tabs').newtab('tablecreate', 'Create Table' )
-		})
-	},
-}));
-
-// CONCATENATED MODULE: ./tabledata.js
-/* harmony default export */ var tabledata = (Ractive.extend({
-	isolated: true,
-	template: "\
-		<div class='tabledata' style='{{style}}'>\
-			<div class='tabledatahead'>\
-				{{#columns:i}}\
-					<div style='width: {{#if i === 0}}22px{{else}}{{100/columns.length}}%{{/if}} '>{{.}}</div>\
-				{{/columns}}\
-			</div>\
-			<div class='tabledatacontent'>\
-		\
-				{{#if rows.length === 0}}\
-					<br><small>Empty</small>\
-				{{/if}}\
-				{{#if rows === null }}\
-					<br><small>Loading...</small>\
-				{{/if}}\
-		\
-				{{#rows:row}}\
-				<div class='tabledatarow {{#if .[0].selected}}selected{{/if}}' on-click='selectrow'>\
-					{{#each .:i}}\
-					<div class='tabledatacell\
-						{{#if .KEY}}t-K{{/if}}\
-						{{#if .HASH}}t-HASH{{/if}}\
-						{{#if .S}}t-S{{/if}}\
-						{{#if .N}}t-N{{/if}}\
-						{{#if .BOOL}}t-BOOL{{/if}}\
-						{{#if .NULL}}t-NULL{{/if}}\
-						{{#if .L}}t-L{{/if}}\
-						{{#if .M}}t-M{{/if}}\
-						{{#if .U}}t-U{{/if}}\
-						' style='width: {{#if i === 0}}22px{{else}}{{100/columns.length}}%{{/if}} '\
-						{{#if .HASH}}on-click='cellclick'{{/if}}\
-						>\
-						{{#if .KEY}}\
-							{{#if .selected}}\
-								<i class='zmdi selectrow zmdi-hc-fw zmdi-check-square'></i>\
-							{{else}}\
-								<i class='zmdi selectrow zmdi-hc-fw zmdi-square-o'></i>\
-							{{/if}}\
-						{{/if}}\
-						{{#if .HASH}}<a>{{.HASH}}</a>{{/if}}\
-						{{#if .S}}{{.S}}{{/if}}\
-						{{#if .N}}{{.N}}{{else}}{{#if .N === 0}}0{{/if}}{{/if}}\
-						{{#if .BOOL}}{{.BOOL}}{{/if}}\
-						{{#if .NULL}}NULL{{/if}}\
-						{{#if .L}}[...]{{/if}}\
-						{{#if .M}}{...}{{/if}}\
-					</div>\
-					{{/each}}\
-				</div>\
-				{{/rows}}\
-			</div>\
-		</div>"
-	,
-	data: function() { return {} },
-	oninit: function() {
-		this.on('cellclick', function( e ) {
-			var col = this.get( e.resolve() )
-			//console.log("cellclick", e.resolve(), " = ",this.get( e.resolve())  )
-			//console.log( this.get(e.resolve().split('.').slice(0,-1).join('.')) )
-			this.fire('colclick', undefined, col.item, col.raw )
-		})
-	}
-}));
-
-// CONCATENATED MODULE: ./tablelistfull.js
-
-
-
-/* harmony default export */ var tablelistfull = (Ractive.extend({
+exports.default = Ractive.extend({
 	//isolated: true,
 	components: {
-		tabledata: tabledata,
+		tabledata: _tabledata2.default
 	},
-	template:
-		"\
+	template: "\
 			<div class='pull-right' style='padding: 7px;'>\
 				<a class='btn btn-xs btn-primary ' on-click='create'><i class='icon zmdi zmdi-plus'></i> CREATE TABLE <i class='zmdi'></i></a>\
 				<a class='btn btn-xs btn-default {{#if selection_length > 0}}{{else}}disabled{{/if}}' on-click='delete' as-tooltip=' \" Delete table \" '><i class='icon zmdi zmdi-delete'></i></a>\
@@ -3564,128 +1682,130 @@ var external_commonjs_ractive_commonjs2_ractive_amd_ractive_root_Ractive_default
 		\
 		<tabledata columns='{{columns}}' rows='{{rows}}' style='top: 38px;' />\
 		",
-	data: function() {
+	data: function data() {
 		return {
 			selection_length: 0,
-			refresh_tables: false,
-		}
+			refresh_tables: false
+		};
 	},
-	refresh_tables: function() {
-		var ractive = this
-		ractive.set('refresh_tables', true)
-		ractive.set('tables')
+	refresh_tables: function refresh_tables() {
+		var ractive = this;
+		ractive.set('refresh_tables', true);
+		ractive.set('tables');
 
-		DynamoDB.query('SHOW TABLES', function(err, data ) {
+		DynamoDB.query('SHOW TABLES', function (err, data) {
 
-				ractive.set('refresh_tables', false)
+			ractive.set('refresh_tables', false);
 
-				if (err)
-					return ractive.set('err', err )
+			if (err) return ractive.set('err', err);
 
-				ractive.set('err')
+			ractive.set('err');
 
-				ractive.set('columns', [ null, 'Name', 'Status', 'Partition', 'Sort', 'Indexes', 'Read Capacity', 'Write Capacity'])
-				ractive.set('rows', data.map(function(t) {
-					return [
-						{ KEY: true },
-						{ S: t },
-						{ },
-						{ },
-						{ },
-						{ },
-						{ },
-						{ }
-					]
-				}) )
-				var waterfallz = data.map(function(t) {
+			ractive.set('columns', [null, 'Name', 'Status', 'Partition', 'Sort', 'Indexes', 'Read Capacity', 'Write Capacity']);
+			ractive.set('rows', data.map(function (t) {
+				return [{ KEY: true }, { S: t }, {}, {}, {}, {}, {}, {}];
+			}));
+			var waterfallz = data.map(function (t) {
 
-					var f = function( cb ) {
-						//console.log(t)
-						DynamoDB.client.describeTable({ TableName: t}, function(err, data) {
-							if (err)
-								return cb()
+				var f = function f(cb) {
+					//console.log(t)
+					DynamoDB.client.describeTable({ TableName: t }, function (err, data) {
+						if (err) return cb();
 
-							ractive.set('rows', ractive.get('rows').map(function(row) {
-								if ( row[1].S === t ) {
+						ractive.set('rows', ractive.get('rows').map(function (row) {
+							if (row[1].S === t) {
 
-									row[2].S = data.Table.TableStatus
-									row[3].S = ((data.Table.KeySchema || []).filter(function( ks ) { return ks.KeyType === 'HASH'})[0] || {}).AttributeName || '-'
-									row[4].S = ((data.Table.KeySchema || []).filter(function( ks ) { return ks.KeyType === 'RANGE'})[0] || {}).AttributeName || '-'
-									row[5].S = (data.Table.GlobalSecondaryIndexes || []).length.toString()
-									row[6].S = ([ data.Table.ProvisionedThroughput.ReadCapacityUnits ].concat( (data.Table.GlobalSecondaryIndexes || []).map(function(tr) { return tr.ProvisionedThroughput.ReadCapacityUnits }) )).reduce(function(a, b) { return a + b; }, 0)
-									row[7].S = ([ data.Table.ProvisionedThroughput.WriteCapacityUnits ].concat( (data.Table.GlobalSecondaryIndexes || []).map(function(tr) { return tr.ProvisionedThroughput.WriteCapacityUnits }) )).reduce(function(a, b) { return a + b; }, 0)
+								row[2].S = data.Table.TableStatus;
+								row[3].S = ((data.Table.KeySchema || []).filter(function (ks) {
+									return ks.KeyType === 'HASH';
+								})[0] || {}).AttributeName || '-';
+								row[4].S = ((data.Table.KeySchema || []).filter(function (ks) {
+									return ks.KeyType === 'RANGE';
+								})[0] || {}).AttributeName || '-';
+								row[5].S = (data.Table.GlobalSecondaryIndexes || []).length.toString();
+								row[6].S = [data.Table.ProvisionedThroughput.ReadCapacityUnits].concat((data.Table.GlobalSecondaryIndexes || []).map(function (tr) {
+									return tr.ProvisionedThroughput.ReadCapacityUnits;
+								})).reduce(function (a, b) {
+									return a + b;
+								}, 0);
+								row[7].S = [data.Table.ProvisionedThroughput.WriteCapacityUnits].concat((data.Table.GlobalSecondaryIndexes || []).map(function (tr) {
+									return tr.ProvisionedThroughput.WriteCapacityUnits;
+								})).reduce(function (a, b) {
+									return a + b;
+								}, 0);
 
-									if ((data.Table.BillingModeSummary || {}).BillingMode === 'PAY_PER_REQUEST' ) {
-										row[6].S = 'On-Demand'
-										row[7].S = 'On-Demand'
-									}
+								if ((data.Table.BillingModeSummary || {}).BillingMode === 'PAY_PER_REQUEST') {
+									row[6].S = 'On-Demand';
+									row[7].S = 'On-Demand';
 								}
-								return row
-							}))
-							cb()
-						})
-					}
-					return f;
-				})
+							}
+							return row;
+						}));
+						cb();
+					});
+				};
+				return f;
+			});
 
-				async.parallel(waterfallz, function( err ) {
-
-
-				})
-
-		})
+			async.parallel(waterfallz, function (err) {});
+		});
 		//ddb.listTables({}, function(err, data) {
 		//})
 	},
-	oninit: function() {
-		this.refresh_tables()
-		var ractive = this
+	oninit: function oninit() {
+		this.refresh_tables();
+		var ractive = this;
 		//ractive.on('open-table', function(e, table ) {
 		//	ractive.root.fire('open-table', table )
 		//})
-		ractive.on('tabledata.selectrow', function(context) {
-			var keypath = context.resolve()
-			ractive.set(keypath + '.0.selected', !ractive.get(keypath + '.0.selected') )
+		ractive.on('tabledata.selectrow', function (context) {
+			var keypath = context.resolve();
+			ractive.set(keypath + '.0.selected', !ractive.get(keypath + '.0.selected'));
 
-			ractive.set('selection_length',
-				ractive.get('rows').filter(function(r) { return r[0].selected === true } ).length
-			)
-		})
-		ractive.on('delete', function() {
-			var selected = ractive.get('rows').filter(function(r) { return r[0].selected === true } );
+			ractive.set('selection_length', ractive.get('rows').filter(function (r) {
+				return r[0].selected === true;
+			}).length);
+		});
+		ractive.on('delete', function () {
+			var selected = ractive.get('rows').filter(function (r) {
+				return r[0].selected === true;
+			});
 
-			if ( selected.length === 0 )
-				return alert('Please select a table to delete')
+			if (selected.length === 0) return alert('Please select a table to delete');
 
-			if ( selected.length > 1 )
-				return alert('Please select one table at a time')
+			if (selected.length > 1) return alert('Please select one table at a time');
 
-			var tablename = selected[0][1].S
+			var tablename = selected[0][1].S;
 
-			if (confirm('Are you sure you want to delete table ' + tablename )) {
+			if (confirm('Are you sure you want to delete table ' + tablename)) {
 
-				DynamoDB.client.deleteTable({ TableName: tablename } , function(err, data) {
-					if (err)
-						return alert( err.message )
+				DynamoDB.client.deleteTable({ TableName: tablename }, function (err, data) {
+					if (err) return alert(err.message);
 
-					ractive.refresh_tables()
+					ractive.refresh_tables();
 
 					// refresh leftside as well
-					window.ractive.findComponent('minitablelist').refresh_tables()
-				})
+					window.ractive.findComponent('minitablelist').refresh_tables();
+				});
 			}
+		});
+		ractive.on('create', function () {
+			ractive.root.findComponent('tabs').newtab('tablecreate', 'Create Table');
+		});
+	}
+});
 
-		})
-		ractive.on('create', function() {
-			ractive.root.findComponent('tabs').newtab('tablecreate', 'Create Table' )
-		})
-	},
-}));
+/***/ }),
+/* 46 */
+/***/ (function(module, exports, __webpack_require__) {
 
-// CONCATENATED MODULE: ./tablecreate.js
+"use strict";
 
 
-/* harmony default export */ var tablecreate = (Ractive.extend({
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.default = Ractive.extend({
 	//isolated: true,
 	template: "\
 		<div class='tableview {{#if active}}active{{/if}}'>\
@@ -3906,202 +2026,347 @@ var external_commonjs_ractive_commonjs2_ractive_amd_ractive_root_Ractive_default
 		</div>\
 		</div>\
 	",
-	data: function() {
+	data: function data() {
 		return {
 			newtable: {
 				BillingMode: 'PROVISIONED',
 				ProvisionedThroughput: {
 					ReadCapacityUnits: 1,
-					WriteCapacityUnits: 1,
+					WriteCapacityUnits: 1
 				},
 
-				AttributeDefinitions: [
-					{
-						AttributeName: '',
-						AttributeType: 'S'
-					}
-				],
+				AttributeDefinitions: [{
+					AttributeName: '',
+					AttributeType: 'S'
+				}],
 				LocalSecondaryIndexes: [],
-				GlobalSecondaryIndexes: [],
-			},
-		}
+				GlobalSecondaryIndexes: []
+			}
+		};
 	},
 
-	oninit: function() {
-		var ractive = this
-		ractive.on('lsi-add', function() {
+	oninit: function oninit() {
+		var ractive = this;
+		ractive.on('lsi-add', function () {
 			ractive.push('newtable.LocalSecondaryIndexes', {
 				IndexName: '',
-				KeySchema: [
-					{
-						AttributeName: ractive.get('newtable.AttributeDefinitions.0.AttributeName'),
-						KeyType: 'HASH',
-					},
-					{
-						AttributeName: '',
-						KeyType: 'RANGE'
-					},
-				],
+				KeySchema: [{
+					AttributeName: ractive.get('newtable.AttributeDefinitions.0.AttributeName'),
+					KeyType: 'HASH'
+				}, {
+					AttributeName: '',
+					KeyType: 'RANGE'
+				}],
 				Projection: {
 					ProjectionType: 'ALL',
-					NonKeyAttributes: [],
-				},
-			})
-		})
-		ractive.on('gsi-add', function() {
+					NonKeyAttributes: []
+				}
+			});
+		});
+		ractive.on('gsi-add', function () {
 			ractive.push('newtable.GlobalSecondaryIndexes', {
 				IndexName: '',
-				KeySchema: [
-					{
-						AttributeName: '',
-						KeyType: 'HASH',
-					},
-					{
-						AttributeName: '',
-						KeyType: 'RANGE'
-					},
-				],
+				KeySchema: [{
+					AttributeName: '',
+					KeyType: 'HASH'
+				}, {
+					AttributeName: '',
+					KeyType: 'RANGE'
+				}],
 				Projection: {
 					ProjectionType: 'ALL',
-					NonKeyAttributes: [],
+					NonKeyAttributes: []
 				},
 				ProvisionedThroughput: {
 					ReadCapacityUnits: 1,
-					WriteCapacityUnits: 1,
+					WriteCapacityUnits: 1
 				}
-			})
-		})
-		ractive.on('add-nonkey-attribute', function(e) {
+			});
+		});
+		ractive.on('add-nonkey-attribute', function (e) {
 			var keypath = e.resolve() + '.Projection.NonKeyAttributes';
-			ractive.push( keypath , ractive.get('nonkeyattribute'))
-			ractive.set(  keypath , ractive.get( keypath ).filter(function(value,index,self) { return self.indexOf(value) === index; }))
-			ractive.set('nonkeyattribute')
-		})
-		ractive.on('lsi-delete', function(e) {
-			ractive.set('newtable.LocalSecondaryIndexes', ractive.get('newtable.LocalSecondaryIndexes').filter(function(val, key ) {
+			ractive.push(keypath, ractive.get('nonkeyattribute'));
+			ractive.set(keypath, ractive.get(keypath).filter(function (value, index, self) {
+				return self.indexOf(value) === index;
+			}));
+			ractive.set('nonkeyattribute');
+		});
+		ractive.on('lsi-delete', function (e) {
+			ractive.set('newtable.LocalSecondaryIndexes', ractive.get('newtable.LocalSecondaryIndexes').filter(function (val, key) {
 				return e.resolve() !== 'newtable.LocalSecondaryIndexes.' + key;
-			}))
-		})
-		ractive.on('gsi-delete', function(e) {
-			ractive.set('newtable.GlobalSecondaryIndexes', ractive.get('newtable.GlobalSecondaryIndexes').filter(function(val, key ) {
+			}));
+		});
+		ractive.on('gsi-delete', function (e) {
+			ractive.set('newtable.GlobalSecondaryIndexes', ractive.get('newtable.GlobalSecondaryIndexes').filter(function (val, key) {
 				return e.resolve() !== 'newtable.GlobalSecondaryIndexes.' + key;
-			}))
-		})
+			}));
+		});
 
-		ractive.observe('newtable.AttributeDefinitions.0.AttributeName', function() {
-			ractive.set('newtable.LocalSecondaryIndexes', ractive.get('newtable.LocalSecondaryIndexes').map( function(lsi) {
-				lsi.KeySchema[0].AttributeName = ractive.get('newtable.AttributeDefinitions.0.AttributeName')
+		ractive.observe('newtable.AttributeDefinitions.0.AttributeName', function () {
+			ractive.set('newtable.LocalSecondaryIndexes', ractive.get('newtable.LocalSecondaryIndexes').map(function (lsi) {
+				lsi.KeySchema[0].AttributeName = ractive.get('newtable.AttributeDefinitions.0.AttributeName');
 				return lsi;
-			}) )
-		})
+			}));
+		});
 
-		ractive.on('focus', function() {
-			ractive.set( 'errorMessage' )
-		})
-		ractive.on('create', function() {
-			ractive.set( 'errorMessage' )
+		ractive.on('focus', function () {
+			ractive.set('errorMessage');
+		});
+		ractive.on('create', function () {
+			ractive.set('errorMessage');
 
-
-
-			var newtable = JSON.parse(JSON.stringify(ractive.get('newtable')))
-			console.log('newtable', newtable )
+			var newtable = JSON.parse(JSON.stringify(ractive.get('newtable')));
+			console.log('newtable', newtable);
 
 			var payload = {
 				TableName: newtable.TableName,
 				BillingMode: newtable.BillingMode,
 				AttributeDefinitions: newtable.AttributeDefinitions,
-				KeySchema: [
-					{
-						AttributeName: newtable.AttributeDefinitions[0].AttributeName,
-						KeyType: "HASH"
-					},
-				],
+				KeySchema: [{
+					AttributeName: newtable.AttributeDefinitions[0].AttributeName,
+					KeyType: "HASH"
+				}],
 				ProvisionedThroughput: {
 					ReadCapacityUnits: newtable.ProvisionedThroughput.ReadCapacityUnits,
-					WriteCapacityUnits: newtable.ProvisionedThroughput.WriteCapacityUnits,
+					WriteCapacityUnits: newtable.ProvisionedThroughput.WriteCapacityUnits
 				},
 				GlobalSecondaryIndexes: newtable.GlobalSecondaryIndexes,
-				LocalSecondaryIndexes:  newtable.LocalSecondaryIndexes,
+				LocalSecondaryIndexes: newtable.LocalSecondaryIndexes
 			};
 
 			if (ractive.get('newtable.sort_enabled')) {
 				payload.KeySchema.push({
 					AttributeName: newtable.sort_key_name,
 					KeyType: "RANGE"
-				})
+				});
 				payload.AttributeDefinitions.push({
 					AttributeName: newtable.sort_key_name,
-					AttributeType: newtable.sort_key_type,
-				})
+					AttributeType: newtable.sort_key_type
+				});
 			}
 
-			payload.LocalSecondaryIndexes = payload.LocalSecondaryIndexes.map(function(lsi) {
-				if (lsi.Projection.ProjectionType !== 'INCLUDE')
-					delete lsi.Projection.NonKeyAttributes;
+			payload.LocalSecondaryIndexes = payload.LocalSecondaryIndexes.map(function (lsi) {
+				if (lsi.Projection.ProjectionType !== 'INCLUDE') delete lsi.Projection.NonKeyAttributes;
 
-				if ( payload.AttributeDefinitions.map(function(atd) { return atd.AttributeName+'.'+atd.AttributeType }).indexOf( lsi.KeySchema[1].AttributeName + '.' + lsi.KeySchema[1].AttributeType ) === -1 )
-					payload.AttributeDefinitions.push({
-						AttributeName: lsi.KeySchema[1].AttributeName,
-						AttributeType: lsi.KeySchema[1].AttributeType,
-					})
+				if (payload.AttributeDefinitions.map(function (atd) {
+					return atd.AttributeName + '.' + atd.AttributeType;
+				}).indexOf(lsi.KeySchema[1].AttributeName + '.' + lsi.KeySchema[1].AttributeType) === -1) payload.AttributeDefinitions.push({
+					AttributeName: lsi.KeySchema[1].AttributeName,
+					AttributeType: lsi.KeySchema[1].AttributeType
+				});
 				delete lsi.KeySchema[1].AttributeType;
 
-
 				return lsi;
-			})
+			});
 
-			payload.GlobalSecondaryIndexes = payload.GlobalSecondaryIndexes.map(function(gsi) {
-				if (gsi.Projection.ProjectionType !== 'INCLUDE')
-					delete gsi.Projection.NonKeyAttributes;
+			payload.GlobalSecondaryIndexes = payload.GlobalSecondaryIndexes.map(function (gsi) {
+				if (gsi.Projection.ProjectionType !== 'INCLUDE') delete gsi.Projection.NonKeyAttributes;
 
 				// add attribute, if not exists
-				if ( payload.AttributeDefinitions.map(function(atd) { return atd.AttributeName+'.'+atd.AttributeType }).indexOf( gsi.KeySchema[0].AttributeName + '.' + gsi.KeySchema[0].AttributeType ) === -1 )
-					payload.AttributeDefinitions.push({
-						AttributeName: gsi.KeySchema[0].AttributeName,
-						AttributeType: gsi.KeySchema[0].AttributeType,
-					})
+				if (payload.AttributeDefinitions.map(function (atd) {
+					return atd.AttributeName + '.' + atd.AttributeType;
+				}).indexOf(gsi.KeySchema[0].AttributeName + '.' + gsi.KeySchema[0].AttributeType) === -1) payload.AttributeDefinitions.push({
+					AttributeName: gsi.KeySchema[0].AttributeName,
+					AttributeType: gsi.KeySchema[0].AttributeType
+				});
 				delete gsi.KeySchema[0].AttributeType;
 
 				if (gsi.KeySchema[1].AttributeName.trim().length) {
-					if ( payload.AttributeDefinitions.map(function(atd) { return atd.AttributeName+'.'+atd.AttributeType }).indexOf( gsi.KeySchema[1].AttributeName + '.' + gsi.KeySchema[1].AttributeType ) === -1 )
-						payload.AttributeDefinitions.push({
-							AttributeName: gsi.KeySchema[1].AttributeName,
-							AttributeType: gsi.KeySchema[1].AttributeType,
-						})
+					if (payload.AttributeDefinitions.map(function (atd) {
+						return atd.AttributeName + '.' + atd.AttributeType;
+					}).indexOf(gsi.KeySchema[1].AttributeName + '.' + gsi.KeySchema[1].AttributeType) === -1) payload.AttributeDefinitions.push({
+						AttributeName: gsi.KeySchema[1].AttributeName,
+						AttributeType: gsi.KeySchema[1].AttributeType
+					});
 					delete gsi.KeySchema[1].AttributeType;
 				} else {
-					gsi.KeySchema = [gsi.KeySchema[0]]
+					gsi.KeySchema = [gsi.KeySchema[0]];
 				}
-
 
 				return gsi;
-			})
+			});
 
-			if (! payload.LocalSecondaryIndexes.length )
-				delete payload.LocalSecondaryIndexes;
+			if (!payload.LocalSecondaryIndexes.length) delete payload.LocalSecondaryIndexes;
 
-			if (! payload.GlobalSecondaryIndexes.length )
-				delete payload.GlobalSecondaryIndexes;
+			if (!payload.GlobalSecondaryIndexes.length) delete payload.GlobalSecondaryIndexes;
 
-
-
-			DynamoDB.client.createTable(payload, function(err, data) {
+			DynamoDB.client.createTable(payload, function (err, data) {
 				if (err) {
-					ractive.set( 'errorMessage', err.message )
-					return
+					ractive.set('errorMessage', err.message);
+					return;
 				}
-				window.ractive.findComponent('minitablelist').refresh_tables()
+				window.ractive.findComponent('minitablelist').refresh_tables();
 
 				// fulltablelist does not exist
 				//ractive.root.findComponent('tablelist').refresh_tables()
-			})
-		})
+			});
+		});
+	}
+});
+
+/***/ }),
+/* 47 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _tableinfo = __webpack_require__(48);
+
+var _tableinfo2 = _interopRequireDefault(_tableinfo);
+
+var _tablealarms = __webpack_require__(49);
+
+var _tablealarms2 = _interopRequireDefault(_tablealarms);
+
+var _tablecapacity = __webpack_require__(50);
+
+var _tablecapacity2 = _interopRequireDefault(_tablecapacity);
+
+var _tableindexes = __webpack_require__(51);
+
+var _tableindexes2 = _interopRequireDefault(_tableindexes);
+
+var _tableglobal = __webpack_require__(52);
+
+var _tableglobal2 = _interopRequireDefault(_tableglobal);
+
+var _tablebackup = __webpack_require__(53);
+
+var _tablebackup2 = _interopRequireDefault(_tablebackup);
+
+var _tabletriggers = __webpack_require__(54);
+
+var _tabletriggers2 = _interopRequireDefault(_tabletriggers);
+
+var _tablemetrics = __webpack_require__(55);
+
+var _tablemetrics2 = _interopRequireDefault(_tablemetrics);
+
+var _tableitems = __webpack_require__(56);
+
+var _tableitems2 = _interopRequireDefault(_tableitems);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = Ractive.extend({
+	isolated: true,
+	components: {
+		tableinfo: _tableinfo2.default,
+		tablealarms: _tablealarms2.default,
+		tablecapacity: _tablecapacity2.default,
+		tableindexes: _tableindexes2.default,
+		tableglobal: _tableglobal2.default,
+		tablebackup: _tablebackup2.default,
+		tabletriggers: _tabletriggers2.default,
+		tablemetrics: _tablemetrics2.default,
+		tableitems: _tableitems2.default
 	},
-}));
+	template: "\
+		<div class='tableview {{#if active}}active{{/if}}'>\
+			<div class='tableview-table-tabs noselect'>\
+				<a class='btn-tableview-tab {{#if tab === 'info'}}active{{/if}}'         on-click='@this.set('tab','info')'><!-- <i class='zmdi zmdi-info'></i>--> Overview </a>\
+				<a class='btn-tableview-tab {{#if tab === 'data'}}active{{/if}}'         on-click='@this.set('tab','data')'><!--<i class='zmdi zmdi-format-list-bulleted'></i>--> Items</a>\
+				<a class='btn-tableview-tab {{#if tab === 'metrics'}}active{{/if}}'      on-click='@this.set('tab','metrics')'><!--<i class='zmdi zmdi-chart'></i>--> Metrics</a>\
+				<a class='btn-tableview-tab {{#if tab === 'alarms'}}active{{/if}}'       on-click='@this.set('tab','alarms')'><!--<i class='zmdi zmdi-notifications'></i>--> Alarms</a>\
+				<a class='btn-tableview-tab {{#if tab === 'capacity'}}active{{/if}}'     on-click='@this.set('tab','capacity')'><!--<i class='zmdi zmdi-memory'></i>--> Capacity</a>\
+				<a class='btn-tableview-tab {{#if tab === 'indexes'}}active{{/if}}'      on-click='@this.set('tab','indexes')'><!--<i class='zmdi zmdi-format-line-spacing'></i>--> Indexes</a>\
+				<a class='btn-tableview-tab {{#if tab === 'globaltables'}}active{{/if}}' on-click='@this.set('tab','globaltables')'><!--<i class='zmdi zmdi-globe'></i>--> Global Tables</a>\
+				<a class='btn-tableview-tab {{#if tab === 'backups'}}active{{/if}}'      on-click='@this.set('tab','backups')'><!--<i class='zmdi zmdi-card-sd'></i>--> Backups</a>\
+				<a class='btn-tableview-tab {{#if tab === 'triggers'}}active{{/if}}'     on-click='@this.set('tab','triggers')'><!--<i class='zmdi zmdi-portable-wifi'></i>--> Triggers</a>\
+			</div>\
+			<div style='position: absolute;top: 42px;left: 30px;right: 30px;bottom: 0px;'>\
+				{{#if err}}\
+					<br> {{ err.errorMessage || err.message }}\
+				{{else}}\
+					{{#if describeTable === null }}\
+						<br>Loading...\
+					{{else}}\
+\
+						{{#if tab === 'info'}}\
+							<tableinfo table='{{.table}}' describeTable='{{describeTable}}' />\
+						{{/if}}\
+\
+						{{#if tab === 'data'}}\
+							<tableitems table='{{.table}}' describeTable='{{describeTable}}' type='{{.type}}' scan='{{.scan}}' query='{{.query}}' sql='{{.sql}}' />\
+						{{/if}}\
+\
+						{{#if tab === 'metrics'}}\
+							<tablemetrics table='{{.table}}' describeTable='{{describeTable}}' />\
+						{{/if}}\
+\
+						{{#if tab === 'alarms'}}\
+							<tablealarms table='{{.table}}' describeTable='{{describeTable}}' />\
+						{{/if}}\
+\
+						{{#if tab === 'capacity'}}\
+							<tablecapacity table='{{.table}}' describeTable='{{describeTable}}' />\
+						{{/if}}\
+\
+						{{#if tab === 'indexes'}}\
+							<tableindexes table='{{.table}}' describeTable='{{describeTable}}' />\
+						{{/if}}\
+\
+						{{#if tab === 'globaltables'}}\
+							<tableglobal table='{{.table}}' describeTable='{{describeTable}}' />\
+						{{/if}}\
+\
+						{{#if tab === 'backups'}}\
+							<tablebackup table='{{.table}}' describeTable='{{describeTable}}' />\
+						{{/if}}\
+\
+						{{#if tab === 'triggers'}}\
+							<tabletriggers table='{{.table}}' describeTable='{{describeTable}}' />\
+						{{/if}}\
+\
+					{{/if}}\
+				{{/if}}\
+\
+			</div>\
+		</div>\
+	",
+	data: function data() {
+		return {
+			tab: 'info',
+			describeTable: null
+		};
+	},
 
-// CONCATENATED MODULE: ./tableinfo.js
+	describe_table: function describe_table(cb) {
+		var ractive = this;
+		DynamoDB.client.describeTable({ TableName: ractive.get('table.name') }, function (err, data) {
+			if (err) return ractive.set('err', err);
 
-/* harmony default export */ var tableinfo = (Ractive.extend({
+			ractive.set('err');
+			ractive.set('describeTable', data.Table);
+			if (typeof cb === "function") cb();
+		});
+	},
+
+	oninit: function oninit() {
+
+		var ractive = this;
+		//ractive.observe('tab', function( tab ) {
+		//})
+		ractive.describe_table();
+	}
+});
+
+/***/ }),
+/* 48 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.default = Ractive.extend({
 	template: "\
 		<div class='tableinfo'>\
 			<scrollarea class='scrollarea' style='position: absolute;top: 0px;left: 0px;bottom: 0px;right: 0px;'>\
@@ -4345,161 +2610,154 @@ var external_commonjs_ractive_commonjs2_ractive_amd_ractive_root_Ractive_default
 		</div>\
 	",
 
-	refresh_table: function() {
-		var ractive=this;
-
-		ractive.set('selfDescribeTable')
-		ractive.set('TimeToLiveDescriptionEditing')
-		ractive.set('TimeToLiveDescription')
-		ractive.set('TimeToLiveDescriptionErr')
-		ractive.set('TimeToLiveDescriptionNewField','')
-		ractive.set('StreamEditing')
-
-
-		async.waterfall([
-			function( cb ) {
-
-				DynamoDB.client.describeTable( { TableName: ractive.get('table.name') }, function(err, data) {
-					if (err)
-						return cb(err);
-
-					ractive.set('selfDescribeTable', data.Table)
-					cb()
-				})
-			},
-
-			function( cb ) {
-				DynamoDB.client.describeTimeToLive( { TableName: ractive.get('table.name')} , function(err, data) {
-					if (err)
-						return ractive.set('TimeToLiveDescriptionErr', err )
-
-					ractive.set('TimeToLiveDescription', data.TimeToLiveDescription )
-					cb()
-				})
-			},
-
-		], function(err) {
-			if (err)
-				ractive.set('err', err.errorMessage )
-
-		})
-
-
-	},
-	data: function() {
-		return {
-			selfDescribeTable: null,
-		}
-	},
-	oninit: function() {
+	refresh_table: function refresh_table() {
 		var ractive = this;
 
-		ractive.set('selfDescribeTable', ractive.get('describeTable'))
+		ractive.set('selfDescribeTable');
+		ractive.set('TimeToLiveDescriptionEditing');
+		ractive.set('TimeToLiveDescription');
+		ractive.set('TimeToLiveDescriptionErr');
+		ractive.set('TimeToLiveDescriptionNewField', '');
+		ractive.set('StreamEditing');
 
-		ractive.on('manage-ttl', function() {
-			ractive.set('TimeToLiveDescriptionEditing', true )
+		async.waterfall([function (cb) {
+
+			DynamoDB.client.describeTable({ TableName: ractive.get('table.name') }, function (err, data) {
+				if (err) return cb(err);
+
+				ractive.set('selfDescribeTable', data.Table);
+				cb();
+			});
+		}, function (cb) {
+			DynamoDB.client.describeTimeToLive({ TableName: ractive.get('table.name') }, function (err, data) {
+				if (err) return ractive.set('TimeToLiveDescriptionErr', err);
+
+				ractive.set('TimeToLiveDescription', data.TimeToLiveDescription);
+				cb();
+			});
+		}], function (err) {
+			if (err) ractive.set('err', err.errorMessage);
+		});
+	},
+	data: function data() {
+		return {
+			selfDescribeTable: null
+		};
+	},
+	oninit: function oninit() {
+		var ractive = this;
+
+		ractive.set('selfDescribeTable', ractive.get('describeTable'));
+
+		ractive.on('manage-ttl', function () {
+			ractive.set('TimeToLiveDescriptionEditing', true);
 			return false;
-		})
+		});
 
-		ractive.on('update-ttl', function() {
-			var newfield = ractive.get('TimeToLiveDescriptionNewField').trim()
-			if (!newfield)
-				return alert('invalid field name')
+		ractive.on('update-ttl', function () {
+			var newfield = ractive.get('TimeToLiveDescriptionNewField').trim();
+			if (!newfield) return alert('invalid field name');
 
 			var params = {
 				TableName: ractive.get('table.name'),
 				TimeToLiveSpecification: {
 					AttributeName: newfield,
-					Enabled: true,
+					Enabled: true
 				}
 			};
-			DynamoDB.client.updateTimeToLive( params , function(err, data) {
-				if (err)
-					return alert('failed ' + err.errorMessage )
+			DynamoDB.client.updateTimeToLive(params, function (err, data) {
+				if (err) return alert('failed ' + err.errorMessage);
 
-				ractive.refresh_table()
-
-			})
-
-
-		})
-		ractive.on('disable-ttl', function() {
+				ractive.refresh_table();
+			});
+		});
+		ractive.on('disable-ttl', function () {
 			if (confirm('Are you sure you want to disable TTL ?')) {
 				var params = {
 					TableName: ractive.get('table.name'),
 					TimeToLiveSpecification: {
 						AttributeName: ractive.get('TimeToLiveDescription.AttributeName'),
-						Enabled: false,
+						Enabled: false
 					}
 				};
-				DynamoDB.client.updateTimeToLive( params , function(err, data) {
-					if (err)
-						return alert('failed ' + err.errorMessage )
+				DynamoDB.client.updateTimeToLive(params, function (err, data) {
+					if (err) return alert('failed ' + err.errorMessage);
 
-					ractive.refresh_table()
-
-				})
+					ractive.refresh_table();
+				});
 			}
-		})
+		});
 
-
-		ractive.on('manage-stream', function() {
-			ractive.set('StreamEditing', true )
-		})
-		ractive.on('update-stream', function() {
-			var type = ractive.get('NewStreamViewType' )
+		ractive.on('manage-stream', function () {
+			ractive.set('StreamEditing', true);
+		});
+		ractive.on('update-stream', function () {
+			var type = ractive.get('NewStreamViewType');
 			DynamoDB.client.updateTable({
 				TableName: ractive.get('table.name'),
 				StreamSpecification: {
 					StreamEnabled: true,
 					StreamViewType: type
 				}
-			}, function(err, data) {
-				if (err)
-					return alert('Failed ' + err.errorMessage);
+			}, function (err, data) {
+				if (err) return alert('Failed ' + err.errorMessage);
 
-					ractive.refresh_table()
-				cb()
-			})
-		})
-		ractive.on('disable-stream', function() {
+				ractive.refresh_table();
+				cb();
+			});
+		});
+		ractive.on('disable-stream', function () {
 			if (confirm('Disable stream ?')) {
 				DynamoDB.client.updateTable({
 					TableName: ractive.get('table.name'),
 					StreamSpecification: {
-						StreamEnabled: false,
+						StreamEnabled: false
 					}
-				}, function(err, data) {
-					if (err)
-						return alert('Failed ' + err.errorMessage);
+				}, function (err, data) {
+					if (err) return alert('Failed ' + err.errorMessage);
 
-						ractive.refresh_table()
-					cb()
-				})
-
+					ractive.refresh_table();
+					cb();
+				});
 			}
-		})
+		});
 
-		ractive.on('refresh-table', function() {
-			ractive.refresh_table()
-		})
-		ractive.refresh_table()
+		ractive.on('refresh-table', function () {
+			ractive.refresh_table();
+		});
+		ractive.refresh_table();
+	}
+});
 
-	},
-}));
+/***/ }),
+/* 49 */
+/***/ (function(module, exports, __webpack_require__) {
 
-// CONCATENATED MODULE: ./tablealarms.js
-/* harmony default export */ var tablealarms = (Ractive.extend({
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.default = Ractive.extend({
 	template: "\
 		<div style='padding: 30px'>\
 			<h3>Alarms</h3>\
 		</div>\
-	",
-}));
+	"
+});
 
-// CONCATENATED MODULE: ./tablecapacity.js
+/***/ }),
+/* 50 */
+/***/ (function(module, exports, __webpack_require__) {
 
-/* harmony default export */ var tablecapacity = (Ractive.extend({
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.default = Ractive.extend({
 	template: "\
 		<scrollarea class='scrollarea' style='position: absolute;top: 0px;left: 0px;bottom: 0px;right: 0px;'>\
 			<div style='padding: 30px'>\
@@ -4551,105 +2809,102 @@ var external_commonjs_ractive_commonjs2_ractive_amd_ractive_root_Ractive_default
 			</div>\
 		</scrollarea>\
 	",
-	oninit: function() {
+	oninit: function oninit() {
 		var ractive = this;
-		var refresh_table = function() {
-			ractive.set('describeTable', {})
-			DynamoDB.client.describeTable( { TableName: ractive.get('table.name') }, function(err, data) {
-				if (err)
-					return ractive.set('err', err.message );
+		var refresh_table = function refresh_table() {
+			ractive.set('describeTable', {});
+			DynamoDB.client.describeTable({ TableName: ractive.get('table.name') }, function (err, data) {
+				if (err) return ractive.set('err', err.message);
 
-				console.log(data)
-				ractive.set('describeTable', data.Table)
-				ractive.set('originalDescribeTable', JSON.parse(JSON.stringify( data.Table ))) // this wont change
-			})
-		}
-		ractive.on('cancel', function() {
-			refresh_table()
-		})
-		ractive.on('focus', function() {
-			ractive.set( 'err' )
-		})
+				console.log(data);
+				ractive.set('describeTable', data.Table);
+				ractive.set('originalDescribeTable', JSON.parse(JSON.stringify(data.Table))); // this wont change
+			});
+		};
+		ractive.on('cancel', function () {
+			refresh_table();
+		});
+		ractive.on('focus', function () {
+			ractive.set('err');
+		});
 
-		ractive.on('save', function() {
-
-
+		ractive.on('save', function () {
 
 			var payload = {
 				TableName: ractive.get('describeTable.TableName')
 			};
 
-			if (
-				(ractive.get('describeTable.ProvisionedThroughput.ReadCapacityUnits')  !== ractive.get('originalDescribeTable.ProvisionedThroughput.ReadCapacityUnits') ) ||
-				(ractive.get('describeTable.ProvisionedThroughput.WriteCapacityUnits') !== ractive.get('originalDescribeTable.ProvisionedThroughput.WriteCapacityUnits') )
-			) {
+			if (ractive.get('describeTable.ProvisionedThroughput.ReadCapacityUnits') !== ractive.get('originalDescribeTable.ProvisionedThroughput.ReadCapacityUnits') || ractive.get('describeTable.ProvisionedThroughput.WriteCapacityUnits') !== ractive.get('originalDescribeTable.ProvisionedThroughput.WriteCapacityUnits')) {
 				payload.ProvisionedThroughput = {
 					ReadCapacityUnits: ractive.get('describeTable.ProvisionedThroughput.ReadCapacityUnits'),
-					WriteCapacityUnits: ractive.get('describeTable.ProvisionedThroughput.WriteCapacityUnits'),
-				}
-			} else {
-				// if no changes, do not add obj at all
-				//payload.ProvisionedThroughput = { ... }
-			}
+					WriteCapacityUnits: ractive.get('describeTable.ProvisionedThroughput.WriteCapacityUnits')
+				};
+			} else {}
+			// if no changes, do not add obj at all
+			//payload.ProvisionedThroughput = { ... }
 
 
 			// each index
 			if ((ractive.get('describeTable.GlobalSecondaryIndexes') || []).length) {
-				payload.GlobalSecondaryIndexUpdates = []
-				ractive.get('describeTable.GlobalSecondaryIndexes').map(function(gsi, i ) {
-					var original_gsi = ractive.get('originalDescribeTable.GlobalSecondaryIndexes.'+i )
+				payload.GlobalSecondaryIndexUpdates = [];
+				ractive.get('describeTable.GlobalSecondaryIndexes').map(function (gsi, i) {
+					var original_gsi = ractive.get('originalDescribeTable.GlobalSecondaryIndexes.' + i);
 
-					console.log("gsi",gsi)
-					console.log("original gsi", original_gsi )
+					console.log("gsi", gsi);
+					console.log("original gsi", original_gsi);
 
-
-					if (
-						(gsi.ProvisionedThroughput.ReadCapacityUnits  !==  ractive.get('originalDescribeTable.GlobalSecondaryIndexes.'+i+'.ProvisionedThroughput.ReadCapacityUnits' ) ) ||
-						(gsi.ProvisionedThroughput.WriteCapacityUnits !==  ractive.get('originalDescribeTable.GlobalSecondaryIndexes.'+i+'.ProvisionedThroughput.WriteCapacityUnits') )
-					) {
+					if (gsi.ProvisionedThroughput.ReadCapacityUnits !== ractive.get('originalDescribeTable.GlobalSecondaryIndexes.' + i + '.ProvisionedThroughput.ReadCapacityUnits') || gsi.ProvisionedThroughput.WriteCapacityUnits !== ractive.get('originalDescribeTable.GlobalSecondaryIndexes.' + i + '.ProvisionedThroughput.WriteCapacityUnits')) {
 						payload.GlobalSecondaryIndexUpdates.push({
 							Update: {
 								IndexName: gsi.IndexName,
 								ProvisionedThroughput: {
-									ReadCapacityUnits:  gsi.ProvisionedThroughput.ReadCapacityUnits,
-									WriteCapacityUnits: gsi.ProvisionedThroughput.WriteCapacityUnits,
+									ReadCapacityUnits: gsi.ProvisionedThroughput.ReadCapacityUnits,
+									WriteCapacityUnits: gsi.ProvisionedThroughput.WriteCapacityUnits
 								}
 							}
-						})
+						});
 					}
-				})
+				});
 			}
 
-			if ( (payload.GlobalSecondaryIndexUpdates || []).length === 0 )
-				delete payload.GlobalSecondaryIndexUpdates;
+			if ((payload.GlobalSecondaryIndexUpdates || []).length === 0) delete payload.GlobalSecondaryIndexUpdates;
 
 			//console.log('payload', payload )
 
-			DynamoDB.client.updateTable( payload , function(err, data) {
-				if (err)
-					return ractive.set('err', err.message );
+			DynamoDB.client.updateTable(payload, function (err, data) {
+				if (err) return ractive.set('err', err.message);
 
-
-
-			 	setTimeout(refresh_table,1000)
+				setTimeout(refresh_table, 1000);
 				//console.log( err, data )
-			})
-		})
-		ractive.on('refresh-table', function() {
-			refresh_table()
-		})
-		refresh_table()
+			});
+		});
+		ractive.on('refresh-table', function () {
+			refresh_table();
+		});
+		refresh_table();
+	}
+});
 
-	},
-}));
+/***/ }),
+/* 51 */
+/***/ (function(module, exports, __webpack_require__) {
 
-// CONCATENATED MODULE: ./tableindexes.js
+"use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
 
-/* harmony default export */ var tableindexes = (Ractive.extend({
+var _tabledata = __webpack_require__(10);
+
+var _tabledata2 = _interopRequireDefault(_tabledata);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = Ractive.extend({
 	components: {
-		tabledata: tabledata,
+		tabledata: _tabledata2.default
 	},
 	template: "\
 		<div style='padding: 30px'>\
@@ -4745,259 +3000,241 @@ var external_commonjs_ractive_commonjs2_ractive_amd_ractive_root_Ractive_default
 		</div>\
 	",
 
+	refresh_table_indexes: function refresh_table_indexes() {
+		var ractive = this;
 
-	refresh_table_indexes: function() {
-		var ractive=this;
+		ractive.set('rows', (ractive.get('describeTable').LocalSecondaryIndexes || []).map(function (index) {
+			var partition_key_name = ((index.KeySchema || []).filter(function (ks) {
+				return ks.KeyType === 'HASH';
+			})[0] || {}).AttributeName;
+			var partition_key_type = { S: 'String', N: 'Number', B: 'Binary' }[ractive.get('describeTable').AttributeDefinitions.filter(function (at) {
+				return at.AttributeName === ((index.KeySchema || []).filter(function (ks) {
+					return ks.KeyType === 'HASH';
+				})[0] || {}).AttributeName;
+			})[0].AttributeType];
+			var sort_key_name = ((index.KeySchema || []).filter(function (ks) {
+				return ks.KeyType === 'RANGE';
+			})[0] || {}).AttributeName || '';
+			var sort_key_type = { S: 'String', N: 'Number', B: 'Binary' }[(ractive.get('describeTable').AttributeDefinitions.filter(function (at) {
+				return at.AttributeName === ((index.KeySchema || []).filter(function (ks) {
+					return ks.KeyType === 'RANGE';
+				})[0] || {}).AttributeName;
+			})[0] || {}).AttributeType] || '';
 
+			return [{ KEY: true }, { S: index.IndexName }, { S: 'N/A' }, { S: 'LSI' }, { S: partition_key_name + ' (' + partition_key_type + ' )' }, { S: sort_key_name + (sort_key_type ? ' ( ' + sort_key_type + ' )' : '') }, { S: index.Projection.ProjectionType + ' ' + (index.Projection.ProjectionType === 'INCLUDE' ? index.Projection.NonKeyAttributes.join(', ') : '') }, { N: index.IndexSizeBytes.toString() }, { N: index.ItemCount.toString() }];
+		}).concat((ractive.get('describeTable').GlobalSecondaryIndexes || []).map(function (index) {
+			var partition_key_name;
+			var partition_key_type;
+			var sort_key_name;
+			var sort_key_type;
+			var projection = '';
+			try {
+				partition_key_name = ((index.KeySchema || []).filter(function (ks) {
+					return ks.KeyType === 'HASH';
+				})[0] || {}).AttributeName;
+				partition_key_type = { S: 'String', N: 'Number', B: 'Binary' }[ractive.get('describeTable').AttributeDefinitions.filter(function (at) {
+					return at.AttributeName === ((index.KeySchema || []).filter(function (ks) {
+						return ks.KeyType === 'HASH';
+					})[0] || {}).AttributeName;
+				})[0].AttributeType];
+				sort_key_name = ((index.KeySchema || []).filter(function (ks) {
+					return ks.KeyType === 'RANGE';
+				})[0] || {}).AttributeName || '';
+				sort_key_type = { S: 'String', N: 'Number', B: 'Binary' }[(ractive.get('describeTable').AttributeDefinitions.filter(function (at) {
+					return at.AttributeName === ((index.KeySchema || []).filter(function (ks) {
+						return ks.KeyType === 'RANGE';
+					})[0] || {}).AttributeName;
+				})[0] || {}).AttributeType] || '';
+				projection = index.Projection.ProjectionType + ' ' + (index.Projection.ProjectionType === 'INCLUDE' ? index.Projection.NonKeyAttributes.join(', ') : '');
+			} catch (e) {}
 
-
-			ractive.set('rows',
-				(ractive.get('describeTable').LocalSecondaryIndexes || []).map(function(index){
-					var partition_key_name = (((index.KeySchema || []).filter(function( ks ) { return ks.KeyType === 'HASH'})[0] || {}).AttributeName);
-					var partition_key_type =
-						({S: 'String', N: 'Number', B: 'Binary'})[
-							ractive.get('describeTable').AttributeDefinitions.filter(function(at) {
-								return at.AttributeName === (((index.KeySchema || []).filter(function( ks ) { return ks.KeyType === 'HASH'})[0] || {}).AttributeName)
-							})[0].AttributeType
-						];
-					var sort_key_name = (((index.KeySchema || []).filter(function( ks ) { return ks.KeyType === 'RANGE'})[0] || {}).AttributeName) || '';
-					var sort_key_type = ({S: 'String', N: 'Number', B: 'Binary'})[(
-								ractive.get('describeTable').AttributeDefinitions.filter(function(at) {
-									return at.AttributeName === (((index.KeySchema || []).filter(function( ks ) { return ks.KeyType === 'RANGE'})[0] || {}).AttributeName)
-								})[0] || {}
-							).AttributeType
-						] || '';
-
-
-					return [
-						{ KEY: true },
-						{ S: index.IndexName },
-						{ S: 'N/A' },
-						{ S: 'LSI' },
-						{ S: partition_key_name + ' (' + partition_key_type + ' )' },
-						{ S: sort_key_name + ( sort_key_type ? ' ( ' + sort_key_type + ' )' : '' ) },
-						{ S: index.Projection.ProjectionType + ' ' + (index.Projection.ProjectionType === 'INCLUDE' ? index.Projection.NonKeyAttributes.join(', ') : '')},
-						{ N: index.IndexSizeBytes.toString() },
-						{ N: index.ItemCount.toString() },
-					]
-				}).concat(
-					(ractive.get('describeTable').GlobalSecondaryIndexes || []).map(function(index){
-						var partition_key_name;
-						var partition_key_type;
-						var sort_key_name;
-						var sort_key_type;
-						var projection = '';
-						try {
-							partition_key_name = (((index.KeySchema || []).filter(function( ks ) { return ks.KeyType === 'HASH'})[0] || {}).AttributeName);
-							partition_key_type =
-								({S: 'String', N: 'Number', B: 'Binary'})[
-									ractive.get('describeTable').AttributeDefinitions.filter(function(at) {
-										return at.AttributeName === (((index.KeySchema || []).filter(function( ks ) { return ks.KeyType === 'HASH'})[0] || {}).AttributeName)
-									})[0].AttributeType
-								];
-							sort_key_name = (((index.KeySchema || []).filter(function( ks ) { return ks.KeyType === 'RANGE'})[0] || {}).AttributeName) || '';
-							sort_key_type = ({S: 'String', N: 'Number', B: 'Binary'})[(
-										ractive.get('describeTable').AttributeDefinitions.filter(function(at) {
-											return at.AttributeName === (((index.KeySchema || []).filter(function( ks ) { return ks.KeyType === 'RANGE'})[0] || {}).AttributeName)
-										})[0] || {}
-									).AttributeType
-								] || '';
-							projection = index.Projection.ProjectionType + ' ' + (index.Projection.ProjectionType === 'INCLUDE' ? index.Projection.NonKeyAttributes.join(', ') : '');
-						} catch(e) {}
-
-
-
-						return [
-							{ KEY: true },
-							{ S: index.IndexName },
-							{ S: index.IndexStatus },
-							{ S: 'GSI' },
-							{ S: partition_key_name + ' (' + partition_key_type + ' )' },
-							{ S: sort_key_name + ( sort_key_type ? ' ( ' + sort_key_type + ' )' : '' ) },
-							{ S: projection },
-							{ N: index.hasOwnProperty('IndexSizeBytes') ? index.IndexSizeBytes.toString() : 0 },
-							{ N: index.hasOwnProperty('ItemCount')      ? index.ItemCount.toString()      : 0 },
-						]
-					})
-				)
-			);
-
+			return [{ KEY: true }, { S: index.IndexName }, { S: index.IndexStatus }, { S: 'GSI' }, { S: partition_key_name + ' (' + partition_key_type + ' )' }, { S: sort_key_name + (sort_key_type ? ' ( ' + sort_key_type + ' )' : '') }, { S: projection }, { N: index.hasOwnProperty('IndexSizeBytes') ? index.IndexSizeBytes.toString() : 0 }, { N: index.hasOwnProperty('ItemCount') ? index.ItemCount.toString() : 0 }];
+		})));
 	},
 
-	oninit: function() {
+	oninit: function oninit() {
 		var ractive = this;
-		ractive.on('tabledata.selectrow', function(context) {
-			var keypath = context.resolve()
-			ractive.set(keypath + '.0.selected', !ractive.get(keypath + '.0.selected') )
-		})
-		ractive.on('focus', function() {
-			ractive.set( 'err' )
-		})
-		ractive.on('create', function() {
-			ractive.set('tab', 'create')
+		ractive.on('tabledata.selectrow', function (context) {
+			var keypath = context.resolve();
+			ractive.set(keypath + '.0.selected', !ractive.get(keypath + '.0.selected'));
+		});
+		ractive.on('focus', function () {
+			ractive.set('err');
+		});
+		ractive.on('create', function () {
+			ractive.set('tab', 'create');
 			ractive.set('newindex', {
 				IndexName: '',
-				KeySchema: [
-					{
-						AttributeName: '',
-						AttributeType: 'S',
-						KeyType: 'HASH',
-					},
-					{
-						AttributeName: '',
-						AttributeType: 'S',
-						KeyType: 'RANGE'
-					},
-				],
+				KeySchema: [{
+					AttributeName: '',
+					AttributeType: 'S',
+					KeyType: 'HASH'
+				}, {
+					AttributeName: '',
+					AttributeType: 'S',
+					KeyType: 'RANGE'
+				}],
 				Projection: {
 					ProjectionType: 'ALL',
-					NonKeyAttributes: [],
+					NonKeyAttributes: []
 				},
 				ProvisionedThroughput: {
 					ReadCapacityUnits: 1,
-					WriteCapacityUnits: 1,
+					WriteCapacityUnits: 1
 				}
-			})
-		})
-		ractive.on('cancel-gsi', function() {
-			ractive.set('tab')
-			ractive.set('newindex')
-		})
+			});
+		});
+		ractive.on('cancel-gsi', function () {
+			ractive.set('tab');
+			ractive.set('newindex');
+		});
 
-		ractive.on('add-nonkey-attribute', function(e) {
+		ractive.on('add-nonkey-attribute', function (e) {
 			var keypath = 'newindex.Projection.NonKeyAttributes';
-			ractive.push( keypath , ractive.get('nonkeyattribute'))
-			ractive.set(  keypath , ractive.get( keypath ).filter(function(value,index,self) { return self.indexOf(value) === index; }))
-			ractive.set('nonkeyattribute')
-		})
-		ractive.on('create-gsi', function() {
-			var newindex = JSON.parse(JSON.stringify(ractive.get('newindex')))
-			var AttributeDefinitions = []
+			ractive.push(keypath, ractive.get('nonkeyattribute'));
+			ractive.set(keypath, ractive.get(keypath).filter(function (value, index, self) {
+				return self.indexOf(value) === index;
+			}));
+			ractive.set('nonkeyattribute');
+		});
+		ractive.on('create-gsi', function () {
+			var newindex = JSON.parse(JSON.stringify(ractive.get('newindex')));
+			var AttributeDefinitions = [];
 
-			newindex.KeySchema.map(function(ks) {
+			newindex.KeySchema.map(function (ks) {
 				if (ks.KeyType === 'HASH') {
 					AttributeDefinitions.push({
 						AttributeName: ks.AttributeName,
-						AttributeType: ks.AttributeType,
-					})
+						AttributeType: ks.AttributeType
+					});
 					delete ks.AttributeType;
 				}
 				if (ks.KeyType === 'RANGE') {
-					if ( ks.AttributeName.trim() === '' ) {
-						newindex.KeySchema = [ newindex.KeySchema[0] ]
+					if (ks.AttributeName.trim() === '') {
+						newindex.KeySchema = [newindex.KeySchema[0]];
 					} else {
 						AttributeDefinitions.push({
 							AttributeName: ks.AttributeName,
-							AttributeType: ks.AttributeType,
-						})
+							AttributeType: ks.AttributeType
+						});
 						delete ks.AttributeType;
 					}
-
 				}
-			})
-			if ( newindex.Projection.ProjectionType !== 'INCLUDE' )
-				delete newindex.Projection.NonKeyAttributes;
+			});
+			if (newindex.Projection.ProjectionType !== 'INCLUDE') delete newindex.Projection.NonKeyAttributes;
 
 			var payload = {
 				TableName: ractive.get('describeTable.TableName'),
 				AttributeDefinitions: AttributeDefinitions,
-				GlobalSecondaryIndexUpdates: [],
+				GlobalSecondaryIndexUpdates: []
 			};
 
 			payload.GlobalSecondaryIndexUpdates.push({
 				Create: newindex
-			})
+			});
 
-			DynamoDB.client.updateTable( payload , function(err, data) {
+			DynamoDB.client.updateTable(payload, function (err, data) {
 
-				if (err)
-					return ractive.set('err', err.message || err.errorMessage );
+				if (err) return ractive.set('err', err.message || err.errorMessage);
 
-				ractive.set('tab')
-				ractive.set('newindex')
+				ractive.set('tab');
+				ractive.set('newindex');
 
-				ractive.set('rows', null )
-				setTimeout(function() {
-					ractive.parent.describe_table(function() {
-						ractive.refresh_table_indexes()
-					})
-				},500)
-			})
-		})
+				ractive.set('rows', null);
+				setTimeout(function () {
+					ractive.parent.describe_table(function () {
+						ractive.refresh_table_indexes();
+					});
+				}, 500);
+			});
+		});
 
+		ractive.on('delete', function () {
+			var selected = ractive.get('rows').filter(function (r) {
+				return r[0].selected === true;
+			});
 
-		ractive.on('delete', function() {
-			var selected = ractive.get('rows').filter(function(r) { return r[0].selected === true } );
+			if (selected.length === 0) return alert('Please select an index to delete');
 
-			if ( selected.length === 0 )
-				return alert('Please select an index to delete')
+			if (selected.length > 1) return alert('Please select one index at a time');
 
-			if ( selected.length > 1 )
-				return alert('Please select one index at a time')
+			var tablename = ractive.get('describeTable.TableName');
+			var indexname = selected[0][1].S;
 
-			var tablename = ractive.get('describeTable.TableName')
-			var indexname = selected[0][1].S
-
-			if (confirm('Are you sure you want to delete index ' + indexname + ' from table ' + tablename )) {
+			if (confirm('Are you sure you want to delete index ' + indexname + ' from table ' + tablename)) {
 
 				var payload = {
 					TableName: ractive.get('describeTable.TableName'),
-					GlobalSecondaryIndexUpdates: [],
+					GlobalSecondaryIndexUpdates: []
 				};
 
 				payload.GlobalSecondaryIndexUpdates.push({
 					Delete: {
-						IndexName: indexname,
+						IndexName: indexname
 					}
-				})
+				});
 
-				DynamoDB.client.updateTable( payload , function(err, data) {
+				DynamoDB.client.updateTable(payload, function (err, data) {
 
-					if (err)
-						return alert( err.message );
+					if (err) return alert(err.message);
 
-					ractive.set('rows', null )
-					setTimeout(function() {
-						ractive.parent.describe_table(function() {
-							ractive.refresh_table_indexes()
-						})
-					},500)
-
-				})
-
+					ractive.set('rows', null);
+					setTimeout(function () {
+						ractive.parent.describe_table(function () {
+							ractive.refresh_table_indexes();
+						});
+					}, 500);
+				});
 			}
+		});
 
-		})
+		ractive.on('refresh-table', function () {
+			ractive.set('rows', null);
+			ractive.parent.describe_table(function () {
+				ractive.refresh_table_indexes();
+			});
+		});
 
-		ractive.on('refresh-table', function() {
-			ractive.set('rows', null )
-			ractive.parent.describe_table(function() {
-				ractive.refresh_table_indexes()
-			})
-		})
-
-		ractive.refresh_table_indexes()
+		ractive.refresh_table_indexes();
 	},
-	data: function() {
+	data: function data() {
 		return {
-			columns: [ null, 'Name', 'Status', 'Type', 'Partition key', 'Sort key', 'Attributes', 'Size', 'Item count' ],
-			rows: null,
+			columns: [null, 'Name', 'Status', 'Type', 'Partition key', 'Sort key', 'Attributes', 'Size', 'Item count'],
+			rows: null
 			//newindex:
-		}
+		};
 	}
-}));
+});
 
-// CONCATENATED MODULE: ./tableglobal.js
-/* harmony default export */ var tableglobal = (Ractive.extend({
+/***/ }),
+/* 52 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.default = Ractive.extend({
 	template: "\
 		<div style='padding: 30px'>\
 			<h3>Global Tables</h3>\
 		</div>\
-	",
-}));
+	"
+});
 
-// CONCATENATED MODULE: ./tablebackup.js
-/* harmony default export */ var tablebackup = (Ractive.extend({
+/***/ }),
+/* 53 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.default = Ractive.extend({
 	template: "\
 			<div>\
 \
@@ -5025,64 +3262,77 @@ var external_commonjs_ractive_commonjs2_ractive_amd_ractive_root_Ractive_default
 			</div>\
 \
 	",
-	list_backups: function() {
-		var ractive=this;
-		ractive.set('rows',null);
+	list_backups: function list_backups() {
+		var ractive = this;
+		ractive.set('rows', null);
 
-		DynamoDB.client.listBackups( { TableName: 'created_by_cloudformation',} , function(err, data) {
-			if (err)
-				return alert('failed getting backup list')
+		DynamoDB.client.listBackups({ TableName: 'created_by_cloudformation' }, function (err, data) {
+			if (err) return alert('failed getting backup list');
 
-			ractive.set('rows', data.BackupSummaries.map(function(b) {
-				return {
-
-				}
-			}))
-
+			ractive.set('rows', data.BackupSummaries.map(function (b) {
+				return {};
+			}));
 		});
 	},
-	oninit: function() {
-		var ractive=this;
+	oninit: function oninit() {
+		var ractive = this;
 
-		this.on('refresh', function() {
-			ractive.list_backups()
+		this.on('refresh', function () {
+			ractive.list_backups();
+		});
 
-		})
-
-		ractive.list_backups()
+		ractive.list_backups();
 	},
-	data: function() {
+	data: function data() {
 		return {
-			columns: [ null, 'Backup name', 'Status', 'Creation time', 'Size', 'Backup type', 'Expiration date', 'Backup ARN' ],
-			rows: null,
+			columns: [null, 'Backup name', 'Status', 'Creation time', 'Size', 'Backup type', 'Expiration date', 'Backup ARN'],
+			rows: null
 			//newindex:
-		}
+		};
 	}
-}));
+});
 
-// CONCATENATED MODULE: ./tabletriggers.js
-/* harmony default export */ var tabletriggers = (Ractive.extend({
+/***/ }),
+/* 54 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.default = Ractive.extend({
 	template: "\
 		<div style='padding: 30px'>\
 			<h3>Triggers</h3>\
 		</div>\
-	",
-}));
+	"
+});
 
-// CONCATENATED MODULE: ./tablemetrics.js
+/***/ }),
+/* 55 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
 
 ;
 
 var DynamoMetrics = Ractive.extend({
 	template: "<chart style='width: 100%;height: 216px;' series='{{metrics.table.read.series}}' debug='{{debug}}' />",
-	load_graph_data: function() {
-		var ractive=this;
+	load_graph_data: function load_graph_data() {
+		var ractive = this;
 
 		var period = 60;
 		var interval = ractive.get('interval');
 		switch (interval) {
 			case '1':
-				period = 60;  // 60 per minute
+				period = 60; // 60 per minute
 				break;
 			case '3':
 				period = 300; // 20 per minute, 60 per total
@@ -5091,81 +3341,76 @@ var DynamoMetrics = Ractive.extend({
 				period = 300; // should be at 5 min ?
 				break;
 			case '12':
-				period = 60*60; // one per minute, 12 per total
+				period = 60 * 60; // one per minute, 12 per total
 				break;
 			case '24':
-				period = 60*60; // one per minute, 24 per total
+				period = 60 * 60; // one per minute, 24 per total
 				break;
 			case '72':
-				period = 60*60; //
+				period = 60 * 60; //
 				break;
 			case '168':
-				period = 60*60; // shoul be daily
+				period = 60 * 60; // shoul be daily
 				break;
 			case '336':
-				period = 60*60; // should be daily
+				period = 60 * 60; // should be daily
 				break;
 		}
 
 		cloudwatch.getMetricStatistics({
-			StartTime: new Date( new Date().getTime() - (1000*60*60*interval) ),
-			EndTime:   new Date(  ),
+			StartTime: new Date(new Date().getTime() - 1000 * 60 * 60 * interval),
+			EndTime: new Date(),
 			Namespace: 'AWS/DynamoDB',
 			MetricName: ractive.get('metric'),
 			Period: period,
-			Statistics: [ 'Sum' ],
-			Dimensions: [
-				{
-					Name: 'TableName',
-					Value: ractive.get('table')
-				},
-			],
-		}, function( err, data ) {
-			if (err)
-				return ractive.set('disabled','Failed')
+			Statistics: ['Sum'],
+			Dimensions: [{
+				Name: 'TableName',
+				Value: ractive.get('table')
+			}]
+		}, function (err, data) {
+			if (err) return ractive.set('disabled', 'Failed');
 
-			var series = [{ data: data.Datapoints.map(function(dp) { return ['', dp.Sum ] }) }];
-			ractive.set('metrics.table.read.series', series )
-			console.log('series', series)
-			console.log('series', ractive.get('series') )
+			var series = [{ data: data.Datapoints.map(function (dp) {
+					return ['', dp.Sum];
+				}) }];
+			ractive.set('metrics.table.read.series', series);
+			console.log('series', series);
+			console.log('series', ractive.get('series'));
 
-			ractive.set('disabled')
-
-		} )
+			ractive.set('disabled');
+		});
 	},
-	oninit: function() {
-		var ractive=this;
+	oninit: function oninit() {
+		var ractive = this;
 
+		ractive.load_graph_data();
 
-		ractive.load_graph_data()
-
-		ractive.observe('interval', function() {
-			ractive.load_graph_data()
-		})
+		ractive.observe('interval', function () {
+			ractive.load_graph_data();
+		});
 	},
-	data: function() {
+	data: function data() {
 
 		return {
 			debug: true,
 			metrics: {
 				table: {
 					read: {
-						series: [
-							{
-								//name
-								data: []
-							}
-						]
+						series: [{
+							//name
+							data: []
+						}]
 					}
 				}
-			},
-		}
-	},
+			}
+		};
+	}
 });
 
-/* harmony default export */ var tablemetrics = (Ractive.extend({
+exports.default = Ractive.extend({
 	components: {
-		DynamoMetrics: DynamoMetrics,
+		DynamoMetrics: DynamoMetrics
 	},
 	template: "\
 		<div style='padding: 30px'>\
@@ -5226,252 +3471,48 @@ var DynamoMetrics = Ractive.extend({
 \
 		</div>\
 	",
-	oninit: function() {
-		var ractive=this;
-		console.log('init metrics with', ractive.get() )
+	oninit: function oninit() {
+		var ractive = this;
+		console.log('init metrics with', ractive.get());
 	},
-	data: function() {
+	data: function data() {
 		return {
-			interval: 1,
-		}
+			interval: 1
+		};
 	}
 
-}));
+});
 
-// EXTERNAL MODULE: ../node_modules/@awspilot/ractive-dynamodb-json-editor/dist/ractive-dynamodb-json-editor.min.js
-var ractive_dynamodb_json_editor_min = __webpack_require__(12);
-var ractive_dynamodb_json_editor_min_default = /*#__PURE__*/__webpack_require__.n(ractive_dynamodb_json_editor_min);
+/***/ }),
+/* 56 */
+/***/ (function(module, exports, __webpack_require__) {
 
-// EXTERNAL MODULE: ../node_modules/lodash/cloneDeep.js
-var cloneDeep = __webpack_require__(2);
-var cloneDeep_default = /*#__PURE__*/__webpack_require__.n(cloneDeep);
-
-// CONCATENATED MODULE: ./item/edit.js
+"use strict";
 
 
-//var jsoneditor = require('@awspilot/ractive-dynamodb-json-editor');
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
+var _tabledata = __webpack_require__(10);
 
+var _tabledata2 = _interopRequireDefault(_tabledata);
 
-/* harmony default export */ var edit = (Ractive.extend({
-	isolated: true,
+var _edit = __webpack_require__(57);
+
+var _edit2 = _interopRequireDefault(_edit);
+
+var _add = __webpack_require__(128);
+
+var _add2 = _interopRequireDefault(_add);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = Ractive.extend({
 	components: {
-		jsoneditor: ractive_dynamodb_json_editor_min_default.a,
-	},
-	template:
-		'\
-		<jsoneditor item={{itemtoedit}} navigationBar="{{false}}"  style="position: absolute;top: -1px;left: -1px;right: -1px;bottom: 50px;width: auto;height: auto;border: 1px solid #dadada" menu-style="background-color: #d5ddf6;border-bottom: 1px solid #97b0f8;color: #444;" />\
-		<div style="position: absolute;left: 10px;right:10px;bottom:10px;height: 30px;box-sizing: border-box;">\
-			<span style="color: red;line-height: 30px;">{{errorMessage}}</span>\
-			<a class="btn btn-sm btn-primary pull-right" style="color: #fff;background-color: #337ab7;border-color: #2e6da4;float: right;padding: 5px 10px; font-size: 12px; line-height: 1.5;border-radius: 3px;font-family: sans-serif;" on-click="update-item">Save</a>\
-		</div>\
-		',
-	data: function() {
-		return {
-			itemtoedit: {}
-		}
-	},
-	_hash_key_name: function() {
-		return (this.get('describeTable').KeySchema.filter(function(k) { return k.KeyType === 'HASH'})[0] || {}).AttributeName
-	},
-	_range_key_name: function() {
-		return (this.get('describeTable').KeySchema.filter(function(k) { return k.KeyType === 'RANGE'})[0] || {}).AttributeName;
-	},
-	oninit: function() {
-		var ractive = this
-
-		//this.set({itemtoedit: Object.assign({}, this.get('rawitem'))  })
-
-		this.set({itemtoedit: cloneDeep_default()(this.get('rawitem'))  })
-
-		this.observe('itemtoedit', function(n,o,kp) {
-			this.set({errorMessage: ''})
-		})
-
-
-		//var rawitem = this.get('rawitem')
-		//this.set({itemtoedit: { ...rawitem }  })
-
-		//var debug = this.get('itemtoedit');
-
-		this.on('update-item', function() {
-			//console.log("table=","HASH=", this._hash_key_name(), " RANGE=", this._range_key_name() )
-
-			var originalitem = this.get('rawitem')
-			var updateditem = cloneDeep_default()(this.get('itemtoedit'))
-
-			//console.log("originalitem", originalitem.binary, typeof originalitem.binary )
-
-			//console.log('hello', updateditem )
-
-
-			var updateItemCall = {
-				TableName: this.get('describeTable.TableName'),
-				Key: {},
-				AttributeUpdates: {}
-			}
-
-			if ( !updateditem.hasOwnProperty( this._hash_key_name() ) )
-				return alert('Missing PARTITION_KEY ' + this._hash_key_name() )
-
-			if ( this._range_key_name() && (!updateditem.hasOwnProperty( this._range_key_name() )) )
-				return alert('Missing SORT_KEY ' + this._range_key_name() )
-
-			if ( JSON.stringify(updateditem[this._hash_key_name()]) !== JSON.stringify(originalitem[ this._hash_key_name()]) )
-				return alert('PARTITION_KEY(' + this._hash_key_name() + ') changed value. Operation not permitted')
-
-			if ( this._range_key_name() && ( JSON.stringify(updateditem[this._range_key_name()]) !== JSON.stringify(originalitem[ this._range_key_name()]) ) )
-				return alert('SORT_KEY(' + this._range_key_name() + ') changed value. Operation not permitted')
-
-			Object.keys(originalitem).map(function( k ) {
-				if (!updateditem.hasOwnProperty(k))
-					updateItemCall.AttributeUpdates[k] = {
-						Action: 'DELETE',
-					}
-			})
-
-
-			updateItemCall.Key[this._hash_key_name()] = updateditem[this._hash_key_name()]
-			delete updateditem[this._hash_key_name()]
-
-			if ( this._range_key_name() ) {
-				updateItemCall.Key[this._range_key_name()] = updateditem[this._range_key_name()]
-				delete updateditem[this._range_key_name()]
-			}
-
-			Object.keys(updateditem).map(function( k ) {
-				updateItemCall.AttributeUpdates[k] = {
-					Action: 'PUT', //
-					Value: updateditem[k],
-				}
-			})
-
-			//console.log("should update item", this.get('item') )
-			console.log("updateItem", updateItemCall  )
-			DynamoDB.client.updateItem(updateItemCall, function(err,data) {
-				if (err)
-					return ractive.set('errorMessage', err.message)
-
-				ractive.get('window').close()
-				//ractive.parent.fire('close-window')
-			})
-		})
-
-	},
-
-}));
-
-// CONCATENATED MODULE: ./item/add.js
-
-
-//var jsoneditor = require('@awspilot/ractive-dynamodb-json-editor');
-
-
-
-
-/* harmony default export */ var add = (Ractive.extend({
-	isolated: true,
-	components: {
-		jsoneditor: ractive_dynamodb_json_editor_min_default.a,
-	},
-	template:
-		'\
-		<jsoneditor item={{itemtoedit}} navigationBar="{{false}}"  style="position: absolute;top: -1px;left: -1px;right: -1px;bottom: 50px;width: auto;height: auto;border: 1px solid #dadada" menu-style="background-color: #d5ddf6;border-bottom: 1px solid #97b0f8;color: #444;" />\
-		<div style="position: absolute;left: 10px;right:10px;bottom:10px;height: 30px;box-sizing: border-box;">\
-			<span style="color: red;line-height: 30px;">{{errorMessage}}</span>\
-			<a class="btn btn-sm btn-primary pull-right" style="color: #fff;background-color: #337ab7;border-color: #2e6da4;float: right;padding: 5px 10px; font-size: 12px; line-height: 1.5;border-radius: 3px;font-family: sans-serif;"  on-click="update-item">Save</a>\
-		</div>\
-		',
-	data: function() {
-		return {
-			itemtoedit: {}
-		}
-	},
-	_hash_key_name: function() {
-		return (this.get('describeTable').KeySchema.filter(function(k) { return k.KeyType === 'HASH'})[0] || {}).AttributeName
-	},
-	_range_key_name: function() {
-		return (this.get('describeTable').KeySchema.filter(function(k) { return k.KeyType === 'RANGE'})[0] || {}).AttributeName;
-	},
-	oninit: function() {
-		var ractive = this
-
-		//this.set({itemtoedit: Object.assign({}, this.get('rawitem'))  })
-
-		this.set({itemtoedit: cloneDeep_default()(this.get('rawitem'))  })
-
-		this.observe('itemtoedit', function(n,o,kp) {
-			this.set({errorMessage: ''})
-		})
-
-
-		//var rawitem = this.get('rawitem')
-		//this.set({itemtoedit: { ...rawitem }  })
-
-		//var debug = this.get('itemtoedit');
-
-		this.on('update-item', function() {
-			//console.log("table=","HASH=", this._hash_key_name(), " RANGE=", this._range_key_name() )
-
-			var originalitem = this.get('rawitem')
-			var updateditem = cloneDeep_default()(this.get('itemtoedit'))
-
-			//console.log("originalitem", originalitem.binary, typeof originalitem.binary )
-
-			//console.log('hello', updateditem )
-
-
-			var updateItemCall = {
-				TableName: this.get('describeTable.TableName'),
-				Key: {},
-				AttributeUpdates: {}
-			}
-
-			if ( !updateditem.hasOwnProperty( this._hash_key_name() ) )
-				return alert('Missing PARTITION_KEY ' + this._hash_key_name() )
-
-			if ( this._range_key_name() && (!updateditem.hasOwnProperty( this._range_key_name() )) )
-				return alert('Missing SORT_KEY ' + this._range_key_name() )
-
-
-			updateItemCall.Key[this._hash_key_name()] = updateditem[this._hash_key_name()]
-			delete updateditem[this._hash_key_name()]
-
-			if ( this._range_key_name() ) {
-				updateItemCall.Key[this._range_key_name()] = updateditem[this._range_key_name()]
-				delete updateditem[this._range_key_name()]
-			}
-
-			Object.keys(updateditem).map(function( k ) {
-				updateItemCall.AttributeUpdates[k] = {
-					Action: 'PUT', //
-					Value: updateditem[k],
-				}
-			})
-
-			console.log("updateItem", updateItemCall  )
-			DynamoDB.client.updateItem(updateItemCall, function(err,data) {
-				if (err)
-					return ractive.set('errorMessage', err.message)
-
-				ractive.get('window').close()
-			})
-		})
-
-	},
-
-}));
-
-// CONCATENATED MODULE: ./tableitems.js
-
-
-
-
-
-/* harmony default export */ var tableitems = (Ractive.extend({
-	components: {
-		tabledata: tabledata,
+		tabledata: _tabledata2.default
 	},
 	isolated: true,
 	template: "\
@@ -5693,730 +3734,645 @@ var cloneDeep_default = /*#__PURE__*/__webpack_require__.n(cloneDeep);
 		{{/if}}\
 	</div>\
 		",
-		_hash_key_name: function() {
-			return (this.get('describeTable').KeySchema.filter(function(k) { return k.KeyType === 'HASH'})[0] || {}).AttributeName
-		},
-		_hash_key_type: function() {
-			var ractive = this;
+	_hash_key_name: function _hash_key_name() {
+		return (this.get('describeTable').KeySchema.filter(function (k) {
+			return k.KeyType === 'HASH';
+		})[0] || {}).AttributeName;
+	},
+	_hash_key_type: function _hash_key_type() {
+		var ractive = this;
 
-			var ret;
-			this.get('describeTable.AttributeDefinitions').map(function( at ) {
-				if ( at.AttributeName === ractive._hash_key_name() )
-					ret = at.AttributeType
-			})
-			return ret;
-		},
-		_hash_key_type_name: function() {
-			return ({S: 'String', N: 'Number', 'B': 'Binary'})[ this._hash_key_type() ]
-		},
+		var ret;
+		this.get('describeTable.AttributeDefinitions').map(function (at) {
+			if (at.AttributeName === ractive._hash_key_name()) ret = at.AttributeType;
+		});
+		return ret;
+	},
+	_hash_key_type_name: function _hash_key_type_name() {
+		return { S: 'String', N: 'Number', 'B': 'Binary' }[this._hash_key_type()];
+	},
 
-		_range_key_name: function() {
-			return (this.get('describeTable').KeySchema.filter(function(k) { return k.KeyType === 'RANGE'})[0] || {}).AttributeName;
-		},
-		_range_key_type: function() {
-			var ractive = this;
+	_range_key_name: function _range_key_name() {
+		return (this.get('describeTable').KeySchema.filter(function (k) {
+			return k.KeyType === 'RANGE';
+		})[0] || {}).AttributeName;
+	},
+	_range_key_type: function _range_key_type() {
+		var ractive = this;
 
-			var ret;
-			this.get('describeTable.AttributeDefinitions').map(function( at ) {
-				if ( at.AttributeName === ractive._range_key_name() )
-					ret = at.AttributeType
-			})
-			return ret;
-		},
-		_range_key_type_name: function() {
-			return ({S: 'String', N: 'Number', 'B': 'Binary'})[ this._range_key_type() ]
-		},
+		var ret;
+		this.get('describeTable.AttributeDefinitions').map(function (at) {
+			if (at.AttributeName === ractive._range_key_name()) ret = at.AttributeType;
+		});
+		return ret;
+	},
+	_range_key_type_name: function _range_key_type_name() {
+		return { S: 'String', N: 'Number', 'B': 'Binary' }[this._range_key_type()];
+	},
 
+	_gsi_hash_key_name: function _gsi_hash_key_name(indexname) {
 
-		_gsi_hash_key_name: function( indexname ) {
+		var index = (this.get('describeTable.GlobalSecondaryIndexes') || []).filter(function (i) {
+			return i.IndexName === indexname;
+		})[0];
+		if (!index) return;
 
-			var index = (this.get('describeTable.GlobalSecondaryIndexes') || []).filter(function(i) {return i.IndexName === indexname})[0];
-			if (! index )
-				return;
+		return (index.KeySchema.filter(function (k) {
+			return k.KeyType === 'HASH';
+		})[0] || {}).AttributeName;
+	},
+	_gsi_hash_key_type: function _gsi_hash_key_type(indexname) {
+		var ractive = this;
 
-			return (index.KeySchema.filter(function(k) { return k.KeyType === 'HASH'})[0] || {}).AttributeName
+		var ret;
+		this.get('describeTable.AttributeDefinitions').map(function (at) {
+			if (at.AttributeName === ractive._gsi_hash_key_name(indexname)) ret = at.AttributeType;
+		});
+		return ret;
+	},
+	_gsi_hash_key_type_name: function _gsi_hash_key_type_name(indexname) {
+		return { S: 'String', N: 'Number', 'B': 'Binary' }[this._gsi_hash_key_type(indexname)];
+	},
 
-		},
-		_gsi_hash_key_type: function( indexname ) {
-			var ractive = this;
+	_gsi_range_key_name: function _gsi_range_key_name(indexname) {
 
-			var ret;
-			this.get('describeTable.AttributeDefinitions').map(function( at ) {
-				if ( at.AttributeName === ractive._gsi_hash_key_name( indexname ) )
-					ret = at.AttributeType
-			})
-			return ret;
-		},
-		_gsi_hash_key_type_name: function( indexname ) {
-			return ({S: 'String', N: 'Number', 'B': 'Binary'})[ this._gsi_hash_key_type( indexname ) ]
-		},
+		var index = (this.get('describeTable.GlobalSecondaryIndexes') || []).filter(function (i) {
+			return i.IndexName === indexname;
+		})[0];
+		if (!index) return;
 
+		return (index.KeySchema.filter(function (k) {
+			return k.KeyType === 'RANGE';
+		})[0] || {}).AttributeName;
+	},
+	_gsi_range_key_type: function _gsi_range_key_type(indexname) {
+		var ractive = this;
 
+		var ret;
+		this.get('describeTable.AttributeDefinitions').map(function (at) {
+			if (at.AttributeName === ractive._gsi_range_key_name(indexname)) ret = at.AttributeType;
+		});
+		return ret;
+	},
+	_gsi_range_key_type_name: function _gsi_range_key_type_name(indexname) {
+		return { S: 'String', N: 'Number', 'B': 'Binary' }[this._gsi_range_key_type(indexname)];
+	},
 
-		_gsi_range_key_name: function( indexname ) {
+	_lsi_hash_key_name: function _lsi_hash_key_name(indexname) {
 
-			var index = (this.get('describeTable.GlobalSecondaryIndexes') || []).filter(function(i) {return i.IndexName === indexname})[0];
-			if (! index )
-				return;
+		var index = (this.get('describeTable.LocalSecondaryIndexes') || []).filter(function (i) {
+			return i.IndexName === indexname;
+		})[0];
+		if (!index) return;
 
-			return (index.KeySchema.filter(function(k) { return k.KeyType === 'RANGE'})[0] || {}).AttributeName
+		return (index.KeySchema.filter(function (k) {
+			return k.KeyType === 'HASH';
+		})[0] || {}).AttributeName;
+	},
+	_lsi_hash_key_type: function _lsi_hash_key_type(indexname) {
+		var ractive = this;
 
-		},
-		_gsi_range_key_type: function( indexname ) {
-			var ractive = this;
+		var ret;
+		this.get('describeTable.AttributeDefinitions').map(function (at) {
+			if (at.AttributeName === ractive._lsi_hash_key_name(indexname)) ret = at.AttributeType;
+		});
+		return ret;
+	},
+	_lsi_hash_key_type_name: function _lsi_hash_key_type_name(indexname) {
+		return { S: 'String', N: 'Number', 'B': 'Binary' }[this._lsi_hash_key_type(indexname)];
+	},
 
-			var ret;
-			this.get('describeTable.AttributeDefinitions').map(function( at ) {
-				if ( at.AttributeName === ractive._gsi_range_key_name( indexname ) )
-					ret = at.AttributeType
-			})
-			return ret;
-		},
-		_gsi_range_key_type_name: function( indexname ) {
-			return ({S: 'String', N: 'Number', 'B': 'Binary'})[ this._gsi_range_key_type( indexname ) ]
-		},
+	_lsi_range_key_name: function _lsi_range_key_name(indexname) {
 
+		var index = (this.get('describeTable.LocalSecondaryIndexes') || []).filter(function (i) {
+			return i.IndexName === indexname;
+		})[0];
+		if (!index) return;
 
+		return (index.KeySchema.filter(function (k) {
+			return k.KeyType === 'RANGE';
+		})[0] || {}).AttributeName;
+	},
+	_lsi_range_key_type: function _lsi_range_key_type(indexname) {
+		var ractive = this;
 
+		var ret;
+		this.get('describeTable.AttributeDefinitions').map(function (at) {
+			if (at.AttributeName === ractive._lsi_range_key_name(indexname)) ret = at.AttributeType;
+		});
+		return ret;
+	},
+	_lsi_range_key_type_name: function _lsi_range_key_type_name(indexname) {
+		return { S: 'String', N: 'Number', 'B': 'Binary' }[this._lsi_range_key_type(indexname)];
+	},
 
+	display_data: function display_data() {
+		var ractive = this;
 
+		var dbrows_json = this.get('dbrows_json');
+		var dbrows_raw = this.get('dbrows_raw');
 
+		var columns = [null];
+		var rows = [];
+		var display_columns = {};
+		this.get('display_columns').map(function (dc) {
+			if (dc.show) columns.push(dc.name);
+		});
+		var rows = [];
 
+		dbrows_json.map(function (row, idx) {
+			var thisrow = [];
 
-
-
-
-		_lsi_hash_key_name: function( indexname ) {
-
-			var index = (this.get('describeTable.LocalSecondaryIndexes') || []).filter(function(i) {return i.IndexName === indexname})[0];
-			if (! index )
-				return;
-
-			return (index.KeySchema.filter(function(k) { return k.KeyType === 'HASH'})[0] || {}).AttributeName
-
-		},
-		_lsi_hash_key_type: function( indexname ) {
-			var ractive = this;
-
-			var ret;
-			this.get('describeTable.AttributeDefinitions').map(function( at ) {
-				if ( at.AttributeName === ractive._lsi_hash_key_name( indexname ) )
-					ret = at.AttributeType
-			})
-			return ret;
-		},
-		_lsi_hash_key_type_name: function( indexname ) {
-			return ({S: 'String', N: 'Number', 'B': 'Binary'})[ this._lsi_hash_key_type( indexname ) ]
-		},
-
-
-
-		_lsi_range_key_name: function( indexname ) {
-
-			var index = (this.get('describeTable.LocalSecondaryIndexes') || []).filter(function(i) {return i.IndexName === indexname})[0];
-			if (! index )
-				return;
-
-			return (index.KeySchema.filter(function(k) { return k.KeyType === 'RANGE'})[0] || {}).AttributeName
-
-		},
-		_lsi_range_key_type: function( indexname ) {
-			var ractive = this;
-
-			var ret;
-			this.get('describeTable.AttributeDefinitions').map(function( at ) {
-				if ( at.AttributeName === ractive._lsi_range_key_name( indexname ) )
-					ret = at.AttributeType
-			})
-			return ret;
-		},
-		_lsi_range_key_type_name: function( indexname ) {
-			return ({S: 'String', N: 'Number', 'B': 'Binary'})[ this._lsi_range_key_type( indexname ) ]
-		},
-
-
-
-
-		display_data: function() {
-			var ractive = this;
-
-			var dbrows_json = this.get('dbrows_json');
-			var dbrows_raw  = this.get('dbrows_raw');
-
-			var columns = [null]
-			var rows = []
-			var display_columns = {}
-			this.get('display_columns').map(function(dc) {
-				if (dc.show)
-					columns.push(dc.name)
-			})
-			var rows = []
-
-
-
-			dbrows_json.map(function(row, idx ) {
-				var thisrow = []
-
-				columns.map(function(column_name) {
-					if (column_name === null) {
-						// checkbox
-						var key = {}
-						key[ractive._hash_key_name()] = row[ractive._hash_key_name()]
-						if (ractive._range_key_name()) key[ractive._range_key_name()] = row[ractive._range_key_name()]
-						thisrow.push({KEY: key})
+			columns.map(function (column_name) {
+				if (column_name === null) {
+					// checkbox
+					var key = {};
+					key[ractive._hash_key_name()] = row[ractive._hash_key_name()];
+					if (ractive._range_key_name()) key[ractive._range_key_name()] = row[ractive._range_key_name()];
+					thisrow.push({ KEY: key });
+				} else {
+					if (row.hasOwnProperty(column_name)) {
+						if (column_name === ractive._hash_key_name()) {
+							thisrow.push({
+								HASH: row[column_name],
+								item: row,
+								raw: dbrows_raw[idx]
+							});
+						} else if (typeof row[column_name] === 'string') thisrow.push({ 'S': row[column_name] });else if (typeof row[column_name] === 'number') thisrow.push({ 'N': row[column_name] });else if (typeof row[column_name] === 'boolean') {
+							thisrow.push({ 'BOOL': row[column_name].toString() });
+						} else if (row[column_name] === null) {
+							thisrow.push({ 'NULL': "NULL" });
+						} else if (_typeof(row[column_name]) === 'object' && Array.isArray(row[column_name])) {
+							thisrow.push({ 'L': true });
+						} else if (_typeof(row[column_name]) === 'object' && !Array.isArray(row[column_name])) {
+							thisrow.push({ 'M': true });
+						} else thisrow.push({ 'U': true });
 					} else {
-						if (row.hasOwnProperty(column_name)) {
-							if ( column_name === ractive._hash_key_name() ) {
-								thisrow.push({
-									HASH:row[column_name],
-									item: row,
-									raw: dbrows_raw[idx],
-								})
-							} else if (typeof row[column_name] === 'string')
-								thisrow.push({'S':row[column_name]})
-							else if (typeof row[column_name] === 'number')
-								thisrow.push({'N':row[column_name]})
-							else if (typeof row[column_name] === 'boolean') {
-								thisrow.push({'BOOL':row[column_name].toString()})
-							} else if (row[column_name] === null) {
-								thisrow.push({'NULL': "NULL"})
-							} else if ((typeof row[column_name] === 'object') &&  Array.isArray(row[column_name]) ) {
-								thisrow.push({'L': true })
-							} else if ((typeof row[column_name] === 'object') && !Array.isArray(row[column_name]) ) {
-								thisrow.push({'M': true })
-							} else
-								thisrow.push({'U': true })
-						} else {
-							thisrow.push({'U': true })
-						}
+						thisrow.push({ 'U': true });
 					}
-				})
-				rows.push(thisrow)
-			})
-
-
-
-
-			this.set('columns', columns )
-			this.set('rows', rows )
-		},
-
-		refresh_data: function( LastEvaluatedKey ) {
-
-			var ractive = this;
-			this.set('columns', [])
-			this.set('rows', [])
-
-			var dbrows_json = null
-			var dbrows_raw = null
-			var hash_key = null
-			var range_key = null
-			var fields = {}
-			var columns = [null]
-
-
-			async.waterfall([
-
-
-				// describeTable is set by parent
-
-				function( cb ) {
-					if (ractive.get('type') !== 'scan')
-						return cb()
-
-					fields = {}
-
-
-					hash_key = ractive._hash_key_name();
-					range_key = ractive._range_key_name();
-
-					columns.push(hash_key)
-					ractive.add_display_column( hash_key, true )
-					fields[hash_key] = 1;
-					if (range_key) {
-						columns.push(range_key)
-						ractive.add_display_column( range_key, true )
-						fields[range_key] = 1;
-					}
-
-
-					var scan_index = ractive.get('scan.table')
-					if (scan_index === '') {
-					} else {
-						var scan_type = scan_index.split(':')[0]
-						scan_index = scan_index.split(':')[1]
-						if (scan_type === 'gsi') {
-							var index = ractive.get('describeTable.GlobalSecondaryIndexes').filter(function(i) { return i.IndexName === scan_index})[0]
-
-							var index_hash_key  = (index.KeySchema.filter(function(k) { return k.KeyType === 'HASH' })[0] || {}).AttributeName;
-							var index_range_key = (index.KeySchema.filter(function(k) { return k.KeyType === 'RANGE'})[0] || {}).AttributeName;
-
-							columns.push(index_hash_key)
-							ractive.add_display_column( index_hash_key, true )
-							fields[index_hash_key] = 1;
-
-							if (index_range_key) {
-								columns.push(index_range_key)
-								ractive.add_display_column( index_range_key, true )
-								fields[index_range_key] = 1;
-							}
-						}
-
-
-					}
-
-					var ddb = DynamoDB.table(ractive.get('table.name'))
-					if (LastEvaluatedKey)
-						ddb.resume( LastEvaluatedKey )
-					ddb.limit(100)
-					if (scan_index)
-						ddb = ddb.index(scan_index)
-
-					ddb.scan(function(err, data, raw ) {
-						if (err)
-							return alert("scan error")
-
-
-
-						dbrows_json = data;
-						dbrows_raw  = raw.Items
-
-						ractive.push('scan.LastEvaluatedKey', data.LastEvaluatedKey )
-						ractive.set('end_reached' ,data.LastEvaluatedKey ? false : true )
-
-						cb()
-					})
-				},
-
-				function( cb ) {
-					if (ractive.get('type') !== 'query')
-						return cb()
-
-					fields = {}
-					var query_partition_name = '';
-					var query_partition_type = 'S';
-					var query_sort_name = '';
-					var query_sort_type = 'S';
-
-
-
-					hash_key = ractive._hash_key_name();
-					range_key = ractive._range_key_name();
-
-					columns.push(hash_key)
-					ractive.add_display_column( hash_key, true )
-					fields[hash_key] = 1;
-					if (range_key) {
-						columns.push(range_key)
-						ractive.add_display_column( range_key, true )
-						fields[range_key] = 1;
-					}
-
-
-					var query_index = ractive.get('query.table')
-					if (query_index === '') {
-						query_partition_name = hash_key
-						query_partition_type = ractive._hash_key_type();
-						if (range_key) {
-							query_sort_name = ractive._range_key_name();
-							query_sort_type = ractive._range_key_type();
-						}
-					} else {
-						var query_type = query_index.split(':')[0]
-						query_index = query_index.split(':')[1]
-						if (query_type === 'gsi') {
-
-							var index = ractive.get('describeTable.GlobalSecondaryIndexes').filter(function(i) { return i.IndexName === query_index})[0]
-							var index_hash_key  = ractive._gsi_hash_key_name( index.IndexName )
-							var index_range_key = ractive._gsi_range_key_name( index.IndexName )
-							query_partition_name = index_hash_key;
-							query_partition_type = ractive._gsi_hash_key_type( index.IndexName )
-
-							if (index_range_key) {
-								query_sort_name = ractive._gsi_range_key_name( index.IndexName )
-								query_sort_type = ractive._gsi_range_key_type( index.IndexName )
-							}
-
-							columns.push(index_hash_key)
-							ractive.add_display_column( index_hash_key, true )
-							fields[index_hash_key] = 1;
-
-							if (index_range_key) {
-								columns.push(index_range_key)
-								ractive.add_display_column( index_range_key, true )
-								fields[index_range_key] = 1;
-							}
-						}
-						if (query_type === 'lsi') {
-
-							var index = ractive.get('describeTable.LocalSecondaryIndexes').filter(function(i) { return i.IndexName === query_index})[0]
-							var index_hash_key  = ractive._lsi_hash_key_name( index.IndexName )
-							var index_range_key = ractive._lsi_range_key_name( index.IndexName )
-							query_partition_name = index_hash_key;
-							query_partition_type = ractive._lsi_hash_key_type( index.IndexName )
-
-							if (index_range_key) {
-								query_sort_name = ractive._lsi_range_key_name( index.IndexName )
-								query_sort_type = ractive._lsi_range_key_type( index.IndexName )
-							}
-
-							columns.push(index_hash_key)
-							ractive.add_display_column( index_hash_key, true )
-							fields[index_hash_key] = 1;
-
-							if (index_range_key) {
-								columns.push(index_range_key)
-								ractive.add_display_column( index_range_key, true )
-								fields[index_range_key] = 1;
-							}
-
-						}
-
-					}
-
-					var ddb = DynamoDB.table(ractive.get('table.name'))
-					if (LastEvaluatedKey)
-						ddb.resume( LastEvaluatedKey )
-					ddb.limit(100)
-					if (query_index)
-						ddb = ddb.index(query_index)
-
-					if (query_partition_type === 'S')
-						ddb = ddb.where(query_partition_name).eq( ractive.get('query.partition.value').toString() )
-
-					if (query_partition_type === 'N')
-						ddb = ddb.where(query_partition_name).eq( parseFloat(ractive.get('query.partition.value')) )
-
-
-					if ( ractive.get('query.sort.value').length ) {
-						// apply sort
-						console.log("sort", query_sort_name, ractive.get('query.sort.op') , query_sort_type )
-						if (query_sort_type === 'S')
-							ddb = ddb.where(query_sort_name)[ ractive.get('query.sort.op') ]( ractive.get('query.sort.value').toString(), ractive.get('query.sort.value2').toString() )
-
-						if (query_sort_type === 'N')
-							ddb = ddb.where(query_sort_name)[ ractive.get('query.sort.op') ]( parseFloat(ractive.get('query.sort.value')), parseFloat(ractive.get('query.sort.value2')) )
-
-
-					}
-
-					console.log("query_partition_name=",query_partition_name)
-
-					dbrows_json = []
-					ddb.query(function(err, data, raw ) {
-						if (err) {
-							alert("query error")
-							return cb(err)
-						}
-
-						dbrows_json = data;
-						dbrows_raw  = raw.Items;
-
-						ractive.push('scan.LastEvaluatedKey', data.LastEvaluatedKey )
-
-						ractive.set('end_reached' ,data.LastEvaluatedKey ? false : true )
-
-						cb()
-
-
-					})
-
-				},
-
-				// save raw data
-				function(cb ) {
-					ractive.set('dbrows_json', dbrows_json )
-					ractive.set('dbrows_raw', dbrows_raw )
-					cb()
 				}
-			], function(err) {
-				ractive.set('oop_running'  ,false )
-				ractive.set('prev_running' ,false )
-				ractive.set('next_running' ,false )
+			});
+			rows.push(thisrow);
+		});
 
-				if (err)
-					ractive.set('err', err.errorMessage )
+		this.set('columns', columns);
+		this.set('rows', rows);
+	},
 
+	refresh_data: function refresh_data(LastEvaluatedKey) {
 
-				if (ractive.get('autocolumns')) {
-					dbrows_json.map(function(row) {
-						Object.keys(row).map(function(column_name) {
-							if (!fields.hasOwnProperty(column_name)) {
-								if (columns.length > 10) {
-									ractive.add_display_column( column_name, false )
-								} else {
-									ractive.add_display_column( column_name, true )
-									fields[column_name] = 1;
-									columns.push(column_name)
-								}
-							}
-						})
-					})
-					ractive.set('autocolumns', false)
+		var ractive = this;
+		this.set('columns', []);
+		this.set('rows', []);
+
+		var dbrows_json = null;
+		var dbrows_raw = null;
+		var hash_key = null;
+		var range_key = null;
+		var fields = {};
+		var columns = [null];
+
+		async.waterfall([
+
+		// describeTable is set by parent
+
+		function (cb) {
+			if (ractive.get('type') !== 'scan') return cb();
+
+			fields = {};
+
+			hash_key = ractive._hash_key_name();
+			range_key = ractive._range_key_name();
+
+			columns.push(hash_key);
+			ractive.add_display_column(hash_key, true);
+			fields[hash_key] = 1;
+			if (range_key) {
+				columns.push(range_key);
+				ractive.add_display_column(range_key, true);
+				fields[range_key] = 1;
+			}
+
+			var scan_index = ractive.get('scan.table');
+			if (scan_index === '') {} else {
+				var scan_type = scan_index.split(':')[0];
+				scan_index = scan_index.split(':')[1];
+				if (scan_type === 'gsi') {
+					var index = ractive.get('describeTable.GlobalSecondaryIndexes').filter(function (i) {
+						return i.IndexName === scan_index;
+					})[0];
+
+					var index_hash_key = (index.KeySchema.filter(function (k) {
+						return k.KeyType === 'HASH';
+					})[0] || {}).AttributeName;
+					var index_range_key = (index.KeySchema.filter(function (k) {
+						return k.KeyType === 'RANGE';
+					})[0] || {}).AttributeName;
+
+					columns.push(index_hash_key);
+					ractive.add_display_column(index_hash_key, true);
+					fields[index_hash_key] = 1;
+
+					if (index_range_key) {
+						columns.push(index_range_key);
+						ractive.add_display_column(index_range_key, true);
+						fields[index_range_key] = 1;
+					}
 				}
-				ractive.display_data()
-				/*
-				var rows = []
+			}
 
+			var ddb = DynamoDB.table(ractive.get('table.name'));
+			if (LastEvaluatedKey) ddb.resume(LastEvaluatedKey);
+			ddb.limit(100);
+			if (scan_index) ddb = ddb.index(scan_index);
 
+			ddb.scan(function (err, data, raw) {
+				if (err) return alert("scan error");
 
+				dbrows_json = data;
+				dbrows_raw = raw.Items;
 
+				ractive.push('scan.LastEvaluatedKey', data.LastEvaluatedKey);
+				ractive.set('end_reached', data.LastEvaluatedKey ? false : true);
 
+				cb();
+			});
+		}, function (cb) {
+			if (ractive.get('type') !== 'query') return cb();
 
+			fields = {};
+			var query_partition_name = '';
+			var query_partition_type = 'S';
+			var query_sort_name = '';
+			var query_sort_type = 'S';
 
-				dbrows_.map(function(row) {
-					var thisrow = []
+			hash_key = ractive._hash_key_name();
+			range_key = ractive._range_key_name();
 
-					columns.map(function(column_name) {
-						if (column_name === null) {
-							// checkbox
-							var key = {}
-							key[hash_key] = row[hash_key]
-							if (range_key) key[range_key] = row[range_key]
-							thisrow.push({KEY: key})
-						} else {
-							if (row.hasOwnProperty(column_name)) {
-								if (typeof row[column_name] === 'string')
-									thisrow.push({'S':row[column_name]})
-								else if (typeof row[column_name] === 'number')
-									thisrow.push({'N':row[column_name]})
-								else if (typeof row[column_name] === 'boolean') {
-									thisrow.push({'BOOL':row[column_name].toString()})
-								} else if (row[column_name] === null) {
-									thisrow.push({'NULL': "NULL"})
-								} else if ((typeof row[column_name] === 'object') &&  Array.isArray(row[column_name]) ) {
-									thisrow.push({'L': true })
-								} else if ((typeof row[column_name] === 'object') && !Array.isArray(row[column_name]) ) {
-									thisrow.push({'M': true })
-								} else
-									thisrow.push({'U': true })
+			columns.push(hash_key);
+			ractive.add_display_column(hash_key, true);
+			fields[hash_key] = 1;
+			if (range_key) {
+				columns.push(range_key);
+				ractive.add_display_column(range_key, true);
+				fields[range_key] = 1;
+			}
+
+			var query_index = ractive.get('query.table');
+			if (query_index === '') {
+				query_partition_name = hash_key;
+				query_partition_type = ractive._hash_key_type();
+				if (range_key) {
+					query_sort_name = ractive._range_key_name();
+					query_sort_type = ractive._range_key_type();
+				}
+			} else {
+				var query_type = query_index.split(':')[0];
+				query_index = query_index.split(':')[1];
+				if (query_type === 'gsi') {
+
+					var index = ractive.get('describeTable.GlobalSecondaryIndexes').filter(function (i) {
+						return i.IndexName === query_index;
+					})[0];
+					var index_hash_key = ractive._gsi_hash_key_name(index.IndexName);
+					var index_range_key = ractive._gsi_range_key_name(index.IndexName);
+					query_partition_name = index_hash_key;
+					query_partition_type = ractive._gsi_hash_key_type(index.IndexName);
+
+					if (index_range_key) {
+						query_sort_name = ractive._gsi_range_key_name(index.IndexName);
+						query_sort_type = ractive._gsi_range_key_type(index.IndexName);
+					}
+
+					columns.push(index_hash_key);
+					ractive.add_display_column(index_hash_key, true);
+					fields[index_hash_key] = 1;
+
+					if (index_range_key) {
+						columns.push(index_range_key);
+						ractive.add_display_column(index_range_key, true);
+						fields[index_range_key] = 1;
+					}
+				}
+				if (query_type === 'lsi') {
+
+					var index = ractive.get('describeTable.LocalSecondaryIndexes').filter(function (i) {
+						return i.IndexName === query_index;
+					})[0];
+					var index_hash_key = ractive._lsi_hash_key_name(index.IndexName);
+					var index_range_key = ractive._lsi_range_key_name(index.IndexName);
+					query_partition_name = index_hash_key;
+					query_partition_type = ractive._lsi_hash_key_type(index.IndexName);
+
+					if (index_range_key) {
+						query_sort_name = ractive._lsi_range_key_name(index.IndexName);
+						query_sort_type = ractive._lsi_range_key_type(index.IndexName);
+					}
+
+					columns.push(index_hash_key);
+					ractive.add_display_column(index_hash_key, true);
+					fields[index_hash_key] = 1;
+
+					if (index_range_key) {
+						columns.push(index_range_key);
+						ractive.add_display_column(index_range_key, true);
+						fields[index_range_key] = 1;
+					}
+				}
+			}
+
+			var ddb = DynamoDB.table(ractive.get('table.name'));
+			if (LastEvaluatedKey) ddb.resume(LastEvaluatedKey);
+			ddb.limit(100);
+			if (query_index) ddb = ddb.index(query_index);
+
+			if (query_partition_type === 'S') ddb = ddb.where(query_partition_name).eq(ractive.get('query.partition.value').toString());
+
+			if (query_partition_type === 'N') ddb = ddb.where(query_partition_name).eq(parseFloat(ractive.get('query.partition.value')));
+
+			if (ractive.get('query.sort.value').length) {
+				// apply sort
+				console.log("sort", query_sort_name, ractive.get('query.sort.op'), query_sort_type);
+				if (query_sort_type === 'S') ddb = ddb.where(query_sort_name)[ractive.get('query.sort.op')](ractive.get('query.sort.value').toString(), ractive.get('query.sort.value2').toString());
+
+				if (query_sort_type === 'N') ddb = ddb.where(query_sort_name)[ractive.get('query.sort.op')](parseFloat(ractive.get('query.sort.value')), parseFloat(ractive.get('query.sort.value2')));
+			}
+
+			console.log("query_partition_name=", query_partition_name);
+
+			dbrows_json = [];
+			ddb.query(function (err, data, raw) {
+				if (err) {
+					alert("query error");
+					return cb(err);
+				}
+
+				dbrows_json = data;
+				dbrows_raw = raw.Items;
+
+				ractive.push('scan.LastEvaluatedKey', data.LastEvaluatedKey);
+
+				ractive.set('end_reached', data.LastEvaluatedKey ? false : true);
+
+				cb();
+			});
+		},
+
+		// save raw data
+		function (cb) {
+			ractive.set('dbrows_json', dbrows_json);
+			ractive.set('dbrows_raw', dbrows_raw);
+			cb();
+		}], function (err) {
+			ractive.set('oop_running', false);
+			ractive.set('prev_running', false);
+			ractive.set('next_running', false);
+
+			if (err) ractive.set('err', err.errorMessage);
+
+			if (ractive.get('autocolumns')) {
+				dbrows_json.map(function (row) {
+					Object.keys(row).map(function (column_name) {
+						if (!fields.hasOwnProperty(column_name)) {
+							if (columns.length > 10) {
+								ractive.add_display_column(column_name, false);
 							} else {
-								thisrow.push({'U': true })
+								ractive.add_display_column(column_name, true);
+								fields[column_name] = 1;
+								columns.push(column_name);
 							}
 						}
-					})
-					rows.push(thisrow)
-				})
-				ractive.set('columns', columns )
-				ractive.set('rows', rows )
-				*/
-			})
-		},
-	add_display_column: function( cname, show ) {
-		var display_columns = this.get('display_columns')
-		if ( display_columns.filter(function(dc) { return dc.name === cname}).length )
-			return;
+					});
+				});
+				ractive.set('autocolumns', false);
+			}
+			ractive.display_data();
+			/*
+   var rows = []
+   
+   		dbrows_.map(function(row) {
+   	var thisrow = []
+   		columns.map(function(column_name) {
+   		if (column_name === null) {
+   			// checkbox
+   			var key = {}
+   			key[hash_key] = row[hash_key]
+   			if (range_key) key[range_key] = row[range_key]
+   			thisrow.push({KEY: key})
+   		} else {
+   			if (row.hasOwnProperty(column_name)) {
+   				if (typeof row[column_name] === 'string')
+   					thisrow.push({'S':row[column_name]})
+   				else if (typeof row[column_name] === 'number')
+   					thisrow.push({'N':row[column_name]})
+   				else if (typeof row[column_name] === 'boolean') {
+   					thisrow.push({'BOOL':row[column_name].toString()})
+   				} else if (row[column_name] === null) {
+   					thisrow.push({'NULL': "NULL"})
+   				} else if ((typeof row[column_name] === 'object') &&  Array.isArray(row[column_name]) ) {
+   					thisrow.push({'L': true })
+   				} else if ((typeof row[column_name] === 'object') && !Array.isArray(row[column_name]) ) {
+   					thisrow.push({'M': true })
+   				} else
+   					thisrow.push({'U': true })
+   			} else {
+   				thisrow.push({'U': true })
+   			}
+   		}
+   	})
+   	rows.push(thisrow)
+   })
+   ractive.set('columns', columns )
+   ractive.set('rows', rows )
+   */
+		});
+	},
+	add_display_column: function add_display_column(cname, show) {
+		var display_columns = this.get('display_columns');
+		if (display_columns.filter(function (dc) {
+			return dc.name === cname;
+		}).length) return;
 
 		display_columns.push({
 			name: cname,
-			show: show,
-		})
-		this.set('display_columns', display_columns )
+			show: show
+		});
+		this.set('display_columns', display_columns);
 	},
-	data: function() { return {
-		oop_running: false,
-		prev_running: false,
-		next_running: false,
-		start_reached: true,
-		end_reached: false,
+	data: function data() {
+		return {
+			oop_running: false,
+			prev_running: false,
+			next_running: false,
+			start_reached: true,
+			end_reached: false,
 
-		type: 'scan',
-		display_columns: [
-			// { name, type, show: true|false|null}
-		],
-		autocolumns: true,
-		scan: {
-			table: '',
-			LastEvaluatedKey: [null],
-		},
-		query: {
-			table: '',
-			sort: {
-				op: 'eq',
-				value: '',
-				value2: '',
+			type: 'scan',
+			display_columns: [
+				// { name, type, show: true|false|null}
+			],
+			autocolumns: true,
+			scan: {
+				table: '',
+				LastEvaluatedKey: [null]
+			},
+			query: {
+				table: '',
+				sort: {
+					op: 'eq',
+					value: '',
+					value2: ''
+				}
 			}
-		}
-	} },
-	oninit: function() {
-		var ractive = this
+		};
+	},
+	oninit: function oninit() {
+		var ractive = this;
 
-
-
-
-		this.on('open-item', function( e, col, item, rawitem ) {
-			var describeTable = this.get('describeTable')
-			var hash  = this._hash_key_name()
-			var range = this._range_key_name()
+		this.on('open-item', function (e, col, item, rawitem) {
+			var describeTable = this.get('describeTable');
+			var hash = this._hash_key_name();
+			var range = this._range_key_name();
 			//console.log("open-item", "table=",describeTable.TableName, "hash=",hash, "range=", range, "item=", item, rawitem  )
-			window.ractive.findComponent('WindowHost').newWindow(function($window) {
+			window.ractive.findComponent('WindowHost').newWindow(function ($window) {
 				$window.set({
 					title: 'Edit Item',
 					'geometry.width': window.innerWidth - 100,
 					'geometry.height': window.innerHeight - 100,
 					'geometry.left': 50,
-					'geometry.top': 50,
+					'geometry.top': 50
 				});
 
-				var vid = "window"+(Math.random()*0xFFFFFF<<0).toString(16)
-				$window.content('<div id="' + vid + '"/>').then(function() {
+				var vid = "window" + (Math.random() * 0xFFFFFF << 0).toString(16);
+				$window.content('<div id="' + vid + '"/>').then(function () {
 					var ractive = new Ractive({
 						components: {
-							itemedit: edit,
+							itemedit: _edit2.default
 						},
-						el: $('#'+vid).get(0).parentNode,
+						el: $('#' + vid).get(0).parentNode,
 						template: '<itemedit describeTable="{{describeTable}}" item="{{item}}" rawitem="{{rawitem}}" window={{window}} />',
 						data: {
 							describeTable: describeTable,
 							//item: item,
 							rawitem: rawitem,
-							window: $window,
+							window: $window
 						}
-					})
-				})
+					});
+				});
+			});
+		});
 
-			})
-		})
+		this.on('run-oop', function () {
+			if (this.get('oop_running')) return;
 
-		this.on('run-oop', function() {
-			if (this.get('oop_running'))
-				return;
-
-			this.set('oop_running' ,true )
+			this.set('oop_running', true);
 
 			// reset scan.LastEvaluatedKey
-			ractive.set('scan.LastEvaluatedKey', [null] )
+			ractive.set('scan.LastEvaluatedKey', [null]);
 
-			this.refresh_data(null)
-		})
-		this.on('prev', function() {
+			this.refresh_data(null);
+		});
+		this.on('prev', function () {
 
-			if (this.get('prev_running'))
-				return;
+			if (this.get('prev_running')) return;
 
-			this.set('prev_running' ,true )
+			this.set('prev_running', true);
 
-			if (ractive.get('scan.LastEvaluatedKey').length < 3)
-				return;
+			if (ractive.get('scan.LastEvaluatedKey').length < 3) return;
 
-			var next = ractive.pop('scan.LastEvaluatedKey')
+			var next = ractive.pop('scan.LastEvaluatedKey');
 
-			var current = ractive.pop('scan.LastEvaluatedKey')
+			var current = ractive.pop('scan.LastEvaluatedKey');
 
-			var LastEvaluatedKey = ractive.get('scan.LastEvaluatedKey').slice(-1)[0]
+			var LastEvaluatedKey = ractive.get('scan.LastEvaluatedKey').slice(-1)[0];
 
-			ractive.refresh_data(LastEvaluatedKey)
-		})
-		this.on('next', function() {
+			ractive.refresh_data(LastEvaluatedKey);
+		});
+		this.on('next', function () {
 
-			if (this.get('next_running'))
-				return;
+			if (this.get('next_running')) return;
 
-			if (this.get('end_reached'))
-				return;
+			if (this.get('end_reached')) return;
 
-			this.set('next_running' ,true )
-			var LastEvaluatedKey = ractive.get('scan.LastEvaluatedKey').slice(-1)[0]
-			ractive.refresh_data(LastEvaluatedKey)
-		})
+			this.set('next_running', true);
+			var LastEvaluatedKey = ractive.get('scan.LastEvaluatedKey').slice(-1)[0];
+			ractive.refresh_data(LastEvaluatedKey);
+		});
 
-		ractive.observe('scan.LastEvaluatedKey', function( n, o, keypath ) {
-			if (n.length > 2)
-				ractive.set('start_reached', false)
-			else
-				ractive.set('start_reached', true)
-		})
-		ractive.observe('display_columns.*.show', function( n, o, keypath ) {
-			if (o === undefined)
-				return;
+		ractive.observe('scan.LastEvaluatedKey', function (n, o, keypath) {
+			if (n.length > 2) ractive.set('start_reached', false);else ractive.set('start_reached', true);
+		});
+		ractive.observe('display_columns.*.show', function (n, o, keypath) {
+			if (o === undefined) return;
 
-			if (o == n)
-				return;
+			if (o == n) return;
 
-			var col = ractive.get(keypath.slice(0,-5)).name
-			console.log(col, n, o )
-			ractive.display_data()
-		})
+			var col = ractive.get(keypath.slice(0, -5)).name;
+			console.log(col, n, o);
+			ractive.display_data();
+		});
 
+		ractive.on('tabledata.selectrow', function (context) {
+			var keypath = context.resolve();
+			ractive.set(keypath + '.0.selected', !ractive.get(keypath + '.0.selected'));
 
+			ractive.set('selection_length', ractive.get('rows').filter(function (r) {
+				return r[0].selected === true;
+			}).length);
+		});
+		ractive.on('create-item-window', function () {
 
+			var describeTable = this.get('describeTable');
 
-
-		ractive.on('tabledata.selectrow', function(context) {
-			var keypath = context.resolve()
-			ractive.set(keypath + '.0.selected', !ractive.get(keypath + '.0.selected') )
-
-			ractive.set('selection_length',
-				ractive.get('rows').filter(function(r) { return r[0].selected === true } ).length
-			)
-
-
-		})
-		ractive.on('create-item-window', function() {
-
-
-
-
-
-			var describeTable = this.get('describeTable')
-
-			var rawitem = {}
-
+			var rawitem = {};
 
 			/* add partition */
-			var htype = this._hash_key_type()
+			var htype = this._hash_key_type();
 
 			var to_add = null;
-			if (htype === "S")
-				to_add = {S: ""}
+			if (htype === "S") to_add = { S: "" };
 
-			if (htype === "N")
-				to_add = {N: ""}
+			if (htype === "N") to_add = { N: "" };
 
-			if (htype === "B")
-				to_add = {B: Uint8Array.from(atob("InsertBase64Here"), function (c) { return c.charCodeAt(0) } ) }
+			if (htype === "B") to_add = { B: Uint8Array.from(atob("InsertBase64Here"), function (c) {
+					return c.charCodeAt(0);
+				}) };
 
 			rawitem[this._hash_key_name()] = to_add;
 
-
-
 			/* add sort */
-			if ( this._range_key_name() ) {
-				var rtype = this._range_key_type()
+			if (this._range_key_name()) {
+				var rtype = this._range_key_type();
 				var to_add = null;
-				if (rtype === "S")
-					to_add = {S: ""}
+				if (rtype === "S") to_add = { S: "" };
 
-				if (rtype === "N")
-					to_add = {N: ""}
+				if (rtype === "N") to_add = { N: "" };
 
-				if (rtype === "B")
-					to_add = {B: Uint8Array.from(atob("InsertBase64Here"), function (c) { return c.charCodeAt(0) } ) }
-
+				if (rtype === "B") to_add = { B: Uint8Array.from(atob("InsertBase64Here"), function (c) {
+						return c.charCodeAt(0);
+					}) };
 
 				rawitem[this._range_key_name()] = to_add;
 			}
 
+			console.log(rawitem);
 
-			console.log(rawitem)
-
-
-			window.ractive.findComponent('WindowHost').newWindow(function($window) {
+			window.ractive.findComponent('WindowHost').newWindow(function ($window) {
 				$window.set({
 					title: 'Create Item',
 					'geometry.width': window.innerWidth - 100,
 					'geometry.height': window.innerHeight - 100,
 					'geometry.left': 50,
-					'geometry.top': 50,
+					'geometry.top': 50
 				});
 
-				var vid = "window"+(Math.random()*0xFFFFFF<<0).toString(16)
-				$window.content('<div id="' + vid + '"/>').then(function() {
+				var vid = "window" + (Math.random() * 0xFFFFFF << 0).toString(16);
+				$window.content('<div id="' + vid + '"/>').then(function () {
 					var ractive = new Ractive({
 						components: {
-							itemadd:  add,
+							itemadd: _add2.default
 						},
-						el: $('#'+vid).get(0).parentNode,
+						el: $('#' + vid).get(0).parentNode,
 						template: '<itemadd describeTable="{{describeTable}}" item="{{item}}" rawitem="{{rawitem}}" window={{window}} />',
 						data: {
 							describeTable: describeTable,
@@ -6424,400 +4380,2428 @@ var cloneDeep_default = /*#__PURE__*/__webpack_require__.n(cloneDeep);
 							//
 							// },
 							rawitem: rawitem,
-							window: $window,
+							window: $window
 						}
-					})
-				})
-			})
+					});
+				});
+			});
 
-
-/*
-
-
-
-
-
-					var ractive = new Ractive({
-						components: {
-							itemedit: itemedit,
-						},
-						el: $('#'+vid).get(0).parentNode,
-						template: '<itemedit describeTable="{{describeTable}}" item="{{item}}" rawitem="{{rawitem}}" window={{window}} />',
-						data: {
-							describeTable: describeTable,
-							item: item,
-							rawitem: rawitem,
-							window: $window,
-						}
-					})
-
-
-*/
-
-		})
-		ractive.on('delete-selected', function(context) {
+			/*
+   
+   
+   
+   
+   
+   					var ractive = new Ractive({
+   						components: {
+   							itemedit: itemedit,
+   						},
+   						el: $('#'+vid).get(0).parentNode,
+   						template: '<itemedit describeTable="{{describeTable}}" item="{{item}}" rawitem="{{rawitem}}" window={{window}} />',
+   						data: {
+   							describeTable: describeTable,
+   							item: item,
+   							rawitem: rawitem,
+   							window: $window,
+   						}
+   					})
+   
+   
+   */
+		});
+		ractive.on('delete-selected', function (context) {
 			//console.log(ractive.findComponent('tabledata').get('rows'))
-			var to_delete = ractive.findComponent('tabledata').get('rows')
-				.map(function(r) { return r[0] })
-				.filter(function(r) { return r.selected })
-				.map(function(r) { return r.KEY })
+			var to_delete = ractive.findComponent('tabledata').get('rows').map(function (r) {
+				return r[0];
+			}).filter(function (r) {
+				return r.selected;
+			}).map(function (r) {
+				return r.KEY;
+			});
 
-			if (!to_delete.length)
-				return alert('No Items Selected')
+			if (!to_delete.length) return alert('No Items Selected');
 
-			var to_remove_from_list = []
+			var to_remove_from_list = [];
 
+			async.each(to_delete, function (item, cb) {
 
+				var Key = {};
+				Object.keys(item).map(function (k) {
+					if (typeof item[k] === "string") Key[k] = { "S": item[k] };
 
-			async.each(to_delete, function(item, cb) {
-
-				var Key = {}
-				Object.keys(item).map(function(k) {
-					if (typeof item[k] === "string")
-						Key[k] = {"S": item[k]}
-
-					if (typeof item[k] === "number")
-						Key[k] = {"N": item[k].toString()}
-				})
+					if (typeof item[k] === "number") Key[k] = { "N": item[k].toString() };
+				});
 
 				var payload = {
 					Key: Key,
 					TableName: ractive.get('table.name')
 				};
 
-				DynamoDB.client.deleteItem( payload , function(err, data) {
+				DynamoDB.client.deleteItem(payload, function (err, data) {
 
 					if (err) {
-						alert("delete failed " + err.message )
-						return cb(err)
-					} else
-						to_remove_from_list.push(item)
+						alert("delete failed " + err.message);
+						return cb(err);
+					} else to_remove_from_list.push(item);
 
-					cb()
+					cb();
 				});
-			}, function(err) {
-				if (err)
-					alert('some items failed to delete')
+			}, function (err) {
+				if (err) alert('some items failed to delete');
 
-				ractive.set('rows',
-					ractive.get('rows')
-						.filter(function(r) {
+				ractive.set('rows', ractive.get('rows').filter(function (r) {
 
-							var is_in_deleted_list = false
-							to_remove_from_list.map(function(deleted_item) {
-								var isequal = true;
-								Object.keys(deleted_item).map(function(k) {
-									if (deleted_item[k] !==  r[0].KEY[k] )
-										isequal = false;
-								})
+					var is_in_deleted_list = false;
+					to_remove_from_list.map(function (deleted_item) {
+						var isequal = true;
+						Object.keys(deleted_item).map(function (k) {
+							if (deleted_item[k] !== r[0].KEY[k]) isequal = false;
+						});
 
-								if (isequal)
-									is_in_deleted_list = true
-							})
-							return !is_in_deleted_list
-						})
-				)
-			})
+						if (isequal) is_in_deleted_list = true;
+					});
+					return !is_in_deleted_list;
+				}));
+			});
+		});
 
-		})
+		ractive.refresh_data(null);
+	}
+});
 
+/***/ }),
+/* 57 */
+/***/ (function(module, exports, __webpack_require__) {
 
-		ractive.refresh_data(null)
-
-
-
-	},
-}));
-
-// CONCATENATED MODULE: ./tabletab.js
+"use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
 
+var _ractiveDynamodbJsonEditor = __webpack_require__(23);
 
+var _ractiveDynamodbJsonEditor2 = _interopRequireDefault(_ractiveDynamodbJsonEditor);
 
+var _cloneDeep = __webpack_require__(24);
 
+var _cloneDeep2 = _interopRequireDefault(_cloneDeep);
 
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-
-
-
-/* harmony default export */ var tabletab = (Ractive.extend({
+//var jsoneditor = require('@awspilot/ractive-dynamodb-json-editor');
+exports.default = Ractive.extend({
 	isolated: true,
 	components: {
-		tableinfo: tableinfo,
-		tablealarms: tablealarms,
-		tablecapacity: tablecapacity,
-		tableindexes: tableindexes,
-		tableglobal: tableglobal,
-		tablebackup: tablebackup,
-		tabletriggers: tabletriggers,
-		tablemetrics: tablemetrics,
-		tableitems: tableitems,
+		jsoneditor: _ractiveDynamodbJsonEditor2.default
 	},
-	template: "\
-		<div class='tableview {{#if active}}active{{/if}}'>\
-			<div class='tableview-table-tabs noselect'>\
-				<a class='btn-tableview-tab {{#if tab === 'info'}}active{{/if}}'         on-click='@this.set('tab','info')'><!-- <i class='zmdi zmdi-info'></i>--> Overview </a>\
-				<a class='btn-tableview-tab {{#if tab === 'data'}}active{{/if}}'         on-click='@this.set('tab','data')'><!--<i class='zmdi zmdi-format-list-bulleted'></i>--> Items</a>\
-				<a class='btn-tableview-tab {{#if tab === 'metrics'}}active{{/if}}'      on-click='@this.set('tab','metrics')'><!--<i class='zmdi zmdi-chart'></i>--> Metrics</a>\
-				<a class='btn-tableview-tab {{#if tab === 'alarms'}}active{{/if}}'       on-click='@this.set('tab','alarms')'><!--<i class='zmdi zmdi-notifications'></i>--> Alarms</a>\
-				<a class='btn-tableview-tab {{#if tab === 'capacity'}}active{{/if}}'     on-click='@this.set('tab','capacity')'><!--<i class='zmdi zmdi-memory'></i>--> Capacity</a>\
-				<a class='btn-tableview-tab {{#if tab === 'indexes'}}active{{/if}}'      on-click='@this.set('tab','indexes')'><!--<i class='zmdi zmdi-format-line-spacing'></i>--> Indexes</a>\
-				<a class='btn-tableview-tab {{#if tab === 'globaltables'}}active{{/if}}' on-click='@this.set('tab','globaltables')'><!--<i class='zmdi zmdi-globe'></i>--> Global Tables</a>\
-				<a class='btn-tableview-tab {{#if tab === 'backups'}}active{{/if}}'      on-click='@this.set('tab','backups')'><!--<i class='zmdi zmdi-card-sd'></i>--> Backups</a>\
-				<a class='btn-tableview-tab {{#if tab === 'triggers'}}active{{/if}}'     on-click='@this.set('tab','triggers')'><!--<i class='zmdi zmdi-portable-wifi'></i>--> Triggers</a>\
-			</div>\
-			<div style='position: absolute;top: 42px;left: 30px;right: 30px;bottom: 0px;'>\
-				{{#if err}}\
-					<br> {{ err.errorMessage || err.message }}\
-				{{else}}\
-					{{#if describeTable === null }}\
-						<br>Loading...\
-					{{else}}\
-\
-						{{#if tab === 'info'}}\
-							<tableinfo table='{{.table}}' describeTable='{{describeTable}}' />\
-						{{/if}}\
-\
-						{{#if tab === 'data'}}\
-							<tableitems table='{{.table}}' describeTable='{{describeTable}}' type='{{.type}}' scan='{{.scan}}' query='{{.query}}' sql='{{.sql}}' />\
-						{{/if}}\
-\
-						{{#if tab === 'metrics'}}\
-							<tablemetrics table='{{.table}}' describeTable='{{describeTable}}' />\
-						{{/if}}\
-\
-						{{#if tab === 'alarms'}}\
-							<tablealarms table='{{.table}}' describeTable='{{describeTable}}' />\
-						{{/if}}\
-\
-						{{#if tab === 'capacity'}}\
-							<tablecapacity table='{{.table}}' describeTable='{{describeTable}}' />\
-						{{/if}}\
-\
-						{{#if tab === 'indexes'}}\
-							<tableindexes table='{{.table}}' describeTable='{{describeTable}}' />\
-						{{/if}}\
-\
-						{{#if tab === 'globaltables'}}\
-							<tableglobal table='{{.table}}' describeTable='{{describeTable}}' />\
-						{{/if}}\
-\
-						{{#if tab === 'backups'}}\
-							<tablebackup table='{{.table}}' describeTable='{{describeTable}}' />\
-						{{/if}}\
-\
-						{{#if tab === 'triggers'}}\
-							<tabletriggers table='{{.table}}' describeTable='{{describeTable}}' />\
-						{{/if}}\
-\
-					{{/if}}\
-				{{/if}}\
-\
-			</div>\
+	template: '\
+		<jsoneditor item={{itemtoedit}} navigationBar="{{false}}"  style="position: absolute;top: -1px;left: -1px;right: -1px;bottom: 50px;width: auto;height: auto;border: 1px solid #dadada" menu-style="background-color: #d5ddf6;border-bottom: 1px solid #97b0f8;color: #444;" />\
+		<div style="position: absolute;left: 10px;right:10px;bottom:10px;height: 30px;box-sizing: border-box;">\
+			<span style="color: red;line-height: 30px;">{{errorMessage}}</span>\
+			<a class="btn btn-sm btn-primary pull-right" style="color: #fff;background-color: #337ab7;border-color: #2e6da4;float: right;padding: 5px 10px; font-size: 12px; line-height: 1.5;border-radius: 3px;font-family: sans-serif;" on-click="update-item">Save</a>\
 		</div>\
-	",
-	data: function() {
+		',
+	data: function data() {
 		return {
-			tab: 'info',
-			describeTable: null,
-		}
+			itemtoedit: {}
+		};
 	},
-
-	describe_table: function( cb ) {
-		var ractive=this;
-		DynamoDB.client.describeTable({ TableName: ractive.get('table.name') } , function(err, data) {
-			if (err)
-				return ractive.set('err', err );
-
-			ractive.set('err')
-			ractive.set('describeTable', data.Table)
-			if (typeof cb === "function") cb()
-		})
+	_hash_key_name: function _hash_key_name() {
+		return (this.get('describeTable').KeySchema.filter(function (k) {
+			return k.KeyType === 'HASH';
+		})[0] || {}).AttributeName;
 	},
-
-	oninit: function() {
-
-		var ractive = this
-		//ractive.observe('tab', function( tab ) {
-		//})
-		ractive.describe_table()
-
+	_range_key_name: function _range_key_name() {
+		return (this.get('describeTable').KeySchema.filter(function (k) {
+			return k.KeyType === 'RANGE';
+		})[0] || {}).AttributeName;
 	},
-}));
+	oninit: function oninit() {
+		var ractive = this;
 
-// CONCATENATED MODULE: ./tabs.js
+		//this.set({itemtoedit: Object.assign({}, this.get('rawitem'))  })
 
+		this.set({ itemtoedit: (0, _cloneDeep2.default)(this.get('rawitem')) });
 
+		this.observe('itemtoedit', function (n, o, kp) {
+			this.set({ errorMessage: '' });
+		});
 
+		//var rawitem = this.get('rawitem')
+		//this.set({itemtoedit: { ...rawitem }  })
 
+		//var debug = this.get('itemtoedit');
 
-/* harmony default export */ var tabs = (Ractive.extend({
-	//isolated: true,
-	components: {
-		tablelistfull: tablelistfull,
-		tablecreate: tablecreate,
-		tabletab: tabletab,
-	},
-	template:
-		"\
-		<tabhead>\
-			<tab class='{{#if active_id === \"tables\" }}active{{/if}}' on-click='@this.fire(\"activetab\", \"tables\")'>\
-				<i class='icon zmdi zmdi-view-dashboard'></i>\
-			</tab>\
-		{{#tabs}}\
-			{{#if .closed !== true}}\
-			<tab class='{{#if .id === active_id }}active{{/if}}' on-click='@this.fire(\"activetab\",.id)'>\
-				{{.name}}\
-				<i class='icon zmdi zmdi-close' on-click='closetab'></i>\
-			</tab>\
-			{{/if}}\
-		{{/tabs}}\
-		</tabhead>\
-		<tabcontent>\
-			{{#if active_id === \"tables\" }}\
-				<tablelistfull />\
-			{{else}}\
-				{{#tabs}}\
-					{{#if .closed === true}}\
-						<div class='closedtab'></div>\
-					{{else}}\
-						{{#if .type === 'tablecreate' }}\
-							<tablecreate active={{ .id === active_id  }} />\
-						{{/if}}\
-						{{#if .type === 'tabletab' }}\
-							<tabletab table={{.}} active={{ .id === active_id  }} />\
-						{{/if}}\
-					{{/if}}\
-				{{/tabs}}\
-			{{/if}}\
-		</tabcontent>\
-		",
-	data: function() { return {} },
-	active_cache: [],
-	activetabcontent: function() {
-		var ractive = this
-		ractive.active_cache.push(ractive.get('active_id'))
-		ractive.findAllComponents('tabletab').map(function( tableview_c ) {
-			tableview_c.set('active', tableview_c.get('table.id') === ractive.get('active_id') )
-		})
-	},
-	newtab: function(component_name, param1 ) {
-		var id=Math.random()
-		this.set('active_id', id )
-		this.push('tabs', {
-			id: id,
+		this.on('update-item', function () {
+			//console.log("table=","HASH=", this._hash_key_name(), " RANGE=", this._range_key_name() )
 
-			name: param1,
-			type: component_name,
+			var originalitem = this.get('rawitem');
+			var updateditem = (0, _cloneDeep2.default)(this.get('itemtoedit'));
 
-			sql: "\nSCAN * FROM `" + param1 + "` LIMIT 100\n",
-		} )
-		this.activetabcontent()
-	},
-	oninit: function() {
-		var ractive = this
+			//console.log("originalitem", originalitem.binary, typeof originalitem.binary )
+
+			//console.log('hello', updateditem )
 
 
-		this.observe('active_id', function(newvalue, oldvalue, keypath ) {
-			ractive.activetabcontent()
-		})
+			var updateItemCall = {
+				TableName: this.get('describeTable.TableName'),
+				Key: {},
+				AttributeUpdates: {}
+			};
 
-		this.on('closetab', function(e) {
+			if (!updateditem.hasOwnProperty(this._hash_key_name())) return alert('Missing PARTITION_KEY ' + this._hash_key_name());
 
-			console.log("close", e.resolve() )
-			var id = this.get( e.resolve() + '.id')
+			if (this._range_key_name() && !updateditem.hasOwnProperty(this._range_key_name())) return alert('Missing SORT_KEY ' + this._range_key_name());
 
-			this.set( e.resolve() + '.closed', true )
+			if (JSON.stringify(updateditem[this._hash_key_name()]) !== JSON.stringify(originalitem[this._hash_key_name()])) return alert('PARTITION_KEY(' + this._hash_key_name() + ') changed value. Operation not permitted');
 
-			this.active_cache = this.active_cache.filter(function(tid) { return tid !== id })
-			//this.set('tabs', this.get('tabs').filter(function(t) { return t.id !== id }) )
+			if (this._range_key_name() && JSON.stringify(updateditem[this._range_key_name()]) !== JSON.stringify(originalitem[this._range_key_name()])) return alert('SORT_KEY(' + this._range_key_name() + ') changed value. Operation not permitted');
 
-			if (this.get('active_id') === id ) {
-				// the current tab was closed
-				this.set('active_id', this.active_cache.pop() )
-			}
-			ractive.activetabcontent()
-			return false;
-		})
-		this.on('activetab', function(e, id) {
-			this.set('active_id', id )
-			return false;
-		})
-	},
-}));
-
-// CONCATENATED MODULE: ./index.ractive.html
-
-
-
-
-
-
-var hsplit = external_commonjs_ractive_commonjs2_ractive_amd_ractive_root_Ractive_default.a.extend({
-	isolated: false,
-	data: {
-		direction: 'horizontal'
-	},
-	template: '<div class="hsplit {{class}} " style="{{style}}">{{yield}}</div>',
-})
-
-
-
-/* harmony default export */ var index_ractive = __webpack_exports__["default"] = (external_commonjs_ractive_commonjs2_ractive_amd_ractive_root_Ractive_default.a.extend({
-	template: {v:4,t:[{t:7,e:"hsplit",m:[{t:13,n:"style",f:";",g:1},{t:13,n:"class",f:"ractive-dynamodb-ui",g:1}],f:[{t:7,e:"left",f:[{t:7,e:"minitablelist"}]}," ",{t:7,e:"content",f:[{t:7,e:"tabs",m:[{n:"active_id",f:"tables",t:13,g:1}]}]}]}]},
-	components: {
-		hsplit: hsplit,
-		minitablelist: minitablelist,
-		tabs: tabs,
-	},
-	css: " /* bootstrap */ .pull-right { float: right!important; } a { color: #337ab7; text-decoration: none; } a.btn.disabled, fieldset[disabled] a.btn { pointer-events: none; } .btn.disabled, .btn[disabled], fieldset[disabled] .btn { cursor: not-allowed; filter: alpha(opacity=65); -webkit-box-shadow: none; box-shadow: none; opacity: .65; } .btn-group .dropdown-toggle:active, .btn-group.open .dropdown-toggle { outline: 0; } .btn { display: inline-block; padding: 6px 12px; margin-bottom: 0; font-size: 14px; font-weight: 400; line-height: 1.42857143; text-align: center; white-space: nowrap; vertical-align: middle; -ms-touch-action: manipulation; touch-action: manipulation; cursor: pointer; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; background-image: none; border: 1px solid transparent; border-radius: 4px; } .btn-default { color: #333; background-color: #fff; border-color: #ccc; } .btn-group>.btn { position: relative; float: left; } .btn-group, .btn-group-vertical { position: relative; display: inline-block; vertical-align: middle; } .btn-group>.btn:first-child { margin-left: 0; } .btn-group>.btn:first-child:not(:last-child):not(.dropdown-toggle) { border-top-right-radius: 0; border-bottom-right-radius: 0; } .btn-group-xs>.btn, .btn-xs { padding: 1px 5px; font-size: 12px; line-height: 1.5; border-radius: 3px; } .btn-group>.btn:last-child:not(:first-child), .btn-group>.dropdown-toggle:not(:first-child) { border-top-left-radius: 0; border-bottom-left-radius: 0; } .btn-group>.btn+.dropdown-toggle { padding-right: 8px; padding-left: 8px; } .btn-group .btn+.btn, .btn-group .btn+.btn-group, .btn-group .btn-group+.btn, .btn-group .btn-group+.btn-group { margin-left: -1px; } .btn-default.active.focus, .btn-default.active:focus, .btn-default.active:hover, .btn-default:active.focus, .btn-default:active:focus, .btn-default:active:hover, .open>.dropdown-toggle.btn-default.focus, .open>.dropdown-toggle.btn-default:focus, .open>.dropdown-toggle.btn-default:hover { color: #333; background-color: #d4d4d4; border-color: #8c8c8c; } .btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus { outline: 5px auto -webkit-focus-ring-color; outline-offset: -2px; } .btn-group-sm>.btn, .btn-sm { padding: 5px 10px; font-size: 12px; line-height: 1.5; border-radius: 3px; } .dropdown-menu { position: absolute; top: 100%; left: 0; z-index: 1000; display: none; float: left; min-width: 160px; padding: 5px 0; margin: 2px 0 0; font-size: 14px; text-align: left; list-style: none; background-color: #fff; -webkit-background-clip: padding-box; background-clip: padding-box; border: 1px solid #ccc; border: 1px solid rgba(0,0,0,.15); border-radius: 4px; -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175); box-shadow: 0 6px 12px rgba(0,0,0,.175); } .dropdown-menu.pull-right { right: 0; left: auto; } .show { display: block!important; } .btn-primary {color: #fff;background-color: #337ab7;border-color: #2e6da4;} .btn-danger {color: #fff;background-color: #d9534f;border-color: #d43f3a;} /* */ .ractive-dynamodb-ui {font-family: sans-serif;} .ractive-dynamodb-ui * {box-sizing: border-box } .hsplit {position: absolute;top:0px;left: 0px;right: 0px;bottom: 0px; /*background-color: #f0f0f0;*/background-color: #c9c9c9; color: #999999;} left {position:absolute;display: block;top: 0px;left: 0px;width: 260px;bottom: 0px;margin-top: 5px;} content {position:absolute;display: block;top: 0px;left: 265px;right: 0px;bottom: 0px;margin-top: 5px;} miniheader {display: block;height: 28px;line-height: 28px;font-size: 12px;padding-left: 10px;} miniheader .icon:hover {box-shadow: 0px 0px 1px rgba(255,255,255,.3);} .miniheaderbody {left: 0px;top: 29px;right: 0px;bottom: 0px;} left tables > div {display: block;height: 30px; line-height: 30px;font-size: 13px;padding: 0px 10px;border-top: 1px solid transparent;border-left: 1px solid transparent;;margin-bottom: 0px;cursor: pointer} content tabhead {position: absolute;top: 0px;left: 0px;right:0px;height: 28px;overflow: hidden;font-size: 0px;} content tabhead tab {display: inline-block;height: 28px;line-height: 28px;padding: 0px 10px;cursor: pointer;font-size: 14px;} content tabhead tab.active {} content tabhead tab .icon {width: 15px;height: 15px;line-height: 15px;text-align: center;margin-top: 2px;cursor: pointer;font-size: 14px;} content tabhead tab .icon:hover {box-shadow: 0px 0px 1px rgba(255,255,255,.3);} content tabcontent {position: absolute;top: 28px;left: 0px;right: 0px;bottom: 0px;} .btn-tableview-tab {display: inline-block;height: 30px;line-height: 30px;text-align: center;vertical-align: middle;border-radius: 3px 3px 0px 0px;text-decoration: none;} .btn-tableview-tab:hover {cursor: pointer;} .btn-tableview-tab i {line-height: 40px;line-height: 30px;margin: 5px;width: 30px;height: 30px;border-radius: 5px;} content tabcontent .tableview-table-tabs {position: absolute;top: 10px;left: 30px;height: 30px;right: 30px;border-bottom: 1px solid #bbb;padding: 0px 20px;} content tabcontent .tableview { visibility: hidden } content tabcontent .tableview.active { visibility: visible } content tabcontent .tableview .tablebrowse {display: block;position: absolute;top: 0px;left:0px;right: 0px;bottom: 0px;} content tabcontent .tablesqlquery {display: block;position: absolute;top: 0;left:0px;right: 0px;height: 119px;overflow: hidden;} content tabcontent .tablequery {display: block;position: absolute;top: 0;left:0px;right: 0px;height: 119px;overflow: hidden; padding: 10px;margin-top: 6px;} content tabcontent .tablequery select { background-color: #6d6565; outline: none; color: #ccc; border-radius: 5px; border: 0px;} content tabcontent .tablequery input[type=text] {background-color: #6d6565; border: 0px; border-radius: 5px; outline: none;height: 19px;padding: 0px 7px; color: #ccc; } content tabcontent .tabledatacontrols {position: absolute;top: 120px;left: 0px;right: 0px;height: 28px;padding: 3px 0px 0px 30px;} content tabcontent .tabledata {display: block;position: absolute;left:0px;right: 0px;bottom: 0px;overflow: hidden;} content tabcontent .tabledata .tabledatahead, content tabcontent .tabledata .tabledatarow { display: flex;width: 100%;justify-content: stretch} content tabcontent .tabledata .tabledatahead {position: absolute;top: 0px;left: 0px;right: 0px;height: 20px;} content tabcontent .tabledata .tabledatarow .zmdi.selectrow {font-size: 14px;} content tabcontent .tabledata .tabledatahead > div, content tabcontent .tabledata .tabledatarow .tabledatacell {display: flex;height: 20px;align-items: center;overflow: hidden;white-space: nowrap;padding-left: 6px;position: relative;} content tabcontent .tabledata .tabledatarow .tabledatacell:before {content: ' ';position:absolute;top: 0px;left: 0px;bottom: 0px;width: 5px;} content tabcontent .tabledata .tabledatarow .tabledatacell:after {content: ' ';position:absolute;top: 0px;right: 0px;bottom: 0px;width: 5px;} content tabcontent .tabledata .tabledatacontent {position: absolute;top: 23px;left: 0px;right: 0px;bottom: 0px;overflow-x: auto;} content tabcontent .tabledata .tabledatahead > div {font-size: 12px;} content tabcontent .tabledata .tabledatarow .tabledatacell {font-size: 11px;} .scrollarea:hover > span {position: absolute; right: 0px;width: 3px;background-color: rgba(255, 255, 255, 0.3);z-index: 1;} .pull-right {float: right;} body.theme_light {background-color: #f0f0f0;color: #999999;} body.theme_light header {background-color: #232f3e;/*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);*/ } body.theme_light miniheader {background: linear-gradient(#eee , #e0e0e0);border: 1px solid #b9b8b6;border-top: 1px solid #fff;border-bottom: 1px solid #ccc;} body.theme_light left {background-color: #ffffff} body.theme_light left > .scrollarea {border-right: 1px solid #b9b8b6;} body.theme_light left tables > div {border-bottom: 1px solid #e0e0e0;color: #146eb4} body.theme_light left tables > div:hover {background-color: #eaf3fe;/*border: 1px solid #636363;*/} body.theme_light content {border: 1px solid #b9b8b6;background-color: #ffffff;border-top: 1px solid #fff;border-right: 0px;} body.theme_light content tabhead {background-color: #ececec;background: linear-gradient(#eee , #e0e0e0);} body.theme_light content tabhead tab:first-child {} body.theme_light content tabhead tab {border-right: 1px solid #cccccc;} body.theme_light content tabhead tab.active {background-color: #ffffff;color: #000000;} body.theme_light content tabcontent {background-color: #ffffff;} body.theme_light content tabcontent .tableview-table-tabs {background: #ffffff} body.theme_light .btn-tableview-tab {background-color: #eee;border: 1px solid #ccc;border-bottom: 1px solid #bbb;color: #635858;font-weight: bold;font-size: 12px;padding: 0px 12px;} body.theme_light .btn-tableview-tab.active {background-color: #fff;border-bottom: 1px solid #fff;color: #000000;} body.theme_light content tabcontent .tablequery {background-color: #444;} body.theme_light content tabcontent .tablesqlquery {} body.theme_light content tabcontent .tabledatacontrols {background-color: #ffffff;border-bottom: 1px solid #383838;} body.theme_light content tabcontent .tabledata {border-top: 1px solid #e0e0e0;} body.theme_light content tabcontent .tabledata .tabledatahead {background: linear-gradient(#eee , #e0e0e0);border-top: 1px solid #fff;border-bottom: 1px solid #ccc;} body.theme_light content tabcontent .tabledata .tabledatahead > div {border-right: 1px solid #c3b7b7;border-left: 1px solid #ffffff;} body.theme_light content tabcontent .tabledata .tabledatarow {border-bottom: 1px solid #e0e0e0;} body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell {border-right: 1px solid #c3b7b7;border-left: 1px solid #ffffff;} body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-K {color: #8ea7aa;} body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-HASH {color:#004b91;cursor: pointer;} body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-HASH:hover a {text-decoration: underline;} body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-S {color: #a79b9b;} body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-N {color: green;} body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-BOOL {color: #ff7676;} body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-NULL {color: grey} body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-SS {} body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-NS {} body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-L {} body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-M {} body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-U {background-color: #f9f3f3;} body.theme_light content tabcontent .tabledata .tabledatarow:hover {background-color: #f3f3f3;} body.theme_light content tabcontent .tabledata .tabledatarow:hover .tabledatacell {color: #a59797;} body.theme_light content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-HASH {color:#004b91;} body.theme_light content tabcontent .tabledata .tabledatarow.selected {background-color: #ddecff;} body.theme_light content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: #396396;} body.theme_light content tabcontent .tabledata .tabledatarow.selected:hover {background-color: #0747a0 !important;} body.theme_light content tabcontent .tabledata .tabledatarow.selected:hover .tabledatacell {color: #fff;} content {position:absolute;display: block;top: 0px;left: 265px;right: 0px;bottom: 0px;} ",
-	data: function() {
-		return {}
-	},
-	delegate: false,
-	elToFocus: null,
-	on: {
-		init: function() {
-
-			this.on('open-table', function(e, table ) {
-				this.findComponent('tabs').newtab('tabletab', table )
-			})
-
-			// if (this.get('account.endpoint')) {
-			// 	credentials.endpoint = this.get('account.endpoint')
-			// 	if (this.get('account.endpoint').indexOf( location.protocol + '//' + location.host ) === 0) {
-			// 		// dynamodb is proxied via same host, force version signature 3 so Authorization header is not used
-			// 		credentials.signatureVersion = 'v3'
-			// 		// httpOptions: { xhrWithCredentials: true },
-			// 	}
-			// }
-
-			ddb = new AWS.DynamoDB({
-				endpoint: this.get('endpoint'),
-				region: this.get('region'),
-				credentials: {
-					accessKeyId: this.get('accessKeyId'),
-					secretAccessKey: this.get('secretAccessKey'),
-				}
+			Object.keys(originalitem).map(function (k) {
+				if (!updateditem.hasOwnProperty(k)) updateItemCall.AttributeUpdates[k] = {
+					Action: 'DELETE'
+				};
 			});
 
-			DynamodbFactory = window['@awspilot/dynamodb']
-			DynamoDB  = new DynamodbFactory(ddb)
+			updateItemCall.Key[this._hash_key_name()] = updateditem[this._hash_key_name()];
+			delete updateditem[this._hash_key_name()];
 
-			cloudwatch = new AWS.CloudWatch({
-				endpoint: this.get('cwendpoint'),
-				region: this.get('region'),
-				credentials: {
-					accessKeyId: this.get('accessKeyId'),
-					secretAccessKey: this.get('secretAccessKey'),
-				}
-			})
-
-
+			if (this._range_key_name()) {
+				updateItemCall.Key[this._range_key_name()] = updateditem[this._range_key_name()];
+				delete updateditem[this._range_key_name()];
 			}
+
+			Object.keys(updateditem).map(function (k) {
+				updateItemCall.AttributeUpdates[k] = {
+					Action: 'PUT', //
+					Value: updateditem[k]
+				};
+			});
+
+			//console.log("should update item", this.get('item') )
+			console.log("updateItem", updateItemCall);
+			DynamoDB.client.updateItem(updateItemCall, function (err, data) {
+				if (err) return ractive.set('errorMessage', err.message);
+
+				ractive.get('window').close();
+				//ractive.parent.fire('close-window')
+			});
+		});
+	}
+
+});
+
+/***/ }),
+/* 58 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Stack = __webpack_require__(59),
+    arrayEach = __webpack_require__(89),
+    assignValue = __webpack_require__(29),
+    baseAssign = __webpack_require__(91),
+    baseAssignIn = __webpack_require__(101),
+    cloneBuffer = __webpack_require__(104),
+    copyArray = __webpack_require__(105),
+    copySymbols = __webpack_require__(106),
+    copySymbolsIn = __webpack_require__(108),
+    getAllKeys = __webpack_require__(109),
+    getAllKeysIn = __webpack_require__(110),
+    getTag = __webpack_require__(20),
+    initCloneArray = __webpack_require__(115),
+    initCloneByTag = __webpack_require__(116),
+    initCloneObject = __webpack_require__(122),
+    isArray = __webpack_require__(14),
+    isBuffer = __webpack_require__(32),
+    isMap = __webpack_require__(124),
+    isObject = __webpack_require__(2),
+    isSet = __webpack_require__(126),
+    keys = __webpack_require__(13);
+
+/** Used to compose bitmasks for cloning. */
+var CLONE_DEEP_FLAG = 1,
+    CLONE_FLAT_FLAG = 2,
+    CLONE_SYMBOLS_FLAG = 4;
+
+/** `Object#toString` result references. */
+var argsTag = '[object Arguments]',
+    arrayTag = '[object Array]',
+    boolTag = '[object Boolean]',
+    dateTag = '[object Date]',
+    errorTag = '[object Error]',
+    funcTag = '[object Function]',
+    genTag = '[object GeneratorFunction]',
+    mapTag = '[object Map]',
+    numberTag = '[object Number]',
+    objectTag = '[object Object]',
+    regexpTag = '[object RegExp]',
+    setTag = '[object Set]',
+    stringTag = '[object String]',
+    symbolTag = '[object Symbol]',
+    weakMapTag = '[object WeakMap]';
+
+var arrayBufferTag = '[object ArrayBuffer]',
+    dataViewTag = '[object DataView]',
+    float32Tag = '[object Float32Array]',
+    float64Tag = '[object Float64Array]',
+    int8Tag = '[object Int8Array]',
+    int16Tag = '[object Int16Array]',
+    int32Tag = '[object Int32Array]',
+    uint8Tag = '[object Uint8Array]',
+    uint8ClampedTag = '[object Uint8ClampedArray]',
+    uint16Tag = '[object Uint16Array]',
+    uint32Tag = '[object Uint32Array]';
+
+/** Used to identify `toStringTag` values supported by `_.clone`. */
+var cloneableTags = {};
+cloneableTags[argsTag] = cloneableTags[arrayTag] =
+cloneableTags[arrayBufferTag] = cloneableTags[dataViewTag] =
+cloneableTags[boolTag] = cloneableTags[dateTag] =
+cloneableTags[float32Tag] = cloneableTags[float64Tag] =
+cloneableTags[int8Tag] = cloneableTags[int16Tag] =
+cloneableTags[int32Tag] = cloneableTags[mapTag] =
+cloneableTags[numberTag] = cloneableTags[objectTag] =
+cloneableTags[regexpTag] = cloneableTags[setTag] =
+cloneableTags[stringTag] = cloneableTags[symbolTag] =
+cloneableTags[uint8Tag] = cloneableTags[uint8ClampedTag] =
+cloneableTags[uint16Tag] = cloneableTags[uint32Tag] = true;
+cloneableTags[errorTag] = cloneableTags[funcTag] =
+cloneableTags[weakMapTag] = false;
+
+/**
+ * The base implementation of `_.clone` and `_.cloneDeep` which tracks
+ * traversed objects.
+ *
+ * @private
+ * @param {*} value The value to clone.
+ * @param {boolean} bitmask The bitmask flags.
+ *  1 - Deep clone
+ *  2 - Flatten inherited properties
+ *  4 - Clone symbols
+ * @param {Function} [customizer] The function to customize cloning.
+ * @param {string} [key] The key of `value`.
+ * @param {Object} [object] The parent object of `value`.
+ * @param {Object} [stack] Tracks traversed objects and their clone counterparts.
+ * @returns {*} Returns the cloned value.
+ */
+function baseClone(value, bitmask, customizer, key, object, stack) {
+  var result,
+      isDeep = bitmask & CLONE_DEEP_FLAG,
+      isFlat = bitmask & CLONE_FLAT_FLAG,
+      isFull = bitmask & CLONE_SYMBOLS_FLAG;
+
+  if (customizer) {
+    result = object ? customizer(value, key, object, stack) : customizer(value);
+  }
+  if (result !== undefined) {
+    return result;
+  }
+  if (!isObject(value)) {
+    return value;
+  }
+  var isArr = isArray(value);
+  if (isArr) {
+    result = initCloneArray(value);
+    if (!isDeep) {
+      return copyArray(value, result);
+    }
+  } else {
+    var tag = getTag(value),
+        isFunc = tag == funcTag || tag == genTag;
+
+    if (isBuffer(value)) {
+      return cloneBuffer(value, isDeep);
+    }
+    if (tag == objectTag || tag == argsTag || (isFunc && !object)) {
+      result = (isFlat || isFunc) ? {} : initCloneObject(value);
+      if (!isDeep) {
+        return isFlat
+          ? copySymbolsIn(value, baseAssignIn(result, value))
+          : copySymbols(value, baseAssign(result, value));
+      }
+    } else {
+      if (!cloneableTags[tag]) {
+        return object ? value : {};
+      }
+      result = initCloneByTag(value, tag, isDeep);
+    }
+  }
+  // Check for circular references and return its corresponding clone.
+  stack || (stack = new Stack);
+  var stacked = stack.get(value);
+  if (stacked) {
+    return stacked;
+  }
+  stack.set(value, result);
+
+  if (isSet(value)) {
+    value.forEach(function(subValue) {
+      result.add(baseClone(subValue, bitmask, customizer, subValue, value, stack));
+    });
+  } else if (isMap(value)) {
+    value.forEach(function(subValue, key) {
+      result.set(key, baseClone(subValue, bitmask, customizer, key, value, stack));
+    });
+  }
+
+  var keysFunc = isFull
+    ? (isFlat ? getAllKeysIn : getAllKeys)
+    : (isFlat ? keysIn : keys);
+
+  var props = isArr ? undefined : keysFunc(value);
+  arrayEach(props || value, function(subValue, key) {
+    if (props) {
+      key = subValue;
+      subValue = value[key];
+    }
+    // Recursively populate clone (susceptible to call stack limits).
+    assignValue(result, key, baseClone(subValue, bitmask, customizer, key, value, stack));
+  });
+  return result;
+}
+
+module.exports = baseClone;
+
+
+/***/ }),
+/* 59 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var ListCache = __webpack_require__(4),
+    stackClear = __webpack_require__(65),
+    stackDelete = __webpack_require__(66),
+    stackGet = __webpack_require__(67),
+    stackHas = __webpack_require__(68),
+    stackSet = __webpack_require__(69);
+
+/**
+ * Creates a stack cache object to store key-value pairs.
+ *
+ * @private
+ * @constructor
+ * @param {Array} [entries] The key-value pairs to cache.
+ */
+function Stack(entries) {
+  var data = this.__data__ = new ListCache(entries);
+  this.size = data.size;
+}
+
+// Add methods to `Stack`.
+Stack.prototype.clear = stackClear;
+Stack.prototype['delete'] = stackDelete;
+Stack.prototype.get = stackGet;
+Stack.prototype.has = stackHas;
+Stack.prototype.set = stackSet;
+
+module.exports = Stack;
+
+
+/***/ }),
+/* 60 */
+/***/ (function(module, exports) {
+
+/**
+ * Removes all key-value entries from the list cache.
+ *
+ * @private
+ * @name clear
+ * @memberOf ListCache
+ */
+function listCacheClear() {
+  this.__data__ = [];
+  this.size = 0;
+}
+
+module.exports = listCacheClear;
+
+
+/***/ }),
+/* 61 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var assocIndexOf = __webpack_require__(5);
+
+/** Used for built-in method references. */
+var arrayProto = Array.prototype;
+
+/** Built-in value references. */
+var splice = arrayProto.splice;
+
+/**
+ * Removes `key` and its value from the list cache.
+ *
+ * @private
+ * @name delete
+ * @memberOf ListCache
+ * @param {string} key The key of the value to remove.
+ * @returns {boolean} Returns `true` if the entry was removed, else `false`.
+ */
+function listCacheDelete(key) {
+  var data = this.__data__,
+      index = assocIndexOf(data, key);
+
+  if (index < 0) {
+    return false;
+  }
+  var lastIndex = data.length - 1;
+  if (index == lastIndex) {
+    data.pop();
+  } else {
+    splice.call(data, index, 1);
+  }
+  --this.size;
+  return true;
+}
+
+module.exports = listCacheDelete;
+
+
+/***/ }),
+/* 62 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var assocIndexOf = __webpack_require__(5);
+
+/**
+ * Gets the list cache value for `key`.
+ *
+ * @private
+ * @name get
+ * @memberOf ListCache
+ * @param {string} key The key of the value to get.
+ * @returns {*} Returns the entry value.
+ */
+function listCacheGet(key) {
+  var data = this.__data__,
+      index = assocIndexOf(data, key);
+
+  return index < 0 ? undefined : data[index][1];
+}
+
+module.exports = listCacheGet;
+
+
+/***/ }),
+/* 63 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var assocIndexOf = __webpack_require__(5);
+
+/**
+ * Checks if a list cache value for `key` exists.
+ *
+ * @private
+ * @name has
+ * @memberOf ListCache
+ * @param {string} key The key of the entry to check.
+ * @returns {boolean} Returns `true` if an entry for `key` exists, else `false`.
+ */
+function listCacheHas(key) {
+  return assocIndexOf(this.__data__, key) > -1;
+}
+
+module.exports = listCacheHas;
+
+
+/***/ }),
+/* 64 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var assocIndexOf = __webpack_require__(5);
+
+/**
+ * Sets the list cache `key` to `value`.
+ *
+ * @private
+ * @name set
+ * @memberOf ListCache
+ * @param {string} key The key of the value to set.
+ * @param {*} value The value to set.
+ * @returns {Object} Returns the list cache instance.
+ */
+function listCacheSet(key, value) {
+  var data = this.__data__,
+      index = assocIndexOf(data, key);
+
+  if (index < 0) {
+    ++this.size;
+    data.push([key, value]);
+  } else {
+    data[index][1] = value;
+  }
+  return this;
+}
+
+module.exports = listCacheSet;
+
+
+/***/ }),
+/* 65 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var ListCache = __webpack_require__(4);
+
+/**
+ * Removes all key-value entries from the stack.
+ *
+ * @private
+ * @name clear
+ * @memberOf Stack
+ */
+function stackClear() {
+  this.__data__ = new ListCache;
+  this.size = 0;
+}
+
+module.exports = stackClear;
+
+
+/***/ }),
+/* 66 */
+/***/ (function(module, exports) {
+
+/**
+ * Removes `key` and its value from the stack.
+ *
+ * @private
+ * @name delete
+ * @memberOf Stack
+ * @param {string} key The key of the value to remove.
+ * @returns {boolean} Returns `true` if the entry was removed, else `false`.
+ */
+function stackDelete(key) {
+  var data = this.__data__,
+      result = data['delete'](key);
+
+  this.size = data.size;
+  return result;
+}
+
+module.exports = stackDelete;
+
+
+/***/ }),
+/* 67 */
+/***/ (function(module, exports) {
+
+/**
+ * Gets the stack value for `key`.
+ *
+ * @private
+ * @name get
+ * @memberOf Stack
+ * @param {string} key The key of the value to get.
+ * @returns {*} Returns the entry value.
+ */
+function stackGet(key) {
+  return this.__data__.get(key);
+}
+
+module.exports = stackGet;
+
+
+/***/ }),
+/* 68 */
+/***/ (function(module, exports) {
+
+/**
+ * Checks if a stack value for `key` exists.
+ *
+ * @private
+ * @name has
+ * @memberOf Stack
+ * @param {string} key The key of the entry to check.
+ * @returns {boolean} Returns `true` if an entry for `key` exists, else `false`.
+ */
+function stackHas(key) {
+  return this.__data__.has(key);
+}
+
+module.exports = stackHas;
+
+
+/***/ }),
+/* 69 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var ListCache = __webpack_require__(4),
+    Map = __webpack_require__(11),
+    MapCache = __webpack_require__(76);
+
+/** Used as the size to enable large array optimizations. */
+var LARGE_ARRAY_SIZE = 200;
+
+/**
+ * Sets the stack `key` to `value`.
+ *
+ * @private
+ * @name set
+ * @memberOf Stack
+ * @param {string} key The key of the value to set.
+ * @param {*} value The value to set.
+ * @returns {Object} Returns the stack cache instance.
+ */
+function stackSet(key, value) {
+  var data = this.__data__;
+  if (data instanceof ListCache) {
+    var pairs = data.__data__;
+    if (!Map || (pairs.length < LARGE_ARRAY_SIZE - 1)) {
+      pairs.push([key, value]);
+      this.size = ++data.size;
+      return this;
+    }
+    data = this.__data__ = new MapCache(pairs);
+  }
+  data.set(key, value);
+  this.size = data.size;
+  return this;
+}
+
+module.exports = stackSet;
+
+
+/***/ }),
+/* 70 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var isFunction = __webpack_require__(26),
+    isMasked = __webpack_require__(73),
+    isObject = __webpack_require__(2),
+    toSource = __webpack_require__(28);
+
+/**
+ * Used to match `RegExp`
+ * [syntax characters](http://ecma-international.org/ecma-262/7.0/#sec-patterns).
+ */
+var reRegExpChar = /[\\^$.*+?()[\]{}|]/g;
+
+/** Used to detect host constructors (Safari). */
+var reIsHostCtor = /^\[object .+?Constructor\]$/;
+
+/** Used for built-in method references. */
+var funcProto = Function.prototype,
+    objectProto = Object.prototype;
+
+/** Used to resolve the decompiled source of functions. */
+var funcToString = funcProto.toString;
+
+/** Used to check objects for own properties. */
+var hasOwnProperty = objectProto.hasOwnProperty;
+
+/** Used to detect if a method is native. */
+var reIsNative = RegExp('^' +
+  funcToString.call(hasOwnProperty).replace(reRegExpChar, '\\$&')
+  .replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, '$1.*?') + '$'
+);
+
+/**
+ * The base implementation of `_.isNative` without bad shim checks.
+ *
+ * @private
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a native function,
+ *  else `false`.
+ */
+function baseIsNative(value) {
+  if (!isObject(value) || isMasked(value)) {
+    return false;
+  }
+  var pattern = isFunction(value) ? reIsNative : reIsHostCtor;
+  return pattern.test(toSource(value));
+}
+
+module.exports = baseIsNative;
+
+
+/***/ }),
+/* 71 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Symbol = __webpack_require__(12);
+
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/** Used to check objects for own properties. */
+var hasOwnProperty = objectProto.hasOwnProperty;
+
+/**
+ * Used to resolve the
+ * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+ * of values.
+ */
+var nativeObjectToString = objectProto.toString;
+
+/** Built-in value references. */
+var symToStringTag = Symbol ? Symbol.toStringTag : undefined;
+
+/**
+ * A specialized version of `baseGetTag` which ignores `Symbol.toStringTag` values.
+ *
+ * @private
+ * @param {*} value The value to query.
+ * @returns {string} Returns the raw `toStringTag`.
+ */
+function getRawTag(value) {
+  var isOwn = hasOwnProperty.call(value, symToStringTag),
+      tag = value[symToStringTag];
+
+  try {
+    value[symToStringTag] = undefined;
+    var unmasked = true;
+  } catch (e) {}
+
+  var result = nativeObjectToString.call(value);
+  if (unmasked) {
+    if (isOwn) {
+      value[symToStringTag] = tag;
+    } else {
+      delete value[symToStringTag];
+    }
+  }
+  return result;
+}
+
+module.exports = getRawTag;
+
+
+/***/ }),
+/* 72 */
+/***/ (function(module, exports) {
+
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/**
+ * Used to resolve the
+ * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+ * of values.
+ */
+var nativeObjectToString = objectProto.toString;
+
+/**
+ * Converts `value` to a string using `Object.prototype.toString`.
+ *
+ * @private
+ * @param {*} value The value to convert.
+ * @returns {string} Returns the converted string.
+ */
+function objectToString(value) {
+  return nativeObjectToString.call(value);
+}
+
+module.exports = objectToString;
+
+
+/***/ }),
+/* 73 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var coreJsData = __webpack_require__(74);
+
+/** Used to detect methods masquerading as native. */
+var maskSrcKey = (function() {
+  var uid = /[^.]+$/.exec(coreJsData && coreJsData.keys && coreJsData.keys.IE_PROTO || '');
+  return uid ? ('Symbol(src)_1.' + uid) : '';
+}());
+
+/**
+ * Checks if `func` has its source masked.
+ *
+ * @private
+ * @param {Function} func The function to check.
+ * @returns {boolean} Returns `true` if `func` is masked, else `false`.
+ */
+function isMasked(func) {
+  return !!maskSrcKey && (maskSrcKey in func);
+}
+
+module.exports = isMasked;
+
+
+/***/ }),
+/* 74 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var root = __webpack_require__(0);
+
+/** Used to detect overreaching core-js shims. */
+var coreJsData = root['__core-js_shared__'];
+
+module.exports = coreJsData;
+
+
+/***/ }),
+/* 75 */
+/***/ (function(module, exports) {
+
+/**
+ * Gets the value at `key` of `object`.
+ *
+ * @private
+ * @param {Object} [object] The object to query.
+ * @param {string} key The key of the property to get.
+ * @returns {*} Returns the property value.
+ */
+function getValue(object, key) {
+  return object == null ? undefined : object[key];
+}
+
+module.exports = getValue;
+
+
+/***/ }),
+/* 76 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var mapCacheClear = __webpack_require__(77),
+    mapCacheDelete = __webpack_require__(84),
+    mapCacheGet = __webpack_require__(86),
+    mapCacheHas = __webpack_require__(87),
+    mapCacheSet = __webpack_require__(88);
+
+/**
+ * Creates a map cache object to store key-value pairs.
+ *
+ * @private
+ * @constructor
+ * @param {Array} [entries] The key-value pairs to cache.
+ */
+function MapCache(entries) {
+  var index = -1,
+      length = entries == null ? 0 : entries.length;
+
+  this.clear();
+  while (++index < length) {
+    var entry = entries[index];
+    this.set(entry[0], entry[1]);
+  }
+}
+
+// Add methods to `MapCache`.
+MapCache.prototype.clear = mapCacheClear;
+MapCache.prototype['delete'] = mapCacheDelete;
+MapCache.prototype.get = mapCacheGet;
+MapCache.prototype.has = mapCacheHas;
+MapCache.prototype.set = mapCacheSet;
+
+module.exports = MapCache;
+
+
+/***/ }),
+/* 77 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Hash = __webpack_require__(78),
+    ListCache = __webpack_require__(4),
+    Map = __webpack_require__(11);
+
+/**
+ * Removes all key-value entries from the map.
+ *
+ * @private
+ * @name clear
+ * @memberOf MapCache
+ */
+function mapCacheClear() {
+  this.size = 0;
+  this.__data__ = {
+    'hash': new Hash,
+    'map': new (Map || ListCache),
+    'string': new Hash
+  };
+}
+
+module.exports = mapCacheClear;
+
+
+/***/ }),
+/* 78 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var hashClear = __webpack_require__(79),
+    hashDelete = __webpack_require__(80),
+    hashGet = __webpack_require__(81),
+    hashHas = __webpack_require__(82),
+    hashSet = __webpack_require__(83);
+
+/**
+ * Creates a hash object.
+ *
+ * @private
+ * @constructor
+ * @param {Array} [entries] The key-value pairs to cache.
+ */
+function Hash(entries) {
+  var index = -1,
+      length = entries == null ? 0 : entries.length;
+
+  this.clear();
+  while (++index < length) {
+    var entry = entries[index];
+    this.set(entry[0], entry[1]);
+  }
+}
+
+// Add methods to `Hash`.
+Hash.prototype.clear = hashClear;
+Hash.prototype['delete'] = hashDelete;
+Hash.prototype.get = hashGet;
+Hash.prototype.has = hashHas;
+Hash.prototype.set = hashSet;
+
+module.exports = Hash;
+
+
+/***/ }),
+/* 79 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var nativeCreate = __webpack_require__(7);
+
+/**
+ * Removes all key-value entries from the hash.
+ *
+ * @private
+ * @name clear
+ * @memberOf Hash
+ */
+function hashClear() {
+  this.__data__ = nativeCreate ? nativeCreate(null) : {};
+  this.size = 0;
+}
+
+module.exports = hashClear;
+
+
+/***/ }),
+/* 80 */
+/***/ (function(module, exports) {
+
+/**
+ * Removes `key` and its value from the hash.
+ *
+ * @private
+ * @name delete
+ * @memberOf Hash
+ * @param {Object} hash The hash to modify.
+ * @param {string} key The key of the value to remove.
+ * @returns {boolean} Returns `true` if the entry was removed, else `false`.
+ */
+function hashDelete(key) {
+  var result = this.has(key) && delete this.__data__[key];
+  this.size -= result ? 1 : 0;
+  return result;
+}
+
+module.exports = hashDelete;
+
+
+/***/ }),
+/* 81 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var nativeCreate = __webpack_require__(7);
+
+/** Used to stand-in for `undefined` hash values. */
+var HASH_UNDEFINED = '__lodash_hash_undefined__';
+
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/** Used to check objects for own properties. */
+var hasOwnProperty = objectProto.hasOwnProperty;
+
+/**
+ * Gets the hash value for `key`.
+ *
+ * @private
+ * @name get
+ * @memberOf Hash
+ * @param {string} key The key of the value to get.
+ * @returns {*} Returns the entry value.
+ */
+function hashGet(key) {
+  var data = this.__data__;
+  if (nativeCreate) {
+    var result = data[key];
+    return result === HASH_UNDEFINED ? undefined : result;
+  }
+  return hasOwnProperty.call(data, key) ? data[key] : undefined;
+}
+
+module.exports = hashGet;
+
+
+/***/ }),
+/* 82 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var nativeCreate = __webpack_require__(7);
+
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/** Used to check objects for own properties. */
+var hasOwnProperty = objectProto.hasOwnProperty;
+
+/**
+ * Checks if a hash value for `key` exists.
+ *
+ * @private
+ * @name has
+ * @memberOf Hash
+ * @param {string} key The key of the entry to check.
+ * @returns {boolean} Returns `true` if an entry for `key` exists, else `false`.
+ */
+function hashHas(key) {
+  var data = this.__data__;
+  return nativeCreate ? (data[key] !== undefined) : hasOwnProperty.call(data, key);
+}
+
+module.exports = hashHas;
+
+
+/***/ }),
+/* 83 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var nativeCreate = __webpack_require__(7);
+
+/** Used to stand-in for `undefined` hash values. */
+var HASH_UNDEFINED = '__lodash_hash_undefined__';
+
+/**
+ * Sets the hash `key` to `value`.
+ *
+ * @private
+ * @name set
+ * @memberOf Hash
+ * @param {string} key The key of the value to set.
+ * @param {*} value The value to set.
+ * @returns {Object} Returns the hash instance.
+ */
+function hashSet(key, value) {
+  var data = this.__data__;
+  this.size += this.has(key) ? 0 : 1;
+  data[key] = (nativeCreate && value === undefined) ? HASH_UNDEFINED : value;
+  return this;
+}
+
+module.exports = hashSet;
+
+
+/***/ }),
+/* 84 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var getMapData = __webpack_require__(8);
+
+/**
+ * Removes `key` and its value from the map.
+ *
+ * @private
+ * @name delete
+ * @memberOf MapCache
+ * @param {string} key The key of the value to remove.
+ * @returns {boolean} Returns `true` if the entry was removed, else `false`.
+ */
+function mapCacheDelete(key) {
+  var result = getMapData(this, key)['delete'](key);
+  this.size -= result ? 1 : 0;
+  return result;
+}
+
+module.exports = mapCacheDelete;
+
+
+/***/ }),
+/* 85 */
+/***/ (function(module, exports) {
+
+/**
+ * Checks if `value` is suitable for use as unique object key.
+ *
+ * @private
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is suitable, else `false`.
+ */
+function isKeyable(value) {
+  var type = typeof value;
+  return (type == 'string' || type == 'number' || type == 'symbol' || type == 'boolean')
+    ? (value !== '__proto__')
+    : (value === null);
+}
+
+module.exports = isKeyable;
+
+
+/***/ }),
+/* 86 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var getMapData = __webpack_require__(8);
+
+/**
+ * Gets the map value for `key`.
+ *
+ * @private
+ * @name get
+ * @memberOf MapCache
+ * @param {string} key The key of the value to get.
+ * @returns {*} Returns the entry value.
+ */
+function mapCacheGet(key) {
+  return getMapData(this, key).get(key);
+}
+
+module.exports = mapCacheGet;
+
+
+/***/ }),
+/* 87 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var getMapData = __webpack_require__(8);
+
+/**
+ * Checks if a map value for `key` exists.
+ *
+ * @private
+ * @name has
+ * @memberOf MapCache
+ * @param {string} key The key of the entry to check.
+ * @returns {boolean} Returns `true` if an entry for `key` exists, else `false`.
+ */
+function mapCacheHas(key) {
+  return getMapData(this, key).has(key);
+}
+
+module.exports = mapCacheHas;
+
+
+/***/ }),
+/* 88 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var getMapData = __webpack_require__(8);
+
+/**
+ * Sets the map `key` to `value`.
+ *
+ * @private
+ * @name set
+ * @memberOf MapCache
+ * @param {string} key The key of the value to set.
+ * @param {*} value The value to set.
+ * @returns {Object} Returns the map cache instance.
+ */
+function mapCacheSet(key, value) {
+  var data = getMapData(this, key),
+      size = data.size;
+
+  data.set(key, value);
+  this.size += data.size == size ? 0 : 1;
+  return this;
+}
+
+module.exports = mapCacheSet;
+
+
+/***/ }),
+/* 89 */
+/***/ (function(module, exports) {
+
+/**
+ * A specialized version of `_.forEach` for arrays without support for
+ * iteratee shorthands.
+ *
+ * @private
+ * @param {Array} [array] The array to iterate over.
+ * @param {Function} iteratee The function invoked per iteration.
+ * @returns {Array} Returns `array`.
+ */
+function arrayEach(array, iteratee) {
+  var index = -1,
+      length = array == null ? 0 : array.length;
+
+  while (++index < length) {
+    if (iteratee(array[index], index, array) === false) {
+      break;
+    }
+  }
+  return array;
+}
+
+module.exports = arrayEach;
+
+
+/***/ }),
+/* 90 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var getNative = __webpack_require__(1);
+
+var defineProperty = (function() {
+  try {
+    var func = getNative(Object, 'defineProperty');
+    func({}, '', {});
+    return func;
+  } catch (e) {}
+}());
+
+module.exports = defineProperty;
+
+
+/***/ }),
+/* 91 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var copyObject = __webpack_require__(9),
+    keys = __webpack_require__(13);
+
+/**
+ * The base implementation of `_.assign` without support for multiple sources
+ * or `customizer` functions.
+ *
+ * @private
+ * @param {Object} object The destination object.
+ * @param {Object} source The source object.
+ * @returns {Object} Returns `object`.
+ */
+function baseAssign(object, source) {
+  return object && copyObject(source, keys(source), object);
+}
+
+module.exports = baseAssign;
+
+
+/***/ }),
+/* 92 */
+/***/ (function(module, exports) {
+
+/**
+ * The base implementation of `_.times` without support for iteratee shorthands
+ * or max array length checks.
+ *
+ * @private
+ * @param {number} n The number of times to invoke `iteratee`.
+ * @param {Function} iteratee The function invoked per iteration.
+ * @returns {Array} Returns the array of results.
+ */
+function baseTimes(n, iteratee) {
+  var index = -1,
+      result = Array(n);
+
+  while (++index < n) {
+    result[index] = iteratee(index);
+  }
+  return result;
+}
+
+module.exports = baseTimes;
+
+
+/***/ }),
+/* 93 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var baseIsArguments = __webpack_require__(94),
+    isObjectLike = __webpack_require__(3);
+
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/** Used to check objects for own properties. */
+var hasOwnProperty = objectProto.hasOwnProperty;
+
+/** Built-in value references. */
+var propertyIsEnumerable = objectProto.propertyIsEnumerable;
+
+/**
+ * Checks if `value` is likely an `arguments` object.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is an `arguments` object,
+ *  else `false`.
+ * @example
+ *
+ * _.isArguments(function() { return arguments; }());
+ * // => true
+ *
+ * _.isArguments([1, 2, 3]);
+ * // => false
+ */
+var isArguments = baseIsArguments(function() { return arguments; }()) ? baseIsArguments : function(value) {
+  return isObjectLike(value) && hasOwnProperty.call(value, 'callee') &&
+    !propertyIsEnumerable.call(value, 'callee');
+};
+
+module.exports = isArguments;
+
+
+/***/ }),
+/* 94 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var baseGetTag = __webpack_require__(6),
+    isObjectLike = __webpack_require__(3);
+
+/** `Object#toString` result references. */
+var argsTag = '[object Arguments]';
+
+/**
+ * The base implementation of `_.isArguments`.
+ *
+ * @private
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is an `arguments` object,
+ */
+function baseIsArguments(value) {
+  return isObjectLike(value) && baseGetTag(value) == argsTag;
+}
+
+module.exports = baseIsArguments;
+
+
+/***/ }),
+/* 95 */
+/***/ (function(module, exports) {
+
+/**
+ * This method returns `false`.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.13.0
+ * @category Util
+ * @returns {boolean} Returns `false`.
+ * @example
+ *
+ * _.times(2, _.stubFalse);
+ * // => [false, false]
+ */
+function stubFalse() {
+  return false;
+}
+
+module.exports = stubFalse;
+
+
+/***/ }),
+/* 96 */
+/***/ (function(module, exports) {
+
+/** Used as references for various `Number` constants. */
+var MAX_SAFE_INTEGER = 9007199254740991;
+
+/** Used to detect unsigned integer values. */
+var reIsUint = /^(?:0|[1-9]\d*)$/;
+
+/**
+ * Checks if `value` is a valid array-like index.
+ *
+ * @private
+ * @param {*} value The value to check.
+ * @param {number} [length=MAX_SAFE_INTEGER] The upper bounds of a valid index.
+ * @returns {boolean} Returns `true` if `value` is a valid index, else `false`.
+ */
+function isIndex(value, length) {
+  var type = typeof value;
+  length = length == null ? MAX_SAFE_INTEGER : length;
+
+  return !!length &&
+    (type == 'number' ||
+      (type != 'symbol' && reIsUint.test(value))) &&
+        (value > -1 && value % 1 == 0 && value < length);
+}
+
+module.exports = isIndex;
+
+
+/***/ }),
+/* 97 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var baseIsTypedArray = __webpack_require__(98),
+    baseUnary = __webpack_require__(16),
+    nodeUtil = __webpack_require__(17);
+
+/* Node.js helper references. */
+var nodeIsTypedArray = nodeUtil && nodeUtil.isTypedArray;
+
+/**
+ * Checks if `value` is classified as a typed array.
+ *
+ * @static
+ * @memberOf _
+ * @since 3.0.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a typed array, else `false`.
+ * @example
+ *
+ * _.isTypedArray(new Uint8Array);
+ * // => true
+ *
+ * _.isTypedArray([]);
+ * // => false
+ */
+var isTypedArray = nodeIsTypedArray ? baseUnary(nodeIsTypedArray) : baseIsTypedArray;
+
+module.exports = isTypedArray;
+
+
+/***/ }),
+/* 98 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var baseGetTag = __webpack_require__(6),
+    isLength = __webpack_require__(33),
+    isObjectLike = __webpack_require__(3);
+
+/** `Object#toString` result references. */
+var argsTag = '[object Arguments]',
+    arrayTag = '[object Array]',
+    boolTag = '[object Boolean]',
+    dateTag = '[object Date]',
+    errorTag = '[object Error]',
+    funcTag = '[object Function]',
+    mapTag = '[object Map]',
+    numberTag = '[object Number]',
+    objectTag = '[object Object]',
+    regexpTag = '[object RegExp]',
+    setTag = '[object Set]',
+    stringTag = '[object String]',
+    weakMapTag = '[object WeakMap]';
+
+var arrayBufferTag = '[object ArrayBuffer]',
+    dataViewTag = '[object DataView]',
+    float32Tag = '[object Float32Array]',
+    float64Tag = '[object Float64Array]',
+    int8Tag = '[object Int8Array]',
+    int16Tag = '[object Int16Array]',
+    int32Tag = '[object Int32Array]',
+    uint8Tag = '[object Uint8Array]',
+    uint8ClampedTag = '[object Uint8ClampedArray]',
+    uint16Tag = '[object Uint16Array]',
+    uint32Tag = '[object Uint32Array]';
+
+/** Used to identify `toStringTag` values of typed arrays. */
+var typedArrayTags = {};
+typedArrayTags[float32Tag] = typedArrayTags[float64Tag] =
+typedArrayTags[int8Tag] = typedArrayTags[int16Tag] =
+typedArrayTags[int32Tag] = typedArrayTags[uint8Tag] =
+typedArrayTags[uint8ClampedTag] = typedArrayTags[uint16Tag] =
+typedArrayTags[uint32Tag] = true;
+typedArrayTags[argsTag] = typedArrayTags[arrayTag] =
+typedArrayTags[arrayBufferTag] = typedArrayTags[boolTag] =
+typedArrayTags[dataViewTag] = typedArrayTags[dateTag] =
+typedArrayTags[errorTag] = typedArrayTags[funcTag] =
+typedArrayTags[mapTag] = typedArrayTags[numberTag] =
+typedArrayTags[objectTag] = typedArrayTags[regexpTag] =
+typedArrayTags[setTag] = typedArrayTags[stringTag] =
+typedArrayTags[weakMapTag] = false;
+
+/**
+ * The base implementation of `_.isTypedArray` without Node.js optimizations.
+ *
+ * @private
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a typed array, else `false`.
+ */
+function baseIsTypedArray(value) {
+  return isObjectLike(value) &&
+    isLength(value.length) && !!typedArrayTags[baseGetTag(value)];
+}
+
+module.exports = baseIsTypedArray;
+
+
+/***/ }),
+/* 99 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var isPrototype = __webpack_require__(18),
+    nativeKeys = __webpack_require__(100);
+
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/** Used to check objects for own properties. */
+var hasOwnProperty = objectProto.hasOwnProperty;
+
+/**
+ * The base implementation of `_.keys` which doesn't treat sparse arrays as dense.
+ *
+ * @private
+ * @param {Object} object The object to query.
+ * @returns {Array} Returns the array of property names.
+ */
+function baseKeys(object) {
+  if (!isPrototype(object)) {
+    return nativeKeys(object);
+  }
+  var result = [];
+  for (var key in Object(object)) {
+    if (hasOwnProperty.call(object, key) && key != 'constructor') {
+      result.push(key);
+    }
+  }
+  return result;
+}
+
+module.exports = baseKeys;
+
+
+/***/ }),
+/* 100 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var overArg = __webpack_require__(34);
+
+/* Built-in method references for those with the same name as other `lodash` methods. */
+var nativeKeys = overArg(Object.keys, Object);
+
+module.exports = nativeKeys;
+
+
+/***/ }),
+/* 101 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var copyObject = __webpack_require__(9),
+    keysIn = __webpack_require__(36);
+
+/**
+ * The base implementation of `_.assignIn` without support for multiple sources
+ * or `customizer` functions.
+ *
+ * @private
+ * @param {Object} object The destination object.
+ * @param {Object} source The source object.
+ * @returns {Object} Returns `object`.
+ */
+function baseAssignIn(object, source) {
+  return object && copyObject(source, keysIn(source), object);
+}
+
+module.exports = baseAssignIn;
+
+
+/***/ }),
+/* 102 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var isObject = __webpack_require__(2),
+    isPrototype = __webpack_require__(18),
+    nativeKeysIn = __webpack_require__(103);
+
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/** Used to check objects for own properties. */
+var hasOwnProperty = objectProto.hasOwnProperty;
+
+/**
+ * The base implementation of `_.keysIn` which doesn't treat sparse arrays as dense.
+ *
+ * @private
+ * @param {Object} object The object to query.
+ * @returns {Array} Returns the array of property names.
+ */
+function baseKeysIn(object) {
+  if (!isObject(object)) {
+    return nativeKeysIn(object);
+  }
+  var isProto = isPrototype(object),
+      result = [];
+
+  for (var key in object) {
+    if (!(key == 'constructor' && (isProto || !hasOwnProperty.call(object, key)))) {
+      result.push(key);
+    }
+  }
+  return result;
+}
+
+module.exports = baseKeysIn;
+
+
+/***/ }),
+/* 103 */
+/***/ (function(module, exports) {
+
+/**
+ * This function is like
+ * [`Object.keys`](http://ecma-international.org/ecma-262/7.0/#sec-object.keys)
+ * except that it includes inherited enumerable properties.
+ *
+ * @private
+ * @param {Object} object The object to query.
+ * @returns {Array} Returns the array of property names.
+ */
+function nativeKeysIn(object) {
+  var result = [];
+  if (object != null) {
+    for (var key in Object(object)) {
+      result.push(key);
+    }
+  }
+  return result;
+}
+
+module.exports = nativeKeysIn;
+
+
+/***/ }),
+/* 104 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(module) {var root = __webpack_require__(0);
+
+/** Detect free variable `exports`. */
+var freeExports =  true && exports && !exports.nodeType && exports;
+
+/** Detect free variable `module`. */
+var freeModule = freeExports && typeof module == 'object' && module && !module.nodeType && module;
+
+/** Detect the popular CommonJS extension `module.exports`. */
+var moduleExports = freeModule && freeModule.exports === freeExports;
+
+/** Built-in value references. */
+var Buffer = moduleExports ? root.Buffer : undefined,
+    allocUnsafe = Buffer ? Buffer.allocUnsafe : undefined;
+
+/**
+ * Creates a clone of  `buffer`.
+ *
+ * @private
+ * @param {Buffer} buffer The buffer to clone.
+ * @param {boolean} [isDeep] Specify a deep clone.
+ * @returns {Buffer} Returns the cloned buffer.
+ */
+function cloneBuffer(buffer, isDeep) {
+  if (isDeep) {
+    return buffer.slice();
+  }
+  var length = buffer.length,
+      result = allocUnsafe ? allocUnsafe(length) : new buffer.constructor(length);
+
+  buffer.copy(result);
+  return result;
+}
+
+module.exports = cloneBuffer;
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(15)(module)))
+
+/***/ }),
+/* 105 */
+/***/ (function(module, exports) {
+
+/**
+ * Copies the values of `source` to `array`.
+ *
+ * @private
+ * @param {Array} source The array to copy values from.
+ * @param {Array} [array=[]] The array to copy values to.
+ * @returns {Array} Returns `array`.
+ */
+function copyArray(source, array) {
+  var index = -1,
+      length = source.length;
+
+  array || (array = Array(length));
+  while (++index < length) {
+    array[index] = source[index];
+  }
+  return array;
+}
+
+module.exports = copyArray;
+
+
+/***/ }),
+/* 106 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var copyObject = __webpack_require__(9),
+    getSymbols = __webpack_require__(19);
+
+/**
+ * Copies own symbols of `source` to `object`.
+ *
+ * @private
+ * @param {Object} source The object to copy symbols from.
+ * @param {Object} [object={}] The object to copy symbols to.
+ * @returns {Object} Returns `object`.
+ */
+function copySymbols(source, object) {
+  return copyObject(source, getSymbols(source), object);
+}
+
+module.exports = copySymbols;
+
+
+/***/ }),
+/* 107 */
+/***/ (function(module, exports) {
+
+/**
+ * A specialized version of `_.filter` for arrays without support for
+ * iteratee shorthands.
+ *
+ * @private
+ * @param {Array} [array] The array to iterate over.
+ * @param {Function} predicate The function invoked per iteration.
+ * @returns {Array} Returns the new filtered array.
+ */
+function arrayFilter(array, predicate) {
+  var index = -1,
+      length = array == null ? 0 : array.length,
+      resIndex = 0,
+      result = [];
+
+  while (++index < length) {
+    var value = array[index];
+    if (predicate(value, index, array)) {
+      result[resIndex++] = value;
+    }
+  }
+  return result;
+}
+
+module.exports = arrayFilter;
+
+
+/***/ }),
+/* 108 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var copyObject = __webpack_require__(9),
+    getSymbolsIn = __webpack_require__(38);
+
+/**
+ * Copies own and inherited symbols of `source` to `object`.
+ *
+ * @private
+ * @param {Object} source The object to copy symbols from.
+ * @param {Object} [object={}] The object to copy symbols to.
+ * @returns {Object} Returns `object`.
+ */
+function copySymbolsIn(source, object) {
+  return copyObject(source, getSymbolsIn(source), object);
+}
+
+module.exports = copySymbolsIn;
+
+
+/***/ }),
+/* 109 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var baseGetAllKeys = __webpack_require__(41),
+    getSymbols = __webpack_require__(19),
+    keys = __webpack_require__(13);
+
+/**
+ * Creates an array of own enumerable property names and symbols of `object`.
+ *
+ * @private
+ * @param {Object} object The object to query.
+ * @returns {Array} Returns the array of property names and symbols.
+ */
+function getAllKeys(object) {
+  return baseGetAllKeys(object, keys, getSymbols);
+}
+
+module.exports = getAllKeys;
+
+
+/***/ }),
+/* 110 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var baseGetAllKeys = __webpack_require__(41),
+    getSymbolsIn = __webpack_require__(38),
+    keysIn = __webpack_require__(36);
+
+/**
+ * Creates an array of own and inherited enumerable property names and
+ * symbols of `object`.
+ *
+ * @private
+ * @param {Object} object The object to query.
+ * @returns {Array} Returns the array of property names and symbols.
+ */
+function getAllKeysIn(object) {
+  return baseGetAllKeys(object, keysIn, getSymbolsIn);
+}
+
+module.exports = getAllKeysIn;
+
+
+/***/ }),
+/* 111 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var getNative = __webpack_require__(1),
+    root = __webpack_require__(0);
+
+/* Built-in method references that are verified to be native. */
+var DataView = getNative(root, 'DataView');
+
+module.exports = DataView;
+
+
+/***/ }),
+/* 112 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var getNative = __webpack_require__(1),
+    root = __webpack_require__(0);
+
+/* Built-in method references that are verified to be native. */
+var Promise = getNative(root, 'Promise');
+
+module.exports = Promise;
+
+
+/***/ }),
+/* 113 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var getNative = __webpack_require__(1),
+    root = __webpack_require__(0);
+
+/* Built-in method references that are verified to be native. */
+var Set = getNative(root, 'Set');
+
+module.exports = Set;
+
+
+/***/ }),
+/* 114 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var getNative = __webpack_require__(1),
+    root = __webpack_require__(0);
+
+/* Built-in method references that are verified to be native. */
+var WeakMap = getNative(root, 'WeakMap');
+
+module.exports = WeakMap;
+
+
+/***/ }),
+/* 115 */
+/***/ (function(module, exports) {
+
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/** Used to check objects for own properties. */
+var hasOwnProperty = objectProto.hasOwnProperty;
+
+/**
+ * Initializes an array clone.
+ *
+ * @private
+ * @param {Array} array The array to clone.
+ * @returns {Array} Returns the initialized clone.
+ */
+function initCloneArray(array) {
+  var length = array.length,
+      result = new array.constructor(length);
+
+  // Add properties assigned by `RegExp#exec`.
+  if (length && typeof array[0] == 'string' && hasOwnProperty.call(array, 'index')) {
+    result.index = array.index;
+    result.input = array.input;
+  }
+  return result;
+}
+
+module.exports = initCloneArray;
+
+
+/***/ }),
+/* 116 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var cloneArrayBuffer = __webpack_require__(21),
+    cloneDataView = __webpack_require__(118),
+    cloneRegExp = __webpack_require__(119),
+    cloneSymbol = __webpack_require__(120),
+    cloneTypedArray = __webpack_require__(121);
+
+/** `Object#toString` result references. */
+var boolTag = '[object Boolean]',
+    dateTag = '[object Date]',
+    mapTag = '[object Map]',
+    numberTag = '[object Number]',
+    regexpTag = '[object RegExp]',
+    setTag = '[object Set]',
+    stringTag = '[object String]',
+    symbolTag = '[object Symbol]';
+
+var arrayBufferTag = '[object ArrayBuffer]',
+    dataViewTag = '[object DataView]',
+    float32Tag = '[object Float32Array]',
+    float64Tag = '[object Float64Array]',
+    int8Tag = '[object Int8Array]',
+    int16Tag = '[object Int16Array]',
+    int32Tag = '[object Int32Array]',
+    uint8Tag = '[object Uint8Array]',
+    uint8ClampedTag = '[object Uint8ClampedArray]',
+    uint16Tag = '[object Uint16Array]',
+    uint32Tag = '[object Uint32Array]';
+
+/**
+ * Initializes an object clone based on its `toStringTag`.
+ *
+ * **Note:** This function only supports cloning values with tags of
+ * `Boolean`, `Date`, `Error`, `Map`, `Number`, `RegExp`, `Set`, or `String`.
+ *
+ * @private
+ * @param {Object} object The object to clone.
+ * @param {string} tag The `toStringTag` of the object to clone.
+ * @param {boolean} [isDeep] Specify a deep clone.
+ * @returns {Object} Returns the initialized clone.
+ */
+function initCloneByTag(object, tag, isDeep) {
+  var Ctor = object.constructor;
+  switch (tag) {
+    case arrayBufferTag:
+      return cloneArrayBuffer(object);
+
+    case boolTag:
+    case dateTag:
+      return new Ctor(+object);
+
+    case dataViewTag:
+      return cloneDataView(object, isDeep);
+
+    case float32Tag: case float64Tag:
+    case int8Tag: case int16Tag: case int32Tag:
+    case uint8Tag: case uint8ClampedTag: case uint16Tag: case uint32Tag:
+      return cloneTypedArray(object, isDeep);
+
+    case mapTag:
+      return new Ctor;
+
+    case numberTag:
+    case stringTag:
+      return new Ctor(object);
+
+    case regexpTag:
+      return cloneRegExp(object);
+
+    case setTag:
+      return new Ctor;
+
+    case symbolTag:
+      return cloneSymbol(object);
+  }
+}
+
+module.exports = initCloneByTag;
+
+
+/***/ }),
+/* 117 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var root = __webpack_require__(0);
+
+/** Built-in value references. */
+var Uint8Array = root.Uint8Array;
+
+module.exports = Uint8Array;
+
+
+/***/ }),
+/* 118 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var cloneArrayBuffer = __webpack_require__(21);
+
+/**
+ * Creates a clone of `dataView`.
+ *
+ * @private
+ * @param {Object} dataView The data view to clone.
+ * @param {boolean} [isDeep] Specify a deep clone.
+ * @returns {Object} Returns the cloned data view.
+ */
+function cloneDataView(dataView, isDeep) {
+  var buffer = isDeep ? cloneArrayBuffer(dataView.buffer) : dataView.buffer;
+  return new dataView.constructor(buffer, dataView.byteOffset, dataView.byteLength);
+}
+
+module.exports = cloneDataView;
+
+
+/***/ }),
+/* 119 */
+/***/ (function(module, exports) {
+
+/** Used to match `RegExp` flags from their coerced string values. */
+var reFlags = /\w*$/;
+
+/**
+ * Creates a clone of `regexp`.
+ *
+ * @private
+ * @param {Object} regexp The regexp to clone.
+ * @returns {Object} Returns the cloned regexp.
+ */
+function cloneRegExp(regexp) {
+  var result = new regexp.constructor(regexp.source, reFlags.exec(regexp));
+  result.lastIndex = regexp.lastIndex;
+  return result;
+}
+
+module.exports = cloneRegExp;
+
+
+/***/ }),
+/* 120 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Symbol = __webpack_require__(12);
+
+/** Used to convert symbols to primitives and strings. */
+var symbolProto = Symbol ? Symbol.prototype : undefined,
+    symbolValueOf = symbolProto ? symbolProto.valueOf : undefined;
+
+/**
+ * Creates a clone of the `symbol` object.
+ *
+ * @private
+ * @param {Object} symbol The symbol object to clone.
+ * @returns {Object} Returns the cloned symbol object.
+ */
+function cloneSymbol(symbol) {
+  return symbolValueOf ? Object(symbolValueOf.call(symbol)) : {};
+}
+
+module.exports = cloneSymbol;
+
+
+/***/ }),
+/* 121 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var cloneArrayBuffer = __webpack_require__(21);
+
+/**
+ * Creates a clone of `typedArray`.
+ *
+ * @private
+ * @param {Object} typedArray The typed array to clone.
+ * @param {boolean} [isDeep] Specify a deep clone.
+ * @returns {Object} Returns the cloned typed array.
+ */
+function cloneTypedArray(typedArray, isDeep) {
+  var buffer = isDeep ? cloneArrayBuffer(typedArray.buffer) : typedArray.buffer;
+  return new typedArray.constructor(buffer, typedArray.byteOffset, typedArray.length);
+}
+
+module.exports = cloneTypedArray;
+
+
+/***/ }),
+/* 122 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var baseCreate = __webpack_require__(123),
+    getPrototype = __webpack_require__(40),
+    isPrototype = __webpack_require__(18);
+
+/**
+ * Initializes an object clone.
+ *
+ * @private
+ * @param {Object} object The object to clone.
+ * @returns {Object} Returns the initialized clone.
+ */
+function initCloneObject(object) {
+  return (typeof object.constructor == 'function' && !isPrototype(object))
+    ? baseCreate(getPrototype(object))
+    : {};
+}
+
+module.exports = initCloneObject;
+
+
+/***/ }),
+/* 123 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var isObject = __webpack_require__(2);
+
+/** Built-in value references. */
+var objectCreate = Object.create;
+
+/**
+ * The base implementation of `_.create` without support for assigning
+ * properties to the created object.
+ *
+ * @private
+ * @param {Object} proto The object to inherit from.
+ * @returns {Object} Returns the new object.
+ */
+var baseCreate = (function() {
+  function object() {}
+  return function(proto) {
+    if (!isObject(proto)) {
+      return {};
+    }
+    if (objectCreate) {
+      return objectCreate(proto);
+    }
+    object.prototype = proto;
+    var result = new object;
+    object.prototype = undefined;
+    return result;
+  };
+}());
+
+module.exports = baseCreate;
+
+
+/***/ }),
+/* 124 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var baseIsMap = __webpack_require__(125),
+    baseUnary = __webpack_require__(16),
+    nodeUtil = __webpack_require__(17);
+
+/* Node.js helper references. */
+var nodeIsMap = nodeUtil && nodeUtil.isMap;
+
+/**
+ * Checks if `value` is classified as a `Map` object.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.3.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a map, else `false`.
+ * @example
+ *
+ * _.isMap(new Map);
+ * // => true
+ *
+ * _.isMap(new WeakMap);
+ * // => false
+ */
+var isMap = nodeIsMap ? baseUnary(nodeIsMap) : baseIsMap;
+
+module.exports = isMap;
+
+
+/***/ }),
+/* 125 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var getTag = __webpack_require__(20),
+    isObjectLike = __webpack_require__(3);
+
+/** `Object#toString` result references. */
+var mapTag = '[object Map]';
+
+/**
+ * The base implementation of `_.isMap` without Node.js optimizations.
+ *
+ * @private
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a map, else `false`.
+ */
+function baseIsMap(value) {
+  return isObjectLike(value) && getTag(value) == mapTag;
+}
+
+module.exports = baseIsMap;
+
+
+/***/ }),
+/* 126 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var baseIsSet = __webpack_require__(127),
+    baseUnary = __webpack_require__(16),
+    nodeUtil = __webpack_require__(17);
+
+/* Node.js helper references. */
+var nodeIsSet = nodeUtil && nodeUtil.isSet;
+
+/**
+ * Checks if `value` is classified as a `Set` object.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.3.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a set, else `false`.
+ * @example
+ *
+ * _.isSet(new Set);
+ * // => true
+ *
+ * _.isSet(new WeakSet);
+ * // => false
+ */
+var isSet = nodeIsSet ? baseUnary(nodeIsSet) : baseIsSet;
+
+module.exports = isSet;
+
+
+/***/ }),
+/* 127 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var getTag = __webpack_require__(20),
+    isObjectLike = __webpack_require__(3);
+
+/** `Object#toString` result references. */
+var setTag = '[object Set]';
+
+/**
+ * The base implementation of `_.isSet` without Node.js optimizations.
+ *
+ * @private
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a set, else `false`.
+ */
+function baseIsSet(value) {
+  return isObjectLike(value) && getTag(value) == setTag;
+}
+
+module.exports = baseIsSet;
+
+
+/***/ }),
+/* 128 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _ractiveDynamodbJsonEditor = __webpack_require__(23);
+
+var _ractiveDynamodbJsonEditor2 = _interopRequireDefault(_ractiveDynamodbJsonEditor);
+
+var _cloneDeep = __webpack_require__(24);
+
+var _cloneDeep2 = _interopRequireDefault(_cloneDeep);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//var jsoneditor = require('@awspilot/ractive-dynamodb-json-editor');
+exports.default = Ractive.extend({
+	isolated: true,
+	components: {
+		jsoneditor: _ractiveDynamodbJsonEditor2.default
 	},
-}));
+	template: '\
+		<jsoneditor item={{itemtoedit}} navigationBar="{{false}}"  style="position: absolute;top: -1px;left: -1px;right: -1px;bottom: 50px;width: auto;height: auto;border: 1px solid #dadada" menu-style="background-color: #d5ddf6;border-bottom: 1px solid #97b0f8;color: #444;" />\
+		<div style="position: absolute;left: 10px;right:10px;bottom:10px;height: 30px;box-sizing: border-box;">\
+			<span style="color: red;line-height: 30px;">{{errorMessage}}</span>\
+			<a class="btn btn-sm btn-primary pull-right" style="color: #fff;background-color: #337ab7;border-color: #2e6da4;float: right;padding: 5px 10px; font-size: 12px; line-height: 1.5;border-radius: 3px;font-family: sans-serif;"  on-click="update-item">Save</a>\
+		</div>\
+		',
+	data: function data() {
+		return {
+			itemtoedit: {}
+		};
+	},
+	_hash_key_name: function _hash_key_name() {
+		return (this.get('describeTable').KeySchema.filter(function (k) {
+			return k.KeyType === 'HASH';
+		})[0] || {}).AttributeName;
+	},
+	_range_key_name: function _range_key_name() {
+		return (this.get('describeTable').KeySchema.filter(function (k) {
+			return k.KeyType === 'RANGE';
+		})[0] || {}).AttributeName;
+	},
+	oninit: function oninit() {
+		var ractive = this;
+
+		//this.set({itemtoedit: Object.assign({}, this.get('rawitem'))  })
+
+		this.set({ itemtoedit: (0, _cloneDeep2.default)(this.get('rawitem')) });
+
+		this.observe('itemtoedit', function (n, o, kp) {
+			this.set({ errorMessage: '' });
+		});
+
+		//var rawitem = this.get('rawitem')
+		//this.set({itemtoedit: { ...rawitem }  })
+
+		//var debug = this.get('itemtoedit');
+
+		this.on('update-item', function () {
+			//console.log("table=","HASH=", this._hash_key_name(), " RANGE=", this._range_key_name() )
+
+			var originalitem = this.get('rawitem');
+			var updateditem = (0, _cloneDeep2.default)(this.get('itemtoedit'));
+
+			//console.log("originalitem", originalitem.binary, typeof originalitem.binary )
+
+			//console.log('hello', updateditem )
+
+
+			var updateItemCall = {
+				TableName: this.get('describeTable.TableName'),
+				Key: {},
+				AttributeUpdates: {}
+			};
+
+			if (!updateditem.hasOwnProperty(this._hash_key_name())) return alert('Missing PARTITION_KEY ' + this._hash_key_name());
+
+			if (this._range_key_name() && !updateditem.hasOwnProperty(this._range_key_name())) return alert('Missing SORT_KEY ' + this._range_key_name());
+
+			updateItemCall.Key[this._hash_key_name()] = updateditem[this._hash_key_name()];
+			delete updateditem[this._hash_key_name()];
+
+			if (this._range_key_name()) {
+				updateItemCall.Key[this._range_key_name()] = updateditem[this._range_key_name()];
+				delete updateditem[this._range_key_name()];
+			}
+
+			Object.keys(updateditem).map(function (k) {
+				updateItemCall.AttributeUpdates[k] = {
+					Action: 'PUT', //
+					Value: updateditem[k]
+				};
+			});
+
+			console.log("updateItem", updateItemCall);
+			DynamoDB.client.updateItem(updateItemCall, function (err, data) {
+				if (err) return ractive.set('errorMessage', err.message);
+
+				ractive.get('window').close();
+			});
+		});
+	}
+
+});
 
 /***/ })
 /******/ ])["default"];
