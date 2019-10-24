@@ -372,7 +372,7 @@ content {position:absolute;display: block;top: 0px;left: 265px;right: 0px;bottom
 				DynamodbFactory = window['@awspilot/dynamodb']
 				DynamoDB  = new DynamodbFactory(ddb)
 
-				cloudwatch = new AWS.Cloudwatch({
+				cloudwatch = new AWS.CloudWatch({
 					endpoint: this.get('cwendpoint'),
 					region: this.get('region'),
 					credentials: {
