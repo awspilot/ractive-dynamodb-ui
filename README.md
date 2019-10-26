@@ -6,7 +6,16 @@
 
 [DEMO](https://awspilot.github.io/ractive-dynamodb-ui/demo/)
 
+![Screenshot](demo/screenshot1.png?raw=true "Screenshot")
 
+## Usage
+
+```
+	<dynamodb-ui region={{region}} accessKeyId={{k}} secretAccessKey={{s}} endpoint={{endpoint}}  />
+```
+
+
+## @todo
 - [ ] UI
 -  - [x] "Login" page with AWS Credentials
 -  - [x] Table list
