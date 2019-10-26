@@ -6,6 +6,7 @@
 
 [DEMO](https://awspilot.github.io/ractive-dynamodb-ui/demo/)
 
+## Screenshot
 ![Screenshot](demo/screenshot1.png?raw=true "Screenshot")
 
 ## Usage
