@@ -6,12 +6,15 @@ Intended to be used along with dynamodb-local that do not have a respectful coun
 
 ## Preview
 
+This demo runs in a docker container together with dynamodb-local  
+and may sometimes crash due to low EC2 instance RAM.
+
 [DEMO](https://awspilot.github.io/ractive-dynamodb-ui/demo/)
 
 ## Screenshot
 ![Screenshot](demo/screenshot1.png?raw=true "Screenshot")
 
-## Usage
+## Usage (see demo folder)
 
 ```
 	<dynamodb-ui region={{region}} accessKeyId={{k}} secretAccessKey={{s}} endpoint={{endpoint}}  />
@@ -65,3 +68,11 @@ Intended to be used along with dynamodb-local that do not have a respectful coun
 -  - [ ] Run a transform function on all items
 -  - [ ] export create table as cloudformation
 -  - [ ] show create table ( SQL )
+
+## Similar projects (in no particular order)
+
+- [aaronshaf/dynamodb-admin](https://github.com/aaronshaf/dynamodb-admin)
+- [Arattian/DynamoDb-GUI-Client](https://github.com/Arattian/DynamoDb-GUI-Client)
+- [deptno/dynamon](https://github.com/deptno/dynamon)
+- [ieiayaobb/dynamoc](https://github.com/ieiayaobb/dynamoc)
+- [YoyaTeam/dynamodb-manager](https://github.com/YoyaTeam/dynamodb-manager)
