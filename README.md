@@ -1,7 +1,7 @@
 # ractive-dynamodb-ui
 
 ```
-100% client side RactiveJS based HTML gui for AWS DynamoDB.
+100% client side [Ractive framework](https://ractive.js.org/)  based HTML GUI for AWS DynamoDB.
 
 
 ```
