@@ -2,7 +2,7 @@
 
 100% client side [RactiveJS](https://ractive.js.org/)  based GUI for AWS DynamoDB.  
 
-Intended to be used along with dynamodb-local that do not have a respectful counterpart of AWS Console  
+to be used along with [dynamodb-local](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.html) that do not have a respectful counterpart of AWS Console.  
 
 ## Preview
 
