@@ -7,7 +7,7 @@ to be used along with [dynamodb-local](https://docs.aws.amazon.com/amazondynamod
 ## Preview
 
 This demo runs in a docker container together with dynamodb-local  
-and may sometimes crash due to low EC2 instance RAM.
+and may sometimes crash due to low budget EC2 instance's RAM.
 
 [DEMO](https://awspilot.github.io/ractive-dynamodb-ui/demo/)
 
