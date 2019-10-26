@@ -1,10 +1,11 @@
 # ractive-dynamodb-ui
 
-```
 100% client side [Ractive framework](https://ractive.js.org/)  based HTML GUI for AWS DynamoDB.
 
+## Preview
 
-```
+[DEMO](https://awspilot.github.io/ractive-dynamodb-ui/demo/)
+
 
 - [ ] UI
 -  - [x] "Login" page with AWS Credentials
