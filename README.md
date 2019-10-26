@@ -30,7 +30,7 @@
 -  - [x] Next page
 -  - [x] Show / hide columns
 -  - [ ] Resize columns
--  - [ ] Data Type
+-  - [x] Data Type
 -  -  - [x] String
 -  -  - [x] Number
 -  -  - [x] Boolean
@@ -42,6 +42,7 @@
 -  -  - [x] Binary
 -  -  - [x] undefined
 -  - [ ] Item property formatting ( eg. timestamp -> date )
+-  - [ ] Next page
 - [x] Edit item
 - [ ] Custom query
 - [ ] Query history
