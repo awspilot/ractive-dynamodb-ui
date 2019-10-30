@@ -3,6 +3,20 @@ export default Ractive.extend({
 	template: `
 
 			<div style='padding: 30px'>
+
+
+
+				<h3 style="color: #444;font-size: 16px;">Read/write capacity mode</h3>
+				<hr/>
+				<p style="color: #444;font-size: 13px;">
+					Select on-demand if you want to pay only for the read and writes you perform, with no capacity planning required. Select provisioned to save on throughput costs if you can reliably estimate your application's throughput requirements. See the
+						<a href="http://aws.amazon.com/dynamodb/pricing">DynamoDB pricing page</a> and
+						<a href="DynamoDB Developer Guide">DynamoDB Developer Guide</a> to learn more.
+				</p>
+				Read/write capacity mode can be changed later.<br>
+				<input type="radio" name={{localDescribeTable.BillingModeSummary.BillingMode}} value="PROVISIONED"> Provisioned (free-tier eligible)<br>
+				<input type="radio" name={{localDescribeTable.BillingModeSummary.BillingMode}} value="PAY_PER_REQUEST">On-demand<br>
+
 				<h3>
 					Provisioned capacity
 					<a class='btn btn-sm btn-default pull-right' on-click='refresh-table'><i class='icon zmdi zmdi-refresh'></i></a>
@@ -61,9 +75,9 @@ export default Ractive.extend({
 				if (err)
 					return ractive.set('err', err.message );
 
-				//console.log(data)
+				console.log(data.Table)
 				ractive.set('localDescribeTable', data.Table)
-				//ractive.set('originalDescribeTable', JSON.parse(JSON.stringify( data.Table ))) // this wont change
+				ractive.set('originalDescribeTable', JSON.parse(JSON.stringify( data.Table ))) // this wont change
 			})
 		}
 		ractive.on('cancel', function() {
@@ -73,17 +87,21 @@ export default Ractive.extend({
 			ractive.set( 'err' )
 		})
 
+
 		ractive.on('save', function() {
-
-
 
 			var payload = {
 				TableName: ractive.get('describeTable.TableName')
 			};
 
+			// if main table provisioned troughput changed but BillingMode remain the same
 			if (
-				(ractive.get('localDescribeTable.ProvisionedThroughput.ReadCapacityUnits')  !== ractive.get('originalDescribeTable.ProvisionedThroughput.ReadCapacityUnits') ) ||
-				(ractive.get('localDescribeTable.ProvisionedThroughput.WriteCapacityUnits') !== ractive.get('originalDescribeTable.ProvisionedThroughput.WriteCapacityUnits') )
+				(
+					(ractive.get('localDescribeTable.ProvisionedThroughput.ReadCapacityUnits')  !== ractive.get('originalDescribeTable.ProvisionedThroughput.ReadCapacityUnits') ) ||
+					(ractive.get('localDescribeTable.ProvisionedThroughput.WriteCapacityUnits') !== ractive.get('originalDescribeTable.ProvisionedThroughput.WriteCapacityUnits') )
+				) && (
+					(ractive.get('localDescribeTable.BillingModeSummary.BillingMode')  === ractive.get('originalDescribeTable.BillingModeSummary.BillingMode') )
+				)
 			) {
 				payload.ProvisionedThroughput = {
 					ReadCapacityUnits: ractive.get('localDescribeTable.ProvisionedThroughput.ReadCapacityUnits'),
@@ -95,19 +113,24 @@ export default Ractive.extend({
 			}
 
 
+
+
+
 			// each index
 			if ((ractive.get('localDescribeTable.GlobalSecondaryIndexes') || []).length) {
 				payload.GlobalSecondaryIndexUpdates = []
 				ractive.get('localDescribeTable.GlobalSecondaryIndexes').map(function(gsi, i ) {
 					var original_gsi = ractive.get('originalDescribeTable.GlobalSecondaryIndexes.'+i )
 
-					console.log("gsi",gsi)
-					console.log("original gsi", original_gsi )
 
-
+					// if index provisioned troughput changed but BillingMode remain the same
 					if (
-						(gsi.ProvisionedThroughput.ReadCapacityUnits  !==  ractive.get('originalDescribeTable.GlobalSecondaryIndexes.'+i+'.ProvisionedThroughput.ReadCapacityUnits' ) ) ||
-						(gsi.ProvisionedThroughput.WriteCapacityUnits !==  ractive.get('originalDescribeTable.GlobalSecondaryIndexes.'+i+'.ProvisionedThroughput.WriteCapacityUnits') )
+						(
+							(gsi.ProvisionedThroughput.ReadCapacityUnits  !==  ractive.get('originalDescribeTable.GlobalSecondaryIndexes.'+i+'.ProvisionedThroughput.ReadCapacityUnits' ) ) ||
+							(gsi.ProvisionedThroughput.WriteCapacityUnits !==  ractive.get('originalDescribeTable.GlobalSecondaryIndexes.'+i+'.ProvisionedThroughput.WriteCapacityUnits') )
+						) && (
+							(ractive.get('localDescribeTable.BillingModeSummary.BillingMode')  === ractive.get('originalDescribeTable.BillingModeSummary.BillingMode') )
+						)
 					) {
 						payload.GlobalSecondaryIndexUpdates.push({
 							Update: {
@@ -124,6 +147,44 @@ export default Ractive.extend({
 
 			if ( (payload.GlobalSecondaryIndexUpdates || []).length === 0 )
 				delete payload.GlobalSecondaryIndexUpdates;
+
+
+			// if BillingMode has changed
+			if (ractive.get('localDescribeTable.BillingModeSummary.BillingMode')  !== ractive.get('originalDescribeTable.BillingModeSummary.BillingMode')) {
+				if ( ractive.get('localDescribeTable.BillingModeSummary.BillingMode') === 'PAY_PER_REQUEST') {
+					payload.BillingMode = 'PAY_PER_REQUEST';
+				}
+
+				if ( ractive.get('localDescribeTable.BillingModeSummary.BillingMode') === 'PROVISIONED') {
+					payload.BillingMode = 'PROVISIONED';
+					payload.ProvisionedThroughput = {
+						ReadCapacityUnits: ractive.get('localDescribeTable.ProvisionedThroughput.ReadCapacityUnits') || 1,
+						WriteCapacityUnits: ractive.get('localDescribeTable.ProvisionedThroughput.WriteCapacityUnits') || 1,
+					}
+					// each index
+					if ((ractive.get('localDescribeTable.GlobalSecondaryIndexes') || []).length) {
+						payload.GlobalSecondaryIndexUpdates = []
+						ractive.get('localDescribeTable.GlobalSecondaryIndexes').map(function(gsi, i ) {
+
+							payload.GlobalSecondaryIndexUpdates.push({
+								Update: {
+									IndexName: gsi.IndexName,
+									ProvisionedThroughput: {
+										ReadCapacityUnits:  gsi.ProvisionedThroughput.ReadCapacityUnits || 1,
+										WriteCapacityUnits: gsi.ProvisionedThroughput.WriteCapacityUnits || 1,
+									}
+								}
+							})
+
+						})
+					}
+				}
+
+
+
+			}
+
+
 
 			//console.log('payload', payload )
 

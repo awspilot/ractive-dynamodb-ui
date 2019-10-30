@@ -2513,7 +2513,7 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 exports.default = Ractive.extend({
-	template: '\n\n\t\t\t<div style=\'padding: 30px\'>\n\t\t\t\t<h3>\n\t\t\t\t\tProvisioned capacity\n\t\t\t\t\t<a class=\'btn btn-sm btn-default pull-right\' on-click=\'refresh-table\'><i class=\'icon zmdi zmdi-refresh\'></i></a>\n\t\t\t\t</h3>\n\t\t\t\t<hr>\n\n\t\t\t\t\t{{#if localDescribeTable === false}}\n\t\t\t\t\t\tLoading...\n\t\t\t\t\t{{else}}\n\t\t\t\t\t\t{{#if localDescribeTable.BillingModeSummary.BillingMode === \'PAY_PER_REQUEST\'}}\n\t\t\t\t\t\t\tNot applicable because read/write capacity mode is on-demand.<br>\n\t\t\t\t\t\t{{else}}\n\t\t\t\t\t\t\t<table>\n\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t<td width=\'160\' align=\'right\'></td>\n\t\t\t\t\t\t\t\t\t<td width=\'160\'>Read capacity units</td>\n\t\t\t\t\t\t\t\t\t<td width=\'160\'>Write capacity units</td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t<td>Table</td>\n\t\t\t\t\t\t\t\t\t<td><input type=\'text\' size=\'4\' value=\'{{localDescribeTable.ProvisionedThroughput.ReadCapacityUnits}}\' on-focus=\'focus\' /></td>\n\t\t\t\t\t\t\t\t\t<td><input type=\'text\' size=\'4\' value=\'{{localDescribeTable.ProvisionedThroughput.WriteCapacityUnits}}\' on-focus=\'focus\' /></td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t{{#localDescribeTable.GlobalSecondaryIndexes}}\n\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t<td>{{ .IndexName }}</td>\n\t\t\t\t\t\t\t\t\t<td><input type=\'text\' size=\'4\' value=\'{{.ProvisionedThroughput.ReadCapacityUnits}}\' on-focus=\'focus\' /></td>\n\t\t\t\t\t\t\t\t\t<td><input type=\'text\' size=\'4\' value=\'{{.ProvisionedThroughput.WriteCapacityUnits}}\' on-focus=\'focus\' /></td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t{{/localDescribeTable.GlobalSecondaryIndexes}}\n\t\t\t\t\t\t\t</table>\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t{{/if}}\n\t\t\t\t<h3>Auto Scaling</h3>\n\t\t\t\t<hr/>\n\t\t\t\t\t<small>Auto Scaling not supported by this UI</small>\n\t\t\t\t\t<br>\n\t\t\t\t\t<div style=\'color:red\'>{{ err }}&nbsp;</div>\n\t\t\t\t\t<table>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td width=\'160\'>\n\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t<a class=\'btn btn-md btn-primary\' on-click=\'save\'>Save</a>\n\t\t\t\t\t\t\t\t<a class=\'btn btn-md btn-default\' on-click=\'cancel\'>Cancel</a>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</table>\n\t\t\t</div>\n\n\t',
+	template: '\n\n\t\t\t<div style=\'padding: 30px\'>\n\n\n\n\t\t\t\t<h3 style="color: #444;font-size: 16px;">Read/write capacity mode</h3>\n\t\t\t\t<hr/>\n\t\t\t\t<p style="color: #444;font-size: 13px;">\n\t\t\t\t\tSelect on-demand if you want to pay only for the read and writes you perform, with no capacity planning required. Select provisioned to save on throughput costs if you can reliably estimate your application\'s throughput requirements. See the\n\t\t\t\t\t\t<a href="http://aws.amazon.com/dynamodb/pricing">DynamoDB pricing page</a> and\n\t\t\t\t\t\t<a href="DynamoDB Developer Guide">DynamoDB Developer Guide</a> to learn more.\n\t\t\t\t</p>\n\t\t\t\tRead/write capacity mode can be changed later.<br>\n\t\t\t\t<input type="radio" name={{localDescribeTable.BillingModeSummary.BillingMode}} value="PROVISIONED"> Provisioned (free-tier eligible)<br>\n\t\t\t\t<input type="radio" name={{localDescribeTable.BillingModeSummary.BillingMode}} value="PAY_PER_REQUEST">On-demand<br>\n\n\t\t\t\t<h3>\n\t\t\t\t\tProvisioned capacity\n\t\t\t\t\t<a class=\'btn btn-sm btn-default pull-right\' on-click=\'refresh-table\'><i class=\'icon zmdi zmdi-refresh\'></i></a>\n\t\t\t\t</h3>\n\t\t\t\t<hr>\n\n\t\t\t\t\t{{#if localDescribeTable === false}}\n\t\t\t\t\t\tLoading...\n\t\t\t\t\t{{else}}\n\t\t\t\t\t\t{{#if localDescribeTable.BillingModeSummary.BillingMode === \'PAY_PER_REQUEST\'}}\n\t\t\t\t\t\t\tNot applicable because read/write capacity mode is on-demand.<br>\n\t\t\t\t\t\t{{else}}\n\t\t\t\t\t\t\t<table>\n\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t<td width=\'160\' align=\'right\'></td>\n\t\t\t\t\t\t\t\t\t<td width=\'160\'>Read capacity units</td>\n\t\t\t\t\t\t\t\t\t<td width=\'160\'>Write capacity units</td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t<td>Table</td>\n\t\t\t\t\t\t\t\t\t<td><input type=\'text\' size=\'4\' value=\'{{localDescribeTable.ProvisionedThroughput.ReadCapacityUnits}}\' on-focus=\'focus\' /></td>\n\t\t\t\t\t\t\t\t\t<td><input type=\'text\' size=\'4\' value=\'{{localDescribeTable.ProvisionedThroughput.WriteCapacityUnits}}\' on-focus=\'focus\' /></td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t{{#localDescribeTable.GlobalSecondaryIndexes}}\n\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t<td>{{ .IndexName }}</td>\n\t\t\t\t\t\t\t\t\t<td><input type=\'text\' size=\'4\' value=\'{{.ProvisionedThroughput.ReadCapacityUnits}}\' on-focus=\'focus\' /></td>\n\t\t\t\t\t\t\t\t\t<td><input type=\'text\' size=\'4\' value=\'{{.ProvisionedThroughput.WriteCapacityUnits}}\' on-focus=\'focus\' /></td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t{{/localDescribeTable.GlobalSecondaryIndexes}}\n\t\t\t\t\t\t\t</table>\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t{{/if}}\n\t\t\t\t<h3>Auto Scaling</h3>\n\t\t\t\t<hr/>\n\t\t\t\t\t<small>Auto Scaling not supported by this UI</small>\n\t\t\t\t\t<br>\n\t\t\t\t\t<div style=\'color:red\'>{{ err }}&nbsp;</div>\n\t\t\t\t\t<table>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td width=\'160\'>\n\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t<a class=\'btn btn-md btn-primary\' on-click=\'save\'>Save</a>\n\t\t\t\t\t\t\t\t<a class=\'btn btn-md btn-default\' on-click=\'cancel\'>Cancel</a>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</table>\n\t\t\t</div>\n\n\t',
 	oninit: function oninit() {
 		var ractive = this;
 		var refresh_table = function refresh_table() {
@@ -2521,9 +2521,9 @@ exports.default = Ractive.extend({
 			DynamoDB.client.describeTable({ TableName: ractive.get('table.name') }, function (err, data) {
 				if (err) return ractive.set('err', err.message);
 
-				//console.log(data)
+				console.log(data.Table);
 				ractive.set('localDescribeTable', data.Table);
-				//ractive.set('originalDescribeTable', JSON.parse(JSON.stringify( data.Table ))) // this wont change
+				ractive.set('originalDescribeTable', JSON.parse(JSON.stringify(data.Table))); // this wont change
 			});
 		};
 		ractive.on('cancel', function () {
@@ -2539,7 +2539,8 @@ exports.default = Ractive.extend({
 				TableName: ractive.get('describeTable.TableName')
 			};
 
-			if (ractive.get('localDescribeTable.ProvisionedThroughput.ReadCapacityUnits') !== ractive.get('originalDescribeTable.ProvisionedThroughput.ReadCapacityUnits') || ractive.get('localDescribeTable.ProvisionedThroughput.WriteCapacityUnits') !== ractive.get('originalDescribeTable.ProvisionedThroughput.WriteCapacityUnits')) {
+			// if main table provisioned troughput changed but BillingMode remain the same
+			if ((ractive.get('localDescribeTable.ProvisionedThroughput.ReadCapacityUnits') !== ractive.get('originalDescribeTable.ProvisionedThroughput.ReadCapacityUnits') || ractive.get('localDescribeTable.ProvisionedThroughput.WriteCapacityUnits') !== ractive.get('originalDescribeTable.ProvisionedThroughput.WriteCapacityUnits')) && ractive.get('localDescribeTable.BillingModeSummary.BillingMode') === ractive.get('originalDescribeTable.BillingModeSummary.BillingMode')) {
 				payload.ProvisionedThroughput = {
 					ReadCapacityUnits: ractive.get('localDescribeTable.ProvisionedThroughput.ReadCapacityUnits'),
 					WriteCapacityUnits: ractive.get('localDescribeTable.ProvisionedThroughput.WriteCapacityUnits')
@@ -2555,10 +2556,8 @@ exports.default = Ractive.extend({
 				ractive.get('localDescribeTable.GlobalSecondaryIndexes').map(function (gsi, i) {
 					var original_gsi = ractive.get('originalDescribeTable.GlobalSecondaryIndexes.' + i);
 
-					console.log("gsi", gsi);
-					console.log("original gsi", original_gsi);
-
-					if (gsi.ProvisionedThroughput.ReadCapacityUnits !== ractive.get('originalDescribeTable.GlobalSecondaryIndexes.' + i + '.ProvisionedThroughput.ReadCapacityUnits') || gsi.ProvisionedThroughput.WriteCapacityUnits !== ractive.get('originalDescribeTable.GlobalSecondaryIndexes.' + i + '.ProvisionedThroughput.WriteCapacityUnits')) {
+					// if index provisioned troughput changed but BillingMode remain the same
+					if ((gsi.ProvisionedThroughput.ReadCapacityUnits !== ractive.get('originalDescribeTable.GlobalSecondaryIndexes.' + i + '.ProvisionedThroughput.ReadCapacityUnits') || gsi.ProvisionedThroughput.WriteCapacityUnits !== ractive.get('originalDescribeTable.GlobalSecondaryIndexes.' + i + '.ProvisionedThroughput.WriteCapacityUnits')) && ractive.get('localDescribeTable.BillingModeSummary.BillingMode') === ractive.get('originalDescribeTable.BillingModeSummary.BillingMode')) {
 						payload.GlobalSecondaryIndexUpdates.push({
 							Update: {
 								IndexName: gsi.IndexName,
@@ -2573,6 +2572,36 @@ exports.default = Ractive.extend({
 			}
 
 			if ((payload.GlobalSecondaryIndexUpdates || []).length === 0) delete payload.GlobalSecondaryIndexUpdates;
+
+			// if BillingMode has changed
+			if (ractive.get('localDescribeTable.BillingModeSummary.BillingMode') !== ractive.get('originalDescribeTable.BillingModeSummary.BillingMode')) {
+				if (ractive.get('localDescribeTable.BillingModeSummary.BillingMode') === 'PAY_PER_REQUEST') {
+					payload.BillingMode = 'PAY_PER_REQUEST';
+				}
+
+				if (ractive.get('localDescribeTable.BillingModeSummary.BillingMode') === 'PROVISIONED') {
+					payload.BillingMode = 'PROVISIONED';
+					payload.ProvisionedThroughput = {
+						ReadCapacityUnits: ractive.get('localDescribeTable.ProvisionedThroughput.ReadCapacityUnits') || 1,
+						WriteCapacityUnits: ractive.get('localDescribeTable.ProvisionedThroughput.WriteCapacityUnits') || 1
+						// each index
+					};if ((ractive.get('localDescribeTable.GlobalSecondaryIndexes') || []).length) {
+						payload.GlobalSecondaryIndexUpdates = [];
+						ractive.get('localDescribeTable.GlobalSecondaryIndexes').map(function (gsi, i) {
+
+							payload.GlobalSecondaryIndexUpdates.push({
+								Update: {
+									IndexName: gsi.IndexName,
+									ProvisionedThroughput: {
+										ReadCapacityUnits: gsi.ProvisionedThroughput.ReadCapacityUnits || 1,
+										WriteCapacityUnits: gsi.ProvisionedThroughput.WriteCapacityUnits || 1
+									}
+								}
+							});
+						});
+					}
+				}
+			}
 
 			//console.log('payload', payload )
 
