@@ -2243,9 +2243,9 @@ var _tabletriggers = __webpack_require__(54);
 
 var _tabletriggers2 = _interopRequireDefault(_tabletriggers);
 
-var _tablemetrics = __webpack_require__(55);
+var _metrics = __webpack_require__(55);
 
-var _tablemetrics2 = _interopRequireDefault(_tablemetrics);
+var _metrics2 = _interopRequireDefault(_metrics);
 
 var _items = __webpack_require__(56);
 
@@ -2263,7 +2263,7 @@ exports.default = Ractive.extend({
 		tableglobal: _tableglobal2.default,
 		tablebackup: _tablebackup2.default,
 		tabletriggers: _tabletriggers2.default,
-		tablemetrics: _tablemetrics2.default,
+		tablemetrics: _metrics2.default,
 		tableitems: _items2.default
 	},
 	template: "\

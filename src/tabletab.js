@@ -6,7 +6,7 @@ import tableindexes from './table/indexes';
 import tableglobal from './tableglobal';
 import tablebackup from './tablebackup';
 import tabletriggers from './tabletriggers';
-import tablemetrics from './tablemetrics';
+import tablemetrics from './table/metrics';
 import tableitems from './table/items';
 
 export default Ractive.extend({
