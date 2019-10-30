@@ -2247,9 +2247,9 @@ var _tablemetrics = __webpack_require__(55);
 
 var _tablemetrics2 = _interopRequireDefault(_tablemetrics);
 
-var _tableitems = __webpack_require__(56);
+var _items = __webpack_require__(56);
 
-var _tableitems2 = _interopRequireDefault(_tableitems);
+var _items2 = _interopRequireDefault(_items);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2264,7 +2264,7 @@ exports.default = Ractive.extend({
 		tablebackup: _tablebackup2.default,
 		tabletriggers: _tabletriggers2.default,
 		tablemetrics: _tablemetrics2.default,
-		tableitems: _tableitems2.default
+		tableitems: _items2.default
 	},
 	template: "\
 		<div class='tableview {{#if active}}active{{/if}}'>\

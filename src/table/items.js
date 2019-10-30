@@ -1,7 +1,7 @@
 
-import tabledata from './tabledata';
-import itemedit from './item/edit';
-import itemadd from './item/add';
+import tabledata from '../tabledata';
+import itemedit from '../item/edit';
+import itemadd from '../item/add';
 
 export default Ractive.extend({
 	components: {
