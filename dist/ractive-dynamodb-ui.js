@@ -3025,65 +3025,7 @@ exports.default = Ractive.extend({
 	components: {
 		DynamoMetrics: DynamoMetrics
 	},
-	template: "\
-		<div style='padding: 30px'>\
-			<h3>\
-				Metrics\
-\
-				<div style='float:right'>\
-					<select value='{{interval}}'>\
-						<option value='1'>Last hour</option>\
-						<option value='3'>Last 3 hours</option>\
-						<option value='6'>Last 6 hours</option>\
-						<option value='12'>Last 12 hours</option>\
-						<option value='24'>Last 24 hours</option>\
-\
-						<option value='72'>Last 3 days</option>\
-						<option value='168'>Last 1 week</option>\
-						<option value='336'>Last 2 weeks</option>\
-\
-					</select>\
-				</div>\
-			</h3>\
-			<hr>\
-\
-			<h4>Capacity: table</h4>\
-			<hr>\
-\
-			<div style='float: left;width: 30%;min-width: 300px;max-width: 380px;margin-right: 20px;'>\
-				<div><b>Read capacity</b> Units/Minute</div>\
-				<DynamoMetrics table='{{ describeTable.TableName }}' disabled='Loading...' metric='ConsumedReadCapacityUnits' interval='{{interval}}' period='{{period}}' color='#f7a35c' namespace='AWS/DynamoDB' />\
-			</div>\
-\
-			<div style='float: left;width: 30%;min-width: 300px;max-width: 380px;margin-right: 20px;'>\
-				<div><b>Throttled read requests</b> Count</div>\
-				<chart style='width: 100%;height: 216px;' disabled='Not Tracked' />\
-			</div>\
-\
-			<div style='float: left;width: 30%;min-width: 300px;max-width: 380px;margin-right: 20px;'>\
-				<div><b>Throttled read events</b> Count</div>\
-				<chart style='width: 100%;height: 216px;' disabled='Not Tracked' />\
-			</div>\
-\
-			<div style='clear:both;padding: 20px;'></div>\
-\
-			<div style='float: left;width: 30%;min-width: 300px;max-width: 380px;margin-right: 20px;'>\
-				<div><b>Write capacity</b> Units/Second</div>\
-				<DynamoMetrics table='{{ describeTable.TableName }}' disabled='Loading...' metric='ConsumedWriteCapacityUnits' interval='{{interval}}' period='{{period}}' color='#f7a35c' namespace='AWS/DynamoDB' />\
-			</div>\
-\
-			<div style='float: left;width: 30%;min-width: 300px;max-width: 380px;margin-right: 20px;'>\
-				<div><b>Throttled write requests</b> Count</div>\
-				<chart style='width: 100%;height: 216px;' disabled='Not Tracked' />\
-			</div>\
-\
-			<div style='float: left;width: 30%;min-width: 300px;max-width: 380px;margin-right: 20px;'>\
-				<div><b>Throttled write events</b> Count</div>\
-				<chart style='width: 100%;height: 216px;' disabled='Not Tracked' />\
-			</div>\
-\
-		</div>\
-	",
+	template: '\n\t\t<div style=\'padding: 30px\'>\n\t\t\t<h3>\n\t\t\t\tMetrics\n\n\t\t\t\t<div style=\'float:right\'>\n\t\t\t\t\t<select value=\'{{interval}}\'>\n\t\t\t\t\t\t<option value=\'1\'>Last hour</option>\n\t\t\t\t\t\t<option value=\'3\'>Last 3 hours</option>\n\t\t\t\t\t\t<option value=\'6\'>Last 6 hours</option>\n\t\t\t\t\t\t<option value=\'12\'>Last 12 hours</option>\n\t\t\t\t\t\t<option value=\'24\'>Last 24 hours</option>\n\n\t\t\t\t\t\t<option value=\'72\'>Last 3 days</option>\n\t\t\t\t\t\t<option value=\'168\'>Last 1 week</option>\n\t\t\t\t\t\t<option value=\'336\'>Last 2 weeks</option>\n\n\t\t\t\t\t</select>\n\t\t\t\t</div>\n\t\t\t</h3>\n\t\t\t<hr>\n\n\t\t\t<h4>Capacity: table</h4>\n\t\t\t<hr>\n\n\t\t\t<div style=\'float: left;width: 30%;min-width: 300px;max-width: 380px;margin-right: 20px;\'>\n\t\t\t\t<div><b>Read capacity</b> Units/Minute</div>\n\t\t\t\t<DynamoMetrics table=\'{{ describeTable.TableName }}\' disabled=\'Loading...\' metric=\'ConsumedReadCapacityUnits\' interval=\'{{interval}}\' period=\'{{period}}\' color=\'#f7a35c\' namespace=\'AWS/DynamoDB\' />\n\t\t\t</div>\n\n\t\t\t<div style=\'float: left;width: 30%;min-width: 300px;max-width: 380px;margin-right: 20px;\'>\n\t\t\t\t<div><b>Throttled read requests</b> Count</div>\n\t\t\t\t<chart style=\'width: 100%;height: 216px;\' disabled=\'Not Tracked\' />\n\t\t\t</div>\n\n\t\t\t<div style=\'float: left;width: 30%;min-width: 300px;max-width: 380px;margin-right: 20px;\'>\n\t\t\t\t<div><b>Throttled read events</b> Count</div>\n\t\t\t\t<chart style=\'width: 100%;height: 216px;\' disabled=\'Not Tracked\' />\n\t\t\t</div>\n\n\t\t\t<div style=\'clear:both;padding: 20px;\'></div>\n\n\t\t\t<div style=\'float: left;width: 30%;min-width: 300px;max-width: 380px;margin-right: 20px;\'>\n\t\t\t\t<div><b>Write capacity</b> Units/Second</div>\n\t\t\t\t<DynamoMetrics table=\'{{ describeTable.TableName }}\' disabled=\'Loading...\' metric=\'ConsumedWriteCapacityUnits\' interval=\'{{interval}}\' period=\'{{period}}\' color=\'#f7a35c\' namespace=\'AWS/DynamoDB\' />\n\t\t\t</div>\n\n\t\t\t<div style=\'float: left;width: 30%;min-width: 300px;max-width: 380px;margin-right: 20px;\'>\n\t\t\t\t<div><b>Throttled write requests</b> Count</div>\n\t\t\t\t<chart style=\'width: 100%;height: 216px;\' disabled=\'Not Tracked\' />\n\t\t\t</div>\n\n\t\t\t<div style=\'float: left;width: 30%;min-width: 300px;max-width: 380px;margin-right: 20px;\'>\n\t\t\t\t<div><b>Throttled write events</b> Count</div>\n\t\t\t\t<chart style=\'width: 100%;height: 216px;\' disabled=\'Not Tracked\' />\n\t\t\t</div>\n\n\t\t</div>\n\t',
 	oninit: function oninit() {
 		var ractive = this;
 		console.log('init metrics with', ractive.get());
