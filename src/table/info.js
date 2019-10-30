@@ -79,7 +79,7 @@ export default Ractive.extend({
 
 					<h3>
 						Table details
-						<a class='btn btn-xs btn-default pull-right' on-click='refresh-table'><i class='icon zmdi zmdi-refresh'></i></a>
+						<a class='btn btn-sm btn-default pull-right' on-click='refresh-table'><i class='icon zmdi zmdi-refresh'></i></a>
 					</h3>
 					<div style='color:red'>{{ err }}</div>
 					<hr>
