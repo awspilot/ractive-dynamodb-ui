@@ -3324,7 +3324,7 @@ exports.default = Ractive.extend({
 			<div class='btn btn-xs btn-default {{#if next_running}}disabled{{/if}} {{#if end_reached   }}disabled{{/if}}' on-click='next'><i class='zmdi zmdi-hc-fw zmdi-chevron-right'></i></div>\
 \
 			<div class='pull-right'>\
-				<a class='btn btn-xs btn-default' on-click='refresh'><i class='zmdi zmdi-refresh'></i></a>\
+				<a class='btn btn-xs btn-default' on-click='refresh'><i class='zmdi zmdi-hc-fw zmdi-refresh'></i></a>\
 				<div class='btn-group'>\
 					<button class='btn btn-default btn-xs' type='button'>\
 						<i class='zmdi zmdi-filter-list'></i>\
@@ -3340,7 +3340,7 @@ exports.default = Ractive.extend({
 					</div>\
 				</div>\
 				<a class='btn btn-xs btn-primary' on-click='create-item-window' as-tooltip=' \"Create Item \" ' ><i class='zmdi zmdi-plus'></i> Create Item </a>\
-				<a class='btn btn-xs btn-danger {{#if selection_length > 0}}{{else}}disabled{{/if}}'  on-click='delete-selected'    as-tooltip=' \"Delete selected items \"' ><i class='zmdi zmdi-delete'></i></a>\
+				<a class='btn btn-xs btn-danger {{#if selection_length > 0}}{{else}}disabled{{/if}}'  on-click='delete-selected'    as-tooltip=' \"Delete selected items \"' ><i class='zmdi zmdi-hc-fw zmdi-delete'></i></a>\
 			</div>\
 		</div>\
 		<tabledata columns='{{columns}}' rows='{{rows}}' on-colclick='open-item' style='top: 148px'/>\
