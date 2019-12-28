@@ -26,15 +26,15 @@ module.exports = {
 		filename: '[name].js',
 		library: 'ractive-dynamodb-ui',
 
-		// var, this, window, umd
+		// var, this, window, umd , amd, commonjs, global
 		libraryTarget: 'umd',
 		libraryExport: 'default',
 		umdNamedDefine: true   // Important
 	},
 	externals: {
 		ractive: {
-			commonjs: 'ractive',
-			commonjs2: 'ractive',
+			commonjs: 'ractive',  // require
+			commonjs2: 'ractive', // require + module.exports - used by nodejs
 			amd: 'ractive',
 			root: 'Ractive'
 		}
