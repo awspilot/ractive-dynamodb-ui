@@ -1,4 +1,4 @@
-
+import svgicons from './svgicons'
 
 export default Ractive.extend({
 	//isolated: true,
