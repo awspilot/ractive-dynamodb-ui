@@ -1,6 +1,6 @@
 Ractive.components['icon-plus'] = Ractive.extend({
 	template: `
-		<svg class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 31.444 31.444" xml:space="preserve">
+		<svg class="icon" style={{style}} version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 31.444 31.444" xml:space="preserve">
 			<path style="fill:#1E201D;" d="M1.119,16.841c-0.619,0-1.111-0.508-1.111-1.127c0-0.619,0.492-1.111,1.111-1.111h13.475V1.127
 				C14.595,0.508,15.103,0,15.722,0c0.619,0,1.111,0.508,1.111,1.127v13.476h13.475c0.619,0,1.127,0.492,1.127,1.111
 				c0,0.619-0.508,1.127-1.127,1.127H16.833v13.476c0,0.619-0.492,1.127-1.111,1.127c-0.619,0-1.127-0.508-1.127-1.127V16.841H1.119z"
@@ -12,7 +12,7 @@ Ractive.components['icon-plus'] = Ractive.extend({
 
 Ractive.components['icon-refresh'] = Ractive.extend({
 	template: `
-	<svg class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	<svg class="icon" style={{style}} version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 		 viewBox="0 0 477.867 477.867" xml:space="preserve">
 	<g>
 		<g>
@@ -38,7 +38,7 @@ Ractive.components['icon-refresh'] = Ractive.extend({
 
 Ractive.components['icon-trash'] = Ractive.extend({
 	template: `
-	<svg class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="459px" height="459px" viewBox="0 0 459 459" xml:space="preserve">
+	<svg class="icon" style={{style}} version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="459px" height="459px" viewBox="0 0 459 459" xml:space="preserve">
 		<g>
 			<g>
 				<path d="M76.5,408c0,28.05,22.95,51,51,51h204c28.05,0,51-22.95,51-51V102h-306V408z M408,25.5h-89.25L293.25,0h-127.5l-25.5,25.5
@@ -51,7 +51,7 @@ Ractive.components['icon-trash'] = Ractive.extend({
 
 Ractive.components['icon-database'] = Ractive.extend({
 	template: `
-		<svg class="icon" height="512pt" viewBox="0 -52 512 512" width="512pt" xmlns="http://www.w3.org/2000/svg">
+		<svg class="icon" style={{style}} height="512pt" viewBox="0 -52 512 512" width="512pt" xmlns="http://www.w3.org/2000/svg">
 			<path d="m0 0h113.292969v113.292969h-113.292969zm0 0"/>
 			<path d="m149.296875 0h362.703125v113.292969h-362.703125zm0 0"/>
 			<path d="m0 147.007812h113.292969v113.292969h-113.292969zm0 0"/>
@@ -64,7 +64,7 @@ Ractive.components['icon-database'] = Ractive.extend({
 
 Ractive.components['icon-x'] = Ractive.extend({
 	template: `
-		<svg class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+		<svg class="icon" style={{style}} version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 			 viewBox="0 0 512.001 512.001" xml:space="preserve">
 
 			<g>
@@ -80,7 +80,7 @@ Ractive.components['icon-x'] = Ractive.extend({
 
 Ractive.components['icon-play'] = Ractive.extend({
 	template: `
-		<svg class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+		<svg class="icon" style={{style}} version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 			 viewBox="0 0 41.999 41.999" xml:space="preserve">
 			<path d="M36.068,20.176l-29-20C6.761-0.035,6.363-0.057,6.035,0.114C5.706,0.287,5.5,0.627,5.5,0.999v40
 			c0,0.372,0.206,0.713,0.535,0.886c0.146,0.076,0.306,0.114,0.465,0.114c0.199,0,0.397-0.06,0.568-0.177l29-20
@@ -92,7 +92,7 @@ Ractive.components['icon-play'] = Ractive.extend({
 
 Ractive.components['icon-prev'] = Ractive.extend({
 	template: `
-		<svg class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+		<svg class="icon" style={{style}} version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 			 viewBox="0 0 477.175 477.175" xml:space="preserve">
 		<g>
 			<path d="M145.188,238.575l215.5-215.5c5.3-5.3,5.3-13.8,0-19.1s-13.8-5.3-19.1,0l-225.1,225.1c-5.3,5.3-5.3,13.8,0,19.1l225.1,225
@@ -104,7 +104,7 @@ Ractive.components['icon-prev'] = Ractive.extend({
 
 Ractive.components['icon-next'] = Ractive.extend({
 	template: `
-		<svg class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+		<svg class="icon" style={{style}} version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 			 viewBox="0 0 477.175 477.175" xml:space="preserve">
 		<g>
 			<path d="M360.731,229.075l-225.1-225.1c-5.3-5.3-13.8-5.3-19.1,0s-5.3,13.8,0,19.1l215.5,215.5l-215.5,215.5
@@ -116,7 +116,7 @@ Ractive.components['icon-next'] = Ractive.extend({
 })
 Ractive.components['icon-caret-down'] = Ractive.extend({
 	template: `
-		<svg class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+		<svg class="icon" style={{style}} version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 			 width="292.362px" height="292.362px" viewBox="0 0 292.362 292.362"
 			 xml:space="preserve">
 		<g>
@@ -129,7 +129,7 @@ Ractive.components['icon-caret-down'] = Ractive.extend({
 })
 Ractive.components['icon-filter'] = Ractive.extend({
 	template: `
-		<svg class="icon" height="393pt" viewBox="-4 0 393 393.99003" width="393pt" xmlns="http://www.w3.org/2000/svg" >
+		<svg class="icon" style={{style}} height="393pt" viewBox="-4 0 393 393.99003" width="393pt" xmlns="http://www.w3.org/2000/svg" >
 			<path d="m368.3125 0h-351.261719c-6.195312-.0117188-11.875 3.449219-14.707031 8.960938-2.871094 5.585937-2.3671875 12.3125 1.300781 17.414062l128.6875 181.28125c.042969.0625.089844.121094.132813.183594 4.675781 6.3125 7.203125 13.957031 7.21875 21.816406v147.796875c-.027344 4.378906 1.691406 8.582031 4.777344 11.6875 3.085937 3.105469 7.28125 4.847656 11.65625 4.847656 2.226562 0 4.425781-.445312 6.480468-1.296875l72.3125-27.574218c6.480469-1.976563 10.78125-8.089844 10.78125-15.453126v-120.007812c.011719-7.855469 2.542969-15.503906 7.214844-21.816406.042969-.0625.089844-.121094.132812-.183594l128.683594-181.289062c3.667969-5.097657 4.171875-11.820313 1.300782-17.40625-2.832032-5.511719-8.511719-8.9726568-14.710938-8.960938zm-131.53125 195.992188c-7.1875 9.753906-11.074219 21.546874-11.097656 33.664062v117.578125l-66 25.164063v-142.742188c-.023438-12.117188-3.910156-23.910156-11.101563-33.664062l-124.933593-175.992188h338.070312zm0 0"/>
 		</svg>
 	`

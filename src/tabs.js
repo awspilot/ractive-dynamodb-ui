@@ -14,13 +14,13 @@ export default Ractive.extend({
 		`
 		<tabhead>
 			<tab class='{{#if active_id === "tables" }}active{{/if}}' on-click='@this.fire("activetab", "tables")'>
-				<icon-database />
+				<icon-database style="width: 15px;height: 15px;" />
 			</tab>
 		{{#tabs}}
 			{{#if .closed !== true}}
 			<tab class='{{#if .id === active_id }}active{{/if}}' on-click='@this.fire("activetab",.id)'>
 				{{.name}}
-				<i class='' on-click='closetab'><icon-x /></i>
+				<i class='' on-click='closetab'><icon-x style="width: 8px;height: 8px;line-height: 15px;" /></i>
 			</tab>
 			{{/if}}
 		{{/tabs}}
