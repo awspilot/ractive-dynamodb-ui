@@ -123,7 +123,7 @@ export default Ractive.extend({
 					ractive.refresh_tables()
 
 					// refresh leftside as well
-					window.ractive.findComponent('minitablelist').refresh_tables()
+					ractive.root.findComponent('minitablelist').refresh_tables()
 				})
 			}
 
