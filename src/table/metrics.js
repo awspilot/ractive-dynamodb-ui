@@ -101,7 +101,7 @@ export default Ractive.extend({
 				Metrics
 
 				<div style='float:right'>
-					<select value='{{interval}}'>
+					<select class="input-select" value='{{interval}}'>
 						<option value='1'>Last hour</option>
 						<option value='3'>Last 3 hours</option>
 						<option value='6'>Last 6 hours</option>

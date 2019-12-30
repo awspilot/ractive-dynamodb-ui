@@ -17,14 +17,14 @@ export default Ractive.extend({
 			<table width='100%' style='border-collapse: separate;border-spacing: 5px;'>
 				<tr>
 					<td>
-						<select value='{{ .type }}'>
+						<select class="input-select" value='{{ .type }}'>
 							<option value='scan'>SCAN</option>
 							<option value='query'>QUERY</option>
 						</select>
 					</td>
 					<td colspan='4'>
 						{{#if .type === 'scan' }}
-						<select value='{{ .scan.table }}'>
+						<select class="input-select" value='{{ .scan.table }}'>
 							<option value=''>
 								[ Table ] {{ describeTable.TableName }}: {{ @this._hash_key_name() }} ( {{ @this._hash_key_type_name() }} )
 								{{#if describeTable.KeySchema.length === 2}}
@@ -53,7 +53,7 @@ export default Ractive.extend({
 						{{/if}}
 
 						{{#if .type === 'query' }}
-						<select value='{{ .query.table }}'>
+						<select class="input-select" value='{{ .query.table }}'>
 							<option value=''>
 								[ Table ] {{ describeTable.TableName }}: {{ @this._hash_key_name() }} ( {{ @this._hash_key_type_name() }} )
 								{{#if describeTable.KeySchema.length === 2}}
@@ -88,31 +88,31 @@ export default Ractive.extend({
 					<td>Partition</td>
 					{{#if .query.table === ''  }}
 						<td>{{ _hash_key_name() }}</td>
-						<td><select><option>{{ @this._hash_key_type_name() }}</option></select></td>
+						<td><select class="input-select"><option>{{ @this._hash_key_type_name() }}</option></select></td>
 					{{/if}}
 					{{#describeTable.LocalSecondaryIndexes:j}}
 						{{#if ~/.query.table === ('lsi:' +  .IndexName)  }}
 							<td>{{ @this._lsi_hash_key_name( .IndexName ) }}</td>
-							<td><select><option>{{ @this._lsi_hash_key_type_name( .IndexName ) }}</option></select></td>
+							<td><select class="input-select"><option>{{ @this._lsi_hash_key_type_name( .IndexName ) }}</option></select></td>
 						{{/if}}
 					{{/describeTable.LocalSecondaryIndexes}}
 					{{#describeTable.GlobalSecondaryIndexes:j}}
 						{{#if ~/.query.table === ('gsi:' +  .IndexName)  }}
 							<td>{{ @this._gsi_hash_key_name( .IndexName ) }}</td>
-							<td><select><option>{{ @this._gsi_hash_key_type_name( .IndexName ) }}</option></select></td>
+							<td><select class="input-select"><option>{{ @this._gsi_hash_key_type_name( .IndexName ) }}</option></select></td>
 						{{/if}}
 					{{/describeTable.GlobalSecondaryIndexes}}
-					<td><select><option>=</option></select></td>
-					<td><input type='text' value='{{.query.partition.value}}'></td>
+					<td><select class="input-select"><option>=</option></select></td>
+					<td><input class="input-text" type='text' value='{{.query.partition.value}}'></td>
 				</tr>
 				{{#if .query.table === ''  }}
 					{{#if describeTable.KeySchema.length === 2}}
 					<tr>
 						<td>Sort</td>
 						<td>{{ @this._range_key_name() }}</td>
-						<td><select><option>{{ @this._range_key_type_name( ) }}</option></select></td>
+						<td><select class="input-select"><option>{{ @this._range_key_type_name( ) }}</option></select></td>
 						<td>
-							<select value='{{ ~/query.sort.op }}'>
+							<select class="input-select" value='{{ ~/query.sort.op }}'>
 								<option value='eq'>=</option>
 								<option value='gt'>&gt;</option>
 								<option value='ge'>&gt;=</option>
@@ -125,9 +125,9 @@ export default Ractive.extend({
 							</select>
 						</td>
 						<td>
-							<input type='text' value='{{ ~/query.sort.value }}'>
+							<input class="input-text" type='text' value='{{ ~/query.sort.value }}'>
 							{{#if ~/query.sort.op === 'between' }}
-								<input type='text' value='{{ ~/query.sort.value2 }}'>
+								<input class="input-text" type='text' value='{{ ~/query.sort.value2 }}'>
 							{{/if}}
 						</td>
 					</tr>
@@ -139,9 +139,9 @@ export default Ractive.extend({
 						<tr>
 							<td>Sort</td>
 							<td>{{ @this._gsi_range_key_name( .IndexName ) }}</td>
-							<td><select><option>{{ @this._gsi_range_key_type_name( .IndexName ) }}</option></select></td>
+							<td><select class="input-select"><option>{{ @this._gsi_range_key_type_name( .IndexName ) }}</option></select></td>
 							<td>
-								<select value='{{ ~/query.sort.op }}'>
+								<select class="input-select" value='{{ ~/query.sort.op }}'>
 									<option value='eq'>=</option>
 									<option value='gt'>&gt;</option>
 									<option value='ge'>&gt;=</option>
@@ -154,9 +154,9 @@ export default Ractive.extend({
 								</select>
 							</td>
 							<td>
-								<input type='text' value='{{ ~/query.sort.value }}'>
+								<input class="input-text" type='text' value='{{ ~/query.sort.value }}'>
 								{{#if ~/query.sort.op === 'between' }}
-									<input type='text' value='{{ ~/query.sort.value2 }}'>
+									<input class="input-text" type='text' value='{{ ~/query.sort.value2 }}'>
 								{{/if}}
 							</td>
 						</tr>
@@ -169,9 +169,9 @@ export default Ractive.extend({
 						<tr>
 							<td>Sort</td>
 							<td>{{ @this._lsi_range_key_name( .IndexName ) }}</td>
-							<td><select><option>{{ @this._lsi_range_key_type_name( .IndexName ) }}</option></select></td>
+							<td><select class="input-select"><option>{{ @this._lsi_range_key_type_name( .IndexName ) }}</option></select></td>
 							<td>
-								<select value='{{ ~/query.sort.op }}'>
+								<select class="input-select" value='{{ ~/query.sort.op }}'>
 									<option value='eq'>=</option>
 									<option value='gt'>&gt;</option>
 									<option value='ge'>&gt;=</option>
@@ -184,9 +184,9 @@ export default Ractive.extend({
 								</select>
 							</td>
 							<td>
-								<input type='text' value='{{ ~/query.sort.value }}'>
+								<input class="input-text" type='text' value='{{ ~/query.sort.value }}'>
 								{{#if ~/query.sort.op === 'between' }}
-									<input type='text' value='{{ ~/query.sort.value2 }}'>
+									<input class="input-text" type='text' value='{{ ~/query.sort.value2 }}'>
 								{{/if}}
 							</td>
 						</tr>
@@ -214,7 +214,7 @@ export default Ractive.extend({
 					</button>
 					<div class='dropdown-menu pull-right {{#if drowndownfilteropen}}show{{/if}}' style='max-height: 250px;overflow-y: auto;'>
 						{{#display_columns}}
-							<li><a> <input type=checkbox checked='{{.show}}' />  {{.name}}</a>
+							<li><a> <input class="input-checkbox" type=checkbox checked='{{.show}}' />  {{.name}}</a>
 						{{/display_columns}}
 
 					</div>

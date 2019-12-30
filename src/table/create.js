@@ -16,13 +16,13 @@ export default Ractive.extend({
 				<table style='border-collapse: separate;border-spacing: 10px;'>
 					<tr>
 						<td>Table name</td>
-						<td><input type='text' value='{{newtable.TableName}}' on-focus='focus'></td>
+						<td><input class="input-text" type='text' value='{{newtable.TableName}}' on-focus='focus'></td>
 					</tr>
 					<tr>
 						<td>Partition key</td>
-						<td><input type='text' value='{{ newtable.AttributeDefinitions.0.AttributeName }}'></td>
+						<td><input class="input-text" type='text' value='{{ newtable.AttributeDefinitions.0.AttributeName }}'></td>
 						<td>
-							<select value='{{ newtable.AttributeDefinitions.0.AttributeType }}' on-focus='focus'>
+							<select class="input-select" value='{{ newtable.AttributeDefinitions.0.AttributeType }}' on-focus='focus'>
 								<option value='S'>String</option>
 								<option value='N'>Number</option>
 								<option value='B'>Binary</option>
@@ -31,14 +31,14 @@ export default Ractive.extend({
 					</tr>
 					<tr>
 						<td></td>
-						<td><input type='checkbox' checked='{{newtable.sort_enabled}}' />Add sort key</td>
+						<td><input class="input-checkbox" type='checkbox' checked='{{newtable.sort_enabled}}' />Add sort key</td>
 					</tr>
 					{{#if newtable.sort_enabled}}
 					<tr>
 						<td>Sort key</td>
-						<td><input type='text' value='{{newtable.sort_key_name}}' on-focus='focus'></td>
+						<td><input class="input-text" type='text' value='{{newtable.sort_key_name}}' on-focus='focus'></td>
 						<td>
-							<select value='{{ newtable.sort_key_type}}' on-focus='focus'>
+							<select class="input-select" class="input-select" value='{{ newtable.sort_key_type}}' on-focus='focus'>
 								<option value='S'>String</option>
 								<option value='N'>Number</option>
 								<option value='B'>Binary</option>
@@ -61,9 +61,9 @@ export default Ractive.extend({
 					</tr>
 					{{#newtable.LocalSecondaryIndexes:i}}
 					<tr style='background-color: #ffefef'>
-						<td><input type='text' value='{{.IndexName}}' on-focus='focus' /></td>
+						<td><input class="input-text" type='text' value='{{.IndexName}}' on-focus='focus' /></td>
 						<td>LSI</td>
-						<td><input type='text' value='{{ newtable.AttributeDefinitions.0.AttributeName }}' disabled> (
+						<td><input class="input-text" type='text' value='{{ newtable.AttributeDefinitions.0.AttributeName }}' disabled> (
 							{{#if newtable.AttributeDefinitions.0.AttributeType === 'S' }}String{{/if}}
 							{{#if newtable.AttributeDefinitions.0.AttributeType === 'N' }}Number{{/if}}
 							{{#if newtable.AttributeDefinitions.0.AttributeType === 'B' }}Binary{{/if}}
@@ -71,8 +71,8 @@ export default Ractive.extend({
 						<td>
 							{{#.KeySchema }}
 								{{#if .KeyType === 'RANGE'}}
-									<input type='text' value='{{ .AttributeName }}' />
-									<select value='{{ .AttributeType }}'>
+									<input class="input-text" type='text' value='{{ .AttributeName }}' />
+									<select class="input-select" value='{{ .AttributeType }}'>
 										<option value='S'>String</option>
 										<option value='N'>Number</option>
 										<option value='B'>Binary</option>
@@ -81,7 +81,7 @@ export default Ractive.extend({
 							{{/.KeySchema }}
 						</td>
 						<td>
-							<select value='{{.Projection.ProjectionType}}'>
+							<select class="input-select" value='{{.Projection.ProjectionType}}'>
 								<option value='ALL'>ALL</option>
 								<option value='KEYS_ONLY'>KEYS_ONLY</option>
 								<option value='INCLUDE'>INCLUDE</option>
@@ -94,7 +94,7 @@ export default Ractive.extend({
 								<span class='badge badge-info'>{{.}}</span><br>
 							{{/.Projection.NonKeyAttributes}}
 
-							<input type='text' value='{{ ~/nonkeyattribute }}' /><a class='btn btn-xs btn-primary' on-click='add-nonkey-attribute'> <icon-plus /> </a>
+							<input class="input-text" type='text' value='{{ ~/nonkeyattribute }}' /><a class='btn btn-xs btn-primary' on-click='add-nonkey-attribute'> <icon-plus /> </a>
 
 							{{/if}}
 						</td>
@@ -107,13 +107,13 @@ export default Ractive.extend({
 
 					{{#newtable.GlobalSecondaryIndexes:i}}
 					<tr style='background-color: #ffefef'>
-						<td><input type='text' value='{{.IndexName}}' on-focus='focus' /></td>
+						<td><input class="input-text" type='text' value='{{.IndexName}}' on-focus='focus' /></td>
 						<td>GSI</td>
 						<td>
 							{{#.KeySchema }}
 								{{#if .KeyType === 'HASH'}}
-									<input type='text' value='{{ .AttributeName }}' />
-									<select value='{{ .AttributeType }}'>
+									<input class="input-text" type='text' value='{{ .AttributeName }}' />
+									<select class="input-select" value='{{ .AttributeType }}'>
 										<option value='S'>String</option>
 										<option value='N'>Number</option>
 										<option value='B'>Binary</option>
@@ -124,8 +124,8 @@ export default Ractive.extend({
 						<td>
 							{{#.KeySchema }}
 								{{#if .KeyType === 'RANGE'}}
-									<input type='text' value='{{ .AttributeName }}' />
-									<select value='{{ .AttributeType }}'>
+									<input class="input-text" type='text' value='{{ .AttributeName }}' />
+									<select class="input-select" value='{{ .AttributeType }}'>
 										<option value='S'>String</option>
 										<option value='N'>Number</option>
 										<option value='B'>Binary</option>
@@ -134,7 +134,7 @@ export default Ractive.extend({
 							{{/.KeySchema }}
 						</td>
 						<td>
-							<select value='{{.Projection.ProjectionType}}'>
+							<select class="input-select" value='{{.Projection.ProjectionType}}'>
 								<option value='ALL'>ALL</option>
 								<option value='KEYS_ONLY'>KEYS_ONLY</option>
 								<option value='INCLUDE'>INCLUDE</option>
@@ -147,7 +147,7 @@ export default Ractive.extend({
 								<span class='badge badge-info'>{{.}}</span><br>
 							{{/.Projection.NonKeyAttributes}}
 
-							<input type='text' value='{{ ~/nonkeyattribute }}' /><a class='btn btn-xs btn-primary' on-click='add-nonkey-attribute'> <icon-plus /> </a>
+							<input class="input-text" type='text' value='{{ ~/nonkeyattribute }}' /><a class='btn btn-xs btn-primary' on-click='add-nonkey-attribute'> <icon-plus /> </a>
 
 							{{/if}}
 						</td>
@@ -174,8 +174,8 @@ export default Ractive.extend({
 				<table style='border-collapse: separate;border-spacing: 10px;'>
 					<tr>
 						<td></td>
-						<td><input type='radio' name='{{newtable.BillingMode}}' value='PROVISIONED'> Provisioned</td>
-						<td><input type='radio' name='{{newtable.BillingMode}}' value='PAY_PER_REQUEST'> On-demand</td>
+						<td><input class="input-radio" type='radio' name='{{newtable.BillingMode}}' value='PROVISIONED'> Provisioned</td>
+						<td><input class="input-radio" type='radio' name='{{newtable.BillingMode}}' value='PAY_PER_REQUEST'> On-demand</td>
 					</tr>
 				</table>
 
@@ -193,14 +193,14 @@ export default Ractive.extend({
 					</tr>
 					<tr>
 						<td>Table</td>
-						<td><input type='text' value='{{newtable.ProvisionedThroughput.ReadCapacityUnits}}'  size='4' on-focus='focus' /></td>
-						<td><input type='text' value='{{newtable.ProvisionedThroughput.WriteCapacityUnits}}' size='4' on-focus='focus' /></td>
+						<td><input class="input-text" type='text' value='{{newtable.ProvisionedThroughput.ReadCapacityUnits}}'  size='4' on-focus='focus' /></td>
+						<td><input class="input-text" type='text' value='{{newtable.ProvisionedThroughput.WriteCapacityUnits}}' size='4' on-focus='focus' /></td>
 					</tr>
 					{{#newtable.GlobalSecondaryIndexes:i}}
 					<tr>
 						<td>{{.IndexName}} ( GSI )</td>
-						<td><input type='text' value='{{.ProvisionedThroughput.ReadCapacityUnits}}'  size='4' on-focus='focus' /></td>
-						<td><input type='text' value='{{.ProvisionedThroughput.WriteCapacityUnits}}' size='4' on-focus='focus' /></td>
+						<td><input class="input-text" type='text' value='{{.ProvisionedThroughput.ReadCapacityUnits}}'  size='4' on-focus='focus' /></td>
+						<td><input class="input-text" type='text' value='{{.ProvisionedThroughput.WriteCapacityUnits}}' size='4' on-focus='focus' /></td>
 					</tr>
 					{{/newtable.GlobalSecondaryIndexes}}
 				</table>

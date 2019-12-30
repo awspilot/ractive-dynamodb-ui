@@ -13,10 +13,10 @@ export default Ractive.extend({
 							<tr>
 								<td align='right' width='350'><b>View type</b></td>
 								<td>
-									<input type='radio' name='{{NewStreamViewType}}' value='KEYS_ONLY'>	Keys only - only the key attributes of the modified item<br>
-									<input type='radio' name='{{NewStreamViewType}}' value='NEW_IMAGE'>	New image - the entire item, as it appears after it was modified<br>
-									<input type='radio' name='{{NewStreamViewType}}' value='OLD_IMAGE'>	Old image - the entire item, as it appeared before it was modified<br>
-									<input type='radio' name='{{NewStreamViewType}}' value='NEW_AND_OLD_IMAGES'> New and old images - both the new and the old images of the item<br>
+									<input class="input-radio" type='radio' name='{{NewStreamViewType}}' value='KEYS_ONLY'>	Keys only - only the key attributes of the modified item<br>
+									<input class="input-radio" type='radio' name='{{NewStreamViewType}}' value='NEW_IMAGE'>	New image - the entire item, as it appears after it was modified<br>
+									<input class="input-radio" type='radio' name='{{NewStreamViewType}}' value='OLD_IMAGE'>	Old image - the entire item, as it appeared before it was modified<br>
+									<input class="input-radio" type='radio' name='{{NewStreamViewType}}' value='NEW_AND_OLD_IMAGES'> New and old images - both the new and the old images of the item<br>
 								</td>
 							</tr>
 							<tr>
@@ -151,7 +151,7 @@ export default Ractive.extend({
 							<td>
 								{{#if TimeToLiveDescription}}
 									{{#if TimeToLiveDescriptionEditing}}
-										TTL attribute <input type='text' value='{{TimeToLiveDescriptionNewField}}'> <a class='btn btn-xs btn-primary' on-click='update-ttl'>Save</a>
+										TTL attribute <input class="input-text" type='text' value='{{TimeToLiveDescriptionNewField}}'> <a class='btn btn-xs btn-primary' on-click='update-ttl'>Save</a>
 									{{else}}
 										{{#if TimeToLiveDescriptionErr}}
 											Error {{TimeToLiveDescriptionErr.errorMessage}}

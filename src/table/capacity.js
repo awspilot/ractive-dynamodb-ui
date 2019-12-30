@@ -14,8 +14,8 @@ export default Ractive.extend({
 						<a href="DynamoDB Developer Guide">DynamoDB Developer Guide</a> to learn more.
 				</p>
 				Read/write capacity mode can be changed later.<br>
-				<input type="radio" name={{localDescribeTable.BillingModeSummary.BillingMode}} value="PROVISIONED"> Provisioned (free-tier eligible)<br>
-				<input type="radio" name={{localDescribeTable.BillingModeSummary.BillingMode}} value="PAY_PER_REQUEST">On-demand<br>
+				<input class="input-radio" type="radio" name={{localDescribeTable.BillingModeSummary.BillingMode}} value="PROVISIONED"> Provisioned (free-tier eligible)<br>
+				<input class="input-radio" type="radio" name={{localDescribeTable.BillingModeSummary.BillingMode}} value="PAY_PER_REQUEST">On-demand<br>
 
 				<h3>
 					Provisioned capacity
@@ -37,14 +37,14 @@ export default Ractive.extend({
 								</tr>
 								<tr>
 									<td>Table</td>
-									<td><input type='text' size='4' value='{{localDescribeTable.ProvisionedThroughput.ReadCapacityUnits}}' on-focus='focus' /></td>
-									<td><input type='text' size='4' value='{{localDescribeTable.ProvisionedThroughput.WriteCapacityUnits}}' on-focus='focus' /></td>
+									<td><input class="input-text" type='text' size='4' value='{{localDescribeTable.ProvisionedThroughput.ReadCapacityUnits}}' on-focus='focus' /></td>
+									<td><input class="input-text" type='text' size='4' value='{{localDescribeTable.ProvisionedThroughput.WriteCapacityUnits}}' on-focus='focus' /></td>
 								</tr>
 								{{#localDescribeTable.GlobalSecondaryIndexes}}
 								<tr>
 									<td>{{ .IndexName }}</td>
-									<td><input type='text' size='4' value='{{.ProvisionedThroughput.ReadCapacityUnits}}' on-focus='focus' /></td>
-									<td><input type='text' size='4' value='{{.ProvisionedThroughput.WriteCapacityUnits}}' on-focus='focus' /></td>
+									<td><input class="input-text" type='text' size='4' value='{{.ProvisionedThroughput.ReadCapacityUnits}}' on-focus='focus' /></td>
+									<td><input class="input-text" type='text' size='4' value='{{.ProvisionedThroughput.WriteCapacityUnits}}' on-focus='focus' /></td>
 								</tr>
 								{{/localDescribeTable.GlobalSecondaryIndexes}}
 							</table>

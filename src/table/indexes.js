@@ -12,7 +12,7 @@ export default Ractive.extend({
 				<table cellpadding='10' border='0'>
 					<tr style='background-color: #ffefef'>
 						<td style='background-color: #eadfdf'>Name</td>
-						<td><input type='text' value='{{newindex.IndexName}}' on-focus='focus' /></td>
+						<td><input class="input-text" type='text' value='{{newindex.IndexName}}' on-focus='focus' /></td>
 					</tr>
 					<tr style='background-color: #ffefef'>
 						<td style='background-color: #eadfdf'>Type</td>
@@ -21,8 +21,8 @@ export default Ractive.extend({
 					<tr style='background-color: #ffefef'>
 						<td style='background-color: #eadfdf'>Partition key</td>
 						<td>
-							<input type='text' value='{{ newindex.KeySchema.0.AttributeName }}' on-focus='focus' />
-							<select value='{{ newindex.KeySchema.0.AttributeType }}'>
+							<input class="input-text" type='text' value='{{ newindex.KeySchema.0.AttributeName }}' on-focus='focus' />
+							<select class="input-select" value='{{ newindex.KeySchema.0.AttributeType }}'>
 								<option value='S'>String</option>
 								<option value='N'>Number</option>
 								<option value='B'>Binary</option>
@@ -32,8 +32,8 @@ export default Ractive.extend({
 					<tr style='background-color: #ffefef'>
 						<td style='background-color: #eadfdf'>Sort key</td>
 						<td>
-							<input type='text' value='{{ newindex.KeySchema.1.AttributeName }}' on-focus='focus' />
-							<select value='{{ newindex.KeySchema.1.AttributeType }}'>
+							<input class="input-text" type='text' value='{{ newindex.KeySchema.1.AttributeName }}' on-focus='focus' />
+							<select class="input-select" value='{{ newindex.KeySchema.1.AttributeType }}'>
 								<option value='S'>String</option>
 								<option value='N'>Number</option>
 								<option value='B'>Binary</option>
@@ -43,7 +43,7 @@ export default Ractive.extend({
 					<tr style='background-color: #ffefef'>
 						<td style='background-color: #eadfdf'>Projection type</td>
 						<td>
-							<select value='{{ newindex.Projection.ProjectionType}}'>
+							<select class="input-select" value='{{ newindex.Projection.ProjectionType}}'>
 								<option value='ALL'>ALL</option>
 								<option value='KEYS_ONLY'>KEYS_ONLY</option>
 								<option value='INCLUDE'>INCLUDE</option>
@@ -60,7 +60,7 @@ export default Ractive.extend({
 								<span class='badge badge-info'>{{.}}</span><br>
 							{{/newindex.Projection.NonKeyAttributes}}
 
-							<input type='text' value='{{ ~/nonkeyattribute }}' on-focus='focus' /><a class='btn btn-xs btn-primary' on-click='add-nonkey-attribute'> <icon-plus /></a>
+							<input class="input-text" type='text' value='{{ ~/nonkeyattribute }}' on-focus='focus' /><a class='btn btn-xs btn-primary' on-click='add-nonkey-attribute'> <icon-plus /></a>
 
 							{{/if}}
 						</td>
@@ -69,13 +69,13 @@ export default Ractive.extend({
 					<tr style='background-color: #ffefef'>
 						<td style='background-color: #eadfdf'>Read capacity</td>
 						<td>
-							<input type='text' value='{{ newindex.ProvisionedThroughput.ReadCapacityUnits }}'  size='4' on-focus='focus' />
+							<input class="input-text" type='text' value='{{ newindex.ProvisionedThroughput.ReadCapacityUnits }}'  size='4' on-focus='focus' />
 						</td>
 					</tr>
 					<tr style='background-color: #ffefef'>
 						<td style='background-color: #eadfdf'>Write capacity</td>
 						<td>
-							<input type='text' value='{{ newindex.ProvisionedThroughput.WriteCapacityUnits}}' size='4' on-focus='focus' />
+							<input class="input-text" type='text' value='{{ newindex.ProvisionedThroughput.WriteCapacityUnits}}' size='4' on-focus='focus' />
 						</td>
 					</tr>
 
