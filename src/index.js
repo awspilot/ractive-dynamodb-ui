@@ -1,17 +1,7 @@
-<style>
 
-</style>
 
-<hsplit style='' class='ractive-dynamodb-ui'>
-	<left>
-		<minitablelist />
-	</left>
-	<content>
-		<tabs active_id='tables' />
-	</content>
-</hsplit>
 
-<script>
+
 
 	import "./css/style.less";
 	import Ractive from 'ractive';
@@ -36,7 +26,16 @@
 
 
 	export default Ractive.extend({
-		template: $TEMPLATE,
+		template: `
+			<hsplit style='' class='ractive-dynamodb-ui'>
+				<left>
+					<minitablelist />
+				</left>
+				<content>
+					<tabs active_id='tables' />
+				</content>
+			</hsplit>
+		`,
 		components: {
 			hsplit: hsplit,
 			minitablelist: minitablelist,
@@ -89,4 +88,3 @@
 				}
 		},
 	});
-</script>
