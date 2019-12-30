@@ -4,7 +4,7 @@
 	"description": "ractivejs component to manage dynamodb tables",
 	"main": "dist/ractive-dynamodb-ui.min.js",
 	"scripts": {
-		"start": "webpack -w & node_modules/node-static/bin/cli.js -p 8888",
+		"start": "webpack-dev-server --config webpack.dev.js --open",
 		"build": "webpack",
 		"watch": "webpack --config webpack.config.js --watch"
 	},
@@ -31,7 +31,10 @@
 		"webpack": "^4.41.0",
 		"webpack-cli": "^3.3.9",
 
-		"node-static": "^0.7.11"
+		"node-static": "^0.7.11",
+
+		"webpack-dev-server": "^3.10.1"
+
 
 	},
 	"dependencies": {
