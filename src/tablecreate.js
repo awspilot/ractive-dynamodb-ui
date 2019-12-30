@@ -94,12 +94,12 @@ export default Ractive.extend({
 								<span class='badge badge-info'>{{.}}</span><br>\
 							{{/.Projection.NonKeyAttributes}}\
 \
-							<input type='text' value='{{ ~/nonkeyattribute }}' /><a class='btn btn-xs btn-primary' on-click='add-nonkey-attribute'><i class='icon zmdi zmdi-plus'></i></a>\
+							<input type='text' value='{{ ~/nonkeyattribute }}' /><a class='btn btn-xs btn-primary' on-click='add-nonkey-attribute'> <icon-plus /> </a>\
 \
 							{{/if}}\
 						</td>\
 						<td>\
-							<a class='btn btn-xs btn-danger' on-click='lsi-delete'><i class='zmdi zmdi-delete'></i></a>\
+							<a class='btn btn-xs btn-danger' on-click='lsi-delete'> <icon-trash /> </a>\
 						</td>\
 					</tr>\
 					{{/newtable.LocalSecondaryIndexes}}\
@@ -147,12 +147,12 @@ export default Ractive.extend({
 								<span class='badge badge-info'>{{.}}</span><br>\
 							{{/.Projection.NonKeyAttributes}}\
 \
-							<input type='text' value='{{ ~/nonkeyattribute }}' /><a class='btn btn-xs btn-primary' on-click='add-nonkey-attribute'><i class='icon zmdi zmdi-plus'></i></a>\
+							<input type='text' value='{{ ~/nonkeyattribute }}' /><a class='btn btn-xs btn-primary' on-click='add-nonkey-attribute'> <icon-plus /> </a>\
 \
 							{{/if}}\
 						</td>\
 						<td>\
-							<a class='btn btn-xs btn-danger' on-click='gsi-delete'><i class='zmdi zmdi-delete'></i></a>\
+							<a class='btn btn-xs btn-danger' on-click='gsi-delete'> <icon-trash /> </a>\
 						</td>\
 					</tr>\
 					{{/newtable.GlobalSecondaryIndexes}}\
