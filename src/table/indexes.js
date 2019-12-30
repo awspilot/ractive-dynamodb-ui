@@ -60,7 +60,7 @@ export default Ractive.extend({
 								<span class='badge badge-info'>{{.}}</span><br>
 							{{/newindex.Projection.NonKeyAttributes}}
 
-							<input type='text' value='{{ ~/nonkeyattribute }}' on-focus='focus' /><a class='btn btn-xs btn-primary' on-click='add-nonkey-attribute'><i class='icon zmdi zmdi-plus'></i></a>
+							<input type='text' value='{{ ~/nonkeyattribute }}' on-focus='focus' /><a class='btn btn-xs btn-primary' on-click='add-nonkey-attribute'> <icon-plus /></a>
 
 							{{/if}}
 						</td>
@@ -92,7 +92,7 @@ export default Ractive.extend({
 					<a class='btn btn-sm btn-primary' on-click='create'>Create index</a>
 					<a class='btn btn-sm btn-default' on-click='delete'>Delete index</a>
 
-					<a class='btn btn-sm btn-default pull-right' on-click='refresh-table'><i class='icon zmdi zmdi-refresh'></i></a>
+					<a class='btn btn-sm btn-default pull-right' on-click='refresh-table'> <icon-refresh /> </a>
 				</div>
 				<tabledata columns='{{columns}}' rows='{{rows}}' style='top: 128px'/>
 			{{/if}}
