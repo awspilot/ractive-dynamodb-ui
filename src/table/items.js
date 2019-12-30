@@ -199,18 +199,18 @@ export default Ractive.extend({
 
 		</div>
 		<div class='tabledatacontrols'>
-			<div class='btn btn-xs btn-default {{#if oop_running}}disabled{{/if}}' on-click='run-oop' style='padding-right: 10px;'><i class='zmdi zmdi-hc-fw zmdi-play'></i> RUN</div>
-			<div class='btn btn-xs btn-default {{#if prev_running}}disabled{{/if}} {{#if start_reached }}disabled{{/if}}' on-click='prev'><i class='zmdi zmdi-hc-fw zmdi-chevron-left'></i></div>
-			<div class='btn btn-xs btn-default {{#if next_running}}disabled{{/if}} {{#if end_reached   }}disabled{{/if}}' on-click='next'><i class='zmdi zmdi-hc-fw zmdi-chevron-right'></i></div>
+			<div class='btn btn-xs btn-default {{#if oop_running}}disabled{{/if}}' on-click='run-oop' style='padding-right: 10px;'> <icon-play /> RUN</div>
+			<div class='btn btn-xs btn-default {{#if prev_running}}disabled{{/if}} {{#if start_reached }}disabled{{/if}}' on-click='prev'> <icon-prev /> </div>
+			<div class='btn btn-xs btn-default {{#if next_running}}disabled{{/if}} {{#if end_reached   }}disabled{{/if}}' on-click='next'> <icon-next /> </div>
 
 			<div class='pull-right'>
-				<a class='btn btn-xs btn-default' on-click='refresh'><i class='zmdi zmdi-hc-fw zmdi-refresh'></i></a>
+				<a class='btn btn-xs btn-default' on-click='refresh'> <icon-refresh /> </a>
 				<div class='btn-group'>
 					<button class='btn btn-default btn-xs' type='button'>
-						<i class='zmdi zmdi-filter-list'></i>
+						<icon-filter />
 					</button>
 					<button type='button' class='btn btn-xs btn-default dropdown-toggle dropdown-toggle-split' on-click='@this.toggle("drowndownfilteropen")'>
-						<i class='zmdi zmdi-caret-down'></i>
+						<icon-caret-down />
 					</button>
 					<div class='dropdown-menu pull-right {{#if drowndownfilteropen}}show{{/if}}' style='max-height: 250px;overflow-y: auto;'>
 						{{#display_columns}}
@@ -219,8 +219,8 @@ export default Ractive.extend({
 
 					</div>
 				</div>
-				<a class='btn btn-xs btn-primary' on-click='create-item-window'  ><i class='zmdi zmdi-plus'></i> Create Item </a>
-				<a class='btn btn-xs btn-danger {{#if selection_length > 0}}{{else}}disabled{{/if}}'  on-click='delete-selected' ><i class='zmdi zmdi-hc-fw zmdi-delete'></i></a>
+				<a class='btn btn-xs btn-primary' on-click='create-item-window'  > Create Item </a>
+				<a class='btn btn-xs btn-danger {{#if selection_length > 0}}{{else}}disabled{{/if}}'  on-click='delete-selected' > <icon-trash /> </a>
 			</div>
 		</div>
 		<tabledata columns='{{columns}}' rows='{{rows}}' on-colclick='open-item' style='top: 148px'/>
