@@ -49,6 +49,25 @@ module.exports = {
 	module: {
 		rules: [
 			{
+				test: /\.less$/,
+				use: [
+					{
+						loader: 'style-loader', // creates style nodes from JS strings
+					},
+					{
+						loader: 'css-loader', // translates CSS into CommonJS
+					},
+					{
+						loader: 'less-loader', // compiles Less to CSS
+						// options: {
+						//	paths: [path.resolve(__dirname, 'node_modules')],
+						// 	strictMath: true,
+						// 	noIeCompat: true,
+						// },
+					},
+				],
+			},
+			{
 				test: /\.js$/,
 				exclude: /(node_modules|bower_components)/,
 				use: 'babel-loader'
