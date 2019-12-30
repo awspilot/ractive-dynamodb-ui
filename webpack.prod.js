@@ -1,10 +1,19 @@
 const webpack = require('webpack');
 const path = require('path');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
 	node: false,
 	mode: 'production',
+	// devtool:
+	devServer: {
+		//contentBase: path.join(__dirname, 'demo'),
+		//compress: true,
+		port: 8889,
+		writeToDisk: true,
+	},
+
 	target: 'web',
 	context: path.resolve(__dirname, 'src'),
 	optimization: {
@@ -15,11 +24,10 @@ module.exports = {
 			include: /\.min\.js$/
 		})]
 	},
-	plugins: [
-	],
+
 	entry: {
-		'ractive-dynamodb-ui': path.resolve(__dirname, './src/index.ractive.html'),
-		'ractive-dynamodb-ui.min': path.resolve(__dirname, './src/index.ractive.html')
+		'ractive-dynamodb-ui': path.resolve(__dirname, './src/index.js'),
+		'ractive-dynamodb-ui.min': path.resolve(__dirname, './src/index.js')
 	},
 	output: {
 		path: path.resolve(__dirname, 'dist'),
@@ -39,8 +47,33 @@ module.exports = {
 			root: 'Ractive'
 		}
 	},
+	plugins: [
+		new MiniCssExtractPlugin({ filename: "[name].css" }) // { filename: "[name].[contentHash].css" }
+	],
 	module: {
 		rules: [
+			{
+				test: /\.less$/,
+				use: [
+					MiniCssExtractPlugin.loader, // extract css into files
+
+					// {
+					// 	loader: 'style-loader', // creates style nodes from JS strings
+					// },
+
+					{
+						loader: 'css-loader', // translates CSS into CommonJS
+					},
+					{
+						loader: 'less-loader', // compiles Less to CSS
+						// options: {
+						//	paths: [path.resolve(__dirname, 'node_modules')],
+						// 	strictMath: true,
+						// 	noIeCompat: true,
+						// },
+					},
+				],
+			},
 			{
 				test: /\.js$/,
 				exclude: /(node_modules|bower_components)/,

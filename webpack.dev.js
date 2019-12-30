@@ -26,12 +26,12 @@ module.exports = {
 	},
 
 	entry: {
-		'ractive-dynamodb-ui': path.resolve(__dirname, './src/index.ractive.html'),
-		'ractive-dynamodb-ui.min': path.resolve(__dirname, './src/index.ractive.html')
+		'ractive-dynamodb-ui': path.resolve(__dirname, './src/index.js'),
+		'ractive-dynamodb-ui.min': path.resolve(__dirname, './src/index.js')
 	},
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-		filename: '[name].js',
+		filename: '[name].dev.js',
 		library: 'ractive-dynamodb-ui',
 
 		// var, this, window, umd , amd, commonjs, global
@@ -48,7 +48,7 @@ module.exports = {
 		}
 	},
 	plugins: [
-		new MiniCssExtractPlugin() // { filename: "[name].[contentHash].css" }
+		new MiniCssExtractPlugin({ filename: "[name].dev.css" }) // { filename: "[name].[contentHash].css" }
 	],
 	module: {
 		rules: [
