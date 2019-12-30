@@ -405,7 +405,7 @@ export default Ractive.extend({
 					ractive.set( 'errorMessage', err.message )
 					return
 				}
-				window.ractive.findComponent('minitablelist').refresh_tables()
+				ractive.root.findComponent('minitablelist').refresh_tables()
 
 				// fulltablelist does not exist
 				//ractive.root.findComponent('tablelist').refresh_tables()
