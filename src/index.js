@@ -8,10 +8,11 @@
 	import minitablelist from './minitablelist';
 
 	var ddb;
-	var DynamodbFactory;
+	//var DynamodbFactory;
 
-	var DynamodbFactory = window['@awspilot/dynamodb']
-	//var DynamodbFactory = require('@awspilot/dynamodb')
+	//var DynamodbFactory = window['@awspilot/dynamodb']
+	var DynamodbFactory = require('@awspilot/dynamodb')
+	//import DynamodbFactory from '@awspilot/dynamodb';
 
 	import tabs from './tabs';
 

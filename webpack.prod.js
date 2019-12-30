@@ -5,6 +5,9 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
 	node: false,
+	node: {
+		fs: 'empty'
+	},
 	mode: 'production',
 	// devtool:
 	devServer: {
@@ -45,7 +48,18 @@ module.exports = {
 			commonjs2: 'ractive', // require + module.exports - used by nodejs
 			amd: 'ractive',
 			root: 'Ractive'
-		}
+		},
+		'@awspilot/dynamodb': {
+			'commonjs': '@awspilot/dynamodb',
+			'commonjs2': '@awspilot/dynamodb',
+			root: 'ractive-dynamodb-ui',
+		},
+		"aws-sdk": {
+				commonjs: 'AWS',
+				commonjs2: 'AWS',
+				amd: 'AWS',
+				root: 'AWS'
+		},
 	},
 	plugins: [
 		new MiniCssExtractPlugin({ filename: "[name].css" }) // { filename: "[name].[contentHash].css" }
