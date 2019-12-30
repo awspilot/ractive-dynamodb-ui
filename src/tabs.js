@@ -1,6 +1,6 @@
 
 import tablelistfull from './tablelistfull';
-import tablecreate from './tablecreate';
+import tablecreate from './table/create';
 import tabletab from './tabletab';
 
 export default Ractive.extend({
@@ -11,39 +11,39 @@ export default Ractive.extend({
 		tabletab: tabletab,
 	},
 	template:
-		"\
-		<tabhead>\
-			<tab class='{{#if active_id === \"tables\" }}active{{/if}}' on-click='@this.fire(\"activetab\", \"tables\")'>\
-				<i class='icon zmdi zmdi-view-dashboard'></i>\
-			</tab>\
-		{{#tabs}}\
-			{{#if .closed !== true}}\
-			<tab class='{{#if .id === active_id }}active{{/if}}' on-click='@this.fire(\"activetab\",.id)'>\
-				{{.name}}\
-				<i class='icon zmdi zmdi-close' on-click='closetab'></i>\
-			</tab>\
-			{{/if}}\
-		{{/tabs}}\
-		</tabhead>\
-		<tabcontent>\
-			{{#if active_id === \"tables\" }}\
-				<tablelistfull />\
-			{{else}}\
-				{{#tabs}}\
-					{{#if .closed === true}}\
-						<div class='closedtab'></div>\
-					{{else}}\
-						{{#if .type === 'tablecreate' }}\
-							<tablecreate active={{ .id === active_id  }} />\
-						{{/if}}\
-						{{#if .type === 'tabletab' }}\
-							<tabletab table={{.}} active={{ .id === active_id  }} />\
-						{{/if}}\
-					{{/if}}\
-				{{/tabs}}\
-			{{/if}}\
-		</tabcontent>\
-		",
+		`
+		<tabhead>
+			<tab class='{{#if active_id === "tables" }}active{{/if}}' on-click='@this.fire("activetab", "tables")'>
+				<icon-database />
+			</tab>
+		{{#tabs}}
+			{{#if .closed !== true}}
+			<tab class='{{#if .id === active_id }}active{{/if}}' on-click='@this.fire("activetab",.id)'>
+				{{.name}}
+				<i class='' on-click='closetab'><icon-x /></i>
+			</tab>
+			{{/if}}
+		{{/tabs}}
+		</tabhead>
+		<tabcontent>
+			{{#if active_id === "tables" }}
+				<tablelistfull />
+			{{else}}
+				{{#tabs}}
+					{{#if .closed === true}}
+						<div class='closedtab'></div>
+					{{else}}
+						{{#if .type === 'tablecreate' }}
+							<tablecreate active={{ .id === active_id  }} />
+						{{/if}}
+						{{#if .type === 'tabletab' }}
+							<tabletab table={{.}} active={{ .id === active_id  }} />
+						{{/if}}
+					{{/if}}
+				{{/tabs}}
+			{{/if}}
+		</tabcontent>
+		`,
 	data: function() { return {} },
 	active_cache: [],
 	activetabcontent: function() {
