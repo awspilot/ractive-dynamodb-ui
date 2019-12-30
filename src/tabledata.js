@@ -4,7 +4,7 @@ export default Ractive.extend({
 		<div class='tabledata' style='{{style}}'>
 			<div class='tabledatahead'>
 				{{#columns:i}}
-					<div style='width: {{#if i === 0}}22px{{else}}{{100/columns.length}}%{{/if}} '>{{.}}</div>
+					<div style='width: {{#if i === 0}}32px{{else}}{{100/columns.length}}%{{/if}} '>{{.}}</div>
 				{{/columns}}
 			</div>
 			<div class='tabledatacontent'>
@@ -29,14 +29,14 @@ export default Ractive.extend({
 						{{#if .L}}t-L{{/if}}
 						{{#if .M}}t-M{{/if}}
 						{{#if .U}}t-U{{/if}}
-						' style='width: {{#if i === 0}}22px{{else}}{{100/columns.length}}%{{/if}} '
+						' style='width: {{#if i === 0}}32px{{else}}{{100/columns.length}}%{{/if}} '
 						{{#if .HASH}}on-click='cellclick'{{/if}}
 						>
 						{{#if .KEY}}
 							{{#if .selected}}
-								<i class='zmdi selectrow zmdi-hc-fw zmdi-check-square'></i>
+								<input class='input-toggle' type='checkbox' checked>
 							{{else}}
-								<i class='zmdi selectrow zmdi-hc-fw zmdi-square-o'></i>
+								<input class='input-toggle' type='checkbox'>
 							{{/if}}
 						{{/if}}
 						{{#if .HASH}}<a>{{.HASH}}</a>{{/if}}
