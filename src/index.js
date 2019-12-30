@@ -41,7 +41,7 @@
 			minitablelist: minitablelist,
 			tabs: tabs,
 		},
-		css: $CSS,
+
 		data: function() {
 			return {}
 		},
