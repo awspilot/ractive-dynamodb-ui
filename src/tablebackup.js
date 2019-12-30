@@ -16,7 +16,7 @@ export default Ractive.extend({
 					<a class='btn btn-sm btn-default disabled' on-click='restore'>Restore backup</a>\
 					<a class='btn btn-sm btn-default disabled' on-click='delete'>Delete backup</a>\
 \
-					<a class='btn btn-sm btn-default pull-right' on-click='refresh'><i class='icon zmdi zmdi-refresh'></i></a>\
+					<a class='btn btn-sm btn-default pull-right' on-click='refresh'><icon-refresh /></a>\
 				</div>\
 \
 				<tabledata columns='{{columns}}' rows='{{rows}}' style='top: 180px'/>\
