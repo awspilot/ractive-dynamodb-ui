@@ -19,7 +19,7 @@ export default Ractive.extend({
 
 				<h3>
 					Provisioned capacity
-					<a class='btn btn-sm btn-default pull-right' on-click='refresh-table'><i class='icon zmdi zmdi-refresh'></i></a>
+					<a class='btn btn-sm btn-default pull-right' on-click='refresh-table'><icon-refresh /></a>
 				</h3>
 				<hr>
 
