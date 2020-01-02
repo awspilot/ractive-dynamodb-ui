@@ -113,8 +113,8 @@ module.exports = root;
 /* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseIsNative = __webpack_require__(70),
-    getValue = __webpack_require__(75);
+var baseIsNative = __webpack_require__(73),
+    getValue = __webpack_require__(79);
 
 /**
  * Gets the native function at `key` of `object`.
@@ -208,11 +208,11 @@ module.exports = isObjectLike;
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var listCacheClear = __webpack_require__(60),
-    listCacheDelete = __webpack_require__(61),
-    listCacheGet = __webpack_require__(62),
-    listCacheHas = __webpack_require__(63),
-    listCacheSet = __webpack_require__(64);
+var listCacheClear = __webpack_require__(63),
+    listCacheDelete = __webpack_require__(64),
+    listCacheGet = __webpack_require__(65),
+    listCacheHas = __webpack_require__(66),
+    listCacheSet = __webpack_require__(67);
 
 /**
  * Creates an list cache object.
@@ -274,8 +274,8 @@ module.exports = assocIndexOf;
 /***/ (function(module, exports, __webpack_require__) {
 
 var Symbol = __webpack_require__(12),
-    getRawTag = __webpack_require__(71),
-    objectToString = __webpack_require__(72);
+    getRawTag = __webpack_require__(75),
+    objectToString = __webpack_require__(76);
 
 /** `Object#toString` result references. */
 var nullTag = '[object Null]',
@@ -319,7 +319,7 @@ module.exports = nativeCreate;
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isKeyable = __webpack_require__(85);
+var isKeyable = __webpack_require__(89);
 
 /**
  * Gets the data for `map`.
@@ -397,58 +397,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = Ractive.extend({
 	isolated: true,
-	template: "\
-		<div class='tabledata' style='{{style}}'>\
-			<div class='tabledatahead'>\
-				{{#columns:i}}\
-					<div style='width: {{#if i === 0}}22px{{else}}{{100/columns.length}}%{{/if}} '>{{.}}</div>\
-				{{/columns}}\
-			</div>\
-			<div class='tabledatacontent'>\
-		\
-				{{#if rows.length === 0}}\
-					<br><small>Empty</small>\
-				{{/if}}\
-				{{#if rows === null }}\
-					<br><small>Loading...</small>\
-				{{/if}}\
-		\
-				{{#rows:row}}\
-				<div class='tabledatarow {{#if .[0].selected}}selected{{/if}}' on-click='selectrow'>\
-					{{#each .:i}}\
-					<div class='tabledatacell\
-						{{#if .KEY}}t-K{{/if}}\
-						{{#if .HASH}}t-HASH{{/if}}\
-						{{#if .S}}t-S{{/if}}\
-						{{#if .N}}t-N{{/if}}\
-						{{#if .BOOL}}t-BOOL{{/if}}\
-						{{#if .NULL}}t-NULL{{/if}}\
-						{{#if .L}}t-L{{/if}}\
-						{{#if .M}}t-M{{/if}}\
-						{{#if .U}}t-U{{/if}}\
-						' style='width: {{#if i === 0}}22px{{else}}{{100/columns.length}}%{{/if}} '\
-						{{#if .HASH}}on-click='cellclick'{{/if}}\
-						>\
-						{{#if .KEY}}\
-							{{#if .selected}}\
-								<i class='zmdi selectrow zmdi-hc-fw zmdi-check-square'></i>\
-							{{else}}\
-								<i class='zmdi selectrow zmdi-hc-fw zmdi-square-o'></i>\
-							{{/if}}\
-						{{/if}}\
-						{{#if .HASH}}<a>{{.HASH}}</a>{{/if}}\
-						{{#if .S}}{{.S}}{{/if}}\
-						{{#if .N}}{{.N}}{{else}}{{#if .N === 0}}0{{/if}}{{/if}}\
-						{{#if .BOOL}}{{.BOOL}}{{/if}}\
-						{{#if .NULL}}NULL{{/if}}\
-						{{#if .L}}[...]{{/if}}\
-						{{#if .M}}{...}{{/if}}\
-					</div>\
-					{{/each}}\
-				</div>\
-				{{/rows}}\
-			</div>\
-		</div>",
+	template: '\n\t\t<div class=\'tabledata\' style=\'{{style}}\'>\n\t\t\t<div class=\'tabledatahead\'>\n\t\t\t\t{{#columns:i}}\n\t\t\t\t\t<div style=\'width: {{#if i === 0}}32px{{else}}{{100/columns.length}}%{{/if}} \'>{{.}}</div>\n\t\t\t\t{{/columns}}\n\t\t\t</div>\n\t\t\t<div class=\'tabledatacontent\'>\n\n\t\t\t\t{{#if rows.length === 0}}\n\t\t\t\t\t<br><small>Empty</small>\n\t\t\t\t{{/if}}\n\t\t\t\t{{#if rows === null }}\n\t\t\t\t\t<br><small>Loading...</small>\n\t\t\t\t{{/if}}\n\n\t\t\t\t{{#rows:row}}\n\t\t\t\t<div class=\'tabledatarow {{#if .[0].selected}}selected{{/if}}\' on-click=\'selectrow\'>\n\t\t\t\t\t{{#each .:i}}\n\t\t\t\t\t<div class=\'tabledatacell\n\t\t\t\t\t\t{{#if .KEY}}t-K{{/if}}\n\t\t\t\t\t\t{{#if .HASH}}t-HASH{{/if}}\n\t\t\t\t\t\t{{#if .S}}t-S{{/if}}\n\t\t\t\t\t\t{{#if .N}}t-N{{/if}}\n\t\t\t\t\t\t{{#if .BOOL}}t-BOOL{{/if}}\n\t\t\t\t\t\t{{#if .NULL}}t-NULL{{/if}}\n\t\t\t\t\t\t{{#if .L}}t-L{{/if}}\n\t\t\t\t\t\t{{#if .M}}t-M{{/if}}\n\t\t\t\t\t\t{{#if .U}}t-U{{/if}}\n\t\t\t\t\t\t\' style=\'width: {{#if i === 0}}32px{{else}}{{100/columns.length}}%{{/if}} \'\n\t\t\t\t\t\t{{#if .HASH}}on-click=\'cellclick\'{{/if}}\n\t\t\t\t\t\t>\n\t\t\t\t\t\t{{#if .KEY}}\n\t\t\t\t\t\t\t{{#if .selected}}\n\t\t\t\t\t\t\t\t<input class=\'input-checkbox input-toggle\' type=\'checkbox\' checked>\n\t\t\t\t\t\t\t{{else}}\n\t\t\t\t\t\t\t\t<input class=\'input-checkbox input-toggle\' type=\'checkbox\'>\n\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t{{#if .HASH}}<a>{{.HASH}}</a>{{/if}}\n\t\t\t\t\t\t{{#if .S}}{{.S}}{{/if}}\n\t\t\t\t\t\t{{#if .N}}{{.N}}{{else}}{{#if .N === 0}}0{{/if}}{{/if}}\n\t\t\t\t\t\t{{#if .BOOL}}{{.BOOL}}{{/if}}\n\t\t\t\t\t\t{{#if .NULL}}NULL{{/if}}\n\t\t\t\t\t\t{{#if .L}}[...]{{/if}}\n\t\t\t\t\t\t{{#if .M}}{...}{{/if}}\n\t\t\t\t\t</div>\n\t\t\t\t\t{{/each}}\n\t\t\t\t</div>\n\t\t\t\t{{/rows}}\n\t\t\t</div>\n\t\t</div>\n\t\t',
 
 	data: function data() {
 		return {};
@@ -493,7 +442,7 @@ module.exports = Symbol;
 /***/ (function(module, exports, __webpack_require__) {
 
 var arrayLikeKeys = __webpack_require__(31),
-    baseKeys = __webpack_require__(99),
+    baseKeys = __webpack_require__(103),
     isArrayLike = __webpack_require__(35);
 
 /**
@@ -676,7 +625,7 @@ module.exports = isPrototype;
 /* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var arrayFilter = __webpack_require__(107),
+var arrayFilter = __webpack_require__(111),
     stubArray = __webpack_require__(37);
 
 /** Used for built-in method references. */
@@ -712,11 +661,11 @@ module.exports = getSymbols;
 /* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var DataView = __webpack_require__(111),
+var DataView = __webpack_require__(115),
     Map = __webpack_require__(11),
-    Promise = __webpack_require__(112),
-    Set = __webpack_require__(113),
-    WeakMap = __webpack_require__(114),
+    Promise = __webpack_require__(116),
+    Set = __webpack_require__(117),
+    WeakMap = __webpack_require__(118),
     baseGetTag = __webpack_require__(6),
     toSource = __webpack_require__(28);
 
@@ -776,7 +725,7 @@ module.exports = getTag;
 /* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Uint8Array = __webpack_require__(117);
+var Uint8Array = __webpack_require__(121);
 
 /**
  * Creates a clone of `arrayBuffer`.
@@ -810,7 +759,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__22__;
 /* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseClone = __webpack_require__(58);
+var baseClone = __webpack_require__(61);
 
 /** Used to compose bitmasks for cloning. */
 var CLONE_DEEP_FLAG = 1,
@@ -929,13 +878,14 @@ module.exports = isFunction;
 
 /***/ }),
 /* 27 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-/** Detect free variable `global` from Node.js. */
+/* WEBPACK VAR INJECTION */(function(global) {/** Detect free variable `global` from Node.js. */
 var freeGlobal = typeof global == 'object' && global && global.Object === Object && global;
 
 module.exports = freeGlobal;
 
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(74)))
 
 /***/ }),
 /* 28 */
@@ -1007,7 +957,7 @@ module.exports = assignValue;
 /* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var defineProperty = __webpack_require__(90);
+var defineProperty = __webpack_require__(94);
 
 /**
  * The base implementation of `assignValue` and `assignMergeValue` without
@@ -1038,12 +988,12 @@ module.exports = baseAssignValue;
 /* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseTimes = __webpack_require__(92),
-    isArguments = __webpack_require__(93),
+var baseTimes = __webpack_require__(96),
+    isArguments = __webpack_require__(97),
     isArray = __webpack_require__(14),
     isBuffer = __webpack_require__(32),
-    isIndex = __webpack_require__(96),
-    isTypedArray = __webpack_require__(97);
+    isIndex = __webpack_require__(100),
+    isTypedArray = __webpack_require__(101);
 
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
@@ -1094,7 +1044,7 @@ module.exports = arrayLikeKeys;
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(module) {var root = __webpack_require__(0),
-    stubFalse = __webpack_require__(95);
+    stubFalse = __webpack_require__(99);
 
 /** Detect free variable `exports`. */
 var freeExports =  true && exports && !exports.nodeType && exports;
@@ -1240,7 +1190,7 @@ module.exports = isArrayLike;
 /***/ (function(module, exports, __webpack_require__) {
 
 var arrayLikeKeys = __webpack_require__(31),
-    baseKeysIn = __webpack_require__(102),
+    baseKeysIn = __webpack_require__(106),
     isArrayLike = __webpack_require__(35);
 
 /**
@@ -1408,25 +1358,32 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
+__webpack_require__(43);
+
 var _ractive = __webpack_require__(22);
 
 var _ractive2 = _interopRequireDefault(_ractive);
 
-var _minitablelist = __webpack_require__(43);
+var _minitablelist = __webpack_require__(44);
 
 var _minitablelist2 = _interopRequireDefault(_minitablelist);
 
-var _tabs = __webpack_require__(44);
+var _ractiveWindowMin = __webpack_require__(46);
+
+var _ractiveWindowMin2 = _interopRequireDefault(_ractiveWindowMin);
+
+var _tabs = __webpack_require__(47);
 
 var _tabs2 = _interopRequireDefault(_tabs);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var ddb;
-var DynamodbFactory;
 
 var DynamodbFactory = window['@awspilot/dynamodb'];
 //var DynamodbFactory = require('@awspilot/dynamodb')
+//import DynamodbFactory from '@awspilot/dynamodb';
+
 
 var hsplit = _ractive2.default.extend({
 	isolated: false,
@@ -1437,13 +1394,15 @@ var hsplit = _ractive2.default.extend({
 });
 
 exports.default = _ractive2.default.extend({
-	template: { v: 4, t: [{ t: 7, e: "hsplit", m: [{ t: 13, n: "style", f: ";", g: 1 }, { t: 13, n: "class", f: "ractive-dynamodb-ui", g: 1 }], f: [{ t: 7, e: "left", f: [{ t: 7, e: "minitablelist" }] }, " ", { t: 7, e: "content", f: [{ t: 7, e: "tabs", m: [{ n: "active_id", f: "tables", t: 13, g: 1 }] }] }] }] },
+	template: '\n\t\t\t<div class=\'ractive-dynamodb-ui\'>\n\t\t\t\t<WindowHost />\n\t\t\t</div>\n\t\t\t<hsplit style=\'\' class=\'ractive-dynamodb-ui\'>\n\t\t\t\t<left>\n\t\t\t\t\t<minitablelist />\n\t\t\t\t</left>\n\t\t\t\t<content>\n\t\t\t\t\t<tabs active_id=\'tables\' />\n\t\t\t\t</content>\n\t\t\t</hsplit>\n\t\t',
 	components: {
 		hsplit: hsplit,
 		minitablelist: _minitablelist2.default,
-		tabs: _tabs2.default
+		tabs: _tabs2.default,
+		Window: _ractiveWindowMin2.default.default.Window,
+		WindowHost: _ractiveWindowMin2.default.default.WindowHost
 	},
-	css: " /* bootstrap */ .pull-right { float: right!important; } a { color: #337ab7; text-decoration: none; } a.btn.disabled, fieldset[disabled] a.btn { pointer-events: none; } .btn.disabled, .btn[disabled], fieldset[disabled] .btn { cursor: not-allowed; filter: alpha(opacity=65); -webkit-box-shadow: none; box-shadow: none; opacity: .65; } .btn-group .dropdown-toggle:active, .btn-group.open .dropdown-toggle { outline: 0; } .btn { display: inline-block; padding: 6px 12px; margin-bottom: 0; font-size: 14px; font-weight: 400; line-height: 1.42857143; text-align: center; white-space: nowrap; vertical-align: middle; -ms-touch-action: manipulation; touch-action: manipulation; cursor: pointer; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; background-image: none; border: 1px solid transparent; border-radius: 4px; } .btn-default { color: #333; background-color: #fff; border-color: #ccc; } .btn-group>.btn { position: relative; float: left; } .btn-group, .btn-group-vertical { position: relative; display: inline-block; vertical-align: middle; } .btn-group>.btn:first-child { margin-left: 0; } .btn-group>.btn:first-child:not(:last-child):not(.dropdown-toggle) { border-top-right-radius: 0; border-bottom-right-radius: 0; } .btn-group-xs>.btn, .btn-xs { padding: 1px 5px; font-size: 12px; line-height: 1.5; border-radius: 3px; } .btn-group>.btn:last-child:not(:first-child), .btn-group>.dropdown-toggle:not(:first-child) { border-top-left-radius: 0; border-bottom-left-radius: 0; } .btn-group>.btn+.dropdown-toggle { padding-right: 8px; padding-left: 8px; } .btn-group .btn+.btn, .btn-group .btn+.btn-group, .btn-group .btn-group+.btn, .btn-group .btn-group+.btn-group { margin-left: -1px; } .btn-default.active.focus, .btn-default.active:focus, .btn-default.active:hover, .btn-default:active.focus, .btn-default:active:focus, .btn-default:active:hover, .open>.dropdown-toggle.btn-default.focus, .open>.dropdown-toggle.btn-default:focus, .open>.dropdown-toggle.btn-default:hover { color: #333; background-color: #d4d4d4; border-color: #8c8c8c; } .btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus { outline: 5px auto -webkit-focus-ring-color; outline-offset: -2px; } .btn-group-sm>.btn, .btn-sm { padding: 5px 10px; font-size: 12px; line-height: 1.5; border-radius: 3px; } .dropdown-menu { position: absolute; top: 100%; left: 0; z-index: 1000; display: none; float: left; min-width: 160px; padding: 5px 0; margin: 2px 0 0; font-size: 14px; text-align: left; list-style: none; background-color: #fff; -webkit-background-clip: padding-box; background-clip: padding-box; border: 1px solid #ccc; border: 1px solid rgba(0,0,0,.15); border-radius: 4px; -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175); box-shadow: 0 6px 12px rgba(0,0,0,.175); } .dropdown-menu.pull-right { right: 0; left: auto; } .show { display: block!important; } .btn-primary {color: #fff;background-color: #337ab7;border-color: #2e6da4;} .btn-danger {color: #fff;background-color: #d9534f;border-color: #d43f3a;} /* */ .ractive-dynamodb-ui {font-family: sans-serif;} .ractive-dynamodb-ui * {box-sizing: border-box } .hsplit {position: absolute;top:0px;left: 0px;right: 0px;bottom: 0px; /*background-color: #f0f0f0;*/background-color: #c9c9c9; color: #999999;} left {position:absolute;display: block;top: 0px;left: 0px;width: 260px;bottom: 0px;margin-top: 5px;} content {position:absolute;display: block;top: 0px;left: 265px;right: 0px;bottom: 0px;margin-top: 5px;} miniheader {display: block;height: 28px;line-height: 28px;font-size: 12px;padding-left: 10px;} miniheader .icon:hover {box-shadow: 0px 0px 1px rgba(255,255,255,.3);} .miniheaderbody {left: 0px;top: 29px;right: 0px;bottom: 0px;} left tables > div {display: block;height: 30px; line-height: 30px;font-size: 13px;padding: 0px 10px;border-top: 1px solid transparent;border-left: 1px solid transparent;;margin-bottom: 0px;cursor: pointer} content tabhead {position: absolute;top: 0px;left: 0px;right:0px;height: 28px;overflow: hidden;font-size: 0px;} content tabhead tab {display: inline-block;height: 28px;line-height: 28px;padding: 0px 10px;cursor: pointer;font-size: 14px;} content tabhead tab.active {} content tabhead tab .icon {width: 15px;height: 15px;line-height: 15px;text-align: center;margin-top: 2px;cursor: pointer;font-size: 14px;} content tabhead tab .icon:hover {box-shadow: 0px 0px 1px rgba(255,255,255,.3);} content tabcontent {position: absolute;top: 28px;left: 0px;right: 0px;bottom: 0px;} .btn-tableview-tab {display: inline-block;height: 30px;line-height: 30px;text-align: center;vertical-align: middle;border-radius: 3px 3px 0px 0px;text-decoration: none;} .btn-tableview-tab:hover {cursor: pointer;} .btn-tableview-tab i {line-height: 40px;line-height: 30px;margin: 5px;width: 30px;height: 30px;border-radius: 5px;} content tabcontent .tableview-table-tabs {position: absolute;top: 10px;left: 30px;height: 30px;right: 30px;border-bottom: 1px solid #bbb;padding: 0px 20px;} content tabcontent .tableview { visibility: hidden } content tabcontent .tableview.active { visibility: visible } content tabcontent .tableview .tablebrowse {display: block;position: absolute;top: 0px;left:0px;right: 0px;bottom: 0px;} content tabcontent .tablesqlquery {display: block;position: absolute;top: 0;left:0px;right: 0px;height: 119px;overflow: hidden;} content tabcontent .tablequery {display: block;position: absolute;top: 0;left:0px;right: 0px;height: 119px;overflow: hidden; padding: 10px;margin-top: 6px;} content tabcontent .tablequery select { background-color: #6d6565; outline: none; color: #ccc; border-radius: 5px; border: 0px;} content tabcontent .tablequery input[type=text] {background-color: #6d6565; border: 0px; border-radius: 5px; outline: none;height: 19px;padding: 0px 7px; color: #ccc; } content tabcontent .tabledatacontrols {position: absolute;top: 120px;left: 0px;right: 0px;height: 28px;padding: 3px 0px 0px 30px;} content tabcontent .tabledata {display: block;position: absolute;left:0px;right: 0px;bottom: 0px;overflow: hidden;} content tabcontent .tabledata .tabledatahead, content tabcontent .tabledata .tabledatarow { display: flex;width: 100%;justify-content: stretch} content tabcontent .tabledata .tabledatahead {position: absolute;top: 0px;left: 0px;right: 0px;height: 20px;} content tabcontent .tabledata .tabledatarow .zmdi.selectrow {font-size: 14px;} content tabcontent .tabledata .tabledatahead > div, content tabcontent .tabledata .tabledatarow .tabledatacell {display: flex;height: 20px;align-items: center;overflow: hidden;white-space: nowrap;padding-left: 6px;position: relative;} content tabcontent .tabledata .tabledatarow .tabledatacell:before {content: ' ';position:absolute;top: 0px;left: 0px;bottom: 0px;width: 5px;} content tabcontent .tabledata .tabledatarow .tabledatacell:after {content: ' ';position:absolute;top: 0px;right: 0px;bottom: 0px;width: 5px;} content tabcontent .tabledata .tabledatacontent {position: absolute;top: 23px;left: 0px;right: 0px;bottom: 0px;overflow-x: auto;} content tabcontent .tabledata .tabledatahead > div {font-size: 12px;} content tabcontent .tabledata .tabledatarow .tabledatacell {font-size: 11px;} .scrollarea:hover > span {position: absolute; right: 0px;width: 3px;background-color: rgba(255, 255, 255, 0.3);z-index: 1;} .pull-right {float: right;} body.theme_light {background-color: #f0f0f0;color: #999999;} body.theme_light header {background-color: #232f3e;/*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);*/ } body.theme_light miniheader {background: linear-gradient(#eee , #e0e0e0);border: 1px solid #b9b8b6;border-top: 1px solid #fff;border-bottom: 1px solid #ccc;} body.theme_light left {background-color: #ffffff} body.theme_light left > .scrollarea {border-right: 1px solid #b9b8b6;} body.theme_light left tables > div {border-bottom: 1px solid #e0e0e0;color: #146eb4} body.theme_light left tables > div:hover {background-color: #eaf3fe;/*border: 1px solid #636363;*/} body.theme_light content {border: 1px solid #b9b8b6;background-color: #ffffff;border-top: 1px solid #fff;border-right: 0px;} body.theme_light content tabhead {background-color: #ececec;background: linear-gradient(#eee , #e0e0e0);} body.theme_light content tabhead tab:first-child {} body.theme_light content tabhead tab {border-right: 1px solid #cccccc;} body.theme_light content tabhead tab.active {background-color: #ffffff;color: #000000;} body.theme_light content tabcontent {background-color: #ffffff;} body.theme_light content tabcontent .tableview-table-tabs {background: #ffffff} body.theme_light .btn-tableview-tab {background-color: #eee;border: 1px solid #ccc;border-bottom: 1px solid #bbb;color: #635858;font-weight: bold;font-size: 12px;padding: 0px 12px;} body.theme_light .btn-tableview-tab.active {background-color: #fff;border-bottom: 1px solid #fff;color: #000000;} body.theme_light content tabcontent .tablequery {background-color: #444;} body.theme_light content tabcontent .tablesqlquery {} body.theme_light content tabcontent .tabledatacontrols {background-color: #ffffff;border-bottom: 1px solid #383838;} body.theme_light content tabcontent .tabledata {border-top: 1px solid #e0e0e0;} body.theme_light content tabcontent .tabledata .tabledatahead {background: linear-gradient(#eee , #e0e0e0);border-top: 1px solid #fff;border-bottom: 1px solid #ccc;} body.theme_light content tabcontent .tabledata .tabledatahead > div {border-right: 1px solid #c3b7b7;border-left: 1px solid #ffffff;} body.theme_light content tabcontent .tabledata .tabledatarow {border-bottom: 1px solid #e0e0e0;} body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell {border-right: 1px solid #c3b7b7;border-left: 1px solid #ffffff;} body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-K {color: #8ea7aa;} body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-HASH {color:#004b91;cursor: pointer;} body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-HASH:hover a {text-decoration: underline;} body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-S {color: #a79b9b;} body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-N {color: green;} body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-BOOL {color: #ff7676;} body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-NULL {color: grey} body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-SS {} body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-NS {} body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-L {} body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-M {} body.theme_light content tabcontent .tabledata .tabledatarow .tabledatacell.t-U {background-color: #f9f3f3;} body.theme_light content tabcontent .tabledata .tabledatarow:hover {background-color: #f3f3f3;} body.theme_light content tabcontent .tabledata .tabledatarow:hover .tabledatacell {color: #a59797;} body.theme_light content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-HASH {color:#004b91;} body.theme_light content tabcontent .tabledata .tabledatarow.selected {background-color: #ddecff;} body.theme_light content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: #396396;} body.theme_light content tabcontent .tabledata .tabledatarow.selected:hover {background-color: #0747a0 !important;} body.theme_light content tabcontent .tabledata .tabledatarow.selected:hover .tabledatacell {color: #fff;} content {position:absolute;display: block;top: 0px;left: 265px;right: 0px;bottom: 0px;} ",
+
 	data: function data() {
 		return {};
 	},
@@ -1492,15 +1451,28 @@ exports.default = _ractive2.default.extend({
 /* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+/* 44 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 
 
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
+
+var _svgicons = __webpack_require__(45);
+
+var _svgicons2 = _interopRequireDefault(_svgicons);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 exports.default = Ractive.extend({
 	//isolated: true,
-	template: '\n\t\t<miniheader>\n\t\t\tTables\n\t\t\t<div class=\'pull-right\' style=\'margin-right: 5px;\'>\n\t\t\t\t<a class=\'btn btn-xs btn-default\' on-click=\'create\'><i class=\'icon zmdi zmdi-plus\'></i></a>\n\t\t\t\t<a class=\'btn btn-xs btn-default\' on-click=\'@this.refresh_tables()\'><i class=\'icon zmdi zmdi-refresh\'></i></a>\n\t\t\t</div>\n\t\t</miniheader>\n\t\t<scrollarea class=\'scrollarea miniheaderbody\' style=\'position: absolute;\'>\n\t\t<tables>\n\t\t\t{{#tables}}\n\t\t\t<div on-click=\'@this.fire( "open-table",.)\'> {{.}} </div>\n\t\t\t{{/tables}}\n\t\t</tables>\n\t\t</scrollarea>\n\t\t',
+	template: '\n\t\t<miniheader>\n\t\t\tTables\n\t\t\t<div class=\'pull-right\' style=\'margin-right: 5px;\'>\n\t\t\t\t<a class=\'btn btn-xs btn-default\' on-click=\'create\'>\n\t\t\t\t\t<icon-plus />\n\t\t\t\t</a>\n\t\t\t\t<a class=\'btn btn-xs btn-default\' on-click=\'@this.refresh_tables()\'>\n\t\t\t\t\t<icon-refresh />\n\t\t\t\t</a>\n\t\t\t</div>\n\t\t</miniheader>\n\t\t<scrollarea class=\'scrollarea miniheaderbody\' style=\'position: absolute;\'>\n\t\t<tables>\n\t\t\t{{#tables}}\n\t\t\t<div on-click=\'@this.fire( "open-table",.)\'> {{.}} </div>\n\t\t\t{{/tables}}\n\t\t</tables>\n\t\t</scrollarea>\n\t\t',
 	data: function data() {
 		return {};
 	},
@@ -1530,7 +1502,417 @@ exports.default = Ractive.extend({
 });
 
 /***/ }),
-/* 44 */
+/* 45 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Ractive.components['icon-plus'] = Ractive.extend({
+	template: '\n\t\t<svg class="icon" style={{style}} version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 31.444 31.444" xml:space="preserve">\n\t\t\t<path d="M1.119,16.841c-0.619,0-1.111-0.508-1.111-1.127c0-0.619,0.492-1.111,1.111-1.111h13.475V1.127\n\t\t\t\tC14.595,0.508,15.103,0,15.722,0c0.619,0,1.111,0.508,1.111,1.127v13.476h13.475c0.619,0,1.127,0.492,1.127,1.111\n\t\t\t\tc0,0.619-0.508,1.127-1.127,1.127H16.833v13.476c0,0.619-0.492,1.127-1.111,1.127c-0.619,0-1.127-0.508-1.127-1.127V16.841H1.119z"\n\t\t\t\t/>\n\t\t</svg>\n\n\t'
+});
+
+Ractive.components['icon-refresh'] = Ractive.extend({
+	template: '\n\t<svg class="icon" style={{style}} version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\n\t\t viewBox="0 0 477.867 477.867" xml:space="preserve">\n\t<g>\n\t\t<g>\n\t\t\t<path d="M409.6,0c-9.426,0-17.067,7.641-17.067,17.067v62.344C304.667-5.656,164.478-3.386,79.411,84.479\n\t\t\t\tc-40.09,41.409-62.455,96.818-62.344,154.454c0,9.426,7.641,17.067,17.067,17.067S51.2,248.359,51.2,238.933\n\t\t\t\tc0.021-103.682,84.088-187.717,187.771-187.696c52.657,0.01,102.888,22.135,138.442,60.976l-75.605,25.207\n\t\t\t\tc-8.954,2.979-13.799,12.652-10.82,21.606s12.652,13.799,21.606,10.82l102.4-34.133c6.99-2.328,11.697-8.88,11.674-16.247v-102.4\n\t\t\t\tC426.667,7.641,419.026,0,409.6,0z"/>\n\t\t</g>\n\t</g>\n\t<g>\n\t\t<g>\n\t\t\t<path d="M443.733,221.867c-9.426,0-17.067,7.641-17.067,17.067c-0.021,103.682-84.088,187.717-187.771,187.696\n\t\t\t\tc-52.657-0.01-102.888-22.135-138.442-60.976l75.605-25.207c8.954-2.979,13.799-12.652,10.82-21.606\n\t\t\t\tc-2.979-8.954-12.652-13.799-21.606-10.82l-102.4,34.133c-6.99,2.328-11.697,8.88-11.674,16.247v102.4\n\t\t\t\tc0,9.426,7.641,17.067,17.067,17.067s17.067-7.641,17.067-17.067v-62.345c87.866,85.067,228.056,82.798,313.122-5.068\n\t\t\t\tc40.09-41.409,62.455-96.818,62.344-154.454C460.8,229.508,453.159,221.867,443.733,221.867z"/>\n\t\t</g>\n\t</g>\n\t</svg>\n\t'
+});
+
+Ractive.components['icon-trash'] = Ractive.extend({
+	template: '\n\t<svg class="icon" style={{style}} version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="459px" height="459px" viewBox="0 0 459 459" xml:space="preserve">\n\t\t<g>\n\t\t\t<g>\n\t\t\t\t<path d="M76.5,408c0,28.05,22.95,51,51,51h204c28.05,0,51-22.95,51-51V102h-306V408z M408,25.5h-89.25L293.25,0h-127.5l-25.5,25.5\n\t\t\t\t\tH51v51h357V25.5z"/>\n\t\t\t</g>\n\t\t</g>\n\t</svg>\n'
+});
+
+Ractive.components['icon-database'] = Ractive.extend({
+	template: '\n\t\t<svg class="icon" style={{style}} height="512pt" viewBox="0 -52 512 512" width="512pt" xmlns="http://www.w3.org/2000/svg">\n\t\t\t<path d="m0 0h113.292969v113.292969h-113.292969zm0 0"/>\n\t\t\t<path d="m149.296875 0h362.703125v113.292969h-362.703125zm0 0"/>\n\t\t\t<path d="m0 147.007812h113.292969v113.292969h-113.292969zm0 0"/>\n\t\t\t<path d="m149.296875 147.007812h362.703125v113.292969h-362.703125zm0 0"/>\n\t\t\t<path d="m0 294.011719h113.292969v113.296875h-113.292969zm0 0"/>\n\t\t\t<path d="m149.296875 294.011719h362.703125v113.296875h-362.703125zm0 0"/>\n\t\t</svg>\n'
+});
+
+Ractive.components['icon-x'] = Ractive.extend({
+	template: '\n\t\t<svg class="icon" style={{style}} version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\n\t\t\t viewBox="0 0 512.001 512.001" xml:space="preserve">\n\n\t\t\t<g>\n\t\t\t\t<path d="M294.111,256.001L504.109,46.003c10.523-10.524,10.523-27.586,0-38.109c-10.524-10.524-27.587-10.524-38.11,0L256,217.892\n\t\t\t\t\tL46.002,7.894c-10.524-10.524-27.586-10.524-38.109,0s-10.524,27.586,0,38.109l209.998,209.998L7.893,465.999\n\t\t\t\t\tc-10.524,10.524-10.524,27.586,0,38.109c10.524,10.524,27.586,10.523,38.109,0L256,294.11l209.997,209.998\n\t\t\t\t\tc10.524,10.524,27.587,10.523,38.11,0c10.523-10.524,10.523-27.586,0-38.109L294.111,256.001z"/>\n\t\t\t</g>\n\n\t\t</svg>\n'
+});
+
+Ractive.components['icon-play'] = Ractive.extend({
+	template: '\n\t\t<svg class="icon" style={{style}} version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\n\t\t\t viewBox="0 0 41.999 41.999" xml:space="preserve">\n\t\t\t<path d="M36.068,20.176l-29-20C6.761-0.035,6.363-0.057,6.035,0.114C5.706,0.287,5.5,0.627,5.5,0.999v40\n\t\t\tc0,0.372,0.206,0.713,0.535,0.886c0.146,0.076,0.306,0.114,0.465,0.114c0.199,0,0.397-0.06,0.568-0.177l29-20\n\t\t\tc0.271-0.187,0.432-0.494,0.432-0.823S36.338,20.363,36.068,20.176z"/>\n\t\t</svg>\n\t'
+});
+
+Ractive.components['icon-prev'] = Ractive.extend({
+	template: '\n\t\t<svg class="icon" style={{style}} version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\n\t\t\t viewBox="0 0 477.175 477.175" xml:space="preserve">\n\t\t<g>\n\t\t\t<path d="M145.188,238.575l215.5-215.5c5.3-5.3,5.3-13.8,0-19.1s-13.8-5.3-19.1,0l-225.1,225.1c-5.3,5.3-5.3,13.8,0,19.1l225.1,225\n\t\t\t\tc2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4c5.3-5.3,5.3-13.8,0-19.1L145.188,238.575z"/>\n\t\t</g>\n\t\t</svg>\n\t'
+});
+
+Ractive.components['icon-next'] = Ractive.extend({
+	template: '\n\t\t<svg class="icon" style={{style}} version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\n\t\t\t viewBox="0 0 477.175 477.175" xml:space="preserve">\n\t\t<g>\n\t\t\t<path d="M360.731,229.075l-225.1-225.1c-5.3-5.3-13.8-5.3-19.1,0s-5.3,13.8,0,19.1l215.5,215.5l-215.5,215.5\n\t\t\t\tc-5.3,5.3-5.3,13.8,0,19.1c2.6,2.6,6.1,4,9.5,4c3.4,0,6.9-1.3,9.5-4l225.1-225.1C365.931,242.875,365.931,234.275,360.731,229.075z\n\t\t\t\t"/>\n\t\t</g>\n\t\t</svg>\n\t'
+});
+Ractive.components['icon-caret-down'] = Ractive.extend({
+	template: '\n\t\t<svg class="icon" style={{style}} version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\n\t\t\t width="292.362px" height="292.362px" viewBox="0 0 292.362 292.362"\n\t\t\t xml:space="preserve">\n\t\t<g>\n\t\t\t<path d="M286.935,69.377c-3.614-3.617-7.898-5.424-12.848-5.424H18.274c-4.952,0-9.233,1.807-12.85,5.424\n\t\t\t\tC1.807,72.998,0,77.279,0,82.228c0,4.948,1.807,9.229,5.424,12.847l127.907,127.907c3.621,3.617,7.902,5.428,12.85,5.428\n\t\t\t\ts9.233-1.811,12.847-5.428L286.935,95.074c3.613-3.617,5.427-7.898,5.427-12.847C292.362,77.279,290.548,72.998,286.935,69.377z"/>\n\t\t</g>\n\t\t</svg>\n\t'
+});
+Ractive.components['icon-filter'] = Ractive.extend({
+	template: '\n\t\t<svg class="icon" style={{style}} height="393pt" viewBox="-4 0 393 393.99003" width="393pt" xmlns="http://www.w3.org/2000/svg" >\n\t\t\t<path d="m368.3125 0h-351.261719c-6.195312-.0117188-11.875 3.449219-14.707031 8.960938-2.871094 5.585937-2.3671875 12.3125 1.300781 17.414062l128.6875 181.28125c.042969.0625.089844.121094.132813.183594 4.675781 6.3125 7.203125 13.957031 7.21875 21.816406v147.796875c-.027344 4.378906 1.691406 8.582031 4.777344 11.6875 3.085937 3.105469 7.28125 4.847656 11.65625 4.847656 2.226562 0 4.425781-.445312 6.480468-1.296875l72.3125-27.574218c6.480469-1.976563 10.78125-8.089844 10.78125-15.453126v-120.007812c.011719-7.855469 2.542969-15.503906 7.214844-21.816406.042969-.0625.089844-.121094.132812-.183594l128.683594-181.289062c3.667969-5.097657 4.171875-11.820313 1.300782-17.40625-2.832032-5.511719-8.511719-8.9726568-14.710938-8.960938zm-131.53125 195.992188c-7.1875 9.753906-11.074219 21.546874-11.097656 33.664062v117.578125l-66 25.164063v-142.742188c-.023438-12.117188-3.910156-23.910156-11.101563-33.664062l-124.933593-175.992188h338.070312zm0 0"/>\n\t\t</svg>\n\t'
+});
+
+/***/ }),
+/* 46 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+;
+(function (global, factory) {
+  ( false ? undefined : _typeof(exports)) === "object" && typeof module !== "undefined" ? factory(exports) :  true ? !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) : undefined;
+})(undefined, function (exports) {
+  "use strict";
+  var _slicedToArray = function _slicedToArray(arr, i) {
+    if (Array.isArray(arr)) {
+      return arr;
+    } else if (Symbol.iterator in Object(arr)) {
+      var _arr = [];for (var _iterator = arr[Symbol.iterator](), _step; !(_step = _iterator.next()).done;) {
+        _arr.push(_step.value);if (i && _arr.length === i) break;
+      }return _arr;
+    } else {
+      throw new TypeError("Invalid attempt to destructure non-iterable instance");
+    }
+  };var template = "		{{#_wnd_rendered}}			<div id='ractive-window-{{.id}}' 						class='ractive-window{{#(.buttons.length > 0)}} with-buttons{{/}}{{#.resizable}} resizable{{else}} fixed{{/}}{{#.geometry.state === 2}} maximized{{/}}{{#.class.window}} {{.class.window}}{{/}}{{#.topmost}} topmost{{/}}' 						on-click='_raise' 						style='{{#.hidden}}display: none;{{/}}top: {{.geometry.top}}px; left: {{.geometry.left}}px; {{#(.resizable || .geometry.state === 2)}}width: {{.geometry.width}}{{.geometry.dwunit}}; height: {{.geometry.height}}{{.geometry.dhunit}}; {{/}}z-index: {{.geometry.index}};{{#.style.window}} {{.style.window}}{{/}}'>\n							<div class='rw-modal' on-mousedown='_moveStart' style='{{^.blocked}}display: none;{{/}}'></div>\n  							<div class='rw-interior'>\n 								<div class='rw-controls'>{{>controls}}</div>\n  								<div class='rw-title' on-touchstart-mousedown='_moveStart' on-dblclick='_restore'>{{>title}}</div>\n  								{{#if dialog}}<div class='rw-dialog-cover'></div><div class='rw-dialog' style='width: {{dialog.width}}px; {{#if dialog.height}}height: {{dialog.height}}px; {{/if}}'>{{> ~/makePartial('sharedialog', dialog.raw) }}</div>{{/if}}								<div class='rw-body{{#.class.body}} {{.class.body}}{{/}}' {{#.style.body}}style='{{.style.body}}'{{/}}>{{>body}}</div>\n  								{{#(.buttons.length > 0)}}<div class='rw-buttons'>{{>buttons}}</div>{{/}}\n  								<div class='rw-resize-handle' on-touchstart-mousedown='_resizeStart'></div>\n   								<div class='rw-foot'>{{>foot}}</div>\n 							</div>\n			</div>		{{/}}";var Window;Window = Ractive.extend({ template: template, prompt: function prompt(message, cb) {
+      this.dialog({ content: message, raw: "{{dialog.content}}<br><input class='form-control' value='{{dialog.reply}}' /> <div style='position: absolute;bottom: 10px;right: 10px;'><a class='btn btn-xs btn-default' on-click='@this.set(\"dialog\", false )'>Cancel</a> <a class='btn btn-xs btn-primary' on-click='dialog.callback.prompt:{{dialog}}'>OK</a></div>", width: 300, cb: cb });
+    }, confirm: function confirm(message, cb) {
+      this.dialog({ content: message, raw: "{{dialog.content}} <div style='position: absolute;bottom: 10px;right: 10px;'><a class='btn btn-xs btn-default' on-click='@this.set(\"dialog\", false )'>Cancel</a> <a class='btn btn-xs btn-primary' on-click='dialog.callback.ok:{{dialog}}'>OK</a></div>", width: 300, cb: cb });
+    }, dialog: function dialog(opts) {
+      this.set("dialog", { content: opts.content, params: opts.params, raw: opts.raw, width: opts.width, height: opts.height, cb: opts.cb });
+    }, onconstruct: function onconstruct(opts) {
+      var wnd = this;var sx, sy;var _moveFn;_moveFn = function moveFn(e) {
+        var x, y;e.preventDefault();if (e.type.indexOf("touch") >= 0) {
+          x = +e.changedTouches[0].clientX;y = +e.changedTouches[0].clientY;
+        } else {
+          x = +(e.x || e.clientX);y = +(e.y || e.clientY);
+        }wnd.move(+wnd.get("geometry.left") + x - +sx, +wnd.get("geometry.top") + y - +sy);sx = x;sy = y;if (e.type === "mouseup" || e.type === "touchend") {
+          document.removeEventListener("mousemove", _moveFn, false);document.removeEventListener("mouseup", _moveFn, false);document.removeEventListener("touchmove", _moveFn, false);document.removeEventListener("touchend", _moveFn, false);
+        }
+      };wnd.on("_moveStart", function (e) {
+        if (e.original.type === "mousedown" && e.original.button === 0 || e.original.type === "touchstart") {
+          wnd.restore();if (e.original.type.indexOf("touch") >= 0) {
+            sx = +e.original.changedTouches[0].clientX;sy = +e.original.changedTouches[0].clientY;
+          } else {
+            sx = +(e.original.x || e.original.clientX);sy = +(e.original.y || e.original.clientY);
+          }document.addEventListener("mousemove", _moveFn);document.addEventListener("mouseup", _moveFn);document.addEventListener("touchmove", _moveFn);document.addEventListener("touchend", _moveFn);e.original.preventDefault();
+        }$("iframe", wnd.element).focus();
+      });var _resizeFn;_resizeFn = function resizeFn(e) {
+        var x, y;e.preventDefault();if (e.type.indexOf("touch") >= 0) {
+          x = e.changedTouches[0].clientX;y = e.changedTouches[0].clientY;
+        } else {
+          x = +(e.x || e.clientX);y = +(e.y || e.clientY);
+        }var w = +wnd.get("geometry.width") + (x - +sx);var h = +wnd.get("geometry.height") + (y - +sy);wnd.resize(w, h);sx = x;sy = y;if (e.type === "mouseup" || e.type === "touchend") {
+          document.removeEventListener("mousemove", _resizeFn, false);document.removeEventListener("mouseup", _resizeFn, false);document.removeEventListener("touchmove", _resizeFn, false);document.removeEventListener("touchend", _resizeFn, false);
+        }
+      };wnd.on("_resizeStart", function (e) {
+        if (e.original.type == "mousedown" && e.original.button === 0 || e.original.type === "touchstart") {
+          wnd.restore();if (e.original.type.indexOf("touch") >= 0) {
+            sx = e.original.changedTouches[0].clientX;sy = e.original.changedTouches[0].clientY;
+          } else {
+            sx = e.original.x || e.original.clientX;sy = e.original.y || e.original.clientY;
+          }document.addEventListener("mousemove", _resizeFn);document.addEventListener("mouseup", _resizeFn);document.addEventListener("touchmove", _resizeFn);document.addEventListener("touchend", _resizeFn);
+        }
+      });var stateFn = function stateFn(target, e) {
+        switch (target) {case "min":
+            wnd.minimize();break;case "max":
+            wnd.maximize();break;case "normal":
+            wnd.restore();break;default:
+            break;}
+      };wnd.on("dialog.callback.ok", function (e, dialog) {
+        this.set("dialog", false);try {
+          dialog.cb();
+        } catch (e) {}
+      });wnd.on("dialog.callback.prompt", function (e, dialog) {
+        try {
+          dialog.cb(dialog.reply);
+        } catch (e) {}this.set("dialog", false);
+      });wnd.on("_minimize", function (e) {
+        stateFn("min", e);
+      });wnd.on("_restore", function (e) {
+        switch (wnd.get("geometry.state")) {case 0:
+            stateFn("max", e);break;case 1:case 2:
+            stateFn("normal", e);break;default:
+            break;}
+      });wnd.on("_raise", function (e) {
+        wnd.raise();
+      });wnd.on("_close", function (e) {
+        wnd.close();
+      });wnd.on("_dialog-button", function (e) {
+        var fn = e.context.action;if (!!fn && typeof fn === "function") fn.call(this);
+      });wnd.result = null;wnd.waitForClose = wnd.afterClose = new Promise(function (y, n) {
+        var fn = function fn(t) {
+          return function (v) {
+            wnd.completeAfterClose = null;wnd.rejectAfterClose = null;t(v);
+          };
+        };wnd.completeAfterClose = fn(y);wnd.rejectAfterClose = fn(n);
+      });
+    }, onrender: function onrender() {
+      var _this = this;if (!!!this.get("buttonClass") && !!this.parent.get("buttonClass")) {
+        this.set("buttonClass", this.parent.get("buttonClass"));
+      }this.watchers = this.observe({ title: function title(n, o) {
+          _this.fire("retitle", n, _this);
+        }, "geometry.state": function geometryState(n, o) {
+          switch (n) {case 0:
+              _this.fire("restore", n, _this);break;case 1:
+              _this.fire("minimize", n, _this);break;case 2:
+              _this.fire("maximize", n, _this);break;}
+        } });
+    }, onunrender: function onunrender() {
+      if (this.watchers && typeof this.watchers.cancel === "function") this.watchers.cancel();
+    }, activated: function activated() {}, data: function data() {
+      return { dialog: false, _wnd_rendered: false, blocked: false, resizable: true, geometry: { top: -9999, left: -9999, width: 200, height: 200, state: 0, dwunit: "px", dhunit: "px", index: 1e3, minimum: { x: 0, y: 0, width: 70, height: 50 } }, style: {}, "class": {}, makePartial: function makePartial(key, template) {
+          if (!this._makePartial_templates) this._makePartial_templates = {};if (this._makePartial_templates[key] != template) {
+            this.resetPartial(key, template);this._makePartial_templates[key] = template;
+          }return key;
+        } };
+    }, partials: { title: "{{> ~/makePartial('titleTpl', .title) }}", body: "", foot: "", buttons: "{{#.buttons:i}}<button on-click='_dialog-button' class='{{.position || ''}}{{#.buttonClass}} {{.buttonClass}}{{/}}{{#../../class.button}} {{../../class.button}}{{/}}' disabled='{{!.enabled}}'>{{> ~/makePartial('button' + i + 'Tpl', .label) }}</button>{{/}}", controls: "{{#controls:i}}" + "	{{#if .raw}}{{>  ~/makePartial('custom_control_template'+i, .raw) }}{{/if}}" + "{{/controls}}" + "{{#if minimizable === false}}{{else}}{{>minimizeControl}}{{/if}}" + "{{>restoreControl}}{{>closeControl}}", minimizeControl: "<button on-click='_minimize' class='btn btn-sm rw-minimize'><i class='zmdi zmdi-window-minimize'></button>", restoreControl: "<button on-click='_restore'  class='btn btn-sm rw-restore'><i class='zmdi zmdi-window-restore'></button>", closeControl: "<button on-click='_close'    class='btn btn-sm rw-close'><i class='zmdi zmdi-close'></i></button>" }, rerender: function rerender() {
+      var wnd = this;if (!wnd.get("_wnd_rendered")) return Promise.resolve("ok");wnd.set("_wnd_rendered", false);return this.set("_wnd_rendered", true);
+    }, title: function title(str) {
+      this.set("title", str);
+    }, move: function move(x, y) {
+      if (typeof x === "string") {
+        switch (x) {case "center":case "centerScreen":
+            return this.set({ "geometry.top": (this.parent.el.clientHeight - this.element.clientHeight) / 2, "geometry.left": (this.parent.el.clientWidth - this.element.clientWidth) / 2 });case "cascade":
+            return this.set({ "geometry.top": this.parentNumber % 10 * 20 + 10, "geometry.left": this.parentNumber % 50 * 20 + 10 });}return Promise.resolve(false);
+      }y = +y;x = +x;var min = this.get("geometry.minimum");var max = this.get("geometry.maximum");var w = +this.get("geometry.width");var h = +this.get("geometry.height");if (!!max) {
+        if (x + w > +max.x) x = +max.x - x;if (y + h > +max.y) y = +max.y - y;
+      }if (!!min) {
+        if (x < +min.x) x = +min.x;if (y < +min.y) y = +min.y;
+      }return this.set({ "geometry.top": y, "geometry.left": x });
+    }, resize: function resize(w, h) {
+      w = getDimPx.call(this, "width", w);h = getDimPx.call(this, "height", h);var min = this.get("geometry.minimum");var max = this.get("geometry.maximum");if (!!max) {
+        if (w > max.width) w = max.width;if (w > max.height) w = max.height;
+      }if (!!min) {
+        if (w < min.width) w = min.width;if (h < min.height) h = min.height;
+      }this.set({ "geometry.width": w, "geometry.height": h });$("iframe", this.element).focus();
+    }, resizable: function resizable(b) {
+      this.set("resizable", b);
+    }, minimize: function minimize() {
+      var wnd = this;if (wnd.get("geometry.state") !== 1) {
+        wnd.set({ hidden: true, "geometry.state": 1 });wnd.fire("minimized", { window: wnd });
+      }
+    }, maximize: function maximize() {
+      var wnd = this;if (wnd.get("geometry.state") !== 2) {
+        wnd.normalGeometry = { top: wnd.get("geometry.top"), left: wnd.get("geometry.left"), width: wnd.get("geometry.width"), height: wnd.get("geometry.height") };wnd.set({ hidden: false, "geometry.left": 0, "geometry.top": 0, "geometry.width": 100, "geometry.height": 100, "geometry.dwunit": "%", "geometry.dhunit": "%", "geometry.state": 2 });wnd.fire("maximized", { window: wnd });
+      }
+    }, restore: function restore() {
+      var wnd = this;switch (wnd.get("geometry.state")) {case 1:
+          wnd.set({ hidden: false, "geometry.state": 0 });break;case 2:
+          var g = wnd.normalGeometry || {};wnd.normalGeometry = null;if (g.top < 0 || g.left < 0) {
+            g.top = 0;g.left = 0;
+          }wnd.set({ hidden: false, "geometry.left": g.left, "geometry.top": g.top, "geometry.width": g.width, "geometry.height": g.height, "geometry.dwunit": "px", "geometry.dhunit": "px", "geometry.state": 0 });break;default:
+          break;}this.raise();
+    }, raise: function raise() {
+      if (!!this.parent) this.parent.raiseWindow(this);
+    }, kill: function kill() {
+      var wnd = this;this.fire("close", this);if (!!wnd.parent) {
+        wnd.parent.killWindow(wnd);
+      } else {
+        wnd.teardown();
+      }if (!!wnd.completeAfterClose) wnd.completeAfterClose(wnd.result);
+    }, content: function content(ct) {
+      return this.resetPartial("body", ct);
+    }, buttons: function buttons() {
+      var arr = [],
+          i;this.set("buttons", arr);if (arguments.length === 1 && typeof arguments[0].length === "number") {
+        arr = arguments[0];
+      } else {
+        for (i = 0; i < arguments.length; i++) {
+          arr.push(arguments[i]);
+        }
+      }var left = [],
+          right = [],
+          middle = [];for (i = 0; i < arr.length; i++) {
+        var b = arr[i];if (!!b.position) {
+          if (b.position === "left") left.push(b);else if (b.position === "right") right.push(b);else if (b.position === "middle") middle.push(b);else if (b.position === "center") middle.push(b);else {
+            right.push(b);b.position = "right";
+          }
+        } else {
+          right.push(b);b.position = "right";
+        }if (!b.hasOwnProperty("enabled")) b.enabled = true;
+      }arr = [];for (i = 0; i < left.length; i++) {
+        arr.push(left[i]);
+      }for (i = right.length - 1; i >= 0; i--) {
+        arr.push(right[i]);
+      }for (i = 0; i < middle.length; i++) {
+        arr.push(middle[i]);
+      }this.set("buttons", arr);
+    }, button: function button(name, cb) {
+      var arr = this.get("buttons");var btn, i;if (typeof name === "number") {
+        btn = arr[name];i = name;
+      } else for (i = 0; i < arr.length; i++) {
+        if (arr[i].label === name) {
+          btn = arr[i];break;
+        }
+      }if (!!btn) {
+        cb(btn);this.set("buttons." + i, btn);
+      }
+    }, controls: function controls() {
+      var arr = [],
+          i,
+          str = "";if (arguments.length === 1 && typeof arguments[0] !== "string") arr = arguments[0];else {
+        for (i = 0; i < arguments.length; i++) {
+          arr.push(arguments[i]);
+        }
+      }for (i = 0; i < arr.length; i++) {
+        str += "{{>" + arr[i] + "Control}}";
+      }this.partials.controls = str;return this.rerender();
+    }, onClose: function onClose() {
+      this.kill();
+    }, close: function close(fn) {
+      if (!!!fn) fn = this.onClose;if (fn.length === 0) fn.call(this);else {
+        var wnd = this;fn.call(this, function (close) {
+          if (close) wnd.kill();
+        });
+      }
+    } });var cssUnit = /([\d\.]+)(.*)/;function getDimPx(dim, length) {
+    var _cssUnit$exec = cssUnit.exec(length.toString());var _cssUnit$exec2 = _slicedToArray(_cssUnit$exec, 3);var whole = _cssUnit$exec2[0];var size = _cssUnit$exec2[1];var unit = _cssUnit$exec2[2];unit = unit || "px";var dunit = dim === "width" ? "dwunit" : "dhunit";var div = this.find("div");if (unit === "px") {
+      return size;
+    } else if (div) {
+      var toSet = {};toSet["geometry." + dim] = size;toSet["geometry." + dunit] = unit;this.set(toSet);var v = this.find("div")["client" + dim[0].toUpperCase() + dim.substring(1)];toSet["geometry." + dim] = v;toSet["geometry." + dunit] = "px";this.set(toSet);return v;
+    }
+  }var messageButtons = { ok: { label: "OK", action: function action() {
+        this.result = "ok";this.close();
+      }, position: "middle" }, cancel: { label: "Cancel", action: function action() {
+        this.result = "cancel";this.close();
+      }, position: "middle" }, yes: { label: "Yes", action: function action() {
+        this.result = "yes";this.close();
+      }, position: "middle" }, no: { label: "No", action: function action() {
+        this.result = "no";this.close();
+      }, position: "middle" } };var WindowHost;WindowHost = function () {
+    var counter = 0;function newWindow(e, cb) {
+      var current = counter;counter += 1;var host = this;return host.push("windowSlots", current).then(function () {
+        var pr;var wnds = host.findAllComponents("Window");var wnd = wnds[wnds.length - 1];host.set("windows." + current, wnd);wnd.parentNumber = current;wnd.set({ "geometry.index": 1e3 + wnds.length, "geometry.left": -9999, "geometry.top": -9999, id: current });var step1 = function step1() {
+          var mpr;if (!!cb && typeof cb === "function") {
+            try {
+              mpr = cb(wnd);if (!!mpr && typeof mpr.then === "function") return mpr;
+            } catch (e1) {
+              console.log(e1);
+            }
+          } else if (typeof e === "function") {
+            try {
+              mpr = e(wnd);if (!!mpr && typeof mpr.then === "function") pr = mpr;
+            } catch (e2) {
+              console.log(e2);
+            }
+          }
+        };pr = step1();var step2 = function step2() {
+          var mpr;wnd.raise();return wnd.set("_wnd_rendered", true).then(function () {
+            wnd.element = wnd.find(".ractive-window");try {
+              mpr = wnd.activated();if (!!mpr && typeof mpr.then === "function") return mpr;
+            } catch (e4) {
+              console.log(e4);
+            }
+          });
+        };if (!!pr) pr = pr.then(step2);else pr = step2();var step3 = function step3() {
+          var mpr;if (wnd.get("geometry.left") === -9999) {
+            return wnd.move("cascade").then(function () {
+              return wnd;
+            });
+          }return wnd;
+        };if (!!pr) pr = pr.then(step3);else pr = step3();return pr;
+      });
+    }function messageBox(opts) {
+      var args = arguments;var host = this;return new Promise(function (y) {
+        host.newWindow(function (w) {
+          var message;if (args.length >= 2) {
+            message = args[0];opts = args[1];
+          } else if (args.length === 1 && typeof args[0] === "string") {
+            message = args[0];opts = {};
+          }w.set("title", opts.title || "Message");w.set("resizable", false);w.controls("close");w.content(message);var btns = opts.buttons || ["ok"],
+              out = [];for (var i = 0; i < btns.length; i++) {
+            if (messageButtons.hasOwnProperty(btns[i])) out.push(messageButtons[btns[i]]);
+          }w.buttons(out);w.onClose = function () {
+            this.kill();y(w.result || "none");
+          };if (!opts.hasOwnProperty("modal") || opts.modal) host.set("globalBlock", w);w.activated = function () {
+            w.move("center");
+          };
+        });
+      });
+    }return Ractive.extend({ isolated: true, defaults: { control: { label: function label(control, lbl) {
+            Window.partials[control + "ControlLabel"] = lbl;
+          } }, controls: function controls() {
+          var partial = "";for (var i = 0; i < arguments.length; i++) {
+            partial += "{{>" + arguments[i] + "Control}}";
+          }Window.partials.controls = partial;
+        } }, components: { Window: Window }, data: { windowSlots: [], windows: {}, blocks: {}, globalBlock: null }, computed: { blocked: function blocked() {
+          return !!this.get("globalBlock");
+        } }, template: "<div class='ractive-window-host-modal' style='{{^blocked}}display: none;{{/blocked}}'></div><div class='host-content'>{{yield}}</div>{{#windowSlots}}<Window/>{{/windowSlots}}", newWindow: newWindow, killWindow: function killWindow(wnd) {
+        var blocks = this.get("blocks");var wnds = this.get("windows");var topWnd,
+            topIdx = -1,
+            i;if (!!wnds) {
+          for (var w in wnds) {
+            if (wnds[w] === wnd) delete wnds[w];else {
+              i = wnds[w].get("geometry.index");if (i > topIdx) {
+                topIdx = i;topWnd = wnds[w];
+              }
+            }
+          }if (topWnd && !topWnd.get("topmost")) {
+            topWnd.set("topmost", true);$("iframe", topWnd.element).focus();
+          }
+        }var slots = this.get("windowSlots");if (!!slots) {
+          this.splice("windowSlots", slots.indexOf(wnd.parentNumber), 1);
+        }for (i in blocks) {
+          var arr = blocks[i];if (!!arr && Array.isArray(arr) && arr.indexOf(wnd.parentNumber) >= 0) arr.splice(arr.indexOf(wnd.parentNumber), 1);
+        }if (wnd === this.get("globalBlock")) this.set("globalBlock", null);this.unblockUnblockedWindows();
+      }, raiseWindow: function raiseWindow(wnd) {
+        var wndso = this.get("windows");var slots = this.get("windowSlots");var blocks = this.get("blocks");var wnds = [];var target = this.topLevelBlockers(wnd);target.push(wnd);for (var k in wndso) {
+          if (target.indexOf(wndso[k]) < 0) wnds.push(wndso[k]);
+        }wnds.sort(function (a, b) {
+          var ai = a.get("geometry.index"),
+              bi = b.get("geometry.index");if (ai < bi) return -1;else if (ai > bi) return 1;else return 0;
+        });if (!!wnd) wnds = wnds.concat(target);function moveBeforeBlocker(wnd, blockers) {
+          for (var i in blockers) {
+            var bl = wndso[blockers[i]];var wi = wnds.indexOf(wnd),
+                bi = wnds.indexOf(bl);if (!!!bl || wi < 0 || bi < 0) continue;var arr = blocks[bl.parentNumber];if (!!!arr && Array.isArray(arr) && arr.length > 0) moveBeforeBlocker(bl, arr);if (wi > bi) {
+              wnds.splice(wi, 1);wnds.splice(bi, 0, wnd);
+            }
+          }
+        }var i;for (i in slots) {
+          var arr = blocks[slots[i]];if (!!arr && Array.isArray(arr) && arr.length > 0) moveBeforeBlocker(wndso[slots[i]], arr);
+        }for (i in wnds) {
+          wnds[i].set("geometry.index", 1e3 + +i);if (wnds[i] !== wnd) {
+            wnds[i].set("topmost", false);
+          }
+        }if (!wnd.get("topmost")) {
+          wnd.set("topmost", true);$("iframe", wnd.element).focus();
+        }function globalBlocks(wnd) {
+          var res = [];if (!!!wnd) {
+            return res;
+          }var arr = blocks[wnd.parentNumber];if (!!arr && Array.isArray(arr) && arr.length > 0) {
+            for (var i in arr) {
+              res = res.concat(globalBlocks(wndso[arr[i]]));
+            }
+          }res.push(wnd);return res;
+        }var globals = globalBlocks(this.get("globalBlock"));for (i in globals) {
+          globals[i].add("geometry.index", 1e4);
+        }
+      }, topLevelBlockers: function topLevelBlockers(wnd) {
+        if (!!!wnd) return [];var blocks = this.get("blocks");var wndso = this.get("windows");var arr = blocks[wnd.parentNumber];var res = [];if (!!!arr || !Array.isArray(arr) || arr.length === 0) return res;for (var i in arr) {
+          var arr2 = blocks[arr[i]];if (!!!arr2 || !Array.isArray(arr2) || arr2.length === 0) res.push(wndso[arr[i]]);else {
+            res = res.concat(this.topLevelBlockers(wndso[arr[i]]));
+          }
+        }return res;
+      }, blockWindow: function blockWindow(target, blocker) {
+        if (!!!target || !!!blocker) return;var blocks = this.get("blocks");var arr = blocks[target.parentNumber];if (!!!arr || !Array.isArray(arr)) arr = [];if (arr.indexOf(blocker.parentNumber) < 0) arr.push(blocker.parentNumber);blocks[target.parentNumber] = arr;for (var i = 2; i < arguments.length; i++) {
+          if (arr.indexOf(arguments[i].parentNumber) < 0) arr.push(arguments[i].parentNumber);
+        }if (arr.length > 0) target.set("blocked", true);this.raiseWindow();
+      }, unblockWindow: function unblockWindow(target, blocker) {
+        if (!!!target | !!!blocker) return;var blocks = this.get("blocks");var arr = blocks[target.parentNumber];if (!!!arr || !Array.isArray(arr)) return;if (arr.indexOf(blocker.parentNumber) >= 0) arr.splice(arr.indexOf(blocker.parentNumber), 1);for (var i = 2; i < arguments.length; i++) {
+          if (arr.indexOf(arguments[i].parentNumber) >= 0) arr.splice(arr.indexOf(arguments[i].parentNumber), 1);
+        }if (arr.length === 0) target.set("blocked", false);this.raiseWindow();
+      }, unblockUnblockedWindows: function unblockUnblockedWindows() {
+        var blocks = this.get("blocks");var wndso = this.get("windows");for (var i in blocks) {
+          var arr = blocks[i];if (!!!arr || !Array.isArray(arr) || arr.length === 0) {
+            var wnd = wndso[i];if (!!wnd) wnd.set("blocked", false);
+          }
+        }
+      }, messageBox: messageBox });
+  }();var Host = WindowHost;var res = { Window: Window, WindowHost: Host };var index = res;exports["default"] = index;
+});
+
+/***/ }),
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1540,15 +1922,15 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _tablelistfull = __webpack_require__(45);
+var _tablelistfull = __webpack_require__(48);
 
 var _tablelistfull2 = _interopRequireDefault(_tablelistfull);
 
-var _tablecreate = __webpack_require__(46);
+var _create = __webpack_require__(49);
 
-var _tablecreate2 = _interopRequireDefault(_tablecreate);
+var _create2 = _interopRequireDefault(_create);
 
-var _tabletab = __webpack_require__(47);
+var _tabletab = __webpack_require__(50);
 
 var _tabletab2 = _interopRequireDefault(_tabletab);
 
@@ -1558,42 +1940,10 @@ exports.default = Ractive.extend({
 	//isolated: true,
 	components: {
 		tablelistfull: _tablelistfull2.default,
-		tablecreate: _tablecreate2.default,
+		tablecreate: _create2.default,
 		tabletab: _tabletab2.default
 	},
-	template: "\
-		<tabhead>\
-			<tab class='{{#if active_id === \"tables\" }}active{{/if}}' on-click='@this.fire(\"activetab\", \"tables\")'>\
-				<i class='icon zmdi zmdi-view-dashboard'></i>\
-			</tab>\
-		{{#tabs}}\
-			{{#if .closed !== true}}\
-			<tab class='{{#if .id === active_id }}active{{/if}}' on-click='@this.fire(\"activetab\",.id)'>\
-				{{.name}}\
-				<i class='icon zmdi zmdi-close' on-click='closetab'></i>\
-			</tab>\
-			{{/if}}\
-		{{/tabs}}\
-		</tabhead>\
-		<tabcontent>\
-			{{#if active_id === \"tables\" }}\
-				<tablelistfull />\
-			{{else}}\
-				{{#tabs}}\
-					{{#if .closed === true}}\
-						<div class='closedtab'></div>\
-					{{else}}\
-						{{#if .type === 'tablecreate' }}\
-							<tablecreate active={{ .id === active_id  }} />\
-						{{/if}}\
-						{{#if .type === 'tabletab' }}\
-							<tabletab table={{.}} active={{ .id === active_id  }} />\
-						{{/if}}\
-					{{/if}}\
-				{{/tabs}}\
-			{{/if}}\
-		</tabcontent>\
-		",
+	template: '\n\t\t<tabhead>\n\t\t\t<tab class=\'{{#if active_id === "tables" }}active{{/if}}\' on-click=\'@this.fire("activetab", "tables")\'>\n\t\t\t\t<icon-database style="width: 15px;height: 15px;" />\n\t\t\t</tab>\n\t\t{{#tabs}}\n\t\t\t{{#if .closed !== true}}\n\t\t\t<tab class=\'{{#if .id === active_id }}active{{/if}}\' on-click=\'@this.fire("activetab",.id)\'>\n\t\t\t\t{{.name}}\n\t\t\t\t<i class=\'\' on-click=\'closetab\'><icon-x style="width: 8px;height: 8px;line-height: 15px;" /></i>\n\t\t\t</tab>\n\t\t\t{{/if}}\n\t\t{{/tabs}}\n\t\t</tabhead>\n\t\t<tabcontent>\n\t\t\t{{#if active_id === "tables" }}\n\t\t\t\t<tablelistfull />\n\t\t\t{{else}}\n\t\t\t\t{{#tabs}}\n\t\t\t\t\t{{#if .closed === true}}\n\t\t\t\t\t\t<div class=\'closedtab\'></div>\n\t\t\t\t\t{{else}}\n\t\t\t\t\t\t{{#if .type === \'tablecreate\' }}\n\t\t\t\t\t\t\t<tablecreate active={{ .id === active_id  }} />\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t{{#if .type === \'tabletab\' }}\n\t\t\t\t\t\t\t<tabletab table={{.}} active={{ .id === active_id  }} />\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t{{/if}}\n\t\t\t\t{{/tabs}}\n\t\t\t{{/if}}\n\t\t</tabcontent>\n\t\t',
 	data: function data() {
 		return {};
 	},
@@ -1652,7 +2002,7 @@ exports.default = Ractive.extend({
 });
 
 /***/ }),
-/* 45 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1673,15 +2023,7 @@ exports.default = Ractive.extend({
 	components: {
 		tabledata: _tabledata2.default
 	},
-	template: "\
-			<div class='pull-right' style='padding: 7px;'>\
-				<a class='btn btn-xs btn-primary ' on-click='create'><i class='icon zmdi zmdi-plus'></i> CREATE TABLE <i class='zmdi'></i></a>\
-				<a class='btn btn-xs btn-default {{#if selection_length > 0}}{{else}}disabled{{/if}}' on-click='delete' as-tooltip=' \" Delete table \" '><i class='icon zmdi zmdi-delete'></i></a>\
-				<a class='btn btn-xs btn-default {{#if refresh_tables }}disabled{{/if}}' on-click='@this.refresh_tables()'><i class='icon zmdi zmdi-refresh {{#if refresh_tables }}zmdi-hc-spin{{/if}}'></i></a>\
-			</div>\
-		\
-		<tabledata columns='{{columns}}' rows='{{rows}}' style='top: 38px;' />\
-		",
+	template: '\n\t\t\t<div class=\'pull-right\' style=\'padding: 7px;\'>\n\t\t\t\t<a class=\'btn btn-xs btn-primary \' on-click=\'create\'> CREATE TABLE <i class=\'zmdi\'></i></a>\n\t\t\t\t<a class=\'btn btn-xs btn-default {{#if selection_length > 0}}{{else}}disabled{{/if}}\' on-click=\'delete\'> <icon-trash /> </a>\n\t\t\t\t<a class=\'btn btn-xs btn-default {{#if refresh_tables }}disabled{{/if}}\' on-click=\'@this.refresh_tables()\'> <icon-refresh /> </a>\n\t\t\t</div>\n\n\t\t<tabledata columns=\'{{columns}}\' rows=\'{{rows}}\' style=\'top: 38px;\' />\n\t\t',
 	data: function data() {
 		return {
 			selection_length: 0,
@@ -1785,7 +2127,7 @@ exports.default = Ractive.extend({
 					ractive.refresh_tables();
 
 					// refresh leftside as well
-					window.ractive.findComponent('minitablelist').refresh_tables();
+					ractive.root.findComponent('minitablelist').refresh_tables();
 				});
 			}
 		});
@@ -1796,7 +2138,7 @@ exports.default = Ractive.extend({
 });
 
 /***/ }),
-/* 46 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1807,225 +2149,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = Ractive.extend({
 	//isolated: true,
-	template: "\
-		<div class='tableview {{#if active}}active{{/if}}'>\
-		<div style='position: absolute;top: 0px;left: 0px;bottom: 0px;right: 0px;overflow-x: auto;'>\
-			<div style='padding: 30px'>\
-				<h3>Create DynamoDB table</h3>\
-				<br>\
-				<div style='color:red'>{{ err }}</div>\
-				<hr>\
-				DynamoDB is a schema-less database that only requires a table name and primary key. The table's primary key is made up of one or two attributes that uniquely identify items, partition the data, and sort data within each partition.\
-\
-				<br><br>\
-				<table style='border-collapse: separate;border-spacing: 10px;'>\
-					<tr>\
-						<td>Table name</td>\
-						<td><input type='text' value='{{newtable.TableName}}' on-focus='focus'></td>\
-					</tr>\
-					<tr>\
-						<td>Partition key</td>\
-						<td><input type='text' value='{{ newtable.AttributeDefinitions.0.AttributeName }}'></td>\
-						<td>\
-							<select value='{{ newtable.AttributeDefinitions.0.AttributeType }}' on-focus='focus'>\
-								<option value='S'>String</option>\
-								<option value='N'>Number</option>\
-								<option value='B'>Binary</option>\
-							</select>\
-						</td>\
-					</tr>\
-					<tr>\
-						<td></td>\
-						<td><input type='checkbox' checked='{{newtable.sort_enabled}}' />Add sort key</td>\
-					</tr>\
-					{{#if newtable.sort_enabled}}\
-					<tr>\
-						<td>Sort key</td>\
-						<td><input type='text' value='{{newtable.sort_key_name}}' on-focus='focus'></td>\
-						<td>\
-							<select value='{{ newtable.sort_key_type}}' on-focus='focus'>\
-								<option value='S'>String</option>\
-								<option value='N'>Number</option>\
-								<option value='B'>Binary</option>\
-							</select>\
-						</td>\
-					</tr>\
-					{{/if}}\
-				</table>\
-				<br><br>\
-				<h4>Secondary indexes</h4>\
-				<table style='border-collapse: separate;border-spacing: 10px;'>\
-					<tr style='background-color: #eadfdf'>\
-						<td>Name</td>\
-						<td>Type</td>\
-						<td>Partition key</td>\
-						<td>Sort key</td>\
-						<td>Projection type</td>\
-						<td>Projected attributes</td>\
-						<td></td>\
-					</tr>\
-					{{#newtable.LocalSecondaryIndexes:i}}\
-					<tr style='background-color: #ffefef'>\
-						<td><input type='text' value='{{.IndexName}}' on-focus='focus' /></td>\
-						<td>LSI</td>\
-						<td><input type='text' value='{{ newtable.AttributeDefinitions.0.AttributeName }}' disabled> (\
-							{{#if newtable.AttributeDefinitions.0.AttributeType === 'S' }}String{{/if}}\
-							{{#if newtable.AttributeDefinitions.0.AttributeType === 'N' }}Number{{/if}}\
-							{{#if newtable.AttributeDefinitions.0.AttributeType === 'B' }}Binary{{/if}}\
-						)</td>\
-						<td>\
-							{{#.KeySchema }}\
-								{{#if .KeyType === 'RANGE'}}\
-									<input type='text' value='{{ .AttributeName }}' />\
-									<select value='{{ .AttributeType }}'>\
-										<option value='S'>String</option>\
-										<option value='N'>Number</option>\
-										<option value='B'>Binary</option>\
-									</select>\
-								{{/if}}\
-							{{/.KeySchema }}\
-						</td>\
-						<td>\
-							<select value='{{.Projection.ProjectionType}}'>\
-								<option value='ALL'>ALL</option>\
-								<option value='KEYS_ONLY'>KEYS_ONLY</option>\
-								<option value='INCLUDE'>INCLUDE</option>\
-							</select>\
-						</td>\
-						<td>\
-							{{#if .Projection.ProjectionType === 'INCLUDE'}}\
-\
-							{{#.Projection.NonKeyAttributes}}\
-								<span class='badge badge-info'>{{.}}</span><br>\
-							{{/.Projection.NonKeyAttributes}}\
-\
-							<input type='text' value='{{ ~/nonkeyattribute }}' /><a class='btn btn-xs btn-primary' on-click='add-nonkey-attribute'><i class='icon zmdi zmdi-plus'></i></a>\
-\
-							{{/if}}\
-						</td>\
-						<td>\
-							<a class='btn btn-xs btn-danger' on-click='lsi-delete'><i class='zmdi zmdi-delete'></i></a>\
-						</td>\
-					</tr>\
-					{{/newtable.LocalSecondaryIndexes}}\
-\
-\
-					{{#newtable.GlobalSecondaryIndexes:i}}\
-					<tr style='background-color: #ffefef'>\
-						<td><input type='text' value='{{.IndexName}}' on-focus='focus' /></td>\
-						<td>GSI</td>\
-						<td>\
-							{{#.KeySchema }}\
-								{{#if .KeyType === 'HASH'}}\
-									<input type='text' value='{{ .AttributeName }}' />\
-									<select value='{{ .AttributeType }}'>\
-										<option value='S'>String</option>\
-										<option value='N'>Number</option>\
-										<option value='B'>Binary</option>\
-									</select>\
-								{{/if}}\
-							{{/.KeySchema }}\
-						</td>\
-						<td>\
-							{{#.KeySchema }}\
-								{{#if .KeyType === 'RANGE'}}\
-									<input type='text' value='{{ .AttributeName }}' />\
-									<select value='{{ .AttributeType }}'>\
-										<option value='S'>String</option>\
-										<option value='N'>Number</option>\
-										<option value='B'>Binary</option>\
-									</select>\
-								{{/if}}\
-							{{/.KeySchema }}\
-						</td>\
-						<td>\
-							<select value='{{.Projection.ProjectionType}}'>\
-								<option value='ALL'>ALL</option>\
-								<option value='KEYS_ONLY'>KEYS_ONLY</option>\
-								<option value='INCLUDE'>INCLUDE</option>\
-							</select>\
-						</td>\
-						<td>\
-							{{#if .Projection.ProjectionType === 'INCLUDE'}}\
-\
-							{{#.Projection.NonKeyAttributes}}\
-								<span class='badge badge-info'>{{.}}</span><br>\
-							{{/.Projection.NonKeyAttributes}}\
-\
-							<input type='text' value='{{ ~/nonkeyattribute }}' /><a class='btn btn-xs btn-primary' on-click='add-nonkey-attribute'><i class='icon zmdi zmdi-plus'></i></a>\
-\
-							{{/if}}\
-						</td>\
-						<td>\
-							<a class='btn btn-xs btn-danger' on-click='gsi-delete'><i class='zmdi zmdi-delete'></i></a>\
-						</td>\
-					</tr>\
-					{{/newtable.GlobalSecondaryIndexes}}\
-\
-				</table>\
-				<a class='btn btn-md btn-default' on-click='lsi-add'>Add LSI</a>\
-				<a class='btn btn-md btn-default' on-click='gsi-add'>Add GSI</a>\
-\
-\
-\
-				<br>\
-				<br>\
-				<h4>Read/write capacity mode</h4>\
-				<div>\
-					Select on-demand if you want to pay only for the read and writes you perform, with no capacity planning required. Select provisioned to save on throughput costs if you can reliably estimate your application's throughput requirements.\
-					See the <a target='_blank' href='http://aws.amazon.com/dynamodb/pricing'>DynamoDB pricing page</a> and <a target='_blank' href='http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ProvisionedThroughput.html'>DynamoDB Developer Guide</a> to learn more.\
-					<br><br>Read/write capacity mode can be changed later.\
-				</div>\
-				<table style='border-collapse: separate;border-spacing: 10px;'>\
-					<tr>\
-						<td></td>\
-						<td><input type='radio' name='{{newtable.BillingMode}}' value='PROVISIONED'> Provisioned</td>\
-						<td><input type='radio' name='{{newtable.BillingMode}}' value='PAY_PER_REQUEST'> On-demand</td>\
-					</tr>\
-				</table>\
-\
-				<br>\
-				<br>\
-				<h4>Provisioned capacity</h4>\
-\
-\
-				{{#if newtable.BillingMode === 'PROVISIONED'}}\
-				<table cellpadding='10'>\
-					<tr>\
-						<td></td>\
-						<td>Read capacity</td>\
-						<td>Write capacity</td>\
-					</tr>\
-					<tr>\
-						<td>Table</td>\
-						<td><input type='text' value='{{newtable.ProvisionedThroughput.ReadCapacityUnits}}'  size='4' on-focus='focus' /></td>\
-						<td><input type='text' value='{{newtable.ProvisionedThroughput.WriteCapacityUnits}}' size='4' on-focus='focus' /></td>\
-					</tr>\
-					{{#newtable.GlobalSecondaryIndexes:i}}\
-					<tr>\
-						<td>{{.IndexName}} ( GSI )</td>\
-						<td><input type='text' value='{{.ProvisionedThroughput.ReadCapacityUnits}}'  size='4' on-focus='focus' /></td>\
-						<td><input type='text' value='{{.ProvisionedThroughput.WriteCapacityUnits}}' size='4' on-focus='focus' /></td>\
-					</tr>\
-					{{/newtable.GlobalSecondaryIndexes}}\
-				</table>\
-				{{/if}}\
-\
-\
-				{{#if newtable.BillingMode === 'PAY_PER_REQUEST'}}\
-					Not applicable because read/write capacity mode is on-demand.\
-				{{/if}}\
-\
-				<br>\
-				<hr>\
-				<div style='color:red'>{{ errorMessage }}&nbsp;</div>\
-				<br>\
-				<a class='btn btn-md btn-primary' on-click='create'>Create</a>\
-				<br>\
-			</div>\
-		</div>\
-		</div>\
-	",
+	template: '\n\t\t<div class=\'tableview {{#if active}}active{{/if}}\'>\n\t\t<div style=\'position: absolute;top: 0px;left: 0px;bottom: 0px;right: 0px;overflow-x: auto;\'>\n\t\t\t<div style=\'padding: 30px\'>\n\t\t\t\t<h3>Create DynamoDB table</h3>\n\t\t\t\t<br>\n\t\t\t\t<div style=\'color:red\'>{{ err }}</div>\n\t\t\t\t<hr>\n\t\t\t\tDynamoDB is a schema-less database that only requires a table name and primary key. The table\'s primary key is made up of one or two attributes that uniquely identify items, partition the data, and sort data within each partition.\n\n\t\t\t\t<br><br>\n\t\t\t\t<table style=\'border-collapse: separate;border-spacing: 10px;\'>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>Table name</td>\n\t\t\t\t\t\t<td><input class="input-text" type=\'text\' value=\'{{newtable.TableName}}\' on-focus=\'focus\'></td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>Partition key</td>\n\t\t\t\t\t\t<td><input class="input-text" type=\'text\' value=\'{{ newtable.AttributeDefinitions.0.AttributeName }}\'></td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<select class="input-select" value=\'{{ newtable.AttributeDefinitions.0.AttributeType }}\' on-focus=\'focus\'>\n\t\t\t\t\t\t\t\t<option value=\'S\'>String</option>\n\t\t\t\t\t\t\t\t<option value=\'N\'>Number</option>\n\t\t\t\t\t\t\t\t<option value=\'B\'>Binary</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td></td>\n\t\t\t\t\t\t<td><input class="input-checkbox" type=\'checkbox\' checked=\'{{newtable.sort_enabled}}\' />Add sort key</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t{{#if newtable.sort_enabled}}\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>Sort key</td>\n\t\t\t\t\t\t<td><input class="input-text" type=\'text\' value=\'{{newtable.sort_key_name}}\' on-focus=\'focus\'></td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<select class="input-select" class="input-select" value=\'{{ newtable.sort_key_type}}\' on-focus=\'focus\'>\n\t\t\t\t\t\t\t\t<option value=\'S\'>String</option>\n\t\t\t\t\t\t\t\t<option value=\'N\'>Number</option>\n\t\t\t\t\t\t\t\t<option value=\'B\'>Binary</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t{{/if}}\n\t\t\t\t</table>\n\t\t\t\t<br><br>\n\t\t\t\t<h4>Secondary indexes</h4>\n\t\t\t\t<table style=\'border-collapse: separate;border-spacing: 10px;\'>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>Name</td>\n\t\t\t\t\t\t<td>Type</td>\n\t\t\t\t\t\t<td>Partition key</td>\n\t\t\t\t\t\t<td>Sort key</td>\n\t\t\t\t\t\t<td>Projection type</td>\n\t\t\t\t\t\t<td>Projected attributes</td>\n\t\t\t\t\t\t<td></td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t{{#newtable.LocalSecondaryIndexes:i}}\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td><input class="input-text" type=\'text\' value=\'{{.IndexName}}\' on-focus=\'focus\' /></td>\n\t\t\t\t\t\t<td>LSI</td>\n\t\t\t\t\t\t<td><input class="input-text" type=\'text\' value=\'{{ newtable.AttributeDefinitions.0.AttributeName }}\' disabled> (\n\t\t\t\t\t\t\t{{#if newtable.AttributeDefinitions.0.AttributeType === \'S\' }}String{{/if}}\n\t\t\t\t\t\t\t{{#if newtable.AttributeDefinitions.0.AttributeType === \'N\' }}Number{{/if}}\n\t\t\t\t\t\t\t{{#if newtable.AttributeDefinitions.0.AttributeType === \'B\' }}Binary{{/if}}\n\t\t\t\t\t\t)</td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t{{#.KeySchema }}\n\t\t\t\t\t\t\t\t{{#if .KeyType === \'RANGE\'}}\n\t\t\t\t\t\t\t\t\t<input class="input-text" type=\'text\' value=\'{{ .AttributeName }}\' />\n\t\t\t\t\t\t\t\t\t<select class="input-select" value=\'{{ .AttributeType }}\'>\n\t\t\t\t\t\t\t\t\t\t<option value=\'S\'>String</option>\n\t\t\t\t\t\t\t\t\t\t<option value=\'N\'>Number</option>\n\t\t\t\t\t\t\t\t\t\t<option value=\'B\'>Binary</option>\n\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t{{/.KeySchema }}\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<select class="input-select" value=\'{{.Projection.ProjectionType}}\'>\n\t\t\t\t\t\t\t\t<option value=\'ALL\'>ALL</option>\n\t\t\t\t\t\t\t\t<option value=\'KEYS_ONLY\'>KEYS_ONLY</option>\n\t\t\t\t\t\t\t\t<option value=\'INCLUDE\'>INCLUDE</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t{{#if .Projection.ProjectionType === \'INCLUDE\'}}\n\n\t\t\t\t\t\t\t{{#.Projection.NonKeyAttributes}}\n\t\t\t\t\t\t\t\t<span class=\'badge badge-info\'>{{.}}</span><br>\n\t\t\t\t\t\t\t{{/.Projection.NonKeyAttributes}}\n\n\t\t\t\t\t\t\t<input class="input-text" type=\'text\' value=\'{{ ~/nonkeyattribute }}\' /><a class=\'btn btn-xs btn-primary\' on-click=\'add-nonkey-attribute\'> <icon-plus /> </a>\n\n\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<a class=\'btn btn-xs btn-danger\' on-click=\'lsi-delete\'> <icon-trash /> </a>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t{{/newtable.LocalSecondaryIndexes}}\n\n\n\t\t\t\t\t{{#newtable.GlobalSecondaryIndexes:i}}\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td><input class="input-text" type=\'text\' value=\'{{.IndexName}}\' on-focus=\'focus\' /></td>\n\t\t\t\t\t\t<td>GSI</td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t{{#.KeySchema }}\n\t\t\t\t\t\t\t\t{{#if .KeyType === \'HASH\'}}\n\t\t\t\t\t\t\t\t\t<input class="input-text" type=\'text\' value=\'{{ .AttributeName }}\' />\n\t\t\t\t\t\t\t\t\t<select class="input-select" value=\'{{ .AttributeType }}\'>\n\t\t\t\t\t\t\t\t\t\t<option value=\'S\'>String</option>\n\t\t\t\t\t\t\t\t\t\t<option value=\'N\'>Number</option>\n\t\t\t\t\t\t\t\t\t\t<option value=\'B\'>Binary</option>\n\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t{{/.KeySchema }}\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t{{#.KeySchema }}\n\t\t\t\t\t\t\t\t{{#if .KeyType === \'RANGE\'}}\n\t\t\t\t\t\t\t\t\t<input class="input-text" type=\'text\' value=\'{{ .AttributeName }}\' />\n\t\t\t\t\t\t\t\t\t<select class="input-select" value=\'{{ .AttributeType }}\'>\n\t\t\t\t\t\t\t\t\t\t<option value=\'S\'>String</option>\n\t\t\t\t\t\t\t\t\t\t<option value=\'N\'>Number</option>\n\t\t\t\t\t\t\t\t\t\t<option value=\'B\'>Binary</option>\n\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t{{/.KeySchema }}\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<select class="input-select" value=\'{{.Projection.ProjectionType}}\'>\n\t\t\t\t\t\t\t\t<option value=\'ALL\'>ALL</option>\n\t\t\t\t\t\t\t\t<option value=\'KEYS_ONLY\'>KEYS_ONLY</option>\n\t\t\t\t\t\t\t\t<option value=\'INCLUDE\'>INCLUDE</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t{{#if .Projection.ProjectionType === \'INCLUDE\'}}\n\n\t\t\t\t\t\t\t{{#.Projection.NonKeyAttributes}}\n\t\t\t\t\t\t\t\t<span class=\'badge badge-info\'>{{.}}</span><br>\n\t\t\t\t\t\t\t{{/.Projection.NonKeyAttributes}}\n\n\t\t\t\t\t\t\t<input class="input-text" type=\'text\' value=\'{{ ~/nonkeyattribute }}\' /><a class=\'btn btn-xs btn-primary\' on-click=\'add-nonkey-attribute\'> <icon-plus /> </a>\n\n\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<a class=\'btn btn-xs btn-danger\' on-click=\'gsi-delete\'> <icon-trash /> </a>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t{{/newtable.GlobalSecondaryIndexes}}\n\n\t\t\t\t</table>\n\t\t\t\t<a class=\'btn btn-md btn-default\' on-click=\'lsi-add\'>Add LSI</a>\n\t\t\t\t<a class=\'btn btn-md btn-default\' on-click=\'gsi-add\'>Add GSI</a>\n\n\n\n\t\t\t\t<br>\n\t\t\t\t<br>\n\t\t\t\t<h4>Read/write capacity mode</h4>\n\t\t\t\t<div>\n\t\t\t\t\tSelect on-demand if you want to pay only for the read and writes you perform, with no capacity planning required. Select provisioned to save on throughput costs if you can reliably estimate your application\'s throughput requirements.\n\t\t\t\t\tSee the <a target=\'_blank\' href=\'http://aws.amazon.com/dynamodb/pricing\'>DynamoDB pricing page</a> and <a target=\'_blank\' href=\'http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ProvisionedThroughput.html\'>DynamoDB Developer Guide</a> to learn more.\n\t\t\t\t\t<br><br>Read/write capacity mode can be changed later.\n\t\t\t\t</div>\n\t\t\t\t<table style=\'border-collapse: separate;border-spacing: 10px;\'>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td></td>\n\t\t\t\t\t\t<td><input class="input-radio" type=\'radio\' name=\'{{newtable.BillingMode}}\' value=\'PROVISIONED\'> Provisioned</td>\n\t\t\t\t\t\t<td><input class="input-radio" type=\'radio\' name=\'{{newtable.BillingMode}}\' value=\'PAY_PER_REQUEST\'> On-demand</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</table>\n\n\t\t\t\t<br>\n\t\t\t\t<br>\n\t\t\t\t<h4>Provisioned capacity</h4>\n\n\n\t\t\t\t{{#if newtable.BillingMode === \'PROVISIONED\'}}\n\t\t\t\t<table cellpadding=\'10\'>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td></td>\n\t\t\t\t\t\t<td>Read capacity</td>\n\t\t\t\t\t\t<td>Write capacity</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>Table</td>\n\t\t\t\t\t\t<td><input class="input-text" type=\'text\' value=\'{{newtable.ProvisionedThroughput.ReadCapacityUnits}}\'  size=\'4\' on-focus=\'focus\' /></td>\n\t\t\t\t\t\t<td><input class="input-text" type=\'text\' value=\'{{newtable.ProvisionedThroughput.WriteCapacityUnits}}\' size=\'4\' on-focus=\'focus\' /></td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t{{#newtable.GlobalSecondaryIndexes:i}}\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>{{.IndexName}} ( GSI )</td>\n\t\t\t\t\t\t<td><input class="input-text" type=\'text\' value=\'{{.ProvisionedThroughput.ReadCapacityUnits}}\'  size=\'4\' on-focus=\'focus\' /></td>\n\t\t\t\t\t\t<td><input class="input-text" type=\'text\' value=\'{{.ProvisionedThroughput.WriteCapacityUnits}}\' size=\'4\' on-focus=\'focus\' /></td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t{{/newtable.GlobalSecondaryIndexes}}\n\t\t\t\t</table>\n\t\t\t\t{{/if}}\n\n\n\t\t\t\t{{#if newtable.BillingMode === \'PAY_PER_REQUEST\'}}\n\t\t\t\t\tNot applicable because read/write capacity mode is on-demand.\n\t\t\t\t{{/if}}\n\n\t\t\t\t<br>\n\t\t\t\t<hr>\n\t\t\t\t<div style=\'color:red\'>{{ errorMessage }}&nbsp;</div>\n\t\t\t\t<br>\n\t\t\t\t<a class=\'btn btn-md btn-primary\' on-click=\'create\'>Create</a>\n\t\t\t\t<br>\n\t\t\t</div>\n\t\t</div>\n\t\t</div>\n\t',
 	data: function data() {
 		return {
 			newtable: {
@@ -2195,7 +2319,7 @@ exports.default = Ractive.extend({
 					ractive.set('errorMessage', err.message);
 					return;
 				}
-				window.ractive.findComponent('minitablelist').refresh_tables();
+				ractive.root.findComponent('minitablelist').refresh_tables();
 
 				// fulltablelist does not exist
 				//ractive.root.findComponent('tablelist').refresh_tables()
@@ -2205,7 +2329,7 @@ exports.default = Ractive.extend({
 });
 
 /***/ }),
-/* 47 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2215,39 +2339,39 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _info = __webpack_require__(48);
+var _info = __webpack_require__(51);
 
 var _info2 = _interopRequireDefault(_info);
 
-var _alarms = __webpack_require__(49);
+var _alarms = __webpack_require__(52);
 
 var _alarms2 = _interopRequireDefault(_alarms);
 
-var _capacity = __webpack_require__(50);
+var _capacity = __webpack_require__(53);
 
 var _capacity2 = _interopRequireDefault(_capacity);
 
-var _indexes = __webpack_require__(51);
+var _indexes = __webpack_require__(54);
 
 var _indexes2 = _interopRequireDefault(_indexes);
 
-var _tableglobal = __webpack_require__(52);
+var _tableglobal = __webpack_require__(55);
 
 var _tableglobal2 = _interopRequireDefault(_tableglobal);
 
-var _tablebackup = __webpack_require__(53);
+var _backup = __webpack_require__(56);
 
-var _tablebackup2 = _interopRequireDefault(_tablebackup);
+var _backup2 = _interopRequireDefault(_backup);
 
-var _tabletriggers = __webpack_require__(54);
+var _tabletriggers = __webpack_require__(57);
 
 var _tabletriggers2 = _interopRequireDefault(_tabletriggers);
 
-var _metrics = __webpack_require__(55);
+var _metrics = __webpack_require__(58);
 
 var _metrics2 = _interopRequireDefault(_metrics);
 
-var _items = __webpack_require__(56);
+var _items = __webpack_require__(59);
 
 var _items2 = _interopRequireDefault(_items);
 
@@ -2261,74 +2385,12 @@ exports.default = Ractive.extend({
 		tablecapacity: _capacity2.default,
 		tableindexes: _indexes2.default,
 		tableglobal: _tableglobal2.default,
-		tablebackup: _tablebackup2.default,
+		tablebackup: _backup2.default,
 		tabletriggers: _tabletriggers2.default,
 		tablemetrics: _metrics2.default,
 		tableitems: _items2.default
 	},
-	template: "\
-		<div class='tableview {{#if active}}active{{/if}}'>\
-			<div class='tableview-table-tabs noselect'>\
-				<a class='btn-tableview-tab {{#if tab === 'info'}}active{{/if}}'         on-click='@this.set('tab','info')'><!-- <i class='zmdi zmdi-info'></i>--> Overview </a>\
-				<a class='btn-tableview-tab {{#if tab === 'data'}}active{{/if}}'         on-click='@this.set('tab','data')'><!--<i class='zmdi zmdi-format-list-bulleted'></i>--> Items</a>\
-				<a class='btn-tableview-tab {{#if tab === 'metrics'}}active{{/if}}'      on-click='@this.set('tab','metrics')'><!--<i class='zmdi zmdi-chart'></i>--> Metrics</a>\
-				<a class='btn-tableview-tab {{#if tab === 'alarms'}}active{{/if}}'       on-click='@this.set('tab','alarms')'><!--<i class='zmdi zmdi-notifications'></i>--> Alarms</a>\
-				<a class='btn-tableview-tab {{#if tab === 'capacity'}}active{{/if}}'     on-click='@this.set('tab','capacity')'><!--<i class='zmdi zmdi-memory'></i>--> Capacity</a>\
-				<a class='btn-tableview-tab {{#if tab === 'indexes'}}active{{/if}}'      on-click='@this.set('tab','indexes')'><!--<i class='zmdi zmdi-format-line-spacing'></i>--> Indexes</a>\
-				<a class='btn-tableview-tab {{#if tab === 'globaltables'}}active{{/if}}' on-click='@this.set('tab','globaltables')'><!--<i class='zmdi zmdi-globe'></i>--> Global Tables</a>\
-				<a class='btn-tableview-tab {{#if tab === 'backups'}}active{{/if}}'      on-click='@this.set('tab','backups')'><!--<i class='zmdi zmdi-card-sd'></i>--> Backups</a>\
-				<a class='btn-tableview-tab {{#if tab === 'triggers'}}active{{/if}}'     on-click='@this.set('tab','triggers')'><!--<i class='zmdi zmdi-portable-wifi'></i>--> Triggers</a>\
-			</div>\
-			<div style='position: absolute;top: 42px;left: 30px;right: 30px;bottom: 0px;'>\
-				{{#if err}}\
-					<br> {{ err.errorMessage || err.message }}\
-				{{else}}\
-					{{#if describeTable === null }}\
-						<br>Loading...\
-					{{else}}\
-\
-						{{#if tab === 'info'}}\
-							<tableinfo table='{{.table}}' describeTable='{{describeTable}}' />\
-						{{/if}}\
-\
-						{{#if tab === 'data'}}\
-							<tableitems table='{{.table}}' describeTable='{{describeTable}}' type='{{.type}}' scan='{{.scan}}' query='{{.query}}' sql='{{.sql}}' />\
-						{{/if}}\
-\
-						{{#if tab === 'metrics'}}\
-							<tablemetrics table='{{.table}}' describeTable='{{describeTable}}' />\
-						{{/if}}\
-\
-						{{#if tab === 'alarms'}}\
-							<tablealarms table='{{.table}}' describeTable='{{describeTable}}' />\
-						{{/if}}\
-\
-						{{#if tab === 'capacity'}}\
-							<tablecapacity table='{{.table}}' describeTable='{{describeTable}}' />\
-						{{/if}}\
-\
-						{{#if tab === 'indexes'}}\
-							<tableindexes table='{{.table}}' describeTable='{{describeTable}}' />\
-						{{/if}}\
-\
-						{{#if tab === 'globaltables'}}\
-							<tableglobal table='{{.table}}' describeTable='{{describeTable}}' />\
-						{{/if}}\
-\
-						{{#if tab === 'backups'}}\
-							<tablebackup table='{{.table}}' describeTable='{{describeTable}}' />\
-						{{/if}}\
-\
-						{{#if tab === 'triggers'}}\
-							<tabletriggers table='{{.table}}' describeTable='{{describeTable}}' />\
-						{{/if}}\
-\
-					{{/if}}\
-				{{/if}}\
-\
-			</div>\
-		</div>\
-	",
+	template: '\n\t\t<div class=\'tableview {{#if active}}active{{/if}}\'>\n\t\t\t<div class=\'tableview-table-tabs noselect\'>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'info\'}}active{{/if}}\'         on-click=\'@this.set(\'tab\',\'info\')\'><!-- <i class=\'zmdi zmdi-info\'></i>--> Overview </a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'data\'}}active{{/if}}\'         on-click=\'@this.set(\'tab\',\'data\')\'><!--<i class=\'zmdi zmdi-format-list-bulleted\'></i>--> Items</a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'metrics\'}}active{{/if}}\'      on-click=\'@this.set(\'tab\',\'metrics\')\'><!--<i class=\'zmdi zmdi-chart\'></i>--> Metrics</a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'alarms\'}}active{{/if}}\'       on-click=\'@this.set(\'tab\',\'alarms\')\'><!--<i class=\'zmdi zmdi-notifications\'></i>--> Alarms</a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'capacity\'}}active{{/if}}\'     on-click=\'@this.set(\'tab\',\'capacity\')\'><!--<i class=\'zmdi zmdi-memory\'></i>--> Capacity</a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'indexes\'}}active{{/if}}\'      on-click=\'@this.set(\'tab\',\'indexes\')\'><!--<i class=\'zmdi zmdi-format-line-spacing\'></i>--> Indexes</a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'globaltables\'}}active{{/if}}\' on-click=\'@this.set(\'tab\',\'globaltables\')\'><!--<i class=\'zmdi zmdi-globe\'></i>--> Global Tables</a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'backups\'}}active{{/if}}\'      on-click=\'@this.set(\'tab\',\'backups\')\'><!--<i class=\'zmdi zmdi-card-sd\'></i>--> Backups</a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'triggers\'}}active{{/if}}\'     on-click=\'@this.set(\'tab\',\'triggers\')\'><!--<i class=\'zmdi zmdi-portable-wifi\'></i>--> Triggers</a>\n\t\t\t</div>\n\t\t\t<div style=\'position: absolute;top: 42px;left: 30px;right: 30px;bottom: 0px;\'>\n\t\t\t\t{{#if err}}\n\t\t\t\t\t<br> {{ err.errorMessage || err.message }}\n\t\t\t\t{{else}}\n\t\t\t\t\t{{#if describeTable === null }}\n\t\t\t\t\t\t<br>Loading...\n\t\t\t\t\t{{else}}\n\n\t\t\t\t\t\t{{#if tab === \'info\'}}\n\t\t\t\t\t\t\t<tableinfo table=\'{{.table}}\' describeTable=\'{{describeTable}}\' />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'data\'}}\n\t\t\t\t\t\t\t<tableitems table=\'{{.table}}\' describeTable=\'{{describeTable}}\' type=\'{{.type}}\' scan=\'{{.scan}}\' query=\'{{.query}}\' sql=\'{{.sql}}\' />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'metrics\'}}\n\t\t\t\t\t\t\t<tablemetrics table=\'{{.table}}\' describeTable=\'{{describeTable}}\' />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'alarms\'}}\n\t\t\t\t\t\t\t<tablealarms table=\'{{.table}}\' describeTable=\'{{describeTable}}\' />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'capacity\'}}\n\t\t\t\t\t\t\t<tablecapacity table=\'{{.table}}\' describeTable=\'{{describeTable}}\' />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'indexes\'}}\n\t\t\t\t\t\t\t<tableindexes table=\'{{.table}}\' describeTable=\'{{describeTable}}\' />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'globaltables\'}}\n\t\t\t\t\t\t\t<tableglobal table=\'{{.table}}\' describeTable=\'{{describeTable}}\' />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'backups\'}}\n\t\t\t\t\t\t\t<tablebackup table=\'{{.table}}\' describeTable=\'{{describeTable}}\' />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'triggers\'}}\n\t\t\t\t\t\t\t<tabletriggers table=\'{{.table}}\' describeTable=\'{{describeTable}}\' />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t{{/if}}\n\t\t\t\t{{/if}}\n\n\t\t\t</div>\n\t\t</div>\n\t',
 	data: function data() {
 		return {
 			tab: 'info',
@@ -2357,7 +2419,7 @@ exports.default = Ractive.extend({
 });
 
 /***/ }),
-/* 48 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2367,7 +2429,7 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 exports.default = Ractive.extend({
-	template: '\n\t\t<div class=\'tableinfo\' style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;overflow: auto;font-size: 14px;">\n\t\t\t\t<div style=\'padding: 30px\'>\n\t\t\t\t\t<h3>\n\t\t\t\t\t\tStream details\n\t\t\t\t\t</h3>\n\t\t\t\t\t<hr>\n\n\t\t\t\t\t{{#if StreamEditing}}\n\t\t\t\t\t\t<table>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td align=\'right\' width=\'350\'><b>View type</b></td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<input type=\'radio\' name=\'{{NewStreamViewType}}\' value=\'KEYS_ONLY\'>\tKeys only - only the key attributes of the modified item<br>\n\t\t\t\t\t\t\t\t\t<input type=\'radio\' name=\'{{NewStreamViewType}}\' value=\'NEW_IMAGE\'>\tNew image - the entire item, as it appears after it was modified<br>\n\t\t\t\t\t\t\t\t\t<input type=\'radio\' name=\'{{NewStreamViewType}}\' value=\'OLD_IMAGE\'>\tOld image - the entire item, as it appeared before it was modified<br>\n\t\t\t\t\t\t\t\t\t<input type=\'radio\' name=\'{{NewStreamViewType}}\' value=\'NEW_AND_OLD_IMAGES\'> New and old images - both the new and the old images of the item<br>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td align=\'right\' width=\'350\'></td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<a class=\'btn btn-sm btn-primary\' on-click=\'update-stream\'>Enable</a>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</table>\n\t\t\t\t\t{{else}}\n\t\t\t\t\t\t<table style=\'border-collapse: separate;border-spacing: 10px;\'>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td align=\'right\' width=\'350\'><b>Stream enabled</b></td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t{{#if !selfDescribeTable.StreamSpecification}}\n\t\t\t\t\t\t\t\t\t\tno\n\t\t\t\t\t\t\t\t\t{{else}}\n\t\t\t\t\t\t\t\t\t\t{{#if selfDescribeTable.StreamSpecification.StreamEnabled === true }}\n\t\t\t\t\t\t\t\t\t\tyes\n\t\t\t\t\t\t\t\t\t\t{{else}}\n\t\t\t\t\t\t\t\t\t\tno\n\t\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td align=\'right\' width=\'350\'><b>View type\t</b></td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t{{#if !selfDescribeTable.StreamSpecification}}\n\t\t\t\t\t\t\t\t\t\t-\n\t\t\t\t\t\t\t\t\t{{else}}\n\t\t\t\t\t\t\t\t\t\t{{selfDescribeTable.StreamSpecification.StreamViewType}}\n\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td align=\'right\' width=\'350\'><b>Latest stream ARN</b></td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t{{#if !selfDescribeTable.LatestStreamArn}}\n\t\t\t\t\t\t\t\t\t\t-\n\t\t\t\t\t\t\t\t\t{{else}}\n\t\t\t\t\t\t\t\t\t\t{{selfDescribeTable.LatestStreamArn}}\n\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td align=\'right\' width=\'350\'>\n\t\t\t\t\t\t\t\t\t{{#if selfDescribeTable.StreamSpecification.StreamEnabled === true}}\n\t\t\t\t\t\t\t\t\t\t<a class=\'btn btn-xs btn-default\' on-click=\'disable-stream\'>Disable Stream</a>\n\t\t\t\t\t\t\t\t\t{{else}}\n\t\t\t\t\t\t\t\t\t\t<a class=\'btn btn-xs btn-default\' on-click=\'manage-stream\'>Manage Stream</a>\n\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</table>\n\t\t\t\t\t{{/if}}\n\n\n\t\t\t\t\t<h3>\n\t\t\t\t\t\tTable details\n\t\t\t\t\t\t<a class=\'btn btn-sm btn-default pull-right\' on-click=\'refresh-table\'><i class=\'icon zmdi zmdi-refresh\'></i></a>\n\t\t\t\t\t</h3>\n\t\t\t\t\t<div style=\'color:red\'>{{ err }}</div>\n\t\t\t\t\t<hr>\n\t\t\t\t\t<table style=\'border-collapse: separate;border-spacing: 10px;\'>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td align=\'right\' width=\'350\'><b>Table ID</b></td>\n\t\t\t\t\t\t\t<td> {{ selfDescribeTable.TableId }}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td align=\'right\' width=\'350\'><b>Table name</b></td>\n\t\t\t\t\t\t\t<td> {{ selfDescribeTable.TableName }}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td align=\'right\'><b>Primary partition key</b></td>\n\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t{{#selfDescribeTable.KeySchema:i}}\n\t\t\t\t\t\t\t\t\t{{#if .KeyType === \'HASH\'}}\n\t\t\t\t\t\t\t\t\t\t{{.AttributeName}}\n\t\t\t\t\t\t\t\t\t\t{{# ~/selfDescribeTable.AttributeDefinitions }}\n\t\t\t\t\t\t\t\t\t\t\t{{#if .AttributeName === ~/.selfDescribeTable.KeySchema[i].AttributeName }}\n\t\t\t\t\t\t\t\t\t\t\t\t{{#if .AttributeType === \'S\'}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t( String )\n\t\t\t\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t\t\t\t\t{{#if .AttributeType === \'N\'}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t( Number )\n\t\t\t\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t\t\t\t\t{{#if .AttributeType === \'B\'}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t( Binary )\n\t\t\t\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t\t\t{{/}}\n\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t{{/selfDescribeTable.KeySchema}}\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td align=\'right\'><b>Primary sort key</b></td>\n\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t{{#selfDescribeTable.KeySchema:i}}\n\t\t\t\t\t\t\t\t\t{{#if .KeyType === \'RANGE\'}}\n\t\t\t\t\t\t\t\t\t\t{{.AttributeName}}\n\t\t\t\t\t\t\t\t\t\t{{# ~/selfDescribeTable.AttributeDefinitions }}\n\t\t\t\t\t\t\t\t\t\t\t{{#if .AttributeName === ~/.selfDescribeTable.KeySchema[i].AttributeName }}\n\t\t\t\t\t\t\t\t\t\t\t\t{{#if .AttributeType === \'S\'}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t( String )\n\t\t\t\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t\t\t\t\t{{#if .AttributeType === \'N\'}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t( Number )\n\t\t\t\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t\t\t\t\t{{#if .AttributeType === \'B\'}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t( Binary )\n\t\t\t\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t\t\t{{/}}\n\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t{{/selfDescribeTable.KeySchema}}\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td align=\'right\'><b>Point-in-time recovery</b></td>\n\t\t\t\t\t\t\t<td></td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td align=\'right\'><b>Encryption</b></td>\n\t\t\t\t\t\t\t<td></td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td align=\'right\'><b>Time to live attribute</b></td>\n\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t{{#if TimeToLiveDescription}}\n\t\t\t\t\t\t\t\t\t{{#if TimeToLiveDescriptionEditing}}\n\t\t\t\t\t\t\t\t\t\tTTL attribute <input type=\'text\' value=\'{{TimeToLiveDescriptionNewField}}\'> <a class=\'btn btn-xs btn-primary\' on-click=\'update-ttl\'>Save</a>\n\t\t\t\t\t\t\t\t\t{{else}}\n\t\t\t\t\t\t\t\t\t\t{{#if TimeToLiveDescriptionErr}}\n\t\t\t\t\t\t\t\t\t\t\tError {{TimeToLiveDescriptionErr.errorMessage}}\n\t\t\t\t\t\t\t\t\t\t{{else}}\n\t\t\t\t\t\t\t\t\t\t\t{{#if TimeToLiveDescription.TimeToLiveStatus === \'ENABLED\'}}\n\t\t\t\t\t\t\t\t\t\t\t{{else}}\n\t\t\t\t\t\t\t\t\t\t\t\t{{TimeToLiveDescription.TimeToLiveStatus}}\n\t\t\t\t\t\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t\t\t\t\t\t{{TimeToLiveDescription.AttributeName}}\n\n\t\t\t\t\t\t\t\t\t\t\t{{#if TimeToLiveDescription.TimeToLiveStatus === \'DISABLED\'}}\n\t\t\t\t\t\t\t\t\t\t\t\t<a href=\'javascript:void(0)\' on-click=\'manage-ttl\' >Manage TTL</a>\n\t\t\t\t\t\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t\t\t\t\t\t{{#if TimeToLiveDescription.TimeToLiveStatus === \'ENABLED\'}}\n\t\t\t\t\t\t\t\t\t\t\t\t<a href=\'javascript:void(0)\' on-click=\'disable-ttl\' >Disable TTL</a>\n\t\t\t\t\t\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t{{else}}\n\t\t\t\t\t\t\t\t\tLoading...\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td align=\'right\'><b>Table status</b></td>\n\t\t\t\t\t\t\t<td>{{selfDescribeTable.TableStatus}}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td align=\'right\'><b>Creation date</b></td>\n\t\t\t\t\t\t\t<td>{{selfDescribeTable.CreationDateTime}}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td align=\'right\'><b>Read/write capacity mode</b></td>\n\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t{{#if selfDescribeTable.BillingModeSummary.BillingMode === \'PROVISIONED\'}}Provisioned{{/if}}\n\t\t\t\t\t\t\t\t{{#if selfDescribeTable.BillingModeSummary.BillingMode === \'PAY_PER_REQUEST\'}}On-Demand{{/if}}\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td align=\'right\'><b>Provisioned read capacity units</b></td>\n\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t{{#if selfDescribeTable.BillingModeSummary.BillingMode === \'PROVISIONED\'}}\n\t\t\t\t\t\t\t\t\t{{selfDescribeTable.ProvisionedThroughput.ReadCapacityUnits}}\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t{{#if selfDescribeTable.BillingModeSummary.BillingMode === \'PAY_PER_REQUEST\'}}-{{/if}}\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td align=\'right\'><b>Provisioned write capacity units</b></td>\n\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t{{#if selfDescribeTable.BillingModeSummary.BillingMode === \'PROVISIONED\'}}\n\t\t\t\t\t\t\t\t\t{{selfDescribeTable.ProvisionedThroughput.WriteCapacityUnits}}\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t{{#if selfDescribeTable.BillingModeSummary.BillingMode === \'PAY_PER_REQUEST\'}}-{{/if}}\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td align=\'right\'><b>Last decrease time</b></td>\n\t\t\t\t\t\t\t<td>{{selfDescribeTable.ProvisionedThroughput.LastDecreaseDateTime || \'-\' }}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td align=\'right\'><b>Last increase time</b></td>\n\t\t\t\t\t\t\t<td>{{selfDescribeTable.ProvisionedThroughput.LastIncreaseDateTime || \'-\'}}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td align=\'right\'><b>Storage size (in bytes)</b></td>\n\t\t\t\t\t\t\t<td>{{selfDescribeTable.TableSizeBytes }}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td align=\'right\'><b>Item count</b></td>\n\t\t\t\t\t\t\t<td>{{ selfDescribeTable.ItemCount }}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td align=\'right\'><b>Region</b></td>\n\t\t\t\t\t\t\t<td></td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td align=\'right\'><b>Amazon Resource Name (ARN)</b></td>\n\t\t\t\t\t\t\t<td> {{selfDescribeTable.TableArn}}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</table>\n\t\t\t\t\t<small>Storage size and item count are not updated in real-time. They are updated periodically, roughly every six hours.</small>\n\t\t\t\t</div>\n\t\t</div>\n\t',
+	template: '\n\t\t<div class=\'tableinfo\' style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;overflow: auto;font-size: 14px;">\n\t\t\t\t<div style=\'padding: 30px\'>\n\t\t\t\t\t<h3>\n\t\t\t\t\t\tStream details\n\t\t\t\t\t</h3>\n\t\t\t\t\t<hr>\n\n\t\t\t\t\t{{#if StreamEditing}}\n\t\t\t\t\t\t<table>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td align=\'right\' width=\'350\'><b>View type</b></td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<input class="input-radio" type=\'radio\' name=\'{{NewStreamViewType}}\' value=\'KEYS_ONLY\'>\tKeys only - only the key attributes of the modified item<br>\n\t\t\t\t\t\t\t\t\t<input class="input-radio" type=\'radio\' name=\'{{NewStreamViewType}}\' value=\'NEW_IMAGE\'>\tNew image - the entire item, as it appears after it was modified<br>\n\t\t\t\t\t\t\t\t\t<input class="input-radio" type=\'radio\' name=\'{{NewStreamViewType}}\' value=\'OLD_IMAGE\'>\tOld image - the entire item, as it appeared before it was modified<br>\n\t\t\t\t\t\t\t\t\t<input class="input-radio" type=\'radio\' name=\'{{NewStreamViewType}}\' value=\'NEW_AND_OLD_IMAGES\'> New and old images - both the new and the old images of the item<br>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td align=\'right\' width=\'350\'></td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<a class=\'btn btn-sm btn-primary\' on-click=\'update-stream\'>Enable</a>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</table>\n\t\t\t\t\t{{else}}\n\t\t\t\t\t\t<table style=\'border-collapse: separate;border-spacing: 10px;\'>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td align=\'right\' width=\'350\'><b>Stream enabled</b></td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t{{#if !selfDescribeTable.StreamSpecification}}\n\t\t\t\t\t\t\t\t\t\tno\n\t\t\t\t\t\t\t\t\t{{else}}\n\t\t\t\t\t\t\t\t\t\t{{#if selfDescribeTable.StreamSpecification.StreamEnabled === true }}\n\t\t\t\t\t\t\t\t\t\tyes\n\t\t\t\t\t\t\t\t\t\t{{else}}\n\t\t\t\t\t\t\t\t\t\tno\n\t\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td align=\'right\' width=\'350\'><b>View type\t</b></td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t{{#if !selfDescribeTable.StreamSpecification}}\n\t\t\t\t\t\t\t\t\t\t-\n\t\t\t\t\t\t\t\t\t{{else}}\n\t\t\t\t\t\t\t\t\t\t{{selfDescribeTable.StreamSpecification.StreamViewType}}\n\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td align=\'right\' width=\'350\'><b>Latest stream ARN</b></td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t{{#if !selfDescribeTable.LatestStreamArn}}\n\t\t\t\t\t\t\t\t\t\t-\n\t\t\t\t\t\t\t\t\t{{else}}\n\t\t\t\t\t\t\t\t\t\t{{selfDescribeTable.LatestStreamArn}}\n\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<td align=\'right\' width=\'350\'>\n\t\t\t\t\t\t\t\t\t{{#if selfDescribeTable.StreamSpecification.StreamEnabled === true}}\n\t\t\t\t\t\t\t\t\t\t<a class=\'btn btn-xs btn-default\' on-click=\'disable-stream\'>Disable Stream</a>\n\t\t\t\t\t\t\t\t\t{{else}}\n\t\t\t\t\t\t\t\t\t\t<a class=\'btn btn-xs btn-default\' on-click=\'manage-stream\'>Manage Stream</a>\n\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</table>\n\t\t\t\t\t{{/if}}\n\n\n\t\t\t\t\t<h3>\n\t\t\t\t\t\tTable details\n\t\t\t\t\t\t<a class=\'btn btn-sm btn-default pull-right\' on-click=\'refresh-table\'><icon-refresh /></a>\n\t\t\t\t\t</h3>\n\t\t\t\t\t<div style=\'color:red\'>{{ err }}</div>\n\t\t\t\t\t<hr>\n\t\t\t\t\t<table style=\'border-collapse: separate;border-spacing: 10px;\'>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td align=\'right\' width=\'350\'><b>Table ID</b></td>\n\t\t\t\t\t\t\t<td> {{ selfDescribeTable.TableId }}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td align=\'right\' width=\'350\'><b>Table name</b></td>\n\t\t\t\t\t\t\t<td> {{ selfDescribeTable.TableName }}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td align=\'right\'><b>Primary partition key</b></td>\n\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t{{#selfDescribeTable.KeySchema:i}}\n\t\t\t\t\t\t\t\t\t{{#if .KeyType === \'HASH\'}}\n\t\t\t\t\t\t\t\t\t\t{{.AttributeName}}\n\t\t\t\t\t\t\t\t\t\t{{# ~/selfDescribeTable.AttributeDefinitions }}\n\t\t\t\t\t\t\t\t\t\t\t{{#if .AttributeName === ~/.selfDescribeTable.KeySchema[i].AttributeName }}\n\t\t\t\t\t\t\t\t\t\t\t\t{{#if .AttributeType === \'S\'}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t( String )\n\t\t\t\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t\t\t\t\t{{#if .AttributeType === \'N\'}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t( Number )\n\t\t\t\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t\t\t\t\t{{#if .AttributeType === \'B\'}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t( Binary )\n\t\t\t\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t\t\t{{/}}\n\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t{{/selfDescribeTable.KeySchema}}\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td align=\'right\'><b>Primary sort key</b></td>\n\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t{{#selfDescribeTable.KeySchema:i}}\n\t\t\t\t\t\t\t\t\t{{#if .KeyType === \'RANGE\'}}\n\t\t\t\t\t\t\t\t\t\t{{.AttributeName}}\n\t\t\t\t\t\t\t\t\t\t{{# ~/selfDescribeTable.AttributeDefinitions }}\n\t\t\t\t\t\t\t\t\t\t\t{{#if .AttributeName === ~/.selfDescribeTable.KeySchema[i].AttributeName }}\n\t\t\t\t\t\t\t\t\t\t\t\t{{#if .AttributeType === \'S\'}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t( String )\n\t\t\t\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t\t\t\t\t{{#if .AttributeType === \'N\'}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t( Number )\n\t\t\t\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t\t\t\t\t{{#if .AttributeType === \'B\'}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t( Binary )\n\t\t\t\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t\t\t{{/}}\n\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t{{/selfDescribeTable.KeySchema}}\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td align=\'right\'><b>Point-in-time recovery</b></td>\n\t\t\t\t\t\t\t<td></td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td align=\'right\'><b>Encryption</b></td>\n\t\t\t\t\t\t\t<td></td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td align=\'right\'><b>Time to live attribute</b></td>\n\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t{{#if TimeToLiveDescription}}\n\t\t\t\t\t\t\t\t\t{{#if TimeToLiveDescriptionEditing}}\n\t\t\t\t\t\t\t\t\t\tTTL attribute <input class="input-text" type=\'text\' value=\'{{TimeToLiveDescriptionNewField}}\'> <a class=\'btn btn-xs btn-primary\' on-click=\'update-ttl\'>Save</a>\n\t\t\t\t\t\t\t\t\t{{else}}\n\t\t\t\t\t\t\t\t\t\t{{#if TimeToLiveDescriptionErr}}\n\t\t\t\t\t\t\t\t\t\t\tError {{TimeToLiveDescriptionErr.errorMessage}}\n\t\t\t\t\t\t\t\t\t\t{{else}}\n\t\t\t\t\t\t\t\t\t\t\t{{#if TimeToLiveDescription.TimeToLiveStatus === \'ENABLED\'}}\n\t\t\t\t\t\t\t\t\t\t\t{{else}}\n\t\t\t\t\t\t\t\t\t\t\t\t{{TimeToLiveDescription.TimeToLiveStatus}}\n\t\t\t\t\t\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t\t\t\t\t\t{{TimeToLiveDescription.AttributeName}}\n\n\t\t\t\t\t\t\t\t\t\t\t{{#if TimeToLiveDescription.TimeToLiveStatus === \'DISABLED\'}}\n\t\t\t\t\t\t\t\t\t\t\t\t<a href=\'javascript:void(0)\' on-click=\'manage-ttl\' >Manage TTL</a>\n\t\t\t\t\t\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t\t\t\t\t\t{{#if TimeToLiveDescription.TimeToLiveStatus === \'ENABLED\'}}\n\t\t\t\t\t\t\t\t\t\t\t\t<a href=\'javascript:void(0)\' on-click=\'disable-ttl\' >Disable TTL</a>\n\t\t\t\t\t\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t{{else}}\n\t\t\t\t\t\t\t\t\tLoading...\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td align=\'right\'><b>Table status</b></td>\n\t\t\t\t\t\t\t<td>{{selfDescribeTable.TableStatus}}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td align=\'right\'><b>Creation date</b></td>\n\t\t\t\t\t\t\t<td>{{selfDescribeTable.CreationDateTime}}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td align=\'right\'><b>Read/write capacity mode</b></td>\n\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t{{#if selfDescribeTable.BillingModeSummary.BillingMode === \'PROVISIONED\'}}Provisioned{{/if}}\n\t\t\t\t\t\t\t\t{{#if selfDescribeTable.BillingModeSummary.BillingMode === \'PAY_PER_REQUEST\'}}On-Demand{{/if}}\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td align=\'right\'><b>Provisioned read capacity units</b></td>\n\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t{{#if selfDescribeTable.BillingModeSummary.BillingMode === \'PROVISIONED\'}}\n\t\t\t\t\t\t\t\t\t{{selfDescribeTable.ProvisionedThroughput.ReadCapacityUnits}}\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t{{#if selfDescribeTable.BillingModeSummary.BillingMode === \'PAY_PER_REQUEST\'}}-{{/if}}\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td align=\'right\'><b>Provisioned write capacity units</b></td>\n\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t{{#if selfDescribeTable.BillingModeSummary.BillingMode === \'PROVISIONED\'}}\n\t\t\t\t\t\t\t\t\t{{selfDescribeTable.ProvisionedThroughput.WriteCapacityUnits}}\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t{{#if selfDescribeTable.BillingModeSummary.BillingMode === \'PAY_PER_REQUEST\'}}-{{/if}}\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td align=\'right\'><b>Last decrease time</b></td>\n\t\t\t\t\t\t\t<td>{{selfDescribeTable.ProvisionedThroughput.LastDecreaseDateTime || \'-\' }}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td align=\'right\'><b>Last increase time</b></td>\n\t\t\t\t\t\t\t<td>{{selfDescribeTable.ProvisionedThroughput.LastIncreaseDateTime || \'-\'}}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td align=\'right\'><b>Storage size (in bytes)</b></td>\n\t\t\t\t\t\t\t<td>{{selfDescribeTable.TableSizeBytes }}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td align=\'right\'><b>Item count</b></td>\n\t\t\t\t\t\t\t<td>{{ selfDescribeTable.ItemCount }}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td align=\'right\'><b>Region</b></td>\n\t\t\t\t\t\t\t<td></td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td align=\'right\'><b>Amazon Resource Name (ARN)</b></td>\n\t\t\t\t\t\t\t<td> {{selfDescribeTable.TableArn}}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</table>\n\t\t\t\t\t<small>Storage size and item count are not updated in real-time. They are updated periodically, roughly every six hours.</small>\n\t\t\t\t</div>\n\t\t</div>\n\t',
 
 	refresh_table: function refresh_table() {
 		var ractive = this;
@@ -2489,7 +2551,7 @@ exports.default = Ractive.extend({
 });
 
 /***/ }),
-/* 49 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2503,7 +2565,7 @@ exports.default = Ractive.extend({
 });
 
 /***/ }),
-/* 50 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2513,7 +2575,7 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 exports.default = Ractive.extend({
-	template: '\n\n\t\t\t<div style=\'padding: 30px\'>\n\n\n\n\t\t\t\t<h3 style="color: #444;font-size: 16px;">Read/write capacity mode</h3>\n\t\t\t\t<hr/>\n\t\t\t\t<p style="color: #444;font-size: 13px;">\n\t\t\t\t\tSelect on-demand if you want to pay only for the read and writes you perform, with no capacity planning required. Select provisioned to save on throughput costs if you can reliably estimate your application\'s throughput requirements. See the\n\t\t\t\t\t\t<a href="http://aws.amazon.com/dynamodb/pricing">DynamoDB pricing page</a> and\n\t\t\t\t\t\t<a href="DynamoDB Developer Guide">DynamoDB Developer Guide</a> to learn more.\n\t\t\t\t</p>\n\t\t\t\tRead/write capacity mode can be changed later.<br>\n\t\t\t\t<input type="radio" name={{localDescribeTable.BillingModeSummary.BillingMode}} value="PROVISIONED"> Provisioned (free-tier eligible)<br>\n\t\t\t\t<input type="radio" name={{localDescribeTable.BillingModeSummary.BillingMode}} value="PAY_PER_REQUEST">On-demand<br>\n\n\t\t\t\t<h3>\n\t\t\t\t\tProvisioned capacity\n\t\t\t\t\t<a class=\'btn btn-sm btn-default pull-right\' on-click=\'refresh-table\'><i class=\'icon zmdi zmdi-refresh\'></i></a>\n\t\t\t\t</h3>\n\t\t\t\t<hr>\n\n\t\t\t\t\t{{#if localDescribeTable === false}}\n\t\t\t\t\t\tLoading...\n\t\t\t\t\t{{else}}\n\t\t\t\t\t\t{{#if localDescribeTable.BillingModeSummary.BillingMode === \'PAY_PER_REQUEST\'}}\n\t\t\t\t\t\t\tNot applicable because read/write capacity mode is on-demand.<br>\n\t\t\t\t\t\t{{else}}\n\t\t\t\t\t\t\t<table>\n\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t<td width=\'160\' align=\'right\'></td>\n\t\t\t\t\t\t\t\t\t<td width=\'160\'>Read capacity units</td>\n\t\t\t\t\t\t\t\t\t<td width=\'160\'>Write capacity units</td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t<td>Table</td>\n\t\t\t\t\t\t\t\t\t<td><input type=\'text\' size=\'4\' value=\'{{localDescribeTable.ProvisionedThroughput.ReadCapacityUnits}}\' on-focus=\'focus\' /></td>\n\t\t\t\t\t\t\t\t\t<td><input type=\'text\' size=\'4\' value=\'{{localDescribeTable.ProvisionedThroughput.WriteCapacityUnits}}\' on-focus=\'focus\' /></td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t{{#localDescribeTable.GlobalSecondaryIndexes}}\n\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t<td>{{ .IndexName }}</td>\n\t\t\t\t\t\t\t\t\t<td><input type=\'text\' size=\'4\' value=\'{{.ProvisionedThroughput.ReadCapacityUnits}}\' on-focus=\'focus\' /></td>\n\t\t\t\t\t\t\t\t\t<td><input type=\'text\' size=\'4\' value=\'{{.ProvisionedThroughput.WriteCapacityUnits}}\' on-focus=\'focus\' /></td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t{{/localDescribeTable.GlobalSecondaryIndexes}}\n\t\t\t\t\t\t\t</table>\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t{{/if}}\n\t\t\t\t<h3>Auto Scaling</h3>\n\t\t\t\t<hr/>\n\t\t\t\t\t<small>Auto Scaling not supported by this UI</small>\n\t\t\t\t\t<br>\n\t\t\t\t\t<div style=\'color:red\'>{{ err }}&nbsp;</div>\n\t\t\t\t\t<table>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td width=\'160\'>\n\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t<a class=\'btn btn-md btn-primary\' on-click=\'save\'>Save</a>\n\t\t\t\t\t\t\t\t<a class=\'btn btn-md btn-default\' on-click=\'cancel\'>Cancel</a>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</table>\n\t\t\t</div>\n\n\t',
+	template: '\n\n\t\t\t<div style=\'padding: 30px\'>\n\n\n\n\t\t\t\t<h3 style="font-size: 16px;">Read/write capacity mode</h3>\n\t\t\t\t<hr/>\n\t\t\t\t<p style="font-size: 13px;">\n\t\t\t\t\tSelect on-demand if you want to pay only for the read and writes you perform, with no capacity planning required. Select provisioned to save on throughput costs if you can reliably estimate your application\'s throughput requirements. See the\n\t\t\t\t\t\t<a href="http://aws.amazon.com/dynamodb/pricing">DynamoDB pricing page</a> and\n\t\t\t\t\t\t<a href="DynamoDB Developer Guide">DynamoDB Developer Guide</a> to learn more.\n\t\t\t\t</p>\n\t\t\t\tRead/write capacity mode can be changed later.<br>\n\t\t\t\t<input class="input-radio" type="radio" name={{localDescribeTable.BillingModeSummary.BillingMode}} value="PROVISIONED"> Provisioned (free-tier eligible)<br>\n\t\t\t\t<input class="input-radio" type="radio" name={{localDescribeTable.BillingModeSummary.BillingMode}} value="PAY_PER_REQUEST">On-demand<br>\n\n\t\t\t\t<h3>\n\t\t\t\t\tProvisioned capacity\n\t\t\t\t\t<a class=\'btn btn-sm btn-default pull-right\' on-click=\'refresh-table\'><icon-refresh /></a>\n\t\t\t\t</h3>\n\t\t\t\t<hr>\n\n\t\t\t\t\t{{#if localDescribeTable === false}}\n\t\t\t\t\t\tLoading...\n\t\t\t\t\t{{else}}\n\t\t\t\t\t\t{{#if localDescribeTable.BillingModeSummary.BillingMode === \'PAY_PER_REQUEST\'}}\n\t\t\t\t\t\t\tNot applicable because read/write capacity mode is on-demand.<br>\n\t\t\t\t\t\t{{else}}\n\t\t\t\t\t\t\t<table>\n\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t<td width=\'160\' align=\'right\'></td>\n\t\t\t\t\t\t\t\t\t<td width=\'160\'>Read capacity units</td>\n\t\t\t\t\t\t\t\t\t<td width=\'160\'>Write capacity units</td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t<td>Table</td>\n\t\t\t\t\t\t\t\t\t<td><input class="input-text" type=\'text\' size=\'4\' value=\'{{localDescribeTable.ProvisionedThroughput.ReadCapacityUnits}}\' on-focus=\'focus\' /></td>\n\t\t\t\t\t\t\t\t\t<td><input class="input-text" type=\'text\' size=\'4\' value=\'{{localDescribeTable.ProvisionedThroughput.WriteCapacityUnits}}\' on-focus=\'focus\' /></td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t{{#localDescribeTable.GlobalSecondaryIndexes}}\n\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t<td>{{ .IndexName }}</td>\n\t\t\t\t\t\t\t\t\t<td><input class="input-text" type=\'text\' size=\'4\' value=\'{{.ProvisionedThroughput.ReadCapacityUnits}}\' on-focus=\'focus\' /></td>\n\t\t\t\t\t\t\t\t\t<td><input class="input-text" type=\'text\' size=\'4\' value=\'{{.ProvisionedThroughput.WriteCapacityUnits}}\' on-focus=\'focus\' /></td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t{{/localDescribeTable.GlobalSecondaryIndexes}}\n\t\t\t\t\t\t\t</table>\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t{{/if}}\n\t\t\t\t<h3>Auto Scaling</h3>\n\t\t\t\t<hr/>\n\t\t\t\t\t<small>Auto Scaling not supported by this UI</small>\n\t\t\t\t\t<br>\n\t\t\t\t\t<div style=\'color:red\'>{{ err }}&nbsp;</div>\n\t\t\t\t\t<table>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td width=\'160\'>\n\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t<a class=\'btn btn-md btn-primary\' on-click=\'save\'>Save</a>\n\t\t\t\t\t\t\t\t<a class=\'btn btn-md btn-default\' on-click=\'cancel\'>Cancel</a>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</table>\n\t\t\t</div>\n\n\t',
 	oninit: function oninit() {
 		var ractive = this;
 		var refresh_table = function refresh_table() {
@@ -2620,7 +2682,7 @@ exports.default = Ractive.extend({
 });
 
 /***/ }),
-/* 51 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2640,7 +2702,7 @@ exports.default = Ractive.extend({
 	components: {
 		tabledata: _tabledata2.default
 	},
-	template: '\n\t\t<div style=\'padding: 30px\'>\n\t\t\t{{#if tab === \'create\'}}\n\t\t\t\t<h3>Create Global Secondary Index</h3>\n\t\t\t\t<table cellpadding=\'10\' border=\'0\'>\n\t\t\t\t\t<tr style=\'background-color: #ffefef\'>\n\t\t\t\t\t\t<td style=\'background-color: #eadfdf\'>Name</td>\n\t\t\t\t\t\t<td><input type=\'text\' value=\'{{newindex.IndexName}}\' on-focus=\'focus\' /></td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr style=\'background-color: #ffefef\'>\n\t\t\t\t\t\t<td style=\'background-color: #eadfdf\'>Type</td>\n\t\t\t\t\t\t<td>GSI</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr style=\'background-color: #ffefef\'>\n\t\t\t\t\t\t<td style=\'background-color: #eadfdf\'>Partition key</td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<input type=\'text\' value=\'{{ newindex.KeySchema.0.AttributeName }}\' on-focus=\'focus\' />\n\t\t\t\t\t\t\t<select value=\'{{ newindex.KeySchema.0.AttributeType }}\'>\n\t\t\t\t\t\t\t\t<option value=\'S\'>String</option>\n\t\t\t\t\t\t\t\t<option value=\'N\'>Number</option>\n\t\t\t\t\t\t\t\t<option value=\'B\'>Binary</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr style=\'background-color: #ffefef\'>\n\t\t\t\t\t\t<td style=\'background-color: #eadfdf\'>Sort key</td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<input type=\'text\' value=\'{{ newindex.KeySchema.1.AttributeName }}\' on-focus=\'focus\' />\n\t\t\t\t\t\t\t<select value=\'{{ newindex.KeySchema.1.AttributeType }}\'>\n\t\t\t\t\t\t\t\t<option value=\'S\'>String</option>\n\t\t\t\t\t\t\t\t<option value=\'N\'>Number</option>\n\t\t\t\t\t\t\t\t<option value=\'B\'>Binary</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr style=\'background-color: #ffefef\'>\n\t\t\t\t\t\t<td style=\'background-color: #eadfdf\'>Projection type</td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<select value=\'{{ newindex.Projection.ProjectionType}}\'>\n\t\t\t\t\t\t\t\t<option value=\'ALL\'>ALL</option>\n\t\t\t\t\t\t\t\t<option value=\'KEYS_ONLY\'>KEYS_ONLY</option>\n\t\t\t\t\t\t\t\t<option value=\'INCLUDE\'>INCLUDE</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t{{#if newindex.Projection.ProjectionType === \'INCLUDE\' }}\n\t\t\t\t\t<tr style=\'background-color: #ffefef\'>\n\t\t\t\t\t\t<td style=\'background-color: #eadfdf\'>Projected attributes</td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t{{#if newindex.Projection.ProjectionType === \'INCLUDE\'}}\n\n\t\t\t\t\t\t\t{{#newindex.Projection.NonKeyAttributes}}\n\t\t\t\t\t\t\t\t<span class=\'badge badge-info\'>{{.}}</span><br>\n\t\t\t\t\t\t\t{{/newindex.Projection.NonKeyAttributes}}\n\n\t\t\t\t\t\t\t<input type=\'text\' value=\'{{ ~/nonkeyattribute }}\' on-focus=\'focus\' /><a class=\'btn btn-xs btn-primary\' on-click=\'add-nonkey-attribute\'><i class=\'icon zmdi zmdi-plus\'></i></a>\n\n\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t{{/if}}\n\t\t\t\t\t<tr style=\'background-color: #ffefef\'>\n\t\t\t\t\t\t<td style=\'background-color: #eadfdf\'>Read capacity</td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<input type=\'text\' value=\'{{ newindex.ProvisionedThroughput.ReadCapacityUnits }}\'  size=\'4\' on-focus=\'focus\' />\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr style=\'background-color: #ffefef\'>\n\t\t\t\t\t\t<td style=\'background-color: #eadfdf\'>Write capacity</td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<input type=\'text\' value=\'{{ newindex.ProvisionedThroughput.WriteCapacityUnits}}\' size=\'4\' on-focus=\'focus\' />\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\n\t\t\t\t</table>\n\t\t\t\t<br>\n\t\t\t\t<div style=\'color:red\'>{{ err }}&nbsp;</div>\n\t\t\t\t<br>\n\t\t\t\t<a class=\'btn btn-md btn-primary\' on-click=\'create-gsi\'>Create</a>\n\t\t\t\t<a class=\'btn btn-md btn-default\' on-click=\'cancel-gsi\'>Cancel</a>\n\t\t\t\t<br>\n\t\t\t{{else}}\n\t\t\t\t<h3>Indexes</h3>\n\t\t\t\t<div>\n\t\t\t\t\t<a class=\'btn btn-sm btn-primary\' on-click=\'create\'>Create index</a>\n\t\t\t\t\t<a class=\'btn btn-sm btn-default\' on-click=\'delete\'>Delete index</a>\n\n\t\t\t\t\t<a class=\'btn btn-sm btn-default pull-right\' on-click=\'refresh-table\'><i class=\'icon zmdi zmdi-refresh\'></i></a>\n\t\t\t\t</div>\n\t\t\t\t<tabledata columns=\'{{columns}}\' rows=\'{{rows}}\' style=\'top: 128px\'/>\n\t\t\t{{/if}}\n\t\t</div>\n\t',
+	template: '\n\t\t<div style=\'padding: 30px\'>\n\t\t\t{{#if tab === \'create\'}}\n\t\t\t\t<h3>Create Global Secondary Index</h3>\n\t\t\t\t<table cellpadding=\'10\' border=\'0\'>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>Name</td>\n\t\t\t\t\t\t<td><input class="input-text" type=\'text\' value=\'{{newindex.IndexName}}\' on-focus=\'focus\' /></td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>Type</td>\n\t\t\t\t\t\t<td>GSI</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>Partition key</td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<input class="input-text" type=\'text\' value=\'{{ newindex.KeySchema.0.AttributeName }}\' on-focus=\'focus\' />\n\t\t\t\t\t\t\t<select class="input-select" value=\'{{ newindex.KeySchema.0.AttributeType }}\'>\n\t\t\t\t\t\t\t\t<option value=\'S\'>String</option>\n\t\t\t\t\t\t\t\t<option value=\'N\'>Number</option>\n\t\t\t\t\t\t\t\t<option value=\'B\'>Binary</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>Sort key</td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<input class="input-text" type=\'text\' value=\'{{ newindex.KeySchema.1.AttributeName }}\' on-focus=\'focus\' />\n\t\t\t\t\t\t\t<select class="input-select" value=\'{{ newindex.KeySchema.1.AttributeType }}\'>\n\t\t\t\t\t\t\t\t<option value=\'S\'>String</option>\n\t\t\t\t\t\t\t\t<option value=\'N\'>Number</option>\n\t\t\t\t\t\t\t\t<option value=\'B\'>Binary</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>Projection type</td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<select class="input-select" value=\'{{ newindex.Projection.ProjectionType}}\'>\n\t\t\t\t\t\t\t\t<option value=\'ALL\'>ALL</option>\n\t\t\t\t\t\t\t\t<option value=\'KEYS_ONLY\'>KEYS_ONLY</option>\n\t\t\t\t\t\t\t\t<option value=\'INCLUDE\'>INCLUDE</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t{{#if newindex.Projection.ProjectionType === \'INCLUDE\' }}\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>Projected attributes</td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t{{#if newindex.Projection.ProjectionType === \'INCLUDE\'}}\n\n\t\t\t\t\t\t\t{{#newindex.Projection.NonKeyAttributes}}\n\t\t\t\t\t\t\t\t<span class=\'badge badge-info\'>{{.}}</span><br>\n\t\t\t\t\t\t\t{{/newindex.Projection.NonKeyAttributes}}\n\n\t\t\t\t\t\t\t<input class="input-text" type=\'text\' value=\'{{ ~/nonkeyattribute }}\' on-focus=\'focus\' /><a class=\'btn btn-xs btn-primary\' on-click=\'add-nonkey-attribute\'> <icon-plus /></a>\n\n\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t{{/if}}\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>Read capacity</td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<input class="input-text" type=\'text\' value=\'{{ newindex.ProvisionedThroughput.ReadCapacityUnits }}\'  size=\'4\' on-focus=\'focus\' />\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>Write capacity</td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<input class="input-text" type=\'text\' value=\'{{ newindex.ProvisionedThroughput.WriteCapacityUnits}}\' size=\'4\' on-focus=\'focus\' />\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\n\t\t\t\t</table>\n\t\t\t\t<br>\n\t\t\t\t<div style=\'color:red\'>{{ err }}&nbsp;</div>\n\t\t\t\t<br>\n\t\t\t\t<a class=\'btn btn-md btn-primary\' on-click=\'create-gsi\'>Create</a>\n\t\t\t\t<a class=\'btn btn-md btn-default\' on-click=\'cancel-gsi\'>Cancel</a>\n\t\t\t\t<br>\n\t\t\t{{else}}\n\t\t\t\t<h3>Indexes</h3>\n\t\t\t\t<div>\n\t\t\t\t\t<a class=\'btn btn-sm btn-primary\' on-click=\'create\'>Create index</a>\n\t\t\t\t\t<a class=\'btn btn-sm btn-default\' on-click=\'delete\'>Delete index</a>\n\n\t\t\t\t\t<a class=\'btn btn-sm btn-default pull-right\' on-click=\'refresh-table\'> <icon-refresh /> </a>\n\t\t\t\t</div>\n\t\t\t\t<tabledata columns=\'{{columns}}\' rows=\'{{rows}}\' style=\'top: 128px\'/>\n\t\t\t{{/if}}\n\t\t</div>\n\t',
 
 	refresh_table_indexes: function refresh_table_indexes() {
 		var ractive = this;
@@ -2849,7 +2911,7 @@ exports.default = Ractive.extend({
 });
 
 /***/ }),
-/* 52 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2867,7 +2929,7 @@ exports.default = Ractive.extend({
 });
 
 /***/ }),
-/* 53 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2877,33 +2939,7 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 exports.default = Ractive.extend({
-	template: "\
-			<div>\
-\
-				<br>\
-				<br>\
-				<h4>On-Demand Backup and Restore</h4>\
-				<hr />\
-				<div>You can create and restore a complete backup of your DynamoDB table data and its settings at any time.\
-				<a target='_blank' href='http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/BackupRestore.html'>Learn more</a>\
-				</div>\
-\
-				<br>\
-				<div>\
-					<a class='btn btn-sm btn-primary disabled' on-click='create'>Create backup</a>\
-					<a class='btn btn-sm btn-default disabled' on-click='restore'>Restore backup</a>\
-					<a class='btn btn-sm btn-default disabled' on-click='delete'>Delete backup</a>\
-\
-					<a class='btn btn-sm btn-default pull-right' on-click='refresh'><i class='icon zmdi zmdi-refresh'></i></a>\
-				</div>\
-\
-				<tabledata columns='{{columns}}' rows='{{rows}}' style='top: 180px'/>\
-\
-\
-\
-			</div>\
-\
-	",
+	template: '\n\t\t\t<div>\n\n\t\t\t\t<br>\n\t\t\t\t<br>\n\t\t\t\t<h4>On-Demand Backup and Restore</h4>\n\t\t\t\t<hr />\n\t\t\t\t<div>You can create and restore a complete backup of your DynamoDB table data and its settings at any time.\n\t\t\t\t<a target=\'_blank\' href=\'http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/BackupRestore.html\'>Learn more</a>\n\t\t\t\t</div>\n\n\t\t\t\t<br>\n\t\t\t\t<div>\n\t\t\t\t\t<a class=\'btn btn-sm btn-primary disabled\' on-click=\'create\'>Create backup</a>\n\t\t\t\t\t<a class=\'btn btn-sm btn-default disabled\' on-click=\'restore\'>Restore backup</a>\n\t\t\t\t\t<a class=\'btn btn-sm btn-default disabled\' on-click=\'delete\'>Delete backup</a>\n\n\t\t\t\t\t<a class=\'btn btn-sm btn-default pull-right\' on-click=\'refresh\'><icon-refresh /></a>\n\t\t\t\t</div>\n\n\t\t\t\t<tabledata columns=\'{{columns}}\' rows=\'{{rows}}\' style=\'top: 180px\'/>\n\n\n\n\t\t\t</div>\n\n\t',
 	list_backups: function list_backups() {
 		var ractive = this;
 		ractive.set('rows', null);
@@ -2935,7 +2971,7 @@ exports.default = Ractive.extend({
 });
 
 /***/ }),
-/* 54 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2953,7 +2989,7 @@ exports.default = Ractive.extend({
 });
 
 /***/ }),
-/* 55 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3054,7 +3090,7 @@ exports.default = Ractive.extend({
 	components: {
 		DynamoMetrics: DynamoMetrics
 	},
-	template: '\n\t\t<div style=\'padding: 30px\'>\n\t\t\t<h3>\n\t\t\t\tMetrics\n\n\t\t\t\t<div style=\'float:right\'>\n\t\t\t\t\t<select value=\'{{interval}}\'>\n\t\t\t\t\t\t<option value=\'1\'>Last hour</option>\n\t\t\t\t\t\t<option value=\'3\'>Last 3 hours</option>\n\t\t\t\t\t\t<option value=\'6\'>Last 6 hours</option>\n\t\t\t\t\t\t<option value=\'12\'>Last 12 hours</option>\n\t\t\t\t\t\t<option value=\'24\'>Last 24 hours</option>\n\n\t\t\t\t\t\t<option value=\'72\'>Last 3 days</option>\n\t\t\t\t\t\t<option value=\'168\'>Last 1 week</option>\n\t\t\t\t\t\t<option value=\'336\'>Last 2 weeks</option>\n\n\t\t\t\t\t</select>\n\t\t\t\t</div>\n\t\t\t</h3>\n\t\t\t<hr>\n\n\t\t\t<h4>Capacity: table</h4>\n\t\t\t<hr>\n\n\t\t\t<div style=\'float: left;width: 30%;min-width: 300px;max-width: 380px;margin-right: 20px;\'>\n\t\t\t\t<div><b>Read capacity</b> Units/Minute</div>\n\t\t\t\t<DynamoMetrics table=\'{{ describeTable.TableName }}\' disabled=\'Loading...\' metric=\'ConsumedReadCapacityUnits\' interval=\'{{interval}}\' period=\'{{period}}\' color=\'#f7a35c\' namespace=\'AWS/DynamoDB\' />\n\t\t\t</div>\n\n\t\t\t<div style=\'float: left;width: 30%;min-width: 300px;max-width: 380px;margin-right: 20px;\'>\n\t\t\t\t<div><b>Throttled read requests</b> Count</div>\n\t\t\t\t<chart style=\'width: 100%;height: 216px;\' disabled=\'Not Tracked\' />\n\t\t\t</div>\n\n\t\t\t<div style=\'float: left;width: 30%;min-width: 300px;max-width: 380px;margin-right: 20px;\'>\n\t\t\t\t<div><b>Throttled read events</b> Count</div>\n\t\t\t\t<chart style=\'width: 100%;height: 216px;\' disabled=\'Not Tracked\' />\n\t\t\t</div>\n\n\t\t\t<div style=\'clear:both;padding: 20px;\'></div>\n\n\t\t\t<div style=\'float: left;width: 30%;min-width: 300px;max-width: 380px;margin-right: 20px;\'>\n\t\t\t\t<div><b>Write capacity</b> Units/Second</div>\n\t\t\t\t<DynamoMetrics table=\'{{ describeTable.TableName }}\' disabled=\'Loading...\' metric=\'ConsumedWriteCapacityUnits\' interval=\'{{interval}}\' period=\'{{period}}\' color=\'#f7a35c\' namespace=\'AWS/DynamoDB\' />\n\t\t\t</div>\n\n\t\t\t<div style=\'float: left;width: 30%;min-width: 300px;max-width: 380px;margin-right: 20px;\'>\n\t\t\t\t<div><b>Throttled write requests</b> Count</div>\n\t\t\t\t<chart style=\'width: 100%;height: 216px;\' disabled=\'Not Tracked\' />\n\t\t\t</div>\n\n\t\t\t<div style=\'float: left;width: 30%;min-width: 300px;max-width: 380px;margin-right: 20px;\'>\n\t\t\t\t<div><b>Throttled write events</b> Count</div>\n\t\t\t\t<chart style=\'width: 100%;height: 216px;\' disabled=\'Not Tracked\' />\n\t\t\t</div>\n\n\t\t</div>\n\t',
+	template: '\n\t\t<div style=\'padding: 30px\'>\n\t\t\t<h3>\n\t\t\t\tMetrics\n\n\t\t\t\t<div style=\'float:right\'>\n\t\t\t\t\t<select class="input-select" value=\'{{interval}}\'>\n\t\t\t\t\t\t<option value=\'1\'>Last hour</option>\n\t\t\t\t\t\t<option value=\'3\'>Last 3 hours</option>\n\t\t\t\t\t\t<option value=\'6\'>Last 6 hours</option>\n\t\t\t\t\t\t<option value=\'12\'>Last 12 hours</option>\n\t\t\t\t\t\t<option value=\'24\'>Last 24 hours</option>\n\n\t\t\t\t\t\t<option value=\'72\'>Last 3 days</option>\n\t\t\t\t\t\t<option value=\'168\'>Last 1 week</option>\n\t\t\t\t\t\t<option value=\'336\'>Last 2 weeks</option>\n\n\t\t\t\t\t</select>\n\t\t\t\t</div>\n\t\t\t</h3>\n\t\t\t<hr>\n\n\t\t\t<h4>Capacity: table</h4>\n\t\t\t<hr>\n\n\t\t\t<div style=\'float: left;width: 30%;min-width: 300px;max-width: 380px;margin-right: 20px;\'>\n\t\t\t\t<div><b>Read capacity</b> Units/Minute</div>\n\t\t\t\t<DynamoMetrics table=\'{{ describeTable.TableName }}\' disabled=\'Loading...\' metric=\'ConsumedReadCapacityUnits\' interval=\'{{interval}}\' period=\'{{period}}\' color=\'#f7a35c\' namespace=\'AWS/DynamoDB\' />\n\t\t\t</div>\n\n\t\t\t<div style=\'float: left;width: 30%;min-width: 300px;max-width: 380px;margin-right: 20px;\'>\n\t\t\t\t<div><b>Throttled read requests</b> Count</div>\n\t\t\t\t<chart style=\'width: 100%;height: 216px;\' disabled=\'Not Tracked\' />\n\t\t\t</div>\n\n\t\t\t<div style=\'float: left;width: 30%;min-width: 300px;max-width: 380px;margin-right: 20px;\'>\n\t\t\t\t<div><b>Throttled read events</b> Count</div>\n\t\t\t\t<chart style=\'width: 100%;height: 216px;\' disabled=\'Not Tracked\' />\n\t\t\t</div>\n\n\t\t\t<div style=\'clear:both;padding: 20px;\'></div>\n\n\t\t\t<div style=\'float: left;width: 30%;min-width: 300px;max-width: 380px;margin-right: 20px;\'>\n\t\t\t\t<div><b>Write capacity</b> Units/Second</div>\n\t\t\t\t<DynamoMetrics table=\'{{ describeTable.TableName }}\' disabled=\'Loading...\' metric=\'ConsumedWriteCapacityUnits\' interval=\'{{interval}}\' period=\'{{period}}\' color=\'#f7a35c\' namespace=\'AWS/DynamoDB\' />\n\t\t\t</div>\n\n\t\t\t<div style=\'float: left;width: 30%;min-width: 300px;max-width: 380px;margin-right: 20px;\'>\n\t\t\t\t<div><b>Throttled write requests</b> Count</div>\n\t\t\t\t<chart style=\'width: 100%;height: 216px;\' disabled=\'Not Tracked\' />\n\t\t\t</div>\n\n\t\t\t<div style=\'float: left;width: 30%;min-width: 300px;max-width: 380px;margin-right: 20px;\'>\n\t\t\t\t<div><b>Throttled write events</b> Count</div>\n\t\t\t\t<chart style=\'width: 100%;height: 216px;\' disabled=\'Not Tracked\' />\n\t\t\t</div>\n\n\t\t</div>\n\t',
 	oninit: function oninit() {
 		var ractive = this;
 		console.log('init metrics with', ractive.get());
@@ -3068,7 +3104,7 @@ exports.default = Ractive.extend({
 });
 
 /***/ }),
-/* 56 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3084,11 +3120,11 @@ var _tabledata = __webpack_require__(10);
 
 var _tabledata2 = _interopRequireDefault(_tabledata);
 
-var _edit = __webpack_require__(57);
+var _edit = __webpack_require__(60);
 
 var _edit2 = _interopRequireDefault(_edit);
 
-var _add = __webpack_require__(128);
+var _add = __webpack_require__(132);
 
 var _add2 = _interopRequireDefault(_add);
 
@@ -3099,7 +3135,7 @@ exports.default = Ractive.extend({
 		tabledata: _tabledata2.default
 	},
 	isolated: true,
-	template: '\n\t<div class=\'tablebrowse\'>\n\t\t{{#if !describeTable }}\n\t\t\t<br>reading table schema...\n\t\t{{else}}\n\t\t<div class=\'tablequery\'>\n\t\t\t<table width=\'100%\' style=\'border-collapse: separate;border-spacing: 5px;\'>\n\t\t\t\t<tr>\n\t\t\t\t\t<td>\n\t\t\t\t\t\t<select value=\'{{ .type }}\'>\n\t\t\t\t\t\t\t<option value=\'scan\'>SCAN</option>\n\t\t\t\t\t\t\t<option value=\'query\'>QUERY</option>\n\t\t\t\t\t\t</select>\n\t\t\t\t\t</td>\n\t\t\t\t\t<td colspan=\'4\'>\n\t\t\t\t\t\t{{#if .type === \'scan\' }}\n\t\t\t\t\t\t<select value=\'{{ .scan.table }}\'>\n\t\t\t\t\t\t\t<option value=\'\'>\n\t\t\t\t\t\t\t\t[ Table ] {{ describeTable.TableName }}: {{ @this._hash_key_name() }} ( {{ @this._hash_key_type_name() }} )\n\t\t\t\t\t\t\t\t{{#if describeTable.KeySchema.length === 2}}\n\t\t\t\t\t\t\t\t\t, {{ @this._range_key_name() }} ( {{ @this._range_key_type_name() }} )\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</option>\n\n\t\t\t\t\t\t\t{{#describeTable.LocalSecondaryIndexes:j}}\n\t\t\t\t\t\t\t<option value=\'lsi:{{ .IndexName }}\'>\n\t\t\t\t\t\t\t\t[ LSI ] {{ .IndexName }}: {{ @this._lsi_hash_key_name( .IndexName ) }} ( {{ @this._lsi_hash_key_type_name( .IndexName ) }} )\n\t\t\t\t\t\t\t\t{{#if .KeySchema.length === 2}}\n\t\t\t\t\t\t\t\t\t, {{ @this._lsi_range_key_name( .IndexName ) }} (  {{ @this._lsi_range_key_type_name( .IndexName ) }} )\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t{{/describeTable.LocalSecondaryIndexes}}\n\n\t\t\t\t\t\t\t{{#describeTable.GlobalSecondaryIndexes:j}}\n\t\t\t\t\t\t\t<option value=\'gsi:{{ .IndexName }}\'>\n\t\t\t\t\t\t\t\t[ GSI ] {{ .IndexName }}: {{ @this._gsi_hash_key_name( .IndexName ) }} ( {{ @this._gsi_hash_key_type_name( .IndexName ) }} )\n\t\t\t\t\t\t\t\t{{#if .KeySchema.length === 2}}\n\t\t\t\t\t\t\t\t\t, {{ @this._gsi_range_key_name( .IndexName ) }} (  {{ @this._gsi_range_key_type_name( .IndexName ) }} )\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t{{/describeTable.GlobalSecondaryIndexes}}\n\t\t\t\t\t\t</select>\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if .type === \'query\' }}\n\t\t\t\t\t\t<select value=\'{{ .query.table }}\'>\n\t\t\t\t\t\t\t<option value=\'\'>\n\t\t\t\t\t\t\t\t[ Table ] {{ describeTable.TableName }}: {{ @this._hash_key_name() }} ( {{ @this._hash_key_type_name() }} )\n\t\t\t\t\t\t\t\t{{#if describeTable.KeySchema.length === 2}}\n\t\t\t\t\t\t\t\t\t, {{ @this._range_key_name() }} ( {{ @this._range_key_type_name() }} )\n\t\t\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t\t</option>\n\n\t\t\t\t\t\t\t{{#describeTable.LocalSecondaryIndexes:j}}\n\t\t\t\t\t\t\t<option value=\'lsi:{{ .IndexName }}\'>\n\t\t\t\t\t\t\t\t[ LSI ] {{ .IndexName }}: {{ @this._lsi_hash_key_name( .IndexName ) }} ( {{ @this._lsi_hash_key_type_name( .IndexName ) }} )\n\t\t\t\t\t\t\t\t{{#if .KeySchema.length === 2}}\n\t\t\t\t\t\t\t\t\t, {{ @this._lsi_range_key_name( .IndexName ) }} (  {{ @this._lsi_range_key_type_name( .IndexName ) }} )\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t{{/describeTable.LocalSecondaryIndexes}}\n\n\t\t\t\t\t\t\t{{#describeTable.GlobalSecondaryIndexes:j}}\n\t\t\t\t\t\t\t<option value=\'gsi:{{ .IndexName }}\'>\n\t\t\t\t\t\t\t\t[ GSI ] {{ .IndexName }}: {{ @this._gsi_hash_key_name( .IndexName ) }} ( {{ @this._gsi_hash_key_type_name( .IndexName ) }} )\n\t\t\t\t\t\t\t\t{{#if .KeySchema.length === 2}}\n\t\t\t\t\t\t\t\t\t, {{ @this._gsi_range_key_name( .IndexName ) }} (  {{ @this._gsi_range_key_type_name( .IndexName ) }} )\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t{{/describeTable.GlobalSecondaryIndexes}}\n\t\t\t\t\t\t</select>\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t</td>\n\t\t\t\t</tr>\n\t\t\t\t{{#if .type === \'query\' }}\n\t\t\t\t<tr>\n\t\t\t\t\t<td>Partition</td>\n\t\t\t\t\t{{#if .query.table === \'\'  }}\n\t\t\t\t\t\t<td>{{ _hash_key_name() }}</td>\n\t\t\t\t\t\t<td><select><option>{{ @this._hash_key_type_name() }}</option></select></td>\n\t\t\t\t\t{{/if}}\n\t\t\t\t\t{{#describeTable.LocalSecondaryIndexes:j}}\n\t\t\t\t\t\t{{#if ~/.query.table === (\'lsi:\' +  .IndexName)  }}\n\t\t\t\t\t\t\t<td>{{ @this._lsi_hash_key_name( .IndexName ) }}</td>\n\t\t\t\t\t\t\t<td><select><option>{{ @this._lsi_hash_key_type_name( .IndexName ) }}</option></select></td>\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t{{/describeTable.LocalSecondaryIndexes}}\n\t\t\t\t\t{{#describeTable.GlobalSecondaryIndexes:j}}\n\t\t\t\t\t\t{{#if ~/.query.table === (\'gsi:\' +  .IndexName)  }}\n\t\t\t\t\t\t\t<td>{{ @this._gsi_hash_key_name( .IndexName ) }}</td>\n\t\t\t\t\t\t\t<td><select><option>{{ @this._gsi_hash_key_type_name( .IndexName ) }}</option></select></td>\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t{{/describeTable.GlobalSecondaryIndexes}}\n\t\t\t\t\t<td><select><option>=</option></select></td>\n\t\t\t\t\t<td><input type=\'text\' value=\'{{.query.partition.value}}\'></td>\n\t\t\t\t</tr>\n\t\t\t\t{{#if .query.table === \'\'  }}\n\t\t\t\t\t{{#if describeTable.KeySchema.length === 2}}\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>Sort</td>\n\t\t\t\t\t\t<td>{{ @this._range_key_name() }}</td>\n\t\t\t\t\t\t<td><select><option>{{ @this._range_key_type_name( ) }}</option></select></td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<select value=\'{{ ~/query.sort.op }}\'>\n\t\t\t\t\t\t\t\t<option value=\'eq\'>=</option>\n\t\t\t\t\t\t\t\t<option value=\'gt\'>&gt;</option>\n\t\t\t\t\t\t\t\t<option value=\'ge\'>&gt;=</option>\n\t\t\t\t\t\t\t\t<option value=\'lt\'>&lt;</option>\n\t\t\t\t\t\t\t\t<option value=\'le\'>&lt;=</option>\n\t\t\t\t\t\t\t\t<option value=\'between\'>between</option>\n\t\t\t\t\t\t\t\t{{#if _range_key_type()  === \'S\' }}\n\t\t\t\t\t\t\t\t\t<option value=\'begins_with\'>begins with</option>\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<input type=\'text\' value=\'{{ ~/query.sort.value }}\'>\n\t\t\t\t\t\t\t{{#if ~/query.sort.op === \'between\' }}\n\t\t\t\t\t\t\t\t<input type=\'text\' value=\'{{ ~/query.sort.value2 }}\'>\n\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t{{/if}}\n\t\t\t\t{{/if}}\n\t\t\t\t{{#describeTable.GlobalSecondaryIndexes:j}}\n\t\t\t\t\t{{#if ~/.query.table === (\'gsi:\' +  .IndexName)  }}\n\t\t\t\t\t\t{{#if .KeySchema.length === 2}}\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Sort</td>\n\t\t\t\t\t\t\t<td>{{ @this._gsi_range_key_name( .IndexName ) }}</td>\n\t\t\t\t\t\t\t<td><select><option>{{ @this._gsi_range_key_type_name( .IndexName ) }}</option></select></td>\n\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t<select value=\'{{ ~/query.sort.op }}\'>\n\t\t\t\t\t\t\t\t\t<option value=\'eq\'>=</option>\n\t\t\t\t\t\t\t\t\t<option value=\'gt\'>&gt;</option>\n\t\t\t\t\t\t\t\t\t<option value=\'ge\'>&gt;=</option>\n\t\t\t\t\t\t\t\t\t<option value=\'lt\'>&lt;</option>\n\t\t\t\t\t\t\t\t\t<option value=\'le\'>&lt;=</option>\n\t\t\t\t\t\t\t\t\t<option value=\'between\'>between</option>\n\t\t\t\t\t\t\t\t\t{{#if @this._gsi_range_key_type( .IndexName )  === \'S\' }}\n\t\t\t\t\t\t\t\t\t\t<option value=\'begins_with\'>begins with</option>\n\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t<input type=\'text\' value=\'{{ ~/query.sort.value }}\'>\n\t\t\t\t\t\t\t\t{{#if ~/query.sort.op === \'between\' }}\n\t\t\t\t\t\t\t\t\t<input type=\'text\' value=\'{{ ~/query.sort.value2 }}\'>\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t{{/if}}\n\t\t\t\t{{/describeTable.GlobalSecondaryIndexes}}\n\t\t\t\t{{#describeTable.LocalSecondaryIndexes:j}}\n\t\t\t\t\t{{#if ~/.query.table === (\'lsi:\' +  .IndexName)  }}\n\t\t\t\t\t\t{{#if .KeySchema.length === 2}}\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Sort</td>\n\t\t\t\t\t\t\t<td>{{ @this._lsi_range_key_name( .IndexName ) }}</td>\n\t\t\t\t\t\t\t<td><select><option>{{ @this._lsi_range_key_type_name( .IndexName ) }}</option></select></td>\n\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t<select value=\'{{ ~/query.sort.op }}\'>\n\t\t\t\t\t\t\t\t\t<option value=\'eq\'>=</option>\n\t\t\t\t\t\t\t\t\t<option value=\'gt\'>&gt;</option>\n\t\t\t\t\t\t\t\t\t<option value=\'ge\'>&gt;=</option>\n\t\t\t\t\t\t\t\t\t<option value=\'lt\'>&lt;</option>\n\t\t\t\t\t\t\t\t\t<option value=\'le\'>&lt;=</option>\n\t\t\t\t\t\t\t\t\t<option value=\'between\'>between</option>\n\t\t\t\t\t\t\t\t\t{{#if @this._lsi_range_key_type( .IndexName )  === \'S\' }}\n\t\t\t\t\t\t\t\t\t\t<option value=\'begins_with\'>begins with</option>\n\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t<input type=\'text\' value=\'{{ ~/query.sort.value }}\'>\n\t\t\t\t\t\t\t\t{{#if ~/query.sort.op === \'between\' }}\n\t\t\t\t\t\t\t\t\t<input type=\'text\' value=\'{{ ~/query.sort.value2 }}\'>\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t{{/if}}\n\t\t\t\t{{/describeTable.LocalSecondaryIndexes}}\n\n\t\t\t\t{{/if}}\n\t\t\t</table>\n\n\t\t</div>\n\t\t<div class=\'tabledatacontrols\'>\n\t\t\t<div class=\'btn btn-xs btn-default {{#if oop_running}}disabled{{/if}}\' on-click=\'run-oop\' style=\'padding-right: 10px;\'><i class=\'zmdi zmdi-hc-fw zmdi-play\'></i> RUN</div>\n\t\t\t<div class=\'btn btn-xs btn-default {{#if prev_running}}disabled{{/if}} {{#if start_reached }}disabled{{/if}}\' on-click=\'prev\'><i class=\'zmdi zmdi-hc-fw zmdi-chevron-left\'></i></div>\n\t\t\t<div class=\'btn btn-xs btn-default {{#if next_running}}disabled{{/if}} {{#if end_reached   }}disabled{{/if}}\' on-click=\'next\'><i class=\'zmdi zmdi-hc-fw zmdi-chevron-right\'></i></div>\n\n\t\t\t<div class=\'pull-right\'>\n\t\t\t\t<a class=\'btn btn-xs btn-default\' on-click=\'refresh\'><i class=\'zmdi zmdi-hc-fw zmdi-refresh\'></i></a>\n\t\t\t\t<div class=\'btn-group\'>\n\t\t\t\t\t<button class=\'btn btn-default btn-xs\' type=\'button\'>\n\t\t\t\t\t\t<i class=\'zmdi zmdi-filter-list\'></i>\n\t\t\t\t\t</button>\n\t\t\t\t\t<button type=\'button\' class=\'btn btn-xs btn-default dropdown-toggle dropdown-toggle-split\' on-click=\'@this.toggle("drowndownfilteropen")\'>\n\t\t\t\t\t\t<i class=\'zmdi zmdi-caret-down\'></i>\n\t\t\t\t\t</button>\n\t\t\t\t\t<div class=\'dropdown-menu pull-right {{#if drowndownfilteropen}}show{{/if}}\' style=\'max-height: 250px;overflow-y: auto;\'>\n\t\t\t\t\t\t{{#display_columns}}\n\t\t\t\t\t\t\t<li><a> <input type=checkbox checked=\'{{.show}}\' />  {{.name}}</a>\n\t\t\t\t\t\t{{/display_columns}}\n\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<a class=\'btn btn-xs btn-primary\' on-click=\'create-item-window\'  ><i class=\'zmdi zmdi-plus\'></i> Create Item </a>\n\t\t\t\t<a class=\'btn btn-xs btn-danger {{#if selection_length > 0}}{{else}}disabled{{/if}}\'  on-click=\'delete-selected\' ><i class=\'zmdi zmdi-hc-fw zmdi-delete\'></i></a>\n\t\t\t</div>\n\t\t</div>\n\t\t<tabledata columns=\'{{columns}}\' rows=\'{{rows}}\' on-colclick=\'open-item\' style=\'top: 148px\'/>\n\t\t{{/if}}\n\t</div>\n\t\t',
+	template: '\n\t<div class=\'tablebrowse\'>\n\t\t{{#if !describeTable }}\n\t\t\t<br>reading table schema...\n\t\t{{else}}\n\t\t<div class=\'tablequery\'>\n\t\t\t<table width=\'100%\' style=\'border-collapse: separate;border-spacing: 5px;\'>\n\t\t\t\t<tr>\n\t\t\t\t\t<td>\n\t\t\t\t\t\t<select class="input-select" value=\'{{ .type }}\'>\n\t\t\t\t\t\t\t<option value=\'scan\'>SCAN</option>\n\t\t\t\t\t\t\t<option value=\'query\'>QUERY</option>\n\t\t\t\t\t\t</select>\n\t\t\t\t\t</td>\n\t\t\t\t\t<td colspan=\'4\'>\n\t\t\t\t\t\t{{#if .type === \'scan\' }}\n\t\t\t\t\t\t<select class="input-select" value=\'{{ .scan.table }}\'>\n\t\t\t\t\t\t\t<option value=\'\'>\n\t\t\t\t\t\t\t\t[ Table ] {{ describeTable.TableName }}: {{ @this._hash_key_name() }} ( {{ @this._hash_key_type_name() }} )\n\t\t\t\t\t\t\t\t{{#if describeTable.KeySchema.length === 2}}\n\t\t\t\t\t\t\t\t\t, {{ @this._range_key_name() }} ( {{ @this._range_key_type_name() }} )\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</option>\n\n\t\t\t\t\t\t\t{{#describeTable.LocalSecondaryIndexes:j}}\n\t\t\t\t\t\t\t<option value=\'lsi:{{ .IndexName }}\'>\n\t\t\t\t\t\t\t\t[ LSI ] {{ .IndexName }}: {{ @this._lsi_hash_key_name( .IndexName ) }} ( {{ @this._lsi_hash_key_type_name( .IndexName ) }} )\n\t\t\t\t\t\t\t\t{{#if .KeySchema.length === 2}}\n\t\t\t\t\t\t\t\t\t, {{ @this._lsi_range_key_name( .IndexName ) }} (  {{ @this._lsi_range_key_type_name( .IndexName ) }} )\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t{{/describeTable.LocalSecondaryIndexes}}\n\n\t\t\t\t\t\t\t{{#describeTable.GlobalSecondaryIndexes:j}}\n\t\t\t\t\t\t\t<option value=\'gsi:{{ .IndexName }}\'>\n\t\t\t\t\t\t\t\t[ GSI ] {{ .IndexName }}: {{ @this._gsi_hash_key_name( .IndexName ) }} ( {{ @this._gsi_hash_key_type_name( .IndexName ) }} )\n\t\t\t\t\t\t\t\t{{#if .KeySchema.length === 2}}\n\t\t\t\t\t\t\t\t\t, {{ @this._gsi_range_key_name( .IndexName ) }} (  {{ @this._gsi_range_key_type_name( .IndexName ) }} )\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t{{/describeTable.GlobalSecondaryIndexes}}\n\t\t\t\t\t\t</select>\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if .type === \'query\' }}\n\t\t\t\t\t\t<select class="input-select" value=\'{{ .query.table }}\'>\n\t\t\t\t\t\t\t<option value=\'\'>\n\t\t\t\t\t\t\t\t[ Table ] {{ describeTable.TableName }}: {{ @this._hash_key_name() }} ( {{ @this._hash_key_type_name() }} )\n\t\t\t\t\t\t\t\t{{#if describeTable.KeySchema.length === 2}}\n\t\t\t\t\t\t\t\t\t, {{ @this._range_key_name() }} ( {{ @this._range_key_type_name() }} )\n\t\t\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t\t</option>\n\n\t\t\t\t\t\t\t{{#describeTable.LocalSecondaryIndexes:j}}\n\t\t\t\t\t\t\t<option value=\'lsi:{{ .IndexName }}\'>\n\t\t\t\t\t\t\t\t[ LSI ] {{ .IndexName }}: {{ @this._lsi_hash_key_name( .IndexName ) }} ( {{ @this._lsi_hash_key_type_name( .IndexName ) }} )\n\t\t\t\t\t\t\t\t{{#if .KeySchema.length === 2}}\n\t\t\t\t\t\t\t\t\t, {{ @this._lsi_range_key_name( .IndexName ) }} (  {{ @this._lsi_range_key_type_name( .IndexName ) }} )\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t{{/describeTable.LocalSecondaryIndexes}}\n\n\t\t\t\t\t\t\t{{#describeTable.GlobalSecondaryIndexes:j}}\n\t\t\t\t\t\t\t<option value=\'gsi:{{ .IndexName }}\'>\n\t\t\t\t\t\t\t\t[ GSI ] {{ .IndexName }}: {{ @this._gsi_hash_key_name( .IndexName ) }} ( {{ @this._gsi_hash_key_type_name( .IndexName ) }} )\n\t\t\t\t\t\t\t\t{{#if .KeySchema.length === 2}}\n\t\t\t\t\t\t\t\t\t, {{ @this._gsi_range_key_name( .IndexName ) }} (  {{ @this._gsi_range_key_type_name( .IndexName ) }} )\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t{{/describeTable.GlobalSecondaryIndexes}}\n\t\t\t\t\t\t</select>\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t</td>\n\t\t\t\t</tr>\n\t\t\t\t{{#if .type === \'query\' }}\n\t\t\t\t<tr>\n\t\t\t\t\t<td>Partition</td>\n\t\t\t\t\t{{#if .query.table === \'\'  }}\n\t\t\t\t\t\t<td>{{ _hash_key_name() }}</td>\n\t\t\t\t\t\t<td><select class="input-select"><option>{{ @this._hash_key_type_name() }}</option></select></td>\n\t\t\t\t\t{{/if}}\n\t\t\t\t\t{{#describeTable.LocalSecondaryIndexes:j}}\n\t\t\t\t\t\t{{#if ~/.query.table === (\'lsi:\' +  .IndexName)  }}\n\t\t\t\t\t\t\t<td>{{ @this._lsi_hash_key_name( .IndexName ) }}</td>\n\t\t\t\t\t\t\t<td><select class="input-select"><option>{{ @this._lsi_hash_key_type_name( .IndexName ) }}</option></select></td>\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t{{/describeTable.LocalSecondaryIndexes}}\n\t\t\t\t\t{{#describeTable.GlobalSecondaryIndexes:j}}\n\t\t\t\t\t\t{{#if ~/.query.table === (\'gsi:\' +  .IndexName)  }}\n\t\t\t\t\t\t\t<td>{{ @this._gsi_hash_key_name( .IndexName ) }}</td>\n\t\t\t\t\t\t\t<td><select class="input-select"><option>{{ @this._gsi_hash_key_type_name( .IndexName ) }}</option></select></td>\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t{{/describeTable.GlobalSecondaryIndexes}}\n\t\t\t\t\t<td><select class="input-select"><option>=</option></select></td>\n\t\t\t\t\t<td><input class="input-text" type=\'text\' value=\'{{.query.partition.value}}\'></td>\n\t\t\t\t</tr>\n\t\t\t\t{{#if .query.table === \'\'  }}\n\t\t\t\t\t{{#if describeTable.KeySchema.length === 2}}\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>Sort</td>\n\t\t\t\t\t\t<td>{{ @this._range_key_name() }}</td>\n\t\t\t\t\t\t<td><select class="input-select"><option>{{ @this._range_key_type_name( ) }}</option></select></td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<select class="input-select" value=\'{{ ~/query.sort.op }}\'>\n\t\t\t\t\t\t\t\t<option value=\'eq\'>=</option>\n\t\t\t\t\t\t\t\t<option value=\'gt\'>&gt;</option>\n\t\t\t\t\t\t\t\t<option value=\'ge\'>&gt;=</option>\n\t\t\t\t\t\t\t\t<option value=\'lt\'>&lt;</option>\n\t\t\t\t\t\t\t\t<option value=\'le\'>&lt;=</option>\n\t\t\t\t\t\t\t\t<option value=\'between\'>between</option>\n\t\t\t\t\t\t\t\t{{#if _range_key_type()  === \'S\' }}\n\t\t\t\t\t\t\t\t\t<option value=\'begins_with\'>begins with</option>\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<input class="input-text" type=\'text\' value=\'{{ ~/query.sort.value }}\'>\n\t\t\t\t\t\t\t{{#if ~/query.sort.op === \'between\' }}\n\t\t\t\t\t\t\t\t<input class="input-text" type=\'text\' value=\'{{ ~/query.sort.value2 }}\'>\n\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t{{/if}}\n\t\t\t\t{{/if}}\n\t\t\t\t{{#describeTable.GlobalSecondaryIndexes:j}}\n\t\t\t\t\t{{#if ~/.query.table === (\'gsi:\' +  .IndexName)  }}\n\t\t\t\t\t\t{{#if .KeySchema.length === 2}}\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Sort</td>\n\t\t\t\t\t\t\t<td>{{ @this._gsi_range_key_name( .IndexName ) }}</td>\n\t\t\t\t\t\t\t<td><select class="input-select"><option>{{ @this._gsi_range_key_type_name( .IndexName ) }}</option></select></td>\n\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t<select class="input-select" value=\'{{ ~/query.sort.op }}\'>\n\t\t\t\t\t\t\t\t\t<option value=\'eq\'>=</option>\n\t\t\t\t\t\t\t\t\t<option value=\'gt\'>&gt;</option>\n\t\t\t\t\t\t\t\t\t<option value=\'ge\'>&gt;=</option>\n\t\t\t\t\t\t\t\t\t<option value=\'lt\'>&lt;</option>\n\t\t\t\t\t\t\t\t\t<option value=\'le\'>&lt;=</option>\n\t\t\t\t\t\t\t\t\t<option value=\'between\'>between</option>\n\t\t\t\t\t\t\t\t\t{{#if @this._gsi_range_key_type( .IndexName )  === \'S\' }}\n\t\t\t\t\t\t\t\t\t\t<option value=\'begins_with\'>begins with</option>\n\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t<input class="input-text" type=\'text\' value=\'{{ ~/query.sort.value }}\'>\n\t\t\t\t\t\t\t\t{{#if ~/query.sort.op === \'between\' }}\n\t\t\t\t\t\t\t\t\t<input class="input-text" type=\'text\' value=\'{{ ~/query.sort.value2 }}\'>\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t{{/if}}\n\t\t\t\t{{/describeTable.GlobalSecondaryIndexes}}\n\t\t\t\t{{#describeTable.LocalSecondaryIndexes:j}}\n\t\t\t\t\t{{#if ~/.query.table === (\'lsi:\' +  .IndexName)  }}\n\t\t\t\t\t\t{{#if .KeySchema.length === 2}}\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Sort</td>\n\t\t\t\t\t\t\t<td>{{ @this._lsi_range_key_name( .IndexName ) }}</td>\n\t\t\t\t\t\t\t<td><select class="input-select"><option>{{ @this._lsi_range_key_type_name( .IndexName ) }}</option></select></td>\n\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t<select class="input-select" value=\'{{ ~/query.sort.op }}\'>\n\t\t\t\t\t\t\t\t\t<option value=\'eq\'>=</option>\n\t\t\t\t\t\t\t\t\t<option value=\'gt\'>&gt;</option>\n\t\t\t\t\t\t\t\t\t<option value=\'ge\'>&gt;=</option>\n\t\t\t\t\t\t\t\t\t<option value=\'lt\'>&lt;</option>\n\t\t\t\t\t\t\t\t\t<option value=\'le\'>&lt;=</option>\n\t\t\t\t\t\t\t\t\t<option value=\'between\'>between</option>\n\t\t\t\t\t\t\t\t\t{{#if @this._lsi_range_key_type( .IndexName )  === \'S\' }}\n\t\t\t\t\t\t\t\t\t\t<option value=\'begins_with\'>begins with</option>\n\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t<input class="input-text" type=\'text\' value=\'{{ ~/query.sort.value }}\'>\n\t\t\t\t\t\t\t\t{{#if ~/query.sort.op === \'between\' }}\n\t\t\t\t\t\t\t\t\t<input class="input-text" type=\'text\' value=\'{{ ~/query.sort.value2 }}\'>\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t{{/if}}\n\t\t\t\t{{/describeTable.LocalSecondaryIndexes}}\n\n\t\t\t\t{{/if}}\n\t\t\t</table>\n\n\t\t</div>\n\t\t<div class=\'tabledatacontrols\'>\n\t\t\t<div class=\'btn btn-xs btn-default {{#if oop_running}}disabled{{/if}}\' on-click=\'run-oop\' style=\'padding-right: 10px;\'> <icon-play /> RUN</div>\n\t\t\t<div class=\'btn btn-xs btn-default {{#if prev_running}}disabled{{/if}} {{#if start_reached }}disabled{{/if}}\' on-click=\'prev\'> <icon-prev /> </div>\n\t\t\t<div class=\'btn btn-xs btn-default {{#if next_running}}disabled{{/if}} {{#if end_reached   }}disabled{{/if}}\' on-click=\'next\'> <icon-next /> </div>\n\n\t\t\t<div class=\'pull-right\'>\n\t\t\t\t<a class=\'btn btn-xs btn-default\' on-click=\'refresh\'> <icon-refresh /> </a>\n\t\t\t\t<div class=\'btn-group\'>\n\t\t\t\t\t<button class=\'btn btn-default btn-xs\' type=\'button\'>\n\t\t\t\t\t\t<icon-filter />\n\t\t\t\t\t</button>\n\t\t\t\t\t<button type=\'button\' class=\'btn btn-xs btn-default dropdown-toggle dropdown-toggle-split\' on-click=\'@this.toggle("drowndownfilteropen")\'>\n\t\t\t\t\t\t<icon-caret-down />\n\t\t\t\t\t</button>\n\t\t\t\t\t<div class=\'dropdown-menu pull-right {{#if drowndownfilteropen}}show{{/if}}\' style=\'max-height: 250px;overflow-y: auto;\'>\n\t\t\t\t\t\t{{#display_columns}}\n\t\t\t\t\t\t\t<li><a> <input class="input-checkbox" type=checkbox checked=\'{{.show}}\' />  {{.name}}</a>\n\t\t\t\t\t\t{{/display_columns}}\n\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<a class=\'btn btn-xs btn-primary\' on-click=\'create-item-window\'  > Create Item </a>\n\t\t\t\t<a class=\'btn btn-xs btn-danger {{#if selection_length > 0}}{{else}}disabled{{/if}}\'  on-click=\'delete-selected\' > <icon-trash /> </a>\n\t\t\t</div>\n\t\t</div>\n\t\t<tabledata columns=\'{{columns}}\' rows=\'{{rows}}\' on-colclick=\'open-item\' style=\'top: 148px\'/>\n\t\t{{/if}}\n\t</div>\n\t\t',
 	_hash_key_name: function _hash_key_name() {
 		return (this.get('describeTable').KeySchema.filter(function (k) {
 			return k.KeyType === 'HASH';
@@ -3600,7 +3636,7 @@ exports.default = Ractive.extend({
 			var hash = this._hash_key_name();
 			var range = this._range_key_name();
 			//console.log("open-item", "table=",describeTable.TableName, "hash=",hash, "range=", range, "item=", item, rawitem  )
-			window.ractive.findComponent('WindowHost').newWindow(function ($window) {
+			ractive.root.findComponent('WindowHost').newWindow(function ($window) {
 				$window.set({
 					title: 'Edit Item',
 					'geometry.width': window.innerWidth - 100,
@@ -3721,9 +3757,10 @@ exports.default = Ractive.extend({
 				rawitem[this._range_key_name()] = to_add;
 			}
 
-			console.log(rawitem);
+			//console.log(rawitem)
 
-			window.ractive.findComponent('WindowHost').newWindow(function ($window) {
+
+			ractive.root.findComponent('WindowHost').newWindow(function ($window) {
 				$window.set({
 					title: 'Create Item',
 					'geometry.width': window.innerWidth - 100,
@@ -3836,7 +3873,7 @@ exports.default = Ractive.extend({
 });
 
 /***/ }),
-/* 57 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3954,29 +3991,29 @@ exports.default = Ractive.extend({
 });
 
 /***/ }),
-/* 58 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Stack = __webpack_require__(59),
-    arrayEach = __webpack_require__(89),
+var Stack = __webpack_require__(62),
+    arrayEach = __webpack_require__(93),
     assignValue = __webpack_require__(29),
-    baseAssign = __webpack_require__(91),
-    baseAssignIn = __webpack_require__(101),
-    cloneBuffer = __webpack_require__(104),
-    copyArray = __webpack_require__(105),
-    copySymbols = __webpack_require__(106),
-    copySymbolsIn = __webpack_require__(108),
-    getAllKeys = __webpack_require__(109),
-    getAllKeysIn = __webpack_require__(110),
+    baseAssign = __webpack_require__(95),
+    baseAssignIn = __webpack_require__(105),
+    cloneBuffer = __webpack_require__(108),
+    copyArray = __webpack_require__(109),
+    copySymbols = __webpack_require__(110),
+    copySymbolsIn = __webpack_require__(112),
+    getAllKeys = __webpack_require__(113),
+    getAllKeysIn = __webpack_require__(114),
     getTag = __webpack_require__(20),
-    initCloneArray = __webpack_require__(115),
-    initCloneByTag = __webpack_require__(116),
-    initCloneObject = __webpack_require__(122),
+    initCloneArray = __webpack_require__(119),
+    initCloneByTag = __webpack_require__(120),
+    initCloneObject = __webpack_require__(126),
     isArray = __webpack_require__(14),
     isBuffer = __webpack_require__(32),
-    isMap = __webpack_require__(124),
+    isMap = __webpack_require__(128),
     isObject = __webpack_require__(2),
-    isSet = __webpack_require__(126),
+    isSet = __webpack_require__(130),
     keys = __webpack_require__(13);
 
 /** Used to compose bitmasks for cloning. */
@@ -4125,15 +4162,15 @@ module.exports = baseClone;
 
 
 /***/ }),
-/* 59 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var ListCache = __webpack_require__(4),
-    stackClear = __webpack_require__(65),
-    stackDelete = __webpack_require__(66),
-    stackGet = __webpack_require__(67),
-    stackHas = __webpack_require__(68),
-    stackSet = __webpack_require__(69);
+    stackClear = __webpack_require__(68),
+    stackDelete = __webpack_require__(69),
+    stackGet = __webpack_require__(70),
+    stackHas = __webpack_require__(71),
+    stackSet = __webpack_require__(72);
 
 /**
  * Creates a stack cache object to store key-value pairs.
@@ -4158,7 +4195,7 @@ module.exports = Stack;
 
 
 /***/ }),
-/* 60 */
+/* 63 */
 /***/ (function(module, exports) {
 
 /**
@@ -4177,7 +4214,7 @@ module.exports = listCacheClear;
 
 
 /***/ }),
-/* 61 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var assocIndexOf = __webpack_require__(5);
@@ -4218,7 +4255,7 @@ module.exports = listCacheDelete;
 
 
 /***/ }),
-/* 62 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var assocIndexOf = __webpack_require__(5);
@@ -4243,7 +4280,7 @@ module.exports = listCacheGet;
 
 
 /***/ }),
-/* 63 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var assocIndexOf = __webpack_require__(5);
@@ -4265,7 +4302,7 @@ module.exports = listCacheHas;
 
 
 /***/ }),
-/* 64 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var assocIndexOf = __webpack_require__(5);
@@ -4297,7 +4334,7 @@ module.exports = listCacheSet;
 
 
 /***/ }),
-/* 65 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var ListCache = __webpack_require__(4);
@@ -4318,7 +4355,7 @@ module.exports = stackClear;
 
 
 /***/ }),
-/* 66 */
+/* 69 */
 /***/ (function(module, exports) {
 
 /**
@@ -4342,7 +4379,7 @@ module.exports = stackDelete;
 
 
 /***/ }),
-/* 67 */
+/* 70 */
 /***/ (function(module, exports) {
 
 /**
@@ -4362,7 +4399,7 @@ module.exports = stackGet;
 
 
 /***/ }),
-/* 68 */
+/* 71 */
 /***/ (function(module, exports) {
 
 /**
@@ -4382,12 +4419,12 @@ module.exports = stackHas;
 
 
 /***/ }),
-/* 69 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var ListCache = __webpack_require__(4),
     Map = __webpack_require__(11),
-    MapCache = __webpack_require__(76);
+    MapCache = __webpack_require__(80);
 
 /** Used as the size to enable large array optimizations. */
 var LARGE_ARRAY_SIZE = 200;
@@ -4422,11 +4459,11 @@ module.exports = stackSet;
 
 
 /***/ }),
-/* 70 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var isFunction = __webpack_require__(26),
-    isMasked = __webpack_require__(73),
+    isMasked = __webpack_require__(77),
     isObject = __webpack_require__(2),
     toSource = __webpack_require__(28);
 
@@ -4475,7 +4512,33 @@ module.exports = baseIsNative;
 
 
 /***/ }),
-/* 71 */
+/* 74 */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || new Function("return this")();
+} catch (e) {
+	// This works if the window reference is available
+	if (typeof window === "object") g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Symbol = __webpack_require__(12);
@@ -4527,7 +4590,7 @@ module.exports = getRawTag;
 
 
 /***/ }),
-/* 72 */
+/* 76 */
 /***/ (function(module, exports) {
 
 /** Used for built-in method references. */
@@ -4555,10 +4618,10 @@ module.exports = objectToString;
 
 
 /***/ }),
-/* 73 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var coreJsData = __webpack_require__(74);
+var coreJsData = __webpack_require__(78);
 
 /** Used to detect methods masquerading as native. */
 var maskSrcKey = (function() {
@@ -4581,7 +4644,7 @@ module.exports = isMasked;
 
 
 /***/ }),
-/* 74 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var root = __webpack_require__(0);
@@ -4593,7 +4656,7 @@ module.exports = coreJsData;
 
 
 /***/ }),
-/* 75 */
+/* 79 */
 /***/ (function(module, exports) {
 
 /**
@@ -4612,14 +4675,14 @@ module.exports = getValue;
 
 
 /***/ }),
-/* 76 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var mapCacheClear = __webpack_require__(77),
-    mapCacheDelete = __webpack_require__(84),
-    mapCacheGet = __webpack_require__(86),
-    mapCacheHas = __webpack_require__(87),
-    mapCacheSet = __webpack_require__(88);
+var mapCacheClear = __webpack_require__(81),
+    mapCacheDelete = __webpack_require__(88),
+    mapCacheGet = __webpack_require__(90),
+    mapCacheHas = __webpack_require__(91),
+    mapCacheSet = __webpack_require__(92);
 
 /**
  * Creates a map cache object to store key-value pairs.
@@ -4650,10 +4713,10 @@ module.exports = MapCache;
 
 
 /***/ }),
-/* 77 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Hash = __webpack_require__(78),
+var Hash = __webpack_require__(82),
     ListCache = __webpack_require__(4),
     Map = __webpack_require__(11);
 
@@ -4677,14 +4740,14 @@ module.exports = mapCacheClear;
 
 
 /***/ }),
-/* 78 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var hashClear = __webpack_require__(79),
-    hashDelete = __webpack_require__(80),
-    hashGet = __webpack_require__(81),
-    hashHas = __webpack_require__(82),
-    hashSet = __webpack_require__(83);
+var hashClear = __webpack_require__(83),
+    hashDelete = __webpack_require__(84),
+    hashGet = __webpack_require__(85),
+    hashHas = __webpack_require__(86),
+    hashSet = __webpack_require__(87);
 
 /**
  * Creates a hash object.
@@ -4715,7 +4778,7 @@ module.exports = Hash;
 
 
 /***/ }),
-/* 79 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var nativeCreate = __webpack_require__(7);
@@ -4736,7 +4799,7 @@ module.exports = hashClear;
 
 
 /***/ }),
-/* 80 */
+/* 84 */
 /***/ (function(module, exports) {
 
 /**
@@ -4759,7 +4822,7 @@ module.exports = hashDelete;
 
 
 /***/ }),
-/* 81 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var nativeCreate = __webpack_require__(7);
@@ -4795,7 +4858,7 @@ module.exports = hashGet;
 
 
 /***/ }),
-/* 82 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var nativeCreate = __webpack_require__(7);
@@ -4824,7 +4887,7 @@ module.exports = hashHas;
 
 
 /***/ }),
-/* 83 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var nativeCreate = __webpack_require__(7);
@@ -4853,7 +4916,7 @@ module.exports = hashSet;
 
 
 /***/ }),
-/* 84 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var getMapData = __webpack_require__(8);
@@ -4877,7 +4940,7 @@ module.exports = mapCacheDelete;
 
 
 /***/ }),
-/* 85 */
+/* 89 */
 /***/ (function(module, exports) {
 
 /**
@@ -4898,7 +4961,7 @@ module.exports = isKeyable;
 
 
 /***/ }),
-/* 86 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var getMapData = __webpack_require__(8);
@@ -4920,7 +4983,7 @@ module.exports = mapCacheGet;
 
 
 /***/ }),
-/* 87 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var getMapData = __webpack_require__(8);
@@ -4942,7 +5005,7 @@ module.exports = mapCacheHas;
 
 
 /***/ }),
-/* 88 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var getMapData = __webpack_require__(8);
@@ -4970,7 +5033,7 @@ module.exports = mapCacheSet;
 
 
 /***/ }),
-/* 89 */
+/* 93 */
 /***/ (function(module, exports) {
 
 /**
@@ -4998,7 +5061,7 @@ module.exports = arrayEach;
 
 
 /***/ }),
-/* 90 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var getNative = __webpack_require__(1);
@@ -5015,7 +5078,7 @@ module.exports = defineProperty;
 
 
 /***/ }),
-/* 91 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var copyObject = __webpack_require__(9),
@@ -5038,7 +5101,7 @@ module.exports = baseAssign;
 
 
 /***/ }),
-/* 92 */
+/* 96 */
 /***/ (function(module, exports) {
 
 /**
@@ -5064,10 +5127,10 @@ module.exports = baseTimes;
 
 
 /***/ }),
-/* 93 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseIsArguments = __webpack_require__(94),
+var baseIsArguments = __webpack_require__(98),
     isObjectLike = __webpack_require__(3);
 
 /** Used for built-in method references. */
@@ -5106,7 +5169,7 @@ module.exports = isArguments;
 
 
 /***/ }),
-/* 94 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var baseGetTag = __webpack_require__(6),
@@ -5130,7 +5193,7 @@ module.exports = baseIsArguments;
 
 
 /***/ }),
-/* 95 */
+/* 99 */
 /***/ (function(module, exports) {
 
 /**
@@ -5154,7 +5217,7 @@ module.exports = stubFalse;
 
 
 /***/ }),
-/* 96 */
+/* 100 */
 /***/ (function(module, exports) {
 
 /** Used as references for various `Number` constants. */
@@ -5185,10 +5248,10 @@ module.exports = isIndex;
 
 
 /***/ }),
-/* 97 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseIsTypedArray = __webpack_require__(98),
+var baseIsTypedArray = __webpack_require__(102),
     baseUnary = __webpack_require__(16),
     nodeUtil = __webpack_require__(17);
 
@@ -5218,7 +5281,7 @@ module.exports = isTypedArray;
 
 
 /***/ }),
-/* 98 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var baseGetTag = __webpack_require__(6),
@@ -5284,11 +5347,11 @@ module.exports = baseIsTypedArray;
 
 
 /***/ }),
-/* 99 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var isPrototype = __webpack_require__(18),
-    nativeKeys = __webpack_require__(100);
+    nativeKeys = __webpack_require__(104);
 
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
@@ -5320,7 +5383,7 @@ module.exports = baseKeys;
 
 
 /***/ }),
-/* 100 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var overArg = __webpack_require__(34);
@@ -5332,7 +5395,7 @@ module.exports = nativeKeys;
 
 
 /***/ }),
-/* 101 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var copyObject = __webpack_require__(9),
@@ -5355,12 +5418,12 @@ module.exports = baseAssignIn;
 
 
 /***/ }),
-/* 102 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var isObject = __webpack_require__(2),
     isPrototype = __webpack_require__(18),
-    nativeKeysIn = __webpack_require__(103);
+    nativeKeysIn = __webpack_require__(107);
 
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
@@ -5394,7 +5457,7 @@ module.exports = baseKeysIn;
 
 
 /***/ }),
-/* 103 */
+/* 107 */
 /***/ (function(module, exports) {
 
 /**
@@ -5420,7 +5483,7 @@ module.exports = nativeKeysIn;
 
 
 /***/ }),
-/* 104 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(module) {var root = __webpack_require__(0);
@@ -5462,7 +5525,7 @@ module.exports = cloneBuffer;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(15)(module)))
 
 /***/ }),
-/* 105 */
+/* 109 */
 /***/ (function(module, exports) {
 
 /**
@@ -5488,7 +5551,7 @@ module.exports = copyArray;
 
 
 /***/ }),
-/* 106 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var copyObject = __webpack_require__(9),
@@ -5510,7 +5573,7 @@ module.exports = copySymbols;
 
 
 /***/ }),
-/* 107 */
+/* 111 */
 /***/ (function(module, exports) {
 
 /**
@@ -5541,7 +5604,7 @@ module.exports = arrayFilter;
 
 
 /***/ }),
-/* 108 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var copyObject = __webpack_require__(9),
@@ -5563,7 +5626,7 @@ module.exports = copySymbolsIn;
 
 
 /***/ }),
-/* 109 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var baseGetAllKeys = __webpack_require__(41),
@@ -5585,7 +5648,7 @@ module.exports = getAllKeys;
 
 
 /***/ }),
-/* 110 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var baseGetAllKeys = __webpack_require__(41),
@@ -5608,7 +5671,7 @@ module.exports = getAllKeysIn;
 
 
 /***/ }),
-/* 111 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var getNative = __webpack_require__(1),
@@ -5621,7 +5684,7 @@ module.exports = DataView;
 
 
 /***/ }),
-/* 112 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var getNative = __webpack_require__(1),
@@ -5634,7 +5697,7 @@ module.exports = Promise;
 
 
 /***/ }),
-/* 113 */
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var getNative = __webpack_require__(1),
@@ -5647,7 +5710,7 @@ module.exports = Set;
 
 
 /***/ }),
-/* 114 */
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var getNative = __webpack_require__(1),
@@ -5660,7 +5723,7 @@ module.exports = WeakMap;
 
 
 /***/ }),
-/* 115 */
+/* 119 */
 /***/ (function(module, exports) {
 
 /** Used for built-in method references. */
@@ -5692,14 +5755,14 @@ module.exports = initCloneArray;
 
 
 /***/ }),
-/* 116 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var cloneArrayBuffer = __webpack_require__(21),
-    cloneDataView = __webpack_require__(118),
-    cloneRegExp = __webpack_require__(119),
-    cloneSymbol = __webpack_require__(120),
-    cloneTypedArray = __webpack_require__(121);
+    cloneDataView = __webpack_require__(122),
+    cloneRegExp = __webpack_require__(123),
+    cloneSymbol = __webpack_require__(124),
+    cloneTypedArray = __webpack_require__(125);
 
 /** `Object#toString` result references. */
 var boolTag = '[object Boolean]',
@@ -5775,7 +5838,7 @@ module.exports = initCloneByTag;
 
 
 /***/ }),
-/* 117 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var root = __webpack_require__(0);
@@ -5787,7 +5850,7 @@ module.exports = Uint8Array;
 
 
 /***/ }),
-/* 118 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var cloneArrayBuffer = __webpack_require__(21);
@@ -5809,7 +5872,7 @@ module.exports = cloneDataView;
 
 
 /***/ }),
-/* 119 */
+/* 123 */
 /***/ (function(module, exports) {
 
 /** Used to match `RegExp` flags from their coerced string values. */
@@ -5832,7 +5895,7 @@ module.exports = cloneRegExp;
 
 
 /***/ }),
-/* 120 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Symbol = __webpack_require__(12);
@@ -5856,7 +5919,7 @@ module.exports = cloneSymbol;
 
 
 /***/ }),
-/* 121 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var cloneArrayBuffer = __webpack_require__(21);
@@ -5878,10 +5941,10 @@ module.exports = cloneTypedArray;
 
 
 /***/ }),
-/* 122 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseCreate = __webpack_require__(123),
+var baseCreate = __webpack_require__(127),
     getPrototype = __webpack_require__(40),
     isPrototype = __webpack_require__(18);
 
@@ -5902,7 +5965,7 @@ module.exports = initCloneObject;
 
 
 /***/ }),
-/* 123 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var isObject = __webpack_require__(2);
@@ -5938,10 +6001,10 @@ module.exports = baseCreate;
 
 
 /***/ }),
-/* 124 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseIsMap = __webpack_require__(125),
+var baseIsMap = __webpack_require__(129),
     baseUnary = __webpack_require__(16),
     nodeUtil = __webpack_require__(17);
 
@@ -5971,7 +6034,7 @@ module.exports = isMap;
 
 
 /***/ }),
-/* 125 */
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var getTag = __webpack_require__(20),
@@ -5995,10 +6058,10 @@ module.exports = baseIsMap;
 
 
 /***/ }),
-/* 126 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseIsSet = __webpack_require__(127),
+var baseIsSet = __webpack_require__(131),
     baseUnary = __webpack_require__(16),
     nodeUtil = __webpack_require__(17);
 
@@ -6028,7 +6091,7 @@ module.exports = isSet;
 
 
 /***/ }),
-/* 127 */
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var getTag = __webpack_require__(20),
@@ -6052,7 +6115,7 @@ module.exports = baseIsSet;
 
 
 /***/ }),
-/* 128 */
+/* 132 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
