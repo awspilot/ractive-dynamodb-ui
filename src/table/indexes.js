@@ -10,16 +10,16 @@ export default Ractive.extend({
 			{{#if tab === 'create'}}
 				<h3>Create Global Secondary Index</h3>
 				<table cellpadding='10' border='0'>
-					<tr style='background-color: #ffefef'>
-						<td style='background-color: #eadfdf'>Name</td>
+					<tr>
+						<td>Name</td>
 						<td><input class="input-text" type='text' value='{{newindex.IndexName}}' on-focus='focus' /></td>
 					</tr>
-					<tr style='background-color: #ffefef'>
-						<td style='background-color: #eadfdf'>Type</td>
+					<tr>
+						<td>Type</td>
 						<td>GSI</td>
 					</tr>
-					<tr style='background-color: #ffefef'>
-						<td style='background-color: #eadfdf'>Partition key</td>
+					<tr>
+						<td>Partition key</td>
 						<td>
 							<input class="input-text" type='text' value='{{ newindex.KeySchema.0.AttributeName }}' on-focus='focus' />
 							<select class="input-select" value='{{ newindex.KeySchema.0.AttributeType }}'>
@@ -29,8 +29,8 @@ export default Ractive.extend({
 							</select>
 						</td>
 					</tr>
-					<tr style='background-color: #ffefef'>
-						<td style='background-color: #eadfdf'>Sort key</td>
+					<tr>
+						<td>Sort key</td>
 						<td>
 							<input class="input-text" type='text' value='{{ newindex.KeySchema.1.AttributeName }}' on-focus='focus' />
 							<select class="input-select" value='{{ newindex.KeySchema.1.AttributeType }}'>
@@ -40,8 +40,8 @@ export default Ractive.extend({
 							</select>
 						</td>
 					</tr>
-					<tr style='background-color: #ffefef'>
-						<td style='background-color: #eadfdf'>Projection type</td>
+					<tr>
+						<td>Projection type</td>
 						<td>
 							<select class="input-select" value='{{ newindex.Projection.ProjectionType}}'>
 								<option value='ALL'>ALL</option>
@@ -51,8 +51,8 @@ export default Ractive.extend({
 						</td>
 					</tr>
 					{{#if newindex.Projection.ProjectionType === 'INCLUDE' }}
-					<tr style='background-color: #ffefef'>
-						<td style='background-color: #eadfdf'>Projected attributes</td>
+					<tr>
+						<td>Projected attributes</td>
 						<td>
 							{{#if newindex.Projection.ProjectionType === 'INCLUDE'}}
 
@@ -66,14 +66,14 @@ export default Ractive.extend({
 						</td>
 					</tr>
 					{{/if}}
-					<tr style='background-color: #ffefef'>
-						<td style='background-color: #eadfdf'>Read capacity</td>
+					<tr>
+						<td>Read capacity</td>
 						<td>
 							<input class="input-text" type='text' value='{{ newindex.ProvisionedThroughput.ReadCapacityUnits }}'  size='4' on-focus='focus' />
 						</td>
 					</tr>
-					<tr style='background-color: #ffefef'>
-						<td style='background-color: #eadfdf'>Write capacity</td>
+					<tr>
+						<td>Write capacity</td>
 						<td>
 							<input class="input-text" type='text' value='{{ newindex.ProvisionedThroughput.WriteCapacityUnits}}' size='4' on-focus='focus' />
 						</td>

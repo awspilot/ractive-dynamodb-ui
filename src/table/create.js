@@ -50,7 +50,7 @@ export default Ractive.extend({
 				<br><br>
 				<h4>Secondary indexes</h4>
 				<table style='border-collapse: separate;border-spacing: 10px;'>
-					<tr style='background-color: #eadfdf'>
+					<tr>
 						<td>Name</td>
 						<td>Type</td>
 						<td>Partition key</td>
@@ -60,7 +60,7 @@ export default Ractive.extend({
 						<td></td>
 					</tr>
 					{{#newtable.LocalSecondaryIndexes:i}}
-					<tr style='background-color: #ffefef'>
+					<tr>
 						<td><input class="input-text" type='text' value='{{.IndexName}}' on-focus='focus' /></td>
 						<td>LSI</td>
 						<td><input class="input-text" type='text' value='{{ newtable.AttributeDefinitions.0.AttributeName }}' disabled> (
@@ -106,7 +106,7 @@ export default Ractive.extend({
 
 
 					{{#newtable.GlobalSecondaryIndexes:i}}
-					<tr style='background-color: #ffefef'>
+					<tr>
 						<td><input class="input-text" type='text' value='{{.IndexName}}' on-focus='focus' /></td>
 						<td>GSI</td>
 						<td>
