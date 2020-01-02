@@ -6,13 +6,15 @@
 	import "./css/style.less";
 	import Ractive from 'ractive';
 	import minitablelist from './minitablelist';
+	import RactiveWindow from './ractive-window.min.js'
 
 	var ddb;
-	//var DynamodbFactory;
 
-	//var DynamodbFactory = window['@awspilot/dynamodb']
-	var DynamodbFactory = require('@awspilot/dynamodb')
+	var DynamodbFactory = window['@awspilot/dynamodb']
+	//var DynamodbFactory = require('@awspilot/dynamodb')
 	//import DynamodbFactory from '@awspilot/dynamodb';
+
+
 
 	import tabs from './tabs';
 
@@ -28,6 +30,9 @@
 
 	export default Ractive.extend({
 		template: `
+			<div class='ractive-dynamodb-ui'>
+				<WindowHost />
+			</div>
 			<hsplit style='' class='ractive-dynamodb-ui'>
 				<left>
 					<minitablelist />
@@ -41,6 +46,8 @@
 			hsplit: hsplit,
 			minitablelist: minitablelist,
 			tabs: tabs,
+			Window: RactiveWindow.default.Window,
+			WindowHost: RactiveWindow.default.WindowHost,
 		},
 
 		data: function() {
