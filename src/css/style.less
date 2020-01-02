@@ -2,6 +2,8 @@
 @import "one-dark-ui/ui-variables-custom";
 @import "one-dark-ui/ui-variables";
 
+/* no need to include this with atom, they are already included */
+@import "atom-components";
 
 .ractive-dynamodb-ui {position: absolute;top:0px;left: 0px;right: 0px;bottom: 0px;font-family: sans-serif;}
 .ractive-dynamodb-ui * {box-sizing: border-box }
@@ -12,15 +14,7 @@
 		height: 11px;
 	}
 
-	.input-text {
-	    display: block;
-	    width: 100%;
-	    padding: .25em .4em;
-	    line-height: 1.5;
-	    border-radius: 3px;
-	    border: 1px solid #c5cad3;
-	    background-color: #f3f4f6;
-	}
+
 	.input-radio:checked {
 	    background-color: #568af2;
 	}
