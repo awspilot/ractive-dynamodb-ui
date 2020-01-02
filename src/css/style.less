@@ -153,8 +153,12 @@
 	}
 
 
-	.btn-primary {color: #fff;background-color: #337ab7;border-color: #2e6da4;}
-	.btn-danger {color: #fff;background-color: #d9534f;border-color: #d43f3a;}
+	.btn-primary {color: #fff;background-color: @accent-bg-color;}
+	.btn-primary > svg.icon {fill: #fff;}
+
+
+	.btn-danger {color: #fff;background-color: @background-color-error;}
+	.btn-danger > svg.icon {fill: #fff;}
 
 
 
@@ -282,7 +286,7 @@
 	content tabcontent .tableview-table-tabs {/*background: @tab-bar-background-color*/;border-bottom: 1px solid @tab-bar-border-color;}
 	.btn-tableview-tab {background-color: @tab-background-color;border: 1px solid @tab-border-color;border-bottom: 1px solid @tab-bar-border-color;color: @text-color;font-weight: bold;font-size: 12px;padding: 0px 12px;}
 	.btn-tableview-tab.active {background-color: @tab-background-color-active;border-bottom: 1px solid @tab-bar-border-color;color: @text-color-highlight;;}
-	content tabcontent .tablequery {background-color: @background-color-highlight; border-bottom: 1px solid @panel-heading-border-color}
+	content tabcontent .tablequery {background-color: @tool-panel-background-color; border-bottom: 1px solid @panel-heading-border-color}
 	content tabcontent .tablesqlquery {}
 	content tabcontent .tabledatacontrols {background-color: @overlay-background-color;border-bottom: 1px solid @overlay-border-color;}
 	content tabcontent .tabledata {border-top: 1px solid transparent;}
@@ -302,11 +306,11 @@
 	content tabcontent .tabledata .tabledatarow .tabledatacell.t-L {}
 	content tabcontent .tabledata .tabledatarow .tabledatacell.t-M {}
 	content tabcontent .tabledata .tabledatarow .tabledatacell.t-U {background-color: #f9f3f3;}
-	content tabcontent .tabledata .tabledatarow:hover {background-color: #f3f3f3;}
-	content tabcontent .tabledata .tabledatarow:hover .tabledatacell {color: #a59797;}
-	content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-HASH {color:#004b91;}
-	content tabcontent .tabledata .tabledatarow.selected {background-color: #ddecff;}
-	content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: #396396;}
-	content tabcontent .tabledata .tabledatarow.selected:hover {background-color: #0747a0 !important;}
+	content tabcontent .tabledata .tabledatarow:hover {background-color: @background-color-highlight;}
+	content tabcontent .tabledata .tabledatarow:hover .tabledatacell {color: @text-color-highlight;}
+	content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-HASH {color:@text-color-highlight;}
+	content tabcontent .tabledata .tabledatarow.selected {background-color: @background-color-selected;}
+	content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: @text-color-selected;}
+	content tabcontent .tabledata .tabledatarow.selected:hover {background-color: @background-color-info !important;}
 	content tabcontent .tabledata .tabledatarow.selected:hover .tabledatacell {color: #fff;}
 }
