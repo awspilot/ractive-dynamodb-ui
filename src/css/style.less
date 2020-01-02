@@ -268,7 +268,7 @@
 .ractive-dynamodb-ui {
 	header {background-color: #232f3e;/*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);*/ }
 	miniheader {background-color: @tab-bar-background-color;border: 1px solid @tab-bar-border-color;}
-	left {background-color: @tree-view-background-color;}
+	left {background-color: @tab-background-color-active;}
 	left > .scrollarea {border-right: 1px solid @base-border-color;}
 	left tables > div {border-bottom: 1px solid transparent;color: @text-color}
 	left tables > div:hover {background-color: @background-color-selected;}
@@ -277,11 +277,11 @@
 	content tabhead tab:first-child {}
 	content tabhead tab {border-right: 1px solid @tab-border-color; color: @text-color}
 	content tabhead tab.active {background-color: @tab-background-color-active;color: @text-color-highlight;}
-	content tabcontent {background-color: @background-color-highlight;}
+	content tabcontent {background-color: @tab-background-color-active; /*@background-color-highlight;*/}
 	content tabcontent .tableview-table-tabs {/*background: @tab-bar-background-color*/;border-bottom: 1px solid @tab-bar-border-color;}
 	.btn-tableview-tab {background-color: @tab-background-color;border: 1px solid @tab-border-color;border-bottom: 1px solid @tab-bar-border-color;color: @text-color;font-weight: bold;font-size: 12px;padding: 0px 12px;}
 	.btn-tableview-tab.active {background-color: @tab-background-color-active;border-bottom: 1px solid @tab-bar-border-color;color: @text-color-highlight;;}
-	content tabcontent .tablequery {background-color: @panel-heading-background-color; border-bottom: 1px solid @panel-heading-border-color}
+	content tabcontent .tablequery {background-color: @background-color-highlight; border-bottom: 1px solid @panel-heading-border-color}
 	content tabcontent .tablesqlquery {}
 	content tabcontent .tabledatacontrols {background-color: @overlay-background-color;border-bottom: 1px solid @overlay-border-color;}
 	content tabcontent .tabledata {border-top: 1px solid transparent;}
