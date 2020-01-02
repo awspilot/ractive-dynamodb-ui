@@ -6,9 +6,9 @@ export default Ractive.extend({
 
 
 
-				<h3 style="color: #444;font-size: 16px;">Read/write capacity mode</h3>
+				<h3 style="font-size: 16px;">Read/write capacity mode</h3>
 				<hr/>
-				<p style="color: #444;font-size: 13px;">
+				<p style="font-size: 13px;">
 					Select on-demand if you want to pay only for the read and writes you perform, with no capacity planning required. Select provisioned to save on throughput costs if you can reliably estimate your application's throughput requirements. See the
 						<a href="http://aws.amazon.com/dynamodb/pricing">DynamoDB pricing page</a> and
 						<a href="DynamoDB Developer Guide">DynamoDB Developer Guide</a> to learn more.
