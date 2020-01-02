@@ -34,7 +34,7 @@ module.exports = {
 	},
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-		filename: '[name].dev.js',
+		filename: '[name].js',
 		library: 'ractive-dynamodb-ui',
 
 		// var, this, window, umd , amd, commonjs, global
@@ -62,7 +62,7 @@ module.exports = {
 		},
 	},
 	plugins: [
-		new MiniCssExtractPlugin({ filename: "[name].dev.css" }) // { filename: "[name].[contentHash].css" }
+		new MiniCssExtractPlugin({ filename: "[name].css" }) // { filename: "[name].[contentHash].css" }
 	],
 	module: {
 		rules: [
