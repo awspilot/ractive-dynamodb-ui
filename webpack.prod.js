@@ -62,12 +62,12 @@ module.exports = {
 		// 	'commonjs2': '@awspilot/dynamodb',
 		// 	root: 'ractive-dynamodb-ui',
 		// },
-		"aws-sdk": {
-				commonjs: 'AWS',
-				commonjs2: 'AWS',
-				amd: 'AWS',
-				root: 'AWS'
-		},
+		// "aws-sdk": {
+		// 		commonjs: 'AWS',
+		// 		commonjs2: 'AWS',
+		// 		amd: 'AWS',
+		// 		root: 'AWS'
+		// },
 	},
 	plugins: [
 		new MiniCssExtractPlugin({ filename: "[name].css" }) // { filename: "[name].[contentHash].css" }
