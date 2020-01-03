@@ -10,8 +10,8 @@
 
 	var ddb;
 
-	var DynamodbFactory = window['@awspilot/dynamodb']
-	//var DynamodbFactory = require('@awspilot/dynamodb')
+	//var DynamodbFactory = window['@awspilot/dynamodb']
+	var DynamodbFactory = require('@awspilot/dynamodb')
 	//import DynamodbFactory from '@awspilot/dynamodb';
 
 

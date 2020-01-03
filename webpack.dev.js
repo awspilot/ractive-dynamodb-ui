@@ -49,11 +49,11 @@ module.exports = {
 			amd: 'ractive',
 			root: 'Ractive'
 		},
-		'@awspilot/dynamodb': {
-			'commonjs': '@awspilot/dynamodb',
-			'commonjs2': '@awspilot/dynamodb',
-			root: 'ractive-dynamodb-ui',
-		},
+		// '@awspilot/dynamodb': {
+		// 	'commonjs': '@awspilot/dynamodb',
+		// 	'commonjs2': '@awspilot/dynamodb',
+		// 	root: 'ractive-dynamodb-ui',
+		// },
 		"aws-sdk": {
 				commonjs: 'AWS',
 				commonjs2: 'AWS',
