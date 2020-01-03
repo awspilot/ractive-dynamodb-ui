@@ -34,9 +34,9 @@ export default Ractive.extend({
 						>
 						{{#if .KEY}}
 							{{#if .selected}}
-								<input class='input-checkbox input-toggle' type='checkbox' checked>
+								<input class='input-checkbox' type='checkbox' checked>
 							{{else}}
-								<input class='input-checkbox input-toggle' type='checkbox'>
+								<input class='input-checkbox' type='checkbox'>
 							{{/if}}
 						{{/if}}
 						{{#if .HASH}}<a>{{.HASH}}</a>{{/if}}
