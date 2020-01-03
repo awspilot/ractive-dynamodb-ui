@@ -786,10 +786,10 @@ export default Ractive.extend({
 			ractive.root.findComponent('WindowHost').newWindow(function($window) {
 				$window.set({
 					title: 'Edit Item',
-					'geometry.width': window.innerWidth - 100,
-					'geometry.height': window.innerHeight - 100,
-					'geometry.left': 50,
-					'geometry.top': 50,
+					'geometry.width': window.innerWidth * .6,
+					'geometry.height': window.innerHeight * .6,
+					'geometry.left': window.innerWidth * .2,
+					'geometry.top': window.innerHeight * .2,
 				});
 
 				var vid = "window"+(Math.random()*0xFFFFFF<<0).toString(16)
@@ -938,10 +938,10 @@ export default Ractive.extend({
 			ractive.root.findComponent('WindowHost').newWindow(function($window) {
 				$window.set({
 					title: 'Create Item',
-					'geometry.width': window.innerWidth - 100,
-					'geometry.height': window.innerHeight - 100,
-					'geometry.left': 50,
-					'geometry.top': 50,
+					'geometry.width': window.innerWidth * .6,
+					'geometry.height': window.innerHeight * .6,
+					'geometry.left': window.innerWidth * .2,
+					'geometry.top': window.innerHeight * .2,
 				});
 
 				var vid = "window"+(Math.random()*0xFFFFFF<<0).toString(16)
