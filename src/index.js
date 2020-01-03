@@ -13,8 +13,13 @@
 	//var DynamodbFactory = window['@awspilot/dynamodb']
 	var DynamodbFactory = require('@awspilot/dynamodb')
 	//import DynamodbFactory from '@awspilot/dynamodb';
-	var AWS = require('aws-sdk')
-
+	//var AWS = require('aws-sdk')
+	var Dynamo = require('aws-sdk/clients/dynamodb')
+	var Cloudwa = require('aws-sdk/clients/cloudwatch')
+	var AWS = {
+		DynamoDB: Dynamo,
+		CloudWatch: Cloudwa,
+	};
 
 	import tabs from './tabs';
 
@@ -93,6 +98,6 @@
 				})
 
 
-				}
+			}
 		},
 	});
