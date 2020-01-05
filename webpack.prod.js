@@ -11,13 +11,15 @@ module.exports = {
 	},
 	mode: 'production',
 	// devtool:
-	devServer: {
-		//contentBase: path.join(__dirname, 'demo'),
-		//compress: true,
-		port: 8889,
-		writeToDisk: true,
+	// devServer: {
+	// 	//contentBase: path.join(__dirname, 'demo'),
+	// 	//compress: true,
+	// 	port: 8889,
+	// 	writeToDisk: false,
+	// },
+	performance: {
+		hints: false,
 	},
-
 	target: 'web',
 	context: path.resolve(__dirname, 'src'),
 	optimization: {
@@ -29,11 +31,6 @@ module.exports = {
 				test: /\.min\.js$/
 			}),
 		],
-		// minimizer: [new UglifyJsPlugin({
-		// 	//uglifyOptions: { ecma: 7 },
-		// 	//sourceMap: true,
-		// 	include: /\.min\.js$/
-		// })]
 	},
 
 	entry: {
@@ -43,12 +40,13 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: '[name].js',
-		library: 'ractive-dynamodb-ui',
+		library: '@awspilot/ractive-dynamodb-ui',
 
 		// var, this, window, umd , amd, commonjs, global
 		libraryTarget: 'umd',
+		umdNamedDefine: true,   // Important
 		libraryExport: 'default',
-		umdNamedDefine: true   // Important
+		globalObject: 'this',
 	},
 	externals: {
 		ractive: {
@@ -58,16 +56,15 @@ module.exports = {
 			root: 'Ractive'
 		},
 		// '@awspilot/dynamodb': {
-		// 	'commonjs': '@awspilot/dynamodb',
-		// 	'commonjs2': '@awspilot/dynamodb',
-		// 	root: 'ractive-dynamodb-ui',
+		// 	commonjs: '@awspilot/dynamodb',
+		// 	commonjs2: '@awspilot/dynamodb',
+		// 	root: '@awspilot/dynamodb',
 		// },
-		// "aws-sdk": {
-		// 		commonjs: 'AWS',
-		// 		commonjs2: 'AWS',
-		// 		amd: 'AWS',
-		// 		root: 'AWS'
-		// },
+		"aws-sdk": {
+				commonjs: 'aws-sdk',
+				commonjs2: 'aws-sdk',
+				root: 'AWS'
+		},
 	},
 	plugins: [
 		new MiniCssExtractPlugin({ filename: "[name].css" }) // { filename: "[name].[contentHash].css" }
