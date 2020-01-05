@@ -40,7 +40,7 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: '[name].js',
-		library: 'ractive-dynamodb-ui',
+		library: '@awspilot/ractive-dynamodb-ui',
 
 		// var, this, window, umd , amd, commonjs, global
 		libraryTarget: 'umd',
