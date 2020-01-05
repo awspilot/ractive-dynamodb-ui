@@ -10,16 +10,11 @@
 
 	var ddb;
 
-	//var DynamodbFactory = window['@awspilot/dynamodb']
+
 	var DynamodbFactory = require('@awspilot/dynamodb')
-	//import DynamodbFactory from '@awspilot/dynamodb';
-	//var AWS = require('aws-sdk')
-	var Dynamo = require('aws-sdk/clients/dynamodb')
-	var Cloudwa = require('aws-sdk/clients/cloudwatch')
-	var AWS = {
-		DynamoDB: Dynamo,
-		CloudWatch: Cloudwa,
-	};
+
+	var AWS = require('aws-sdk')
+	AWS.config.update({maxRetries: 1});
 
 	import tabs from './tabs';
 
