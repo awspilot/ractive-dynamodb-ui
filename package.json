@@ -19,7 +19,7 @@
 	"homepage": "https://github.com/awspilot/ractive-dynamodb-ui#readme",
 	"devDependencies": {
 		"aws-sdk": "^2.596.0",
-		"@awspilot/dynamodb": "2.0.0-beta.4",
+		"@awspilot/dynamodb": "2.0.0-beta.9",
 		"lodash": "^4.17.15",
 
 		"babel-core": "^6.26.3",
