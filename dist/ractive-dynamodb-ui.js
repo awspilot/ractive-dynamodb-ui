@@ -7,7 +7,7 @@
 		exports["@awspilot/ractive-dynamodb-ui"] = factory(require("ractive"), require("@awspilot/dynamodb"));
 	else
 		root["@awspilot/ractive-dynamodb-ui"] = factory(root["Ractive"], root["@awspilot/dynamodb"]);
-})(window, function(__WEBPACK_EXTERNAL_MODULE__38__, __WEBPACK_EXTERNAL_MODULE__166__) {
+})(this, function(__WEBPACK_EXTERNAL_MODULE__38__, __WEBPACK_EXTERNAL_MODULE__166__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
