@@ -4,7 +4,8 @@
 	"description": "ractivejs component to manage dynamodb tables",
 	"main": "dist/ractive-dynamodb-ui.min.js",
 	"scripts": {
-		"start": "webpack-dev-server --config webpack.dev.js",
+		"dev": "docker run -it --rm -v $PWD:/usr/share/nginx/html -p 8888:80 nginx",
+		"start": "webpack -w --config webpack.prod.js",
 		"build": "webpack --config webpack.prod.js"
 	},
 	"repository": {
