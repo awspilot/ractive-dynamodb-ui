@@ -3325,7 +3325,7 @@ exports.default = Ractive.extend({
 						components: {
 							itemedit: _edit2.default
 						},
-						el: $('#' + vid).get(0).parentNode,
+						el: vid,
 						template: '<itemedit describeTable="{{describeTable}}" item="{{item}}" rawitem="{{rawitem}}" window={{window}} />',
 						data: {
 							describeTable: describeTable,
@@ -3449,7 +3449,7 @@ exports.default = Ractive.extend({
 						components: {
 							itemadd: _add2.default
 						},
-						el: $('#' + vid).get(0).parentNode,
+						el: vid,
 						template: '<itemadd describeTable="{{describeTable}}" item="{{item}}" rawitem="{{rawitem}}" window={{window}} />',
 						data: {
 							describeTable: describeTable,
@@ -3462,29 +3462,6 @@ exports.default = Ractive.extend({
 					});
 				});
 			});
-
-			/*
-   
-   
-   
-   
-   
-   					var ractive = new Ractive({
-   						components: {
-   							itemedit: itemedit,
-   						},
-   						el: $('#'+vid).get(0).parentNode,
-   						template: '<itemedit describeTable="{{describeTable}}" item="{{item}}" rawitem="{{rawitem}}" window={{window}} />',
-   						data: {
-   							describeTable: describeTable,
-   							item: item,
-   							rawitem: rawitem,
-   							window: $window,
-   						}
-   					})
-   
-   
-   */
 		});
 		ractive.on('delete-selected', function (context) {
 			//console.log(ractive.findComponent('tabledata').get('rows'))
