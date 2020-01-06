@@ -1,26 +1,26 @@
 .ractive-dynamodb-ui .ractive-window {
-  background-color: hsl(220, 1%, 90%);
+  background-color: hsl(220, 24%, 24%);
   border: 1px solid #cccccc;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
 }
 .ractive-dynamodb-ui .ractive-window.topmost {
-  background-color: hsl(220, 1%, 86%);
+  background-color: hsl(220, 24%, 28%);
 }
 .ractive-dynamodb-ui .rw-interior > .rw-title {
-  color: hsl(220, 1%, 26%);
+  color: hsl(220, 18%, 66%);
 }
 .ractive-dynamodb-ui .ractive-window .rw-body {
-  background-color: hsl(220, 1%, 92%);
+  background-color: hsl(220, 24%, 17%);
 }
 .ractive-dynamodb-ui .ractive-window.topmost .rw-body {
-  background-color: hsl(220, 1%, 92%);
+  background-color: hsl(220, 24%, 17%);
 }
 .ractive-dynamodb-ui .ractive-window .rw-controls button {
-  border: 1px solid hsl(220, 1%, 86%);
-  background-color: hsl(0, 0%, 100%);
+  border: 1px solid hsl(220, 24%, 12%);
+  background-color: hsl(220, 24%, 26%);
 }
 .ractive-dynamodb-ui .ractive-window .rw-controls button.rw-close {
-  background-color: hsl(5, 72%, 56%);
+  background-color: hsl(5, 64%, 50%);
   color: #ffffff;
 }
 .ractive-dynamodb-ui .ractive-window.topmost.resizable .rw-interior > .rw-resize-handle:hover {
@@ -220,9 +220,9 @@
 }
 .ractive-dynamodb-ui .input-text {
   outline: none;
-  border: 1px solid hsl(220, 1%, 86%);
-  background-color: hsl(0, 0%, 100%);
-  color: hsl(220, 1%, 26%);
+  border: 1px solid hsl(220, 24%, 12%);
+  background-color: hsl(220, 24%, 14%);
+  color: hsl(220, 18%, 66%);
 }
 .ractive-dynamodb-ui .input-select {
   outline: none;
@@ -231,9 +231,9 @@
   border-radius: 3px;
 }
 .ractive-dynamodb-ui .input-select {
-  border: 1px solid hsl(220, 1%, 86%);
-  background-color: hsl(0, 0%, 100%);
-  color: hsl(220, 1%, 26%);
+  border: 1px solid hsl(220, 24%, 12%);
+  background-color: hsl(220, 24%, 14%);
+  color: hsl(220, 18%, 66%);
 }
 .ractive-dynamodb-ui .input-radio {
   vertical-align: middle;
@@ -244,7 +244,7 @@
   height: 16px;
   font-size: inherit;
   border-radius: 50%;
-  background-color: hsl(0, 0%, 100%);
+  background-color: hsl(220, 24%, 14%);
   transition: background-color 0.16s cubic-bezier(0.5, 0.15, 0.2, 1);
 }
 .ractive-dynamodb-ui .input-radio:before {
@@ -264,13 +264,13 @@
   transform: scale(1);
 }
 .ractive-dynamodb-ui .input-radio:before {
-  background-color: #fff;
+  background-color: hsl(220, 100%, 10%);
 }
 .ractive-dynamodb-ui .input-radio:active {
-  background-color: #5282e0;
+  background-color: #568af2;
 }
 .ractive-dynamodb-ui .input-radio:checked {
-  background-color: #5282e0;
+  background-color: #568af2;
 }
 .ractive-dynamodb-ui .input-checkbox {
   vertical-align: middle;
@@ -281,7 +281,7 @@
   height: 16px;
   font-size: inherit;
   border-radius: 3px;
-  background-color: hsl(0, 0%, 100%);
+  background-color: hsl(220, 24%, 14%);
   transition: background-color 0.16s cubic-bezier(0.5, 0.15, 0.2, 1);
 }
 .ractive-dynamodb-ui .input-checkbox:before {
@@ -317,17 +317,17 @@
   transition-delay: 0;
 }
 .ractive-dynamodb-ui .input-checkbox:active {
-  background-color: #5282e0;
+  background-color: #568af2;
 }
 .ractive-dynamodb-ui .input-checkbox:before,
 .ractive-dynamodb-ui .input-checkbox:after {
-  background-color: #fff;
+  background-color: hsl(220, 100%, 10%);
 }
 .ractive-dynamodb-ui .input-checkbox:checked {
-  background-color: #5282e0;
+  background-color: #568af2;
 }
 .ractive-dynamodb-ui .input-checkbox:indeterminate {
-  background-color: #5282e0;
+  background-color: #568af2;
 }
 .ractive-dynamodb-ui {
   position: absolute;
@@ -349,13 +349,13 @@
   height: 11px;
 }
 .ractive-dynamodb-ui hr {
-  border: 1px solid hsl(220, 1%, 86%);
+  border: 1px solid hsl(220, 24%, 12%);
 }
 .ractive-dynamodb-ui .pull-right {
   float: right!important;
 }
 .ractive-dynamodb-ui a {
-  color: hsl(220, 1%, 26%);
+  color: hsl(220, 18%, 66%);
   text-decoration: none;
 }
 .ractive-dynamodb-ui a.btn.disabled,
@@ -398,12 +398,12 @@
   text-shadow: none;
 }
 .ractive-dynamodb-ui .btn-default {
-  color: hsl(220, 1%, 26%);
-  background-color: hsl(0, 0%, 100%);
-  border-color: hsl(220, 1%, 86%);
+  color: hsl(220, 18%, 66%);
+  background-color: hsl(220, 24%, 26%);
+  border-color: hsl(220, 24%, 12%);
 }
 .ractive-dynamodb-ui .btn-default > svg.icon {
-  fill: hsl(220, 1%, 26%);
+  fill: hsl(220, 18%, 66%);
 }
 .ractive-dynamodb-ui .btn-group > .btn {
   position: relative;
@@ -492,8 +492,8 @@
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
 }
 .ractive-dynamodb-ui .dropdown-menu {
-  background-color: hsl(220, 1%, 98%);
-  border: 1px solid hsl(220, 1%, 86%);
+  background-color: hsl(220, 24%, 20%);
+  border: 1px solid hsl(220, 24%, 12%);
 }
 .ractive-dynamodb-ui .dropdown-menu.pull-right {
   right: 0;
@@ -504,14 +504,14 @@
 }
 .ractive-dynamodb-ui .btn-primary {
   color: #fff;
-  background-color: #5a8ae9;
+  background-color: #4d78cc;
 }
 .ractive-dynamodb-ui .btn-primary > svg.icon {
   fill: #fff;
 }
 .ractive-dynamodb-ui .btn-danger {
   color: #fff;
-  background-color: hsl(5, 72%, 56%);
+  background-color: hsl(5, 64%, 50%);
 }
 .ractive-dynamodb-ui .btn-danger > svg.icon {
   fill: #fff;
@@ -758,7 +758,7 @@
   bottom: 0px;
 }
 .ractive-dynamodb-ui {
-  background-color: hsl(220, 1%, 92%);
+  background-color: hsl(220, 24%, 17%);
   color: #999999;
 }
 .ractive-dynamodb-ui header {
@@ -766,89 +766,89 @@
   /*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);*/
 }
 .ractive-dynamodb-ui miniheader {
-  background-color: hsl(220, 1%, 92%);
-  border: 1px solid hsl(220, 1%, 86%);
+  background-color: hsl(220, 24%, 17%);
+  border: 1px solid hsl(220, 24%, 12%);
 }
 .ractive-dynamodb-ui left {
-  background-color: hsl(220, 1%, 98%);
+  background-color: hsl(220, 24%, 20%);
 }
 .ractive-dynamodb-ui left > .scrollarea {
-  border-right: 1px solid hsl(220, 1%, 86%);
+  border-right: 1px solid hsl(220, 24%, 12%);
 }
 .ractive-dynamodb-ui left tables > div {
   border-bottom: 1px solid transparent;
-  color: hsl(220, 1%, 26%);
+  color: hsl(220, 18%, 66%);
 }
 .ractive-dynamodb-ui left tables > div:hover {
-  background-color: hsl(220, 1%, 86%);
+  background-color: hsl(220, 24%, 28%);
 }
 .ractive-dynamodb-ui content {
-  border: 1px solid hsl(220, 1%, 86%);
-  border-top: 1px solid hsl(220, 1%, 86%);
+  border: 1px solid hsl(220, 24%, 12%);
+  border-top: 1px solid hsl(220, 24%, 12%);
   border-right: 0px;
 }
 .ractive-dynamodb-ui content tabhead {
-  background-color: hsl(220, 1%, 92%);
+  background-color: hsl(220, 24%, 17%);
 }
 .ractive-dynamodb-ui content tabhead tab {
-  border-right: 1px solid hsl(220, 1%, 86%);
-  color: hsl(220, 1%, 26%);
+  border-right: 1px solid hsl(220, 24%, 12%);
+  color: hsl(220, 18%, 66%);
 }
 .ractive-dynamodb-ui content tabhead tab.active {
-  background-color: hsl(220, 1%, 98%);
-  color: hsl(220, 1%, 14%);
+  background-color: hsl(220, 24%, 20%);
+  color: hsl(220, 18%, 86%);
 }
 .ractive-dynamodb-ui content tabcontent {
-  background-color: hsl(220, 1%, 98%);
+  background-color: hsl(220, 24%, 20%);
   /*@background-color-highlight;*/
 }
 .ractive-dynamodb-ui content tabcontent .tableview-table-tabs {
   /*background: @tab-bar-background-color*/
-  border-bottom: 1px solid hsl(220, 1%, 86%);
+  border-bottom: 1px solid hsl(220, 24%, 12%);
 }
 .ractive-dynamodb-ui .btn-tableview-tab {
-  background-color: hsl(220, 1%, 92%);
-  border: 1px solid hsl(220, 1%, 86%);
-  border-bottom: 1px solid hsl(220, 1%, 86%);
-  color: hsl(220, 1%, 26%);
+  background-color: hsl(220, 24%, 17%);
+  border: 1px solid hsl(220, 24%, 12%);
+  border-bottom: 1px solid hsl(220, 24%, 12%);
+  color: hsl(220, 18%, 66%);
   font-weight: bold;
   font-size: 12px;
   padding: 0px 12px;
 }
 .ractive-dynamodb-ui .btn-tableview-tab.active {
-  background-color: hsl(220, 1%, 98%);
-  border-bottom: 1px solid hsl(220, 1%, 86%);
-  color: hsl(220, 1%, 14%);
+  background-color: hsl(220, 24%, 20%);
+  border-bottom: 1px solid hsl(220, 24%, 12%);
+  color: hsl(220, 18%, 86%);
 }
 .ractive-dynamodb-ui content tabcontent .tablequery {
-  background-color: hsl(220, 1%, 92%);
-  border-bottom: 1px solid hsl(220, 1%, 86%);
+  background-color: hsl(220, 24%, 17%);
+  border-bottom: 1px solid hsl(220, 24%, 12%);
 }
 .ractive-dynamodb-ui content tabcontent .tabledatacontrols {
-  background-color: #f2f2f2;
-  border-bottom: 1px solid hsl(220, 1%, 86%);
+  background-color: #242b3a;
+  border-bottom: 1px solid hsl(220, 24%, 12%);
 }
 .ractive-dynamodb-ui content tabcontent .tabledata {
   border-top: 1px solid transparent;
 }
 .ractive-dynamodb-ui content tabcontent .tabledata .tabledatahead {
-  background: hsl(220, 1%, 92%);
-  border-top: 1px solid hsl(220, 1%, 86%);
+  background: hsl(220, 24%, 17%);
+  border-top: 1px solid hsl(220, 24%, 12%);
   border-bottom: 1px solid transparent;
 }
 .ractive-dynamodb-ui content tabcontent .tabledata .tabledatahead > div {
-  border-right: 1px solid hsl(220, 1%, 86%);
+  border-right: 1px solid hsl(220, 24%, 12%);
   border-left: 1px solid transparent;
 }
 .ractive-dynamodb-ui content tabcontent .tabledata .tabledatarow {
-  border-bottom: 1px solid hsl(220, 1%, 86%);
+  border-bottom: 1px solid hsl(220, 24%, 12%);
 }
 .ractive-dynamodb-ui content tabcontent .tabledata .tabledatarow .tabledatacell {
   border-right: 1px solid #c3b7b7;
   border-left: 1px solid #ffffff;
 }
 .ractive-dynamodb-ui content tabcontent .tabledata .tabledatarow .tabledatacell {
-  border-right: 1px solid hsl(220, 1%, 86%);
+  border-right: 1px solid hsl(220, 24%, 12%);
   border-left: 1px solid transparent;
 }
 .ractive-dynamodb-ui content tabcontent .tabledata .tabledatarow .tabledatacell.t-K {
@@ -877,22 +877,22 @@
   background-color: #f9f3f3;
 }
 .ractive-dynamodb-ui content tabcontent .tabledata .tabledatarow:hover {
-  background-color: hsl(220, 1%, 90%);
+  background-color: hsl(220, 24%, 24%);
 }
 .ractive-dynamodb-ui content tabcontent .tabledata .tabledatarow:hover .tabledatacell {
-  color: hsl(220, 1%, 14%);
+  color: hsl(220, 18%, 86%);
 }
 .ractive-dynamodb-ui content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-HASH {
-  color: hsl(220, 1%, 14%);
+  color: hsl(220, 18%, 86%);
 }
 .ractive-dynamodb-ui content tabcontent .tabledata .tabledatarow.selected {
-  background-color: hsl(220, 1%, 86%);
+  background-color: hsl(220, 24%, 28%);
 }
 .ractive-dynamodb-ui content tabcontent .tabledata .tabledatarow.selected .tabledatacell {
-  color: hsl(220, 1%, 2%);
+  color: white;
 }
 .ractive-dynamodb-ui content tabcontent .tabledata .tabledatarow.selected:hover {
-  background-color: hsl(208, 100%, 56%) !important;
+  background-color: hsl(208, 88%, 48%) !important;
 }
 .ractive-dynamodb-ui content tabcontent .tabledata .tabledatarow.selected:hover .tabledatacell {
   color: #fff;

@@ -1400,9 +1400,9 @@ var _minitablelist = __webpack_require__(46);
 
 var _minitablelist2 = _interopRequireDefault(_minitablelist);
 
-var _ractiveWindowMin = __webpack_require__(48);
+var _ractiveWindow = __webpack_require__(48);
 
-var _ractiveWindowMin2 = _interopRequireDefault(_ractiveWindowMin);
+var _ractiveWindow2 = _interopRequireDefault(_ractiveWindow);
 
 var _tabs = __webpack_require__(49);
 
@@ -1411,6 +1411,7 @@ var _tabs2 = _interopRequireDefault(_tabs);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var ddb;
+//import RactiveWindow from './ractive-window.min.js'
 
 var DynamodbFactory = __webpack_require__(134);
 
@@ -1426,13 +1427,13 @@ var hsplit = _ractive2.default.extend({
 });
 
 exports.default = _ractive2.default.extend({
-	template: '\n\t\t\t<div class=\'ractive-dynamodb-ui\'>\n\t\t\t\t<WindowHost />\n\t\t\t</div>\n\t\t\t<hsplit style=\'\' class=\'ractive-dynamodb-ui\'>\n\t\t\t\t<left>\n\t\t\t\t\t<minitablelist />\n\t\t\t\t</left>\n\t\t\t\t<content>\n\t\t\t\t\t<tabs active_id=\'tables\' />\n\t\t\t\t</content>\n\t\t\t</hsplit>\n\t\t',
+	template: '\n\t\t\t<div class=\'ractive-dynamodb-ui {{theme}}\'>\n\t\t\t\t<WindowContainer />\n\t\t\t</div>\n\t\t\t<hsplit style=\'\' class=\'ractive-dynamodb-ui {{theme}}\'>\n\t\t\t\t<left>\n\t\t\t\t\t<minitablelist />\n\t\t\t\t</left>\n\t\t\t\t<content>\n\t\t\t\t\t<tabs active_id=\'tables\' />\n\t\t\t\t</content>\n\t\t\t</hsplit>\n\t\t',
 	components: {
 		hsplit: hsplit,
 		minitablelist: _minitablelist2.default,
 		tabs: _tabs2.default,
-		Window: _ractiveWindowMin2.default.default.Window,
-		WindowHost: _ractiveWindowMin2.default.default.WindowHost
+		Window: _ractiveWindow2.default.Window,
+		WindowContainer: _ractiveWindow2.default.Container
 	},
 
 	data: function data() {
@@ -1582,366 +1583,7 @@ Ractive.components['icon-filter'] = Ractive.extend({
 /* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-;
-(function (global, factory) {
-  ( false ? undefined : _typeof(exports)) === "object" && typeof module !== "undefined" ? factory(exports) :  true ? !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
-				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
-				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) : undefined;
-})(undefined, function (exports) {
-  "use strict";
-  var _slicedToArray = function _slicedToArray(arr, i) {
-    if (Array.isArray(arr)) {
-      return arr;
-    } else if (Symbol.iterator in Object(arr)) {
-      var _arr = [];for (var _iterator = arr[Symbol.iterator](), _step; !(_step = _iterator.next()).done;) {
-        _arr.push(_step.value);if (i && _arr.length === i) break;
-      }return _arr;
-    } else {
-      throw new TypeError("Invalid attempt to destructure non-iterable instance");
-    }
-  };var template = "		{{#_wnd_rendered}}			<div id='ractive-window-{{.id}}' 						class='ractive-window{{#(.buttons.length > 0)}} with-buttons{{/}}{{#.resizable}} resizable{{else}} fixed{{/}}{{#.geometry.state === 2}} maximized{{/}}{{#.class.window}} {{.class.window}}{{/}}{{#.topmost}} topmost{{/}}' 						on-click='_raise' 						style='{{#.hidden}}display: none;{{/}}top: {{.geometry.top}}px; left: {{.geometry.left}}px; {{#(.resizable || .geometry.state === 2)}}width: {{.geometry.width}}{{.geometry.dwunit}}; height: {{.geometry.height}}{{.geometry.dhunit}}; {{/}}z-index: {{.geometry.index}};{{#.style.window}} {{.style.window}}{{/}}'>\n							<div class='rw-modal' on-mousedown='_moveStart' style='{{^.blocked}}display: none;{{/}}'></div>\n  							<div class='rw-interior'>\n 								<div class='rw-controls'>{{>controls}}</div>\n  								<div class='rw-title' on-touchstart-mousedown='_moveStart' on-dblclick='_restore'>{{>title}}</div>\n  								{{#if dialog}}<div class='rw-dialog-cover'></div><div class='rw-dialog' style='width: {{dialog.width}}px; {{#if dialog.height}}height: {{dialog.height}}px; {{/if}}'>{{> ~/makePartial('sharedialog', dialog.raw) }}</div>{{/if}}								<div class='rw-body{{#.class.body}} {{.class.body}}{{/}}' {{#.style.body}}style='{{.style.body}}'{{/}}>{{>body}}</div>\n  								{{#(.buttons.length > 0)}}<div class='rw-buttons'>{{>buttons}}</div>{{/}}\n  								<div class='rw-resize-handle' on-touchstart-mousedown='_resizeStart'></div>\n   								<div class='rw-foot'>{{>foot}}</div>\n 							</div>\n			</div>		{{/}}";var Window;Window = Ractive.extend({ template: template, prompt: function prompt(message, cb) {
-      this.dialog({ content: message, raw: "{{dialog.content}}<br><input class='form-control' value='{{dialog.reply}}' /> <div style='position: absolute;bottom: 10px;right: 10px;'><a class='btn btn-xs btn-default' on-click='@this.set(\"dialog\", false )'>Cancel</a> <a class='btn btn-xs btn-primary' on-click='dialog.callback.prompt:{{dialog}}'>OK</a></div>", width: 300, cb: cb });
-    }, confirm: function confirm(message, cb) {
-      this.dialog({ content: message, raw: "{{dialog.content}} <div style='position: absolute;bottom: 10px;right: 10px;'><a class='btn btn-xs btn-default' on-click='@this.set(\"dialog\", false )'>Cancel</a> <a class='btn btn-xs btn-primary' on-click='dialog.callback.ok:{{dialog}}'>OK</a></div>", width: 300, cb: cb });
-    }, dialog: function dialog(opts) {
-      this.set("dialog", { content: opts.content, params: opts.params, raw: opts.raw, width: opts.width, height: opts.height, cb: opts.cb });
-    }, onconstruct: function onconstruct(opts) {
-      var wnd = this;var sx, sy;var _moveFn;_moveFn = function moveFn(e) {
-        var x, y;e.preventDefault();if (e.type.indexOf("touch") >= 0) {
-          x = +e.changedTouches[0].clientX;y = +e.changedTouches[0].clientY;
-        } else {
-          x = +(e.x || e.clientX);y = +(e.y || e.clientY);
-        }wnd.move(+wnd.get("geometry.left") + x - +sx, +wnd.get("geometry.top") + y - +sy);sx = x;sy = y;if (e.type === "mouseup" || e.type === "touchend") {
-          document.removeEventListener("mousemove", _moveFn, false);document.removeEventListener("mouseup", _moveFn, false);document.removeEventListener("touchmove", _moveFn, false);document.removeEventListener("touchend", _moveFn, false);
-        }
-      };wnd.on("_moveStart", function (e) {
-        if (e.original.type === "mousedown" && e.original.button === 0 || e.original.type === "touchstart") {
-          wnd.restore();if (e.original.type.indexOf("touch") >= 0) {
-            sx = +e.original.changedTouches[0].clientX;sy = +e.original.changedTouches[0].clientY;
-          } else {
-            sx = +(e.original.x || e.original.clientX);sy = +(e.original.y || e.original.clientY);
-          }document.addEventListener("mousemove", _moveFn);document.addEventListener("mouseup", _moveFn);document.addEventListener("touchmove", _moveFn);document.addEventListener("touchend", _moveFn);e.original.preventDefault();
-        }$("iframe", wnd.element).focus();
-      });var _resizeFn;_resizeFn = function resizeFn(e) {
-        var x, y;e.preventDefault();if (e.type.indexOf("touch") >= 0) {
-          x = e.changedTouches[0].clientX;y = e.changedTouches[0].clientY;
-        } else {
-          x = +(e.x || e.clientX);y = +(e.y || e.clientY);
-        }var w = +wnd.get("geometry.width") + (x - +sx);var h = +wnd.get("geometry.height") + (y - +sy);wnd.resize(w, h);sx = x;sy = y;if (e.type === "mouseup" || e.type === "touchend") {
-          document.removeEventListener("mousemove", _resizeFn, false);document.removeEventListener("mouseup", _resizeFn, false);document.removeEventListener("touchmove", _resizeFn, false);document.removeEventListener("touchend", _resizeFn, false);
-        }
-      };wnd.on("_resizeStart", function (e) {
-        if (e.original.type == "mousedown" && e.original.button === 0 || e.original.type === "touchstart") {
-          wnd.restore();if (e.original.type.indexOf("touch") >= 0) {
-            sx = e.original.changedTouches[0].clientX;sy = e.original.changedTouches[0].clientY;
-          } else {
-            sx = e.original.x || e.original.clientX;sy = e.original.y || e.original.clientY;
-          }document.addEventListener("mousemove", _resizeFn);document.addEventListener("mouseup", _resizeFn);document.addEventListener("touchmove", _resizeFn);document.addEventListener("touchend", _resizeFn);
-        }
-      });var stateFn = function stateFn(target, e) {
-        switch (target) {case "min":
-            wnd.minimize();break;case "max":
-            wnd.maximize();break;case "normal":
-            wnd.restore();break;default:
-            break;}
-      };wnd.on("dialog.callback.ok", function (e, dialog) {
-        this.set("dialog", false);try {
-          dialog.cb();
-        } catch (e) {}
-      });wnd.on("dialog.callback.prompt", function (e, dialog) {
-        try {
-          dialog.cb(dialog.reply);
-        } catch (e) {}this.set("dialog", false);
-      });wnd.on("_minimize", function (e) {
-        stateFn("min", e);
-      });wnd.on("_restore", function (e) {
-        switch (wnd.get("geometry.state")) {case 0:
-            stateFn("max", e);break;case 1:case 2:
-            stateFn("normal", e);break;default:
-            break;}
-      });wnd.on("_raise", function (e) {
-        wnd.raise();
-      });wnd.on("_close", function (e) {
-        wnd.close();
-      });wnd.on("_dialog-button", function (e) {
-        var fn = e.context.action;if (!!fn && typeof fn === "function") fn.call(this);
-      });wnd.result = null;wnd.waitForClose = wnd.afterClose = new Promise(function (y, n) {
-        var fn = function fn(t) {
-          return function (v) {
-            wnd.completeAfterClose = null;wnd.rejectAfterClose = null;t(v);
-          };
-        };wnd.completeAfterClose = fn(y);wnd.rejectAfterClose = fn(n);
-      });
-    }, onrender: function onrender() {
-      var _this = this;if (!!!this.get("buttonClass") && !!this.parent.get("buttonClass")) {
-        this.set("buttonClass", this.parent.get("buttonClass"));
-      }this.watchers = this.observe({ title: function title(n, o) {
-          _this.fire("retitle", n, _this);
-        }, "geometry.state": function geometryState(n, o) {
-          switch (n) {case 0:
-              _this.fire("restore", n, _this);break;case 1:
-              _this.fire("minimize", n, _this);break;case 2:
-              _this.fire("maximize", n, _this);break;}
-        } });
-    }, onunrender: function onunrender() {
-      if (this.watchers && typeof this.watchers.cancel === "function") this.watchers.cancel();
-    }, activated: function activated() {}, data: function data() {
-      return { dialog: false, _wnd_rendered: false, blocked: false, resizable: true, geometry: { top: -9999, left: -9999, width: 200, height: 200, state: 0, dwunit: "px", dhunit: "px", index: 1e3, minimum: { x: 0, y: 0, width: 70, height: 50 } }, style: {}, "class": {}, makePartial: function makePartial(key, template) {
-          if (!this._makePartial_templates) this._makePartial_templates = {};if (this._makePartial_templates[key] != template) {
-            this.resetPartial(key, template);this._makePartial_templates[key] = template;
-          }return key;
-        } };
-    }, partials: { title: "{{> ~/makePartial('titleTpl', .title) }}", body: "", foot: "", buttons: "{{#.buttons:i}}<button on-click='_dialog-button' class='{{.position || ''}}{{#.buttonClass}} {{.buttonClass}}{{/}}{{#../../class.button}} {{../../class.button}}{{/}}' disabled='{{!.enabled}}'>{{> ~/makePartial('button' + i + 'Tpl', .label) }}</button>{{/}}", controls: "{{#controls:i}}" + "	{{#if .raw}}{{>  ~/makePartial('custom_control_template'+i, .raw) }}{{/if}}" + "{{/controls}}" + "{{#if minimizable === false}}{{else}}{{>minimizeControl}}{{/if}}" + "{{>restoreControl}}{{>closeControl}}", minimizeControl: "<button on-click='_minimize' class='btn btn-sm rw-minimize'><i class='zmdi zmdi-window-minimize'></button>", restoreControl: "<button on-click='_restore'  class='btn btn-sm rw-restore'><i class='zmdi zmdi-window-restore'></button>", closeControl: "<button on-click='_close'    class='btn btn-sm rw-close'><i class='zmdi zmdi-close'></i></button>" }, rerender: function rerender() {
-      var wnd = this;if (!wnd.get("_wnd_rendered")) return Promise.resolve("ok");wnd.set("_wnd_rendered", false);return this.set("_wnd_rendered", true);
-    }, title: function title(str) {
-      this.set("title", str);
-    }, move: function move(x, y) {
-      if (typeof x === "string") {
-        switch (x) {case "center":case "centerScreen":
-            return this.set({ "geometry.top": (this.parent.el.clientHeight - this.element.clientHeight) / 2, "geometry.left": (this.parent.el.clientWidth - this.element.clientWidth) / 2 });case "cascade":
-            return this.set({ "geometry.top": this.parentNumber % 10 * 20 + 10, "geometry.left": this.parentNumber % 50 * 20 + 10 });}return Promise.resolve(false);
-      }y = +y;x = +x;var min = this.get("geometry.minimum");var max = this.get("geometry.maximum");var w = +this.get("geometry.width");var h = +this.get("geometry.height");if (!!max) {
-        if (x + w > +max.x) x = +max.x - x;if (y + h > +max.y) y = +max.y - y;
-      }if (!!min) {
-        if (x < +min.x) x = +min.x;if (y < +min.y) y = +min.y;
-      }return this.set({ "geometry.top": y, "geometry.left": x });
-    }, resize: function resize(w, h) {
-      w = getDimPx.call(this, "width", w);h = getDimPx.call(this, "height", h);var min = this.get("geometry.minimum");var max = this.get("geometry.maximum");if (!!max) {
-        if (w > max.width) w = max.width;if (w > max.height) w = max.height;
-      }if (!!min) {
-        if (w < min.width) w = min.width;if (h < min.height) h = min.height;
-      }this.set({ "geometry.width": w, "geometry.height": h });$("iframe", this.element).focus();
-    }, resizable: function resizable(b) {
-      this.set("resizable", b);
-    }, minimize: function minimize() {
-      var wnd = this;if (wnd.get("geometry.state") !== 1) {
-        wnd.set({ hidden: true, "geometry.state": 1 });wnd.fire("minimized", { window: wnd });
-      }
-    }, maximize: function maximize() {
-      var wnd = this;if (wnd.get("geometry.state") !== 2) {
-        wnd.normalGeometry = { top: wnd.get("geometry.top"), left: wnd.get("geometry.left"), width: wnd.get("geometry.width"), height: wnd.get("geometry.height") };wnd.set({ hidden: false, "geometry.left": 0, "geometry.top": 0, "geometry.width": 100, "geometry.height": 100, "geometry.dwunit": "%", "geometry.dhunit": "%", "geometry.state": 2 });wnd.fire("maximized", { window: wnd });
-      }
-    }, restore: function restore() {
-      var wnd = this;switch (wnd.get("geometry.state")) {case 1:
-          wnd.set({ hidden: false, "geometry.state": 0 });break;case 2:
-          var g = wnd.normalGeometry || {};wnd.normalGeometry = null;if (g.top < 0 || g.left < 0) {
-            g.top = 0;g.left = 0;
-          }wnd.set({ hidden: false, "geometry.left": g.left, "geometry.top": g.top, "geometry.width": g.width, "geometry.height": g.height, "geometry.dwunit": "px", "geometry.dhunit": "px", "geometry.state": 0 });break;default:
-          break;}this.raise();
-    }, raise: function raise() {
-      if (!!this.parent) this.parent.raiseWindow(this);
-    }, kill: function kill() {
-      var wnd = this;this.fire("close", this);if (!!wnd.parent) {
-        wnd.parent.killWindow(wnd);
-      } else {
-        wnd.teardown();
-      }if (!!wnd.completeAfterClose) wnd.completeAfterClose(wnd.result);
-    }, content: function content(ct) {
-      return this.resetPartial("body", ct);
-    }, buttons: function buttons() {
-      var arr = [],
-          i;this.set("buttons", arr);if (arguments.length === 1 && typeof arguments[0].length === "number") {
-        arr = arguments[0];
-      } else {
-        for (i = 0; i < arguments.length; i++) {
-          arr.push(arguments[i]);
-        }
-      }var left = [],
-          right = [],
-          middle = [];for (i = 0; i < arr.length; i++) {
-        var b = arr[i];if (!!b.position) {
-          if (b.position === "left") left.push(b);else if (b.position === "right") right.push(b);else if (b.position === "middle") middle.push(b);else if (b.position === "center") middle.push(b);else {
-            right.push(b);b.position = "right";
-          }
-        } else {
-          right.push(b);b.position = "right";
-        }if (!b.hasOwnProperty("enabled")) b.enabled = true;
-      }arr = [];for (i = 0; i < left.length; i++) {
-        arr.push(left[i]);
-      }for (i = right.length - 1; i >= 0; i--) {
-        arr.push(right[i]);
-      }for (i = 0; i < middle.length; i++) {
-        arr.push(middle[i]);
-      }this.set("buttons", arr);
-    }, button: function button(name, cb) {
-      var arr = this.get("buttons");var btn, i;if (typeof name === "number") {
-        btn = arr[name];i = name;
-      } else for (i = 0; i < arr.length; i++) {
-        if (arr[i].label === name) {
-          btn = arr[i];break;
-        }
-      }if (!!btn) {
-        cb(btn);this.set("buttons." + i, btn);
-      }
-    }, controls: function controls() {
-      var arr = [],
-          i,
-          str = "";if (arguments.length === 1 && typeof arguments[0] !== "string") arr = arguments[0];else {
-        for (i = 0; i < arguments.length; i++) {
-          arr.push(arguments[i]);
-        }
-      }for (i = 0; i < arr.length; i++) {
-        str += "{{>" + arr[i] + "Control}}";
-      }this.partials.controls = str;return this.rerender();
-    }, onClose: function onClose() {
-      this.kill();
-    }, close: function close(fn) {
-      if (!!!fn) fn = this.onClose;if (fn.length === 0) fn.call(this);else {
-        var wnd = this;fn.call(this, function (close) {
-          if (close) wnd.kill();
-        });
-      }
-    } });var cssUnit = /([\d\.]+)(.*)/;function getDimPx(dim, length) {
-    var _cssUnit$exec = cssUnit.exec(length.toString());var _cssUnit$exec2 = _slicedToArray(_cssUnit$exec, 3);var whole = _cssUnit$exec2[0];var size = _cssUnit$exec2[1];var unit = _cssUnit$exec2[2];unit = unit || "px";var dunit = dim === "width" ? "dwunit" : "dhunit";var div = this.find("div");if (unit === "px") {
-      return size;
-    } else if (div) {
-      var toSet = {};toSet["geometry." + dim] = size;toSet["geometry." + dunit] = unit;this.set(toSet);var v = this.find("div")["client" + dim[0].toUpperCase() + dim.substring(1)];toSet["geometry." + dim] = v;toSet["geometry." + dunit] = "px";this.set(toSet);return v;
-    }
-  }var messageButtons = { ok: { label: "OK", action: function action() {
-        this.result = "ok";this.close();
-      }, position: "middle" }, cancel: { label: "Cancel", action: function action() {
-        this.result = "cancel";this.close();
-      }, position: "middle" }, yes: { label: "Yes", action: function action() {
-        this.result = "yes";this.close();
-      }, position: "middle" }, no: { label: "No", action: function action() {
-        this.result = "no";this.close();
-      }, position: "middle" } };var WindowHost;WindowHost = function () {
-    var counter = 0;function newWindow(e, cb) {
-      var current = counter;counter += 1;var host = this;return host.push("windowSlots", current).then(function () {
-        var pr;var wnds = host.findAllComponents("Window");var wnd = wnds[wnds.length - 1];host.set("windows." + current, wnd);wnd.parentNumber = current;wnd.set({ "geometry.index": 1e3 + wnds.length, "geometry.left": -9999, "geometry.top": -9999, id: current });var step1 = function step1() {
-          var mpr;if (!!cb && typeof cb === "function") {
-            try {
-              mpr = cb(wnd);if (!!mpr && typeof mpr.then === "function") return mpr;
-            } catch (e1) {
-              console.log(e1);
-            }
-          } else if (typeof e === "function") {
-            try {
-              mpr = e(wnd);if (!!mpr && typeof mpr.then === "function") pr = mpr;
-            } catch (e2) {
-              console.log(e2);
-            }
-          }
-        };pr = step1();var step2 = function step2() {
-          var mpr;wnd.raise();return wnd.set("_wnd_rendered", true).then(function () {
-            wnd.element = wnd.find(".ractive-window");try {
-              mpr = wnd.activated();if (!!mpr && typeof mpr.then === "function") return mpr;
-            } catch (e4) {
-              console.log(e4);
-            }
-          });
-        };if (!!pr) pr = pr.then(step2);else pr = step2();var step3 = function step3() {
-          var mpr;if (wnd.get("geometry.left") === -9999) {
-            return wnd.move("cascade").then(function () {
-              return wnd;
-            });
-          }return wnd;
-        };if (!!pr) pr = pr.then(step3);else pr = step3();return pr;
-      });
-    }function messageBox(opts) {
-      var args = arguments;var host = this;return new Promise(function (y) {
-        host.newWindow(function (w) {
-          var message;if (args.length >= 2) {
-            message = args[0];opts = args[1];
-          } else if (args.length === 1 && typeof args[0] === "string") {
-            message = args[0];opts = {};
-          }w.set("title", opts.title || "Message");w.set("resizable", false);w.controls("close");w.content(message);var btns = opts.buttons || ["ok"],
-              out = [];for (var i = 0; i < btns.length; i++) {
-            if (messageButtons.hasOwnProperty(btns[i])) out.push(messageButtons[btns[i]]);
-          }w.buttons(out);w.onClose = function () {
-            this.kill();y(w.result || "none");
-          };if (!opts.hasOwnProperty("modal") || opts.modal) host.set("globalBlock", w);w.activated = function () {
-            w.move("center");
-          };
-        });
-      });
-    }return Ractive.extend({ isolated: true, defaults: { control: { label: function label(control, lbl) {
-            Window.partials[control + "ControlLabel"] = lbl;
-          } }, controls: function controls() {
-          var partial = "";for (var i = 0; i < arguments.length; i++) {
-            partial += "{{>" + arguments[i] + "Control}}";
-          }Window.partials.controls = partial;
-        } }, components: { Window: Window }, data: { windowSlots: [], windows: {}, blocks: {}, globalBlock: null }, computed: { blocked: function blocked() {
-          return !!this.get("globalBlock");
-        } }, template: "<div class='ractive-window-host-modal' style='{{^blocked}}display: none;{{/blocked}}'></div><div class='host-content'>{{yield}}</div>{{#windowSlots}}<Window/>{{/windowSlots}}", newWindow: newWindow, killWindow: function killWindow(wnd) {
-        var blocks = this.get("blocks");var wnds = this.get("windows");var topWnd,
-            topIdx = -1,
-            i;if (!!wnds) {
-          for (var w in wnds) {
-            if (wnds[w] === wnd) delete wnds[w];else {
-              i = wnds[w].get("geometry.index");if (i > topIdx) {
-                topIdx = i;topWnd = wnds[w];
-              }
-            }
-          }if (topWnd && !topWnd.get("topmost")) {
-            topWnd.set("topmost", true);$("iframe", topWnd.element).focus();
-          }
-        }var slots = this.get("windowSlots");if (!!slots) {
-          this.splice("windowSlots", slots.indexOf(wnd.parentNumber), 1);
-        }for (i in blocks) {
-          var arr = blocks[i];if (!!arr && Array.isArray(arr) && arr.indexOf(wnd.parentNumber) >= 0) arr.splice(arr.indexOf(wnd.parentNumber), 1);
-        }if (wnd === this.get("globalBlock")) this.set("globalBlock", null);this.unblockUnblockedWindows();
-      }, raiseWindow: function raiseWindow(wnd) {
-        var wndso = this.get("windows");var slots = this.get("windowSlots");var blocks = this.get("blocks");var wnds = [];var target = this.topLevelBlockers(wnd);target.push(wnd);for (var k in wndso) {
-          if (target.indexOf(wndso[k]) < 0) wnds.push(wndso[k]);
-        }wnds.sort(function (a, b) {
-          var ai = a.get("geometry.index"),
-              bi = b.get("geometry.index");if (ai < bi) return -1;else if (ai > bi) return 1;else return 0;
-        });if (!!wnd) wnds = wnds.concat(target);function moveBeforeBlocker(wnd, blockers) {
-          for (var i in blockers) {
-            var bl = wndso[blockers[i]];var wi = wnds.indexOf(wnd),
-                bi = wnds.indexOf(bl);if (!!!bl || wi < 0 || bi < 0) continue;var arr = blocks[bl.parentNumber];if (!!!arr && Array.isArray(arr) && arr.length > 0) moveBeforeBlocker(bl, arr);if (wi > bi) {
-              wnds.splice(wi, 1);wnds.splice(bi, 0, wnd);
-            }
-          }
-        }var i;for (i in slots) {
-          var arr = blocks[slots[i]];if (!!arr && Array.isArray(arr) && arr.length > 0) moveBeforeBlocker(wndso[slots[i]], arr);
-        }for (i in wnds) {
-          wnds[i].set("geometry.index", 1e3 + +i);if (wnds[i] !== wnd) {
-            wnds[i].set("topmost", false);
-          }
-        }if (!wnd.get("topmost")) {
-          wnd.set("topmost", true);$("iframe", wnd.element).focus();
-        }function globalBlocks(wnd) {
-          var res = [];if (!!!wnd) {
-            return res;
-          }var arr = blocks[wnd.parentNumber];if (!!arr && Array.isArray(arr) && arr.length > 0) {
-            for (var i in arr) {
-              res = res.concat(globalBlocks(wndso[arr[i]]));
-            }
-          }res.push(wnd);return res;
-        }var globals = globalBlocks(this.get("globalBlock"));for (i in globals) {
-          globals[i].add("geometry.index", 1e4);
-        }
-      }, topLevelBlockers: function topLevelBlockers(wnd) {
-        if (!!!wnd) return [];var blocks = this.get("blocks");var wndso = this.get("windows");var arr = blocks[wnd.parentNumber];var res = [];if (!!!arr || !Array.isArray(arr) || arr.length === 0) return res;for (var i in arr) {
-          var arr2 = blocks[arr[i]];if (!!!arr2 || !Array.isArray(arr2) || arr2.length === 0) res.push(wndso[arr[i]]);else {
-            res = res.concat(this.topLevelBlockers(wndso[arr[i]]));
-          }
-        }return res;
-      }, blockWindow: function blockWindow(target, blocker) {
-        if (!!!target || !!!blocker) return;var blocks = this.get("blocks");var arr = blocks[target.parentNumber];if (!!!arr || !Array.isArray(arr)) arr = [];if (arr.indexOf(blocker.parentNumber) < 0) arr.push(blocker.parentNumber);blocks[target.parentNumber] = arr;for (var i = 2; i < arguments.length; i++) {
-          if (arr.indexOf(arguments[i].parentNumber) < 0) arr.push(arguments[i].parentNumber);
-        }if (arr.length > 0) target.set("blocked", true);this.raiseWindow();
-      }, unblockWindow: function unblockWindow(target, blocker) {
-        if (!!!target | !!!blocker) return;var blocks = this.get("blocks");var arr = blocks[target.parentNumber];if (!!!arr || !Array.isArray(arr)) return;if (arr.indexOf(blocker.parentNumber) >= 0) arr.splice(arr.indexOf(blocker.parentNumber), 1);for (var i = 2; i < arguments.length; i++) {
-          if (arr.indexOf(arguments[i].parentNumber) >= 0) arr.splice(arr.indexOf(arguments[i].parentNumber), 1);
-        }if (arr.length === 0) target.set("blocked", false);this.raiseWindow();
-      }, unblockUnblockedWindows: function unblockUnblockedWindows() {
-        var blocks = this.get("blocks");var wndso = this.get("windows");for (var i in blocks) {
-          var arr = blocks[i];if (!!!arr || !Array.isArray(arr) || arr.length === 0) {
-            var wnd = wndso[i];if (!!wnd) wnd.set("blocked", false);
-          }
-        }
-      }, messageBox: messageBox });
-  }();var Host = WindowHost;var res = { Window: Window, WindowHost: Host };var index = res;exports["default"] = index;
-});
+!function(t,e){ true?module.exports=e():undefined}(this,(function(){return function(t){var e={};function n(i){if(e[i])return e[i].exports;var o=e[i]={i:i,l:!1,exports:{}};return t[i].call(o.exports,o,o.exports,n),o.l=!0,o.exports}return n.m=t,n.c=e,n.d=function(t,e,i){n.o(t,e)||Object.defineProperty(t,e,{enumerable:!0,get:i})},n.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},n.t=function(t,e){if(1&e&&(t=n(t)),8&e)return t;if(4&e&&"object"==typeof t&&t&&t.__esModule)return t;var i=Object.create(null);if(n.r(i),Object.defineProperty(i,"default",{enumerable:!0,value:t}),2&e&&"string"!=typeof t)for(var o in t)n.d(i,o,function(e){return t[e]}.bind(null,o));return i},n.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return n.d(e,"a",e),e},n.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},n.p="",n(n.s=1)}([function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var i,o=n(2),s=(i=o)&&i.__esModule?i:{default:i};var r=Ractive.extend({components:{"icon-x":s.default.x,"icon-minimize":s.default.minimize,"icon-maximize":s.default.maximize},template:"\n\t\t\t{{#_wnd_rendered}}\n\t\t\t\t<div\n\t\t\t\t\tid='ractive-window-{{.id}}'\n\t\t\t\t\tclass='theme-{{theme}} ractive-window{{#(.buttons.length > 0)}} with-buttons{{/}}{{#.resizable}} resizable{{else}} fixed{{/}}{{#.geometry.state === 2}} maximized{{/}}{{#.class.window}} {{.class.window}}{{/}}{{#.topmost}} topmost{{/}}'\n\t\t\t\t\ton-click='_raise'\n\t\t\t\t\tstyle='{{#.hidden}}display: none;{{/}}top: {{.geometry.top}}px; left: {{.geometry.left}}px; {{#(.resizable || .geometry.state === 2)}}width: {{.geometry.width}}{{.geometry.dwunit}}; height: {{.geometry.height}}{{.geometry.dhunit}}; {{/}}z-index: {{.geometry.index}};{{#.style.window}} {{.style.window}}{{/}}'\n\t\t\t\t>\n\t\t\t\t\t<div class='rw-modal' on-mousedown='_moveStart' style='{{^.blocked}}display: none;{{/}}'></div>\n\t\t\t\t\t<div class='rw-interior'>\n\t\t\t\t\t\t<div class='rw-controls'>{{>controls}}</div>\n\t\t\t\t\t\t<div class='rw-title' on-touchstart-mousedown='_moveStart' on-dblclick='_restore'>{{>title}}</div>\n\t\t\t\t\t\t{{#if dialog}}<div class='rw-dialog-cover'></div><div class='rw-dialog' style='width: {{dialog.width}}px; {{#if dialog.height}}height: {{dialog.height}}px; {{/if}}'>{{> ~/makePartial('sharedialog', dialog.raw) }}</div>{{/if}}\n\t\t\t\t\t\t<div class='rw-body{{#.class.body}} {{.class.body}}{{/}}' {{#.style.body}}style='{{.style.body}}'{{/}}>{{>body}}</div>\n\t\t\t\t\t\t{{#(.buttons.length > 0)}}<div class='rw-buttons'>{{>buttons}}</div>{{/}}\n\t\t\t\t\t\t<div class='rw-resize-handle' on-touchstart-mousedown='_resizeStart'></div>\n\t\t\t\t\t\t<div class='rw-foot'>{{>foot}}</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t{{/}}\n\t\t",prompt:function(t,e){this.dialog({content:t,raw:"{{dialog.content}}<br><input class='form-control' value='{{dialog.reply}}' /> <div style='position: absolute;bottom: 10px;right: 10px;'><button class='btn btn-xs btn-default' on-click='@this.set(\"dialog\", false )'>Cancel</button> <button class='btn btn-xs btn-primary' on-click='dialog.callback.prompt'>OK</button></div>",width:300,cb:e})},confirm:function(t,e){this.dialog({content:t,raw:"{{dialog.content}} <div style='position: absolute;bottom: 10px;right: 10px;'><button class='btn btn-xs btn-default' on-click='@this.set(\"dialog\", false )'>Cancel</button> <button class='btn btn-xs btn-primary' on-click='dialog.callback.ok'>OK</button></div>",width:300,cb:e})},dialog:function(t){this.set("dialog",{content:t.content,params:t.params,raw:t.raw,width:t.width,height:t.height,cb:t.cb})},onconstruct:function(t){var e,n,i,o,s=this;i=function(t){var o,r;t.preventDefault(),t.type.indexOf("touch")>=0?(o=+t.changedTouches[0].clientX,r=+t.changedTouches[0].clientY):(o=+(t.x||t.clientX),r=+(t.y||t.clientY)),s.move(+s.get("geometry.left")+o-+e,+s.get("geometry.top")+r-+n),e=o,n=r,"mouseup"!==t.type&&"touchend"!==t.type||(document.removeEventListener("mousemove",i,!1),document.removeEventListener("mouseup",i,!1),document.removeEventListener("touchmove",i,!1),document.removeEventListener("touchend",i,!1))},s.on("_moveStart",(function(t){("mousedown"===t.original.type&&0===t.original.button||"touchstart"===t.original.type)&&(s.restore(),t.original.type.indexOf("touch")>=0?(e=+t.original.changedTouches[0].clientX,n=+t.original.changedTouches[0].clientY):(e=+(t.original.x||t.original.clientX),n=+(t.original.y||t.original.clientY)),document.addEventListener("mousemove",i),document.addEventListener("mouseup",i),document.addEventListener("touchmove",i),document.addEventListener("touchend",i),t.original.preventDefault()),s.element&&s.element.getElementsByTagName("iframe").length&&s.element.getElementsByTagName("iframe")[0].focus()})),o=function(t){var i,r;t.preventDefault(),t.type.indexOf("touch")>=0?(i=t.changedTouches[0].clientX,r=t.changedTouches[0].clientY):(i=+(t.x||t.clientX),r=+(t.y||t.clientY));var l=+s.get("geometry.width")+(i-+e),a=+s.get("geometry.height")+(r-+n);s.resize(l,a),e=i,n=r,"mouseup"!==t.type&&"touchend"!==t.type||(document.removeEventListener("mousemove",o,!1),document.removeEventListener("mouseup",o,!1),document.removeEventListener("touchmove",o,!1),document.removeEventListener("touchend",o,!1))},s.on("_resizeStart",(function(t){("mousedown"==t.original.type&&0===t.original.button||"touchstart"===t.original.type)&&(s.restore(),t.original.type.indexOf("touch")>=0?(e=t.original.changedTouches[0].clientX,n=t.original.changedTouches[0].clientY):(e=t.original.x||t.original.clientX,n=t.original.y||t.original.clientY),document.addEventListener("mousemove",o),document.addEventListener("mouseup",o),document.addEventListener("touchmove",o),document.addEventListener("touchend",o))}));var r=function(t,e){switch(t){case"min":s.minimize();break;case"max":s.maximize();break;case"normal":s.restore()}};s.on("dialog.callback.ok",(function(t){var e=this.get("dialog");this.set("dialog",!1);try{e.cb()}catch(t){}})),s.on("dialog.callback.prompt",(function(t){var e=this.get("dialog");try{e.cb(e.reply)}catch(t){}this.set("dialog",!1)})),s.on("_minimize",(function(t){r("min")})),s.on("_restore",(function(t){switch(s.get("geometry.state")){case 0:r("max");break;case 1:case 2:r("normal")}})),s.on("_raise",(function(t){s.raise()})),s.on("_close",(function(t){s.close()})),s.on("_dialog-button",(function(t){var e=t.context.action;e&&"function"==typeof e&&e.call(this)})),s.result=null,s.waitForClose=s.afterClose=new Promise((function(t,e){var n=function(t){return function(e){s.completeAfterClose=null,s.rejectAfterClose=null,t(e)}};s.completeAfterClose=n(t),s.rejectAfterClose=n(e)}))},onrender:function(){var t=this;!this.get("buttonClass")&&this.parent.get("buttonClass")&&this.set("buttonClass",this.parent.get("buttonClass")),this.watchers=this.observe({title:function(e,n){t.fire("retitle",e,t)},"geometry.state":function(e,n){switch(e){case 0:t.fire("restore",e,t);break;case 1:t.fire("minimize",e,t);break;case 2:t.fire("maximize",e,t)}}})},onunrender:function(){this.watchers&&"function"==typeof this.watchers.cancel&&this.watchers.cancel()},activated:function(){},data:function(){return{dialog:!1,_wnd_rendered:!1,blocked:!1,resizable:!0,geometry:{top:-9999,left:-9999,width:200,height:200,state:0,dwunit:"px",dhunit:"px",index:1e3,minimum:{x:0,y:0,width:70,height:50}},style:{},class:{},makePartial:function(t,e){return this._makePartial_templates||(this._makePartial_templates={}),this._makePartial_templates[t]!=e&&(this.resetPartial(t,e),this._makePartial_templates[t]=e),t}}},partials:{title:"{{> ~/makePartial('titleTpl', .title) }}",body:"",foot:"",buttons:"{{#.buttons:i}}<button on-click='_dialog-button' class='{{.position || ''}}{{#.buttonClass}} {{.buttonClass}}{{/}}{{#../../class.button}} {{../../class.button}}{{/}}' disabled='{{!.enabled}}'>{{> ~/makePartial('button' + i + 'Tpl', .label) }}</button>{{/}}",controls:"{{#controls:i}}\t{{#if .raw}}{{>  ~/makePartial('custom_control_template'+i, .raw) }}{{/if}}{{/controls}}{{#if minimizable === false}}{{else}}{{>minimizeControl}}{{/if}}{{>restoreControl}}{{>closeControl}}",minimizeControl:"<button on-click='_minimize' class='btn btn-sm rw-minimize'> <icon-minimize /> </button>",restoreControl:"<button on-click='_restore'  class='btn btn-sm rw-restore'> <icon-maximize /> </button>",closeControl:"<button on-click='_close'    class='btn btn-sm rw-close'> <icon-x /> </button>"},rerender:function(){return this.get("_wnd_rendered")?(this.set("_wnd_rendered",!1),this.set("_wnd_rendered",!0)):Promise.resolve("ok")},title:function(t){this.set("title",t)},move:function(t,e){if("string"==typeof t){switch(t){case"center":case"centerScreen":return this.set({"geometry.top":(this.parent.el.clientHeight-this.element.clientHeight)/2,"geometry.left":(this.parent.el.clientWidth-this.element.clientWidth)/2});case"cascade":return this.set({"geometry.top":this.parentNumber%10*20+10,"geometry.left":this.parentNumber%50*20+10})}return Promise.resolve(!1)}e=+e,t=+t;var n=this.get("geometry.minimum"),i=this.get("geometry.maximum"),o=+this.get("geometry.width"),s=+this.get("geometry.height");return i&&(t+o>+i.x&&(t=+i.x-t),e+s>+i.y&&(e=+i.y-e)),n&&(t<+n.x&&(t=+n.x),e<+n.y&&(e=+n.y)),this.set({"geometry.top":e,"geometry.left":t})},resize:function(t,e){t=a.call(this,"width",t),e=a.call(this,"height",e);var n=this.get("geometry.minimum"),i=this.get("geometry.maximum");i&&(t>i.width&&(t=i.width),t>i.height&&(t=i.height)),n&&(t<n.width&&(t=n.width),e<n.height&&(e=n.height)),this.set({"geometry.width":t,"geometry.height":e}),this.element&&this.element.getElementsByTagName("iframe").length&&this.element.getElementsByTagName("iframe")[0].focus()},resizable:function(t){this.set("resizable",t)},minimize:function(){1!==this.get("geometry.state")&&(this.set({hidden:!0,"geometry.state":1}),this.fire("minimized",{window:this}))},maximize:function(){2!==this.get("geometry.state")&&(this.normalGeometry={top:this.get("geometry.top"),left:this.get("geometry.left"),width:this.get("geometry.width"),height:this.get("geometry.height")},this.set({hidden:!1,"geometry.left":0,"geometry.top":0,"geometry.width":100,"geometry.height":100,"geometry.dwunit":"%","geometry.dhunit":"%","geometry.state":2}),this.fire("maximized",{window:this}))},restore:function(){switch(this.get("geometry.state")){case 1:this.set({hidden:!1,"geometry.state":0});break;case 2:var t=this.normalGeometry||{};this.normalGeometry=null,(t.top<0||t.left<0)&&(t.top=0,t.left=0),this.set({hidden:!1,"geometry.left":t.left,"geometry.top":t.top,"geometry.width":t.width,"geometry.height":t.height,"geometry.dwunit":"px","geometry.dhunit":"px","geometry.state":0})}this.raise()},raise:function(){this.parent&&this.parent.raiseWindow(this)},kill:function(){this.fire("close",this),this.parent?this.parent.killWindow(this):this.teardown(),this.completeAfterClose&&this.completeAfterClose(this.result)},content:function(t){return this.resetPartial("body",t)},buttons:function(){var t,e=[];if(this.set("buttons",e),1===arguments.length&&"number"==typeof arguments[0].length)e=arguments[0];else for(t=0;t<arguments.length;t++)e.push(arguments[t]);var n=[],i=[],o=[];for(t=0;t<e.length;t++){var s=e[t];s.position?"left"===s.position?n.push(s):"right"===s.position?i.push(s):"middle"===s.position?o.push(s):"center"===s.position?o.push(s):(i.push(s),s.position="right"):(i.push(s),s.position="right"),s.hasOwnProperty("enabled")||(s.enabled=!0)}for(e=[],t=0;t<n.length;t++)e.push(n[t]);for(t=i.length-1;t>=0;t--)e.push(i[t]);for(t=0;t<o.length;t++)e.push(o[t]);this.set("buttons",e)},button:function(t,e){var n,i,o=this.get("buttons");if("number"==typeof t)n=o[t],i=t;else for(i=0;i<o.length;i++)if(o[i].label===t){n=o[i];break}n&&(e(n),this.set("buttons."+i,n))},controls:function(){var t,e=[],n="";if(1===arguments.length&&"string"!=typeof arguments[0])e=arguments[0];else for(t=0;t<arguments.length;t++)e.push(arguments[t]);for(t=0;t<e.length;t++)n+="{{>"+e[t]+"Control}}";return this.partials.controls=n,this.rerender()},onClose:function(){this.kill()},close:function(t){if(t||(t=this.onClose),0===t.length)t.call(this);else{var e=this;t.call(this,(function(t){t&&e.kill()}))}}}),l=/([\d\.]+)(.*)/;function a(t,e){var n=function(t,e){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t)){for(var n,i=[],o=t[Symbol.iterator]();!(n=o.next()).done&&(i.push(n.value),!e||i.length!==e););return i}throw new TypeError("Invalid attempt to destructure non-iterable instance")}(l.exec(e.toString()),3),i=(n[0],n[1]),o=n[2];o=o||"px";var s="width"===t?"dwunit":"dhunit",r=this.find("div");if("px"===o)return i;if(r){var a={};a["geometry."+t]=i,a["geometry."+s]=o,this.set(a);var c=this.find("div")["client"+t[0].toUpperCase()+t.substring(1)];return a["geometry."+t]=c,a["geometry."+s]="px",this.set(a),c}}e.default=r},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var i=s(n(0)),o=s(n(3));function s(t){return t&&t.__esModule?t:{default:t}}e.default={Window:i.default,Container:o.default}},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var i=Ractive.extend({template:'\n\t\t<svg class="icon" style={{style}} version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\n\t\t\t viewBox="0 0 512.001 512.001" xml:space="preserve">\n\n\t\t\t<g>\n\t\t\t\t<path d="M294.111,256.001L504.109,46.003c10.523-10.524,10.523-27.586,0-38.109c-10.524-10.524-27.587-10.524-38.11,0L256,217.892\n\t\t\t\t\tL46.002,7.894c-10.524-10.524-27.586-10.524-38.109,0s-10.524,27.586,0,38.109l209.998,209.998L7.893,465.999\n\t\t\t\t\tc-10.524,10.524-10.524,27.586,0,38.109c10.524,10.524,27.586,10.523,38.109,0L256,294.11l209.997,209.998\n\t\t\t\t\tc10.524,10.524,27.587,10.523,38.11,0c10.523-10.524,10.523-27.586,0-38.109L294.111,256.001z"/>\n\t\t\t</g>\n\n\t\t</svg>\n'}),o=Ractive.extend({template:'\n\t\t<svg class="icon" style={{style}} version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\n\t\t\t viewBox="0 0 489.3 489.3" xml:space="preserve">\n\n\t\t\t<g>\n\t\t\t\t<path d="M0.05,12.3v222.8c0,6.8,5.5,12.3,12.3,12.3s12.3-5.5,12.3-12.3V24.5h440.2v440.2h-211.9c-6.8,0-12.3,5.5-12.3,12.3\n\t\t\t\t\ts5.5,12.3,12.3,12.3h224c6.8,0,12.3-5.5,12.3-12.3V12.3c0-6.8-5.5-12.3-12.3-12.3H12.35C5.55,0,0.05,5.5,0.05,12.3z"/>\n\t\t\t\t<path d="M0.05,476.9c0,6.8,5.5,12.3,12.3,12.3h170.3c6.8,0,12.3-5.5,12.3-12.3V306.6c0-6.8-5.5-12.3-12.3-12.3H12.35\n\t\t\t\t\tc-6.8,0-12.3,5.5-12.3,12.3C0.05,306.6,0.05,476.9,0.05,476.9z M24.55,318.8h145.9v145.9H24.55V318.8z"/>\n\t\t\t\t<path d="M231.55,135.9c-6.8,0-12.3,5.5-12.3,12.3v109.5c0,6.8,5.5,12.3,12.3,12.3h109.5c6.8,0,12.3-5.5,12.3-12.3\n\t\t\t\t\ts-5.5-12.3-12.3-12.3h-79.9l138.7-138.7c4.8-4.8,4.8-12.5,0-17.3s-12.5-4.8-17.3,0l-138.7,138.7v-79.9\n\t\t\t\t\tC243.85,141.4,238.35,135.9,231.55,135.9z"/>\n\t\t\t</g>\n\n\t\t</svg>\n'}),s=Ractive.extend({template:'\n\t\t<svg class="icon" style={{style}} version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\n\t\t\t viewBox="0 0 53 53" xml:space="preserve">\n\n\t\t\t<path d="M52.923,0.618c-0.101-0.244-0.296-0.439-0.541-0.541C52.26,0.027,52.13,0,52,0H40c-0.552,0-1,0.448-1,1s0.448,1,1,1h9.586\n\t\t\t\tL33.293,18.293c-0.391,0.391-0.391,1.023,0,1.414C33.488,19.902,33.744,20,34,20s0.512-0.098,0.707-0.293L51,3.414V13\n\t\t\t\tc0,0.552,0.448,1,1,1s1-0.448,1-1V1C53,0.87,52.973,0.74,52.923,0.618z"/>\n\t\t\t<path d="M18.293,33.293L2,49.586V40c0-0.552-0.448-1-1-1s-1,0.448-1,1v12c0,0.13,0.027,0.26,0.077,0.382\n\t\t\t\tc0.101,0.244,0.296,0.439,0.541,0.541C0.74,52.973,0.87,53,1,53h12c0.552,0,1-0.448,1-1s-0.448-1-1-1H3.414l16.293-16.293\n\t\t\t\tc0.391-0.391,0.391-1.023,0-1.414S18.684,32.902,18.293,33.293z"/>\n\t\t\t<path d="M1,14c0.552,0,1-0.448,1-1V3.414l16.292,16.292c0.195,0.195,0.451,0.293,0.707,0.293s0.512-0.098,0.707-0.293\n\t\t\t\tc0.391-0.391,0.391-1.023,0-1.414L3.414,2H13c0.552,0,1-0.448,1-1s-0.448-1-1-1H1C0.87,0,0.74,0.027,0.618,0.077\n\t\t\t\tC0.373,0.179,0.179,0.373,0.077,0.618C0.027,0.74,0,0.87,0,1v12C0,13.552,0.448,14,1,14z"/>\n\t\t\t<path d="M52,39c-0.552,0-1,0.448-1,1v9.586L34.707,33.292c-0.391-0.391-1.023-0.391-1.414,0s-0.391,1.023,0,1.414L49.586,51H40\n\t\t\t\tc-0.552,0-1,0.448-1,1s0.448,1,1,1h12c0.13,0,0.26-0.027,0.382-0.077c0.244-0.101,0.439-0.296,0.541-0.541\n\t\t\t\tC52.973,52.26,53,52.13,53,52V40C53,39.448,52.552,39,52,39z"/>\n\n\t\t</svg>\n'});e.default={x:i,minimize:o,maximize:s}},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var i,o=n(0),s=(i=o)&&i.__esModule?i:{default:i};var r=0,l=Ractive.extend({isolated:!0,defaults:{control:{label:function(t,e){s.default.partials[t+"ControlLabel"]=e}},controls:function(){for(var t="",e=0;e<arguments.length;e++)t+="{{>"+arguments[e]+"Control}}";s.default.partials.controls=t}},components:{Window:s.default},data:function(){return{_windows_list:[],windows:{}}},template:"\n\t\t\t<div class='host-content'>{{yield}}</div>\n\t\t\t{{#_windows_list}}\n\t\t\t\t<Window theme={{theme}} />\n\t\t\t{{/_windows_list}}\n\t\t",newWindow:function(t,e){var n=r;r+=1;var i=this;return i.push("_windows_list",n).then((function(){var o,s=i.findAllComponents("Window"),r=s[s.length-1];i.set("windows."+n,r),r.parentNumber=n,r.set({"geometry.index":1e3+s.length,"geometry.left":-9999,"geometry.top":-9999,id:n});var l=function(){var t;return r.raise(),r.set("_wnd_rendered",!0).then((function(){r.element=r.find(".ractive-window");try{if((t=r.activated())&&"function"==typeof t.then)return t}catch(t){console.log(t)}}))},a=function(){return-9999===r.get("geometry.left")?r.move("cascade").then((function(){return r})):r};return o=(o=(o=function(){var n;if(e&&"function"==typeof e)try{if((n=e(r))&&"function"==typeof n.then)return n}catch(t){console.log(t)}else if("function"==typeof t)try{(n=t(r))&&"function"==typeof n.then&&(o=n)}catch(t){console.log(t)}}())?o.then(l):l())?o.then(a):a()}))},killWindow:function(t){var e,n,i=this.get("windows"),o=-1;if(i){for(var s in i)i[s]===t?delete i[s]:(n=i[s].get("geometry.index"))>o&&(o=n,e=i[s]);e&&!e.get("topmost")&&(e.set("topmost",!0),e.element&&e.element.getElementsByTagName("iframe").length&&e.element.getElementsByTagName("iframe")[0].focus())}var r=this.get("_windows_list");r&&this.splice("_windows_list",r.indexOf(t.parentNumber),1)},raiseWindow:function(t){var e,n=this.get("windows"),i=(this.get("_windows_list"),[]),o=[];for(var s in o.push(t),n)o.indexOf(n[s])<0&&i.push(n[s]);for(e in i.sort((function(t,e){var n=t.get("geometry.index"),i=e.get("geometry.index");return n<i?-1:n>i?1:0})),t&&(i=i.concat(o)),i)i[e].set("geometry.index",+e+1e3),i[e]!==t&&i[e].set("topmost",!1);t.get("topmost")||(t.set("topmost",!0),setTimeout((function(){t.element&&t.element.getElementsByTagName("iframe").length&&t.element.getElementsByTagName("iframe")[0].focus()}),300))}});e.default=l}]).default}));
 
 /***/ }),
 /* 49 */
@@ -3668,7 +3310,7 @@ exports.default = Ractive.extend({
 			var hash = this._hash_key_name();
 			var range = this._range_key_name();
 			//console.log("open-item", "table=",describeTable.TableName, "hash=",hash, "range=", range, "item=", item, rawitem  )
-			ractive.root.findComponent('WindowHost').newWindow(function ($window) {
+			ractive.root.findComponent('WindowContainer').newWindow(function ($window) {
 				$window.set({
 					title: 'Edit Item',
 					'geometry.width': window.innerWidth * .6,
@@ -3792,7 +3434,7 @@ exports.default = Ractive.extend({
 			//console.log(rawitem)
 
 
-			ractive.root.findComponent('WindowHost').newWindow(function ($window) {
+			ractive.root.findComponent('WindowContainer').newWindow(function ($window) {
 				$window.set({
 					title: 'Create Item',
 					'geometry.width': window.innerWidth * .6,
