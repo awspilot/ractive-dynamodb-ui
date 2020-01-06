@@ -6,7 +6,9 @@
 	import "./css/style.less";
 	import Ractive from 'ractive';
 	import minitablelist from './minitablelist';
-	import RactiveWindow from './ractive-window.min.js'
+	//import RactiveWindow from './ractive-window.min.js'
+
+	import RactiveWindow from '@databank/ractive-window';
 
 	var ddb;
 
@@ -31,7 +33,7 @@
 	export default Ractive.extend({
 		template: `
 			<div class='ractive-dynamodb-ui {{theme}}'>
-				<WindowHost />
+				<WindowContainer />
 			</div>
 			<hsplit style='' class='ractive-dynamodb-ui {{theme}}'>
 				<left>
@@ -46,8 +48,8 @@
 			hsplit: hsplit,
 			minitablelist: minitablelist,
 			tabs: tabs,
-			Window: RactiveWindow.default.Window,
-			WindowHost: RactiveWindow.default.WindowHost,
+			Window: RactiveWindow.Window,
+			WindowContainer: RactiveWindow.Container,
 		},
 
 		data: function() {

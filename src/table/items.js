@@ -783,7 +783,7 @@ export default Ractive.extend({
 			var hash  = this._hash_key_name()
 			var range = this._range_key_name()
 			//console.log("open-item", "table=",describeTable.TableName, "hash=",hash, "range=", range, "item=", item, rawitem  )
-			ractive.root.findComponent('WindowHost').newWindow(function($window) {
+			ractive.root.findComponent('WindowContainer').newWindow(function($window) {
 				$window.set({
 					title: 'Edit Item',
 					'geometry.width': window.innerWidth * .6,
@@ -935,7 +935,7 @@ export default Ractive.extend({
 			//console.log(rawitem)
 
 
-			ractive.root.findComponent('WindowHost').newWindow(function($window) {
+			ractive.root.findComponent('WindowContainer').newWindow(function($window) {
 				$window.set({
 					title: 'Create Item',
 					'geometry.width': window.innerWidth * .6,
