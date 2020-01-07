@@ -230,26 +230,24 @@ export default Ractive.extend({
 	</div>
 		`,
 
-		_hash_key_name: _table_utils._hash_key_name,
-		_hash_key_type: _table_utils._hash_key_type,
-		_hash_key_type_name: _table_utils._hash_key_type_name,
+	_hash_key_name: _table_utils._hash_key_name,
+	_hash_key_type: _table_utils._hash_key_type,
+	_hash_key_type_name: _table_utils._hash_key_type_name,
 
-		_range_key_name: _table_utils._range_key_name,
-		_range_key_type: _table_utils._range_key_type,
-		_range_key_type_name: _table_utils._range_key_type_name,
-
-
-		_gsi_hash_key_name: _table_utils._gsi_hash_key_name,
-		_gsi_hash_key_type: _table_utils._gsi_hash_key_type,
-		_gsi_hash_key_type_name: _table_utils._gsi_hash_key_type_name,
+	_range_key_name: _table_utils._range_key_name,
+	_range_key_type: _table_utils._range_key_type,
+	_range_key_type_name: _table_utils._range_key_type_name,
 
 
+	_gsi_hash_key_name: _table_utils._gsi_hash_key_name,
+	_gsi_hash_key_type: _table_utils._gsi_hash_key_type,
+	_gsi_hash_key_type_name: _table_utils._gsi_hash_key_type_name,
 
-		_gsi_range_key_name: _table_utils._gsi_range_key_name,
-		_gsi_range_key_type: _table_utils._gsi_range_key_type,
-		_gsi_range_key_type_name: _table_utils._gsi_range_key_type_name,
 
 
+	_gsi_range_key_name: _table_utils._gsi_range_key_name,
+	_gsi_range_key_type: _table_utils._gsi_range_key_type,
+	_gsi_range_key_type_name: _table_utils._gsi_range_key_type_name,
 
 
 
@@ -259,54 +257,360 @@ export default Ractive.extend({
 
 
 
-		_lsi_hash_key_name: _table_utils._lsi_hash_key_name,
-		_lsi_hash_key_type: _table_utils._lsi_hash_key_type,
-		_lsi_hash_key_type_name: _table_utils._lsi_hash_key_type_name,
 
 
-		_lsi_range_key_name: _table_utils._lsi_range_key_name,
-		_lsi_range_key_type: _table_utils._lsi_range_key_type,
-		_lsi_range_key_type_name: _table_utils._lsi_range_key_type_name,
+	_lsi_hash_key_name: _table_utils._lsi_hash_key_name,
+	_lsi_hash_key_type: _table_utils._lsi_hash_key_type,
+	_lsi_hash_key_type_name: _table_utils._lsi_hash_key_type_name,
+
+
+	_lsi_range_key_name: _table_utils._lsi_range_key_name,
+	_lsi_range_key_type: _table_utils._lsi_range_key_type,
+	_lsi_range_key_type_name: _table_utils._lsi_range_key_type_name,
 
 
 
 
-		display_data: function() {
-			var ractive = this;
+	display_data: function() {
+		var ractive = this;
 
-			var dbrows_json = this.get('dbrows_json');
-			var dbrows_raw  = this.get('dbrows_raw');
+		var dbrows_json = this.get('dbrows_json');
+		var dbrows_raw  = this.get('dbrows_raw');
 
-			var columns = [null]
-			var rows = []
-			var display_columns = {}
-			this.get('display_columns').map(function(dc) {
-				if (dc.show)
-					columns.push(dc.name)
+		var columns = [null]
+		var rows = []
+		var display_columns = {}
+		this.get('display_columns').map(function(dc) {
+			if (dc.show)
+				columns.push(dc.name)
+		})
+		var rows = []
+
+
+
+		dbrows_json.map(function(row, idx ) {
+			var thisrow = []
+
+			columns.map(function(column_name) {
+				if (column_name === null) {
+					// checkbox
+					var key = {}
+					key[ractive._hash_key_name()] = row[ractive._hash_key_name()]
+					if (ractive._range_key_name()) key[ractive._range_key_name()] = row[ractive._range_key_name()]
+					thisrow.push({KEY: key})
+				} else {
+					if (row.hasOwnProperty(column_name)) {
+						if ( column_name === ractive._hash_key_name() ) {
+							thisrow.push({
+								HASH:row[column_name],
+								item: row,
+								raw: dbrows_raw[idx],
+							})
+						} else if (typeof row[column_name] === 'string')
+							thisrow.push({'S':row[column_name]})
+						else if (typeof row[column_name] === 'number')
+							thisrow.push({'N':row[column_name]})
+						else if (typeof row[column_name] === 'boolean') {
+							thisrow.push({'BOOL':row[column_name].toString()})
+						} else if (row[column_name] === null) {
+							thisrow.push({'NULL': "NULL"})
+						} else if ((typeof row[column_name] === 'object') &&  Array.isArray(row[column_name]) ) {
+							thisrow.push({'L': true })
+						} else if ((typeof row[column_name] === 'object') && !Array.isArray(row[column_name]) ) {
+							thisrow.push({'M': true })
+						} else
+							thisrow.push({'U': true })
+					} else {
+						thisrow.push({'U': true })
+					}
+				}
 			})
+			rows.push(thisrow)
+		})
+
+
+
+
+		this.set('columns', columns )
+		this.set('rows', rows )
+	},
+
+	refresh_data: function( LastEvaluatedKey ) {
+
+		var ractive = this;
+		this.set('columns', [])
+		this.set('rows', [])
+
+		var dbrows_json = null
+		var dbrows_raw = null
+		var hash_key = null
+		var range_key = null
+		var fields = {}
+		var columns = [null]
+
+
+		async.waterfall([
+
+
+			// describeTable is set by parent
+
+			function( cb ) {
+				if (ractive.get('type') !== 'scan')
+					return cb()
+
+				fields = {}
+
+
+				hash_key = ractive._hash_key_name();
+				range_key = ractive._range_key_name();
+
+				columns.push(hash_key)
+				ractive.add_display_column( hash_key, true )
+				fields[hash_key] = 1;
+				if (range_key) {
+					columns.push(range_key)
+					ractive.add_display_column( range_key, true )
+					fields[range_key] = 1;
+				}
+
+
+				var scan_index = ractive.get('scan.table')
+				if (scan_index === '') {
+				} else {
+					var scan_type = scan_index.split(':')[0]
+					scan_index = scan_index.split(':')[1]
+					if (scan_type === 'gsi') {
+						var index = ractive.get('describeTable.GlobalSecondaryIndexes').filter(function(i) { return i.IndexName === scan_index})[0]
+
+						var index_hash_key  = (index.KeySchema.filter(function(k) { return k.KeyType === 'HASH' })[0] || {}).AttributeName;
+						var index_range_key = (index.KeySchema.filter(function(k) { return k.KeyType === 'RANGE'})[0] || {}).AttributeName;
+
+						columns.push(index_hash_key)
+						ractive.add_display_column( index_hash_key, true )
+						fields[index_hash_key] = 1;
+
+						if (index_range_key) {
+							columns.push(index_range_key)
+							ractive.add_display_column( index_range_key, true )
+							fields[index_range_key] = 1;
+						}
+					}
+
+
+				}
+
+				var ddb = DynamoDB.table(ractive.get('table.name'))
+				if (LastEvaluatedKey)
+					ddb.resume( LastEvaluatedKey )
+				ddb.limit(100)
+				if (scan_index)
+					ddb = ddb.index(scan_index)
+
+				ddb.scan(function(err, data, raw ) {
+					if (err)
+						return alert("scan error")
+
+
+
+					dbrows_json = data;
+					dbrows_raw  = raw.Items
+
+					ractive.push('scan.LastEvaluatedKey', data.LastEvaluatedKey )
+					ractive.set('end_reached' ,data.LastEvaluatedKey ? false : true )
+
+					cb()
+				})
+			},
+
+			function( cb ) {
+				if (ractive.get('type') !== 'query')
+					return cb()
+
+				fields = {}
+				var query_partition_name = '';
+				var query_partition_type = 'S';
+				var query_sort_name = '';
+				var query_sort_type = 'S';
+
+
+
+				hash_key = ractive._hash_key_name();
+				range_key = ractive._range_key_name();
+
+				columns.push(hash_key)
+				ractive.add_display_column( hash_key, true )
+				fields[hash_key] = 1;
+				if (range_key) {
+					columns.push(range_key)
+					ractive.add_display_column( range_key, true )
+					fields[range_key] = 1;
+				}
+
+
+				var query_index = ractive.get('query.table')
+				if (query_index === '') {
+					query_partition_name = hash_key
+					query_partition_type = ractive._hash_key_type();
+					if (range_key) {
+						query_sort_name = ractive._range_key_name();
+						query_sort_type = ractive._range_key_type();
+					}
+				} else {
+					var query_type = query_index.split(':')[0]
+					query_index = query_index.split(':')[1]
+					if (query_type === 'gsi') {
+
+						var index = ractive.get('describeTable.GlobalSecondaryIndexes').filter(function(i) { return i.IndexName === query_index})[0]
+						var index_hash_key  = ractive._gsi_hash_key_name( index.IndexName )
+						var index_range_key = ractive._gsi_range_key_name( index.IndexName )
+						query_partition_name = index_hash_key;
+						query_partition_type = ractive._gsi_hash_key_type( index.IndexName )
+
+						if (index_range_key) {
+							query_sort_name = ractive._gsi_range_key_name( index.IndexName )
+							query_sort_type = ractive._gsi_range_key_type( index.IndexName )
+						}
+
+						columns.push(index_hash_key)
+						ractive.add_display_column( index_hash_key, true )
+						fields[index_hash_key] = 1;
+
+						if (index_range_key) {
+							columns.push(index_range_key)
+							ractive.add_display_column( index_range_key, true )
+							fields[index_range_key] = 1;
+						}
+					}
+					if (query_type === 'lsi') {
+
+						var index = ractive.get('describeTable.LocalSecondaryIndexes').filter(function(i) { return i.IndexName === query_index})[0]
+						var index_hash_key  = ractive._lsi_hash_key_name( index.IndexName )
+						var index_range_key = ractive._lsi_range_key_name( index.IndexName )
+						query_partition_name = index_hash_key;
+						query_partition_type = ractive._lsi_hash_key_type( index.IndexName )
+
+						if (index_range_key) {
+							query_sort_name = ractive._lsi_range_key_name( index.IndexName )
+							query_sort_type = ractive._lsi_range_key_type( index.IndexName )
+						}
+
+						columns.push(index_hash_key)
+						ractive.add_display_column( index_hash_key, true )
+						fields[index_hash_key] = 1;
+
+						if (index_range_key) {
+							columns.push(index_range_key)
+							ractive.add_display_column( index_range_key, true )
+							fields[index_range_key] = 1;
+						}
+
+					}
+
+				}
+
+				var ddb = DynamoDB.table(ractive.get('table.name'))
+				if (LastEvaluatedKey)
+					ddb.resume( LastEvaluatedKey )
+				ddb.limit(100)
+				if (query_index)
+					ddb = ddb.index(query_index)
+
+				if (query_partition_type === 'S')
+					ddb = ddb.where(query_partition_name).eq( ractive.get('query.partition.value').toString() )
+
+				if (query_partition_type === 'N')
+					ddb = ddb.where(query_partition_name).eq( parseFloat(ractive.get('query.partition.value')) )
+
+
+				if ( ractive.get('query.sort.value').length ) {
+					// apply sort
+					console.log("sort", query_sort_name, ractive.get('query.sort.op') , query_sort_type )
+					if (query_sort_type === 'S')
+						ddb = ddb.where(query_sort_name)[ ractive.get('query.sort.op') ]( ractive.get('query.sort.value').toString(), ractive.get('query.sort.value2').toString() )
+
+					if (query_sort_type === 'N')
+						ddb = ddb.where(query_sort_name)[ ractive.get('query.sort.op') ]( parseFloat(ractive.get('query.sort.value')), parseFloat(ractive.get('query.sort.value2')) )
+
+
+				}
+
+				console.log("query_partition_name=",query_partition_name)
+
+				dbrows_json = []
+				ddb.query(function(err, data, raw ) {
+					if (err) {
+						alert("query error")
+						return cb(err)
+					}
+
+					dbrows_json = data;
+					dbrows_raw  = raw.Items;
+
+					ractive.push('scan.LastEvaluatedKey', data.LastEvaluatedKey )
+
+					ractive.set('end_reached' ,data.LastEvaluatedKey ? false : true )
+
+					cb()
+
+
+				})
+
+			},
+
+			// save raw data
+			function(cb ) {
+				ractive.set('dbrows_json', dbrows_json )
+				ractive.set('dbrows_raw', dbrows_raw )
+				cb()
+			}
+		], function(err) {
+			ractive.set('oop_running'  ,false )
+			ractive.set('prev_running' ,false )
+			ractive.set('next_running' ,false )
+
+			if (err)
+				ractive.set('err', err.errorMessage )
+
+
+			if (ractive.get('autocolumns')) {
+				dbrows_json.map(function(row) {
+					Object.keys(row).map(function(column_name) {
+						if (!fields.hasOwnProperty(column_name)) {
+							if (columns.length > 10) {
+								ractive.add_display_column( column_name, false )
+							} else {
+								ractive.add_display_column( column_name, true )
+								fields[column_name] = 1;
+								columns.push(column_name)
+							}
+						}
+					})
+				})
+				ractive.set('autocolumns', false)
+			}
+			ractive.display_data()
+			/*
 			var rows = []
 
 
 
-			dbrows_json.map(function(row, idx ) {
+
+
+
+
+			dbrows_.map(function(row) {
 				var thisrow = []
 
 				columns.map(function(column_name) {
 					if (column_name === null) {
 						// checkbox
 						var key = {}
-						key[ractive._hash_key_name()] = row[ractive._hash_key_name()]
-						if (ractive._range_key_name()) key[ractive._range_key_name()] = row[ractive._range_key_name()]
+						key[hash_key] = row[hash_key]
+						if (range_key) key[range_key] = row[range_key]
 						thisrow.push({KEY: key})
 					} else {
 						if (row.hasOwnProperty(column_name)) {
-							if ( column_name === ractive._hash_key_name() ) {
-								thisrow.push({
-									HASH:row[column_name],
-									item: row,
-									raw: dbrows_raw[idx],
-								})
-							} else if (typeof row[column_name] === 'string')
+							if (typeof row[column_name] === 'string')
 								thisrow.push({'S':row[column_name]})
 							else if (typeof row[column_name] === 'number')
 								thisrow.push({'N':row[column_name]})
@@ -327,315 +631,11 @@ export default Ractive.extend({
 				})
 				rows.push(thisrow)
 			})
-
-
-
-
-			this.set('columns', columns )
-			this.set('rows', rows )
-		},
-
-		refresh_data: function( LastEvaluatedKey ) {
-
-			var ractive = this;
-			this.set('columns', [])
-			this.set('rows', [])
-
-			var dbrows_json = null
-			var dbrows_raw = null
-			var hash_key = null
-			var range_key = null
-			var fields = {}
-			var columns = [null]
-
-
-			async.waterfall([
-
-
-				// describeTable is set by parent
-
-				function( cb ) {
-					if (ractive.get('type') !== 'scan')
-						return cb()
-
-					fields = {}
-
-
-					hash_key = ractive._hash_key_name();
-					range_key = ractive._range_key_name();
-
-					columns.push(hash_key)
-					ractive.add_display_column( hash_key, true )
-					fields[hash_key] = 1;
-					if (range_key) {
-						columns.push(range_key)
-						ractive.add_display_column( range_key, true )
-						fields[range_key] = 1;
-					}
-
-
-					var scan_index = ractive.get('scan.table')
-					if (scan_index === '') {
-					} else {
-						var scan_type = scan_index.split(':')[0]
-						scan_index = scan_index.split(':')[1]
-						if (scan_type === 'gsi') {
-							var index = ractive.get('describeTable.GlobalSecondaryIndexes').filter(function(i) { return i.IndexName === scan_index})[0]
-
-							var index_hash_key  = (index.KeySchema.filter(function(k) { return k.KeyType === 'HASH' })[0] || {}).AttributeName;
-							var index_range_key = (index.KeySchema.filter(function(k) { return k.KeyType === 'RANGE'})[0] || {}).AttributeName;
-
-							columns.push(index_hash_key)
-							ractive.add_display_column( index_hash_key, true )
-							fields[index_hash_key] = 1;
-
-							if (index_range_key) {
-								columns.push(index_range_key)
-								ractive.add_display_column( index_range_key, true )
-								fields[index_range_key] = 1;
-							}
-						}
-
-
-					}
-
-					var ddb = DynamoDB.table(ractive.get('table.name'))
-					if (LastEvaluatedKey)
-						ddb.resume( LastEvaluatedKey )
-					ddb.limit(100)
-					if (scan_index)
-						ddb = ddb.index(scan_index)
-
-					ddb.scan(function(err, data, raw ) {
-						if (err)
-							return alert("scan error")
-
-
-
-						dbrows_json = data;
-						dbrows_raw  = raw.Items
-
-						ractive.push('scan.LastEvaluatedKey', data.LastEvaluatedKey )
-						ractive.set('end_reached' ,data.LastEvaluatedKey ? false : true )
-
-						cb()
-					})
-				},
-
-				function( cb ) {
-					if (ractive.get('type') !== 'query')
-						return cb()
-
-					fields = {}
-					var query_partition_name = '';
-					var query_partition_type = 'S';
-					var query_sort_name = '';
-					var query_sort_type = 'S';
-
-
-
-					hash_key = ractive._hash_key_name();
-					range_key = ractive._range_key_name();
-
-					columns.push(hash_key)
-					ractive.add_display_column( hash_key, true )
-					fields[hash_key] = 1;
-					if (range_key) {
-						columns.push(range_key)
-						ractive.add_display_column( range_key, true )
-						fields[range_key] = 1;
-					}
-
-
-					var query_index = ractive.get('query.table')
-					if (query_index === '') {
-						query_partition_name = hash_key
-						query_partition_type = ractive._hash_key_type();
-						if (range_key) {
-							query_sort_name = ractive._range_key_name();
-							query_sort_type = ractive._range_key_type();
-						}
-					} else {
-						var query_type = query_index.split(':')[0]
-						query_index = query_index.split(':')[1]
-						if (query_type === 'gsi') {
-
-							var index = ractive.get('describeTable.GlobalSecondaryIndexes').filter(function(i) { return i.IndexName === query_index})[0]
-							var index_hash_key  = ractive._gsi_hash_key_name( index.IndexName )
-							var index_range_key = ractive._gsi_range_key_name( index.IndexName )
-							query_partition_name = index_hash_key;
-							query_partition_type = ractive._gsi_hash_key_type( index.IndexName )
-
-							if (index_range_key) {
-								query_sort_name = ractive._gsi_range_key_name( index.IndexName )
-								query_sort_type = ractive._gsi_range_key_type( index.IndexName )
-							}
-
-							columns.push(index_hash_key)
-							ractive.add_display_column( index_hash_key, true )
-							fields[index_hash_key] = 1;
-
-							if (index_range_key) {
-								columns.push(index_range_key)
-								ractive.add_display_column( index_range_key, true )
-								fields[index_range_key] = 1;
-							}
-						}
-						if (query_type === 'lsi') {
-
-							var index = ractive.get('describeTable.LocalSecondaryIndexes').filter(function(i) { return i.IndexName === query_index})[0]
-							var index_hash_key  = ractive._lsi_hash_key_name( index.IndexName )
-							var index_range_key = ractive._lsi_range_key_name( index.IndexName )
-							query_partition_name = index_hash_key;
-							query_partition_type = ractive._lsi_hash_key_type( index.IndexName )
-
-							if (index_range_key) {
-								query_sort_name = ractive._lsi_range_key_name( index.IndexName )
-								query_sort_type = ractive._lsi_range_key_type( index.IndexName )
-							}
-
-							columns.push(index_hash_key)
-							ractive.add_display_column( index_hash_key, true )
-							fields[index_hash_key] = 1;
-
-							if (index_range_key) {
-								columns.push(index_range_key)
-								ractive.add_display_column( index_range_key, true )
-								fields[index_range_key] = 1;
-							}
-
-						}
-
-					}
-
-					var ddb = DynamoDB.table(ractive.get('table.name'))
-					if (LastEvaluatedKey)
-						ddb.resume( LastEvaluatedKey )
-					ddb.limit(100)
-					if (query_index)
-						ddb = ddb.index(query_index)
-
-					if (query_partition_type === 'S')
-						ddb = ddb.where(query_partition_name).eq( ractive.get('query.partition.value').toString() )
-
-					if (query_partition_type === 'N')
-						ddb = ddb.where(query_partition_name).eq( parseFloat(ractive.get('query.partition.value')) )
-
-
-					if ( ractive.get('query.sort.value').length ) {
-						// apply sort
-						console.log("sort", query_sort_name, ractive.get('query.sort.op') , query_sort_type )
-						if (query_sort_type === 'S')
-							ddb = ddb.where(query_sort_name)[ ractive.get('query.sort.op') ]( ractive.get('query.sort.value').toString(), ractive.get('query.sort.value2').toString() )
-
-						if (query_sort_type === 'N')
-							ddb = ddb.where(query_sort_name)[ ractive.get('query.sort.op') ]( parseFloat(ractive.get('query.sort.value')), parseFloat(ractive.get('query.sort.value2')) )
-
-
-					}
-
-					console.log("query_partition_name=",query_partition_name)
-
-					dbrows_json = []
-					ddb.query(function(err, data, raw ) {
-						if (err) {
-							alert("query error")
-							return cb(err)
-						}
-
-						dbrows_json = data;
-						dbrows_raw  = raw.Items;
-
-						ractive.push('scan.LastEvaluatedKey', data.LastEvaluatedKey )
-
-						ractive.set('end_reached' ,data.LastEvaluatedKey ? false : true )
-
-						cb()
-
-
-					})
-
-				},
-
-				// save raw data
-				function(cb ) {
-					ractive.set('dbrows_json', dbrows_json )
-					ractive.set('dbrows_raw', dbrows_raw )
-					cb()
-				}
-			], function(err) {
-				ractive.set('oop_running'  ,false )
-				ractive.set('prev_running' ,false )
-				ractive.set('next_running' ,false )
-
-				if (err)
-					ractive.set('err', err.errorMessage )
-
-
-				if (ractive.get('autocolumns')) {
-					dbrows_json.map(function(row) {
-						Object.keys(row).map(function(column_name) {
-							if (!fields.hasOwnProperty(column_name)) {
-								if (columns.length > 10) {
-									ractive.add_display_column( column_name, false )
-								} else {
-									ractive.add_display_column( column_name, true )
-									fields[column_name] = 1;
-									columns.push(column_name)
-								}
-							}
-						})
-					})
-					ractive.set('autocolumns', false)
-				}
-				ractive.display_data()
-				/*
-				var rows = []
-
-
-
-
-
-
-
-				dbrows_.map(function(row) {
-					var thisrow = []
-
-					columns.map(function(column_name) {
-						if (column_name === null) {
-							// checkbox
-							var key = {}
-							key[hash_key] = row[hash_key]
-							if (range_key) key[range_key] = row[range_key]
-							thisrow.push({KEY: key})
-						} else {
-							if (row.hasOwnProperty(column_name)) {
-								if (typeof row[column_name] === 'string')
-									thisrow.push({'S':row[column_name]})
-								else if (typeof row[column_name] === 'number')
-									thisrow.push({'N':row[column_name]})
-								else if (typeof row[column_name] === 'boolean') {
-									thisrow.push({'BOOL':row[column_name].toString()})
-								} else if (row[column_name] === null) {
-									thisrow.push({'NULL': "NULL"})
-								} else if ((typeof row[column_name] === 'object') &&  Array.isArray(row[column_name]) ) {
-									thisrow.push({'L': true })
-								} else if ((typeof row[column_name] === 'object') && !Array.isArray(row[column_name]) ) {
-									thisrow.push({'M': true })
-								} else
-									thisrow.push({'U': true })
-							} else {
-								thisrow.push({'U': true })
-							}
-						}
-					})
-					rows.push(thisrow)
-				})
-				ractive.set('columns', columns )
-				ractive.set('rows', rows )
-				*/
-			})
-		},
+			ractive.set('columns', columns )
+			ractive.set('rows', rows )
+			*/
+		})
+	},
 	add_display_column: function( cname, show ) {
 		var display_columns = this.get('display_columns')
 		if ( display_columns.filter(function(dc) { return dc.name === cname}).length )
