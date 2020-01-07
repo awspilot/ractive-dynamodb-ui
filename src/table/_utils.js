@@ -111,6 +111,31 @@ var _lsi_hash_key_type_name = function( indexname ) {
 	return ({S: 'String', N: 'Number', 'B': 'Binary'})[ this._lsi_hash_key_type( indexname ) ]
 }
 
+var _lsi_range_key_name = function( indexname ) {
+
+	var index = (this.get('describeTable.LocalSecondaryIndexes') || []).filter(function(i) {return i.IndexName === indexname})[0];
+	if (! index )
+		return;
+
+	return (index.KeySchema.filter(function(k) { return k.KeyType === 'RANGE'})[0] || {}).AttributeName
+
+}
+
+var _lsi_range_key_type = function( indexname ) {
+	var ractive = this;
+
+	var ret;
+	this.get('describeTable.AttributeDefinitions').map(function( at ) {
+		if ( at.AttributeName === ractive._lsi_range_key_name( indexname ) )
+			ret = at.AttributeType
+	})
+	return ret;
+}
+
+
+var _lsi_range_key_type_name = function( indexname ) {
+	return ({S: 'String', N: 'Number', 'B': 'Binary'})[ this._lsi_range_key_type( indexname ) ]
+}
 
 export default {
 	_hash_key_name: _hash_key_name,
@@ -132,5 +157,9 @@ export default {
 	_lsi_hash_key_name: _lsi_hash_key_name,
 	_lsi_hash_key_type: _lsi_hash_key_type,
 	_lsi_hash_key_type_name: _lsi_hash_key_type_name,
+
+	_lsi_range_key_name: _lsi_range_key_name,
+	_lsi_range_key_type: _lsi_range_key_type,
+	_lsi_range_key_type_name: _lsi_range_key_type_name,
 
 }
