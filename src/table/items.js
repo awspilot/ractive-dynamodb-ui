@@ -1,10 +1,10 @@
 
 import _table_utils from './_utils';
 import _open_item from './items/_open_item';
+import _create_item from './items/_create_item';
 
 import tabledata from '../tabledata';
 
-import itemadd from '../item/add';
 
 export default Ractive.extend({
 	components: {
@@ -222,7 +222,7 @@ export default Ractive.extend({
 
 					</div>
 				</div>
-				<a class='btn btn-xs btn-primary' on-click='create-item-window'  > Create Item </a>
+				<a class='btn btn-xs btn-primary' on-click='create-item'  > Create Item </a>
 				<a class='btn btn-xs btn-danger {{#if selection_length > 0}}{{else}}disabled{{/if}}'  on-click='delete-selected' > <icon-trash /> </a>
 			</div>
 		</div>
@@ -677,6 +677,7 @@ export default Ractive.extend({
 	},
 	on: {
 		'open-item': _open_item,
+		'create-item': _create_item,
 	},
 	oninit: function() {
 		var ractive = this
@@ -760,85 +761,7 @@ export default Ractive.extend({
 
 
 		})
-		ractive.on('create-item-window', function() {
 
-
-
-
-
-			var describeTable = this.get('describeTable')
-
-			var rawitem = {}
-
-
-			/* add partition */
-			var htype = this._hash_key_type()
-
-			var to_add = null;
-			if (htype === "S")
-				to_add = {S: ""}
-
-			if (htype === "N")
-				to_add = {N: ""}
-
-			if (htype === "B")
-				to_add = {B: Uint8Array.from(atob("InsertBase64Here"), function (c) { return c.charCodeAt(0) } ) }
-
-			rawitem[this._hash_key_name()] = to_add;
-
-
-
-			/* add sort */
-			if ( this._range_key_name() ) {
-				var rtype = this._range_key_type()
-				var to_add = null;
-				if (rtype === "S")
-					to_add = {S: ""}
-
-				if (rtype === "N")
-					to_add = {N: ""}
-
-				if (rtype === "B")
-					to_add = {B: Uint8Array.from(atob("InsertBase64Here"), function (c) { return c.charCodeAt(0) } ) }
-
-
-				rawitem[this._range_key_name()] = to_add;
-			}
-
-
-			//console.log(rawitem)
-
-
-			ractive.root.findComponent('WindowContainer').newWindow(function($window) {
-				$window.set({
-					title: 'Create Item',
-					'geometry.width': window.innerWidth * .6,
-					'geometry.height': window.innerHeight * .6,
-					'geometry.left': window.innerWidth * .2,
-					'geometry.top': window.innerHeight * .2,
-				});
-
-				var vid = "window"+(Math.random()*0xFFFFFF<<0).toString(16)
-				$window.content('<div id="' + vid + '"/>').then(function() {
-					var ractive = new Ractive({
-						components: {
-							itemadd:  itemadd,
-						},
-						el: vid,
-						template: '<itemadd describeTable="{{describeTable}}" item="{{item}}" rawitem="{{rawitem}}" window={{window}} />',
-						data: {
-							describeTable: describeTable,
-							// item: {
-							//
-							// },
-							rawitem: rawitem,
-							window: $window,
-						}
-					})
-				})
-			})
-
-		})
 		ractive.on('delete-selected', function(context) {
 			//console.log(ractive.findComponent('tabledata').get('rows'))
 			var to_delete = ractive.findComponent('tabledata').get('rows')
