@@ -1,8 +1,9 @@
 
 import _table_utils from './_utils';
+import _open_item from './items/_open_item';
 
 import tabledata from '../tabledata';
-import itemedit from '../item/edit';
+
 import itemadd from '../item/add';
 
 export default Ractive.extend({
@@ -674,45 +675,16 @@ export default Ractive.extend({
 			}
 		}
 	},
+	on: {
+		'open-item': _open_item,
+	},
 	oninit: function() {
 		var ractive = this
 
 
 
 
-		this.on('open-item', function( e, col, item, rawitem ) {
-			var describeTable = this.get('describeTable')
-			var hash  = this._hash_key_name()
-			var range = this._range_key_name()
-			//console.log("open-item", "table=",describeTable.TableName, "hash=",hash, "range=", range, "item=", item, rawitem  )
-			ractive.root.findComponent('WindowContainer').newWindow(function($window) {
-				$window.set({
-					title: 'Edit Item',
-					'geometry.width': window.innerWidth * .6,
-					'geometry.height': window.innerHeight * .6,
-					'geometry.left': window.innerWidth * .2,
-					'geometry.top': window.innerHeight * .2,
-				});
-
-				var vid = "window"+(Math.random()*0xFFFFFF<<0).toString(16)
-				$window.content('<div id="' + vid + '"/>').then(function() {
-					var ractive = new Ractive({
-						components: {
-							itemedit: itemedit,
-						},
-						el: vid,
-						template: '<itemedit describeTable="{{describeTable}}" item="{{item}}" rawitem="{{rawitem}}" window={{window}} />',
-						data: {
-							describeTable: describeTable,
-							//item: item,
-							rawitem: rawitem,
-							window: $window,
-						}
-					})
-				})
-
-			})
-		})
+		//this.on('open-item', )
 
 		this.on('run-oop', function() {
 			if (this.get('oop_running'))
