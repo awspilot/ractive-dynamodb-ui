@@ -647,31 +647,33 @@ export default Ractive.extend({
 		})
 		this.set('display_columns', display_columns )
 	},
-	data: function() { return {
-		oop_running: false,
-		prev_running: false,
-		next_running: false,
-		start_reached: true,
-		end_reached: false,
+	data: function() {
+		return {
+			oop_running: false,
+			prev_running: false,
+			next_running: false,
+			start_reached: true,
+			end_reached: false,
 
-		type: 'scan',
-		display_columns: [
-			// { name, type, show: true|false|null}
-		],
-		autocolumns: true,
-		scan: {
-			table: '',
-			LastEvaluatedKey: [null],
-		},
-		query: {
-			table: '',
-			sort: {
-				op: 'eq',
-				value: '',
-				value2: '',
+			type: 'scan',
+			display_columns: [
+				// { name, type, show: true|false|null}
+			],
+			autocolumns: true,
+			scan: {
+				table: '',
+				LastEvaluatedKey: [null],
+			},
+			query: {
+				table: '',
+				sort: {
+					op: 'eq',
+					value: '',
+					value2: '',
+				}
 			}
 		}
-	} },
+	},
 	oninit: function() {
 		var ractive = this
 
