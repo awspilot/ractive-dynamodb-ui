@@ -32,6 +32,10 @@ var _range_key_type = function() {
 	return ret;
 }
 
+var _range_key_type_name = function() {
+	return ({S: 'String', N: 'Number', 'B': 'Binary'})[ this._range_key_type() ]
+}
+
 export default {
 	_hash_key_name: _hash_key_name,
 	_hash_key_type: _hash_key_type,
@@ -39,4 +43,5 @@ export default {
 
 	_range_key_name: _range_key_name,
 	_range_key_type: _range_key_type,
+	_range_key_type_name: _range_key_type_name,
 }
