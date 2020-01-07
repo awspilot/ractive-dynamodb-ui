@@ -11,9 +11,14 @@ var _hash_key_type = function() {
 			ret = at.AttributeType
 	})
 	return ret;
-},
+}
+
+var _hash_key_type_name = function() {
+	return ({S: 'String', N: 'Number', 'B': 'Binary'})[ this._hash_key_type() ]
+}
 
 export default {
 	_hash_key_name: _hash_key_name,
 	_hash_key_type: _hash_key_type,
+	_hash_key_type_name: _hash_key_type_name,
 }
