@@ -2,7 +2,7 @@
 import itemadd from '../../item/add';
 
 export default function() {
-
+	var ractive=this;
 
 
 
@@ -61,7 +61,7 @@ export default function() {
 
 		var vid = "window"+(Math.random()*0xFFFFFF<<0).toString(16)
 		$window.content('<div id="' + vid + '"/>').then(function() {
-			var ractive = new Ractive({
+			new Ractive({
 				components: {
 					itemadd:  itemadd,
 				},

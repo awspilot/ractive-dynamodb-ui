@@ -205,7 +205,7 @@ export default Ractive.extend({
 			<div class='btn btn-xs btn-default {{#if oop_running}}disabled{{/if}}' on-click='run-oop' style='padding-right: 10px;'> <icon-play /> RUN</div>
 			<div class='btn btn-xs btn-default {{#if prev_running}}disabled{{/if}} {{#if start_reached }}disabled{{/if}}' on-click='prev'> <icon-prev /> </div>
 			<div class='btn btn-xs btn-default {{#if next_running}}disabled{{/if}} {{#if end_reached   }}disabled{{/if}}' on-click='next'> <icon-next /> </div>
-
+next_running={{next_running}} end_reached={{end_reached}}
 			<div class='pull-right'>
 				<a class='btn btn-xs btn-default' on-click='refresh'> <icon-refresh /> </a>
 				<div class='btn-group'>
@@ -411,13 +411,11 @@ export default Ractive.extend({
 					if (err)
 						return alert("scan error")
 
-
-
 					dbrows_json = data;
 					dbrows_raw  = raw.Items
 
-					ractive.push('scan.LastEvaluatedKey', data.LastEvaluatedKey )
-					ractive.set('end_reached' ,data.LastEvaluatedKey ? false : true )
+					ractive.push('scan.LastEvaluatedKey', this.LastEvaluatedKey )
+					ractive.set('end_reached' ,this.LastEvaluatedKey ? false : true )
 
 					cb()
 				})
@@ -543,13 +541,13 @@ export default Ractive.extend({
 						alert("query error")
 						return cb(err)
 					}
-
+console.log("query LastEvaluatedKey=", this.LastEvaluatedKey )
 					dbrows_json = data;
 					dbrows_raw  = raw.Items;
 
-					ractive.push('scan.LastEvaluatedKey', data.LastEvaluatedKey )
+					ractive.push('scan.LastEvaluatedKey', this.LastEvaluatedKey )
 
-					ractive.set('end_reached' ,data.LastEvaluatedKey ? false : true )
+					ractive.set('end_reached' ,this.LastEvaluatedKey ? false : true )
 
 					cb()
 
@@ -678,6 +676,38 @@ export default Ractive.extend({
 	on: {
 		'open-item': _open_item,
 		'create-item': _create_item,
+		prev: function() {
+
+			if (this.get('prev_running'))
+				return;
+
+			this.set('prev_running' ,true )
+
+			if (this.get('scan.LastEvaluatedKey').length < 3)
+				return;
+
+			var next = this.pop('scan.LastEvaluatedKey')
+
+			var current = this.pop('scan.LastEvaluatedKey')
+
+			var LastEvaluatedKey = this.get('scan.LastEvaluatedKey').slice(-1)[0]
+
+			this.refresh_data(LastEvaluatedKey)
+		},
+		next: function() {
+
+			if (this.get('next_running'))
+				return;
+
+			if (this.get('end_reached'))
+				return;
+
+			this.set('next_running' ,true )
+			var LastEvaluatedKey = this.get('scan.LastEvaluatedKey').slice(-1)[0]
+
+
+			this.refresh_data(LastEvaluatedKey)
+		},
 	},
 	oninit: function() {
 		var ractive = this
@@ -698,36 +728,8 @@ export default Ractive.extend({
 
 			this.refresh_data(null)
 		})
-		this.on('prev', function() {
+		this.on('prev', )
 
-			if (this.get('prev_running'))
-				return;
-
-			this.set('prev_running' ,true )
-
-			if (ractive.get('scan.LastEvaluatedKey').length < 3)
-				return;
-
-			var next = ractive.pop('scan.LastEvaluatedKey')
-
-			var current = ractive.pop('scan.LastEvaluatedKey')
-
-			var LastEvaluatedKey = ractive.get('scan.LastEvaluatedKey').slice(-1)[0]
-
-			ractive.refresh_data(LastEvaluatedKey)
-		})
-		this.on('next', function() {
-
-			if (this.get('next_running'))
-				return;
-
-			if (this.get('end_reached'))
-				return;
-
-			this.set('next_running' ,true )
-			var LastEvaluatedKey = ractive.get('scan.LastEvaluatedKey').slice(-1)[0]
-			ractive.refresh_data(LastEvaluatedKey)
-		})
 
 		ractive.observe('scan.LastEvaluatedKey', function( n, o, keypath ) {
 			if (n.length > 2)

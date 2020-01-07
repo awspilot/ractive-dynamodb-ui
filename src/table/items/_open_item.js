@@ -2,6 +2,7 @@
 import itemedit from '../../item/edit';
 
 export default function( e, col, item, rawitem ) {
+	var ractive=this;
 	var describeTable = this.get('describeTable')
 	var hash  = this._hash_key_name()
 	var range = this._range_key_name()
@@ -17,7 +18,7 @@ export default function( e, col, item, rawitem ) {
 
 		var vid = "window"+(Math.random()*0xFFFFFF<<0).toString(16)
 		$window.content('<div id="' + vid + '"/>').then(function() {
-			var ractive = new Ractive({
+			new Ractive({
 				components: {
 					itemedit: itemedit,
 				},
