@@ -205,7 +205,7 @@ export default Ractive.extend({
 			<div class='btn btn-xs btn-default {{#if oop_running}}disabled{{/if}}' on-click='run-oop' style='padding-right: 10px;'> <icon-play /> RUN</div>
 			<div class='btn btn-xs btn-default {{#if prev_running}}disabled{{/if}} {{#if start_reached }}disabled{{/if}}' on-click='prev'> <icon-prev /> </div>
 			<div class='btn btn-xs btn-default {{#if next_running}}disabled{{/if}} {{#if end_reached   }}disabled{{/if}}' on-click='next'> <icon-next /> </div>
-next_running={{next_running}} end_reached={{end_reached}}
+
 			<div class='pull-right'>
 				<a class='btn btn-xs btn-default' on-click='refresh'> <icon-refresh /> </a>
 				<div class='btn-group'>
