@@ -2790,17 +2790,21 @@ Object.defineProperty(exports, "__esModule", {
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
+var _utils = __webpack_require__(139);
+
+var _utils2 = _interopRequireDefault(_utils);
+
+var _open_item2 = __webpack_require__(140);
+
+var _open_item3 = _interopRequireDefault(_open_item2);
+
+var _create_item2 = __webpack_require__(141);
+
+var _create_item3 = _interopRequireDefault(_create_item2);
+
 var _tabledata = __webpack_require__(10);
 
 var _tabledata2 = _interopRequireDefault(_tabledata);
-
-var _edit = __webpack_require__(62);
-
-var _edit2 = _interopRequireDefault(_edit);
-
-var _add = __webpack_require__(133);
-
-var _add2 = _interopRequireDefault(_add);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2809,138 +2813,31 @@ exports.default = Ractive.extend({
 		tabledata: _tabledata2.default
 	},
 	isolated: true,
-	template: '\n\t<div class=\'tablebrowse\'>\n\t\t{{#if !describeTable }}\n\t\t\t<br>reading table schema...\n\t\t{{else}}\n\t\t<div class=\'tablequery\'>\n\t\t\t<table width=\'100%\' style=\'border-collapse: separate;border-spacing: 5px;\'>\n\t\t\t\t<tr>\n\t\t\t\t\t<td>\n\t\t\t\t\t\t<select class="input-select" value=\'{{ .type }}\'>\n\t\t\t\t\t\t\t<option value=\'scan\'>SCAN</option>\n\t\t\t\t\t\t\t<option value=\'query\'>QUERY</option>\n\t\t\t\t\t\t</select>\n\t\t\t\t\t</td>\n\t\t\t\t\t<td colspan=\'4\'>\n\t\t\t\t\t\t{{#if .type === \'scan\' }}\n\t\t\t\t\t\t<select class="input-select" value=\'{{ .scan.table }}\'>\n\t\t\t\t\t\t\t<option value=\'\'>\n\t\t\t\t\t\t\t\t[ Table ] {{ describeTable.TableName }}: {{ @this._hash_key_name() }} ( {{ @this._hash_key_type_name() }} )\n\t\t\t\t\t\t\t\t{{#if describeTable.KeySchema.length === 2}}\n\t\t\t\t\t\t\t\t\t, {{ @this._range_key_name() }} ( {{ @this._range_key_type_name() }} )\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</option>\n\n\t\t\t\t\t\t\t{{#describeTable.LocalSecondaryIndexes:j}}\n\t\t\t\t\t\t\t<option value=\'lsi:{{ .IndexName }}\'>\n\t\t\t\t\t\t\t\t[ LSI ] {{ .IndexName }}: {{ @this._lsi_hash_key_name( .IndexName ) }} ( {{ @this._lsi_hash_key_type_name( .IndexName ) }} )\n\t\t\t\t\t\t\t\t{{#if .KeySchema.length === 2}}\n\t\t\t\t\t\t\t\t\t, {{ @this._lsi_range_key_name( .IndexName ) }} (  {{ @this._lsi_range_key_type_name( .IndexName ) }} )\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t{{/describeTable.LocalSecondaryIndexes}}\n\n\t\t\t\t\t\t\t{{#describeTable.GlobalSecondaryIndexes:j}}\n\t\t\t\t\t\t\t<option value=\'gsi:{{ .IndexName }}\'>\n\t\t\t\t\t\t\t\t[ GSI ] {{ .IndexName }}: {{ @this._gsi_hash_key_name( .IndexName ) }} ( {{ @this._gsi_hash_key_type_name( .IndexName ) }} )\n\t\t\t\t\t\t\t\t{{#if .KeySchema.length === 2}}\n\t\t\t\t\t\t\t\t\t, {{ @this._gsi_range_key_name( .IndexName ) }} (  {{ @this._gsi_range_key_type_name( .IndexName ) }} )\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t{{/describeTable.GlobalSecondaryIndexes}}\n\t\t\t\t\t\t</select>\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if .type === \'query\' }}\n\t\t\t\t\t\t<select class="input-select" value=\'{{ .query.table }}\'>\n\t\t\t\t\t\t\t<option value=\'\'>\n\t\t\t\t\t\t\t\t[ Table ] {{ describeTable.TableName }}: {{ @this._hash_key_name() }} ( {{ @this._hash_key_type_name() }} )\n\t\t\t\t\t\t\t\t{{#if describeTable.KeySchema.length === 2}}\n\t\t\t\t\t\t\t\t\t, {{ @this._range_key_name() }} ( {{ @this._range_key_type_name() }} )\n\t\t\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t\t</option>\n\n\t\t\t\t\t\t\t{{#describeTable.LocalSecondaryIndexes:j}}\n\t\t\t\t\t\t\t<option value=\'lsi:{{ .IndexName }}\'>\n\t\t\t\t\t\t\t\t[ LSI ] {{ .IndexName }}: {{ @this._lsi_hash_key_name( .IndexName ) }} ( {{ @this._lsi_hash_key_type_name( .IndexName ) }} )\n\t\t\t\t\t\t\t\t{{#if .KeySchema.length === 2}}\n\t\t\t\t\t\t\t\t\t, {{ @this._lsi_range_key_name( .IndexName ) }} (  {{ @this._lsi_range_key_type_name( .IndexName ) }} )\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t{{/describeTable.LocalSecondaryIndexes}}\n\n\t\t\t\t\t\t\t{{#describeTable.GlobalSecondaryIndexes:j}}\n\t\t\t\t\t\t\t<option value=\'gsi:{{ .IndexName }}\'>\n\t\t\t\t\t\t\t\t[ GSI ] {{ .IndexName }}: {{ @this._gsi_hash_key_name( .IndexName ) }} ( {{ @this._gsi_hash_key_type_name( .IndexName ) }} )\n\t\t\t\t\t\t\t\t{{#if .KeySchema.length === 2}}\n\t\t\t\t\t\t\t\t\t, {{ @this._gsi_range_key_name( .IndexName ) }} (  {{ @this._gsi_range_key_type_name( .IndexName ) }} )\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t{{/describeTable.GlobalSecondaryIndexes}}\n\t\t\t\t\t\t</select>\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t</td>\n\t\t\t\t</tr>\n\t\t\t\t{{#if .type === \'query\' }}\n\t\t\t\t<tr>\n\t\t\t\t\t<td>Partition</td>\n\t\t\t\t\t{{#if .query.table === \'\'  }}\n\t\t\t\t\t\t<td>{{ _hash_key_name() }}</td>\n\t\t\t\t\t\t<td><select class="input-select"><option>{{ @this._hash_key_type_name() }}</option></select></td>\n\t\t\t\t\t{{/if}}\n\t\t\t\t\t{{#describeTable.LocalSecondaryIndexes:j}}\n\t\t\t\t\t\t{{#if ~/.query.table === (\'lsi:\' +  .IndexName)  }}\n\t\t\t\t\t\t\t<td>{{ @this._lsi_hash_key_name( .IndexName ) }}</td>\n\t\t\t\t\t\t\t<td><select class="input-select"><option>{{ @this._lsi_hash_key_type_name( .IndexName ) }}</option></select></td>\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t{{/describeTable.LocalSecondaryIndexes}}\n\t\t\t\t\t{{#describeTable.GlobalSecondaryIndexes:j}}\n\t\t\t\t\t\t{{#if ~/.query.table === (\'gsi:\' +  .IndexName)  }}\n\t\t\t\t\t\t\t<td>{{ @this._gsi_hash_key_name( .IndexName ) }}</td>\n\t\t\t\t\t\t\t<td><select class="input-select"><option>{{ @this._gsi_hash_key_type_name( .IndexName ) }}</option></select></td>\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t{{/describeTable.GlobalSecondaryIndexes}}\n\t\t\t\t\t<td><select class="input-select"><option>=</option></select></td>\n\t\t\t\t\t<td><input class="input-text" type=\'text\' value=\'{{.query.partition.value}}\'></td>\n\t\t\t\t</tr>\n\t\t\t\t{{#if .query.table === \'\'  }}\n\t\t\t\t\t{{#if describeTable.KeySchema.length === 2}}\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>Sort</td>\n\t\t\t\t\t\t<td>{{ @this._range_key_name() }}</td>\n\t\t\t\t\t\t<td><select class="input-select"><option>{{ @this._range_key_type_name( ) }}</option></select></td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<select class="input-select" value=\'{{ ~/query.sort.op }}\'>\n\t\t\t\t\t\t\t\t<option value=\'eq\'>=</option>\n\t\t\t\t\t\t\t\t<option value=\'gt\'>&gt;</option>\n\t\t\t\t\t\t\t\t<option value=\'ge\'>&gt;=</option>\n\t\t\t\t\t\t\t\t<option value=\'lt\'>&lt;</option>\n\t\t\t\t\t\t\t\t<option value=\'le\'>&lt;=</option>\n\t\t\t\t\t\t\t\t<option value=\'between\'>between</option>\n\t\t\t\t\t\t\t\t{{#if _range_key_type()  === \'S\' }}\n\t\t\t\t\t\t\t\t\t<option value=\'begins_with\'>begins with</option>\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<input class="input-text" type=\'text\' value=\'{{ ~/query.sort.value }}\'>\n\t\t\t\t\t\t\t{{#if ~/query.sort.op === \'between\' }}\n\t\t\t\t\t\t\t\t<input class="input-text" type=\'text\' value=\'{{ ~/query.sort.value2 }}\'>\n\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t{{/if}}\n\t\t\t\t{{/if}}\n\t\t\t\t{{#describeTable.GlobalSecondaryIndexes:j}}\n\t\t\t\t\t{{#if ~/.query.table === (\'gsi:\' +  .IndexName)  }}\n\t\t\t\t\t\t{{#if .KeySchema.length === 2}}\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Sort</td>\n\t\t\t\t\t\t\t<td>{{ @this._gsi_range_key_name( .IndexName ) }}</td>\n\t\t\t\t\t\t\t<td><select class="input-select"><option>{{ @this._gsi_range_key_type_name( .IndexName ) }}</option></select></td>\n\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t<select class="input-select" value=\'{{ ~/query.sort.op }}\'>\n\t\t\t\t\t\t\t\t\t<option value=\'eq\'>=</option>\n\t\t\t\t\t\t\t\t\t<option value=\'gt\'>&gt;</option>\n\t\t\t\t\t\t\t\t\t<option value=\'ge\'>&gt;=</option>\n\t\t\t\t\t\t\t\t\t<option value=\'lt\'>&lt;</option>\n\t\t\t\t\t\t\t\t\t<option value=\'le\'>&lt;=</option>\n\t\t\t\t\t\t\t\t\t<option value=\'between\'>between</option>\n\t\t\t\t\t\t\t\t\t{{#if @this._gsi_range_key_type( .IndexName )  === \'S\' }}\n\t\t\t\t\t\t\t\t\t\t<option value=\'begins_with\'>begins with</option>\n\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t<input class="input-text" type=\'text\' value=\'{{ ~/query.sort.value }}\'>\n\t\t\t\t\t\t\t\t{{#if ~/query.sort.op === \'between\' }}\n\t\t\t\t\t\t\t\t\t<input class="input-text" type=\'text\' value=\'{{ ~/query.sort.value2 }}\'>\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t{{/if}}\n\t\t\t\t{{/describeTable.GlobalSecondaryIndexes}}\n\t\t\t\t{{#describeTable.LocalSecondaryIndexes:j}}\n\t\t\t\t\t{{#if ~/.query.table === (\'lsi:\' +  .IndexName)  }}\n\t\t\t\t\t\t{{#if .KeySchema.length === 2}}\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Sort</td>\n\t\t\t\t\t\t\t<td>{{ @this._lsi_range_key_name( .IndexName ) }}</td>\n\t\t\t\t\t\t\t<td><select class="input-select"><option>{{ @this._lsi_range_key_type_name( .IndexName ) }}</option></select></td>\n\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t<select class="input-select" value=\'{{ ~/query.sort.op }}\'>\n\t\t\t\t\t\t\t\t\t<option value=\'eq\'>=</option>\n\t\t\t\t\t\t\t\t\t<option value=\'gt\'>&gt;</option>\n\t\t\t\t\t\t\t\t\t<option value=\'ge\'>&gt;=</option>\n\t\t\t\t\t\t\t\t\t<option value=\'lt\'>&lt;</option>\n\t\t\t\t\t\t\t\t\t<option value=\'le\'>&lt;=</option>\n\t\t\t\t\t\t\t\t\t<option value=\'between\'>between</option>\n\t\t\t\t\t\t\t\t\t{{#if @this._lsi_range_key_type( .IndexName )  === \'S\' }}\n\t\t\t\t\t\t\t\t\t\t<option value=\'begins_with\'>begins with</option>\n\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t<input class="input-text" type=\'text\' value=\'{{ ~/query.sort.value }}\'>\n\t\t\t\t\t\t\t\t{{#if ~/query.sort.op === \'between\' }}\n\t\t\t\t\t\t\t\t\t<input class="input-text" type=\'text\' value=\'{{ ~/query.sort.value2 }}\'>\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t{{/if}}\n\t\t\t\t{{/describeTable.LocalSecondaryIndexes}}\n\n\t\t\t\t{{/if}}\n\t\t\t</table>\n\n\t\t</div>\n\t\t<div class=\'tabledatacontrols\'>\n\t\t\t<div class=\'btn btn-xs btn-default {{#if oop_running}}disabled{{/if}}\' on-click=\'run-oop\' style=\'padding-right: 10px;\'> <icon-play /> RUN</div>\n\t\t\t<div class=\'btn btn-xs btn-default {{#if prev_running}}disabled{{/if}} {{#if start_reached }}disabled{{/if}}\' on-click=\'prev\'> <icon-prev /> </div>\n\t\t\t<div class=\'btn btn-xs btn-default {{#if next_running}}disabled{{/if}} {{#if end_reached   }}disabled{{/if}}\' on-click=\'next\'> <icon-next /> </div>\n\n\t\t\t<div class=\'pull-right\'>\n\t\t\t\t<a class=\'btn btn-xs btn-default\' on-click=\'refresh\'> <icon-refresh /> </a>\n\t\t\t\t<div class=\'btn-group\'>\n\t\t\t\t\t<button class=\'btn btn-default btn-xs\' type=\'button\'>\n\t\t\t\t\t\t<icon-filter />\n\t\t\t\t\t</button>\n\t\t\t\t\t<button type=\'button\' class=\'btn btn-xs btn-default dropdown-toggle dropdown-toggle-split\' on-click=\'@this.toggle("drowndownfilteropen")\'>\n\t\t\t\t\t\t<icon-caret-down />\n\t\t\t\t\t</button>\n\t\t\t\t\t<div class=\'dropdown-menu pull-right {{#if drowndownfilteropen}}show{{/if}}\' style=\'max-height: 250px;overflow-y: auto;\'>\n\t\t\t\t\t\t{{#display_columns}}\n\t\t\t\t\t\t\t<li><a> <input class="input-checkbox" type=checkbox checked=\'{{.show}}\' />  {{.name}}</a>\n\t\t\t\t\t\t{{/display_columns}}\n\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<a class=\'btn btn-xs btn-primary\' on-click=\'create-item-window\'  > Create Item </a>\n\t\t\t\t<a class=\'btn btn-xs btn-danger {{#if selection_length > 0}}{{else}}disabled{{/if}}\'  on-click=\'delete-selected\' > <icon-trash /> </a>\n\t\t\t</div>\n\t\t</div>\n\t\t<tabledata columns=\'{{columns}}\' rows=\'{{rows}}\' on-colclick=\'open-item\' style=\'top: 148px\'/>\n\t\t{{/if}}\n\t</div>\n\t\t',
-	_hash_key_name: function _hash_key_name() {
-		return (this.get('describeTable').KeySchema.filter(function (k) {
-			return k.KeyType === 'HASH';
-		})[0] || {}).AttributeName;
-	},
-	_hash_key_type: function _hash_key_type() {
-		var ractive = this;
+	template: '\n\t<div class=\'tablebrowse\'>\n\t\t{{#if !describeTable }}\n\t\t\t<br>reading table schema...\n\t\t{{else}}\n\t\t<div class=\'tablequery\'>\n\t\t\t<table width=\'100%\' style=\'border-collapse: separate;border-spacing: 5px;\'>\n\t\t\t\t<tr>\n\t\t\t\t\t<td>\n\t\t\t\t\t\t<select class="input-select" value=\'{{ .type }}\'>\n\t\t\t\t\t\t\t<option value=\'scan\'>SCAN</option>\n\t\t\t\t\t\t\t<option value=\'query\'>QUERY</option>\n\t\t\t\t\t\t</select>\n\t\t\t\t\t</td>\n\t\t\t\t\t<td colspan=\'4\'>\n\t\t\t\t\t\t{{#if .type === \'scan\' }}\n\t\t\t\t\t\t<select class="input-select" value=\'{{ .scan.table }}\'>\n\t\t\t\t\t\t\t<option value=\'\'>\n\t\t\t\t\t\t\t\t[ Table ] {{ describeTable.TableName }}: {{ @this._hash_key_name() }} ( {{ @this._hash_key_type_name() }} )\n\t\t\t\t\t\t\t\t{{#if describeTable.KeySchema.length === 2}}\n\t\t\t\t\t\t\t\t\t, {{ @this._range_key_name() }} ( {{ @this._range_key_type_name() }} )\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</option>\n\n\t\t\t\t\t\t\t{{#describeTable.LocalSecondaryIndexes:j}}\n\t\t\t\t\t\t\t<option value=\'lsi:{{ .IndexName }}\'>\n\t\t\t\t\t\t\t\t[ LSI ] {{ .IndexName }}: {{ @this._lsi_hash_key_name( .IndexName ) }} ( {{ @this._lsi_hash_key_type_name( .IndexName ) }} )\n\t\t\t\t\t\t\t\t{{#if .KeySchema.length === 2}}\n\t\t\t\t\t\t\t\t\t, {{ @this._lsi_range_key_name( .IndexName ) }} (  {{ @this._lsi_range_key_type_name( .IndexName ) }} )\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t{{/describeTable.LocalSecondaryIndexes}}\n\n\t\t\t\t\t\t\t{{#describeTable.GlobalSecondaryIndexes:j}}\n\t\t\t\t\t\t\t<option value=\'gsi:{{ .IndexName }}\'>\n\t\t\t\t\t\t\t\t[ GSI ] {{ .IndexName }}: {{ @this._gsi_hash_key_name( .IndexName ) }} ( {{ @this._gsi_hash_key_type_name( .IndexName ) }} )\n\t\t\t\t\t\t\t\t{{#if .KeySchema.length === 2}}\n\t\t\t\t\t\t\t\t\t, {{ @this._gsi_range_key_name( .IndexName ) }} (  {{ @this._gsi_range_key_type_name( .IndexName ) }} )\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t{{/describeTable.GlobalSecondaryIndexes}}\n\t\t\t\t\t\t</select>\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if .type === \'query\' }}\n\t\t\t\t\t\t<select class="input-select" value=\'{{ .query.table }}\'>\n\t\t\t\t\t\t\t<option value=\'\'>\n\t\t\t\t\t\t\t\t[ Table ] {{ describeTable.TableName }}: {{ @this._hash_key_name() }} ( {{ @this._hash_key_type_name() }} )\n\t\t\t\t\t\t\t\t{{#if describeTable.KeySchema.length === 2}}\n\t\t\t\t\t\t\t\t\t, {{ @this._range_key_name() }} ( {{ @this._range_key_type_name() }} )\n\t\t\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t\t</option>\n\n\t\t\t\t\t\t\t{{#describeTable.LocalSecondaryIndexes:j}}\n\t\t\t\t\t\t\t<option value=\'lsi:{{ .IndexName }}\'>\n\t\t\t\t\t\t\t\t[ LSI ] {{ .IndexName }}: {{ @this._lsi_hash_key_name( .IndexName ) }} ( {{ @this._lsi_hash_key_type_name( .IndexName ) }} )\n\t\t\t\t\t\t\t\t{{#if .KeySchema.length === 2}}\n\t\t\t\t\t\t\t\t\t, {{ @this._lsi_range_key_name( .IndexName ) }} (  {{ @this._lsi_range_key_type_name( .IndexName ) }} )\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t{{/describeTable.LocalSecondaryIndexes}}\n\n\t\t\t\t\t\t\t{{#describeTable.GlobalSecondaryIndexes:j}}\n\t\t\t\t\t\t\t<option value=\'gsi:{{ .IndexName }}\'>\n\t\t\t\t\t\t\t\t[ GSI ] {{ .IndexName }}: {{ @this._gsi_hash_key_name( .IndexName ) }} ( {{ @this._gsi_hash_key_type_name( .IndexName ) }} )\n\t\t\t\t\t\t\t\t{{#if .KeySchema.length === 2}}\n\t\t\t\t\t\t\t\t\t, {{ @this._gsi_range_key_name( .IndexName ) }} (  {{ @this._gsi_range_key_type_name( .IndexName ) }} )\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t{{/describeTable.GlobalSecondaryIndexes}}\n\t\t\t\t\t\t</select>\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t</td>\n\t\t\t\t</tr>\n\t\t\t\t{{#if .type === \'query\' }}\n\t\t\t\t<tr>\n\t\t\t\t\t<td>Partition</td>\n\t\t\t\t\t{{#if .query.table === \'\'  }}\n\t\t\t\t\t\t<td>{{ _hash_key_name() }}</td>\n\t\t\t\t\t\t<td><select class="input-select"><option>{{ @this._hash_key_type_name() }}</option></select></td>\n\t\t\t\t\t{{/if}}\n\t\t\t\t\t{{#describeTable.LocalSecondaryIndexes:j}}\n\t\t\t\t\t\t{{#if ~/.query.table === (\'lsi:\' +  .IndexName)  }}\n\t\t\t\t\t\t\t<td>{{ @this._lsi_hash_key_name( .IndexName ) }}</td>\n\t\t\t\t\t\t\t<td><select class="input-select"><option>{{ @this._lsi_hash_key_type_name( .IndexName ) }}</option></select></td>\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t{{/describeTable.LocalSecondaryIndexes}}\n\t\t\t\t\t{{#describeTable.GlobalSecondaryIndexes:j}}\n\t\t\t\t\t\t{{#if ~/.query.table === (\'gsi:\' +  .IndexName)  }}\n\t\t\t\t\t\t\t<td>{{ @this._gsi_hash_key_name( .IndexName ) }}</td>\n\t\t\t\t\t\t\t<td><select class="input-select"><option>{{ @this._gsi_hash_key_type_name( .IndexName ) }}</option></select></td>\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t{{/describeTable.GlobalSecondaryIndexes}}\n\t\t\t\t\t<td><select class="input-select"><option>=</option></select></td>\n\t\t\t\t\t<td><input class="input-text" type=\'text\' value=\'{{.query.partition.value}}\'></td>\n\t\t\t\t</tr>\n\t\t\t\t{{#if .query.table === \'\'  }}\n\t\t\t\t\t{{#if describeTable.KeySchema.length === 2}}\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>Sort</td>\n\t\t\t\t\t\t<td>{{ @this._range_key_name() }}</td>\n\t\t\t\t\t\t<td><select class="input-select"><option>{{ @this._range_key_type_name( ) }}</option></select></td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<select class="input-select" value=\'{{ ~/query.sort.op }}\'>\n\t\t\t\t\t\t\t\t<option value=\'eq\'>=</option>\n\t\t\t\t\t\t\t\t<option value=\'gt\'>&gt;</option>\n\t\t\t\t\t\t\t\t<option value=\'ge\'>&gt;=</option>\n\t\t\t\t\t\t\t\t<option value=\'lt\'>&lt;</option>\n\t\t\t\t\t\t\t\t<option value=\'le\'>&lt;=</option>\n\t\t\t\t\t\t\t\t<option value=\'between\'>between</option>\n\t\t\t\t\t\t\t\t{{#if _range_key_type()  === \'S\' }}\n\t\t\t\t\t\t\t\t\t<option value=\'begins_with\'>begins with</option>\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<input class="input-text" type=\'text\' value=\'{{ ~/query.sort.value }}\'>\n\t\t\t\t\t\t\t{{#if ~/query.sort.op === \'between\' }}\n\t\t\t\t\t\t\t\t<input class="input-text" type=\'text\' value=\'{{ ~/query.sort.value2 }}\'>\n\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t{{/if}}\n\t\t\t\t{{/if}}\n\t\t\t\t{{#describeTable.GlobalSecondaryIndexes:j}}\n\t\t\t\t\t{{#if ~/.query.table === (\'gsi:\' +  .IndexName)  }}\n\t\t\t\t\t\t{{#if .KeySchema.length === 2}}\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Sort</td>\n\t\t\t\t\t\t\t<td>{{ @this._gsi_range_key_name( .IndexName ) }}</td>\n\t\t\t\t\t\t\t<td><select class="input-select"><option>{{ @this._gsi_range_key_type_name( .IndexName ) }}</option></select></td>\n\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t<select class="input-select" value=\'{{ ~/query.sort.op }}\'>\n\t\t\t\t\t\t\t\t\t<option value=\'eq\'>=</option>\n\t\t\t\t\t\t\t\t\t<option value=\'gt\'>&gt;</option>\n\t\t\t\t\t\t\t\t\t<option value=\'ge\'>&gt;=</option>\n\t\t\t\t\t\t\t\t\t<option value=\'lt\'>&lt;</option>\n\t\t\t\t\t\t\t\t\t<option value=\'le\'>&lt;=</option>\n\t\t\t\t\t\t\t\t\t<option value=\'between\'>between</option>\n\t\t\t\t\t\t\t\t\t{{#if @this._gsi_range_key_type( .IndexName )  === \'S\' }}\n\t\t\t\t\t\t\t\t\t\t<option value=\'begins_with\'>begins with</option>\n\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t<input class="input-text" type=\'text\' value=\'{{ ~/query.sort.value }}\'>\n\t\t\t\t\t\t\t\t{{#if ~/query.sort.op === \'between\' }}\n\t\t\t\t\t\t\t\t\t<input class="input-text" type=\'text\' value=\'{{ ~/query.sort.value2 }}\'>\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t{{/if}}\n\t\t\t\t{{/describeTable.GlobalSecondaryIndexes}}\n\t\t\t\t{{#describeTable.LocalSecondaryIndexes:j}}\n\t\t\t\t\t{{#if ~/.query.table === (\'lsi:\' +  .IndexName)  }}\n\t\t\t\t\t\t{{#if .KeySchema.length === 2}}\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Sort</td>\n\t\t\t\t\t\t\t<td>{{ @this._lsi_range_key_name( .IndexName ) }}</td>\n\t\t\t\t\t\t\t<td><select class="input-select"><option>{{ @this._lsi_range_key_type_name( .IndexName ) }}</option></select></td>\n\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t<select class="input-select" value=\'{{ ~/query.sort.op }}\'>\n\t\t\t\t\t\t\t\t\t<option value=\'eq\'>=</option>\n\t\t\t\t\t\t\t\t\t<option value=\'gt\'>&gt;</option>\n\t\t\t\t\t\t\t\t\t<option value=\'ge\'>&gt;=</option>\n\t\t\t\t\t\t\t\t\t<option value=\'lt\'>&lt;</option>\n\t\t\t\t\t\t\t\t\t<option value=\'le\'>&lt;=</option>\n\t\t\t\t\t\t\t\t\t<option value=\'between\'>between</option>\n\t\t\t\t\t\t\t\t\t{{#if @this._lsi_range_key_type( .IndexName )  === \'S\' }}\n\t\t\t\t\t\t\t\t\t\t<option value=\'begins_with\'>begins with</option>\n\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t<input class="input-text" type=\'text\' value=\'{{ ~/query.sort.value }}\'>\n\t\t\t\t\t\t\t\t{{#if ~/query.sort.op === \'between\' }}\n\t\t\t\t\t\t\t\t\t<input class="input-text" type=\'text\' value=\'{{ ~/query.sort.value2 }}\'>\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t{{/if}}\n\t\t\t\t{{/describeTable.LocalSecondaryIndexes}}\n\n\t\t\t\t{{/if}}\n\t\t\t</table>\n\n\t\t</div>\n\t\t<div class=\'tabledatacontrols\'>\n\t\t\t<div class=\'btn btn-xs btn-default {{#if oop_running}}disabled{{/if}}\' on-click=\'run-oop\' style=\'padding-right: 10px;\'> <icon-play /> RUN</div>\n\t\t\t<div class=\'btn btn-xs btn-default {{#if prev_running}}disabled{{/if}} {{#if start_reached }}disabled{{/if}}\' on-click=\'prev\'> <icon-prev /> </div>\n\t\t\t<div class=\'btn btn-xs btn-default {{#if next_running}}disabled{{/if}} {{#if end_reached   }}disabled{{/if}}\' on-click=\'next\'> <icon-next /> </div>\nnext_running={{next_running}} end_reached={{end_reached}}\n\t\t\t<div class=\'pull-right\'>\n\t\t\t\t<a class=\'btn btn-xs btn-default\' on-click=\'refresh\'> <icon-refresh /> </a>\n\t\t\t\t<div class=\'btn-group\'>\n\t\t\t\t\t<button class=\'btn btn-default btn-xs\' type=\'button\'>\n\t\t\t\t\t\t<icon-filter />\n\t\t\t\t\t</button>\n\t\t\t\t\t<button type=\'button\' class=\'btn btn-xs btn-default dropdown-toggle dropdown-toggle-split\' on-click=\'@this.toggle("drowndownfilteropen")\'>\n\t\t\t\t\t\t<icon-caret-down />\n\t\t\t\t\t</button>\n\t\t\t\t\t<div class=\'dropdown-menu pull-right {{#if drowndownfilteropen}}show{{/if}}\' style=\'max-height: 250px;overflow-y: auto;\'>\n\t\t\t\t\t\t{{#display_columns}}\n\t\t\t\t\t\t\t<li><a> <input class="input-checkbox" type=checkbox checked=\'{{.show}}\' />  {{.name}}</a>\n\t\t\t\t\t\t{{/display_columns}}\n\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<a class=\'btn btn-xs btn-primary\' on-click=\'create-item\'  > Create Item </a>\n\t\t\t\t<a class=\'btn btn-xs btn-danger {{#if selection_length > 0}}{{else}}disabled{{/if}}\'  on-click=\'delete-selected\' > <icon-trash /> </a>\n\t\t\t</div>\n\t\t</div>\n\t\t<tabledata columns=\'{{columns}}\' rows=\'{{rows}}\' on-colclick=\'open-item\' style=\'top: 148px\'/>\n\t\t{{/if}}\n\t</div>\n\t\t',
 
-		var ret;
-		this.get('describeTable.AttributeDefinitions').map(function (at) {
-			if (at.AttributeName === ractive._hash_key_name()) ret = at.AttributeType;
-		});
-		return ret;
-	},
-	_hash_key_type_name: function _hash_key_type_name() {
-		return { S: 'String', N: 'Number', 'B': 'Binary' }[this._hash_key_type()];
-	},
+	_hash_key_name: _utils2.default._hash_key_name,
+	_hash_key_type: _utils2.default._hash_key_type,
+	_hash_key_type_name: _utils2.default._hash_key_type_name,
 
-	_range_key_name: function _range_key_name() {
-		return (this.get('describeTable').KeySchema.filter(function (k) {
-			return k.KeyType === 'RANGE';
-		})[0] || {}).AttributeName;
-	},
-	_range_key_type: function _range_key_type() {
-		var ractive = this;
+	_range_key_name: _utils2.default._range_key_name,
+	_range_key_type: _utils2.default._range_key_type,
+	_range_key_type_name: _utils2.default._range_key_type_name,
 
-		var ret;
-		this.get('describeTable.AttributeDefinitions').map(function (at) {
-			if (at.AttributeName === ractive._range_key_name()) ret = at.AttributeType;
-		});
-		return ret;
-	},
-	_range_key_type_name: function _range_key_type_name() {
-		return { S: 'String', N: 'Number', 'B': 'Binary' }[this._range_key_type()];
-	},
+	_gsi_hash_key_name: _utils2.default._gsi_hash_key_name,
+	_gsi_hash_key_type: _utils2.default._gsi_hash_key_type,
+	_gsi_hash_key_type_name: _utils2.default._gsi_hash_key_type_name,
 
-	_gsi_hash_key_name: function _gsi_hash_key_name(indexname) {
+	_gsi_range_key_name: _utils2.default._gsi_range_key_name,
+	_gsi_range_key_type: _utils2.default._gsi_range_key_type,
+	_gsi_range_key_type_name: _utils2.default._gsi_range_key_type_name,
 
-		var index = (this.get('describeTable.GlobalSecondaryIndexes') || []).filter(function (i) {
-			return i.IndexName === indexname;
-		})[0];
-		if (!index) return;
+	_lsi_hash_key_name: _utils2.default._lsi_hash_key_name,
+	_lsi_hash_key_type: _utils2.default._lsi_hash_key_type,
+	_lsi_hash_key_type_name: _utils2.default._lsi_hash_key_type_name,
 
-		return (index.KeySchema.filter(function (k) {
-			return k.KeyType === 'HASH';
-		})[0] || {}).AttributeName;
-	},
-	_gsi_hash_key_type: function _gsi_hash_key_type(indexname) {
-		var ractive = this;
-
-		var ret;
-		this.get('describeTable.AttributeDefinitions').map(function (at) {
-			if (at.AttributeName === ractive._gsi_hash_key_name(indexname)) ret = at.AttributeType;
-		});
-		return ret;
-	},
-	_gsi_hash_key_type_name: function _gsi_hash_key_type_name(indexname) {
-		return { S: 'String', N: 'Number', 'B': 'Binary' }[this._gsi_hash_key_type(indexname)];
-	},
-
-	_gsi_range_key_name: function _gsi_range_key_name(indexname) {
-
-		var index = (this.get('describeTable.GlobalSecondaryIndexes') || []).filter(function (i) {
-			return i.IndexName === indexname;
-		})[0];
-		if (!index) return;
-
-		return (index.KeySchema.filter(function (k) {
-			return k.KeyType === 'RANGE';
-		})[0] || {}).AttributeName;
-	},
-	_gsi_range_key_type: function _gsi_range_key_type(indexname) {
-		var ractive = this;
-
-		var ret;
-		this.get('describeTable.AttributeDefinitions').map(function (at) {
-			if (at.AttributeName === ractive._gsi_range_key_name(indexname)) ret = at.AttributeType;
-		});
-		return ret;
-	},
-	_gsi_range_key_type_name: function _gsi_range_key_type_name(indexname) {
-		return { S: 'String', N: 'Number', 'B': 'Binary' }[this._gsi_range_key_type(indexname)];
-	},
-
-	_lsi_hash_key_name: function _lsi_hash_key_name(indexname) {
-
-		var index = (this.get('describeTable.LocalSecondaryIndexes') || []).filter(function (i) {
-			return i.IndexName === indexname;
-		})[0];
-		if (!index) return;
-
-		return (index.KeySchema.filter(function (k) {
-			return k.KeyType === 'HASH';
-		})[0] || {}).AttributeName;
-	},
-	_lsi_hash_key_type: function _lsi_hash_key_type(indexname) {
-		var ractive = this;
-
-		var ret;
-		this.get('describeTable.AttributeDefinitions').map(function (at) {
-			if (at.AttributeName === ractive._lsi_hash_key_name(indexname)) ret = at.AttributeType;
-		});
-		return ret;
-	},
-	_lsi_hash_key_type_name: function _lsi_hash_key_type_name(indexname) {
-		return { S: 'String', N: 'Number', 'B': 'Binary' }[this._lsi_hash_key_type(indexname)];
-	},
-
-	_lsi_range_key_name: function _lsi_range_key_name(indexname) {
-
-		var index = (this.get('describeTable.LocalSecondaryIndexes') || []).filter(function (i) {
-			return i.IndexName === indexname;
-		})[0];
-		if (!index) return;
-
-		return (index.KeySchema.filter(function (k) {
-			return k.KeyType === 'RANGE';
-		})[0] || {}).AttributeName;
-	},
-	_lsi_range_key_type: function _lsi_range_key_type(indexname) {
-		var ractive = this;
-
-		var ret;
-		this.get('describeTable.AttributeDefinitions').map(function (at) {
-			if (at.AttributeName === ractive._lsi_range_key_name(indexname)) ret = at.AttributeType;
-		});
-		return ret;
-	},
-	_lsi_range_key_type_name: function _lsi_range_key_type_name(indexname) {
-		return { S: 'String', N: 'Number', 'B': 'Binary' }[this._lsi_range_key_type(indexname)];
-	},
+	_lsi_range_key_name: _utils2.default._lsi_range_key_name,
+	_lsi_range_key_type: _utils2.default._lsi_range_key_type,
+	_lsi_range_key_type_name: _utils2.default._lsi_range_key_type_name,
 
 	display_data: function display_data() {
 		var ractive = this;
@@ -3068,8 +2965,8 @@ exports.default = Ractive.extend({
 				dbrows_json = data;
 				dbrows_raw = raw.Items;
 
-				ractive.push('scan.LastEvaluatedKey', data.LastEvaluatedKey);
-				ractive.set('end_reached', data.LastEvaluatedKey ? false : true);
+				ractive.push('scan.LastEvaluatedKey', this.LastEvaluatedKey);
+				ractive.set('end_reached', this.LastEvaluatedKey ? false : true);
 
 				cb();
 			});
@@ -3182,13 +3079,13 @@ exports.default = Ractive.extend({
 					alert("query error");
 					return cb(err);
 				}
-
+				console.log("query LastEvaluatedKey=", this.LastEvaluatedKey);
 				dbrows_json = data;
 				dbrows_raw = raw.Items;
 
-				ractive.push('scan.LastEvaluatedKey', data.LastEvaluatedKey);
+				ractive.push('scan.LastEvaluatedKey', this.LastEvaluatedKey);
 
-				ractive.set('end_reached', data.LastEvaluatedKey ? false : true);
+				ractive.set('end_reached', this.LastEvaluatedKey ? false : true);
 
 				cb();
 			});
@@ -3226,7 +3123,7 @@ exports.default = Ractive.extend({
 			/*
    var rows = []
    
-   		dbrows_.map(function(row) {
+   			dbrows_.map(function(row) {
    	var thisrow = []
    		columns.map(function(column_name) {
    		if (column_name === null) {
@@ -3302,41 +3199,41 @@ exports.default = Ractive.extend({
 			}
 		};
 	},
+	on: {
+		'open-item': _open_item3.default,
+		'create-item': _create_item3.default,
+		prev: function prev() {
+
+			if (this.get('prev_running')) return;
+
+			this.set('prev_running', true);
+
+			if (this.get('scan.LastEvaluatedKey').length < 3) return;
+
+			var next = this.pop('scan.LastEvaluatedKey');
+
+			var current = this.pop('scan.LastEvaluatedKey');
+
+			var LastEvaluatedKey = this.get('scan.LastEvaluatedKey').slice(-1)[0];
+
+			this.refresh_data(LastEvaluatedKey);
+		},
+		next: function next() {
+
+			if (this.get('next_running')) return;
+
+			if (this.get('end_reached')) return;
+
+			this.set('next_running', true);
+			var LastEvaluatedKey = this.get('scan.LastEvaluatedKey').slice(-1)[0];
+
+			this.refresh_data(LastEvaluatedKey);
+		}
+	},
 	oninit: function oninit() {
 		var ractive = this;
 
-		this.on('open-item', function (e, col, item, rawitem) {
-			var describeTable = this.get('describeTable');
-			var hash = this._hash_key_name();
-			var range = this._range_key_name();
-			//console.log("open-item", "table=",describeTable.TableName, "hash=",hash, "range=", range, "item=", item, rawitem  )
-			ractive.root.findComponent('WindowContainer').newWindow(function ($window) {
-				$window.set({
-					title: 'Edit Item',
-					'geometry.width': window.innerWidth * .6,
-					'geometry.height': window.innerHeight * .6,
-					'geometry.left': window.innerWidth * .2,
-					'geometry.top': window.innerHeight * .2
-				});
-
-				var vid = "window" + (Math.random() * 0xFFFFFF << 0).toString(16);
-				$window.content('<div id="' + vid + '"/>').then(function () {
-					var ractive = new Ractive({
-						components: {
-							itemedit: _edit2.default
-						},
-						el: vid,
-						template: '<itemedit describeTable="{{describeTable}}" item="{{item}}" rawitem="{{rawitem}}" window={{window}} />',
-						data: {
-							describeTable: describeTable,
-							//item: item,
-							rawitem: rawitem,
-							window: $window
-						}
-					});
-				});
-			});
-		});
+		//this.on('open-item', )
 
 		this.on('run-oop', function () {
 			if (this.get('oop_running')) return;
@@ -3348,32 +3245,7 @@ exports.default = Ractive.extend({
 
 			this.refresh_data(null);
 		});
-		this.on('prev', function () {
-
-			if (this.get('prev_running')) return;
-
-			this.set('prev_running', true);
-
-			if (ractive.get('scan.LastEvaluatedKey').length < 3) return;
-
-			var next = ractive.pop('scan.LastEvaluatedKey');
-
-			var current = ractive.pop('scan.LastEvaluatedKey');
-
-			var LastEvaluatedKey = ractive.get('scan.LastEvaluatedKey').slice(-1)[0];
-
-			ractive.refresh_data(LastEvaluatedKey);
-		});
-		this.on('next', function () {
-
-			if (this.get('next_running')) return;
-
-			if (this.get('end_reached')) return;
-
-			this.set('next_running', true);
-			var LastEvaluatedKey = ractive.get('scan.LastEvaluatedKey').slice(-1)[0];
-			ractive.refresh_data(LastEvaluatedKey);
-		});
+		this.on('prev');
 
 		ractive.observe('scan.LastEvaluatedKey', function (n, o, keypath) {
 			if (n.length > 2) ractive.set('start_reached', false);else ractive.set('start_reached', true);
@@ -3396,73 +3268,7 @@ exports.default = Ractive.extend({
 				return r[0].selected === true;
 			}).length);
 		});
-		ractive.on('create-item-window', function () {
 
-			var describeTable = this.get('describeTable');
-
-			var rawitem = {};
-
-			/* add partition */
-			var htype = this._hash_key_type();
-
-			var to_add = null;
-			if (htype === "S") to_add = { S: "" };
-
-			if (htype === "N") to_add = { N: "" };
-
-			if (htype === "B") to_add = { B: Uint8Array.from(atob("InsertBase64Here"), function (c) {
-					return c.charCodeAt(0);
-				}) };
-
-			rawitem[this._hash_key_name()] = to_add;
-
-			/* add sort */
-			if (this._range_key_name()) {
-				var rtype = this._range_key_type();
-				var to_add = null;
-				if (rtype === "S") to_add = { S: "" };
-
-				if (rtype === "N") to_add = { N: "" };
-
-				if (rtype === "B") to_add = { B: Uint8Array.from(atob("InsertBase64Here"), function (c) {
-						return c.charCodeAt(0);
-					}) };
-
-				rawitem[this._range_key_name()] = to_add;
-			}
-
-			//console.log(rawitem)
-
-
-			ractive.root.findComponent('WindowContainer').newWindow(function ($window) {
-				$window.set({
-					title: 'Create Item',
-					'geometry.width': window.innerWidth * .6,
-					'geometry.height': window.innerHeight * .6,
-					'geometry.left': window.innerWidth * .2,
-					'geometry.top': window.innerHeight * .2
-				});
-
-				var vid = "window" + (Math.random() * 0xFFFFFF << 0).toString(16);
-				$window.content('<div id="' + vid + '"/>').then(function () {
-					var ractive = new Ractive({
-						components: {
-							itemadd: _add2.default
-						},
-						el: vid,
-						template: '<itemadd describeTable="{{describeTable}}" item="{{item}}" rawitem="{{rawitem}}" window={{window}} />',
-						data: {
-							describeTable: describeTable,
-							// item: {
-							//
-							// },
-							rawitem: rawitem,
-							window: $window
-						}
-					});
-				});
-			});
-		});
 		ractive.on('delete-selected', function (context) {
 			//console.log(ractive.findComponent('tabledata').get('rows'))
 			var to_delete = ractive.findComponent('tabledata').get('rows').map(function (r) {
@@ -21142,6 +20948,324 @@ module.exports = Array.isArray || function (arr) {
   return toString.call(arr) == '[object Array]';
 };
 
+
+/***/ }),
+/* 139 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+var _hash_key_name = function _hash_key_name() {
+	return (this.get('describeTable').KeySchema.filter(function (k) {
+		return k.KeyType === 'HASH';
+	})[0] || {}).AttributeName;
+};
+
+var _hash_key_type = function _hash_key_type() {
+	var ractive = this;
+
+	var ret;
+	this.get('describeTable.AttributeDefinitions').map(function (at) {
+		if (at.AttributeName === ractive._hash_key_name()) ret = at.AttributeType;
+	});
+	return ret;
+};
+
+var _hash_key_type_name = function _hash_key_type_name() {
+	return { S: 'String', N: 'Number', 'B': 'Binary' }[this._hash_key_type()];
+};
+
+var _range_key_name = function _range_key_name() {
+	return (this.get('describeTable').KeySchema.filter(function (k) {
+		return k.KeyType === 'RANGE';
+	})[0] || {}).AttributeName;
+};
+
+var _range_key_type = function _range_key_type() {
+	var ractive = this;
+
+	var ret;
+	this.get('describeTable.AttributeDefinitions').map(function (at) {
+		if (at.AttributeName === ractive._range_key_name()) ret = at.AttributeType;
+	});
+	return ret;
+};
+
+var _range_key_type_name = function _range_key_type_name() {
+	return { S: 'String', N: 'Number', 'B': 'Binary' }[this._range_key_type()];
+};
+
+var _gsi_hash_key_name = function _gsi_hash_key_name(indexname) {
+
+	var index = (this.get('describeTable.GlobalSecondaryIndexes') || []).filter(function (i) {
+		return i.IndexName === indexname;
+	})[0];
+	if (!index) return;
+
+	return (index.KeySchema.filter(function (k) {
+		return k.KeyType === 'HASH';
+	})[0] || {}).AttributeName;
+};
+
+var _gsi_hash_key_type = function _gsi_hash_key_type(indexname) {
+	var ractive = this;
+
+	var ret;
+	this.get('describeTable.AttributeDefinitions').map(function (at) {
+		if (at.AttributeName === ractive._gsi_hash_key_name(indexname)) ret = at.AttributeType;
+	});
+	return ret;
+};
+
+var _gsi_hash_key_type_name = function _gsi_hash_key_type_name(indexname) {
+	return { S: 'String', N: 'Number', 'B': 'Binary' }[this._gsi_hash_key_type(indexname)];
+};
+
+var _gsi_range_key_name = function _gsi_range_key_name(indexname) {
+
+	var index = (this.get('describeTable.GlobalSecondaryIndexes') || []).filter(function (i) {
+		return i.IndexName === indexname;
+	})[0];
+	if (!index) return;
+
+	return (index.KeySchema.filter(function (k) {
+		return k.KeyType === 'RANGE';
+	})[0] || {}).AttributeName;
+};
+
+var _gsi_range_key_type = function _gsi_range_key_type(indexname) {
+	var ractive = this;
+
+	var ret;
+	this.get('describeTable.AttributeDefinitions').map(function (at) {
+		if (at.AttributeName === ractive._gsi_range_key_name(indexname)) ret = at.AttributeType;
+	});
+	return ret;
+};
+
+var _gsi_range_key_type_name = function _gsi_range_key_type_name(indexname) {
+	return { S: 'String', N: 'Number', 'B': 'Binary' }[this._gsi_range_key_type(indexname)];
+};
+
+var _lsi_hash_key_name = function _lsi_hash_key_name(indexname) {
+
+	var index = (this.get('describeTable.LocalSecondaryIndexes') || []).filter(function (i) {
+		return i.IndexName === indexname;
+	})[0];
+	if (!index) return;
+
+	return (index.KeySchema.filter(function (k) {
+		return k.KeyType === 'HASH';
+	})[0] || {}).AttributeName;
+};
+
+var _lsi_hash_key_type = function _lsi_hash_key_type(indexname) {
+	var ractive = this;
+
+	var ret;
+	this.get('describeTable.AttributeDefinitions').map(function (at) {
+		if (at.AttributeName === ractive._lsi_hash_key_name(indexname)) ret = at.AttributeType;
+	});
+	return ret;
+};
+
+var _lsi_hash_key_type_name = function _lsi_hash_key_type_name(indexname) {
+	return { S: 'String', N: 'Number', 'B': 'Binary' }[this._lsi_hash_key_type(indexname)];
+};
+
+var _lsi_range_key_name = function _lsi_range_key_name(indexname) {
+
+	var index = (this.get('describeTable.LocalSecondaryIndexes') || []).filter(function (i) {
+		return i.IndexName === indexname;
+	})[0];
+	if (!index) return;
+
+	return (index.KeySchema.filter(function (k) {
+		return k.KeyType === 'RANGE';
+	})[0] || {}).AttributeName;
+};
+
+var _lsi_range_key_type = function _lsi_range_key_type(indexname) {
+	var ractive = this;
+
+	var ret;
+	this.get('describeTable.AttributeDefinitions').map(function (at) {
+		if (at.AttributeName === ractive._lsi_range_key_name(indexname)) ret = at.AttributeType;
+	});
+	return ret;
+};
+
+var _lsi_range_key_type_name = function _lsi_range_key_type_name(indexname) {
+	return { S: 'String', N: 'Number', 'B': 'Binary' }[this._lsi_range_key_type(indexname)];
+};
+
+exports.default = {
+	_hash_key_name: _hash_key_name,
+	_hash_key_type: _hash_key_type,
+	_hash_key_type_name: _hash_key_type_name,
+
+	_range_key_name: _range_key_name,
+	_range_key_type: _range_key_type,
+	_range_key_type_name: _range_key_type_name,
+
+	_gsi_hash_key_name: _gsi_hash_key_name,
+	_gsi_hash_key_type: _gsi_hash_key_type,
+	_gsi_hash_key_type_name: _gsi_hash_key_type_name,
+
+	_gsi_range_key_name: _gsi_range_key_name,
+	_gsi_range_key_type: _gsi_range_key_type,
+	_gsi_range_key_type_name: _gsi_range_key_type_name,
+
+	_lsi_hash_key_name: _lsi_hash_key_name,
+	_lsi_hash_key_type: _lsi_hash_key_type,
+	_lsi_hash_key_type_name: _lsi_hash_key_type_name,
+
+	_lsi_range_key_name: _lsi_range_key_name,
+	_lsi_range_key_type: _lsi_range_key_type,
+	_lsi_range_key_type_name: _lsi_range_key_type_name
+
+};
+
+/***/ }),
+/* 140 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+exports.default = function (e, col, item, rawitem) {
+	var ractive = this;
+	var describeTable = this.get('describeTable');
+	var hash = this._hash_key_name();
+	var range = this._range_key_name();
+	//console.log("open-item", "table=",describeTable.TableName, "hash=",hash, "range=", range, "item=", item, rawitem  )
+	ractive.root.findComponent('WindowContainer').newWindow(function ($window) {
+		$window.set({
+			title: 'Edit Item',
+			'geometry.width': window.innerWidth * .6,
+			'geometry.height': window.innerHeight * .6,
+			'geometry.left': window.innerWidth * .2,
+			'geometry.top': window.innerHeight * .2
+		});
+
+		var vid = "window" + (Math.random() * 0xFFFFFF << 0).toString(16);
+		$window.content('<div id="' + vid + '"/>').then(function () {
+			new Ractive({
+				components: {
+					itemedit: _edit2.default
+				},
+				el: vid,
+				template: '<itemedit describeTable="{{describeTable}}" item="{{item}}" rawitem="{{rawitem}}" window={{window}} />',
+				data: {
+					describeTable: describeTable,
+					//item: item,
+					rawitem: rawitem,
+					window: $window
+				}
+			});
+		});
+	});
+};
+
+var _edit = __webpack_require__(62);
+
+var _edit2 = _interopRequireDefault(_edit);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/***/ }),
+/* 141 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+exports.default = function () {
+	var ractive = this;
+
+	var describeTable = this.get('describeTable');
+
+	var rawitem = {};
+
+	/* add partition */
+	var htype = this._hash_key_type();
+
+	var to_add = null;
+	if (htype === "S") to_add = { S: "" };
+
+	if (htype === "N") to_add = { N: "" };
+
+	if (htype === "B") to_add = { B: Uint8Array.from(atob("InsertBase64Here"), function (c) {
+			return c.charCodeAt(0);
+		}) };
+
+	rawitem[this._hash_key_name()] = to_add;
+
+	/* add sort */
+	if (this._range_key_name()) {
+		var rtype = this._range_key_type();
+		var to_add = null;
+		if (rtype === "S") to_add = { S: "" };
+
+		if (rtype === "N") to_add = { N: "" };
+
+		if (rtype === "B") to_add = { B: Uint8Array.from(atob("InsertBase64Here"), function (c) {
+				return c.charCodeAt(0);
+			}) };
+
+		rawitem[this._range_key_name()] = to_add;
+	}
+
+	//console.log(rawitem)
+
+
+	ractive.root.findComponent('WindowContainer').newWindow(function ($window) {
+		$window.set({
+			title: 'Create Item',
+			'geometry.width': window.innerWidth * .6,
+			'geometry.height': window.innerHeight * .6,
+			'geometry.left': window.innerWidth * .2,
+			'geometry.top': window.innerHeight * .2
+		});
+
+		var vid = "window" + (Math.random() * 0xFFFFFF << 0).toString(16);
+		$window.content('<div id="' + vid + '"/>').then(function () {
+			new Ractive({
+				components: {
+					itemadd: _add2.default
+				},
+				el: vid,
+				template: '<itemadd describeTable="{{describeTable}}" item="{{item}}" rawitem="{{rawitem}}" window={{window}} />',
+				data: {
+					describeTable: describeTable,
+					// item: {
+					//
+					// },
+					rawitem: rawitem,
+					window: $window
+				}
+			});
+		});
+	});
+};
+
+var _add = __webpack_require__(133);
+
+var _add2 = _interopRequireDefault(_add);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ })
 /******/ ])["default"];
