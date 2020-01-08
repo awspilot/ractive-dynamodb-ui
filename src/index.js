@@ -32,10 +32,10 @@
 
 	export default Ractive.extend({
 		template: `
-			<div class='ractive-dynamodb-ui {{theme}}'>
+			<div class='ractive-dynamodb-ui theme-{{theme}}'>
 				<WindowContainer />
 			</div>
-			<hsplit style='' class='ractive-dynamodb-ui {{theme}}'>
+			<hsplit style='' class='ractive-dynamodb-ui theme-{{theme}}'>
 				<left>
 					<minitablelist />
 				</left>
