@@ -38,6 +38,18 @@
 		@awspilot-list-border-left: 1px solid transparent;
 		@awspilot-list-box-shodow: none;
 
+		@awspilot-content-border-top: 1px solid @base-border-color;
+		@awspilot-content-border-right: 0px;
+		@awspilot-content-border-bottom: 1px solid @base-border-color;
+		@awspilot-content-border-left: 1px solid @base-border-color;
+
+		@awspilot-tabcontent-border-top: 0px;
+		@awspilot-tabcontent-border-right: 0px;
+		@awspilot-tabcontent-border-bottom: 0px;
+		@awspilot-tabcontent-border-left: 0px;
+		@awspilot-tabcontent-box-shodow: none;
+
+		@awspilot-tabs-background: @tab-bar-background-color;
 		@import (multiple,reference) "theme";
 	}
 }

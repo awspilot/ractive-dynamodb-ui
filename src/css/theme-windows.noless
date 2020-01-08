@@ -7,7 +7,7 @@
 		@awspilot-miniheader-title-border-bottom: none;
 		@awspilot-miniheader-title-height: 25px;
 
-		@awspilot-window-background: #c3c6ca;
+		@awspilot-window-background: #d4d0c8; /*#c3c6ca*/;
 		@awspilot-window-spacing: 2px;
 		@awspilot-window-border-top: 1px solid #dee2e4;
 		@awspilot-window-border-right: 1px solid #38494b;
@@ -22,6 +22,18 @@
 		@awspilot-list-border-left: 1px solid #484a4b;
 		@awspilot-list-box-shodow: 1px 1px 1px #aeb2b6, -1px -1px 1px #737679, inset -1px -1px 1px #828588;
 
+		@awspilot-content-border-top: 0px;
+		@awspilot-content-border-right: 0px;
+		@awspilot-content-border-bottom: 0px;
+		@awspilot-content-border-left: 0px;
+
+		@awspilot-tabcontent-border-top: 1px solid #fff;
+		@awspilot-tabcontent-border-right: 1px solid #404040;
+		@awspilot-tabcontent-border-bottom: 1px solid #404040;
+		@awspilot-tabcontent-border-left: 1px solid #fff;
+		@awspilot-tabcontent-box-shodow: inset -1px -1px 1px #808080;
+
+		@awspilot-tabs-background: transparent;
 		@import (multiple,reference) "theme";
 	}
 }
