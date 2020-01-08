@@ -24,17 +24,29 @@
 
 		var ractive = new Ractive({
 			el: 'body',
+			data: function() {
+				return {
+					theme: 'atom',
+				}
+			},
 			template: `
 
-				<dynamodb-ui
-					theme="atom"
-					region="us-east-1"
-					accessKeyId="myKeyId"
-					secretAccessKey="y"
-					endpoint="https://djaorxfotj9hr.cloudfront.net/v1/dynamodb"
-					cwendpoint="https://djaorxfotj9hr.cloudfront.net/v1/cloudwatch"
-				/>
-
+				<div style="position: absolute;top: 50px;left: 50px;width: 210px;bottom: 50px;">
+					<select value={{theme}}>
+						<option value="atom">Atom</option>
+						<option value="windows">Windows Classic</option>
+					</select>
+				</div>
+				<div style="position: absolute;top: 50px;left: 260px;right: 50px;bottom: 50px;">
+					<dynamodb-ui
+						theme={{theme}}
+						region="us-east-1"
+						accessKeyId="myKeyId"
+						secretAccessKey="y"
+						endpoint="https://djaorxfotj9hr.cloudfront.net/v1/dynamodb"
+						cwendpoint="https://djaorxfotj9hr.cloudfront.net/v1/cloudwatch"
+					/>
+				</div>
 
 			`
 		})
