@@ -14,7 +14,7 @@ export default Ractive.extend({
 				<a class='btn btn-xs btn-default {{#if refresh_tables }}disabled{{/if}}' on-click='@this.refresh_tables()'> <icon-refresh /> </a>
 			</div>
 
-		<tabledata columns='{{columns}}' rows='{{rows}}' style='top: 38px;' />
+		<tabledata columns='{{columns}}' rows='{{rows}}' style='top: 38px;margin: 3px;' />
 		`,
 	data: function() {
 		return {
