@@ -1,0 +1,310 @@
+
+@import "theme-atom/one-dark-ui/ui-variables-custom";
+@import "theme-atom/one-dark-ui/ui-variables";
+
+@import "window";
+/* no need to include this with atom, they are already included */
+@import "theme-atom/atom-components";
+
+
+
+.ractive-dynamodb-ui {
+	svg.icon {
+		fill: #000;
+		width: 11px;
+		height: 11px;
+	}
+
+	hr {border: 1px solid @base-border-color}
+
+
+	/* bootstrap */
+	a {
+		color: @text-color;
+	}
+
+	.btn.disabled, .btn[disabled], fieldset[disabled] .btn {
+		cursor: not-allowed;
+		filter: alpha(opacity=65);
+		-webkit-box-shadow: none;
+		box-shadow: none;
+		opacity: .65;
+	}
+	.btn-group .dropdown-toggle:active, .btn-group.open .dropdown-toggle {
+		outline: 0;
+	}
+	.btn {
+		display: inline-block;
+		padding: 0 @ui-size/1.25;
+		font-size: @ui-size;
+		line-height: @ui-line-height;
+
+		margin-bottom: 0;
+
+		font-weight: 400;
+		text-align: center;
+		white-space: nowrap;
+		vertical-align: middle;
+		-ms-touch-action: manipulation;
+		touch-action: manipulation;
+		cursor: pointer;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		background-image: none;
+		border: 1px solid transparent;
+		border-radius: 4px;
+
+		text-shadow: none;
+
+	}
+	.btn-default { color: @text-color; background-color: @button-background-color;border-color: @button-border-color;}
+	.btn-default > svg.icon {fill: @text-color;}
+
+	.btn-group>.btn {
+		position: relative;
+		float: left;
+	}
+	.btn-group, .btn-group-vertical {
+		position: relative;
+		display: inline-block;
+		vertical-align: middle;
+	}
+	.btn-group>.btn:first-child {
+		margin-left: 0;
+	}
+	.btn-group>.btn:first-child:not(:last-child):not(.dropdown-toggle) {
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+
+	.btn-group-xs>.btn, .btn-xs {
+		padding: 1px 5px;
+		font-size: 12px;
+		line-height: 1.5;
+		border-radius: 3px;
+	}
+	.btn-group>.btn:last-child:not(:first-child), .btn-group>.dropdown-toggle:not(:first-child) {
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+	}
+	.btn-group>.btn+.dropdown-toggle {
+		padding-right: 8px;
+		padding-left: 8px;
+	}
+	.btn-group .btn+.btn, .btn-group .btn+.btn-group, .btn-group .btn-group+.btn, .btn-group .btn-group+.btn-group {
+		margin-left: -1px;
+	}
+
+	.btn-default.active.focus, .btn-default.active:focus, .btn-default.active:hover, .btn-default:active.focus, .btn-default:active:focus, .btn-default:active:hover, .open>.dropdown-toggle.btn-default.focus, .open>.dropdown-toggle.btn-default:focus, .open>.dropdown-toggle.btn-default:hover {
+		color: #333;
+		background-color: #d4d4d4;
+		border-color: #8c8c8c;
+	}
+	.btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus {
+		outline: 5px auto -webkit-focus-ring-color;
+		outline-offset: -2px;
+	}
+
+	.btn-group-sm>.btn, .btn-sm {
+		padding: 5px 10px;
+		font-size: 12px;
+		line-height: 1.5;
+		border-radius: 3px;
+	}
+
+
+	.dropdown-menu {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		z-index: 1000;
+		display: none;
+		float: left;
+		min-width: 160px;
+		padding: 5px 0;
+		margin: 2px 0 0;
+		font-size: 14px;
+		text-align: left;
+		list-style: none;
+
+		-webkit-background-clip: padding-box;
+		background-clip: padding-box;
+		border-radius: 4px;
+		box-shadow: 0 6px 12px rgba(0,0,0,.175);
+	}
+	.dropdown-menu {
+		background-color: @base-background-color;
+		border: 1px solid @base-border-color;
+	}
+	.dropdown-menu.pull-right {
+		right: 0;
+		left: auto;
+	}
+	.show {
+		display: block!important;
+	}
+
+
+	.btn-primary {color: #fff;background-color: @accent-bg-color;}
+	.btn-primary > svg.icon {fill: #fff;}
+
+
+	.btn-danger {color: #fff;background-color: @background-color-error;}
+	.btn-danger > svg.icon {fill: #fff;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	.hsplit {position: absolute;top:0px;left: 0px;right: 0px;bottom: 0px; /*background-color: #f0f0f0;*/background-color: #c9c9c9; color: #999999;}
+	left {position:absolute;display: block;top: 0px;left: 0px;width: 260px;bottom: 0px;margin-top: 5px;}
+	content {position:absolute;display: block;top: 0px;left: 265px;right: 0px;bottom: 0px;margin-top: 5px;}
+
+	miniheader {display: block;height: 28px;line-height: 28px;font-size: 12px;padding-left: 10px;}
+	miniheader .icon:hover {box-shadow: 0px 0px 1px rgba(255,255,255,.3);}
+	.miniheaderbody {left: 0px;top: 29px;right: 0px;bottom: 0px;}
+
+	left tables > div {display: block;height: 30px; line-height: 30px;font-size: 13px;padding: 0px 10px;border-top: 1px solid transparent;border-left: 1px solid transparent;;margin-bottom: 0px;cursor: pointer}
+
+
+
+	content tabhead {position: absolute;top: 0px;left: 0px;right:0px;height: 28px;overflow: hidden;font-size: 0px;}
+	content tabhead tab {display: inline-block;height: 28px;line-height: 28px;padding: 0px 10px;cursor: pointer;font-size: 14px;}
+	content tabhead tab.active {}
+	content tabhead tab .icon {text-align: center;margin-top: 2px;cursor: pointer;font-size: 14px;}
+	content tabhead tab .icon:hover {box-shadow: 0px 0px 1px rgba(255,255,255,.3);}
+	content tabcontent {position: absolute;top: 28px;left: 0px;right: 0px;bottom: 0px;}
+
+	.btn-tableview-tab {display: inline-block;height: 30px;line-height: 30px;text-align: center;vertical-align: middle;border-radius: 3px 3px 0px 0px;text-decoration: none;}
+	.btn-tableview-tab:hover {cursor: pointer;}
+	.btn-tableview-tab i {line-height: 40px;line-height: 30px;margin: 5px;width: 30px;height: 30px;border-radius: 5px;}
+
+	content tabcontent .tableview-table-tabs {position: absolute;top: 10px;left: 30px;height: 30px;right: 30px;border-bottom: 1px solid #bbb;padding: 0px 20px;}
+	content tabcontent .tableview { visibility: hidden }
+	content tabcontent .tableview.active { visibility: visible }
+
+	content tabcontent .tableview .tablebrowse {display: block;position: absolute;top: 0px;left:0px;right: 0px;bottom: 0px;}
+
+	content tabcontent .tablesqlquery {display: block;position: absolute;top: 0;left:0px;right: 0px;height: 119px;overflow: hidden;}
+	content tabcontent .tablequery {display: block;position: absolute;top: 0;left:0px;right: 0px;height: 119px;overflow: hidden; padding: 10px;margin-top: 6px;}
+	content tabcontent .tabledatacontrols {position: absolute;top: 120px;left: 0px;right: 0px;height: 28px;padding: 3px 0px 0px 30px;}
+
+
+
+	content tabcontent .tabledata {display: block;position: absolute;left:0px;right: 0px;bottom: 0px;overflow: hidden;}
+
+
+
+
+	content tabcontent .tabledata .tabledatahead,
+	content tabcontent .tabledata .tabledatarow { display: flex;width: 100%;justify-content: stretch}
+
+
+
+
+
+
+
+
+
+
+	content tabcontent .tabledata .tabledatahead {position: absolute;top: 0px;left: 0px;right: 0px;height: 20px;}
+
+
+	content tabcontent .tabledata .tabledatarow .zmdi.selectrow {font-size: 14px;}
+
+	content tabcontent .tabledata .tabledatahead > div,
+	content tabcontent .tabledata .tabledatarow .tabledatacell {display: flex;height: 20px;align-items: center;overflow: hidden;white-space: nowrap;padding-left: 6px;position: relative;}
+
+
+
+
+	content tabcontent .tabledata .tabledatarow .tabledatacell:before {content: ' ';position:absolute;top: 0px;left:  0px;bottom: 0px;width: 5px;}
+	content tabcontent .tabledata .tabledatarow .tabledatacell:after  {content: ' ';position:absolute;top: 0px;right: 0px;bottom: 0px;width: 5px;}
+
+
+
+	content tabcontent .tabledata .tabledatacontent {position: absolute;top: 23px;left: 0px;right: 0px;bottom: 0px;overflow-x: auto;}
+
+	content tabcontent .tabledata .tabledatahead > div {font-size: 12px;}
+	content tabcontent .tabledata .tabledatarow .tabledatacell {font-size: 11px;}
+
+
+
+
+	.scrollarea:hover > span {position: absolute; right: 0px;width: 3px;background-color: rgba(255, 255, 255, 0.3);z-index: 1;}
+
+	.pull-right {float: right;}
+
+	content {position:absolute;display: block;top: 0px;left: 265px;right: 0px;bottom: 0px;}
+
+}
+
+
+
+
+
+
+.ractive-dynamodb-ui {
+	background-color: @app-background-color;color: #999999;
+}
+.ractive-dynamodb-ui {
+	header {background-color: #232f3e;/*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);*/ }
+	miniheader {background-color: @tab-bar-background-color;border: 1px solid @tab-bar-border-color;}
+	left {background-color: @tab-background-color-active;}
+	left > .scrollarea {border-right: 1px solid @base-border-color;}
+	left tables > div {border-bottom: 1px solid transparent;color: @text-color}
+	left tables > div:hover {background-color: @background-color-selected;}
+	content {border: 1px solid @base-border-color;border-top: 1px solid @base-border-color;border-right: 0px;}
+	content tabhead {background-color: @tab-bar-background-color;}
+	content tabhead tab:first-child {}
+	content tabhead tab {border-right: 1px solid @tab-border-color; color: @text-color}
+	content tabhead tab.active {background-color: @tab-background-color-active;color: @text-color-highlight;}
+	content tabcontent {background-color: @tab-background-color-active; /*@background-color-highlight;*/}
+	content tabcontent .tableview-table-tabs {/*background: @tab-bar-background-color*/;border-bottom: 1px solid @tab-bar-border-color;}
+	.btn-tableview-tab {background-color: @tab-background-color;border: 1px solid @tab-border-color;border-bottom: 1px solid @tab-bar-border-color;color: @text-color;font-weight: bold;font-size: 12px;padding: 0px 12px;}
+	.btn-tableview-tab.active {background-color: @tab-background-color-active;border-bottom: 1px solid @tab-bar-border-color;color: @text-color-highlight;;}
+	content tabcontent .tablequery {background-color: @tool-panel-background-color; border-bottom: 1px solid @panel-heading-border-color}
+	content tabcontent .tablesqlquery {}
+	content tabcontent .tabledatacontrols {background-color: @overlay-background-color;border-bottom: 1px solid @overlay-border-color;}
+	content tabcontent .tabledata {border-top: 1px solid transparent;}
+	content tabcontent .tabledata .tabledatahead {background: @app-background-color;border-top: 1px solid @pane-item-border-color;border-bottom: 1px solid transparent;}
+	content tabcontent .tabledata .tabledatahead > div {border-right: 1px solid @pane-item-border-color;border-left: 1px solid transparent;}
+	content tabcontent .tabledata .tabledatarow {border-bottom: 1px solid @pane-item-border-color;}	content tabcontent .tabledata .tabledatarow .tabledatacell {border-right: 1px solid #c3b7b7;border-left: 1px solid #ffffff;}
+	content tabcontent .tabledata .tabledatarow .tabledatacell {border-right: 1px solid @pane-item-border-color;border-left: 1px solid transparent;}
+	content tabcontent .tabledata .tabledatarow .tabledatacell.t-K {color: #8ea7aa;}
+	content tabcontent .tabledata .tabledatarow .tabledatacell.t-HASH {color:#004b91;cursor: pointer;}
+	content tabcontent .tabledata .tabledatarow .tabledatacell.t-HASH:hover a {text-decoration: underline;}
+	content tabcontent .tabledata .tabledatarow .tabledatacell.t-S {color: #a79b9b;}
+	content tabcontent .tabledata .tabledatarow .tabledatacell.t-N {color: green;}
+	content tabcontent .tabledata .tabledatarow .tabledatacell.t-BOOL {color: #ff7676;}
+	content tabcontent .tabledata .tabledatarow .tabledatacell.t-NULL {color: grey}
+	content tabcontent .tabledata .tabledatarow .tabledatacell.t-SS {}
+	content tabcontent .tabledata .tabledatarow .tabledatacell.t-NS {}
+	content tabcontent .tabledata .tabledatarow .tabledatacell.t-L {}
+	content tabcontent .tabledata .tabledatarow .tabledatacell.t-M {}
+	content tabcontent .tabledata .tabledatarow .tabledatacell.t-U {background-color: #f9f3f3;}
+	content tabcontent .tabledata .tabledatarow:hover {background-color: @background-color-highlight;}
+	content tabcontent .tabledata .tabledatarow:hover .tabledatacell {color: @text-color-highlight;}
+	content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-HASH {color:@text-color-highlight;}
+	content tabcontent .tabledata .tabledatarow.selected {background-color: @background-color-selected;}
+	content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: @text-color-selected;}
+	content tabcontent .tabledata .tabledatarow.selected:hover {background-color: @background-color-info !important;}
+	content tabcontent .tabledata .tabledatarow.selected:hover .tabledatacell {color: #fff;}
+}
