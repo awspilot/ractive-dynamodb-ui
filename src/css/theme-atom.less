@@ -138,14 +138,13 @@
 
 
 
-	.hsplit {background-color: #c9c9c9; color: #999999;}
+	.hsplit { color: #999999; }
 
 
 
 	miniheader .icon:hover {box-shadow: 0px 0px 1px rgba(255,255,255,.3);}
-	.miniheaderbody {left: 0px;top: 29px;right: 0px;bottom: 0px;}
 
-	left tables > div {display: block;height: 30px; line-height: 30px;font-size: 13px;padding: 0px 10px;border-top: 1px solid transparent;border-left: 1px solid transparent;;margin-bottom: 0px;cursor: pointer}
+
 
 
 
@@ -226,9 +225,7 @@
 
 
 
-.ractive-dynamodb-ui {
-	background-color: @app-background-color;color: #999999;
-}
+
 .ractive-dynamodb-ui {
 	header {background-color: #232f3e;/*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);*/ }
 	miniheader {background-color: @tab-bar-background-color;border: 1px solid @tab-bar-border-color;}
@@ -272,4 +269,15 @@
 	content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: @text-color-selected;}
 	content tabcontent .tabledata .tabledatarow.selected:hover {background-color: @background-color-info !important;}
 	content tabcontent .tabledata .tabledatarow.selected:hover .tabledatacell {color: #fff;}
+}
+
+
+
+
+.ractive-dynamodb-ui.theme-atom {
+	& {
+		@awspilot-background-color:  @tab-background-color-active;
+		@awspilot-color: @text-color;
+		@import (multiple,reference) "theme";
+	}
 }

@@ -1,0 +1,19 @@
+
+
+
+/*
+.import-theme-windows() {
+	@awspilot-background-color:  @tab-background-color-active;
+	@awspilot-color: @text-color;
+	@import "theme.less";
+}
+*/
+
+
+.ractive-dynamodb-ui.theme-windows {
+	& {
+		@awspilot-background-color:  #54a9a9;
+		@awspilot-color: #000;
+		@import (multiple,reference) "theme";
+	}
+}
