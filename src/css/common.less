@@ -3,5 +3,9 @@
 .ractive-dynamodb-ui {
 	.pull-right {float: right!important;}
 	a {text-decoration: none;}
-	a.btn.disabled {pointer-events: none;}
+
+	.btn.disabled,
+	.btn[disabled],
+	fieldset[disabled] .btn {cursor: not-allowed;filter: alpha(opacity=65);box-shadow: none;opacity: .65;pointer-events: none;}
+
 }
