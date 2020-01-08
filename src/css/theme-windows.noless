@@ -2,15 +2,46 @@
 	& {
 		@awspilot-background-color:  #54a9a9;
 		@awspilot-color: #000;
+		@awspilot-hr-border-top: 1px solid #808080;
+		@awspilot-hr-border-bottom: 1px solid #fff;
 
 		@awspilot-button-background-color: #d4d0c8;
 		@awspilot-button-color: #55002d;
+
+		@awspilot-button-primary-background-color: #d4d0c8;
+		@awspilot-button-primary-color: #55002d;
+
+		@awspilot-button-danger-background-color: #d4d0c8;
+		@awspilot-button-danger-color: #55002d;
+
 		@awspilot-button-border-top: 1px solid #ffffff;
 		@awspilot-button-border-right: 1px solid #404040;
 		@awspilot-button-border-bottom: 1px solid #404040;
 		@awspilot-button-border-left: 1px solid #ffffff;
 		@awspilot-button-box-shodow: inset -1px -1px 1px #808080;
 		@awspilot-button-border-radius: 0px;
+
+		@awspilot-checkbox-background: #fff;
+		@awspilot-checkbox-border-top: 1px solid #808080;
+		@awspilot-checkbox-border-right: 1px solid #fff;
+		@awspilot-checkbox-border-bottom: 1px solid #fff;
+		@awspilot-checkbox-border-left: 1px solid #808080;
+		@awspilot-checkbox-box-shodow: inset 1px 1px 1px #404040, inset -1px -1px 1px #d4d0c8;
+
+		@awspilot-tabledata-background: #fefefe;
+		@awspilot-tabledata-border-top: 1px solid #2e2f2f;
+		@awspilot-tabledata-border-right: 1px solid #262728;
+		@awspilot-tabledata-border-bottom: 1px solid #515356;
+		@awspilot-tabledata-border-left: 1px solid #484a4b;
+		@awspilot-tabledata-box-shodow: 1px 1px 1px #aeb2b6, -1px -1px 1px #737679, inset -1px -1px 1px #828588;
+		@awspilot-tabledata-head-background: #d4d0c8;
+		@awspilot-tabledata-head-border-bottom: 1px solid #404040;
+		@awspilot-tabledata-head-cell-border-top: 1px solid transparent;
+		@awspilot-tabledata-head-cell-border-right: 1px solid #484848;
+		@awspilot-tabledata-head-cell-border-bottom: 1px solid transparent;
+		@awspilot-tabledata-head-cell-border-left: 1px solid #fcfcfb;
+		@awspilot-tabledata-row-border-bottom: 1px solid #dcd8d2;
+		@awspilot-tabledata-cell-border-right: 1px solid #dcd8d2;
 
 		@awspilot-miniheader-title-background: #00a;
 		@awspilot-miniheader-title-color: #fff;
@@ -31,6 +62,9 @@
 		@awspilot-list-border-bottom: 1px solid #515356;
 		@awspilot-list-border-left: 1px solid #484a4b;
 		@awspilot-list-box-shodow: 1px 1px 1px #aeb2b6, -1px -1px 1px #737679, inset -1px -1px 1px #828588;
+		@awspilot-list-item-color: @text-color;
+		@awspilot-list-item-hover-background: #3737ff;
+		@awspilot-list-item-hover-color: #fff;
 
 		@awspilot-content-border-top: 0px;
 		@awspilot-content-border-right: 0px;
