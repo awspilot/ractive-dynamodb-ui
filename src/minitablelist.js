@@ -6,7 +6,7 @@ export default Ractive.extend({
 		`
 		<miniheader>
 			Tables
-			<div class='pull-right' style='margin-right: 5px;'>
+			<div class='pull-right' style='margin-right: 2px;'>
 				<a class='btn btn-xs btn-default' on-click='create'>
 					<icon-plus />
 				</a>
