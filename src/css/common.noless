@@ -37,6 +37,6 @@
 	content {position:absolute;display: block;top: 0px;left: 265px;right: 0px;bottom: 0px;margin-top: 5px;}
 	miniheader {display: block;font-size: 12px;padding-left: 10px;}
 	.miniheaderbody {left: 0px;top: 29px;right: 0px;bottom: 0px;} /* scrollarea */
-	left tables > div {display: block;height: 30px; line-height: 30px;font-size: 13px;padding: 0px 10px;border-top: 1px solid transparent;border-left: 1px solid transparent;;margin-bottom: 0px;cursor: pointer}
+	left tables > div {display: block;height: 20px; line-height: 20px;font-size: 13px;padding: 0px 10px;border-top: 1px solid transparent;border-left: 1px solid transparent;;margin-bottom: 0px;cursor: pointer}
 
 }
