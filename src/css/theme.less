@@ -9,5 +9,9 @@
 & left {border-top: @awspilot-window-border-top;border-right: @awspilot-window-border-right;border-bottom: @awspilot-window-border-bottom;border-left: @awspilot-window-border-left;}
 & left {box-shadow: @awspilot-window-box-shodow; }
 
-& left > .miniheaderbody {left: 0px + @awspilot-window-spacing;top: 29px;right: 0px + @awspilot-window-spacing;bottom: 0px + @awspilot-window-spacing;} /* scrollarea */
+& left > miniheader { height: @awspilot-miniheader-title-height;line-height: @awspilot-miniheader-title-height; }
+
+& left > .miniheaderbody {left: 0px + @awspilot-window-spacing;top: @awspilot-miniheader-title-height + @awspilot-window-spacing + 3px;right: 0px + @awspilot-window-spacing;bottom: 0px + @awspilot-window-spacing;} /* scrollarea */
 & left > .miniheaderbody {background-color: @awspilot-list-background;}
+& left > .miniheaderbody {border-top: @awspilot-list-border-top;border-right: @awspilot-list-border-right;border-bottom: @awspilot-list-border-bottom;border-left: @awspilot-list-border-left;}
+& left > .miniheaderbody {box-shadow: @awspilot-list-box-shodow;}

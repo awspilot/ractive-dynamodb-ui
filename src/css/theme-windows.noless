@@ -5,6 +5,7 @@
 		@awspilot-miniheader-title-background: #00a;
 		@awspilot-miniheader-title-color: #fff;
 		@awspilot-miniheader-title-border-bottom: none;
+		@awspilot-miniheader-title-height: 25px;
 
 		@awspilot-window-background: #c3c6ca;
 		@awspilot-window-spacing: 2px;
@@ -15,6 +16,11 @@
 		@awspilot-window-box-shodow: -1px -1px 1px #92babc, 1px 1px 1px #3f8080;
 
 		@awspilot-list-background: #fefefe;
+		@awspilot-list-border-top: 1px solid #2e2f2f;
+		@awspilot-list-border-right: 1px solid #262728;
+		@awspilot-list-border-bottom: 1px solid #515356;
+		@awspilot-list-border-left: 1px solid #484a4b;
+		@awspilot-list-box-shodow: 1px 1px 1px #aeb2b6, -1px -1px 1px #737679, inset -1px -1px 1px #828588;
 
 		@import (multiple,reference) "theme";
 	}

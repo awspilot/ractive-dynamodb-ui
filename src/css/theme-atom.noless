@@ -20,6 +20,7 @@
 		@awspilot-miniheader-title-background: @tab-bar-background-color;
 		@awspilot-miniheader-title-color: @text-color;
 		@awspilot-miniheader-title-border-bottom: @tab-bar-border-color;
+		@awspilot-miniheader-title-height: 28px;
 
 		@awspilot-window-background: @tab-background-color-active;
 		@awspilot-window-spacing: 0px;
@@ -31,6 +32,11 @@
 
 
 		@awspilot-list-background: transparent;
+		@awspilot-list-border-top: 1px solid transparent;
+		@awspilot-list-border-right: 1px solid transparent;
+		@awspilot-list-border-bottom: 1px solid transparent;
+		@awspilot-list-border-left: 1px solid transparent;
+		@awspilot-list-box-shodow: none;
 
 		@import (multiple,reference) "theme";
 	}
