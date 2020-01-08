@@ -4,6 +4,7 @@
 		@awspilot-color: #000;
 		@awspilot-miniheader-title-background: #00a;
 		@awspilot-miniheader-title-color: #fff;
+		@awspilot-miniheader-title-border-bottom: none;
 
 		@awspilot-window-background: #c3c6ca;
 		@awspilot-window-spacing: 2px;

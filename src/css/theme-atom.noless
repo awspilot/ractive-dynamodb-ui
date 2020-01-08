@@ -19,13 +19,14 @@
 
 		@awspilot-miniheader-title-background: @tab-bar-background-color;
 		@awspilot-miniheader-title-color: @text-color;
+		@awspilot-miniheader-title-border-bottom: @tab-bar-border-color;
 
 		@awspilot-window-background: @tab-background-color-active;
 		@awspilot-window-spacing: 0px;
-		@awspilot-window-border-top: 1px solid transparent;
-		@awspilot-window-border-right: 1px solid transparent;
-		@awspilot-window-border-bottom: 1px solid transparent;
-		@awspilot-window-border-left: 1px solid transparent;
+		@awspilot-window-border-top: 1px solid @base-border-color;
+		@awspilot-window-border-right: 1px solid @base-border-color;
+		@awspilot-window-border-bottom: 1px solid @base-border-color;
+		@awspilot-window-border-left: 1px solid @base-border-color;
 		@awspilot-window-box-shodow: none;
 
 

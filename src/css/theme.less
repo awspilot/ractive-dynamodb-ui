@@ -1,15 +1,13 @@
 
 
 
-& {
-	background-color: @awspilot-background-color; color: @awspilot-color;cursor: pointer;
+& {background-color: @awspilot-background-color; color: @awspilot-color;}
 
-
-}
-
+& miniheader {border-bottom: 1px solid @awspilot-miniheader-title-border-bottom;}
 & miniheader {background-color: @awspilot-miniheader-title-background;color: @awspilot-miniheader-title-color;}
 & left {background-color: @awspilot-window-background;padding: @awspilot-window-spacing;}
 & left {border-top: @awspilot-window-border-top;border-right: @awspilot-window-border-right;border-bottom: @awspilot-window-border-bottom;border-left: @awspilot-window-border-left;}
 & left {box-shadow: @awspilot-window-box-shodow; }
 
-& left > .scrollarea {background-color: @awspilot-list-background; border-right: 1px solid @base-border-color;}
+& left > .miniheaderbody {left: 0px + @awspilot-window-spacing;top: 29px;right: 0px + @awspilot-window-spacing;bottom: 0px + @awspilot-window-spacing;} /* scrollarea */
+& left > .miniheaderbody {background-color: @awspilot-list-background;}
