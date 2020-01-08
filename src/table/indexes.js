@@ -83,8 +83,8 @@ export default Ractive.extend({
 				<br>
 				<div style='color:red'>{{ err }}&nbsp;</div>
 				<br>
-				<a class='btn btn-md btn-primary' on-click='create-gsi'>Create</a>
-				<a class='btn btn-md btn-default' on-click='cancel-gsi'>Cancel</a>
+				<a class='btn btn-sm btn-primary' on-click='create-gsi'>Create</a>
+				<a class='btn btn-sm btn-default' on-click='cancel-gsi'>Cancel</a>
 				<br>
 			{{else}}
 				<h3>Indexes</h3>

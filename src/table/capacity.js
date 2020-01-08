@@ -59,8 +59,8 @@ export default Ractive.extend({
 						<tr>
 							<td width='160'>
 							<td>
-								<a class='btn btn-md btn-primary' on-click='save'>Save</a>
-								<a class='btn btn-md btn-default' on-click='cancel'>Cancel</a>
+								<a class='btn btn-sm btn-primary' on-click='save'>Save</a>
+								<a class='btn btn-sm btn-default' on-click='cancel'>Cancel</a>
 							</td>
 						</tr>
 					</table>

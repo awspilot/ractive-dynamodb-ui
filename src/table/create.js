@@ -158,8 +158,8 @@ export default Ractive.extend({
 					{{/newtable.GlobalSecondaryIndexes}}
 
 				</table>
-				<a class='btn btn-md btn-default' on-click='lsi-add'>Add LSI</a>
-				<a class='btn btn-md btn-default' on-click='gsi-add'>Add GSI</a>
+				<a class='btn btn-sm btn-default' on-click='lsi-add'>Add LSI</a>
+				<a class='btn btn-sm btn-default' on-click='gsi-add'>Add GSI</a>
 
 
 
@@ -215,7 +215,7 @@ export default Ractive.extend({
 				<hr>
 				<div style='color:red'>{{ errorMessage }}&nbsp;</div>
 				<br>
-				<a class='btn btn-md btn-primary' on-click='create'>Create</a>
+				<a class='btn btn-sm btn-primary' on-click='create'>Create</a>
 				<br>
 			</div>
 		</div>
