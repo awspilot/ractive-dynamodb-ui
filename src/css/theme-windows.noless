@@ -30,8 +30,8 @@
 
 		@awspilot-tabledata-background: #fefefe;
 		@awspilot-tabledata-border-top: 1px solid #2e2f2f;
-		@awspilot-tabledata-border-right: 1px solid #262728;
-		@awspilot-tabledata-border-bottom: 1px solid #515356;
+		@awspilot-tabledata-border-right: 1px solid #fff;
+		@awspilot-tabledata-border-bottom: 1px solid #fff;
 		@awspilot-tabledata-border-left: 1px solid #484a4b;
 		@awspilot-tabledata-box-shodow: 1px 1px 1px #aeb2b6, -1px -1px 1px #737679, inset -1px -1px 1px #828588;
 		@awspilot-tabledata-head-background: #d4d0c8;
@@ -58,8 +58,8 @@
 
 		@awspilot-list-background: #fefefe;
 		@awspilot-list-border-top: 1px solid #2e2f2f;
-		@awspilot-list-border-right: 1px solid #262728;
-		@awspilot-list-border-bottom: 1px solid #515356;
+		@awspilot-list-border-right: 1px solid #fff;
+		@awspilot-list-border-bottom: 1px solid #fff;
 		@awspilot-list-border-left: 1px solid #484a4b;
 		@awspilot-list-box-shodow: 1px 1px 1px #aeb2b6, -1px -1px 1px #737679, inset -1px -1px 1px #828588;
 		@awspilot-list-item-color: @text-color;

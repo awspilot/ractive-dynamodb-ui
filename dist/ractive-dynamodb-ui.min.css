@@ -1079,8 +1079,8 @@
 }
 .ractive-dynamodb-ui.theme-windows .tabledata {
   border-top: 1px solid #2e2f2f;
-  border-right: 1px solid #262728;
-  border-bottom: 1px solid #515356;
+  border-right: 1px solid #fff;
+  border-bottom: 1px solid #fff;
   border-left: 1px solid #484a4b;
 }
 .ractive-dynamodb-ui.theme-windows .tabledata {
@@ -1136,8 +1136,8 @@
 }
 .ractive-dynamodb-ui.theme-windows left > .miniheaderbody {
   border-top: 1px solid #2e2f2f;
-  border-right: 1px solid #262728;
-  border-bottom: 1px solid #515356;
+  border-right: 1px solid #fff;
+  border-bottom: 1px solid #fff;
   border-left: 1px solid #484a4b;
 }
 .ractive-dynamodb-ui.theme-windows left > .miniheaderbody {
