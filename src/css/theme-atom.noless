@@ -16,9 +16,18 @@
 	& {
 		@awspilot-background-color:  @tab-background-color-active;
 		@awspilot-color: @text-color;
+		@awspilot-hr-border-top: 1px solid @base-border-color;
+		@awspilot-hr-border-bottom: 1px solid @base-border-color;
 
 		@awspilot-button-background-color: @button-background-color;
 		@awspilot-button-color: @text-color;
+
+		@awspilot-button-primary-background-color: @accent-bg-color;
+		@awspilot-button-primary-color: #fff;
+
+		@awspilot-button-danger-background-color: @background-color-error;
+		@awspilot-button-danger-color: #fff;
+
 		@awspilot-button-border-top: 1px solid @button-border-color;
 		@awspilot-button-border-right: 1px solid @button-border-color;
 		@awspilot-button-border-bottom: 1px solid @button-border-color;
@@ -26,6 +35,27 @@
 		@awspilot-button-box-shodow: none;
 		@awspilot-button-border-radius: 3px;
 
+		@awspilot-checkbox-background: @input-background-color;
+		@awspilot-checkbox-border-top: 1px solid @input-background-color;
+		@awspilot-checkbox-border-right: 1px solid @input-background-color;
+		@awspilot-checkbox-border-bottom: 1px solid @input-background-color;
+		@awspilot-checkbox-border-left: 1px solid @input-background-color;
+		@awspilot-checkbox-box-shodow: none;
+
+		@awspilot-tabledata-background: transparent;
+		@awspilot-tabledata-border-top: 0px;
+		@awspilot-tabledata-border-right: 0xp;
+		@awspilot-tabledata-border-bottom: 0xp;
+		@awspilot-tabledata-border-left: 0xp;
+		@awspilot-tabledata-box-shodow: none;
+		@awspilot-tabledata-head-background: @app-background-color;
+		@awspilot-tabledata-head-border-bottom: 1px solid @pane-item-border-color;
+		@awspilot-tabledata-head-cell-border-top: 1px solid transparent;
+		@awspilot-tabledata-head-cell-border-right: 1px solid @pane-item-border-color;
+		@awspilot-tabledata-head-cell-border-bottom: 1px solid transparent;
+		@awspilot-tabledata-head-cell-border-left: 1px solid transparent;
+		@awspilot-tabledata-row-border-bottom: 1px solid @pane-item-border-color;
+		@awspilot-tabledata-cell-border-right: 1px solid @pane-item-border-color;
 
 		@awspilot-miniheader-title-background: @tab-bar-background-color;
 		@awspilot-miniheader-title-color: @text-color;
@@ -47,6 +77,9 @@
 		@awspilot-list-border-bottom: 1px solid transparent;
 		@awspilot-list-border-left: 1px solid transparent;
 		@awspilot-list-box-shodow: none;
+		@awspilot-list-item-color: @text-color;
+		@awspilot-list-item-hover-background: @background-color-selected;
+		@awspilot-list-item-hover-color: @text-color;
 
 		@awspilot-content-border-top: 1px solid @base-border-color;
 		@awspilot-content-border-right: 0px;
