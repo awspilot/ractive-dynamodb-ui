@@ -2,6 +2,16 @@
 	& {
 		@awspilot-background-color:  #54a9a9;
 		@awspilot-color: #000;
+
+		@awspilot-button-background-color: #d4d0c8;
+		@awspilot-button-color: #55002d;
+		@awspilot-button-border-top: 1px solid #ffffff;
+		@awspilot-button-border-right: 1px solid #404040;
+		@awspilot-button-border-bottom: 1px solid #404040;
+		@awspilot-button-border-left: 1px solid #ffffff;
+		@awspilot-button-box-shodow: inset -1px -1px 1px #808080;
+		@awspilot-button-border-radius: 0px;
+
 		@awspilot-miniheader-title-background: #00a;
 		@awspilot-miniheader-title-color: #fff;
 		@awspilot-miniheader-title-border-bottom: none;
@@ -34,6 +44,16 @@
 		@awspilot-tabcontent-box-shodow: inset -1px -1px 1px #808080;
 
 		@awspilot-tabs-background: transparent;
+
+		@awspilot-tabs-tab-background: @awspilot-window-background;
+		@awspilot-tabs-tab-color: #55002d;
+		@awspilot-tabs-tab-border-top: 1px solid #ffffff;
+		@awspilot-tabs-tab-border-right: 1px solid #404040;
+		@awspilot-tabs-tab-border-bottom: 0px;
+		@awspilot-tabs-tab-border-left: 1px solid #ffffff;
+
+		@awspilot-tabs-tab-active-color: #55002d;
+
 		@import (multiple,reference) "theme";
 	}
 }
