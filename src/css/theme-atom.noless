@@ -21,6 +21,15 @@
 		@awspilot-miniheader-title-color: @text-color;
 
 		@awspilot-window-background: @tab-background-color-active;
+		@awspilot-window-spacing: 0px;
+		@awspilot-window-border-top: 1px solid transparent;
+		@awspilot-window-border-right: 1px solid transparent;
+		@awspilot-window-border-bottom: 1px solid transparent;
+		@awspilot-window-border-left: 1px solid transparent;
+		@awspilot-window-box-shodow: none;
+
+
+		@awspilot-list-background: transparent;
 
 		@import (multiple,reference) "theme";
 	}

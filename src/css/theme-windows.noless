@@ -6,6 +6,14 @@
 		@awspilot-miniheader-title-color: #fff;
 
 		@awspilot-window-background: #c3c6ca;
+		@awspilot-window-spacing: 2px;
+		@awspilot-window-border-top: 1px solid #dee2e4;
+		@awspilot-window-border-right: 1px solid #38494b;
+		@awspilot-window-border-bottom: 1px solid #38494b;
+		@awspilot-window-border-left: 1px solid #dee2e4;
+		@awspilot-window-box-shodow: -1px -1px 1px #92babc, 1px 1px 1px #3f8080;
+
+		@awspilot-list-background: #fefefe;
 
 		@import (multiple,reference) "theme";
 	}

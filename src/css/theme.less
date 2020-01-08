@@ -8,5 +8,8 @@
 }
 
 & miniheader {background-color: @awspilot-miniheader-title-background;color: @awspilot-miniheader-title-color;}
-& left {background-color: @awspilot-window-background;}
-& left > .scrollarea {border-right: 1px solid @base-border-color;}
+& left {background-color: @awspilot-window-background;padding: @awspilot-window-spacing;}
+& left {border-top: @awspilot-window-border-top;border-right: @awspilot-window-border-right;border-bottom: @awspilot-window-border-bottom;border-left: @awspilot-window-border-left;}
+& left {box-shadow: @awspilot-window-box-shodow; }
+
+& left > .scrollarea {background-color: @awspilot-list-background; border-right: 1px solid @base-border-color;}
