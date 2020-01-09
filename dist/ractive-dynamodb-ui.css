@@ -317,20 +317,12 @@
 }
 .ractive-dynamodb-ui .input-text {
   outline: none;
-  border: 1px solid hsl(220, 24%, 12%);
-  background-color: hsl(220, 24%, 14%);
-  color: hsl(220, 18%, 66%);
 }
 .ractive-dynamodb-ui .input-select {
   outline: none;
   vertical-align: middle;
   height: calc(2em + 2px);
   border-radius: 3px;
-}
-.ractive-dynamodb-ui .input-select {
-  border: 1px solid hsl(220, 24%, 12%);
-  background-color: hsl(220, 24%, 14%);
-  color: hsl(220, 18%, 66%);
 }
 .ractive-dynamodb-ui .input-radio {
   vertical-align: middle;
@@ -635,7 +627,6 @@
   height: 119px;
   overflow: hidden;
   padding: 10px;
-  margin-top: 6px;
 }
 .ractive-dynamodb-ui content tabcontent .tabledatacontrols {
   position: absolute;
@@ -749,14 +740,6 @@
   border-bottom: 1px solid hsl(220, 24%, 12%);
   color: hsl(220, 18%, 86%);
 }
-.ractive-dynamodb-ui content tabcontent .tablequery {
-  background-color: hsl(220, 24%, 17%);
-  border-bottom: 1px solid hsl(220, 24%, 12%);
-}
-.ractive-dynamodb-ui content tabcontent .tabledatacontrols {
-  background-color: #242b3a;
-  border-bottom: 1px solid hsl(220, 24%, 12%);
-}
 .ractive-dynamodb-ui content tabcontent .tabledata {
   border-top: 1px solid transparent;
 }
@@ -786,23 +769,11 @@
   background-size: 13px 13px;
   background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.2) 50%, transparent 50%), linear-gradient(rgba(0, 0, 0, 0.2) 50%, transparent 50%);
 }
-.ractive-dynamodb-ui content tabcontent .tabledata .tabledatarow:hover {
-  background-color: hsl(220, 24%, 24%);
-}
-.ractive-dynamodb-ui content tabcontent .tabledata .tabledatarow:hover .tabledatacell {
-  color: hsl(220, 18%, 86%);
-}
 .ractive-dynamodb-ui content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-HASH {
   color: hsl(220, 18%, 86%);
 }
-.ractive-dynamodb-ui content tabcontent .tabledata .tabledatarow.selected {
-  background-color: hsl(220, 24%, 28%);
-}
 .ractive-dynamodb-ui content tabcontent .tabledata .tabledatarow.selected .tabledatacell {
   color: white;
-}
-.ractive-dynamodb-ui content tabcontent .tabledata .tabledatarow.selected:hover {
-  background-color: hsl(208, 88%, 48%) !important;
 }
 .ractive-dynamodb-ui content tabcontent .tabledata .tabledatarow.selected:hover .tabledatacell {
   color: #fff;
@@ -821,6 +792,7 @@
 .ractive-dynamodb-ui.theme-atom .btn-default {
   color: hsl(220, 18%, 66%);
   background-color: hsl(220, 24%, 26%);
+  background-image: inherit;
 }
 .ractive-dynamodb-ui.theme-atom .btn-default {
   border-top: 1px solid hsl(220, 24%, 12%);
@@ -836,7 +808,8 @@
 }
 .ractive-dynamodb-ui.theme-atom .btn-primary {
   color: #fff;
-  background-color: #4d78cc;
+  background-color: hsl(208, 88%, 48%);
+  background-image: inherit;
 }
 .ractive-dynamodb-ui.theme-atom .btn-primary {
   border-top: 1px solid hsl(220, 24%, 12%);
@@ -884,6 +857,33 @@
 .ractive-dynamodb-ui.theme-atom .input-checkbox {
   box-shadow: none;
 }
+.ractive-dynamodb-ui.theme-atom .input-text {
+  background-color: hsl(220, 24%, 14%);
+  color: hsl(220, 18%, 66%);
+}
+.ractive-dynamodb-ui.theme-atom .input-text {
+  border-top: 1px solid hsl(220, 24%, 12%);
+  border-right: 1px solid hsl(220, 24%, 12%);
+  border-bottom: 1px solid hsl(220, 24%, 12%);
+  border-left: 1px solid hsl(220, 24%, 12%);
+}
+.ractive-dynamodb-ui.theme-atom .input-text {
+  box-shadow: none;
+}
+.ractive-dynamodb-ui.theme-atom .input-select {
+  background-color: hsl(220, 24%, 14%);
+  color: hsl(220, 18%, 66%);
+  border-radius: inherit;
+}
+.ractive-dynamodb-ui.theme-atom .input-select {
+  border-top: 1px solid hsl(220, 24%, 12%);
+  border-right: 1px solid hsl(220, 24%, 12%);
+  border-bottom: 1px solid hsl(220, 24%, 12%);
+  border-left: 1px solid hsl(220, 24%, 12%);
+}
+.ractive-dynamodb-ui.theme-atom .input-select {
+  box-shadow: none;
+}
 .ractive-dynamodb-ui.theme-atom .tabledata {
   background-color: transparent;
 }
@@ -906,6 +906,18 @@
 }
 .ractive-dynamodb-ui.theme-atom .tabledata .tabledatarow {
   border-bottom: 1px solid hsl(220, 24%, 12%);
+}
+.ractive-dynamodb-ui.theme-atom .tabledata .tabledatarow:hover {
+  background-color: hsl(220, 24%, 24%);
+}
+.ractive-dynamodb-ui.theme-atom .tabledata .tabledatarow:hover .tabledatacell {
+  color: hsl(220, 18%, 86%) !important;
+}
+.ractive-dynamodb-ui.theme-atom .tabledata .tabledatarow.selected {
+  background-color: hsl(220, 24%, 28%);
+}
+.ractive-dynamodb-ui.theme-atom .tabledata .tabledatarow.selected:hover {
+  background-color: hsl(208, 88%, 48%) !important;
 }
 .ractive-dynamodb-ui.theme-atom .tabledata .tabledatarow .tabledatacell {
   border-right: 1px solid hsl(220, 24%, 12%);
@@ -996,6 +1008,25 @@
   background-color: hsl(220, 24%, 20%);
   color: hsl(220, 18%, 86%);
 }
+.ractive-dynamodb-ui.theme-atom content tabcontent .tablequery {
+  background-color: hsl(220, 24%, 17%);
+  box-shadow: none;
+}
+.ractive-dynamodb-ui.theme-atom content tabcontent .tablequery {
+  border-top: 0px;
+  border-right: 0px;
+  border-bottom: 1px solid hsl(220, 24%, 12%);
+  border-left: 0px;
+}
+.ractive-dynamodb-ui.theme-atom content tabcontent .tabledatacontrols {
+  background-color: #242b3a;
+}
+.ractive-dynamodb-ui.theme-atom content tabcontent .tabledatacontrols {
+  border-top: 0px;
+  border-right: 0px;
+  border-bottom: 1px solid hsl(220, 24%, 12%);
+  border-left: 0px;
+}
 .ractive-dynamodb-ui.theme-windows {
   /*#c3c6ca*/
   background-color: #54a9a9;
@@ -1011,6 +1042,7 @@
 .ractive-dynamodb-ui.theme-windows .btn-default {
   color: #55002d;
   background-color: #d4d0c8;
+  background-image: none;
 }
 .ractive-dynamodb-ui.theme-windows .btn-default {
   border-top: 1px solid #ffffff;
@@ -1027,6 +1059,7 @@
 .ractive-dynamodb-ui.theme-windows .btn-primary {
   color: #55002d;
   background-color: #d4d0c8;
+  background-image: none;
 }
 .ractive-dynamodb-ui.theme-windows .btn-primary {
   border-top: 1px solid #ffffff;
@@ -1074,6 +1107,33 @@
 .ractive-dynamodb-ui.theme-windows .input-checkbox {
   box-shadow: inset 1px 1px 1px #404040, inset -1px -1px 1px #d4d0c8;
 }
+.ractive-dynamodb-ui.theme-windows .input-text {
+  background-color: #fff;
+  color: #000000;
+}
+.ractive-dynamodb-ui.theme-windows .input-text {
+  border-top: 1px solid 1px solid #808080;
+  border-right: 1px solid 1px solid #fff;
+  border-bottom: 1px solid 1px solid #fff;
+  border-left: 1px solid 1px solid #808080;
+}
+.ractive-dynamodb-ui.theme-windows .input-text {
+  box-shadow: inset 1px 1px 1px #404040, inset -1px -1px 1px #d4d0c8;
+}
+.ractive-dynamodb-ui.theme-windows .input-select {
+  background-color: #fff;
+  color: #000000;
+  border-radius: 0px;
+}
+.ractive-dynamodb-ui.theme-windows .input-select {
+  border-top: 1px solid 1px solid #808080;
+  border-right: 1px solid 1px solid #fff;
+  border-bottom: 1px solid 1px solid #fff;
+  border-left: 1px solid 1px solid #808080;
+}
+.ractive-dynamodb-ui.theme-windows .input-select {
+  box-shadow: inset 1px 1px 1px #404040, inset -1px -1px 1px #d4d0c8;
+}
 .ractive-dynamodb-ui.theme-windows .tabledata {
   background-color: #fefefe;
 }
@@ -1096,6 +1156,18 @@
 }
 .ractive-dynamodb-ui.theme-windows .tabledata .tabledatarow {
   border-bottom: 1px solid #dcd8d2;
+}
+.ractive-dynamodb-ui.theme-windows .tabledata .tabledatarow:hover {
+  background-color: #3737ff;
+}
+.ractive-dynamodb-ui.theme-windows .tabledata .tabledatarow:hover .tabledatacell {
+  color: #fff !important;
+}
+.ractive-dynamodb-ui.theme-windows .tabledata .tabledatarow.selected {
+  background-color: #00a;
+}
+.ractive-dynamodb-ui.theme-windows .tabledata .tabledatarow.selected:hover {
+  background-color: #00a;
 }
 .ractive-dynamodb-ui.theme-windows .tabledata .tabledatarow .tabledatacell {
   border-right: 1px solid #dcd8d2;
@@ -1145,7 +1217,7 @@
 }
 .ractive-dynamodb-ui.theme-windows left tables > div {
   border-bottom: 1px solid transparent;
-  color: hsl(220, 18%, 66%);
+  color: #300051;
 }
 .ractive-dynamodb-ui.theme-windows left tables > div:hover {
   background-color: #3737ff;
@@ -1185,5 +1257,24 @@
 .ractive-dynamodb-ui.theme-windows content tabhead tab.active {
   background-color: #d4d0c8;
   color: #55002d;
+}
+.ractive-dynamodb-ui.theme-windows content tabcontent .tablequery {
+  background-color: transparent;
+  box-shadow: 0px 1px 0px #fff;
+}
+.ractive-dynamodb-ui.theme-windows content tabcontent .tablequery {
+  border-top: 0px;
+  border-right: 0px;
+  border-bottom: 1px solid #808080;
+  border-left: 0px;
+}
+.ractive-dynamodb-ui.theme-windows content tabcontent .tabledatacontrols {
+  background-color: transparent;
+}
+.ractive-dynamodb-ui.theme-windows content tabcontent .tabledatacontrols {
+  border-top: 0px;
+  border-right: 0px;
+  border-bottom: 0px;
+  border-left: 0px;
 }
 
