@@ -22,7 +22,7 @@
 		@awspilot-button-background-color: @button-background-color;
 		@awspilot-button-color: @text-color;
 
-		@awspilot-button-primary-background-color: @accent-bg-color;
+		@awspilot-button-primary-background-color: @background-color-info;
 		@awspilot-button-primary-color: #fff;
 
 		@awspilot-button-danger-background-color: @background-color-error;
