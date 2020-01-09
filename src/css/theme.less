@@ -24,6 +24,15 @@
 & .input-checkbox {border-top: @awspilot-checkbox-border-top;border-right: @awspilot-checkbox-border-right;border-bottom: @awspilot-checkbox-border-bottom;border-left: @awspilot-checkbox-border-left;}
 & .input-checkbox {box-shadow: @awspilot-checkbox-box-shodow}
 
+& .input-text {background-color: @awspilot-textbox-background;color: @awspilot-textbox-color;}
+& .input-text {border-top: @awspilot-textbox-border-top;border-right: @awspilot-textbox-border-right;border-bottom: @awspilot-textbox-border-bottom;border-left: @awspilot-textbox-border-left;}
+& .input-text {box-shadow: @awspilot-textbox-box-shodow}
+
+& .input-select {background-color: @awspilot-selectbox-background; color: @awspilot-selectbox-color; border-radius: @awspilot-selectbox-border-radius;}
+& .input-select {border-top: @awspilot-selectbox-border-top;border-right: @awspilot-selectbox-border-right;border-bottom: @awspilot-selectbox-border-bottom;border-left: @awspilot-selectbox-border-left;}
+& .input-select {box-shadow: @awspilot-selectbox-box-shodow}
+
+
 & .tabledata {background-color: @awspilot-tabledata-background;}
 & .tabledata {border-top: @awspilot-tabledata-border-top;border-right: @awspilot-tabledata-border-right;border-bottom: @awspilot-tabledata-border-bottom;border-left: @awspilot-tabledata-border-left;}
 & .tabledata {box-shadow: @awspilot-tabledata-box-shodow;}
@@ -33,6 +42,10 @@
 
 
 & .tabledata .tabledatarow {border-bottom: @awspilot-tabledata-row-border-bottom;}
+& .tabledata .tabledatarow:hover {background-color: @awspilot-tabledata-row-hover-background;}
+& .tabledata .tabledatarow:hover .tabledatacell {color: @awspilot-tabledata-cell-hover-color;}
+& .tabledata .tabledatarow.selected {background-color: @awspilot-tabledata-row-selected-background;}
+& .tabledata .tabledatarow.selected:hover {background-color: @awspilot-tabledata-row-selected-hover-background;}
 & .tabledata .tabledatarow .tabledatacell {border-right: @awspilot-tabledata-cell-border-right;border-left: 1px solid transparent;}
 
 
@@ -65,3 +78,9 @@
 & content tabhead tab {background-color: @awspilot-tabs-tab-background; color: @awspilot-tabs-tab-color; }
 & content tabhead tab {border-top: @awspilot-tabs-tab-border-top;border-right: @awspilot-tabs-tab-border-right;border-bottom: @awspilot-tabs-tab-border-bottom;border-left: @awspilot-tabs-tab-border-left;}
 & content tabhead tab.active {background-color: @awspilot-window-background;color: @awspilot-tabs-tab-active-color;}
+
+& content tabcontent .tablequery {background-color: @awspilot-tablequery-background; box-shadow: @awspilot-tablequery-box-shodow;}
+& content tabcontent .tablequery {border-top: @awspilot-tablequery-border-top;border-right: @awspilot-tablequery-border-right;border-bottom: @awspilot-tablequery-border-bottom;border-left: @awspilot-tablequery-border-left;}
+
+& content tabcontent .tabledatacontrols { background-color: @awspilot-tabledatacontrols-background;}
+& content tabcontent .tabledatacontrols { border-top: @awspilot-tabledatacontrols-border-top;border-right: @awspilot-tabledatacontrols-border-right;border-bottom: @awspilot-tabledatacontrols-border-bottom;border-left: @awspilot-tabledatacontrols-border-left;}
