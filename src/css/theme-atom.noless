@@ -42,6 +42,36 @@
 		@awspilot-checkbox-border-left: 1px solid @input-background-color;
 		@awspilot-checkbox-box-shodow: none;
 
+		@awspilot-textbox-background: @input-background-color;
+		@awspilot-textbox-color: @text-color;
+		@awspilot-textbox-border-top: 1px solid @input-border-color;
+		@awspilot-textbox-border-right: 1px solid @input-border-color;
+		@awspilot-textbox-border-bottom: 1px solid @input-border-color;
+		@awspilot-textbox-border-left: 1px solid @input-border-color;
+		@awspilot-textbox-box-shodow: none;
+
+		@awspilot-selectbox-background: @input-background-color;
+		@awspilot-selectbox-color: @text-color;
+		@awspilot-selectbox-border-top: 1px solid @input-border-color;
+		@awspilot-selectbox-border-right: 1px solid @input-border-color;
+		@awspilot-selectbox-border-bottom: 1px solid @input-border-color;
+		@awspilot-selectbox-border-left: 1px solid @input-border-color;
+		@awspilot-selectbox-border-radius: inherit;
+		@awspilot-selectbox-box-shodow: none;
+
+		@awspilot-tablequery-background: @tool-panel-background-color;
+		@awspilot-tablequery-border-top: 0px;
+		@awspilot-tablequery-border-right: 0px;
+		@awspilot-tablequery-border-bottom: 1px solid @panel-heading-border-color;
+		@awspilot-tablequery-border-left: 0px;
+		@awspilot-tablequery-box-shodow: none;
+
+		@awspilot-tabledatacontrols-background: @overlay-background-color;
+		@awspilot-tabledatacontrols-border-top: 0px;
+		@awspilot-tabledatacontrols-border-right: 0px;
+		@awspilot-tabledatacontrols-border-bottom: 1px solid @overlay-border-color;
+		@awspilot-tabledatacontrols-border-left: 0px;
+
 		@awspilot-tabledata-background: transparent;
 		@awspilot-tabledata-border-top: 0px;
 		@awspilot-tabledata-border-right: 0xp;
@@ -55,7 +85,11 @@
 		@awspilot-tabledata-head-cell-border-bottom: 1px solid transparent;
 		@awspilot-tabledata-head-cell-border-left: 1px solid transparent;
 		@awspilot-tabledata-row-border-bottom: 1px solid @pane-item-border-color;
+		@awspilot-tabledata-row-hover-background: @background-color-highlight;
+		@awspilot-tabledata-row-selected-background: @background-color-selected;
+		@awspilot-tabledata-row-selected-hover-background: @background-color-info !important;
 		@awspilot-tabledata-cell-border-right: 1px solid @pane-item-border-color;
+		@awspilot-tabledata-cell-hover-color: @text-color-highlight !important;
 
 		@awspilot-miniheader-title-background: @tab-bar-background-color;
 		@awspilot-miniheader-title-color: @text-color;
