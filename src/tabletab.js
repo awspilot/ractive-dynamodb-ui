@@ -35,7 +35,7 @@ export default Ractive.extend({
 				<a class='btn-tableview-tab {{#if tab === 'backups'}}active{{/if}}'      on-click='@this.set('tab','backups')'><!--<i class='zmdi zmdi-card-sd'></i>--> Backups</a>
 				<a class='btn-tableview-tab {{#if tab === 'triggers'}}active{{/if}}'     on-click='@this.set('tab','triggers')'><!--<i class='zmdi zmdi-portable-wifi'></i>--> Triggers</a>
 			</div>
-			<div style='position: absolute;top: 42px;left: 30px;right: 30px;bottom: 2px;'>
+			<div style='position: absolute;top: 40px;left: 30px;right: 30px;bottom: 2px;'>
 				{{#if err}}
 					<br> {{ err.errorMessage || err.message }}
 				{{else}}
