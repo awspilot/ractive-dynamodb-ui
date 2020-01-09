@@ -20,9 +20,11 @@
 		@awspilot-hr-border-bottom: 1px solid @base-border-color;
 
 		@awspilot-button-background-color: @button-background-color;
+		@awspilot-button-background-image: inherit;
 		@awspilot-button-color: @text-color;
 
 		@awspilot-button-primary-background-color: @background-color-info;
+		@awspilot-button-primary-background-image: inherit;
 		@awspilot-button-primary-color: #fff;
 
 		@awspilot-button-danger-background-color: @background-color-error;

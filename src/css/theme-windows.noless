@@ -6,9 +6,11 @@
 		@awspilot-hr-border-bottom: 1px solid #fff;
 
 		@awspilot-button-background-color: #d4d0c8;
+		@awspilot-button-background-image: none;
 		@awspilot-button-color: #55002d;
 
 		@awspilot-button-primary-background-color: #d4d0c8;
+		@awspilot-button-primary-background-image: none;
 		@awspilot-button-primary-color: #55002d;
 
 		@awspilot-button-danger-background-color: #d4d0c8;
