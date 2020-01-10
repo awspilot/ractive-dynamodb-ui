@@ -137,8 +137,22 @@
 		@awspilot-tabs-tab-border-bottom: 0px;
 		@awspilot-tabs-tab-border-left: 0px;
 
-
 		@awspilot-tabs-tab-active-color: @text-color-highlight;
+
+		@awspilot-tabletabs-border-top: 0px;
+		@awspilot-tabletabs-border-right: 0px;
+		@awspilot-tabletabs-border-bottom: 1px solid @tab-bar-border-color;
+		@awspilot-tabletabs-border-left: 0px;
+		@awspilot-tabletabs-spacing: 2px;
+		@awspilot-tabletabs-tab-background: @tab-background-color;
+		@awspilot-tabletabs-tab-color: @text-color;
+		@awspilot-tabletabs-tab-border-top: 1px solid @tab-border-color;
+		@awspilot-tabletabs-tab-border-right: 1px solid @tab-border-color;
+		@awspilot-tabletabs-tab-border-bottom: 1px solid @tab-bar-border-color;
+		@awspilot-tabletabs-tab-border-left: 1px solid @tab-border-color;
+		@awspilot-tabletabs-tab-active-background: @tab-background-color-active;
+		@awspilot-tabletabs-tab-active-color: @text-color-highlight;
+		@awspilot-tabletabs-tab-active-border-bottom: 1px solid @tab-background-color-active;
 
 		@import (multiple,reference) "theme";
 	}
