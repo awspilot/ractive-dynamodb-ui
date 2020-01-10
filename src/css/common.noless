@@ -39,4 +39,9 @@
 	.miniheaderbody {left: 0px;top: 29px;right: 0px;bottom: 0px;} /* scrollarea */
 	left tables > div {display: block;height: 20px; line-height: 20px;font-size: 13px;padding: 0px 10px;border-top: 1px solid transparent;border-left: 1px solid transparent;;margin-bottom: 0px;cursor: pointer}
 
+	content tabcontent .tableview-table-tabs {position: absolute;top: 10px;left: 30px;height: 30px;right: 30px;border-bottom: 1px solid #bbb;padding: 0px 20px;font-size: 0px;}
+	.btn-tableview-tab {display: inline-block;height: 30px;line-height: 30px;text-align: center;vertical-align: middle;border-radius: 3px 3px 0px 0px;text-decoration: none;}
+	.btn-tableview-tab:hover {cursor: pointer;}
+	.btn-tableview-tab i {line-height: 40px;line-height: 30px;margin: 5px;width: 30px;height: 30px;border-radius: 5px;}
+
 }
