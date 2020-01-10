@@ -1,4 +1,9 @@
+import tabledata from '../tabledata';
+
 export default Ractive.extend({
+	components: {
+		tabledata: tabledata,
+	},
 	template: `
 			<div>
 
@@ -19,7 +24,7 @@ export default Ractive.extend({
 					<a class='btn btn-sm btn-default pull-right' on-click='refresh'><icon-refresh /></a>
 				</div>
 
-				<tabledata columns='{{columns}}' rows='{{rows}}' style='top: 180px'/>
+				<tabledata columns='{{columns}}' rows='{{rows}}' style='top: 180px' />
 
 
 
@@ -30,14 +35,24 @@ export default Ractive.extend({
 		var ractive=this;
 		ractive.set('rows',null);
 
-		DynamoDB.client.listBackups( { TableName: 'created_by_cloudformation',} , function(err, data) {
+		DynamoDB.client.listBackups( { TableName: this.get('describeTable.TableName'),} , function(err, data) {
 			if (err)
 				return alert('failed getting backup list')
 
 			ractive.set('rows', data.BackupSummaries.map(function(b) {
-				return {
+				return [
+					{ KEY: true },
+					{ S: b.BackupName },
+					{ S: b.BackupStatus },
+					{ S: b.BackupCreationDateTime.toISOString().split('T').join(' ') },
+					{ S: Math.ceil((b.BackupSizeBytes)/1024) + 'K' },
+					{ S: b.BackupType },
+					{ S: '' },
+					{ S: b.TableArn },
+					// { N: index.IndexSizeBytes.toString() },
+					// { N: index.ItemCount.toString() },
 
-				}
+				]
 			}))
 
 		});
