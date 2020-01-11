@@ -95,6 +95,36 @@
   margin-bottom: 0px;
   cursor: pointer;
 }
+.ractive-dynamodb-ui content tabcontent .tableview-table-tabs {
+  position: absolute;
+  top: 10px;
+  left: 30px;
+  height: 30px;
+  right: 30px;
+  border-bottom: 1px solid #bbb;
+  padding: 0px 20px;
+  font-size: 0px;
+}
+.ractive-dynamodb-ui .btn-tableview-tab {
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 3px 3px 0px 0px;
+  text-decoration: none;
+}
+.ractive-dynamodb-ui .btn-tableview-tab:hover {
+  cursor: pointer;
+}
+.ractive-dynamodb-ui .btn-tableview-tab i {
+  line-height: 40px;
+  line-height: 30px;
+  margin: 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+}
 .ractive-dynamodb-ui .ractive-window {
   background-color: hsl(220, 24%, 24%);
   border: 1px solid #cccccc;
@@ -566,35 +596,6 @@
   right: 0px;
   bottom: 0px;
 }
-.ractive-dynamodb-ui .btn-tableview-tab {
-  display: inline-block;
-  height: 30px;
-  line-height: 30px;
-  text-align: center;
-  vertical-align: middle;
-  border-radius: 3px 3px 0px 0px;
-  text-decoration: none;
-}
-.ractive-dynamodb-ui .btn-tableview-tab:hover {
-  cursor: pointer;
-}
-.ractive-dynamodb-ui .btn-tableview-tab i {
-  line-height: 40px;
-  line-height: 30px;
-  margin: 5px;
-  width: 30px;
-  height: 30px;
-  border-radius: 5px;
-}
-.ractive-dynamodb-ui content tabcontent .tableview-table-tabs {
-  position: absolute;
-  top: 10px;
-  left: 30px;
-  height: 30px;
-  right: 30px;
-  border-bottom: 1px solid #bbb;
-  padding: 0px 20px;
-}
 .ractive-dynamodb-ui content tabcontent .tableview {
   visibility: hidden;
 }
@@ -721,24 +722,6 @@
 .ractive-dynamodb-ui header {
   background-color: #232f3e;
   /*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);*/
-}
-.ractive-dynamodb-ui content tabcontent .tableview-table-tabs {
-  /*background: @tab-bar-background-color*/
-  border-bottom: 1px solid hsl(220, 24%, 12%);
-}
-.ractive-dynamodb-ui .btn-tableview-tab {
-  background-color: hsl(220, 24%, 17%);
-  border: 1px solid hsl(220, 24%, 12%);
-  border-bottom: 1px solid hsl(220, 24%, 12%);
-  color: hsl(220, 18%, 66%);
-  font-weight: bold;
-  font-size: 12px;
-  padding: 0px 12px;
-}
-.ractive-dynamodb-ui .btn-tableview-tab.active {
-  background-color: hsl(220, 24%, 20%);
-  border-bottom: 1px solid hsl(220, 24%, 12%);
-  color: hsl(220, 18%, 86%);
 }
 .ractive-dynamodb-ui content tabcontent .tabledata {
   border-top: 1px solid transparent;
@@ -1027,6 +1010,35 @@
   border-bottom: 1px solid hsl(220, 24%, 12%);
   border-left: 0px;
 }
+.ractive-dynamodb-ui.theme-atom content tabcontent .tableview-table-tabs {
+  border-top: 0px;
+  border-right: 0px;
+  border-bottom: 1px solid hsl(220, 24%, 12%);
+  border-left: 0px;
+}
+.ractive-dynamodb-ui.theme-atom content tabcontent .tableview-table-tabs .btn-tableview-tab {
+  margin-right: 2px;
+}
+.ractive-dynamodb-ui.theme-atom content tabcontent .tableview-table-tabs .btn-tableview-tab {
+  background-color: hsl(220, 24%, 17%);
+  color: hsl(220, 18%, 66%);
+  font-weight: bold;
+  font-size: 12px;
+  padding: 0px 12px;
+}
+.ractive-dynamodb-ui.theme-atom content tabcontent .tableview-table-tabs .btn-tableview-tab {
+  border-top: 1px solid hsl(220, 24%, 12%);
+  border-right: 1px solid hsl(220, 24%, 12%);
+  border-bottom: 1px solid hsl(220, 24%, 12%);
+  border-left: 1px solid hsl(220, 24%, 12%);
+}
+.ractive-dynamodb-ui.theme-atom content tabcontent .tableview-table-tabs .btn-tableview-tab.active {
+  background-color: hsl(220, 24%, 20%);
+  color: hsl(220, 18%, 86%);
+}
+.ractive-dynamodb-ui.theme-atom content tabcontent .tableview-table-tabs .btn-tableview-tab.active {
+  border-bottom: 1px solid hsl(220, 24%, 20%);
+}
 .ractive-dynamodb-ui.theme-windows {
   /*#c3c6ca*/
   background-color: #54a9a9;
@@ -1276,5 +1288,34 @@
   border-right: 0px;
   border-bottom: 0px;
   border-left: 0px;
+}
+.ractive-dynamodb-ui.theme-windows content tabcontent .tableview-table-tabs {
+  border-top: 0px;
+  border-right: 0px;
+  border-bottom: 1px solid #fff;
+  border-left: 0px;
+}
+.ractive-dynamodb-ui.theme-windows content tabcontent .tableview-table-tabs .btn-tableview-tab {
+  margin-right: 0px;
+}
+.ractive-dynamodb-ui.theme-windows content tabcontent .tableview-table-tabs .btn-tableview-tab {
+  background-color: #d4d0c8;
+  color: #55002d;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 0px 12px;
+}
+.ractive-dynamodb-ui.theme-windows content tabcontent .tableview-table-tabs .btn-tableview-tab {
+  border-top: 1px solid #ffffff;
+  border-right: 1px solid #404040;
+  border-bottom: 1px solid #ffffff;
+  border-left: 1px solid #ffffff;
+}
+.ractive-dynamodb-ui.theme-windows content tabcontent .tableview-table-tabs .btn-tableview-tab.active {
+  background-color: #d4d0c8;
+  color: #55002d;
+}
+.ractive-dynamodb-ui.theme-windows content tabcontent .tableview-table-tabs .btn-tableview-tab.active {
+  border-bottom: 1px solid #d4d0c8;
 }
 

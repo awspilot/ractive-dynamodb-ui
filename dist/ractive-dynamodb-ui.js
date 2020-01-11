@@ -208,6 +208,33 @@ module.exports = isObjectLike;
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.default = Ractive.extend({
+	isolated: true,
+	template: '\n\t\t<div class=\'tabledata\' style=\'{{style}}\'>\n\t\t\t<div class=\'tabledatahead\'>\n\t\t\t\t{{#columns:i}}\n\t\t\t\t\t<div style=\'width: {{#if i === 0}}32px{{else}}{{100/columns.length}}%{{/if}} \'>{{.}}</div>\n\t\t\t\t{{/columns}}\n\t\t\t</div>\n\t\t\t<div class=\'tabledatacontent\'>\n\n\t\t\t\t{{#if rows.length === 0}}\n\t\t\t\t\t<br><small>Empty</small>\n\t\t\t\t{{/if}}\n\t\t\t\t{{#if rows === null }}\n\t\t\t\t\t<br><small>Loading...</small>\n\t\t\t\t{{/if}}\n\n\t\t\t\t{{#rows:row}}\n\t\t\t\t<div class=\'tabledatarow {{#if .[0].selected}}selected{{/if}}\' on-click=\'selectrow\'>\n\t\t\t\t\t{{#each .:i}}\n\t\t\t\t\t<div class=\'tabledatacell\n\t\t\t\t\t\t{{#if .KEY}}t-K{{/if}}\n\t\t\t\t\t\t{{#if .HASH}}t-HASH{{/if}}\n\t\t\t\t\t\t{{#if .S}}t-S{{/if}}\n\t\t\t\t\t\t{{#if .N}}t-N{{/if}}\n\t\t\t\t\t\t{{#if .BOOL}}t-BOOL{{/if}}\n\t\t\t\t\t\t{{#if .NULL}}t-NULL{{/if}}\n\t\t\t\t\t\t{{#if .L}}t-L{{/if}}\n\t\t\t\t\t\t{{#if .M}}t-M{{/if}}\n\t\t\t\t\t\t{{#if .U}}t-U{{/if}}\n\t\t\t\t\t\t\' style=\'width: {{#if i === 0}}32px{{else}}{{100/columns.length}}%{{/if}} \'\n\t\t\t\t\t\t{{#if .HASH}}on-click=\'cellclick\'{{/if}}\n\t\t\t\t\t\t>\n\t\t\t\t\t\t{{#if .KEY}}\n\t\t\t\t\t\t\t{{#if .selected}}\n\t\t\t\t\t\t\t\t<input class=\'input-checkbox\' type=\'checkbox\' checked>\n\t\t\t\t\t\t\t{{else}}\n\t\t\t\t\t\t\t\t<input class=\'input-checkbox\' type=\'checkbox\'>\n\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t{{#if .HASH}}<a>{{.HASH}}</a>{{/if}}\n\t\t\t\t\t\t{{#if .S}}{{.S}}{{/if}}\n\t\t\t\t\t\t{{#if .N}}{{.N}}{{else}}{{#if .N === 0}}0{{/if}}{{/if}}\n\t\t\t\t\t\t{{#if .BOOL}}{{.BOOL}}{{/if}}\n\t\t\t\t\t\t{{#if .NULL}}NULL{{/if}}\n\t\t\t\t\t\t{{#if .L}}[...]{{/if}}\n\t\t\t\t\t\t{{#if .M}}{...}{{/if}}\n\t\t\t\t\t</div>\n\t\t\t\t\t{{/each}}\n\t\t\t\t</div>\n\t\t\t\t{{/rows}}\n\t\t\t</div>\n\t\t</div>\n\t\t',
+
+	data: function data() {
+		return {};
+	},
+	oninit: function oninit() {
+		this.on('cellclick', function (e) {
+			var col = this.get(e.resolve());
+			//console.log("cellclick", e.resolve(), " = ",this.get( e.resolve())  )
+			//console.log( this.get(e.resolve().split('.').slice(0,-1).join('.')) )
+			this.fire('colclick', undefined, col.item, col.raw);
+		});
+	}
+});
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
 var listCacheClear = __webpack_require__(67),
     listCacheDelete = __webpack_require__(68),
     listCacheGet = __webpack_require__(69),
@@ -243,7 +270,7 @@ module.exports = ListCache;
 
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var eq = __webpack_require__(25);
@@ -270,7 +297,7 @@ module.exports = assocIndexOf;
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Symbol = __webpack_require__(12),
@@ -304,7 +331,7 @@ module.exports = baseGetTag;
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var getNative = __webpack_require__(1);
@@ -316,7 +343,7 @@ module.exports = nativeCreate;
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var isKeyable = __webpack_require__(92);
@@ -340,7 +367,7 @@ module.exports = getMapData;
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var assignValue = __webpack_require__(30),
@@ -384,33 +411,6 @@ function copyObject(source, props, object, customizer) {
 
 module.exports = copyObject;
 
-
-/***/ }),
-/* 10 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-exports.default = Ractive.extend({
-	isolated: true,
-	template: '\n\t\t<div class=\'tabledata\' style=\'{{style}}\'>\n\t\t\t<div class=\'tabledatahead\'>\n\t\t\t\t{{#columns:i}}\n\t\t\t\t\t<div style=\'width: {{#if i === 0}}32px{{else}}{{100/columns.length}}%{{/if}} \'>{{.}}</div>\n\t\t\t\t{{/columns}}\n\t\t\t</div>\n\t\t\t<div class=\'tabledatacontent\'>\n\n\t\t\t\t{{#if rows.length === 0}}\n\t\t\t\t\t<br><small>Empty</small>\n\t\t\t\t{{/if}}\n\t\t\t\t{{#if rows === null }}\n\t\t\t\t\t<br><small>Loading...</small>\n\t\t\t\t{{/if}}\n\n\t\t\t\t{{#rows:row}}\n\t\t\t\t<div class=\'tabledatarow {{#if .[0].selected}}selected{{/if}}\' on-click=\'selectrow\'>\n\t\t\t\t\t{{#each .:i}}\n\t\t\t\t\t<div class=\'tabledatacell\n\t\t\t\t\t\t{{#if .KEY}}t-K{{/if}}\n\t\t\t\t\t\t{{#if .HASH}}t-HASH{{/if}}\n\t\t\t\t\t\t{{#if .S}}t-S{{/if}}\n\t\t\t\t\t\t{{#if .N}}t-N{{/if}}\n\t\t\t\t\t\t{{#if .BOOL}}t-BOOL{{/if}}\n\t\t\t\t\t\t{{#if .NULL}}t-NULL{{/if}}\n\t\t\t\t\t\t{{#if .L}}t-L{{/if}}\n\t\t\t\t\t\t{{#if .M}}t-M{{/if}}\n\t\t\t\t\t\t{{#if .U}}t-U{{/if}}\n\t\t\t\t\t\t\' style=\'width: {{#if i === 0}}32px{{else}}{{100/columns.length}}%{{/if}} \'\n\t\t\t\t\t\t{{#if .HASH}}on-click=\'cellclick\'{{/if}}\n\t\t\t\t\t\t>\n\t\t\t\t\t\t{{#if .KEY}}\n\t\t\t\t\t\t\t{{#if .selected}}\n\t\t\t\t\t\t\t\t<input class=\'input-checkbox\' type=\'checkbox\' checked>\n\t\t\t\t\t\t\t{{else}}\n\t\t\t\t\t\t\t\t<input class=\'input-checkbox\' type=\'checkbox\'>\n\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t{{#if .HASH}}<a>{{.HASH}}</a>{{/if}}\n\t\t\t\t\t\t{{#if .S}}{{.S}}{{/if}}\n\t\t\t\t\t\t{{#if .N}}{{.N}}{{else}}{{#if .N === 0}}0{{/if}}{{/if}}\n\t\t\t\t\t\t{{#if .BOOL}}{{.BOOL}}{{/if}}\n\t\t\t\t\t\t{{#if .NULL}}NULL{{/if}}\n\t\t\t\t\t\t{{#if .L}}[...]{{/if}}\n\t\t\t\t\t\t{{#if .M}}{...}{{/if}}\n\t\t\t\t\t</div>\n\t\t\t\t\t{{/each}}\n\t\t\t\t</div>\n\t\t\t\t{{/rows}}\n\t\t\t</div>\n\t\t</div>\n\t\t',
-
-	data: function data() {
-		return {};
-	},
-	oninit: function oninit() {
-		this.on('cellclick', function (e) {
-			var col = this.get(e.resolve());
-			//console.log("cellclick", e.resolve(), " = ",this.get( e.resolve())  )
-			//console.log( this.get(e.resolve().split('.').slice(0,-1).join('.')) )
-			this.fire('colclick', undefined, col.item, col.raw);
-		});
-	}
-});
 
 /***/ }),
 /* 11 */
@@ -666,7 +666,7 @@ var DataView = __webpack_require__(118),
     Promise = __webpack_require__(119),
     Set = __webpack_require__(120),
     WeakMap = __webpack_require__(121),
-    baseGetTag = __webpack_require__(6),
+    baseGetTag = __webpack_require__(7),
     toSource = __webpack_require__(29);
 
 /** `Object#toString` result references. */
@@ -837,7 +837,7 @@ module.exports = eq;
 /* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseGetTag = __webpack_require__(6),
+var baseGetTag = __webpack_require__(7),
     isObject = __webpack_require__(2);
 
 /** `Object#toString` result references. */
@@ -1686,7 +1686,7 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _tabledata = __webpack_require__(10);
+var _tabledata = __webpack_require__(4);
 
 var _tabledata2 = _interopRequireDefault(_tabledata);
 
@@ -2366,7 +2366,7 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _tabledata = __webpack_require__(10);
+var _tabledata = __webpack_require__(4);
 
 var _tabledata2 = _interopRequireDefault(_tabledata);
 
@@ -2612,22 +2612,121 @@ exports.default = Ractive.extend({
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
+
+var _tabledata = __webpack_require__(4);
+
+var _tabledata2 = _interopRequireDefault(_tabledata);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 exports.default = Ractive.extend({
-	template: '\n\t\t\t<div>\n\n\t\t\t\t<br>\n\t\t\t\t<br>\n\t\t\t\t<h4>On-Demand Backup and Restore</h4>\n\t\t\t\t<hr />\n\t\t\t\t<div>You can create and restore a complete backup of your DynamoDB table data and its settings at any time.\n\t\t\t\t<a target=\'_blank\' href=\'http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/BackupRestore.html\'>Learn more</a>\n\t\t\t\t</div>\n\n\t\t\t\t<br>\n\t\t\t\t<div>\n\t\t\t\t\t<a class=\'btn btn-sm btn-primary disabled\' on-click=\'create\'>Create backup</a>\n\t\t\t\t\t<a class=\'btn btn-sm btn-default disabled\' on-click=\'restore\'>Restore backup</a>\n\t\t\t\t\t<a class=\'btn btn-sm btn-default disabled\' on-click=\'delete\'>Delete backup</a>\n\n\t\t\t\t\t<a class=\'btn btn-sm btn-default pull-right\' on-click=\'refresh\'><icon-refresh /></a>\n\t\t\t\t</div>\n\n\t\t\t\t<tabledata columns=\'{{columns}}\' rows=\'{{rows}}\' style=\'top: 180px\'/>\n\n\n\n\t\t\t</div>\n\n\t',
+	components: {
+		tabledata: _tabledata2.default
+	},
+	template: '\n\t\t\t<div>\n\n\t\t\t\t<br>\n\t\t\t\t<br>\n\t\t\t\t<h4>On-Demand Backup and Restore</h4>\n\t\t\t\t<hr />\n\t\t\t\t<div>You can create and restore a complete backup of your DynamoDB table data and its settings at any time.\n\t\t\t\t<a target=\'_blank\' href=\'http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/BackupRestore.html\'>Learn more</a>\n\t\t\t\t</div>\n\n\t\t\t\t<br>\n\t\t\t\t<div>\n\t\t\t\t\t<a class=\'btn btn-sm btn-primary \' on-click=\'create-window\'>Create backup</a>\n\t\t\t\t\t<a class=\'btn btn-sm btn-default disabled\' on-click=\'restore\'>Restore backup</a>\n\t\t\t\t\t<a class=\'btn btn-sm btn-default {{#if selection_size !== 1}}disabled{{/if}}\' on-click=\'delete\'>Delete backup</a>\n\n\t\t\t\t\t<a class=\'btn btn-sm btn-default pull-right\' on-click=\'refresh\'><icon-refresh /></a>\n\t\t\t\t</div>\n\n\t\t\t\t<tabledata columns=\'{{columns}}\' rows=\'{{rows}}\' style=\'top: 180px\' />\n\n\n\n\t\t\t</div>\n\n\t',
 	list_backups: function list_backups() {
 		var ractive = this;
 		ractive.set('rows', null);
 
-		DynamoDB.client.listBackups({ TableName: 'created_by_cloudformation' }, function (err, data) {
+		DynamoDB.client.listBackups({ TableName: this.get('describeTable.TableName') }, function (err, data) {
 			if (err) return alert('failed getting backup list');
 
 			ractive.set('rows', data.BackupSummaries.map(function (b) {
-				return {};
-			}));
+				return [{ KEY: true, item: b }, { S: b.BackupName }, { S: b.BackupStatus }, { S: b.BackupCreationDateTime.toISOString().split('T').join(' ') }, { S: Math.ceil(b.BackupSizeBytes / 1024) + 'K' }, { S: b.BackupType }, { S: '' }, { S: b.BackupArn }];
+			}
+			// { N: index.IndexSizeBytes.toString() },
+			// { N: index.ItemCount.toString() },
+
+			));
 		});
 	},
 	oninit: function oninit() {
 		var ractive = this;
+
+		ractive.on('tabledata.selectrow', function (context) {
+			var keypath = context.resolve();
+			ractive.set(keypath + '.0.selected', !ractive.get(keypath + '.0.selected'));
+			ractive.set('selection_size', ractive.get('rows').filter(function (r) {
+				return r[0].selected === true;
+			}).length);
+		});
+
+		ractive.on('delete', function () {
+			var selected = ractive.get('rows').filter(function (r) {
+				return r[0].selected === true;
+			});
+
+			if (selected.length === 0) return alert('Please select a backup to delete');
+
+			if (selected.length > 1) return alert('Please select one backup at a time');
+
+			var backup = ractive.get('rows').filter(function (r) {
+				return r[0].selected === true;
+			})[0];
+			var tablename = ractive.get('describeTable.TableName');
+
+			var backupname = backup[0].item.BackupName;
+
+			if (confirm('Are you sure you want to delete backup ' + backupname + ' of table ' + tablename)) {
+
+				var params = {
+					BackupArn: backup[0].item.BackupArn
+				};
+
+				DynamoDB.client.deleteBackup(params, function (err, data) {
+					if (err) return alert(err.message);
+
+					ractive.list_backups();
+				});
+			}
+		});
+
+		ractive.on('create-window', function () {
+			ractive.root.findComponent('WindowContainer').newWindow(function ($window) {
+				$window.set({
+					title: 'Create Backup',
+					'geometry.width': window.innerWidth * .4,
+					'geometry.height': 250,
+					'geometry.left': window.innerWidth * .3,
+					'geometry.top': window.innerHeight * .2
+				});
+
+				var vid = "window" + (Math.random() * 0xFFFFFF << 0).toString(16);
+				$window.content('<div id="' + vid + '"/>').then(function () {
+					new Ractive({
+						components: {},
+						el: vid,
+						template: '\n\t\t\t\t\t\t\t<table cellspacing="10" style="width: 100%">\n\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t<td colspan=2 style="height: 40px;">\n\t\t\t\t\t\t\t\t\t\t{{#if errorMessage}}\n\t\t\t\t\t\t\t\t\t\t\t<span style="color:red">{{errorMessage}}</span>\n\t\t\t\t\t\t\t\t\t\t{{else}}\n\t\t\t\t\t\t\t\t\t\t\t<span>&nbsp;</span>\n\t\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t<td width=150>Table</td>\n\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t<select class="input-select" style="width: 100%">\n\t\t\t\t\t\t\t\t\t\t\t<option>{{describeTable.TableName}}</option>\n\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t<td width=150>Backup Name</td>\n\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t<input type="text" class="input-text" style="width: 100%" value={{backup_name}} placeholder=" a-z, A-Z, 0-9, \'.\', \'_\', and \'-\' " on-keydown="resetform"/>\n\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t<td width=150></td>\n\t\t\t\t\t\t\t\t\t<td align="right">\n\t\t\t\t\t\t\t\t\t\t<a class="btn btn-sm btn-primary" on-click="create" >Create</a>\n\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t</table>\n\t\t\t\t\t\t',
+						data: {
+							backup_name: '',
+							describeTable: ractive.get('describeTable')
+						},
+						on: {
+							resetform: function resetform() {
+								this.set('errorMessage');
+							},
+							create: function create() {
+								var r = this;
+								r.set('errorMessage');
+								var params = {
+									BackupName: this.get('backup_name'),
+									TableName: this.get('describeTable.TableName')
+								};
+								DynamoDB.client.createBackup(params, function (err, data) {
+									if (err) {
+										r.set('errorMessage', err.errorMessage || err.message || 'Create Failed');
+										return;
+									}
+
+									ractive.list_backups();
+									$window.close();
+								});
+							}
+						}
+					});
+				});
+			});
+		});
 
 		this.on('refresh', function () {
 			ractive.list_backups();
@@ -2802,7 +2901,7 @@ var _create_item2 = __webpack_require__(135);
 
 var _create_item3 = _interopRequireDefault(_create_item2);
 
-var _tabledata = __webpack_require__(10);
+var _tabledata = __webpack_require__(4);
 
 var _tabledata2 = _interopRequireDefault(_tabledata);
 
@@ -3854,7 +3953,7 @@ module.exports = baseClone;
 /* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var ListCache = __webpack_require__(4),
+var ListCache = __webpack_require__(5),
     stackClear = __webpack_require__(72),
     stackDelete = __webpack_require__(73),
     stackGet = __webpack_require__(74),
@@ -3906,7 +4005,7 @@ module.exports = listCacheClear;
 /* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var assocIndexOf = __webpack_require__(5);
+var assocIndexOf = __webpack_require__(6);
 
 /** Used for built-in method references. */
 var arrayProto = Array.prototype;
@@ -3947,7 +4046,7 @@ module.exports = listCacheDelete;
 /* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var assocIndexOf = __webpack_require__(5);
+var assocIndexOf = __webpack_require__(6);
 
 /**
  * Gets the list cache value for `key`.
@@ -3972,7 +4071,7 @@ module.exports = listCacheGet;
 /* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var assocIndexOf = __webpack_require__(5);
+var assocIndexOf = __webpack_require__(6);
 
 /**
  * Checks if a list cache value for `key` exists.
@@ -3994,7 +4093,7 @@ module.exports = listCacheHas;
 /* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var assocIndexOf = __webpack_require__(5);
+var assocIndexOf = __webpack_require__(6);
 
 /**
  * Sets the list cache `key` to `value`.
@@ -4026,7 +4125,7 @@ module.exports = listCacheSet;
 /* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var ListCache = __webpack_require__(4);
+var ListCache = __webpack_require__(5);
 
 /**
  * Removes all key-value entries from the stack.
@@ -4111,7 +4210,7 @@ module.exports = stackHas;
 /* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var ListCache = __webpack_require__(4),
+var ListCache = __webpack_require__(5),
     Map = __webpack_require__(11),
     MapCache = __webpack_require__(83);
 
@@ -4380,7 +4479,7 @@ module.exports = MapCache;
 /***/ (function(module, exports, __webpack_require__) {
 
 var Hash = __webpack_require__(85),
-    ListCache = __webpack_require__(4),
+    ListCache = __webpack_require__(5),
     Map = __webpack_require__(11);
 
 /**
@@ -4444,7 +4543,7 @@ module.exports = Hash;
 /* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var nativeCreate = __webpack_require__(7);
+var nativeCreate = __webpack_require__(8);
 
 /**
  * Removes all key-value entries from the hash.
@@ -4488,7 +4587,7 @@ module.exports = hashDelete;
 /* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var nativeCreate = __webpack_require__(7);
+var nativeCreate = __webpack_require__(8);
 
 /** Used to stand-in for `undefined` hash values. */
 var HASH_UNDEFINED = '__lodash_hash_undefined__';
@@ -4524,7 +4623,7 @@ module.exports = hashGet;
 /* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var nativeCreate = __webpack_require__(7);
+var nativeCreate = __webpack_require__(8);
 
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
@@ -4553,7 +4652,7 @@ module.exports = hashHas;
 /* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var nativeCreate = __webpack_require__(7);
+var nativeCreate = __webpack_require__(8);
 
 /** Used to stand-in for `undefined` hash values. */
 var HASH_UNDEFINED = '__lodash_hash_undefined__';
@@ -4582,7 +4681,7 @@ module.exports = hashSet;
 /* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getMapData = __webpack_require__(8);
+var getMapData = __webpack_require__(9);
 
 /**
  * Removes `key` and its value from the map.
@@ -4627,7 +4726,7 @@ module.exports = isKeyable;
 /* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getMapData = __webpack_require__(8);
+var getMapData = __webpack_require__(9);
 
 /**
  * Gets the map value for `key`.
@@ -4649,7 +4748,7 @@ module.exports = mapCacheGet;
 /* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getMapData = __webpack_require__(8);
+var getMapData = __webpack_require__(9);
 
 /**
  * Checks if a map value for `key` exists.
@@ -4671,7 +4770,7 @@ module.exports = mapCacheHas;
 /* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getMapData = __webpack_require__(8);
+var getMapData = __webpack_require__(9);
 
 /**
  * Sets the map `key` to `value`.
@@ -4744,7 +4843,7 @@ module.exports = defineProperty;
 /* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var copyObject = __webpack_require__(9),
+var copyObject = __webpack_require__(10),
     keys = __webpack_require__(13);
 
 /**
@@ -4835,7 +4934,7 @@ module.exports = isArguments;
 /* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseGetTag = __webpack_require__(6),
+var baseGetTag = __webpack_require__(7),
     isObjectLike = __webpack_require__(3);
 
 /** `Object#toString` result references. */
@@ -4947,7 +5046,7 @@ module.exports = isTypedArray;
 /* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseGetTag = __webpack_require__(6),
+var baseGetTag = __webpack_require__(7),
     isLength = __webpack_require__(34),
     isObjectLike = __webpack_require__(3);
 
@@ -5061,7 +5160,7 @@ module.exports = nativeKeys;
 /* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var copyObject = __webpack_require__(9),
+var copyObject = __webpack_require__(10),
     keysIn = __webpack_require__(37);
 
 /**
@@ -5217,7 +5316,7 @@ module.exports = copyArray;
 /* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var copyObject = __webpack_require__(9),
+var copyObject = __webpack_require__(10),
     getSymbols = __webpack_require__(19);
 
 /**
@@ -5270,7 +5369,7 @@ module.exports = arrayFilter;
 /* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var copyObject = __webpack_require__(9),
+var copyObject = __webpack_require__(10),
     getSymbolsIn = __webpack_require__(39);
 
 /**
