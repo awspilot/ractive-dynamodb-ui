@@ -32,9 +32,8 @@ export default Ractive.extend({
 	oninit: function() {
 		var ractive = this
 
-		//this.set({itemtoedit: Object.assign({}, this.get('rawitem'))  })
-
-		this.set({itemtoedit: cloneDeep(this.get('rawitem'))  })
+		// we do not really need to clone new item
+		this.set({itemtoedit: this.get('rawitem')  })
 
 		this.observe('itemtoedit', function(n,o,kp) {
 			this.set({errorMessage: ''})
