@@ -2,7 +2,7 @@
 
 //var jsoneditor = require('@awspilot/ractive-dynamodb-json-editor');
 import jsoneditor from '@awspilot/ractive-dynamodb-json-editor';
-import cloneDeep from 'lodash/cloneDeep';
+import _table_utils from '../table/_utils';
 
 
 export default Ractive.extend({
@@ -49,12 +49,7 @@ export default Ractive.extend({
 			//console.log("table=","HASH=", this._hash_key_name(), " RANGE=", this._range_key_name() )
 
 			var originalitem = this.get('rawitem')
-			var updateditem = cloneDeep(this.get('itemtoedit'))
-
-			//console.log("originalitem", originalitem.binary, typeof originalitem.binary )
-
-			//console.log('hello', updateditem )
-
+			var updateditem = _table_utils._clone_deep(this.get('itemtoedit'))
 
 			var updateItemCall = {
 				TableName: this.get('describeTable.TableName'),
@@ -84,7 +79,6 @@ export default Ractive.extend({
 				}
 			})
 
-			console.log("updateItem", updateItemCall  )
 			DynamoDB.client.updateItem(updateItemCall, function(err,data) {
 				if (err)
 					return ractive.set('errorMessage', err.message)
