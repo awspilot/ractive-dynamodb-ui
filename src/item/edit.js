@@ -1,8 +1,21 @@
 
+import _table_utils from '../table/_utils';
+
+var uint8array_equals = function(a, b) {
+
+	if (a.length !== b.length)
+		return false;
+
+	for (let i = a.length; -1 < i; i -= 1) {
+		if ((a[i] !== b[i])) return false;
+	}
+	return true;
+}
+
+
 
 //var jsoneditor = require('@awspilot/ractive-dynamodb-json-editor');
 import jsoneditor from '@awspilot/ractive-dynamodb-json-editor';
-import cloneDeep from 'lodash/cloneDeep';
 
 
 export default Ractive.extend({
@@ -23,18 +36,30 @@ export default Ractive.extend({
 			itemtoedit: {}
 		}
 	},
-	_hash_key_name: function() {
-		return (this.get('describeTable').KeySchema.filter(function(k) { return k.KeyType === 'HASH'})[0] || {}).AttributeName
-	},
-	_range_key_name: function() {
-		return (this.get('describeTable').KeySchema.filter(function(k) { return k.KeyType === 'RANGE'})[0] || {}).AttributeName;
-	},
+
+	_hash_key_name: _table_utils._hash_key_name,
+	_hash_key_type: _table_utils._hash_key_type,
+	_hash_key_type_name: _table_utils._hash_key_type_name,
+
+	_range_key_name: _table_utils._range_key_name,
+	_range_key_type: _table_utils._range_key_type,
+	_range_key_type_name: _table_utils._range_key_type_name,
+
+	// _hash_key_name: function() {
+	// 	return (this.get('describeTable').KeySchema.filter(function(k) { return k.KeyType === 'HASH'})[0] || {}).AttributeName
+	// },
+	// _range_key_name: function() {
+	// 	return (this.get('describeTable').KeySchema.filter(function(k) { return k.KeyType === 'RANGE'})[0] || {}).AttributeName;
+	// },
 	oninit: function() {
 		var ractive = this
 
 		//this.set({itemtoedit: Object.assign({}, this.get('rawitem'))  })
 
-		this.set({itemtoedit: cloneDeep(this.get('rawitem'))  })
+		//this.set({itemtoedit: cloneDeep(this.get('rawitem'))  })
+		this.set({itemtoedit: _table_utils._clone_deep(this.get('rawitem'))  })
+
+
 
 		this.observe('itemtoedit', function(n,o,kp) {
 			this.set({errorMessage: ''})
@@ -50,11 +75,11 @@ export default Ractive.extend({
 			//console.log("table=","HASH=", this._hash_key_name(), " RANGE=", this._range_key_name() )
 
 			var originalitem = this.get('rawitem')
-			var updateditem = cloneDeep(this.get('itemtoedit'))
+			//var updateditem = cloneDeep(this.get('itemtoedit'))
+			var updateditem = _table_utils._clone_deep(this.get('itemtoedit'))
 
 			//console.log("originalitem", originalitem.binary, typeof originalitem.binary )
 
-			//console.log('hello', updateditem )
 
 
 			var updateItemCall = {
@@ -69,8 +94,18 @@ export default Ractive.extend({
 			if ( this._range_key_name() && (!updateditem.hasOwnProperty( this._range_key_name() )) )
 				return alert('Missing SORT_KEY ' + this._range_key_name() )
 
-			if ( JSON.stringify(updateditem[this._hash_key_name()]) !== JSON.stringify(originalitem[ this._hash_key_name()]) )
-				return alert('PARTITION_KEY(' + this._hash_key_name() + ') changed value. Operation not permitted')
+
+
+			if (this._hash_key_type() === "B") {
+				if (!uint8array_equals(updateditem[this._hash_key_name()].B, originalitem[ this._hash_key_name()].B )) {
+					return alert('PARTITION_KEY(' + this._hash_key_name() + ') changed value. Operation not permitted')
+				}
+			} else {
+				if ( JSON.stringify(updateditem[this._hash_key_name()]) !== JSON.stringify(originalitem[ this._hash_key_name()]) ) {
+
+					return alert('PARTITION_KEY(' + this._hash_key_name() + ') changed value. Operation not permitted')
+				}
+			}
 
 			if ( this._range_key_name() && ( JSON.stringify(updateditem[this._range_key_name()]) !== JSON.stringify(originalitem[ this._range_key_name()]) ) )
 				return alert('SORT_KEY(' + this._range_key_name() + ') changed value. Operation not permitted')
