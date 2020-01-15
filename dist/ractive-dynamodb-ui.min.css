@@ -49,6 +49,11 @@
 .ractive-dynamodb-ui {
   /* scrollarea */
 }
+.ractive-dynamodb-ui svg.icon {
+  fill: #000;
+  width: 11px;
+  height: 11px;
+}
 .ractive-dynamodb-ui .hsplit {
   position: absolute;
   top: 0px;
@@ -94,6 +99,8 @@
   border-left: 1px solid transparent;
   margin-bottom: 0px;
   cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .ractive-dynamodb-ui content tabcontent .tableview-table-tabs {
   position: absolute;
@@ -449,11 +456,6 @@
 }
 .ractive-dynamodb-ui {
   /* bootstrap */
-}
-.ractive-dynamodb-ui svg.icon {
-  fill: #000;
-  width: 11px;
-  height: 11px;
 }
 .ractive-dynamodb-ui a {
   color: hsl(220, 18%, 66%);
