@@ -137,6 +137,45 @@ var _lsi_range_key_type_name = function( indexname ) {
 	return ({S: 'String', N: 'Number', 'B': 'Binary'})[ this._lsi_range_key_type( indexname ) ]
 }
 
+
+
+var _clone_deep = function( o ) {
+
+	if (
+		(typeof o === "string") ||
+		(typeof o === "number") ||
+		(typeof o === "boolean") ||
+		(o === null)
+	)
+		return JSON.parse(JSON.stringify(o))
+
+	if (o instanceof Uint8Array) {
+		var clone = new Uint8Array( o.length )
+		for (var i = 0; i < o.length; i++) clone[i] = o[i];
+		return clone;
+	}
+
+	if (typeof o === "object") {
+		if(Array.isArray(o) ) { // array
+			var clone = []
+			o.map(function( v,k, arr ) {
+				clone[k] = _clone_deep(v)
+			})
+			return clone;
+		} else if ( o instanceof Set) {
+			var clone = new Set()
+			for (var i of o) clone.add(_clone_deep(i))
+			return clone;
+		} else { // object
+			var clone = {};
+			Object.keys(o).map(function(k) {
+				clone[k] = _clone_deep(o[k])
+			})
+			return clone;
+		}
+	}
+}
+
 export default {
 	_hash_key_name: _hash_key_name,
 	_hash_key_type: _hash_key_type,
@@ -162,4 +201,6 @@ export default {
 	_lsi_range_key_type: _lsi_range_key_type,
 	_lsi_range_key_type_name: _lsi_range_key_type_name,
 
+
+	_clone_deep: _clone_deep,
 }
