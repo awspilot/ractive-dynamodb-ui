@@ -407,8 +407,12 @@ export default Ractive.extend({
 				}
 				ractive.root.findComponent('minitablelist').refresh_tables()
 
-				// fulltablelist does not exist
-				//ractive.root.findComponent('tablelist').refresh_tables()
+				// open this new table
+				//ractive.parent = tabs
+				ractive.parent.newtab('tabletab', ractive.get('newtable.TableName') )
+
+				// close the current tab
+				ractive.parent.closetab( ractive.get('id'))
 			})
 		})
 	},
