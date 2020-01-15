@@ -34,7 +34,7 @@ export default Ractive.extend({
 						<div class='closedtab'></div>
 					{{else}}
 						{{#if .type === 'tablecreate' }}
-							<tablecreate active={{ .id === active_id  }} />
+							<tablecreate active={{ .id === active_id  }} id={{id}} />
 						{{/if}}
 						{{#if .type === 'tabletab' }}
 							<tabletab table={{.}} active={{ .id === active_id  }} />
@@ -54,7 +54,7 @@ export default Ractive.extend({
 		})
 	},
 	newtab: function(component_name, param1 ) {
-		var id=Math.random()
+		var id=Math.random().toString().split('.').join('')
 		this.set('active_id', id )
 		this.push('tabs', {
 			id: id,
@@ -65,6 +65,19 @@ export default Ractive.extend({
 			sql: "\nSCAN * FROM `" + param1 + "` LIMIT 100\n",
 		} )
 		this.activetabcontent()
+	},
+	closetab: function( id ) {
+
+		var tabidx = null;
+		this.get('tabs').map(function(t, idx ) {
+			console.log("tab", t, idx );
+			if (t.id === id ) tabidx = idx;
+		})
+		if (tabidx === null)
+			return alert('close: tab not found'); // not found
+
+		this.set('tabs.' + tabidx + '.closed', true )
+
 	},
 	oninit: function() {
 		var ractive = this
