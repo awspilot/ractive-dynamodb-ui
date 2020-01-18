@@ -1,0 +1,164 @@
+
+
+
+
+
+
+
+
+
+
+.ractive-dynamodb-ui.theme-atomdark {
+	& {
+
+		@import "theme-atom/one-dark-ui/ui-variables-custom";
+		@import "theme-atom/one-dark-ui/ui-variables";
+		@import "theme-atom/atom-components";
+
+
+		@awspilot-background-color:  @tab-background-color-active;
+		@awspilot-color: @text-color;
+		@awspilot-hr-border-top: 1px solid @base-border-color;
+		@awspilot-hr-border-bottom: 1px solid @base-border-color;
+
+		@awspilot-button-background-color: @button-background-color;
+		@awspilot-button-background-image: inherit;
+		@awspilot-button-color: @text-color;
+
+		@awspilot-button-primary-background-color: @background-color-info;
+		@awspilot-button-primary-background-image: inherit;
+		@awspilot-button-primary-color: #fff;
+
+		@awspilot-button-danger-background-color: @background-color-error;
+		@awspilot-button-danger-color: #fff;
+
+		@awspilot-button-border-top: 1px solid @button-border-color;
+		@awspilot-button-border-right: 1px solid @button-border-color;
+		@awspilot-button-border-bottom: 1px solid @button-border-color;
+		@awspilot-button-border-left: 1px solid @button-border-color;
+		@awspilot-button-box-shodow: none;
+		@awspilot-button-border-radius: 3px;
+
+		@awspilot-checkbox-background: @input-background-color;
+		@awspilot-checkbox-border-top: 1px solid @input-background-color;
+		@awspilot-checkbox-border-right: 1px solid @input-background-color;
+		@awspilot-checkbox-border-bottom: 1px solid @input-background-color;
+		@awspilot-checkbox-border-left: 1px solid @input-background-color;
+		@awspilot-checkbox-box-shodow: none;
+
+		@awspilot-textbox-background: @input-background-color;
+		@awspilot-textbox-color: @text-color;
+		@awspilot-textbox-border-top: 1px solid @input-border-color;
+		@awspilot-textbox-border-right: 1px solid @input-border-color;
+		@awspilot-textbox-border-bottom: 1px solid @input-border-color;
+		@awspilot-textbox-border-left: 1px solid @input-border-color;
+		@awspilot-textbox-box-shodow: none;
+
+		@awspilot-selectbox-background: @input-background-color;
+		@awspilot-selectbox-color: @text-color;
+		@awspilot-selectbox-border-top: 1px solid @input-border-color;
+		@awspilot-selectbox-border-right: 1px solid @input-border-color;
+		@awspilot-selectbox-border-bottom: 1px solid @input-border-color;
+		@awspilot-selectbox-border-left: 1px solid @input-border-color;
+		@awspilot-selectbox-border-radius: inherit;
+		@awspilot-selectbox-box-shodow: none;
+
+		@awspilot-tablequery-background: @tool-panel-background-color;
+		@awspilot-tablequery-border-top: 0px;
+		@awspilot-tablequery-border-right: 0px;
+		@awspilot-tablequery-border-bottom: 1px solid @panel-heading-border-color;
+		@awspilot-tablequery-border-left: 0px;
+		@awspilot-tablequery-box-shodow: none;
+
+		@awspilot-tabledatacontrols-background: @overlay-background-color;
+		@awspilot-tabledatacontrols-border-top: 0px;
+		@awspilot-tabledatacontrols-border-right: 0px;
+		@awspilot-tabledatacontrols-border-bottom: 1px solid @overlay-border-color;
+		@awspilot-tabledatacontrols-border-left: 0px;
+
+		@awspilot-tabledata-background: transparent;
+		@awspilot-tabledata-border-top: 0px;
+		@awspilot-tabledata-border-right: 0xp;
+		@awspilot-tabledata-border-bottom: 0xp;
+		@awspilot-tabledata-border-left: 0xp;
+		@awspilot-tabledata-box-shodow: none;
+		@awspilot-tabledata-head-background: @app-background-color;
+		@awspilot-tabledata-head-border-bottom: 1px solid @pane-item-border-color;
+		@awspilot-tabledata-head-cell-border-top: 1px solid transparent;
+		@awspilot-tabledata-head-cell-border-right: 1px solid @pane-item-border-color;
+		@awspilot-tabledata-head-cell-border-bottom: 1px solid transparent;
+		@awspilot-tabledata-head-cell-border-left: 1px solid transparent;
+		@awspilot-tabledata-row-border-bottom: 1px solid @pane-item-border-color;
+		@awspilot-tabledata-row-hover-background: @background-color-highlight;
+		@awspilot-tabledata-row-selected-background: @background-color-selected;
+		@awspilot-tabledata-row-selected-hover-background: @background-color-info !important;
+		@awspilot-tabledata-cell-border-right: 1px solid @pane-item-border-color;
+		@awspilot-tabledata-cell-hover-color: @text-color-highlight !important;
+
+		@awspilot-miniheader-title-background: @tab-bar-background-color;
+		@awspilot-miniheader-title-color: @text-color;
+		@awspilot-miniheader-title-border-bottom: @tab-bar-border-color;
+		@awspilot-miniheader-title-height: 28px;
+
+		@awspilot-window-background: @tab-background-color-active;
+		@awspilot-window-spacing: 0px;
+		@awspilot-window-border-top: 1px solid @base-border-color;
+		@awspilot-window-border-right: 1px solid @base-border-color;
+		@awspilot-window-border-bottom: 1px solid @base-border-color;
+		@awspilot-window-border-left: 1px solid @base-border-color;
+		@awspilot-window-box-shodow: none;
+
+
+		@awspilot-list-background: transparent;
+		@awspilot-list-border-top: 1px solid transparent;
+		@awspilot-list-border-right: 1px solid transparent;
+		@awspilot-list-border-bottom: 1px solid transparent;
+		@awspilot-list-border-left: 1px solid transparent;
+		@awspilot-list-box-shodow: none;
+		@awspilot-list-item-color: @text-color;
+		@awspilot-list-item-hover-background: @background-color-selected;
+		@awspilot-list-item-hover-color: @text-color;
+
+		@awspilot-content-border-top: 1px solid @base-border-color;
+		@awspilot-content-border-right: 0px;
+		@awspilot-content-border-bottom: 1px solid @base-border-color;
+		@awspilot-content-border-left: 1px solid @base-border-color;
+
+		@awspilot-tabcontent-border-top: 0px;
+		@awspilot-tabcontent-border-right: 0px;
+		@awspilot-tabcontent-border-bottom: 0px;
+		@awspilot-tabcontent-border-left: 0px;
+		@awspilot-tabcontent-box-shodow: none;
+
+		@awspilot-tabs-background: @tab-bar-background-color;
+
+		@awspilot-tabs-tab-background: @tab-bar-background-color;
+		@awspilot-tabs-tab-color: @text-color;
+		@awspilot-tabs-tab-border-top: 0px;
+		@awspilot-tabs-tab-border-right: 1px solid @tab-border-color;
+		@awspilot-tabs-tab-border-bottom: 0px;
+		@awspilot-tabs-tab-border-left: 0px;
+
+		@awspilot-tabs-tab-active-color: @text-color-highlight;
+
+		@awspilot-tabletabs-border-top: 0px;
+		@awspilot-tabletabs-border-right: 0px;
+		@awspilot-tabletabs-border-bottom: 1px solid @tab-bar-border-color;
+		@awspilot-tabletabs-border-left: 0px;
+		@awspilot-tabletabs-spacing: 2px;
+		@awspilot-tabletabs-tab-background: @tab-background-color;
+		@awspilot-tabletabs-tab-color: @text-color;
+		@awspilot-tabletabs-tab-border-top: 1px solid @tab-border-color;
+		@awspilot-tabletabs-tab-border-right: 1px solid @tab-border-color;
+		@awspilot-tabletabs-tab-border-bottom: 1px solid @tab-bar-border-color;
+		@awspilot-tabletabs-tab-border-left: 1px solid @tab-border-color;
+		@awspilot-tabletabs-tab-active-background: @tab-background-color-active;
+		@awspilot-tabletabs-tab-active-color: @text-color-highlight;
+		@awspilot-tabletabs-tab-active-border-bottom: 1px solid @tab-background-color-active;
+
+
+		@import (multiple,reference) '~@databank/ractive-window/dist/less/theme-atom.less';
+
+		@import (multiple,reference) "theme";
+	}
+}
