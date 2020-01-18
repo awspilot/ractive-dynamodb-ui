@@ -140,6 +140,6 @@
 		@awspilot-tabletabs-tab-active-border-bottom: 1px solid @awspilot-window-background;
 
 
-		@import (multiple,reference) "theme";
+		@import (multiple,reference) "./theme.less";
 	}
 }
