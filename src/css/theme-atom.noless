@@ -1,19 +1,14 @@
 
-@import "theme-atom/one-dark-ui/ui-variables-custom";
-@import "theme-atom/one-dark-ui/ui-variables";
-
-@import "window";
-/* no need to include this with atom, they are already included */
-@import "theme-atom/atom-components";
-
-@import "old";
-
-
-
-
 
 .ractive-dynamodb-ui.theme-atom {
 	& {
+
+		@import "theme-atom/one-dark-ui/ui-variables-custom";
+		@import "theme-atom/one-dark-ui/ui-variables";
+		/* no need to include this with atom, they are already included */
+		@import "theme-atom/atom-components";
+
+
 		@awspilot-background-color:  @tab-background-color-active;
 		@awspilot-color: @text-color;
 		@awspilot-hr-border-top: 1px solid @base-border-color;
