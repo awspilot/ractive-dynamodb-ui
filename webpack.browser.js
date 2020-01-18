@@ -100,19 +100,7 @@ module.exports = {
 				exclude: /(node_modules|bower_components)/,
 				use: 'babel-loader'
 			},
-			{
-					test: /\.ractive\.html$/,
-					use: 'babel-loader'
-			},
-			{
-				test: /\.ractive\.html$/,
-				exclude: /(node_modules|bower_components)/,
-				use: [
-					{
-						loader: 'ractive-bin-loader'
-					}
-				]
-			},
+
 
 		]
 	}
