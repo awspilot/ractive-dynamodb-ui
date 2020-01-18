@@ -37,8 +37,7 @@
 		"webpack-cli": "^3.3.9",
 
 		"copy-webpack-plugin": "^5.1.1",
-		"raw-loader": "^4.0.0",
-		"file-loader": "^5.0.2",
+
 
 		"less": "^3.10.3",
 		"less-loader": "^5.0.0",
