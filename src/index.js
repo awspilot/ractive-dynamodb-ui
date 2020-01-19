@@ -33,12 +33,13 @@
 	export default Ractive.extend({
 		template: `
 			<div class='ractive-dynamodb-ui theme-{{theme}}'>
-				<WindowContainer />
+				<WindowContainer theme={{theme}} />
 			</div>
 			<hsplit style='' class='ractive-dynamodb-ui theme-{{theme}}'>
 				<left>
 					<minitablelist />
 				</left>
+				<split />
 				<content>
 					<tabs active_id='tables' />
 				</content>
