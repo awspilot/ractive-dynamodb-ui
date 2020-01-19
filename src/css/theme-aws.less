@@ -2,7 +2,7 @@
 	& {
 		@awspilot-background-color:  #fff;
 		@awspilot-color: #000;
-		@awspilot-hr-border-top: 1px solid #808080;
+		@awspilot-hr-border-top: 1px solid #ddd;
 		@awspilot-hr-border-bottom: 1px solid #fff;
 
 		@awspilot-button-background-color: #d4d0c8;
@@ -47,10 +47,10 @@
 		@awspilot-selectbox-border-radius: 0px;
 		@awspilot-selectbox-box-shodow: inset 1px 1px 1px #404040, inset -1px -1px 1px #d4d0c8;
 
-		@awspilot-tablequery-background: transparent;
-		@awspilot-tablequery-border-top: 0px;
+		@awspilot-tablequery-background: #444444;
+		@awspilot-tablequery-border-top: 1px solid #fff;
 		@awspilot-tablequery-border-right: 0px;
-		@awspilot-tablequery-border-bottom: 1px solid #808080;
+		@awspilot-tablequery-border-bottom: 0px;
 		@awspilot-tablequery-border-left: 0px;
 		@awspilot-tablequery-box-shodow: 0px 1px 0px #fff;
 
@@ -60,16 +60,16 @@
 		@awspilot-tabledatacontrols-border-bottom: 0px;
 		@awspilot-tabledatacontrols-border-left: 0px;
 
-		@awspilot-tabledata-background: #fefefe;
-		@awspilot-tabledata-border-top: 1px solid #2e2f2f;
-		@awspilot-tabledata-border-right: 1px solid #fff;
-		@awspilot-tabledata-border-bottom: 1px solid #fff;
-		@awspilot-tabledata-border-left: 1px solid #484a4b;
-		@awspilot-tabledata-box-shodow: 1px 1px 1px #aeb2b6, -1px -1px 1px #737679, inset -1px -1px 1px #828588;
-		@awspilot-tabledata-head-background: #d4d0c8;
-		@awspilot-tabledata-head-border-bottom: 1px solid #404040;
+		@awspilot-tabledata-background: #fff;
+		@awspilot-tabledata-border-top: 1px solid #ccc;
+		@awspilot-tabledata-border-right: 0px;
+		@awspilot-tabledata-border-bottom: 1px solid #ccc;
+		@awspilot-tabledata-border-left: 0px;
+		@awspilot-tabledata-box-shodow: none;
+		@awspilot-tabledata-head-background: #e9e9e9;
+		@awspilot-tabledata-head-border-bottom: 1px solid #ccc;
 		@awspilot-tabledata-head-cell-border-top: 1px solid transparent;
-		@awspilot-tabledata-head-cell-border-right: 1px solid #484848;
+		@awspilot-tabledata-head-cell-border-right: 1px solid #ccc;
 		@awspilot-tabledata-head-cell-border-bottom: 1px solid transparent;
 		@awspilot-tabledata-head-cell-border-left: 1px solid #fcfcfb;
 		@awspilot-tabledata-row-border-bottom: 1px solid #dcd8d2;
@@ -109,31 +109,34 @@
 		@awspilot-content-border-left: 0px;
 
 		@awspilot-tabs-background: transparent;
+		@awspilot-tabs-spacing: 5px;
+		@awspilot-tabs-height: 29px;
 
-		@awspilot-tabs-tab-background: @awspilot-window-background;
+		@awspilot-tabs-tab-background: #eee;
 		@awspilot-tabs-tab-color: #55002d;
-		@awspilot-tabs-tab-border-top: 1px solid #ffffff;
-		@awspilot-tabs-tab-border-right: 1px solid #404040;
+		@awspilot-tabs-tab-border-top: 1px solid #ccc;
+		@awspilot-tabs-tab-border-right: 1px solid #ccc;
 		@awspilot-tabs-tab-border-bottom: 0px;
-		@awspilot-tabs-tab-border-left: 1px solid #ffffff;
-
+		@awspilot-tabs-tab-border-left: 1px solid #ccc;
+		@awspilot-tabs-tab-border-radius: 4px 4px 0px 0px;
 		@awspilot-tabs-tab-active-background: #fff;
 		@awspilot-tabs-tab-active-color: #55002d;
 
 		@awspilot-tabletabs-border-top: 0px;
 		@awspilot-tabletabs-border-right: 0px;
-		@awspilot-tabletabs-border-bottom: 1px solid #fff;
+		@awspilot-tabletabs-border-bottom: 1px solid #bbb;
 		@awspilot-tabletabs-border-left: 0px;
-		@awspilot-tabletabs-spacing: 0px;
-		@awspilot-tabletabs-tab-background: @awspilot-window-background;
+		@awspilot-tabletabs-spacing: 5px;
+		@awspilot-tabletabs-tab-background: #eee;
 		@awspilot-tabletabs-tab-color: #55002d;
-		@awspilot-tabletabs-tab-border-top: 1px solid #ffffff;
-		@awspilot-tabletabs-tab-border-right: 1px solid #404040;
-		@awspilot-tabletabs-tab-border-bottom: 1px solid #ffffff;
-		@awspilot-tabletabs-tab-border-left: 1px solid #ffffff;
-		@awspilot-tabletabs-tab-active-background: @awspilot-window-background;
+		@awspilot-tabletabs-tab-border-top: 1px solid #ccc;
+		@awspilot-tabletabs-tab-border-right: 1px solid #ccc;
+		@awspilot-tabletabs-tab-border-bottom: 1px solid #bbb;
+		@awspilot-tabletabs-tab-border-left: 1px solid #ccc;
+		@awspilot-tabletabs-tab-border-radius: 4px 4px 0px 0px;
+		@awspilot-tabletabs-tab-active-background: #fff;
 		@awspilot-tabletabs-tab-active-color: #55002d;
-		@awspilot-tabletabs-tab-active-border-bottom: 1px solid @awspilot-window-background;
+		@awspilot-tabletabs-tab-active-border-bottom: 1px solid #fff;
 
 		/* mini table list */
 		@awspilot-minitablelist-background: #fff;
