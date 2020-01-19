@@ -81,6 +81,7 @@
 
 		@awspilot-miniheader-title-background: #00a;
 		@awspilot-miniheader-title-color: #fff;
+		@awspilot-miniheader-title-border-top: 0px;
 		@awspilot-miniheader-title-border-bottom: none;
 		@awspilot-miniheader-title-height: 25px;
 
@@ -107,13 +108,9 @@
 		@awspilot-content-border-bottom: 0px;
 		@awspilot-content-border-left: 0px;
 
-		@awspilot-tabcontent-border-top: 1px solid #fff;
-		@awspilot-tabcontent-border-right: 1px solid #404040;
-		@awspilot-tabcontent-border-bottom: 1px solid #404040;
-		@awspilot-tabcontent-border-left: 1px solid #fff;
-		@awspilot-tabcontent-box-shodow: inset -1px -1px 1px #808080;
-
 		@awspilot-tabs-background: transparent;
+		@awspilot-tabs-spacing: 0px;
+		@awspilot-tabs-height: 29px;
 
 		@awspilot-tabs-tab-background: @awspilot-window-background;
 		@awspilot-tabs-tab-color: #55002d;
@@ -121,7 +118,8 @@
 		@awspilot-tabs-tab-border-right: 1px solid #404040;
 		@awspilot-tabs-tab-border-bottom: 0px;
 		@awspilot-tabs-tab-border-left: 1px solid #ffffff;
-
+		@awspilot-tabs-tab-border-radius: 5px 5px 0px 0px;
+		@awspilot-tabs-tab-active-background: @awspilot-window-background;
 		@awspilot-tabs-tab-active-color: #55002d;
 
 		@awspilot-tabletabs-border-top: 0px;
@@ -135,11 +133,59 @@
 		@awspilot-tabletabs-tab-border-right: 1px solid #404040;
 		@awspilot-tabletabs-tab-border-bottom: 1px solid #ffffff;
 		@awspilot-tabletabs-tab-border-left: 1px solid #ffffff;
+		@awspilot-tabletabs-tab-border-radius: 5px 5px 0px 0px;
 		@awspilot-tabletabs-tab-active-background: @awspilot-window-background;
 		@awspilot-tabletabs-tab-active-color: #55002d;
 		@awspilot-tabletabs-tab-active-border-bottom: 1px solid @awspilot-window-background;
 
+		/* mini table list */
+		@awspilot-minitablelist-background: @awspilot-window-background;
+		@awspilot-minitablelist-left: 1px;
+		@awspilot-minitablelist-top: 5px;
+		@awspilot-minitablelist-bottom: 1px;
+		@awspilot-minitablelist-width: 260px;
+		@awspilot-minitablelist-spacing: @awspilot-window-spacing;
+		@awspilot-minitablelist-border-top: @awspilot-window-border-top;
+		@awspilot-minitablelist-border-right: @awspilot-window-border-right;
+		@awspilot-minitablelist-border-bottom: @awspilot-window-border-bottom;
+		@awspilot-minitablelist-border-left: @awspilot-window-border-left;
+		@awspilot-minitablelist-box-shadow: @awspilot-window-box-shodow;
 
+		/* mini table title */
+
+		/* mini table body */
+		@awspilot-minitablelist-body-background: @awspilot-list-background;
+		@awspilot-minitablelist-body-border-top: @awspilot-list-border-top;
+		@awspilot-minitablelist-body-border-right: @awspilot-list-border-right;
+		@awspilot-minitablelist-body-border-bottom: @awspilot-list-border-bottom;
+		@awspilot-minitablelist-body-border-left: @awspilot-list-border-left;
+		@awspilot-minitablelist-body-box-shadow: @awspilot-list-box-shodow;
+
+		/* split */
+		@awspilot-split-background: transparent;
+		@awspilot-split-left: @awspilot-minitablelist-left + @awspilot-minitablelist-width + 1px;
+		@awspilot-split-top: 5px;
+		@awspilot-split-bottom: 0px;
+		@awspilot-split-width: 5px;
+		@awspilot-split-border-top: 0px;
+		@awspilot-split-border-right: 0px;
+		@awspilot-split-border-bottom: 0px;
+		@awspilot-split-border-left: 0px;
+		@awspilot-split-box-shadow: none;
+
+		/* main tab content */
+		@awspilot-tabcontent-background: @awspilot-window-background;
+		@awspilot-tabcontent-border-top: 1px solid #fff;
+		@awspilot-tabcontent-border-right: 1px solid #404040;
+		@awspilot-tabcontent-border-bottom: 1px solid #404040;
+		@awspilot-tabcontent-border-left: 1px solid #fff;
+		@awspilot-tabcontent-box-shodow: inset -1px -1px 1px #808080;
+		@awspilot-tabcontent-spacing-top: 0px;
+		@awspilot-tabcontent-spacing-right: 0px;
+		@awspilot-tabcontent-spacing-bottom: 0px;
+		@awspilot-tabcontent-spacing-left: 0px;
+
+		@import (multiple,reference) '~@databank/ractive-window/dist/less/theme-windows.less';
 		@import (multiple,reference) "./theme.less";
 	}
 }
