@@ -1,4 +1,11 @@
 
+/*
+a {color: @text-color;}
+.dropdown-menu {background-color: @base-background-color;border: 1px solid @base-border-color;}
+content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-HASH {color:@text-color-highlight;}
+content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: @text-color-selected;}
+*/
+
 & hr {border-top: @awspilot-hr-border-top;border-bottom: @awspilot-hr-border-bottom;border-left: 0px;border-right: 0px;}
 
 & .btn-default { color: @awspilot-button-color; background-color: @awspilot-button-background-color; background-image: @awspilot-button-background-image}
@@ -51,18 +58,20 @@
 
 & {background-color: @awspilot-background-color; color: @awspilot-color;}
 
-& miniheader {border-bottom: 1px solid @awspilot-miniheader-title-border-bottom;}
-& miniheader {background-color: @awspilot-miniheader-title-background;color: @awspilot-miniheader-title-color;}
-& left {background-color: @awspilot-window-background;padding: @awspilot-window-spacing;}
-& left {border-top: @awspilot-window-border-top;border-right: @awspilot-window-border-right;border-bottom: @awspilot-window-border-bottom;border-left: @awspilot-window-border-left;}
-& left {box-shadow: @awspilot-window-box-shodow; }
+& left {top: @awspilot-minitablelist-top;left: @awspilot-minitablelist-left;width: @awspilot-minitablelist-width;bottom: @awspilot-minitablelist-bottom;}
+& left {background-color: @awspilot-minitablelist-background;padding: @awspilot-minitablelist-spacing;}
+& left {border-top: @awspilot-minitablelist-border-top;border-right: @awspilot-minitablelist-border-right;border-bottom: @awspilot-minitablelist-border-bottom;border-left: @awspilot-minitablelist-border-left;}
+& left {box-shadow: @awspilot-minitablelist-box-shadow; }
 
 & left > miniheader { height: @awspilot-miniheader-title-height;line-height: @awspilot-miniheader-title-height; }
+& left > miniheader {border-bottom: 1px solid @awspilot-miniheader-title-border-bottom;}
+& left > miniheader {background-color: @awspilot-miniheader-title-background;color: @awspilot-miniheader-title-color;}
+
 
 & left > .miniheaderbody {left: 0px + @awspilot-window-spacing;top: @awspilot-miniheader-title-height + @awspilot-window-spacing + 3px;right: 0px + @awspilot-window-spacing;bottom: 0px + @awspilot-window-spacing;} /* scrollarea */
-& left > .miniheaderbody {background-color: @awspilot-list-background;}
-& left > .miniheaderbody {border-top: @awspilot-list-border-top;border-right: @awspilot-list-border-right;border-bottom: @awspilot-list-border-bottom;border-left: @awspilot-list-border-left;}
-& left > .miniheaderbody {box-shadow: @awspilot-list-box-shodow;}
+& left > .miniheaderbody {background-color: @awspilot-minitablelist-body-background;}
+& left > .miniheaderbody {border-top: @awspilot-minitablelist-body-border-top;border-right: @awspilot-minitablelist-body-border-right;border-bottom: @awspilot-minitablelist-body-border-bottom;border-left: @awspilot-minitablelist-body-border-left;}
+& left > .miniheaderbody {box-shadow: @awspilot-minitablelist-body-box-shadow;}
 
 & left tables > div {border-bottom: 1px solid transparent;color: @awspilot-list-item-color;}
 & left tables > div:hover {background-color: @awspilot-list-item-hover-background; color: @awspilot-list-item-hover-color;}
