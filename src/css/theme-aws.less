@@ -1,6 +1,6 @@
-.ractive-dynamodb-ui.theme-windows {
+.ractive-dynamodb-ui.theme-aws {
 	& {
-		@awspilot-background-color:  #54a9a9;
+		@awspilot-background-color:  #f0f0f0;
 		@awspilot-color: #000;
 		@awspilot-hr-border-top: 1px solid #808080;
 		@awspilot-hr-border-bottom: 1px solid #fff;
@@ -140,29 +140,30 @@
 		@awspilot-tabletabs-tab-active-border-bottom: 1px solid @awspilot-window-background;
 
 		/* mini table list */
-		@awspilot-minitablelist-background: @awspilot-window-background;
-		@awspilot-minitablelist-left: 1px;
+		@awspilot-minitablelist-background: #fff;
+		@awspilot-minitablelist-left: 0px;
 		@awspilot-minitablelist-top: 5px;
-		@awspilot-minitablelist-bottom: 1px;
+		@awspilot-minitablelist-bottom: 0px;
 		@awspilot-minitablelist-width: 260px;
-		@awspilot-minitablelist-spacing: @awspilot-window-spacing;
-		@awspilot-minitablelist-border-top: @awspilot-window-border-top;
-		@awspilot-minitablelist-border-right: @awspilot-window-border-right;
-		@awspilot-minitablelist-border-bottom: @awspilot-window-border-bottom;
-		@awspilot-minitablelist-border-left: @awspilot-window-border-left;
-		@awspilot-minitablelist-box-shadow: @awspilot-window-box-shodow;
+		@awspilot-minitablelist-spacing: 7px;
+		@awspilot-minitablelist-border-top: 0px;
+		@awspilot-minitablelist-border-right: 1px solid #b9b8b6;
+		@awspilot-minitablelist-border-bottom: 0px;
+		@awspilot-minitablelist-border-left: 0px;
+		@awspilot-minitablelist-box-shadow: none;
 
 		/* mini table title */
 
 		/* mini table body */
-		@awspilot-minitablelist-body-background: @awspilot-list-background;
-		@awspilot-minitablelist-body-border-top: @awspilot-list-border-top;
-		@awspilot-minitablelist-body-border-right: @awspilot-list-border-right;
-		@awspilot-minitablelist-body-border-bottom: @awspilot-list-border-bottom;
-		@awspilot-minitablelist-body-border-left: @awspilot-list-border-left;
-		@awspilot-minitablelist-body-box-shadow: @awspilot-list-box-shodow;
+		@awspilot-minitablelist-body-background: #fff;
+		@awspilot-minitablelist-body-border-top: 0px;
+		@awspilot-minitablelist-body-border-right: 0px;
+		@awspilot-minitablelist-body-border-bottom: 0px;
+		@awspilot-minitablelist-body-border-left: 0px;
+		@awspilot-minitablelist-body-box-shadow: none;
 
-		@import (multiple,reference) '~@databank/ractive-window/dist/less/theme-windows.less';
+
+		@import (multiple,reference) '~@databank/ractive-window/dist/less/theme-aws.less';
 		@import (multiple,reference) "./theme.less";
 	}
 }
