@@ -81,6 +81,7 @@
 
 		@awspilot-miniheader-title-background: #00a;
 		@awspilot-miniheader-title-color: #fff;
+		@awspilot-miniheader-title-border-top: 0px;
 		@awspilot-miniheader-title-border-bottom: none;
 		@awspilot-miniheader-title-height: 25px;
 
@@ -161,6 +162,18 @@
 		@awspilot-minitablelist-body-border-bottom: @awspilot-list-border-bottom;
 		@awspilot-minitablelist-body-border-left: @awspilot-list-border-left;
 		@awspilot-minitablelist-body-box-shadow: @awspilot-list-box-shodow;
+
+		/* split */
+		@awspilot-split-background: transparent;
+		@awspilot-split-left: @awspilot-minitablelist-left + @awspilot-minitablelist-width + 1px;
+		@awspilot-split-top: 5px;
+		@awspilot-split-bottom: 0px;
+		@awspilot-split-width: 5px;
+		@awspilot-split-border-top: 0px;
+		@awspilot-split-border-right: 0px;
+		@awspilot-split-border-bottom: 0px;
+		@awspilot-split-border-left: 0px;
+		@awspilot-split-box-shadow: none;
 
 		@import (multiple,reference) '~@databank/ractive-window/dist/less/theme-windows.less';
 		@import (multiple,reference) "./theme.less";

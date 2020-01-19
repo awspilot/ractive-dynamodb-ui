@@ -1,6 +1,6 @@
 .ractive-dynamodb-ui.theme-aws {
 	& {
-		@awspilot-background-color:  #f0f0f0;
+		@awspilot-background-color:  #fff;
 		@awspilot-color: #000;
 		@awspilot-hr-border-top: 1px solid #808080;
 		@awspilot-hr-border-bottom: 1px solid #fff;
@@ -79,10 +79,11 @@
 		@awspilot-tabledata-cell-border-right: 1px solid #dcd8d2;
 		@awspilot-tabledata-cell-hover-color: #fff !important;
 
-		@awspilot-miniheader-title-background: #00a;
-		@awspilot-miniheader-title-color: #fff;
-		@awspilot-miniheader-title-border-bottom: none;
-		@awspilot-miniheader-title-height: 25px;
+		@awspilot-miniheader-title-background: #ededed;
+		@awspilot-miniheader-title-color: #757575;
+		@awspilot-miniheader-title-border-top: 1px solid #ccc;
+		@awspilot-miniheader-title-border-bottom: 1px solid #ccc;
+		@awspilot-miniheader-title-height: 32px;
 
 		@awspilot-window-background: #d4d0c8; /*#c3c6ca*/;
 		@awspilot-window-spacing: 2px;
@@ -147,7 +148,7 @@
 		@awspilot-minitablelist-width: 260px;
 		@awspilot-minitablelist-spacing: 7px;
 		@awspilot-minitablelist-border-top: 0px;
-		@awspilot-minitablelist-border-right: 1px solid #b9b8b6;
+		@awspilot-minitablelist-border-right: 0px;
 		@awspilot-minitablelist-border-bottom: 0px;
 		@awspilot-minitablelist-border-left: 0px;
 		@awspilot-minitablelist-box-shadow: none;
@@ -162,6 +163,17 @@
 		@awspilot-minitablelist-body-border-left: 0px;
 		@awspilot-minitablelist-body-box-shadow: none;
 
+		/* split */
+		@awspilot-split-background: #f0f0f0;
+		@awspilot-split-left: @awspilot-minitablelist-left + @awspilot-minitablelist-width ;
+		@awspilot-split-top: 5px;
+		@awspilot-split-bottom: 0px;
+		@awspilot-split-width: 8px;
+		@awspilot-split-border-top: 0px;
+		@awspilot-split-border-right: 1px solid #b9b8b6;
+		@awspilot-split-border-bottom: 0px;
+		@awspilot-split-border-left: 1px solid #b9b8b6;
+		@awspilot-split-box-shadow: none;
 
 		@import (multiple,reference) '~@databank/ractive-window/dist/less/theme-aws.less';
 		@import (multiple,reference) "./theme.less";
