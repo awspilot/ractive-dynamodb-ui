@@ -64,11 +64,12 @@ content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: @tex
 & left {box-shadow: @awspilot-minitablelist-box-shadow; }
 
 & left > miniheader { height: @awspilot-miniheader-title-height;line-height: @awspilot-miniheader-title-height; }
-& left > miniheader {border-bottom: 1px solid @awspilot-miniheader-title-border-bottom;}
+& left > miniheader {border-top: @awspilot-miniheader-title-border-top;border-bottom: @awspilot-miniheader-title-border-bottom;}
 & left > miniheader {background-color: @awspilot-miniheader-title-background;color: @awspilot-miniheader-title-color;}
 
 
-& left > .miniheaderbody {left: 0px + @awspilot-window-spacing;top: @awspilot-miniheader-title-height + @awspilot-window-spacing + 3px;right: 0px + @awspilot-window-spacing;bottom: 0px + @awspilot-window-spacing;} /* scrollarea */
+& left > .miniheaderbody {top: @awspilot-miniheader-title-height + @awspilot-window-spacing + @awspilot-minitablelist-spacing;}
+& left > .miniheaderbody {left: 0px + @awspilot-window-spacing;right: 0px + @awspilot-window-spacing;bottom: 0px + @awspilot-window-spacing;} /* scrollarea */
 & left > .miniheaderbody {background-color: @awspilot-minitablelist-body-background;}
 & left > .miniheaderbody {border-top: @awspilot-minitablelist-body-border-top;border-right: @awspilot-minitablelist-body-border-right;border-bottom: @awspilot-minitablelist-body-border-bottom;border-left: @awspilot-minitablelist-body-border-left;}
 & left > .miniheaderbody {box-shadow: @awspilot-minitablelist-body-box-shadow;}
@@ -76,6 +77,12 @@ content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: @tex
 & left tables > div {border-bottom: 1px solid transparent;color: @awspilot-list-item-color;}
 & left tables > div:hover {background-color: @awspilot-list-item-hover-background; color: @awspilot-list-item-hover-color;}
 
+& split {top: @awspilot-split-top;left: @awspilot-split-left;width: @awspilot-split-width;bottom: @awspilot-split-bottom;}
+& split {background-color: @awspilot-split-background;}
+& split {border-top: @awspilot-split-border-top;border-right: @awspilot-split-border-right;border-bottom: @awspilot-split-border-bottom;border-left: @awspilot-split-border-left;}
+& split {box-shadow: @awspilot-split-box-shadow; }
+
+& content {left: @awspilot-minitablelist-left + @awspilot-minitablelist-width + @awspilot-split-width;}
 & content {border-top: @awspilot-content-border-top;border-right: @awspilot-content-border-right;border-bottom: @awspilot-content-border-bottom;border-left: @awspilot-content-border-left;}
 
 & content tabhead {background-color: @awspilot-tabs-background;}
