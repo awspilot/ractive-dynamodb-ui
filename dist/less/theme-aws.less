@@ -1,0 +1,207 @@
+.ractive-dynamodb-ui.theme-aws {
+	& {
+		@awspilot-background-color:  #fff;
+		@awspilot-color: #000;
+		@awspilot-hr-border-top: 1px solid #ddd;
+		@awspilot-hr-border-bottom: 1px solid #fff;
+
+		@awspilot-button-background-color: #f2f2f2;
+		@awspilot-button-background-image: linear-gradient(to bottom, #fff, #dedede);
+		@awspilot-button-color: #55002d;
+		@awspilot-button-disabled-color: #a9a5a5;
+		@awspilot-button-disabled-background-color: #f2f2f2;
+
+		@awspilot-button-primary-background-color: #257acf;
+		@awspilot-button-primary-background-image: linear-gradient(to bottom, #38d, #16b);
+		@awspilot-button-primary-color: #fff;
+		@awspilot-button-primary-border-top: 1px solid #05a;
+		@awspilot-button-primary-border-right: 1px solid #16b;
+		@awspilot-button-primary-border-bottom: 1px solid #16b;
+		@awspilot-button-primary-border-left: 1px solid #16b;
+
+
+		@awspilot-button-danger-background-color: #d4d0c8;
+		@awspilot-button-danger-color: #55002d;
+
+		@awspilot-button-border-top: 1px solid #ccc;
+		@awspilot-button-border-right: 1px solid #bbb;
+		@awspilot-button-border-bottom: 1px solid #bbb;
+		@awspilot-button-border-left: 1px solid #bbb;
+		@awspilot-button-box-shodow: none;
+		@awspilot-button-border-radius: 4px;
+
+		@awspilot-checkbox-background: #fff;
+		@awspilot-checkbox-border-top: 1px solid #808080;
+		@awspilot-checkbox-border-right: 1px solid #fff;
+		@awspilot-checkbox-border-bottom: 1px solid #fff;
+		@awspilot-checkbox-border-left: 1px solid #808080;
+		@awspilot-checkbox-box-shodow: inset 1px 1px 1px #404040, inset -1px -1px 1px #d4d0c8;
+
+		@awspilot-textbox-background: #fff;
+		@awspilot-textbox-color: #000000;
+		@awspilot-textbox-border-top: 1px solid 1px solid #808080;
+		@awspilot-textbox-border-right: 1px solid 1px solid #fff;
+		@awspilot-textbox-border-bottom: 1px solid 1px solid #fff;
+		@awspilot-textbox-border-left: 1px solid 1px solid #808080;
+		@awspilot-textbox-box-shodow: inset 1px 1px 1px #404040, inset -1px -1px 1px #d4d0c8;
+
+		@awspilot-selectbox-background: #fff;
+		@awspilot-selectbox-color: #000000;
+		@awspilot-selectbox-border-top: 1px solid 1px solid #808080;
+		@awspilot-selectbox-border-right: 1px solid 1px solid #fff;
+		@awspilot-selectbox-border-bottom: 1px solid 1px solid #fff;
+		@awspilot-selectbox-border-left: 1px solid 1px solid #808080;
+		@awspilot-selectbox-border-radius: 0px;
+		@awspilot-selectbox-box-shodow: inset 1px 1px 1px #404040, inset -1px -1px 1px #d4d0c8;
+
+		@awspilot-dropdown-background: #444444;
+		@awspilot-dropdown-color: #fff;
+		@awspilot-dropdown-border-top: 1px solid #fff;
+		@awspilot-dropdown-border-right: 1px solid #fff;
+		@awspilot-dropdown-border-bottom: 1px solid #fff;
+		@awspilot-dropdown-border-left: 1px solid #fff;
+		@awspilot-dropdown-box-shadow: none;
+		@awspilot-dropdown-border-radius: 0px;
+
+		@awspilot-tablequery-background: #444444;
+		@awspilot-tablequery-border-top: 1px solid #fff;
+		@awspilot-tablequery-border-right: 0px;
+		@awspilot-tablequery-border-bottom: 0px;
+		@awspilot-tablequery-border-left: 0px;
+		@awspilot-tablequery-box-shodow: 0px 1px 0px #fff;
+
+		@awspilot-tabledatacontrols-background: transparent;
+		@awspilot-tabledatacontrols-border-top: 0px;
+		@awspilot-tabledatacontrols-border-right: 0px;
+		@awspilot-tabledatacontrols-border-bottom: 0px;
+		@awspilot-tabledatacontrols-border-left: 0px;
+
+		@awspilot-tabledata-background: #fff;
+		@awspilot-tabledata-border-top: 1px solid #ccc;
+		@awspilot-tabledata-border-right: 0px;
+		@awspilot-tabledata-border-bottom: 1px solid #ccc;
+		@awspilot-tabledata-border-left: 0px;
+		@awspilot-tabledata-box-shodow: none;
+		@awspilot-tabledata-head-background: #e9e9e9;
+		@awspilot-tabledata-head-border-bottom: 1px solid #ccc;
+		@awspilot-tabledata-head-cell-border-top: 1px solid transparent;
+		@awspilot-tabledata-head-cell-border-right: 1px solid #ccc;
+		@awspilot-tabledata-head-cell-border-bottom: 1px solid transparent;
+		@awspilot-tabledata-head-cell-border-left: 1px solid #fcfcfb;
+		@awspilot-tabledata-row-border-bottom: 1px solid #e0e0e0;
+		@awspilot-tabledata-row-hover-background: #9694ff;
+		@awspilot-tabledata-row-selected-background: #eaf3fe;
+		@awspilot-tabledata-row-selected-hover-background: #00a;
+		@awspilot-tabledata-cell-border-right: 1px solid #dcd8d2;
+		@awspilot-tabledata-cell-hover-color: #fff !important;
+
+		@awspilot-miniheader-title-background: #ededed;
+		@awspilot-miniheader-title-color: #757575;
+		@awspilot-miniheader-title-border-top: 1px solid #ccc;
+		@awspilot-miniheader-title-border-bottom: 1px solid #ccc;
+		@awspilot-miniheader-title-height: 32px;
+
+		@awspilot-window-background: #d4d0c8; /*#c3c6ca*/;
+		@awspilot-window-spacing: 2px;
+		@awspilot-window-border-top: 1px solid #dee2e4;
+		@awspilot-window-border-right: 1px solid #38494b;
+		@awspilot-window-border-bottom: 1px solid #38494b;
+		@awspilot-window-border-left: 1px solid #dee2e4;
+		@awspilot-window-box-shodow: -1px -1px 1px #92babc, 1px 1px 1px #3f8080;
+
+		@awspilot-list-background: #fefefe;
+		@awspilot-list-border-top: 1px solid #2e2f2f;
+		@awspilot-list-border-right: 1px solid #fff;
+		@awspilot-list-border-bottom: 1px solid #fff;
+		@awspilot-list-border-left: 1px solid #484a4b;
+		@awspilot-list-box-shodow: 1px 1px 1px #aeb2b6, -1px -1px 1px #737679, inset -1px -1px 1px #828588;
+		@awspilot-list-item-color: #300051;
+		@awspilot-list-item-hover-background: #3737ff;
+		@awspilot-list-item-hover-color: #fff;
+
+		@awspilot-content-border-top: 0px;
+		@awspilot-content-border-right: 0px;
+		@awspilot-content-border-bottom: 0px;
+		@awspilot-content-border-left: 0px;
+
+		@awspilot-tabs-background: transparent;
+		@awspilot-tabs-spacing: 5px;
+		@awspilot-tabs-height: 29px;
+
+		@awspilot-tabs-tab-background: #eee;
+		@awspilot-tabs-tab-color: #55002d;
+		@awspilot-tabs-tab-border-top: 1px solid #ccc;
+		@awspilot-tabs-tab-border-right: 1px solid #ccc;
+		@awspilot-tabs-tab-border-bottom: 0px;
+		@awspilot-tabs-tab-border-left: 1px solid #ccc;
+		@awspilot-tabs-tab-border-radius: 4px 4px 0px 0px;
+		@awspilot-tabs-tab-active-background: #fff;
+		@awspilot-tabs-tab-active-color: #55002d;
+
+		@awspilot-tabletabs-border-top: 0px;
+		@awspilot-tabletabs-border-right: 0px;
+		@awspilot-tabletabs-border-bottom: 1px solid #bbb;
+		@awspilot-tabletabs-border-left: 0px;
+		@awspilot-tabletabs-spacing: 5px;
+		@awspilot-tabletabs-tab-background: #eee;
+		@awspilot-tabletabs-tab-color: #55002d;
+		@awspilot-tabletabs-tab-border-top: 1px solid #ccc;
+		@awspilot-tabletabs-tab-border-right: 1px solid #ccc;
+		@awspilot-tabletabs-tab-border-bottom: 1px solid #bbb;
+		@awspilot-tabletabs-tab-border-left: 1px solid #ccc;
+		@awspilot-tabletabs-tab-border-radius: 4px 4px 0px 0px;
+		@awspilot-tabletabs-tab-active-background: #fff;
+		@awspilot-tabletabs-tab-active-color: #55002d;
+		@awspilot-tabletabs-tab-active-border-bottom: 1px solid #fff;
+
+		/* mini table list */
+		@awspilot-minitablelist-background: #fff;
+		@awspilot-minitablelist-left: 0px;
+		@awspilot-minitablelist-top: 5px;
+		@awspilot-minitablelist-bottom: 0px;
+		@awspilot-minitablelist-width: 260px;
+		@awspilot-minitablelist-spacing: 7px;
+		@awspilot-minitablelist-border-top: 0px;
+		@awspilot-minitablelist-border-right: 0px;
+		@awspilot-minitablelist-border-bottom: 0px;
+		@awspilot-minitablelist-border-left: 0px;
+		@awspilot-minitablelist-box-shadow: none;
+
+		/* mini table title */
+
+		/* mini table body */
+		@awspilot-minitablelist-body-background: #fff;
+		@awspilot-minitablelist-body-border-top: 0px;
+		@awspilot-minitablelist-body-border-right: 0px;
+		@awspilot-minitablelist-body-border-bottom: 0px;
+		@awspilot-minitablelist-body-border-left: 0px;
+		@awspilot-minitablelist-body-box-shadow: none;
+
+		/* split */
+		@awspilot-split-background: #f0f0f0;
+		@awspilot-split-left: @awspilot-minitablelist-left + @awspilot-minitablelist-width ;
+		@awspilot-split-top: 5px;
+		@awspilot-split-bottom: 0px;
+		@awspilot-split-width: 8px;
+		@awspilot-split-border-top: 0px;
+		@awspilot-split-border-right: 1px solid #b9b8b6;
+		@awspilot-split-border-bottom: 0px;
+		@awspilot-split-border-left: 1px solid #b9b8b6;
+		@awspilot-split-box-shadow: none;
+
+		/* main tab content */
+		@awspilot-tabcontent-background: #fff;
+		@awspilot-tabcontent-border-top: 1px solid #bbb;
+		@awspilot-tabcontent-border-right: 0px;
+		@awspilot-tabcontent-border-bottom: 1px solid #e0e0e0;
+		@awspilot-tabcontent-border-left: 0px;
+		@awspilot-tabcontent-box-shodow: none;
+		@awspilot-tabcontent-spacing-top: 5px;
+		@awspilot-tabcontent-spacing-right: 12px;
+		@awspilot-tabcontent-spacing-bottom: 0px;
+		@awspilot-tabcontent-spacing-left: 12px;
+
+		@import (multiple,reference) '~@databank/ractive-window/dist/less/theme-aws.less';
+		@import (multiple,reference) "./theme.less";
+	}
+}

@@ -6,7 +6,13 @@
 
 	.btn.disabled,
 	.btn[disabled],
-	fieldset[disabled] .btn {cursor: not-allowed;filter: alpha(opacity=65);box-shadow: none;opacity: .65;pointer-events: none;}
+	fieldset[disabled] .btn {filter: alpha(opacity=65);box-shadow: none;opacity: .65;pointer-events: none;}
+
+
+	& .btn-default.disabled,
+	& .btn-default.btn-disabled,
+	& .btn-default[disabled] {cursor: default;}
+
 	.btn-group .dropdown-toggle:active,
 	.btn-group.open .dropdown-toggle {outline: 0;}
 	.btn {

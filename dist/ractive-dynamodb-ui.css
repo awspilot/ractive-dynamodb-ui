@@ -77,10 +77,7 @@
   font-size: 14px;
   text-align: left;
   list-style: none;
-  -webkit-background-clip: padding-box;
   background-clip: padding-box;
-  border-radius: 4px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
 }
 .ractive-dynamodb-ui .dropdown-menu.pull-right {
   right: 0;
@@ -304,11 +301,15 @@
 .ractive-dynamodb-ui .btn.disabled,
 .ractive-dynamodb-ui .btn[disabled],
 .ractive-dynamodb-ui fieldset[disabled] .btn {
-  cursor: not-allowed;
   filter: alpha(opacity=65);
   box-shadow: none;
   opacity: 0.65;
   pointer-events: none;
+}
+.ractive-dynamodb-ui .btn-default.disabled,
+.ractive-dynamodb-ui .btn-default.btn-disabled,
+.ractive-dynamodb-ui .btn-default[disabled] {
+  cursor: default;
 }
 .ractive-dynamodb-ui .btn-group .dropdown-toggle:active,
 .ractive-dynamodb-ui .btn-group.open .dropdown-toggle {
@@ -695,8 +696,7 @@
   /* split */
   /* main tab content */
   /*
-a {color: @text-color;}
-.dropdown-menu {background-color: @base-background-color;border: 1px solid @base-border-color;}
+.dropdown-menu {border: 1px solid @base-border-color;}
 content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-HASH {color:@text-color-highlight;}
 content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: @text-color-selected;}
 */
@@ -894,6 +894,9 @@ content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: @tex
 .ractive-dynamodb-ui.theme-atomdark .ractive-window.theme-atomdark.active .rw-interior > .rw-body {
   background-color: #242b3a;
 }
+.ractive-dynamodb-ui.theme-atomdark a {
+  color: hsl(220, 18%, 66%);
+}
 .ractive-dynamodb-ui.theme-atomdark hr {
   border-top: 1px solid hsl(220, 24%, 12%);
   border-bottom: 1px solid hsl(220, 24%, 12%);
@@ -914,7 +917,7 @@ content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: @tex
 .ractive-dynamodb-ui.theme-atomdark .btn-default {
   box-shadow: none;
 }
-.ractive-dynamodb-ui.theme-atomdark .btn-default > .icon {
+.ractive-dynamodb-ui.theme-atomdark .btn-default > svg.icon {
   color: hsl(220, 18%, 66%);
 }
 .ractive-dynamodb-ui.theme-atomdark .btn-primary {
@@ -931,7 +934,7 @@ content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: @tex
 .ractive-dynamodb-ui.theme-atomdark .btn-primary {
   box-shadow: none;
 }
-.ractive-dynamodb-ui.theme-atomdark .btn-primary > .icon {
+.ractive-dynamodb-ui.theme-atomdark .btn-primary > svg.icon {
   fill: #fff;
 }
 .ractive-dynamodb-ui.theme-atomdark .btn-danger {
@@ -949,6 +952,18 @@ content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: @tex
 }
 .ractive-dynamodb-ui.theme-atomdark .btn-danger > svg.icon {
   fill: #fff;
+}
+.ractive-dynamodb-ui.theme-atomdark .btn-default.disabled,
+.ractive-dynamodb-ui.theme-atomdark .btn-default.btn-disabled,
+.ractive-dynamodb-ui.theme-atomdark .btn-default[disabled] {
+  background-image: none;
+  background-color: hsl(220, 24%, 26%);
+  color: hsl(220, 18%, 66%);
+}
+.ractive-dynamodb-ui.theme-atomdark .btn-default.disabled > svg.icon,
+.ractive-dynamodb-ui.theme-atomdark .btn-default.btn-disabled > svg.icon,
+.ractive-dynamodb-ui.theme-atomdark .btn-default[disabled] > svg.icon {
+  fill: hsl(220, 18%, 66%);
 }
 .ractive-dynamodb-ui.theme-atomdark .btn-xs {
   border-radius: 3px;
@@ -994,6 +1009,24 @@ content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: @tex
 }
 .ractive-dynamodb-ui.theme-atomdark .input-select {
   box-shadow: none;
+}
+.ractive-dynamodb-ui.theme-atomdark .dropdown-menu {
+  background-color: hsl(220, 24%, 20%);
+}
+.ractive-dynamodb-ui.theme-atomdark .dropdown-menu {
+  border-top: 1px solid hsl(220, 24%, 12%);
+  border-right: 1px solid hsl(220, 24%, 12%);
+  border-bottom: 1px solid hsl(220, 24%, 12%);
+  border-left: 1px solid hsl(220, 24%, 12%);
+}
+.ractive-dynamodb-ui.theme-atomdark .dropdown-menu {
+  box-shadow: none;
+}
+.ractive-dynamodb-ui.theme-atomdark .dropdown-menu {
+  border-radius: 3px;
+}
+.ractive-dynamodb-ui.theme-atomdark .dropdown-menu > li > a {
+  color: hsl(220, 18%, 66%);
 }
 .ractive-dynamodb-ui.theme-atomdark .tabledata {
   background-color: transparent;
@@ -1229,8 +1262,7 @@ content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: @tex
   /* split */
   /* main tab content */
   /*
-a {color: @text-color;}
-.dropdown-menu {background-color: @base-background-color;border: 1px solid @base-border-color;}
+.dropdown-menu {border: 1px solid @base-border-color;}
 content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-HASH {color:@text-color-highlight;}
 content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: @text-color-selected;}
 */
@@ -1319,6 +1351,9 @@ content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: @tex
 .ractive-dynamodb-ui.theme-atomlight .ractive-window.theme-atomlight.active .rw-interior > .rw-body {
   background-color: #f2f2f2;
 }
+.ractive-dynamodb-ui.theme-atomlight a {
+  color: hsl(220, 1%, 26%);
+}
 .ractive-dynamodb-ui.theme-atomlight hr {
   border-top: 1px solid hsl(220, 1%, 86%);
   border-bottom: 1px solid hsl(220, 1%, 86%);
@@ -1339,7 +1374,7 @@ content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: @tex
 .ractive-dynamodb-ui.theme-atomlight .btn-default {
   box-shadow: none;
 }
-.ractive-dynamodb-ui.theme-atomlight .btn-default > .icon {
+.ractive-dynamodb-ui.theme-atomlight .btn-default > svg.icon {
   color: hsl(220, 1%, 26%);
 }
 .ractive-dynamodb-ui.theme-atomlight .btn-primary {
@@ -1356,7 +1391,7 @@ content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: @tex
 .ractive-dynamodb-ui.theme-atomlight .btn-primary {
   box-shadow: none;
 }
-.ractive-dynamodb-ui.theme-atomlight .btn-primary > .icon {
+.ractive-dynamodb-ui.theme-atomlight .btn-primary > svg.icon {
   fill: #fff;
 }
 .ractive-dynamodb-ui.theme-atomlight .btn-danger {
@@ -1374,6 +1409,18 @@ content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: @tex
 }
 .ractive-dynamodb-ui.theme-atomlight .btn-danger > svg.icon {
   fill: #fff;
+}
+.ractive-dynamodb-ui.theme-atomlight .btn-default.disabled,
+.ractive-dynamodb-ui.theme-atomlight .btn-default.btn-disabled,
+.ractive-dynamodb-ui.theme-atomlight .btn-default[disabled] {
+  background-image: none;
+  background-color: hsl(0, 0%, 100%);
+  color: hsl(220, 1%, 26%);
+}
+.ractive-dynamodb-ui.theme-atomlight .btn-default.disabled > svg.icon,
+.ractive-dynamodb-ui.theme-atomlight .btn-default.btn-disabled > svg.icon,
+.ractive-dynamodb-ui.theme-atomlight .btn-default[disabled] > svg.icon {
+  fill: hsl(220, 1%, 26%);
 }
 .ractive-dynamodb-ui.theme-atomlight .btn-xs {
   border-radius: 3px;
@@ -1419,6 +1466,24 @@ content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: @tex
 }
 .ractive-dynamodb-ui.theme-atomlight .input-select {
   box-shadow: none;
+}
+.ractive-dynamodb-ui.theme-atomlight .dropdown-menu {
+  background-color: hsl(220, 1%, 98%);
+}
+.ractive-dynamodb-ui.theme-atomlight .dropdown-menu {
+  border-top: 1px solid hsl(220, 1%, 86%);
+  border-right: 1px solid hsl(220, 1%, 86%);
+  border-bottom: 1px solid hsl(220, 1%, 86%);
+  border-left: 1px solid hsl(220, 1%, 86%);
+}
+.ractive-dynamodb-ui.theme-atomlight .dropdown-menu {
+  box-shadow: none;
+}
+.ractive-dynamodb-ui.theme-atomlight .dropdown-menu {
+  border-radius: 3px;
+}
+.ractive-dynamodb-ui.theme-atomlight .dropdown-menu > li > a {
+  color: hsl(220, 1%, 26%);
 }
 .ractive-dynamodb-ui.theme-atomlight .tabledata {
   background-color: transparent;
@@ -1655,8 +1720,7 @@ content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: @tex
   /* split */
   /* main tab content */
   /*
-a {color: @text-color;}
-.dropdown-menu {background-color: @base-background-color;border: 1px solid @base-border-color;}
+.dropdown-menu {border: 1px solid @base-border-color;}
 content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-HASH {color:@text-color-highlight;}
 content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: @text-color-selected;}
 */
@@ -1745,6 +1809,9 @@ content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: @tex
 .ractive-dynamodb-ui.theme-windows .ractive-window.theme-windows.active .rw-interior > .rw-body {
   background-color: #d4d0c8;
 }
+.ractive-dynamodb-ui.theme-windows a {
+  color: #000;
+}
 .ractive-dynamodb-ui.theme-windows hr {
   border-top: 1px solid #808080;
   border-bottom: 1px solid #fff;
@@ -1765,7 +1832,7 @@ content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: @tex
 .ractive-dynamodb-ui.theme-windows .btn-default {
   box-shadow: inset -1px -1px 1px #808080;
 }
-.ractive-dynamodb-ui.theme-windows .btn-default > .icon {
+.ractive-dynamodb-ui.theme-windows .btn-default > svg.icon {
   color: #55002d;
 }
 .ractive-dynamodb-ui.theme-windows .btn-primary {
@@ -1782,7 +1849,7 @@ content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: @tex
 .ractive-dynamodb-ui.theme-windows .btn-primary {
   box-shadow: inset -1px -1px 1px #808080;
 }
-.ractive-dynamodb-ui.theme-windows .btn-primary > .icon {
+.ractive-dynamodb-ui.theme-windows .btn-primary > svg.icon {
   fill: #55002d;
 }
 .ractive-dynamodb-ui.theme-windows .btn-danger {
@@ -1800,6 +1867,18 @@ content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: @tex
 }
 .ractive-dynamodb-ui.theme-windows .btn-danger > svg.icon {
   fill: #55002d;
+}
+.ractive-dynamodb-ui.theme-windows .btn-default.disabled,
+.ractive-dynamodb-ui.theme-windows .btn-default.btn-disabled,
+.ractive-dynamodb-ui.theme-windows .btn-default[disabled] {
+  background-image: none;
+  background-color: #d4d0c8;
+  color: #827f7b;
+}
+.ractive-dynamodb-ui.theme-windows .btn-default.disabled > svg.icon,
+.ractive-dynamodb-ui.theme-windows .btn-default.btn-disabled > svg.icon,
+.ractive-dynamodb-ui.theme-windows .btn-default[disabled] > svg.icon {
+  fill: #827f7b;
 }
 .ractive-dynamodb-ui.theme-windows .btn-xs {
   border-radius: 0px;
@@ -1845,6 +1924,24 @@ content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: @tex
 }
 .ractive-dynamodb-ui.theme-windows .input-select {
   box-shadow: inset 1px 1px 1px #404040, inset -1px -1px 1px #d4d0c8;
+}
+.ractive-dynamodb-ui.theme-windows .dropdown-menu {
+  background-color: #d4d0c8;
+}
+.ractive-dynamodb-ui.theme-windows .dropdown-menu {
+  border-top: 1px solid #ffffff;
+  border-right: 1px solid #404040;
+  border-bottom: 1px solid #404040;
+  border-left: 1px solid #ffffff;
+}
+.ractive-dynamodb-ui.theme-windows .dropdown-menu {
+  box-shadow: inset -1px -1px 1px #808080;
+}
+.ractive-dynamodb-ui.theme-windows .dropdown-menu {
+  border-radius: 0px;
+}
+.ractive-dynamodb-ui.theme-windows .dropdown-menu > li > a {
+  color: #000000;
 }
 .ractive-dynamodb-ui.theme-windows .tabledata {
   background-color: #fefefe;
@@ -2081,8 +2178,7 @@ content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: @tex
   /* split */
   /* main tab content */
   /*
-a {color: @text-color;}
-.dropdown-menu {background-color: @base-background-color;border: 1px solid @base-border-color;}
+.dropdown-menu {border: 1px solid @base-border-color;}
 content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-HASH {color:@text-color-highlight;}
 content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: @text-color-selected;}
 */
@@ -2171,6 +2267,9 @@ content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: @tex
 .ractive-dynamodb-ui.theme-aws .ractive-window.theme-aws.active .rw-interior > .rw-body {
   background-color: #fff;
 }
+.ractive-dynamodb-ui.theme-aws a {
+  color: #000;
+}
 .ractive-dynamodb-ui.theme-aws hr {
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #fff;
@@ -2191,25 +2290,25 @@ content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: @tex
 .ractive-dynamodb-ui.theme-aws .btn-default {
   box-shadow: none;
 }
-.ractive-dynamodb-ui.theme-aws .btn-default > .icon {
+.ractive-dynamodb-ui.theme-aws .btn-default > svg.icon {
   color: #55002d;
 }
 .ractive-dynamodb-ui.theme-aws .btn-primary {
-  color: #55002d;
-  background-color: #d4d0c8;
-  background-image: none;
+  color: #fff;
+  background-color: #257acf;
+  background-image: linear-gradient(to bottom, #38d, #16b);
 }
 .ractive-dynamodb-ui.theme-aws .btn-primary {
-  border-top: 1px solid #ccc;
-  border-right: 1px solid #bbb;
-  border-bottom: 1px solid #bbb;
-  border-left: 1px solid #bbb;
+  border-top: 1px solid #05a;
+  border-right: 1px solid #16b;
+  border-bottom: 1px solid #16b;
+  border-left: 1px solid #16b;
 }
 .ractive-dynamodb-ui.theme-aws .btn-primary {
   box-shadow: none;
 }
-.ractive-dynamodb-ui.theme-aws .btn-primary > .icon {
-  fill: #55002d;
+.ractive-dynamodb-ui.theme-aws .btn-primary > svg.icon {
+  fill: #fff;
 }
 .ractive-dynamodb-ui.theme-aws .btn-danger {
   color: #55002d;
@@ -2226,6 +2325,18 @@ content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: @tex
 }
 .ractive-dynamodb-ui.theme-aws .btn-danger > svg.icon {
   fill: #55002d;
+}
+.ractive-dynamodb-ui.theme-aws .btn-default.disabled,
+.ractive-dynamodb-ui.theme-aws .btn-default.btn-disabled,
+.ractive-dynamodb-ui.theme-aws .btn-default[disabled] {
+  background-image: none;
+  background-color: #f2f2f2;
+  color: #a9a5a5;
+}
+.ractive-dynamodb-ui.theme-aws .btn-default.disabled > svg.icon,
+.ractive-dynamodb-ui.theme-aws .btn-default.btn-disabled > svg.icon,
+.ractive-dynamodb-ui.theme-aws .btn-default[disabled] > svg.icon {
+  fill: #a9a5a5;
 }
 .ractive-dynamodb-ui.theme-aws .btn-xs {
   border-radius: 4px;
@@ -2272,6 +2383,24 @@ content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: @tex
 .ractive-dynamodb-ui.theme-aws .input-select {
   box-shadow: inset 1px 1px 1px #404040, inset -1px -1px 1px #d4d0c8;
 }
+.ractive-dynamodb-ui.theme-aws .dropdown-menu {
+  background-color: #444444;
+}
+.ractive-dynamodb-ui.theme-aws .dropdown-menu {
+  border-top: 1px solid #fff;
+  border-right: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  border-left: 1px solid #fff;
+}
+.ractive-dynamodb-ui.theme-aws .dropdown-menu {
+  box-shadow: none;
+}
+.ractive-dynamodb-ui.theme-aws .dropdown-menu {
+  border-radius: 0px;
+}
+.ractive-dynamodb-ui.theme-aws .dropdown-menu > li > a {
+  color: #fff;
+}
 .ractive-dynamodb-ui.theme-aws .tabledata {
   background-color: #fff;
 }
@@ -2293,16 +2422,16 @@ content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: @tex
   border-left: 1px solid #fcfcfb;
 }
 .ractive-dynamodb-ui.theme-aws .tabledata .tabledatarow {
-  border-bottom: 1px solid #dcd8d2;
+  border-bottom: 1px solid #e0e0e0;
 }
 .ractive-dynamodb-ui.theme-aws .tabledata .tabledatarow:hover {
-  background-color: #3737ff;
+  background-color: #9694ff;
 }
 .ractive-dynamodb-ui.theme-aws .tabledata .tabledatarow:hover .tabledatacell {
   color: #fff !important;
 }
 .ractive-dynamodb-ui.theme-aws .tabledata .tabledatarow.selected {
-  background-color: #00a;
+  background-color: #eaf3fe;
 }
 .ractive-dynamodb-ui.theme-aws .tabledata .tabledatarow.selected:hover {
   background-color: #00a;

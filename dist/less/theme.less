@@ -1,27 +1,37 @@
 
 /*
-a {color: @text-color;}
-.dropdown-menu {background-color: @base-background-color;border: 1px solid @base-border-color;}
+.dropdown-menu {border: 1px solid @base-border-color;}
 content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-HASH {color:@text-color-highlight;}
 content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: @text-color-selected;}
 */
 
+
+
+& a {color: @awspilot-color;}
 & hr {border-top: @awspilot-hr-border-top;border-bottom: @awspilot-hr-border-bottom;border-left: 0px;border-right: 0px;}
 
 & .btn-default { color: @awspilot-button-color; background-color: @awspilot-button-background-color; background-image: @awspilot-button-background-image}
 & .btn-default { border-top: @awspilot-button-border-top;border-right: @awspilot-button-border-right;border-bottom: @awspilot-button-border-bottom;border-left: @awspilot-button-border-left; }
 & .btn-default {box-shadow: @awspilot-button-box-shodow}
-& .btn-default > .icon {color: @awspilot-button-color; }
+& .btn-default > svg.icon {color: @awspilot-button-color; }
 
 & .btn-primary {color: @awspilot-button-primary-color;background-color: @awspilot-button-primary-background-color;background-image: @awspilot-button-primary-background-image}
-& .btn-primary { border-top: @awspilot-button-border-top;border-right: @awspilot-button-border-right;border-bottom: @awspilot-button-border-bottom;border-left: @awspilot-button-border-left; }
+& .btn-primary { border-top: @awspilot-button-primary-border-top;border-right: @awspilot-button-primary-border-right;border-bottom: @awspilot-button-primary-border-bottom;border-left: @awspilot-button-primary-border-left; }
 & .btn-primary {box-shadow: @awspilot-button-box-shodow}
-& .btn-primary > .icon {fill: @awspilot-button-primary-color;}
+& .btn-primary > svg.icon {fill: @awspilot-button-primary-color;}
 
 & .btn-danger {color: @awspilot-button-danger-color;background-color: @awspilot-button-danger-background-color;}
 & .btn-danger { border-top: @awspilot-button-border-top;border-right: @awspilot-button-border-right;border-bottom: @awspilot-button-border-bottom;border-left: @awspilot-button-border-left; }
 & .btn-danger {box-shadow: @awspilot-button-box-shodow}
 & .btn-danger > svg.icon {fill: @awspilot-button-danger-color;}
+
+
+& .btn-default.disabled,
+& .btn-default.btn-disabled,
+& .btn-default[disabled] { background-image: none;background-color: @awspilot-button-disabled-background-color; color: @awspilot-button-disabled-color;}
+& .btn-default.disabled > svg.icon,
+& .btn-default.btn-disabled > svg.icon,
+& .btn-default[disabled] > svg.icon {fill: @awspilot-button-disabled-color;}
 
 
 & .btn-xs {border-radius: @awspilot-button-border-radius;}
@@ -39,6 +49,11 @@ content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: @tex
 & .input-select {border-top: @awspilot-selectbox-border-top;border-right: @awspilot-selectbox-border-right;border-bottom: @awspilot-selectbox-border-bottom;border-left: @awspilot-selectbox-border-left;}
 & .input-select {box-shadow: @awspilot-selectbox-box-shodow}
 
+& .dropdown-menu {background-color: @awspilot-dropdown-background;}
+& .dropdown-menu {border-top: @awspilot-dropdown-border-top;border-right: @awspilot-dropdown-border-right;border-bottom: @awspilot-dropdown-border-bottom;border-left: @awspilot-dropdown-border-left;}
+& .dropdown-menu {box-shadow: @awspilot-dropdown-box-shadow}
+& .dropdown-menu {border-radius: @awspilot-dropdown-border-radius;}
+& .dropdown-menu > li > a {color: @awspilot-dropdown-color}
 
 & .tabledata {background-color: @awspilot-tabledata-background;}
 & .tabledata {border-top: @awspilot-tabledata-border-top;border-right: @awspilot-tabledata-border-right;border-bottom: @awspilot-tabledata-border-bottom;border-left: @awspilot-tabledata-border-left;}
