@@ -44,6 +44,6 @@
 
 	},
 	"dependencies": {
-		"@databank/ractive-window": "^0.2.2",
+		"@databank/ractive-window": "^0.2.2"
 	}
 }
