@@ -200,7 +200,8 @@
 		@awspilot-tabcontent-spacing-bottom: 0px;
 		@awspilot-tabcontent-spacing-left: 0px;
 
-		@import (multiple,reference) '~@databank/ractive-window/dist/less/theme-windows.less';
+		/* atom does not like @import (multiple,reference) '~@databank/ractive-window/dist/less/theme-windows.less';*/
+		@import (multiple,reference) '../../node_modules/@databank/ractive-window/dist/less/theme-windows.less';
 		@import (multiple,reference) "./theme.less";
 	}
 }
