@@ -594,8 +594,8 @@
 	.ractive-window {background-color: @background-color-highlight; border: 1px solid #cccccc;box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);}
 	.ractive-window.topmost {background-color: @background-color-selected; }
 
-	.rw-interior > .rw-title {color: @text-color; }
-	.topmost .rw-interior > .rw-title {}
+
+
 
 
 	.ractive-window .rw-body {background-color: @app-background-color}
@@ -695,8 +695,8 @@
   /* mini table body */
   /* split */
   /* main tab content */
+  /* atom does not like @import (multiple,reference) '~@databank/ractive-window/dist/less/theme-atomdark.less';*/
   /*
-.dropdown-menu {border: 1px solid @base-border-color;}
 content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-HASH {color:@text-color-highlight;}
 content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: @text-color-selected;}
 */
@@ -1261,8 +1261,8 @@ content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: @tex
   /* mini table body */
   /* split */
   /* main tab content */
+  /* atom does not like @import (multiple,reference) '~@databank/ractive-window/dist/less/theme-atomlight.less';*/
   /*
-.dropdown-menu {border: 1px solid @base-border-color;}
 content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-HASH {color:@text-color-highlight;}
 content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: @text-color-selected;}
 */
@@ -1719,8 +1719,8 @@ content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: @tex
   /* mini table body */
   /* split */
   /* main tab content */
+  /* atom does not like @import (multiple,reference) '~@databank/ractive-window/dist/less/theme-windows.less';*/
   /*
-.dropdown-menu {border: 1px solid @base-border-color;}
 content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-HASH {color:@text-color-highlight;}
 content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: @text-color-selected;}
 */
@@ -2177,8 +2177,8 @@ content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: @tex
   /* mini table body */
   /* split */
   /* main tab content */
+  /* atom does not like @import (multiple,reference) '~@databank/ractive-window/dist/less/theme-aws.less';*/
   /*
-.dropdown-menu {border: 1px solid @base-border-color;}
 content tabcontent .tabledata .tabledatarow:hover .tabledatacell.t-HASH {color:@text-color-highlight;}
 content tabcontent .tabledata .tabledatarow.selected .tabledatacell {color: @text-color-selected;}
 */
