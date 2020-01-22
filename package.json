@@ -1,6 +1,6 @@
 {
 	"name": "@awspilot/ractive-dynamodb-ui",
-	"version": "1.5.1",
+	"version": "1.5.2",
 	"description": "ractivejs component to manage dynamodb tables",
 	"main": "dist/ractive-dynamodb-ui.min.js",
 	"scripts": {
