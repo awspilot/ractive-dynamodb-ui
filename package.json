@@ -23,6 +23,7 @@
 		"aws-sdk": "^2.596.0",
 		"@awspilot/dynamodb": "2.0.0-beta.10",
 		"@awspilot/ractive-dynamodb-json-editor": "1.0.14",
+		"@databank/ractive-window": "^0.2.2",
 
 		"babel-core": "^6.26.3",
 		"babel-loader": "^7.1.5",
@@ -44,6 +45,6 @@
 
 	},
 	"dependencies": {
-		"@databank/ractive-window": "^0.2.2"
+
 	}
 }
