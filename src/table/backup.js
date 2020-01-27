@@ -24,7 +24,7 @@ export default Ractive.extend({
 					<a class='btn btn-sm btn-default pull-right' on-click='refresh'><icon-refresh /></a>
 				</div>
 
-				<tabledata columns='{{columns}}' rows='{{rows}}' style='top: 180px' />
+				<tabledata columns='{{columns}}' rows='{{rows}}' style='top: 180px' err={{err}} />
 
 
 
@@ -34,10 +34,11 @@ export default Ractive.extend({
 	list_backups: function() {
 		var ractive=this;
 		ractive.set('rows',null);
+		ractive.set('err',null);
 
 		DynamoDB.client.listBackups( { TableName: this.get('describeTable.TableName'),} , function(err, data) {
 			if (err)
-				return alert('failed getting backup list')
+				return ractive.set({rows: false, err: {errorMessage: 'Failed getting backup list'}})
 
 			ractive.set('rows', data.BackupSummaries.map(function(b) {
 				return [
@@ -192,6 +193,7 @@ export default Ractive.extend({
 		return {
 			columns: [ null, 'Backup name', 'Status', 'Creation time', 'Size', 'Backup type', 'Expiration date', 'Backup ARN' ],
 			rows: null,
+			err: null,
 			//newindex:
 		}
 	}

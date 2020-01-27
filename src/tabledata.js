@@ -16,6 +16,10 @@ export default Ractive.extend({
 					<br><small>Loading...</small>
 				{{/if}}
 
+				{{#if err.errorMessage }}
+					<br><small style="color:red">{{err.errorMessage}}</small>
+				{{/if}}
+
 				{{#rows:row}}
 				<div class='tabledatarow {{#if .[0].selected}}selected{{/if}}' on-click='selectrow'>
 					{{#each .:i}}
