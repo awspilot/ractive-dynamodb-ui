@@ -2,6 +2,7 @@
 import _table_utils from './_utils';
 import _open_item from './items/_open_item';
 import _create_item from './items/_create_item';
+import _duplicate_item from './items/_duplicate_item';
 
 import tabledata from '../tabledata';
 
@@ -222,7 +223,9 @@ export default Ractive.extend({
 
 					</div>
 				</div>
+
 				<a class='btn btn-xs btn-primary' on-click='create-item'  > Create Item </a>
+				<a class='btn btn-xs btn-default {{#if selection_length === 1}}{{else}}disabled{{/if}}' on-click='duplicate-item'  > Duplicate </a>
 				<a class='btn btn-xs btn-danger {{#if selection_length > 0}}{{else}}disabled{{/if}}'  on-click='delete-selected' > <icon-trash /> </a>
 			</div>
 		</div>
@@ -673,9 +676,23 @@ console.log("query LastEvaluatedKey=", this.LastEvaluatedKey )
 			}
 		}
 	},
+
+	_duplicate_item: _duplicate_item,
+
 	on: {
 		'open-item': _open_item,
 		'create-item': _create_item,
+		'duplicate-item': function() {
+
+			var to_duplicate = this.findComponent('tabledata').get('rows')
+				.filter(function(r) { return r[0].selected })
+				.map(function(r) { return r[1] }) // r[0] = checkbox, r[1]=hash+raw
+
+			if (!to_duplicate.length)
+				return alert('No Items Selected')
+
+			this._duplicate_item( to_duplicate[0].raw )
+		},
 		prev: function() {
 
 			if (this.get('prev_running'))

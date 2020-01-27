@@ -1918,6 +1918,10 @@ var _create_item2 = __webpack_require__(25);
 
 var _create_item3 = _interopRequireDefault(_create_item2);
 
+var _duplicate_item2 = __webpack_require__(33);
+
+var _duplicate_item3 = _interopRequireDefault(_duplicate_item2);
+
 var _tabledata = __webpack_require__(0);
 
 var _tabledata2 = _interopRequireDefault(_tabledata);
@@ -1929,7 +1933,7 @@ exports.default = Ractive.extend({
 		tabledata: _tabledata2.default
 	},
 	isolated: true,
-	template: '\n\t<div class=\'tablebrowse\'>\n\t\t{{#if !describeTable }}\n\t\t\t<br>reading table schema...\n\t\t{{else}}\n\t\t<div class=\'tablequery\'>\n\t\t\t<table width=\'100%\' style=\'border-collapse: separate;border-spacing: 5px;\'>\n\t\t\t\t<tr>\n\t\t\t\t\t<td>\n\t\t\t\t\t\t<select class="input-select" value=\'{{ .type }}\'>\n\t\t\t\t\t\t\t<option value=\'scan\'>SCAN</option>\n\t\t\t\t\t\t\t<option value=\'query\'>QUERY</option>\n\t\t\t\t\t\t</select>\n\t\t\t\t\t</td>\n\t\t\t\t\t<td colspan=\'4\'>\n\t\t\t\t\t\t{{#if .type === \'scan\' }}\n\t\t\t\t\t\t<select class="input-select" value=\'{{ .scan.table }}\'>\n\t\t\t\t\t\t\t<option value=\'\'>\n\t\t\t\t\t\t\t\t[ Table ] {{ describeTable.TableName }}: {{ @this._hash_key_name() }} ( {{ @this._hash_key_type_name() }} )\n\t\t\t\t\t\t\t\t{{#if describeTable.KeySchema.length === 2}}\n\t\t\t\t\t\t\t\t\t, {{ @this._range_key_name() }} ( {{ @this._range_key_type_name() }} )\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</option>\n\n\t\t\t\t\t\t\t{{#describeTable.LocalSecondaryIndexes:j}}\n\t\t\t\t\t\t\t<option value=\'lsi:{{ .IndexName }}\'>\n\t\t\t\t\t\t\t\t[ LSI ] {{ .IndexName }}: {{ @this._lsi_hash_key_name( .IndexName ) }} ( {{ @this._lsi_hash_key_type_name( .IndexName ) }} )\n\t\t\t\t\t\t\t\t{{#if .KeySchema.length === 2}}\n\t\t\t\t\t\t\t\t\t, {{ @this._lsi_range_key_name( .IndexName ) }} (  {{ @this._lsi_range_key_type_name( .IndexName ) }} )\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t{{/describeTable.LocalSecondaryIndexes}}\n\n\t\t\t\t\t\t\t{{#describeTable.GlobalSecondaryIndexes:j}}\n\t\t\t\t\t\t\t<option value=\'gsi:{{ .IndexName }}\'>\n\t\t\t\t\t\t\t\t[ GSI ] {{ .IndexName }}: {{ @this._gsi_hash_key_name( .IndexName ) }} ( {{ @this._gsi_hash_key_type_name( .IndexName ) }} )\n\t\t\t\t\t\t\t\t{{#if .KeySchema.length === 2}}\n\t\t\t\t\t\t\t\t\t, {{ @this._gsi_range_key_name( .IndexName ) }} (  {{ @this._gsi_range_key_type_name( .IndexName ) }} )\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t{{/describeTable.GlobalSecondaryIndexes}}\n\t\t\t\t\t\t</select>\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if .type === \'query\' }}\n\t\t\t\t\t\t<select class="input-select" value=\'{{ .query.table }}\'>\n\t\t\t\t\t\t\t<option value=\'\'>\n\t\t\t\t\t\t\t\t[ Table ] {{ describeTable.TableName }}: {{ @this._hash_key_name() }} ( {{ @this._hash_key_type_name() }} )\n\t\t\t\t\t\t\t\t{{#if describeTable.KeySchema.length === 2}}\n\t\t\t\t\t\t\t\t\t, {{ @this._range_key_name() }} ( {{ @this._range_key_type_name() }} )\n\t\t\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t\t</option>\n\n\t\t\t\t\t\t\t{{#describeTable.LocalSecondaryIndexes:j}}\n\t\t\t\t\t\t\t<option value=\'lsi:{{ .IndexName }}\'>\n\t\t\t\t\t\t\t\t[ LSI ] {{ .IndexName }}: {{ @this._lsi_hash_key_name( .IndexName ) }} ( {{ @this._lsi_hash_key_type_name( .IndexName ) }} )\n\t\t\t\t\t\t\t\t{{#if .KeySchema.length === 2}}\n\t\t\t\t\t\t\t\t\t, {{ @this._lsi_range_key_name( .IndexName ) }} (  {{ @this._lsi_range_key_type_name( .IndexName ) }} )\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t{{/describeTable.LocalSecondaryIndexes}}\n\n\t\t\t\t\t\t\t{{#describeTable.GlobalSecondaryIndexes:j}}\n\t\t\t\t\t\t\t<option value=\'gsi:{{ .IndexName }}\'>\n\t\t\t\t\t\t\t\t[ GSI ] {{ .IndexName }}: {{ @this._gsi_hash_key_name( .IndexName ) }} ( {{ @this._gsi_hash_key_type_name( .IndexName ) }} )\n\t\t\t\t\t\t\t\t{{#if .KeySchema.length === 2}}\n\t\t\t\t\t\t\t\t\t, {{ @this._gsi_range_key_name( .IndexName ) }} (  {{ @this._gsi_range_key_type_name( .IndexName ) }} )\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t{{/describeTable.GlobalSecondaryIndexes}}\n\t\t\t\t\t\t</select>\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t</td>\n\t\t\t\t</tr>\n\t\t\t\t{{#if .type === \'query\' }}\n\t\t\t\t<tr>\n\t\t\t\t\t<td>Partition</td>\n\t\t\t\t\t{{#if .query.table === \'\'  }}\n\t\t\t\t\t\t<td>{{ _hash_key_name() }}</td>\n\t\t\t\t\t\t<td><select class="input-select"><option>{{ @this._hash_key_type_name() }}</option></select></td>\n\t\t\t\t\t{{/if}}\n\t\t\t\t\t{{#describeTable.LocalSecondaryIndexes:j}}\n\t\t\t\t\t\t{{#if ~/.query.table === (\'lsi:\' +  .IndexName)  }}\n\t\t\t\t\t\t\t<td>{{ @this._lsi_hash_key_name( .IndexName ) }}</td>\n\t\t\t\t\t\t\t<td><select class="input-select"><option>{{ @this._lsi_hash_key_type_name( .IndexName ) }}</option></select></td>\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t{{/describeTable.LocalSecondaryIndexes}}\n\t\t\t\t\t{{#describeTable.GlobalSecondaryIndexes:j}}\n\t\t\t\t\t\t{{#if ~/.query.table === (\'gsi:\' +  .IndexName)  }}\n\t\t\t\t\t\t\t<td>{{ @this._gsi_hash_key_name( .IndexName ) }}</td>\n\t\t\t\t\t\t\t<td><select class="input-select"><option>{{ @this._gsi_hash_key_type_name( .IndexName ) }}</option></select></td>\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t{{/describeTable.GlobalSecondaryIndexes}}\n\t\t\t\t\t<td><select class="input-select"><option>=</option></select></td>\n\t\t\t\t\t<td><input class="input-text" type=\'text\' value=\'{{.query.partition.value}}\'></td>\n\t\t\t\t</tr>\n\t\t\t\t{{#if .query.table === \'\'  }}\n\t\t\t\t\t{{#if describeTable.KeySchema.length === 2}}\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>Sort</td>\n\t\t\t\t\t\t<td>{{ @this._range_key_name() }}</td>\n\t\t\t\t\t\t<td><select class="input-select"><option>{{ @this._range_key_type_name( ) }}</option></select></td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<select class="input-select" value=\'{{ ~/query.sort.op }}\'>\n\t\t\t\t\t\t\t\t<option value=\'eq\'>=</option>\n\t\t\t\t\t\t\t\t<option value=\'gt\'>&gt;</option>\n\t\t\t\t\t\t\t\t<option value=\'ge\'>&gt;=</option>\n\t\t\t\t\t\t\t\t<option value=\'lt\'>&lt;</option>\n\t\t\t\t\t\t\t\t<option value=\'le\'>&lt;=</option>\n\t\t\t\t\t\t\t\t<option value=\'between\'>between</option>\n\t\t\t\t\t\t\t\t{{#if _range_key_type()  === \'S\' }}\n\t\t\t\t\t\t\t\t\t<option value=\'begins_with\'>begins with</option>\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<input class="input-text" type=\'text\' value=\'{{ ~/query.sort.value }}\'>\n\t\t\t\t\t\t\t{{#if ~/query.sort.op === \'between\' }}\n\t\t\t\t\t\t\t\t<input class="input-text" type=\'text\' value=\'{{ ~/query.sort.value2 }}\'>\n\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t{{/if}}\n\t\t\t\t{{/if}}\n\t\t\t\t{{#describeTable.GlobalSecondaryIndexes:j}}\n\t\t\t\t\t{{#if ~/.query.table === (\'gsi:\' +  .IndexName)  }}\n\t\t\t\t\t\t{{#if .KeySchema.length === 2}}\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Sort</td>\n\t\t\t\t\t\t\t<td>{{ @this._gsi_range_key_name( .IndexName ) }}</td>\n\t\t\t\t\t\t\t<td><select class="input-select"><option>{{ @this._gsi_range_key_type_name( .IndexName ) }}</option></select></td>\n\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t<select class="input-select" value=\'{{ ~/query.sort.op }}\'>\n\t\t\t\t\t\t\t\t\t<option value=\'eq\'>=</option>\n\t\t\t\t\t\t\t\t\t<option value=\'gt\'>&gt;</option>\n\t\t\t\t\t\t\t\t\t<option value=\'ge\'>&gt;=</option>\n\t\t\t\t\t\t\t\t\t<option value=\'lt\'>&lt;</option>\n\t\t\t\t\t\t\t\t\t<option value=\'le\'>&lt;=</option>\n\t\t\t\t\t\t\t\t\t<option value=\'between\'>between</option>\n\t\t\t\t\t\t\t\t\t{{#if @this._gsi_range_key_type( .IndexName )  === \'S\' }}\n\t\t\t\t\t\t\t\t\t\t<option value=\'begins_with\'>begins with</option>\n\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t<input class="input-text" type=\'text\' value=\'{{ ~/query.sort.value }}\'>\n\t\t\t\t\t\t\t\t{{#if ~/query.sort.op === \'between\' }}\n\t\t\t\t\t\t\t\t\t<input class="input-text" type=\'text\' value=\'{{ ~/query.sort.value2 }}\'>\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t{{/if}}\n\t\t\t\t{{/describeTable.GlobalSecondaryIndexes}}\n\t\t\t\t{{#describeTable.LocalSecondaryIndexes:j}}\n\t\t\t\t\t{{#if ~/.query.table === (\'lsi:\' +  .IndexName)  }}\n\t\t\t\t\t\t{{#if .KeySchema.length === 2}}\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Sort</td>\n\t\t\t\t\t\t\t<td>{{ @this._lsi_range_key_name( .IndexName ) }}</td>\n\t\t\t\t\t\t\t<td><select class="input-select"><option>{{ @this._lsi_range_key_type_name( .IndexName ) }}</option></select></td>\n\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t<select class="input-select" value=\'{{ ~/query.sort.op }}\'>\n\t\t\t\t\t\t\t\t\t<option value=\'eq\'>=</option>\n\t\t\t\t\t\t\t\t\t<option value=\'gt\'>&gt;</option>\n\t\t\t\t\t\t\t\t\t<option value=\'ge\'>&gt;=</option>\n\t\t\t\t\t\t\t\t\t<option value=\'lt\'>&lt;</option>\n\t\t\t\t\t\t\t\t\t<option value=\'le\'>&lt;=</option>\n\t\t\t\t\t\t\t\t\t<option value=\'between\'>between</option>\n\t\t\t\t\t\t\t\t\t{{#if @this._lsi_range_key_type( .IndexName )  === \'S\' }}\n\t\t\t\t\t\t\t\t\t\t<option value=\'begins_with\'>begins with</option>\n\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t<input class="input-text" type=\'text\' value=\'{{ ~/query.sort.value }}\'>\n\t\t\t\t\t\t\t\t{{#if ~/query.sort.op === \'between\' }}\n\t\t\t\t\t\t\t\t\t<input class="input-text" type=\'text\' value=\'{{ ~/query.sort.value2 }}\'>\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t{{/if}}\n\t\t\t\t{{/describeTable.LocalSecondaryIndexes}}\n\n\t\t\t\t{{/if}}\n\t\t\t</table>\n\n\t\t</div>\n\t\t<div class=\'tabledatacontrols\'>\n\t\t\t<div class=\'btn btn-xs btn-default {{#if oop_running}}disabled{{/if}}\' on-click=\'run-oop\' style=\'padding-right: 10px;\'> <icon-play /> RUN</div>\n\t\t\t<div class=\'btn btn-xs btn-default {{#if prev_running}}disabled{{/if}} {{#if start_reached }}disabled{{/if}}\' on-click=\'prev\'> <icon-prev /> </div>\n\t\t\t<div class=\'btn btn-xs btn-default {{#if next_running}}disabled{{/if}} {{#if end_reached   }}disabled{{/if}}\' on-click=\'next\'> <icon-next /> </div>\n\n\t\t\t<div class=\'pull-right\'>\n\t\t\t\t<a class=\'btn btn-xs btn-default\' on-click=\'refresh\'> <icon-refresh /> </a>\n\t\t\t\t<div class=\'btn-group\'>\n\t\t\t\t\t<button class=\'btn btn-default btn-xs\' type=\'button\'>\n\t\t\t\t\t\t<icon-filter />\n\t\t\t\t\t</button>\n\t\t\t\t\t<button type=\'button\' class=\'btn btn-xs btn-default dropdown-toggle dropdown-toggle-split\' on-click=\'@this.toggle("drowndownfilteropen")\'>\n\t\t\t\t\t\t<icon-caret-down />\n\t\t\t\t\t</button>\n\t\t\t\t\t<div class=\'dropdown-menu pull-right {{#if drowndownfilteropen}}show{{/if}}\' style=\'max-height: 250px;overflow-y: auto;\'>\n\t\t\t\t\t\t{{#display_columns}}\n\t\t\t\t\t\t\t<li><a> <input class="input-checkbox" type=checkbox checked=\'{{.show}}\' />  {{.name}}</a>\n\t\t\t\t\t\t{{/display_columns}}\n\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<a class=\'btn btn-xs btn-primary\' on-click=\'create-item\'  > Create Item </a>\n\t\t\t\t<a class=\'btn btn-xs btn-danger {{#if selection_length > 0}}{{else}}disabled{{/if}}\'  on-click=\'delete-selected\' > <icon-trash /> </a>\n\t\t\t</div>\n\t\t</div>\n\t\t<tabledata columns=\'{{columns}}\' rows=\'{{rows}}\' on-colclick=\'open-item\' style=\'top: 148px\'/>\n\t\t{{/if}}\n\t</div>\n\t\t',
+	template: '\n\t<div class=\'tablebrowse\'>\n\t\t{{#if !describeTable }}\n\t\t\t<br>reading table schema...\n\t\t{{else}}\n\t\t<div class=\'tablequery\'>\n\t\t\t<table width=\'100%\' style=\'border-collapse: separate;border-spacing: 5px;\'>\n\t\t\t\t<tr>\n\t\t\t\t\t<td>\n\t\t\t\t\t\t<select class="input-select" value=\'{{ .type }}\'>\n\t\t\t\t\t\t\t<option value=\'scan\'>SCAN</option>\n\t\t\t\t\t\t\t<option value=\'query\'>QUERY</option>\n\t\t\t\t\t\t</select>\n\t\t\t\t\t</td>\n\t\t\t\t\t<td colspan=\'4\'>\n\t\t\t\t\t\t{{#if .type === \'scan\' }}\n\t\t\t\t\t\t<select class="input-select" value=\'{{ .scan.table }}\'>\n\t\t\t\t\t\t\t<option value=\'\'>\n\t\t\t\t\t\t\t\t[ Table ] {{ describeTable.TableName }}: {{ @this._hash_key_name() }} ( {{ @this._hash_key_type_name() }} )\n\t\t\t\t\t\t\t\t{{#if describeTable.KeySchema.length === 2}}\n\t\t\t\t\t\t\t\t\t, {{ @this._range_key_name() }} ( {{ @this._range_key_type_name() }} )\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</option>\n\n\t\t\t\t\t\t\t{{#describeTable.LocalSecondaryIndexes:j}}\n\t\t\t\t\t\t\t<option value=\'lsi:{{ .IndexName }}\'>\n\t\t\t\t\t\t\t\t[ LSI ] {{ .IndexName }}: {{ @this._lsi_hash_key_name( .IndexName ) }} ( {{ @this._lsi_hash_key_type_name( .IndexName ) }} )\n\t\t\t\t\t\t\t\t{{#if .KeySchema.length === 2}}\n\t\t\t\t\t\t\t\t\t, {{ @this._lsi_range_key_name( .IndexName ) }} (  {{ @this._lsi_range_key_type_name( .IndexName ) }} )\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t{{/describeTable.LocalSecondaryIndexes}}\n\n\t\t\t\t\t\t\t{{#describeTable.GlobalSecondaryIndexes:j}}\n\t\t\t\t\t\t\t<option value=\'gsi:{{ .IndexName }}\'>\n\t\t\t\t\t\t\t\t[ GSI ] {{ .IndexName }}: {{ @this._gsi_hash_key_name( .IndexName ) }} ( {{ @this._gsi_hash_key_type_name( .IndexName ) }} )\n\t\t\t\t\t\t\t\t{{#if .KeySchema.length === 2}}\n\t\t\t\t\t\t\t\t\t, {{ @this._gsi_range_key_name( .IndexName ) }} (  {{ @this._gsi_range_key_type_name( .IndexName ) }} )\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t{{/describeTable.GlobalSecondaryIndexes}}\n\t\t\t\t\t\t</select>\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if .type === \'query\' }}\n\t\t\t\t\t\t<select class="input-select" value=\'{{ .query.table }}\'>\n\t\t\t\t\t\t\t<option value=\'\'>\n\t\t\t\t\t\t\t\t[ Table ] {{ describeTable.TableName }}: {{ @this._hash_key_name() }} ( {{ @this._hash_key_type_name() }} )\n\t\t\t\t\t\t\t\t{{#if describeTable.KeySchema.length === 2}}\n\t\t\t\t\t\t\t\t\t, {{ @this._range_key_name() }} ( {{ @this._range_key_type_name() }} )\n\t\t\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t\t</option>\n\n\t\t\t\t\t\t\t{{#describeTable.LocalSecondaryIndexes:j}}\n\t\t\t\t\t\t\t<option value=\'lsi:{{ .IndexName }}\'>\n\t\t\t\t\t\t\t\t[ LSI ] {{ .IndexName }}: {{ @this._lsi_hash_key_name( .IndexName ) }} ( {{ @this._lsi_hash_key_type_name( .IndexName ) }} )\n\t\t\t\t\t\t\t\t{{#if .KeySchema.length === 2}}\n\t\t\t\t\t\t\t\t\t, {{ @this._lsi_range_key_name( .IndexName ) }} (  {{ @this._lsi_range_key_type_name( .IndexName ) }} )\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t{{/describeTable.LocalSecondaryIndexes}}\n\n\t\t\t\t\t\t\t{{#describeTable.GlobalSecondaryIndexes:j}}\n\t\t\t\t\t\t\t<option value=\'gsi:{{ .IndexName }}\'>\n\t\t\t\t\t\t\t\t[ GSI ] {{ .IndexName }}: {{ @this._gsi_hash_key_name( .IndexName ) }} ( {{ @this._gsi_hash_key_type_name( .IndexName ) }} )\n\t\t\t\t\t\t\t\t{{#if .KeySchema.length === 2}}\n\t\t\t\t\t\t\t\t\t, {{ @this._gsi_range_key_name( .IndexName ) }} (  {{ @this._gsi_range_key_type_name( .IndexName ) }} )\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t{{/describeTable.GlobalSecondaryIndexes}}\n\t\t\t\t\t\t</select>\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t</td>\n\t\t\t\t</tr>\n\t\t\t\t{{#if .type === \'query\' }}\n\t\t\t\t<tr>\n\t\t\t\t\t<td>Partition</td>\n\t\t\t\t\t{{#if .query.table === \'\'  }}\n\t\t\t\t\t\t<td>{{ _hash_key_name() }}</td>\n\t\t\t\t\t\t<td><select class="input-select"><option>{{ @this._hash_key_type_name() }}</option></select></td>\n\t\t\t\t\t{{/if}}\n\t\t\t\t\t{{#describeTable.LocalSecondaryIndexes:j}}\n\t\t\t\t\t\t{{#if ~/.query.table === (\'lsi:\' +  .IndexName)  }}\n\t\t\t\t\t\t\t<td>{{ @this._lsi_hash_key_name( .IndexName ) }}</td>\n\t\t\t\t\t\t\t<td><select class="input-select"><option>{{ @this._lsi_hash_key_type_name( .IndexName ) }}</option></select></td>\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t{{/describeTable.LocalSecondaryIndexes}}\n\t\t\t\t\t{{#describeTable.GlobalSecondaryIndexes:j}}\n\t\t\t\t\t\t{{#if ~/.query.table === (\'gsi:\' +  .IndexName)  }}\n\t\t\t\t\t\t\t<td>{{ @this._gsi_hash_key_name( .IndexName ) }}</td>\n\t\t\t\t\t\t\t<td><select class="input-select"><option>{{ @this._gsi_hash_key_type_name( .IndexName ) }}</option></select></td>\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t{{/describeTable.GlobalSecondaryIndexes}}\n\t\t\t\t\t<td><select class="input-select"><option>=</option></select></td>\n\t\t\t\t\t<td><input class="input-text" type=\'text\' value=\'{{.query.partition.value}}\'></td>\n\t\t\t\t</tr>\n\t\t\t\t{{#if .query.table === \'\'  }}\n\t\t\t\t\t{{#if describeTable.KeySchema.length === 2}}\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td>Sort</td>\n\t\t\t\t\t\t<td>{{ @this._range_key_name() }}</td>\n\t\t\t\t\t\t<td><select class="input-select"><option>{{ @this._range_key_type_name( ) }}</option></select></td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<select class="input-select" value=\'{{ ~/query.sort.op }}\'>\n\t\t\t\t\t\t\t\t<option value=\'eq\'>=</option>\n\t\t\t\t\t\t\t\t<option value=\'gt\'>&gt;</option>\n\t\t\t\t\t\t\t\t<option value=\'ge\'>&gt;=</option>\n\t\t\t\t\t\t\t\t<option value=\'lt\'>&lt;</option>\n\t\t\t\t\t\t\t\t<option value=\'le\'>&lt;=</option>\n\t\t\t\t\t\t\t\t<option value=\'between\'>between</option>\n\t\t\t\t\t\t\t\t{{#if _range_key_type()  === \'S\' }}\n\t\t\t\t\t\t\t\t\t<option value=\'begins_with\'>begins with</option>\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t<input class="input-text" type=\'text\' value=\'{{ ~/query.sort.value }}\'>\n\t\t\t\t\t\t\t{{#if ~/query.sort.op === \'between\' }}\n\t\t\t\t\t\t\t\t<input class="input-text" type=\'text\' value=\'{{ ~/query.sort.value2 }}\'>\n\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t\t{{/if}}\n\t\t\t\t{{/if}}\n\t\t\t\t{{#describeTable.GlobalSecondaryIndexes:j}}\n\t\t\t\t\t{{#if ~/.query.table === (\'gsi:\' +  .IndexName)  }}\n\t\t\t\t\t\t{{#if .KeySchema.length === 2}}\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Sort</td>\n\t\t\t\t\t\t\t<td>{{ @this._gsi_range_key_name( .IndexName ) }}</td>\n\t\t\t\t\t\t\t<td><select class="input-select"><option>{{ @this._gsi_range_key_type_name( .IndexName ) }}</option></select></td>\n\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t<select class="input-select" value=\'{{ ~/query.sort.op }}\'>\n\t\t\t\t\t\t\t\t\t<option value=\'eq\'>=</option>\n\t\t\t\t\t\t\t\t\t<option value=\'gt\'>&gt;</option>\n\t\t\t\t\t\t\t\t\t<option value=\'ge\'>&gt;=</option>\n\t\t\t\t\t\t\t\t\t<option value=\'lt\'>&lt;</option>\n\t\t\t\t\t\t\t\t\t<option value=\'le\'>&lt;=</option>\n\t\t\t\t\t\t\t\t\t<option value=\'between\'>between</option>\n\t\t\t\t\t\t\t\t\t{{#if @this._gsi_range_key_type( .IndexName )  === \'S\' }}\n\t\t\t\t\t\t\t\t\t\t<option value=\'begins_with\'>begins with</option>\n\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t<input class="input-text" type=\'text\' value=\'{{ ~/query.sort.value }}\'>\n\t\t\t\t\t\t\t\t{{#if ~/query.sort.op === \'between\' }}\n\t\t\t\t\t\t\t\t\t<input class="input-text" type=\'text\' value=\'{{ ~/query.sort.value2 }}\'>\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t{{/if}}\n\t\t\t\t{{/describeTable.GlobalSecondaryIndexes}}\n\t\t\t\t{{#describeTable.LocalSecondaryIndexes:j}}\n\t\t\t\t\t{{#if ~/.query.table === (\'lsi:\' +  .IndexName)  }}\n\t\t\t\t\t\t{{#if .KeySchema.length === 2}}\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td>Sort</td>\n\t\t\t\t\t\t\t<td>{{ @this._lsi_range_key_name( .IndexName ) }}</td>\n\t\t\t\t\t\t\t<td><select class="input-select"><option>{{ @this._lsi_range_key_type_name( .IndexName ) }}</option></select></td>\n\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t<select class="input-select" value=\'{{ ~/query.sort.op }}\'>\n\t\t\t\t\t\t\t\t\t<option value=\'eq\'>=</option>\n\t\t\t\t\t\t\t\t\t<option value=\'gt\'>&gt;</option>\n\t\t\t\t\t\t\t\t\t<option value=\'ge\'>&gt;=</option>\n\t\t\t\t\t\t\t\t\t<option value=\'lt\'>&lt;</option>\n\t\t\t\t\t\t\t\t\t<option value=\'le\'>&lt;=</option>\n\t\t\t\t\t\t\t\t\t<option value=\'between\'>between</option>\n\t\t\t\t\t\t\t\t\t{{#if @this._lsi_range_key_type( .IndexName )  === \'S\' }}\n\t\t\t\t\t\t\t\t\t\t<option value=\'begins_with\'>begins with</option>\n\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t<input class="input-text" type=\'text\' value=\'{{ ~/query.sort.value }}\'>\n\t\t\t\t\t\t\t\t{{#if ~/query.sort.op === \'between\' }}\n\t\t\t\t\t\t\t\t\t<input class="input-text" type=\'text\' value=\'{{ ~/query.sort.value2 }}\'>\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t{{/if}}\n\t\t\t\t{{/describeTable.LocalSecondaryIndexes}}\n\n\t\t\t\t{{/if}}\n\t\t\t</table>\n\n\t\t</div>\n\t\t<div class=\'tabledatacontrols\'>\n\t\t\t<div class=\'btn btn-xs btn-default {{#if oop_running}}disabled{{/if}}\' on-click=\'run-oop\' style=\'padding-right: 10px;\'> <icon-play /> RUN</div>\n\t\t\t<div class=\'btn btn-xs btn-default {{#if prev_running}}disabled{{/if}} {{#if start_reached }}disabled{{/if}}\' on-click=\'prev\'> <icon-prev /> </div>\n\t\t\t<div class=\'btn btn-xs btn-default {{#if next_running}}disabled{{/if}} {{#if end_reached   }}disabled{{/if}}\' on-click=\'next\'> <icon-next /> </div>\n\n\t\t\t<div class=\'pull-right\'>\n\t\t\t\t<a class=\'btn btn-xs btn-default\' on-click=\'refresh\'> <icon-refresh /> </a>\n\t\t\t\t<div class=\'btn-group\'>\n\t\t\t\t\t<button class=\'btn btn-default btn-xs\' type=\'button\'>\n\t\t\t\t\t\t<icon-filter />\n\t\t\t\t\t</button>\n\t\t\t\t\t<button type=\'button\' class=\'btn btn-xs btn-default dropdown-toggle dropdown-toggle-split\' on-click=\'@this.toggle("drowndownfilteropen")\'>\n\t\t\t\t\t\t<icon-caret-down />\n\t\t\t\t\t</button>\n\t\t\t\t\t<div class=\'dropdown-menu pull-right {{#if drowndownfilteropen}}show{{/if}}\' style=\'max-height: 250px;overflow-y: auto;\'>\n\t\t\t\t\t\t{{#display_columns}}\n\t\t\t\t\t\t\t<li><a> <input class="input-checkbox" type=checkbox checked=\'{{.show}}\' />  {{.name}}</a>\n\t\t\t\t\t\t{{/display_columns}}\n\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<a class=\'btn btn-xs btn-primary\' on-click=\'create-item\'  > Create Item </a>\n\t\t\t\t<a class=\'btn btn-xs btn-default {{#if selection_length === 1}}{{else}}disabled{{/if}}\' on-click=\'duplicate-item\'  > Duplicate </a>\n\t\t\t\t<a class=\'btn btn-xs btn-danger {{#if selection_length > 0}}{{else}}disabled{{/if}}\'  on-click=\'delete-selected\' > <icon-trash /> </a>\n\t\t\t</div>\n\t\t</div>\n\t\t<tabledata columns=\'{{columns}}\' rows=\'{{rows}}\' on-colclick=\'open-item\' style=\'top: 148px\'/>\n\t\t{{/if}}\n\t</div>\n\t\t',
 
 	_hash_key_name: _utils2.default._hash_key_name,
 	_hash_key_type: _utils2.default._hash_key_type,
@@ -2315,9 +2319,24 @@ exports.default = Ractive.extend({
 			}
 		};
 	},
+
+	_duplicate_item: _duplicate_item3.default,
+
 	on: {
 		'open-item': _open_item3.default,
 		'create-item': _create_item3.default,
+		'duplicate-item': function duplicateItem() {
+
+			var to_duplicate = this.findComponent('tabledata').get('rows').filter(function (r) {
+				return r[0].selected;
+			}).map(function (r) {
+				return r[1];
+			}); // r[0] = checkbox, r[1]=hash+raw
+
+			if (!to_duplicate.length) return alert('No Items Selected');
+
+			this._duplicate_item(to_duplicate[0].raw);
+		},
 		prev: function prev() {
 
 			if (this.get('prev_running')) return;
@@ -18146,6 +18165,99 @@ module.exports = Array.isArray || function (arr) {
   return toString.call(arr) == '[object Array]';
 };
 
+
+/***/ }),
+/* 33 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+exports.default = function (raw) {
+	var ractive = this;
+
+	var describeTable = this.get('describeTable');
+
+	var rawitem = raw;
+
+	//
+	// /* add partition */
+	// var htype = this._hash_key_type()
+	//
+	// var to_add = null;
+	// if (htype === "S")
+	// 	to_add = {S: ""}
+	//
+	// if (htype === "N")
+	// 	to_add = {N: ""}
+	//
+	// if (htype === "B")
+	// 	to_add = {B: Uint8Array.from(atob("InsertBase64Here"), function (c) { return c.charCodeAt(0) } ) }
+	//
+	// rawitem[this._hash_key_name()] = to_add;
+	//
+	//
+	//
+	// /* add sort */
+	// if ( this._range_key_name() ) {
+	// 	var rtype = this._range_key_type()
+	// 	var to_add = null;
+	// 	if (rtype === "S")
+	// 		to_add = {S: ""}
+	//
+	// 	if (rtype === "N")
+	// 		to_add = {N: ""}
+	//
+	// 	if (rtype === "B")
+	// 		to_add = {B: Uint8Array.from(atob("InsertBase64Here"), function (c) { return c.charCodeAt(0) } ) }
+	//
+	//
+	// 	rawitem[this._range_key_name()] = to_add;
+	// }
+
+
+	//console.log(rawitem)
+
+
+	ractive.root.findComponent('WindowContainer').newWindow(function ($window) {
+		$window.set({
+			title: 'Duplicate Item',
+			'geometry.width': window.innerWidth * .6,
+			'geometry.height': window.innerHeight * .6,
+			'geometry.left': window.innerWidth * .2,
+			'geometry.top': window.innerHeight * .2
+		});
+
+		var vid = "window" + (Math.random() * 0xFFFFFF << 0).toString(16);
+		$window.content('<div id="' + vid + '"/>').then(function () {
+			new Ractive({
+				components: {
+					itemadd: _add2.default
+				},
+				el: vid,
+				template: '<itemadd describeTable="{{describeTable}}" item="{{item}}" rawitem="{{rawitem}}" window={{window}} />',
+				data: {
+					describeTable: describeTable,
+					// item: {
+					//
+					// },
+					rawitem: rawitem,
+					window: $window
+				}
+			});
+		});
+	});
+};
+
+var _add = __webpack_require__(26);
+
+var _add2 = _interopRequireDefault(_add);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ })
 /******/ ])["default"];
