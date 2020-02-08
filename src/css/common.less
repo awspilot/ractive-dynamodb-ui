@@ -3,6 +3,41 @@
 
 .ractive-dynamodb-ui {position: absolute;top:0px;left: 0px;right: 0px;bottom: 0px;font-family: sans-serif;}
 .ractive-dynamodb-ui * {box-sizing: border-box }
+
+
+.ractive-dynamodb-ui {
+	.btn-group>.btn {position: relative;float: left;}
+
+	.btn-group, .btn-group-vertical {position: relative;display: inline-block;vertical-align: middle;}
+
+	.btn-group>.btn:first-child {margin-left: 0;}
+
+	.btn-group>.btn:first-child:not(:last-child):not(.dropdown-toggle) {border-top-right-radius: 0;border-bottom-right-radius: 0;}
+
+	.btn-group-xs>.btn,
+	.btn-xs {padding: 1px 5px;font-size: 12px;line-height: 1.5;}
+
+	.btn-group>.btn:last-child:not(:first-child), .btn-group>.dropdown-toggle:not(:first-child) {border-top-left-radius: 0;border-bottom-left-radius: 0;}
+
+	.btn-group>.btn+.dropdown-toggle {padding-right: 8px;padding-left: 8px;}
+
+	.btn-group .btn+.btn, .btn-group .btn+.btn-group, .btn-group .btn-group+.btn, .btn-group .btn-group+.btn-group {margin-left: -1px;}
+
+	.btn-default.active.focus, .btn-default.active:focus, .btn-default.active:hover, .btn-default:active.focus, .btn-default:active:focus, .btn-default:active:hover, .open>.dropdown-toggle.btn-default.focus, .open>.dropdown-toggle.btn-default:focus, .open>.dropdown-toggle.btn-default:hover {color: #333;background-color: #d4d4d4;border-color: #8c8c8c;}
+
+	.btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus {outline: 5px auto -webkit-focus-ring-color;outline-offset: -2px;}
+
+	.btn-group-sm>.btn,
+	.btn-sm {padding: 5px 10px;font-size: 12px;line-height: 1.5;}
+
+
+	.dropdown-menu {position: absolute;top: 100%;left: 0;z-index: 1000;display: none;float: left;min-width: 160px;padding: 5px 0;margin: 2px 0 0;font-size: 14px;text-align: left;list-style: none;background-clip: padding-box;}
+
+	.dropdown-menu.pull-right {right: 0;left: auto;}
+	.show {display: block!important;}
+
+}
+
 .ractive-dynamodb-ui {
 	.pull-right {float: right!important;}
 	a {text-decoration: none;}
@@ -18,19 +53,7 @@
 
 	.btn-group .dropdown-toggle:active,
 	.btn-group.open .dropdown-toggle {outline: 0;}
-	.btn {
-		display: inline-block;
-		font-size: 14px;
-		line-height: 14px;
-		margin-bottom: 0;
-		text-align: center;
-		white-space: nowrap;
-		vertical-align: middle;
-		touch-action: manipulation;
-		cursor: pointer;
-		user-select: none;
-		text-shadow: none;
-	}
+	.btn {display: inline-block;font-size: 14px;line-height: 14px;margin-bottom: 0;text-align: center;white-space: nowrap;vertical-align: middle;touch-action: manipulation;cursor: pointer;user-select: none;text-shadow: none;}
 }
 
 .ractive-dynamodb-ui {
