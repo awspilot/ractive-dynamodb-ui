@@ -29,9 +29,9 @@ export default function( raw ) {
 				el: vid,
 				template: `
 					<itemadd
-						describeTable="{{describeTable}}"
-						item="{{item}}"
-						rawitem="{{rawitem}}"
+						describeTable={{describeTable}}
+						item={{item}}
+						rawitem={{rawitem}}
 						window={{window}}
 					/>`,
 				data: {
