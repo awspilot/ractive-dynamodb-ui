@@ -7,7 +7,7 @@
 		exports["@awspilot/ractive-dynamodb-ui"] = factory(require("ractive"), require("aws-sdk"));
 	else
 		root["@awspilot/ractive-dynamodb-ui"] = factory(root["Ractive"], root["AWS"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE__2__, __WEBPACK_EXTERNAL_MODULE__4__) {
+})(this, function(__WEBPACK_EXTERNAL_MODULE__2__, __WEBPACK_EXTERNAL_MODULE__5__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -91,7 +91,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -373,16 +373,10 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__2__;
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
-!function(t,e){ true?module.exports=e(__webpack_require__(2)):undefined}(window,function(n){return(i={},r.m=o=[function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default=Ractive.extend({template:"\n\t\t<tr>\n\t\t\t<td>\n\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-dragarea' ></button>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-contextmenu' ></button>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ level * 24 }}px;'>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-invisible' ></button>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t\t<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>{{key}} </div>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\x3c!-- <td class='jsoneditor-datatype'>String</td> --\x3e\n\t\t\t\t\t\t\t<td class='jsoneditor-separator'>:</td>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree' style='width: 100%;'>\n\t\t\t\t\t\t\t\t{{#if editing}}\n\t\t\t\t\t\t\t\t\t<textarea class='jsoneditor-input jsoneditor-string' style='height: {{textarea_height}}px;line-height: {{line_height}}px' on-focus='focus' on-blur='blur' on-keyup='keyup' value='{{value}}'></textarea>\n\t\t\t\t\t\t\t\t{{else}}\n\t\t\t\t\t\t\t\t\t<input class='jsoneditor-input jsoneditor-string' value='{{ JSON.stringify(value) }}' readonly='true' on-click='startEditing' />\n\t\t\t\t\t\t\t\t\t\x3c!--<div class='jsoneditor-value jsoneditor-string' style='cursor: pointer;height: {{line_height}}px;line-height: {{line_height}}px;overflow: hidden;' on-click='startEditing'>{{ JSON.stringify(value) }}</div>--\x3e\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\n\t\t\t\t\t<div class='trash-solid icon'></div>\n\t\t\t\t</button>\n\t\t\t</td>\n\t\t</tr>\n\t\t",data:function(){return{line_height:22,textarea_height:22}},on:{startEditing:function(t){var e=t.node.parentNode;this.set("editing",!0),e.getElementsByTagName("textarea").length&&e.getElementsByTagName("textarea")[0].focus()},focus:function(){var t=this.get("value").split("\n").length;this.set("textarea_height",t*this.get("line_height"))},blur:function(){this.set("editing",!1)},keyup:function(){var t=this.get("value").split("\n").length;this.set("textarea_height",t*this.get("line_height"))},delete:function(){this.parent.delete_key(this.get("key"))}}})},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default=Ractive.extend({template:"\n\t<tr>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-dragarea' ></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-contextmenu' ></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ level * 24 }}px;'>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-invisible' ></button>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>{{key}}</div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\x3c!--<td class='jsoneditor-datatype'>Number</td>--\x3e\n\t\t\t\t\t\t<td class='jsoneditor-separator'>:</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree' style='width: 100%;'>\n\t\t\t\t\t\t\t<input type='number' value='{{mirror_value}}' class='jsoneditor-input jsoneditor-number'  />\n\t\t\t\t\t\t\t\x3c!--\n\t\t\t\t\t\t\t<div contenteditable='true' spellcheck='false' class='jsoneditor-value jsoneditor-number' >{{ value }}</div>\n\t\t\t\t\t\t\t--\x3e\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t</td>\n\t\t<td>\n\t\t\t<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\n\t\t\t\t<div class='trash-solid icon'></div>\n\t\t\t</button>\n\t\t</td>\n\t</tr>\n\t",data:function(){return{mirror_value:""}},on:{delete:function(){this.parent.delete_key(this.get("key"))},init:function(){var t=this.get("value");this.set("mirror_value",t),this.observe("mirror_value",function(t,e,n){this.set({value:parseFloat(t)?t.toString():""})})}}})},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default=Ractive.extend({template:"\n\t<tr>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-dragarea' ></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-contextmenu' ></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ level * 24 }}px;'>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-invisible' ></button>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>{{key}}</div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-datatype'>Binary</td>\n\t\t\t\t\t\t<td class='jsoneditor-separator'>:</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree' style='width: 100%;'>\n\t\t\t\t\t\t\t<input value='{{updated_value}}' class='jsoneditor-input jsoneditor-binary {{#if valid === false}}error{{/if}}' on-keyup='validate' on-blur='validate' />\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t</td>\n\t\t<td>\n\t\t\t<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\n\t\t\t\t<div class='trash-solid icon'></div>\n\t\t\t</button>\n\t\t</td>\n\t</tr>\n\t",data:function(){return{updated_value:""}},on:{init:function(){var r=this.get("value");"string"==typeof r&&(this.set({updated_value:JSON.parse(JSON.stringify(r))}),r=Uint8Array.from(atob(r),function(t){return t.charCodeAt(0)}),this.set({value:r})),r instanceof Uint8Array&&this.set({updated_value:btoa(String.fromCharCode.apply(null,r))}),this.observe("updated_value",function(t,e,n){if(console.log("changed",t,e),"string"==typeof r)return this.set("value",t);try{var o=Uint8Array.from(atob(t),function(t){return t.charCodeAt(0)});this.set({value:o}),console.log(o)}catch(t){}})},validate:function(){var t=!1;try{Uint8Array.from(atob(this.get("updated_value")),function(t){return t.charCodeAt(0)});t=!0}catch(t){}this.set("valid",t)},delete:function(){this.parent.delete_key(this.get("key"))}}})},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default=Ractive.extend({template:"\n\t<tr>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-dragarea' ></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-contextmenu' ></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ level * 24 }}px;'>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-invisible' ></button>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>{{key}}</div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\x3c!--<td class='jsoneditor-datatype'>Boolean</td> --\x3e\n\t\t\t\t\t\t<td class='jsoneditor-separator'>:</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree' style='width: 100%;'>\n\t\t\t\t\t\t\t<input value='{{value}}' class='jsoneditor-input jsoneditor-boolean {{#if (value !== true ) && (value !== false) }}error{{/if}}' on-keyup='validate' on-blur='validate' />\n\t\t\t\t\t\t\t\x3c!--\n\t\t\t\t\t\t\t<div contenteditable='true' spellcheck='false' class='jsoneditor-value jsoneditor-boolean' >{{ value ? true : false }}</div>\n\t\t\t\t\t\t\t--\x3e\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t</td>\n\t\t<td>\n\t\t\t<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\n\t\t\t\t<div class='trash-solid icon'></div>\n\t\t\t</button>\n\t\t</td>\n\t</tr>\n\t",on:{init:function(){},validate:function(){"true"===this.get("value")&&this.set("value",!0),"false"===this.get("value")&&this.set("value",!1)},delete:function(){this.parent.delete_key(this.get("key"))}}})},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default=Ractive.extend({template:"\n\t<tr>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-dragarea' ></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-contextmenu' ></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ level * 24 }}px;'>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-invisible' ></button>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>{{key}}</div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\x3c!--<td class='jsoneditor-datatype'>Null</td>--\x3e\n\t\t\t\t\t\t<td class='jsoneditor-separator'>:</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div class='jsoneditor-input jsoneditor-null' >null</div>\n\t\t\t\t\t\t\t\x3c!--<div class='jsoneditor-value jsoneditor-null' >null</div>--\x3e\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t</td>\n\t\t<td>\n\t\t\t<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\n\t\t\t\t<div class='trash-solid icon'></div>\n\t\t\t</button>\n\t\t</td>\n\t</tr>\n\t",on:{delete:function(){this.parent.delete_key(this.get("key"))}}})},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var o,r=n(0),i=(o=r)&&o.__esModule?o:{default:o};e.default=Ractive.extend({components:{S:i.default},template:"\n\n\t<tr class=' jsoneditor-expandable'>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-dragarea'></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-contextmenu'></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ level * 24 }}px;'>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<button type='button' class='jsoneditor-button {{#if open}}jsoneditor-expanded{{else}}jsoneditor-collapsed{{/if}}' on-click='@this.toggle('open')'></button>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>{{key}}</div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-datatype'>StringSet[{{ value.length }}]</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'></td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div class='jsoneditor-value jsoneditor-array'></div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t</td>\n\t\t<td>\n\t\t\t<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\n\t\t\t\t<div class='trash-solid icon'></div>\n\t\t\t</button>\n\t\t</td>\n\t</tr>\n\n\t{{#if open}}\n\t<tr class='jsoneditor-appender'>\n\t\t<td></td><td></td><td>\n\t\t\t<div style='margin-left: {{ 24 * level + 40 }}px;' on-click='prepend'></div>\n\t\t</td><td></td>\n\t</tr>\n\t{{#value}}\n\t\t<S key={{@index}} value={{ . }} level='{{ level + 1 }}' />\n\t\t<tr class='jsoneditor-appender'>\n\t\t\t<td></td><td></td><td>\n\t\t\t\t<div style='margin-left: {{ 24 * level + 40 }}px;' on-click='elementinsert'></div>\n\t\t\t</td><td></td>\n\t\t</tr>\n\t{{/value}}\n\t{{/if}}\n\n\t<tr class='jsoneditor-append'></tr>\n\n\t",delete_key:function(o){var t=this.get("value");t=t.filter(function(t,e,n){return e!==o}),this.set({value:t})},data:function(){return{open:!1}},on:{delete:function(){this.parent.delete_key(this.get("key"))},prepend:function(){var t=this.get("value");t=[""].concat(t),this.set({value:t})},elementinsert:function(t){var e=this.get("value"),n=parseInt(t.resolve().split(".").pop());e.splice(n+1,0,""),this.set({value:e})}}})},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var o,r=n(1),i=(o=r)&&o.__esModule?o:{default:o};e.default=Ractive.extend({components:{N:i.default},template:"\n\n\t<tr class=' jsoneditor-expandable'>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-dragarea'></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-contextmenu'></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ level * 24 }}px;'>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<button type='button' class='jsoneditor-button {{#if open}}jsoneditor-expanded{{else}}jsoneditor-collapsed{{/if}}' on-click='@this.toggle('open')'></button>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>{{key}}</div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-datatype'>NumberSet[{{ value.length }}]</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'></td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div class='jsoneditor-value jsoneditor-array'></div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t</td>\n\t\t<td>\n\t\t\t<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\n\t\t\t\t<div class='trash-solid icon'></div>\n\t\t\t</button>\n\t\t</td>\n\t</tr>\n\n\t{{#if open}}\n\t<tr class='jsoneditor-appender'>\n\t\t<td></td><td></td><td>\n\t\t\t<div style='margin-left: {{ 24 * level + 40 }}px;' on-click='prepend'></div>\n\t\t</td><td></td>\n\t</tr>\n\t{{#value}}\n\t\t{{#if !hide}}\n\t\t<N key={{@index}} value={{ . }} level='{{ level + 1 }}' />\n\t\t<tr class='jsoneditor-appender'>\n\t\t\t<td></td><td></td><td>\n\t\t\t\t<div style='margin-left: {{ 24 * level + 40 }}px;' on-click='elementinsert'></div>\n\t\t\t</td><td></td>\n\t\t</tr>\n\t\t{{/if}}\n\t{{/value}}\n\t{{/if}}\n\n\t<tr class='jsoneditor-append'></tr>\n\n\t",delete_key:function(o){var t=this.get("value");t=t.filter(function(t,e,n){return e!==o}),this.set({value:t})},data:function(){return{open:!1,hide:!1}},on:{delete:function(){this.parent.delete_key(this.get("key"))},prepend:function(){var t=this.get("value");t=[""].concat(t),this.set({value:t}),this.set("hide",!0),this.set("hide",!1)},elementinsert:function(t){var e=this.get("value"),n=parseInt(t.resolve().split(".").pop());e.splice(n+1,0,""),this.set({value:e}),this.set("hide",!0),this.set("hide",!1)}}})},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var o,r=n(2),i=(o=r)&&o.__esModule?o:{default:o};e.default=Ractive.extend({components:{B:i.default},template:"\n\n\t<tr class=' jsoneditor-expandable'>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-dragarea'></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-contextmenu'></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ level * 24 }}px;'>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<button type='button' class='jsoneditor-button {{#if open}}jsoneditor-expanded{{else}}jsoneditor-collapsed{{/if}}' on-click='@this.toggle('open')'></button>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>{{key}}</div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-datatype'>BinarySet[{{ value.length }}]</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'></td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div class='jsoneditor-value jsoneditor-array'></div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t</td>\n\t\t<td>\n\t\t\t<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\n\t\t\t\t<div class='trash-solid icon'></div>\n\t\t\t</button>\n\t\t</td>\n\t</tr>\n\n\t{{#if open}}\n\t\t<tr class='jsoneditor-appender'>\n\t\t\t<td></td><td></td><td>\n\t\t\t\t<div style='margin-left: {{ 24 * level + 40 }}px;'  on-click='prepend'></div>\n\t\t\t</td><td></td>\n\t\t</tr>\n\t{{#value}}\n\t\t{{#if !hide}}\n\t\t<B key={{@index}} value={{ . }} level='{{ level + 1 }}' />\n\t\t<tr class='jsoneditor-appender'>\n\t\t\t<td></td><td></td><td>\n\t\t\t\t<div style='margin-left: {{ 24 * level + 40 }}px;' on-click='elementinsert'></div>\n\t\t\t</td><td></td>\n\t\t</tr>\n\t\t{{/if}}\n\t{{/value}}\n\t{{/if}}\n\n\t<tr class='jsoneditor-append'></tr>\n\n\t",delete_key:function(o){var t=this.get("value");t=t.filter(function(t,e,n){return e!==o}),this.set({value:t})},data:function(){return{open:!1,hide:!1}},on:{delete:function(){this.parent.delete_key(this.get("key"))},prepend:function(){var t=this.get("value");t=[Uint8Array.from(atob("InsertBase64Here"),function(t){return t.charCodeAt(0)})].concat(t),this.set({value:t}),this.set("hide",!0),this.set("hide",!1)},elementinsert:function(t){var e=this.get("value"),n=parseInt(t.resolve().split(".").pop());e.splice(n+1,0,Uint8Array.from(atob("InsertBase64Here"),function(t){return t.charCodeAt(0)})),this.set({value:e}),this.set("hide",!0),this.set("hide",!1)}}})},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var o=f(n(0)),r=f(n(1)),i=f(n(3)),d=f(n(4)),s=f(n(2)),l=f(n(5)),a=f(n(6)),u=f(n(7)),c=f(n(9)),p=f(n(13));function f(t){return t&&t.__esModule?t:{default:t}}var b=Ractive.extend({components:{S:o.default,N:r.default,BOOL:i.default,NULL:d.default,B:s.default,SS:l.default,NS:a.default,BS:u.default,M:c.default,appender:p.default},onconfig:function(){this.components.L=b},template:"\n\n\t<tr class=' jsoneditor-expandable'>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-dragarea'></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-contextmenu'></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ level * 24 }}px;'>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<button type='button' class='jsoneditor-button {{#if open}}jsoneditor-expanded{{else}}jsoneditor-collapsed{{/if}}' on-click='@this.toggle('open')'></button>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>{{key}}</div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-datatype'>List[{{ value.length }}]</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'></td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div class='jsoneditor-value jsoneditor-array'></div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t</td>\n\t\t<td>\n\t\t\t<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\n\t\t\t\t<div class='trash-solid icon'></div>\n\t\t\t</button>\n\t\t</td>\n\t</tr>\n\n\t{{#if open}}\n\t\t<appender level={{level}} index={{null}}/>\n\t{{#value}}\n\t\t{{#if .hasOwnProperty('S')}}\n\t\t\t<S key={{@index}} value={{ .S }} level='{{ level + 1 }}' />\n\t\t{{/if}}\n\n\t\t{{#if .hasOwnProperty('N')}}\n\t\t\t<N key={{@index}} value={{ .N }} level='{{ level + 1 }}' />\n\t\t{{/if}}\n\n\t\t{{#if .hasOwnProperty('BOOL')}}\n\t\t\t<BOOL key={{@index}} value={{ .BOOL }} level='{{ level + 1 }}' />\n\t\t{{/if}}\n\n\t\t{{#if .hasOwnProperty('NULL')}}\n\t\t\t<NULL key={{@index}} level='1' level='{{ level + 1 }}' />\n\t\t{{/if}}\n\n\t\t{{#if .hasOwnProperty('B')}}\n\t\t\t<B key={{@index}} value={{ .B }} level='{{ level + 1 }}' />\n\t\t{{/if}}\n\n\t\t{{#if .hasOwnProperty('L')}}\n\t\t\t<L key={{@index}} value={{ .L }} level='{{ level + 1 }}' />\n\t\t{{/if}}\n\n\t\t{{#if .hasOwnProperty('M')}}\n\t\t\t<M key={{@index}} value={{ .M }} level='{{ level + 1 }}' />\n\t\t{{/if}}\n\n\t\t{{#if .hasOwnProperty('SS')}}\n\t\t\t<SS key={{@index}} value={{ .SS }} level='{{ level + 1 }}' />\n\t\t{{/if}}\n\n\t\t{{#if .hasOwnProperty('NS')}}\n\t\t\t<NS key={{@index}} value={{ .NS }} level='{{ level + 1 }}' />\n\t\t{{/if}}\n\n\t\t{{#if .hasOwnProperty('BS')}}\n\t\t\t<BS key={{@index}} value={{ .BS }} level='{{ level + 1 }}' />\n\t\t{{/if}}\n\n\t\t<appender level={{level}} index={{@index}}/>\n\n\t{{/value}}\n\t{{/if}}\n\n\t<tr class='jsoneditor-append'></tr>\n\n\t",delete_key:function(o){var t=this.get("value");t=t.filter(function(t,e,n){return e!==o}),this.set({value:t})},data:function(){return{open:!1}},prepend_attribute:function(t,e){var n,o=this.get("value");"S"===t&&(n={S:""}),"N"===t&&(n={N:""}),"BOOL"===t&&(n={BOOL:""}),"NULL"===t&&(n={NULL:!0}),"B"===t&&(n={B:Uint8Array.from(atob("InsertBase64Here"),function(t){return t.charCodeAt(0)})}),"SS"===t&&(n={SS:[]}),"NS"===t&&(n={NS:[]}),"BS"===t&&(n={BS:[]}),"L"===t&&(n={L:[]}),"M"===t&&(n={M:{}}),null===e?o=[n].concat(o):o.splice(e+1,0,n),this.set({value:o})},on:{delete:function(){this.parent.delete_key(this.get("key"))}}});e.default=b},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var o=f(n(0)),r=f(n(1)),i=f(n(3)),d=f(n(4)),s=f(n(2)),l=f(n(5)),a=f(n(6)),u=f(n(7)),c=f(n(8)),p=f(n(10));function f(t){return t&&t.__esModule?t:{default:t}}var b=Ractive.extend({components:{S:o.default,N:r.default,BOOL:i.default,NULL:d.default,B:s.default,SS:l.default,NS:a.default,BS:u.default,L:c.default,appender:p.default},onconfig:function(){this.components.M=b,this.components.L=c.default},template:"\n\n\t\t<tr class=' jsoneditor-expandable'>\n\t\t\t<td>\n\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-dragarea'></button>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-contextmenu' ></button>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ level * 24 }}px;'>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t\t<button type='button' class='jsoneditor-button {{#if open}}jsoneditor-expanded{{else}}jsoneditor-collapsed{{/if}}' on-click='@this.toggle('open')'></button>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t\t<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>{{key}}</div>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td class='jsoneditor-datatype'>Map{{ '{' + Object.keys(value).length + '}' }}</td>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree'></td>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t\t<div class='jsoneditor-value jsoneditor-object'></div>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\n\t\t\t\t\t<div class='trash-solid icon'></div>\n\t\t\t\t</button>\n\t\t\t</td>\n\t\t</tr>\n\n\t\t{{#if open}}\n\t\t\t<appender level={{level}} index={{null}}/>\n\t\t{{#each value }}\n\t\t\t{{#if .hasOwnProperty('S')}}\n\t\t\t\t<S key={{@key}} value={{ .S }} level='{{ level + 1 }}' />\n\t\t\t{{/if}}\n\n\t\t\t{{#if .hasOwnProperty('N')}}\n\t\t\t\t<N key={{@key}} value={{ .N }} level='{{ level + 1 }}' />\n\t\t\t{{/if}}\n\n\t\t\t{{#if .hasOwnProperty('BOOL')}}\n\t\t\t\t<BOOL key={{@key}} value={{ .BOOL }} level='{{ level + 1 }}' />\n\t\t\t{{/if}}\n\n\t\t\t{{#if .hasOwnProperty('NULL')}}\n\t\t\t\t<NULL key={{@key}} level='1' level='{{ level + 1 }}' />\n\t\t\t{{/if}}\n\n\t\t\t{{#if .hasOwnProperty('B')}}\n\t\t\t\t<B key={{@key}} value={{ .B }} level='{{ level + 1 }}' />\n\t\t\t{{/if}}\n\n\t\t\t{{#if .hasOwnProperty('L')}}\n\t\t\t\t<L key={{@key}} value={{ .L }} level='{{ level + 1 }}' />\n\t\t\t{{/if}}\n\n\t\t\t{{#if .hasOwnProperty('M')}}\n\t\t\t\t<M key={{@key}} value={{ .M }} level='{{ level + 1 }}' />\n\t\t\t{{/if}}\n\n\t\t\t{{#if .hasOwnProperty('SS')}}\n\t\t\t\t<SS key={{@key}} value={{ .SS }} level='{{ level + 1 }}' />\n\t\t\t{{/if}}\n\n\t\t\t{{#if .hasOwnProperty('NS')}}\n\t\t\t\t<NS key={{@key}} value={{ .NS }} level='{{ level + 1 }}' />\n\t\t\t{{/if}}\n\n\t\t\t{{#if .hasOwnProperty('BS')}}\n\t\t\t\t<BS key={{@key}} value={{ .BS }} level='{{ level + 1 }}' />\n\t\t\t{{/if}}\n\t\t\t<appender level={{level}} index={{@key}}/>\n\n\t\t{{/each}}\n\t\t{{/if}}\n\n\n\t\t<tr class='jsoneditor-append'></tr>\n\n\t",delete_key:function(t){var e=this.get("value");delete e[t],this.set({value:e})},data:function(){return{open:!1}},prepend_attribute:function(t,e,n){console.log("prepend",t,e,n);var o,r=this.get("value");"S"===t&&(o={S:""}),"N"===t&&(o={N:""}),"BOOL"===t&&(o={BOOL:""}),"NULL"===t&&(o={NULL:!0}),"B"===t&&(o={B:Uint8Array.from(atob("InsertBase64Here"),function(t){return t.charCodeAt(0)})}),"SS"===t&&(o={SS:[]}),"NS"===t&&(o={NS:[]}),"BS"===t&&(o={BS:[]}),"L"===t&&(o={L:[]}),"M"===t&&(o={M:{}});var i={};null===e?(i[n]=o,Object.keys(r).map(function(t){i[t]=r[t]})):Object.keys(r).map(function(t){i[t]=r[t],t===e&&(i[n]=o)}),this.set({value:{}}),this.set({value:i})},on:{delete:function(){this.parent.delete_key(this.get("key"))}}});e.default=b},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default=Ractive.extend({template:"\n\t{{#if type === null}}\n\t<tr class='jsoneditor-appender'>\n\t\t<td></td><td></td><td>\n\t\t\t\t<div style='margin-left: {{ 24 * level + 40 }}px;' on-click='pickatype'></div>\n\t\t</td><td></td>\n\t</tr>\n\t{{/if}}\n\n\t{{#if type !== null }}\n\t\t<tr>\n\t\t\t<td>\n\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-dragarea' ></button>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-contextmenu' ></button>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ (level+1) * 24 }}px;'>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-invisible' ></button>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t\t<input value={{field_name}} placeholder='Attribute Name' style='margin-top: 3px;' />\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td class='jsoneditor-separator'>:</td>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree' style='width: 100%;'>\n\t\t\t\t\t\t\t\t<select value={{type}} on-change='typepicked' style='margin-top: 3px;' disabled={{type_disabled}}>\n\t\t\t\t\t\t\t\t\t<option value=''>Select Data Type</option>\n\t\t\t\t\t\t\t\t\t<option value='S'>String</option>\n\t\t\t\t\t\t\t\t\t<option value='N'>Number</option>\n\t\t\t\t\t\t\t\t\t<option value='BOOL'>Boolean</option>\n\t\t\t\t\t\t\t\t\t<option value='NULL'>Null</option>\n\t\t\t\t\t\t\t\t\t<option value='B'>Binary</option>\n\t\t\t\t\t\t\t\t\t<option value='SS'>StringSet</option>\n\t\t\t\t\t\t\t\t\t<option value='NS'>NumberSet</option>\n\t\t\t\t\t\t\t\t\t<option value='BS'>BinarySet</option>\n\t\t\t\t\t\t\t\t\t<option value='L'>List</option>\n\t\t\t\t\t\t\t\t\t<option value='M'>Map</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\n\t\t\t\t\t<div class='trash-solid icon'></div>\n\t\t\t\t</button>\n\t\t\t</td>\n\t\t</tr>\n\t{{/if}}\n\t",data:function(){return{type:null,field_name:"",type_disabled:!0}},on:{init:function(){this.observe("field_name",function(t,e,n){t.trim()?this.set({type_disabled:!1}):this.set({type_disabled:!0})})},delete:function(){this.set({type:null})},pickatype:function(){this.set({type:""})},typepicked:function(){this.get("type")&&this.get("field_name").trim()&&(this.parent.prepend_attribute(this.get("type"),this.get("index"),this.get("field_name")),this.set({type:null}))}}})},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var o=v(n(12)),r=v(n(0)),i=v(n(1)),d=v(n(3)),s=v(n(4)),l=v(n(2)),a=v(n(5)),u=v(n(6)),c=v(n(7)),p=v(n(8)),f=v(n(9)),b=v(n(10));function v(t){return t&&t.__esModule?t:{default:t}}e.default=o.default.extend({template:{v:4,t:[{t:7,e:"div",m:[{t:13,n:"class",f:"jsoneditor",g:1},{n:"style",f:[{t:2,r:"style"}],t:13}],f:[{t:7,e:"div",m:[{n:"class",f:["jsoneditor-menu ",{t:2,rx:{r:".",m:[{r:[],s:'"menu-class"'}]}}],t:13},{n:"style",f:[{t:2,rx:{r:".",m:[{r:[],s:'"menu-style"'}]}}],t:13}],f:[{t:7,e:"select",m:[{n:"value",f:[{t:2,r:"mode"}],t:13},{n:"style",f:"height: 20px;margin: 6px;",t:13}],f:[{t:7,e:"option",m:[{n:"value",f:"tree",t:13}],f:["Tree"]}," ",{t:7,e:"option",m:[{n:"value",f:"code",t:13}],f:["Code"]}]}]}," ",{t:4,f:[{t:7,e:"div",m:[{n:"class",f:["jsoneditor-navbar ",{t:2,x:{r:["navbar","class"],s:"_0-_1"}}],t:13},{n:"style",f:[{t:2,rx:{r:".",m:[{r:[],s:'"navbar-style"'}]}}],t:13}]}],n:50,x:{r:["mode","navigationBar"],s:'(_0==="tree")&&(_1===true)'}}," ",{t:7,e:"div",m:[{n:"class",f:["jsoneditor-outer has-main-menu-bar ",{t:4,f:["has-nav-bar"],n:50,x:{r:["mode","navigationBar"],s:'(_0==="tree")&&(_1===true)'}}],t:13}],f:[{t:4,f:[{t:7,e:"textarea",m:[{n:"style",f:"width: 100%;height: 100%;border: 0px;margin: 0px;padding: 0px;",t:13}],f:[{t:2,x:{r:["item"],s:'JSON.stringify(_0,null,"\\t")'}}]}],n:50,x:{r:["mode"],s:'_0==="code"'}},{t:4,f:[{t:7,e:"div",m:[{t:13,n:"class",f:"jsoneditor-tree",g:1}],f:[{t:7,e:"div",m:[{t:13,n:"class",f:"jsoneditor-tree-inner",g:1}],f:[{t:7,e:"table",m:[{t:13,n:"class",f:"jsoneditor-tree",g:1},{n:"border",f:"0",t:13,g:1}],f:[{t:7,e:"colgroup",f:[{t:7,e:"col",m:[{n:"width",f:"24px",t:13,g:1}]},{t:7,e:"col",m:[{n:"width",f:"24px",t:13,g:1}]},{t:7,e:"col"}]}," ",{t:7,e:"tbody",f:[{t:7,e:"tr",m:[{t:13,n:"class",f:" jsoneditor-expandable",g:1}],f:[{t:7,e:"td"}," ",{t:7,e:"td",f:[{t:7,e:"button",m:[{t:13,n:"class",f:"jsoneditor-button jsoneditor-contextmenu",g:1},{n:"type",f:"button",t:13,g:1}]}]}," ",{t:7,e:"td",f:[{t:7,e:"table",m:[{t:13,n:"style",f:"border-collapse: collapse; margin-left: 0px;",g:1},{t:13,n:"class",f:"jsoneditor-values",g:1}],f:[{t:7,e:"tbody",f:[{t:7,e:"tr",f:[{t:7,e:"td",m:[{t:13,n:"class",f:"jsoneditor-tree",g:1}],f:[{t:7,e:"button",m:[{n:"type",f:"button",t:13,g:1},{n:"class",f:["jsoneditor-button ",{t:4,f:["jsoneditor-expanded"],n:50,r:"open"},{t:4,f:["jsoneditor-collapsed"],n:51,l:1}],t:13},{n:["click"],t:70,f:{r:["@this"],s:'[_0.toggle("open")]'}}]}]}," ",{t:7,e:"td",m:[{t:13,n:"class",f:"jsoneditor-tree",g:1}],f:[{t:7,e:"div",m:[{t:13,n:"class",f:"jsoneditor-readonly",g:1},{n:"contenteditable",f:"false",t:13}],f:["Item"]}]}," ",{t:7,e:"td",m:[{t:13,n:"class",f:"jsoneditor-tree",g:1}]}," ",{t:7,e:"td",m:[{t:13,n:"class",f:"jsoneditor-tree",g:1}],f:[{t:7,e:"div",m:[{t:13,n:"class",f:"jsoneditor-value jsoneditor-object",g:1}],f:["{ ",{t:2,x:{r:["item"],s:"Object.keys(_0).length"}}," }"]}]}]}]}]}]}," ",{t:7,e:"td",f:[]}]}," ",{t:4,f:[{t:7,e:"appender",m:[{n:"level",f:[{t:2,x:{r:[],s:"0"}}],t:13},{n:"index",f:[{t:2,x:{r:[],s:"null"}}],t:13}]}," ",{t:4,f:[{t:4,f:[{t:7,e:"S",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"value",f:[{t:2,r:".S"}],t:13},{n:"level",f:"1",t:13,g:1}]}],n:50,x:{r:["."],s:'_0.hasOwnProperty("S")'}}," ",{t:4,f:[{t:7,e:"N",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"value",f:[{t:2,r:".N"}],t:13},{n:"level",f:"1",t:13,g:1}]}],n:50,x:{r:["."],s:'_0.hasOwnProperty("N")'}}," ",{t:4,f:[{t:7,e:"BOOL",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"value",f:[{t:2,r:".BOOL"}],t:13},{n:"level",f:"1",t:13,g:1}]}],n:50,x:{r:["."],s:'_0.hasOwnProperty("BOOL")'}}," ",{t:4,f:[{t:7,e:"NULL",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"level",f:"1",t:13,g:1},{n:"level",f:"1",t:13,g:1}]}],n:50,x:{r:["."],s:'_0.hasOwnProperty("NULL")'}}," ",{t:4,f:[{t:7,e:"B",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"value",f:[{t:2,r:".B"}],t:13},{n:"level",f:"1",t:13,g:1}]}],n:50,x:{r:["."],s:'_0.hasOwnProperty("B")'}}," ",{t:4,f:[{t:7,e:"L",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"value",f:[{t:2,r:".L"}],t:13},{n:"level",f:"1",t:13,g:1}]}],n:50,x:{r:["."],s:'_0.hasOwnProperty("L")'}}," ",{t:4,f:[{t:7,e:"M",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"value",f:[{t:2,r:".M"}],t:13},{n:"level",f:"1",t:13,g:1}]}],n:50,x:{r:["."],s:'_0.hasOwnProperty("M")'}}," ",{t:4,f:[{t:7,e:"SS",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"value",f:[{t:2,r:".SS"}],t:13},{n:"level",f:"1",t:13,g:1}]}],n:50,x:{r:["."],s:'_0.hasOwnProperty("SS")'}}," ",{t:4,f:[{t:7,e:"NS",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"value",f:[{t:2,r:".NS"}],t:13},{n:"level",f:"1",t:13,g:1}]}],n:50,x:{r:["."],s:'_0.hasOwnProperty("NS")'}}," ",{t:4,f:[{t:7,e:"BS",m:[{n:"key",f:[{t:2,r:"@key"}],t:13},{n:"value",f:[{t:2,r:".BS"}],t:13},{n:"level",f:"1",t:13,g:1}]}],n:50,x:{r:["."],s:'_0.hasOwnProperty("BS")'}}," ",{t:7,e:"appender",m:[{n:"level",f:[{t:2,x:{r:[],s:"0"}}],t:13},{n:"index",f:[{t:2,r:"@key"}],t:13}]}],n:52,r:"item"}],n:50,r:"open"}]}]}]}]}],n:51,l:1}]}]}],e:{0:function(){return 0},'"menu-class"':function(){return"menu-class"},'"menu-style"':function(){return"menu-style"},"_0-_1":function(t,e){return t-e},'"navbar-style"':function(){return"navbar-style"},'(_0==="tree")&&(_1===true)':function(t,e){return"tree"===t&&!0===e},'JSON.stringify(_0,null,"\\t")':function(t){return JSON.stringify(t,null,"\t")},'_0==="code"':function(t){return"code"===t},'[_0.toggle("open")]':function(t){return[t.toggle("open")]},"Object.keys(_0).length":function(t){return Object.keys(t).length},null:function(){return null},'_0.hasOwnProperty("S")':function(t){return t.hasOwnProperty("S")},'_0.hasOwnProperty("N")':function(t){return t.hasOwnProperty("N")},'_0.hasOwnProperty("BOOL")':function(t){return t.hasOwnProperty("BOOL")},'_0.hasOwnProperty("NULL")':function(t){return t.hasOwnProperty("NULL")},'_0.hasOwnProperty("B")':function(t){return t.hasOwnProperty("B")},'_0.hasOwnProperty("L")':function(t){return t.hasOwnProperty("L")},'_0.hasOwnProperty("M")':function(t){return t.hasOwnProperty("M")},'_0.hasOwnProperty("SS")':function(t){return t.hasOwnProperty("SS")},'_0.hasOwnProperty("NS")':function(t){return t.hasOwnProperty("NS")},'_0.hasOwnProperty("BS")':function(t){return t.hasOwnProperty("BS")}}},components:{S:r.default,N:i.default,BOOL:d.default,NULL:s.default,B:l.default,SS:a.default,NS:u.default,BS:c.default,L:p.default,M:f.default,appender:b.default},css:".jsoneditor { display: 'inline-block'; color: #1a1a1a; border: thin solid #f4a460; box-sizing: border-box; width: 100%; height: 100%; position: relative; padding: 0; line-height: 100%; width: 534px; background-color: #fff; } .jsoneditor-menu { width: 100%; height: 35px; padding: 2px; margin: 0; box-sizing: border-box; color: #fff; border-bottom: 1px solid #3883fa; background-color: #f4a460; border-color: #f4a460; } .jsoneditor-navbar { width: 100%; height: 26px; line-height: 26px; padding: 0; margin: 0; box-sizing: border-box; color: grey; overflow: hidden; font-family: arial,sans-serif; font-size: 10pt; border-bottom: 1px solid #d3d3d3; background-color: #ebebeb; } .jsoneditor-outer { overflow: auto; position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; box-sizing: border-box; } .jsoneditor-outer.has-main-menu-bar { top: 35px; } .jsoneditor-outer.has-main-menu-bar.has-nav-bar { top: 61px; } .jsoneditor table { border-collapse: collapse; width: auto; } div.jsoneditor-tree table.jsoneditor-tree { border-collapse: collapse; border-spacing: 0; width: 100%; } div.jsoneditor td, div.jsoneditor th, div.jsoneditor tr { padding: 0;margin: 0; } div.jsoneditor tr:hover {background-color: #f0f0f0;} div.jsoneditor tr.jsoneditor-appender {} div.jsoneditor tr.jsoneditor-appender > td:nth-child(3) {position: relative;height: 4px;} div.jsoneditor tr.jsoneditor-appender > td:nth-child(3) > div {cursor: row-resize;} div.jsoneditor tr.jsoneditor-appender > td:nth-child(4) {width: 32px;} div.jsoneditor tr.jsoneditor-appender:hover {background-color: transparent;} div.jsoneditor tr.jsoneditor-appender:hover > td:nth-child(3) {} div.jsoneditor tr.jsoneditor-appender:hover > td:nth-child(3) > div {height: 4px;background-color: #000099} .jsoneditor-field {white-space: nowrap} .jsoneditor-popover, .jsoneditor-schema-error, div.jsoneditor td, div.jsoneditor textarea, div.jsoneditor th, div.jsoneditor-field, div.jsoneditor-value, pre.jsoneditor-preview { font-family: \"dejavu sans mono\",\"droid sans mono\",consolas,monaco,\"lucida console\",\"courier new\",courier,monospace,sans-serif; font-size: 10pt; color: #1a1a1a; } div.jsoneditor-default, div.jsoneditor-field, div.jsoneditor-readonly, div.jsoneditor-value { border: 1px solid transparent; min-height: 16px; min-width: 32px; padding: 2px; margin: 1px; word-wrap: break-word; float: left; } div.jsoneditor td { vertical-align: top; } .jsoneditor td, .jsoneditor th { padding: 0; display: table-cell; text-align: left; vertical-align: inherit; border-radius: inherit; } div.jsoneditor-tree button.jsoneditor-contextmenu { background-position: -48px -72px; } /* buttons */ div.jsoneditor-tree button.jsoneditor-button { width: 24px; height: 24px; padding: 0; margin: 0; border: none; cursor: pointer; background-color: transparent; outline: none; } div.jsoneditor-tree button.jsoneditor-invisible { visibility: hidden; } div.jsoneditor-tree button.jsoneditor-expanded { background-color: '#4499ff'; position: relative; outline: none; } div.jsoneditor-tree button.jsoneditor-expanded:after { content: ' '; position: absolute; top: 9px; left: 9px; width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 5px solid #000; } div.jsoneditor-tree button.jsoneditor-collapsed { background-color: '#4499ff'; position: relative; outline: none; } div.jsoneditor-tree button.jsoneditor-collapsed:after { content: ' '; position: absolute; top: 9px; left: 9px; width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 5px solid #000; } div.jsoneditor td.jsoneditor-tree { vertical-align: top; } div.jsoneditor td.jsoneditor-separator { padding: 3px 0; vertical-align: top; color: grey; } div.jsoneditor td.jsoneditor-separator { padding: 3px 0; vertical-align: top; color: grey; } div.jsoneditor td.jsoneditor-datatype { padding: 3px 0; vertical-align: top; color: grey; } .jsoneditor-contextmenu { position: absolute; box-sizing: content-box; z-index: 99; } div.jsoneditor-value.jsoneditor-string { color: #006000; } input.jsoneditor-input.jsoneditor-string { border: 0px;padding: 0px;margin: 0px;font-size: 14px;vertical-align: sub;outline: none;color: #006000;width: 100%;background-color: transparent; } input.jsoneditor-input.jsoneditor-string:focus { background-color: #bcffa0; } textarea.jsoneditor-input.jsoneditor-string { border: 0px;padding: 0px;margin: 0px;outline: none;color: #006000;width:100%;box-sizing:border-box;display:block;max-width:100%;font:13px Tahoma, cursive; } textarea.jsoneditor-input.jsoneditor-string:focus { background-color: #bcffa0; } div.jsoneditor-value.jsoneditor-number { color: #ee422e; } input.jsoneditor-input.jsoneditor-number { border: 0px;padding: 0px;margin: 0px;font-size: 14px;vertical-align: sub;outline: none;color: #ee422e;width: 100%;background-color: transparent; } input.jsoneditor-input.jsoneditor-number:focus { background-color: #bcffa0; } div.jsoneditor-value.jsoneditor-boolean { color: #ff8c00; } input.jsoneditor-input.jsoneditor-boolean { border: 0px;padding: 0px;margin: 0px;font-size: 14px;vertical-align: sub;outline: none;color: #ff8c00;width: 100%;background-color: transparent; } input.jsoneditor-input.jsoneditor-boolean:focus { background-color: #bcffa0; } input.jsoneditor-input.jsoneditor-boolean.error { background-color: red !important; } div.jsoneditor-value.jsoneditor-binary { color: #004ed0; } input.jsoneditor-input.jsoneditor-binary { border: 0px;padding: 0px;margin: 0px;font-size: 14px;vertical-align: sub;outline: none;color: #004ed0;width: 100%;background-color: transparent; } input.jsoneditor-input.jsoneditor-binary:focus { background-color: #bcffa0; } input.jsoneditor-input.jsoneditor-binary.error { background-color: red !important; } div.jsoneditor-value.jsoneditor-null { color: #004ed0; } .jsoneditor-input.jsoneditor-null { border: 0px;padding: 0px;margin: 0px;font-size: 14px;vertical-align: sub;outline: none;color: #004ed0;width: 100%;background-color: transparent;line-height: 27px; } /* icons and btns */ .btn-delete-attribute {display: none;} tr:hover .btn-delete-attribute {display: inline-block;} .trash-solid.icon { color: #aaa; position: absolute; margin-left: 5px; margin-top: 0px; width: 8px; height: 8px; border-left: solid 1px currentColor; border-right: solid 1px currentColor; border-bottom: solid 1px currentColor; border-radius: 0 0 2px 2px; background-color: currentColor; } .trash-solid.icon:hover {color: #999;} .trash-solid.icon:before { content: ''; position: absolute; left: -4px; top: -2px; width: 17px; height: 1px; background-color: currentColor; } .trash-solid.icon:after { content: ''; position: absolute; left: 0px; top: -5px; width: 7px; height: 2px; border-left: solid 1px currentColor; border-right: solid 1px currentColor; border-top: solid 1px currentColor; background-color: currentColor; border-radius: 4px 4px 0 0; } ",data:function(){return{open:!0,mode:"tree",mainMenuBar:!0,navigationBar:!0,statusBar:!0}},prepend_attribute:function(t,e,n){console.log("prepend",t,e,n);var o,r=this.get("item");"S"===t&&(o={S:""}),"N"===t&&(o={N:""}),"BOOL"===t&&(o={BOOL:""}),"NULL"===t&&(o={NULL:!0}),"B"===t&&(o={B:Uint8Array.from(atob("InsertBase64Here"),function(t){return t.charCodeAt(0)})}),"SS"===t&&(o={SS:[]}),"NS"===t&&(o={NS:[]}),"BS"===t&&(o={BS:[]}),"L"===t&&(o={L:[]}),"M"===t&&(o={M:{}});var i={};null===e?(i[n]=o,Object.keys(r).map(function(t){i[t]=r[t]})):Object.keys(r).map(function(t){i[t]=r[t],t===e&&(i[n]=o)}),this.set({item:{}}),this.set({item:i})},delegate:!1,elToFocus:null,delete_key:function(t){var e=this.get("item");delete e[t],this.set({item:e})},on:{}})},function(t,e){t.exports=n},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default=Ractive.extend({template:"\n\t{{#if type === null}}\n\t<tr class='jsoneditor-appender'>\n\t\t<td></td><td></td><td>\n\t\t\t\t<div style='margin-left: {{ 24 * level + 40 }}px;' on-click='pickatype'></div>\n\t\t</td><td></td>\n\t</tr>\n\t{{/if}}\n\n\t{{#if type !== null }}\n\t\t<tr>\n\t\t\t<td>\n\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-dragarea' ></button>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-contextmenu' ></button>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ (level+1) * 24 }}px;'>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-invisible' ></button>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t\t<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>*</div>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td class='jsoneditor-separator'>:</td>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree' style='width: 100%;'>\n\t\t\t\t\t\t\t\t<select value={{type}} on-change='typepicked' style='margin-top: 3px;'>\n\t\t\t\t\t\t\t\t\t<option value=''>Select Data Type</option>\n\t\t\t\t\t\t\t\t\t<option value='S'>String</option>\n\t\t\t\t\t\t\t\t\t<option value='N'>Number</option>\n\t\t\t\t\t\t\t\t\t<option value='BOOL'>Boolean</option>\n\t\t\t\t\t\t\t\t\t<option value='NULL'>Null</option>\n\t\t\t\t\t\t\t\t\t<option value='B'>Binary</option>\n\t\t\t\t\t\t\t\t\t<option value='SS'>StringSet</option>\n\t\t\t\t\t\t\t\t\t<option value='NS'>NumberSet</option>\n\t\t\t\t\t\t\t\t\t<option value='BS'>BinarySet</option>\n\t\t\t\t\t\t\t\t\t<option value='L'>List</option>\n\t\t\t\t\t\t\t\t\t<option value='M'>Map</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\n\t\t\t\t\t<div class='trash-solid icon'></div>\n\t\t\t\t</button>\n\t\t\t</td>\n\t\t</tr>\n\t{{/if}}\n\t",data:function(){return{type:null}},on:{delete:function(){this.set({type:null})},pickatype:function(){this.set({type:""})},typepicked:function(){this.get("type")&&(this.parent.prepend_attribute(this.get("type"),this.get("index")),this.set({type:null}))}}})}],r.c=i,r.d=function(t,e,n){r.o(t,e)||Object.defineProperty(t,e,{enumerable:!0,get:n})},r.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},r.t=function(e,t){if(1&t&&(e=r(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var n=Object.create(null);if(r.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var o in e)r.d(n,o,function(t){return e[t]}.bind(null,o));return n},r.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return r.d(e,"a",e),e},r.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},r.p="",r(r.s=11)).default;function r(t){if(i[t])return i[t].exports;var e=i[t]={i:t,l:!1,exports:{}};return o[t].call(e.exports,e,e.exports,r),e.l=!0,e.exports}var o,i});
+!function(t,e){ true?module.exports=e(__webpack_require__(2)):undefined}(window,function(n){return(l={},s.m=o=[function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});e.IconTrash=Ractive.extend({template:'\n\t\t<svg class=\'icon icon-trash\' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M128 405.429C128 428.846 147.198 448 170.667 448h170.667C364.802 448 384 428.846 384 405.429V160H128v245.429zM416 96h-80l-26.785-32H202.786L176 96H96v32h320V96z"/></svg>\n\t'}),e.IconRight=Ractive.extend({template:'\n\t\t<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M192 128l128 128-128 128z"/></svg>\n\t'}),e.IconDown=Ractive.extend({template:'\n\t\t<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M128 192l128 128 128-128z"/></svg>\n\t'})},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var o=n(0);e.default=Ractive.extend({components:{"icon-trash":o.IconTrash},template:"\n\t\t<tr>\n\t\t\t<td>\n\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-dragarea' ></button>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-contextmenu' ></button>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ level * 24 }}px;'>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-invisible' ></button>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t\t<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>{{key}} </div>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\x3c!-- <td class='jsoneditor-datatype'>String</td> --\x3e\n\t\t\t\t\t\t\t<td class='jsoneditor-separator'>:</td>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree' style='width: 100%;'>\n\t\t\t\t\t\t\t\t{{#if editing}}\n\t\t\t\t\t\t\t\t\t<textarea class='jsoneditor-input jsoneditor-string' style='height: {{textarea_height}}px;line-height: {{line_height}}px' on-focus='focus' on-blur='blur' on-keyup='keyup' value='{{value}}'></textarea>\n\t\t\t\t\t\t\t\t{{else}}\n\t\t\t\t\t\t\t\t\t<input class='jsoneditor-input jsoneditor-string' value='{{ JSON.stringify(value) }}' readonly='true' on-click='startEditing' />\n\t\t\t\t\t\t\t\t\t\x3c!--<div class='jsoneditor-value jsoneditor-string' style='cursor: pointer;height: {{line_height}}px;line-height: {{line_height}}px;overflow: hidden;' on-click='startEditing'>{{ JSON.stringify(value) }}</div>--\x3e\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\n\t\t\t\t\t<icon-trash />\n\t\t\t\t</button>\n\t\t\t</td>\n\t\t</tr>\n\t\t",data:function(){return{line_height:22,textarea_height:22}},on:{startEditing:function(t){var e=t.node.parentNode;this.set("editing",!0),e.getElementsByTagName("textarea").length&&e.getElementsByTagName("textarea")[0].focus()},focus:function(){var t=this.get("value").split("\n").length;this.set("textarea_height",t*this.get("line_height"))},blur:function(){this.set("editing",!1)},keyup:function(){var t=this.get("value").split("\n").length;this.set("textarea_height",t*this.get("line_height"))},delete:function(){this.parent.delete_key(this.get("key"))}}})},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var o=n(0);e.default=Ractive.extend({components:{"icon-trash":o.IconTrash},template:"\n\t<tr>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-dragarea' ></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-contextmenu' ></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ level * 24 }}px;'>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-invisible' ></button>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>{{key}}</div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\x3c!--<td class='jsoneditor-datatype'>Number</td>--\x3e\n\t\t\t\t\t\t<td class='jsoneditor-separator'>:</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree' style='width: 100%;'>\n\t\t\t\t\t\t\t<input type='number' value='{{mirror_value}}' class='jsoneditor-input jsoneditor-number'  />\n\t\t\t\t\t\t\t\x3c!--\n\t\t\t\t\t\t\t<div contenteditable='true' spellcheck='false' class='jsoneditor-value jsoneditor-number' >{{ value }}</div>\n\t\t\t\t\t\t\t--\x3e\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t</td>\n\t\t<td>\n\t\t\t<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\n\t\t\t\t<icon-trash />\n\t\t\t</button>\n\t\t</td>\n\t</tr>\n\t",data:function(){return{mirror_value:""}},on:{delete:function(){this.parent.delete_key(this.get("key"))},init:function(){var t=this.get("value");this.set("mirror_value",t),this.observe("mirror_value",function(t,e,n){this.set({value:parseFloat(t)?t.toString():""})})}}})},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var o=n(0);e.default=Ractive.extend({components:{"icon-trash":o.IconTrash},template:"\n\t<tr>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-dragarea' ></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-contextmenu' ></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ level * 24 }}px;'>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-invisible' ></button>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>{{key}}</div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-datatype'>Binary</td>\n\t\t\t\t\t\t<td class='jsoneditor-separator'>:</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree' style='width: 100%;'>\n\t\t\t\t\t\t\t<input value='{{updated_value}}' class='jsoneditor-input jsoneditor-binary {{#if valid === false}}error{{/if}}' on-keyup='validate' on-blur='validate' />\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t</td>\n\t\t<td>\n\t\t\t<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\n\t\t\t\t\t<icon-trash />\n\t\t\t</button>\n\t\t</td>\n\t</tr>\n\t",data:function(){return{updated_value:""}},on:{init:function(){var s=this.get("value");"string"==typeof s&&(this.set({updated_value:JSON.parse(JSON.stringify(s))}),s=Uint8Array.from(atob(s),function(t){return t.charCodeAt(0)}),this.set({value:s})),s instanceof Uint8Array&&this.set({updated_value:btoa(String.fromCharCode.apply(null,s))}),this.observe("updated_value",function(t,e,n){if(console.log("changed",t,e),"string"==typeof s)return this.set("value",t);try{var o=Uint8Array.from(atob(t),function(t){return t.charCodeAt(0)});this.set({value:o}),console.log(o)}catch(t){}})},validate:function(){var t=!1;try{Uint8Array.from(atob(this.get("updated_value")),function(t){return t.charCodeAt(0)});t=!0}catch(t){}this.set("valid",t)},delete:function(){this.parent.delete_key(this.get("key"))}}})},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var o=n(0);e.default=Ractive.extend({components:{"icon-trash":o.IconTrash},template:"\n\t<tr>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-dragarea' ></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-contextmenu' ></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ level * 24 }}px;'>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-invisible' ></button>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>{{key}}</div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\x3c!--<td class='jsoneditor-datatype'>Boolean</td> --\x3e\n\t\t\t\t\t\t<td class='jsoneditor-separator'>:</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree' style='width: 100%;'>\n\t\t\t\t\t\t\t<input value='{{value}}' class='jsoneditor-input jsoneditor-boolean {{#if (value !== true ) && (value !== false) }}error{{/if}}' on-keyup='validate' on-blur='validate' />\n\t\t\t\t\t\t\t\x3c!--\n\t\t\t\t\t\t\t<div contenteditable='true' spellcheck='false' class='jsoneditor-value jsoneditor-boolean' >{{ value ? true : false }}</div>\n\t\t\t\t\t\t\t--\x3e\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t</td>\n\t\t<td>\n\t\t\t<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\n\t\t\t\t<icon-trash />\n\t\t\t</button>\n\t\t</td>\n\t</tr>\n\t",on:{init:function(){},validate:function(){"true"===this.get("value")&&this.set("value",!0),"false"===this.get("value")&&this.set("value",!1)},delete:function(){this.parent.delete_key(this.get("key"))}}})},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var o=n(0);e.default=Ractive.extend({components:{"icon-trash":o.IconTrash},template:"\n\t<tr>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-dragarea' ></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-contextmenu' ></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ level * 24 }}px;'>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-invisible' ></button>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>{{key}}</div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\x3c!--<td class='jsoneditor-datatype'>Null</td>--\x3e\n\t\t\t\t\t\t<td class='jsoneditor-separator'>:</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div class='jsoneditor-input jsoneditor-null' >null</div>\n\t\t\t\t\t\t\t\x3c!--<div class='jsoneditor-value jsoneditor-null' >null</div>--\x3e\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t</td>\n\t\t<td>\n\t\t\t<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\n\t\t\t\t<icon-trash />\n\t\t\t</button>\n\t\t</td>\n\t</tr>\n\t",on:{delete:function(){this.parent.delete_key(this.get("key"))}}})},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var o,s=n(1),l=(o=s)&&o.__esModule?o:{default:o},i=n(0);e.default=Ractive.extend({components:{S:l.default,"icon-trash":i.IconTrash},template:"\n\n\t<tr class=' jsoneditor-expandable'>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-dragarea'></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-contextmenu'></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ level * 24 }}px;'>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<button type='button' class='jsoneditor-button {{#if open}}jsoneditor-expanded{{else}}jsoneditor-collapsed{{/if}}' on-click='@this.toggle('open')'></button>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>{{key}}</div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-datatype'>StringSet[{{ value.length }}]</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'></td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div class='jsoneditor-value jsoneditor-array'></div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t</td>\n\t\t<td>\n\t\t\t<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\n\t\t\t\t<icon-trash />\n\t\t\t</button>\n\t\t</td>\n\t</tr>\n\n\t{{#if open}}\n\t<tr class='jsoneditor-appender'>\n\t\t<td></td><td></td><td>\n\t\t\t<div style='margin-left: {{ 24 * level + 40 }}px;' on-click='prepend'></div>\n\t\t</td><td></td>\n\t</tr>\n\t{{#value}}\n\t\t<S key={{@index}} value={{ . }} level='{{ level + 1 }}' />\n\t\t<tr class='jsoneditor-appender'>\n\t\t\t<td></td><td></td><td>\n\t\t\t\t<div style='margin-left: {{ 24 * level + 40 }}px;' on-click='elementinsert'></div>\n\t\t\t</td><td></td>\n\t\t</tr>\n\t{{/value}}\n\t{{/if}}\n\n\t<tr class='jsoneditor-append'></tr>\n\n\t",delete_key:function(o){var t=this.get("value");t=t.filter(function(t,e,n){return e!==o}),this.set({value:t})},data:function(){return{open:!1}},on:{delete:function(){this.parent.delete_key(this.get("key"))},prepend:function(){var t=this.get("value");t=[""].concat(t),this.set({value:t})},elementinsert:function(t){var e=this.get("value"),n=parseInt(t.resolve().split(".").pop());e.splice(n+1,0,""),this.set({value:e})}}})},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var o,s=n(2),l=(o=s)&&o.__esModule?o:{default:o},i=n(0);e.default=Ractive.extend({components:{N:l.default,"icon-trash":i.IconTrash},template:"\n\n\t<tr class=' jsoneditor-expandable'>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-dragarea'></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-contextmenu'></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ level * 24 }}px;'>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<button type='button' class='jsoneditor-button {{#if open}}jsoneditor-expanded{{else}}jsoneditor-collapsed{{/if}}' on-click='@this.toggle('open')'></button>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>{{key}}</div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-datatype'>NumberSet[{{ value.length }}]</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'></td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div class='jsoneditor-value jsoneditor-array'></div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t</td>\n\t\t<td>\n\t\t\t<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\n\t\t\t\t<icon-trash />\n\t\t\t</button>\n\t\t</td>\n\t</tr>\n\n\t{{#if open}}\n\t<tr class='jsoneditor-appender'>\n\t\t<td></td><td></td><td>\n\t\t\t<div style='margin-left: {{ 24 * level + 40 }}px;' on-click='prepend'></div>\n\t\t</td><td></td>\n\t</tr>\n\t{{#value}}\n\t\t{{#if !hide}}\n\t\t<N key={{@index}} value={{ . }} level='{{ level + 1 }}' />\n\t\t<tr class='jsoneditor-appender'>\n\t\t\t<td></td><td></td><td>\n\t\t\t\t<div style='margin-left: {{ 24 * level + 40 }}px;' on-click='elementinsert'></div>\n\t\t\t</td><td></td>\n\t\t</tr>\n\t\t{{/if}}\n\t{{/value}}\n\t{{/if}}\n\n\t<tr class='jsoneditor-append'></tr>\n\n\t",delete_key:function(o){var t=this.get("value");t=t.filter(function(t,e,n){return e!==o}),this.set({value:t})},data:function(){return{open:!1,hide:!1}},on:{delete:function(){this.parent.delete_key(this.get("key"))},prepend:function(){var t=this.get("value");t=[""].concat(t),this.set({value:t}),this.set("hide",!0),this.set("hide",!1)},elementinsert:function(t){var e=this.get("value"),n=parseInt(t.resolve().split(".").pop());e.splice(n+1,0,""),this.set({value:e}),this.set("hide",!0),this.set("hide",!1)}}})},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var o,s=n(3),l=(o=s)&&o.__esModule?o:{default:o},i=n(0);e.default=Ractive.extend({components:{B:l.default,"icon-trash":i.IconTrash},template:"\n\n\t<tr class=' jsoneditor-expandable'>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-dragarea'></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-contextmenu'></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ level * 24 }}px;'>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<button type='button' class='jsoneditor-button {{#if open}}jsoneditor-expanded{{else}}jsoneditor-collapsed{{/if}}' on-click='@this.toggle('open')'></button>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>{{key}}</div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-datatype'>BinarySet[{{ value.length }}]</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'></td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div class='jsoneditor-value jsoneditor-array'></div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t</td>\n\t\t<td>\n\t\t\t<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\n\t\t\t\t<icon-trash />\n\t\t\t</button>\n\t\t</td>\n\t</tr>\n\n\t{{#if open}}\n\t\t<tr class='jsoneditor-appender'>\n\t\t\t<td></td><td></td><td>\n\t\t\t\t<div style='margin-left: {{ 24 * level + 40 }}px;'  on-click='prepend'></div>\n\t\t\t</td><td></td>\n\t\t</tr>\n\t{{#value}}\n\t\t{{#if !hide}}\n\t\t<B key={{@index}} value={{ . }} level='{{ level + 1 }}' />\n\t\t<tr class='jsoneditor-appender'>\n\t\t\t<td></td><td></td><td>\n\t\t\t\t<div style='margin-left: {{ 24 * level + 40 }}px;' on-click='elementinsert'></div>\n\t\t\t</td><td></td>\n\t\t</tr>\n\t\t{{/if}}\n\t{{/value}}\n\t{{/if}}\n\n\t<tr class='jsoneditor-append'></tr>\n\n\t",delete_key:function(o){var t=this.get("value");t=t.filter(function(t,e,n){return e!==o}),this.set({value:t})},data:function(){return{open:!1,hide:!1}},on:{delete:function(){this.parent.delete_key(this.get("key"))},prepend:function(){var t=this.get("value");t=[Uint8Array.from(atob("InsertBase64Here"),function(t){return t.charCodeAt(0)})].concat(t),this.set({value:t}),this.set("hide",!0),this.set("hide",!1)},elementinsert:function(t){var e=this.get("value"),n=parseInt(t.resolve().split(".").pop());e.splice(n+1,0,Uint8Array.from(atob("InsertBase64Here"),function(t){return t.charCodeAt(0)})),this.set({value:e}),this.set("hide",!0),this.set("hide",!1)}}})},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var o=f(n(1)),s=f(n(2)),l=f(n(4)),i=f(n(5)),d=f(n(3)),a=f(n(6)),r=f(n(7)),u=f(n(8)),c=f(n(10)),p=f(n(15)),v=n(0);function f(t){return t&&t.__esModule?t:{default:t}}var b=Ractive.extend({components:{S:o.default,N:s.default,BOOL:l.default,NULL:i.default,B:d.default,SS:a.default,NS:r.default,BS:u.default,M:c.default,appender:p.default,"icon-trash":v.IconTrash},onconfig:function(){this.components.L=b},template:"\n\n\t<tr class=' jsoneditor-expandable'>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-dragarea'></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<button type='button' class='jsoneditor-button jsoneditor-contextmenu'></button>\n\t\t</td>\n\t\t<td>\n\t\t\t<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ level * 24 }}px;'>\n\t\t\t\t<tbody>\n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<button type='button' class='jsoneditor-button {{#if open}}jsoneditor-expanded{{else}}jsoneditor-collapsed{{/if}}' on-click='@this.toggle('open')'></button>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>{{key}}</div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t\t<td class='jsoneditor-datatype'>List[{{ value.length }}]</td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'></td>\n\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t<div class='jsoneditor-value jsoneditor-array'></div>\n\t\t\t\t\t\t</td>\n\t\t\t\t\t</tr>\n\t\t\t\t</tbody>\n\t\t\t</table>\n\t\t</td>\n\t\t<td>\n\t\t\t<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\n\t\t\t\t<icon-trash />\n\t\t\t</button>\n\t\t</td>\n\t</tr>\n\n\t{{#if open}}\n\t\t<appender level={{level}} index={{null}}/>\n\t{{#value}}\n\t\t{{#if .hasOwnProperty('S')}}\n\t\t\t<S key={{@index}} value={{ .S }} level='{{ level + 1 }}' />\n\t\t{{/if}}\n\n\t\t{{#if .hasOwnProperty('N')}}\n\t\t\t<N key={{@index}} value={{ .N }} level='{{ level + 1 }}' />\n\t\t{{/if}}\n\n\t\t{{#if .hasOwnProperty('BOOL')}}\n\t\t\t<BOOL key={{@index}} value={{ .BOOL }} level='{{ level + 1 }}' />\n\t\t{{/if}}\n\n\t\t{{#if .hasOwnProperty('NULL')}}\n\t\t\t<NULL key={{@index}} level='1' level='{{ level + 1 }}' />\n\t\t{{/if}}\n\n\t\t{{#if .hasOwnProperty('B')}}\n\t\t\t<B key={{@index}} value={{ .B }} level='{{ level + 1 }}' />\n\t\t{{/if}}\n\n\t\t{{#if .hasOwnProperty('L')}}\n\t\t\t<L key={{@index}} value={{ .L }} level='{{ level + 1 }}' />\n\t\t{{/if}}\n\n\t\t{{#if .hasOwnProperty('M')}}\n\t\t\t<M key={{@index}} value={{ .M }} level='{{ level + 1 }}' />\n\t\t{{/if}}\n\n\t\t{{#if .hasOwnProperty('SS')}}\n\t\t\t<SS key={{@index}} value={{ .SS }} level='{{ level + 1 }}' />\n\t\t{{/if}}\n\n\t\t{{#if .hasOwnProperty('NS')}}\n\t\t\t<NS key={{@index}} value={{ .NS }} level='{{ level + 1 }}' />\n\t\t{{/if}}\n\n\t\t{{#if .hasOwnProperty('BS')}}\n\t\t\t<BS key={{@index}} value={{ .BS }} level='{{ level + 1 }}' />\n\t\t{{/if}}\n\n\t\t<appender level={{level}} index={{@index}}/>\n\n\t{{/value}}\n\t{{/if}}\n\n\t<tr class='jsoneditor-append'></tr>\n\n\t",delete_key:function(o){var t=this.get("value");t=t.filter(function(t,e,n){return e!==o}),this.set({value:t})},data:function(){return{open:!1}},prepend_attribute:function(t,e){var n,o=this.get("value");"S"===t&&(n={S:""}),"N"===t&&(n={N:""}),"BOOL"===t&&(n={BOOL:""}),"NULL"===t&&(n={NULL:!0}),"B"===t&&(n={B:Uint8Array.from(atob("InsertBase64Here"),function(t){return t.charCodeAt(0)})}),"SS"===t&&(n={SS:[]}),"NS"===t&&(n={NS:[]}),"BS"===t&&(n={BS:[]}),"L"===t&&(n={L:[]}),"M"===t&&(n={M:{}}),null===e?o=[n].concat(o):o.splice(e+1,0,n),this.set({value:o})},on:{delete:function(){this.parent.delete_key(this.get("key"))}}});e.default=b},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var o=f(n(1)),s=f(n(2)),l=f(n(4)),i=f(n(5)),d=f(n(3)),a=f(n(6)),r=f(n(7)),u=f(n(8)),c=f(n(9)),p=f(n(11)),v=n(0);function f(t){return t&&t.__esModule?t:{default:t}}var b=Ractive.extend({components:{S:o.default,N:s.default,BOOL:l.default,NULL:i.default,B:d.default,SS:a.default,NS:r.default,BS:u.default,L:c.default,appender:p.default,"icon-trash":v.IconTrash},onconfig:function(){this.components.M=b,this.components.L=c.default},template:"\n\n\t\t<tr class=' jsoneditor-expandable'>\n\t\t\t<td>\n\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-dragarea'></button>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-contextmenu' ></button>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ level * 24 }}px;'>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t\t<button type='button' class='jsoneditor-button {{#if open}}jsoneditor-expanded{{else}}jsoneditor-collapsed{{/if}}' on-click='@this.toggle('open')'></button>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t\t<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>{{key}}</div>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td class='jsoneditor-datatype'>Map{{ '{' + Object.keys(value).length + '}' }}</td>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree'></td>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t\t<div class='jsoneditor-value jsoneditor-object'></div>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\n\t\t\t\t\t<icon-trash />\n\t\t\t\t</button>\n\t\t\t</td>\n\t\t</tr>\n\n\t\t{{#if open}}\n\t\t\t<appender level={{level}} index={{null}}/>\n\t\t{{#each value }}\n\t\t\t{{#if .hasOwnProperty('S')}}\n\t\t\t\t<S key={{@key}} value={{ .S }} level='{{ level + 1 }}' />\n\t\t\t{{/if}}\n\n\t\t\t{{#if .hasOwnProperty('N')}}\n\t\t\t\t<N key={{@key}} value={{ .N }} level='{{ level + 1 }}' />\n\t\t\t{{/if}}\n\n\t\t\t{{#if .hasOwnProperty('BOOL')}}\n\t\t\t\t<BOOL key={{@key}} value={{ .BOOL }} level='{{ level + 1 }}' />\n\t\t\t{{/if}}\n\n\t\t\t{{#if .hasOwnProperty('NULL')}}\n\t\t\t\t<NULL key={{@key}} level='1' level='{{ level + 1 }}' />\n\t\t\t{{/if}}\n\n\t\t\t{{#if .hasOwnProperty('B')}}\n\t\t\t\t<B key={{@key}} value={{ .B }} level='{{ level + 1 }}' />\n\t\t\t{{/if}}\n\n\t\t\t{{#if .hasOwnProperty('L')}}\n\t\t\t\t<L key={{@key}} value={{ .L }} level='{{ level + 1 }}' />\n\t\t\t{{/if}}\n\n\t\t\t{{#if .hasOwnProperty('M')}}\n\t\t\t\t<M key={{@key}} value={{ .M }} level='{{ level + 1 }}' />\n\t\t\t{{/if}}\n\n\t\t\t{{#if .hasOwnProperty('SS')}}\n\t\t\t\t<SS key={{@key}} value={{ .SS }} level='{{ level + 1 }}' />\n\t\t\t{{/if}}\n\n\t\t\t{{#if .hasOwnProperty('NS')}}\n\t\t\t\t<NS key={{@key}} value={{ .NS }} level='{{ level + 1 }}' />\n\t\t\t{{/if}}\n\n\t\t\t{{#if .hasOwnProperty('BS')}}\n\t\t\t\t<BS key={{@key}} value={{ .BS }} level='{{ level + 1 }}' />\n\t\t\t{{/if}}\n\t\t\t<appender level={{level}} index={{@key}}/>\n\n\t\t{{/each}}\n\t\t{{/if}}\n\n\n\t\t<tr class='jsoneditor-append'></tr>\n\n\t",delete_key:function(t){var e=this.get("value");delete e[t],this.set({value:e})},data:function(){return{open:!1}},prepend_attribute:function(t,e,n){console.log("prepend",t,e,n);var o,s=this.get("value");"S"===t&&(o={S:""}),"N"===t&&(o={N:""}),"BOOL"===t&&(o={BOOL:""}),"NULL"===t&&(o={NULL:!0}),"B"===t&&(o={B:Uint8Array.from(atob("InsertBase64Here"),function(t){return t.charCodeAt(0)})}),"SS"===t&&(o={SS:[]}),"NS"===t&&(o={NS:[]}),"BS"===t&&(o={BS:[]}),"L"===t&&(o={L:[]}),"M"===t&&(o={M:{}});var l={};null===e?(l[n]=o,Object.keys(s).map(function(t){l[t]=s[t]})):Object.keys(s).map(function(t){l[t]=s[t],t===e&&(l[n]=o)}),this.set({value:{}}),this.set({value:l})},on:{delete:function(){this.parent.delete_key(this.get("key"))}}});e.default=b},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var o=n(0);e.default=Ractive.extend({components:{"icon-trash":o.IconTrash},template:"\n\t{{#if type === null}}\n\t<tr class='jsoneditor-appender'>\n\t\t<td></td><td></td><td>\n\t\t\t\t<div style='margin-left: {{ 24 * level + 40 }}px;' on-click='pickatype'></div>\n\t\t</td><td></td>\n\t</tr>\n\t{{/if}}\n\n\t{{#if type !== null }}\n\t\t<tr>\n\t\t\t<td>\n\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-dragarea' ></button>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-contextmenu' ></button>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ (level+1) * 24 }}px;'>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-invisible' ></button>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t\t<input value={{field_name}} placeholder='Attribute Name' style='margin-top: 3px;' />\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td class='jsoneditor-separator'>:</td>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree' style='width: 100%;'>\n\t\t\t\t\t\t\t\t<select value={{type}} on-change='typepicked' style='margin-top: 3px;' disabled={{type_disabled}}>\n\t\t\t\t\t\t\t\t\t<option value=''>Select Data Type</option>\n\t\t\t\t\t\t\t\t\t<option value='S'>String</option>\n\t\t\t\t\t\t\t\t\t<option value='N'>Number</option>\n\t\t\t\t\t\t\t\t\t<option value='BOOL'>Boolean</option>\n\t\t\t\t\t\t\t\t\t<option value='NULL'>Null</option>\n\t\t\t\t\t\t\t\t\t<option value='B'>Binary</option>\n\t\t\t\t\t\t\t\t\t<option value='SS'>StringSet</option>\n\t\t\t\t\t\t\t\t\t<option value='NS'>NumberSet</option>\n\t\t\t\t\t\t\t\t\t<option value='BS'>BinarySet</option>\n\t\t\t\t\t\t\t\t\t<option value='L'>List</option>\n\t\t\t\t\t\t\t\t\t<option value='M'>Map</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\n\t\t\t\t\t<icon-trash />\n\t\t\t\t</button>\n\t\t\t</td>\n\t\t</tr>\n\t{{/if}}\n\t",data:function(){return{type:null,field_name:"",type_disabled:!0}},on:{init:function(){this.observe("field_name",function(t,e,n){t.trim()?this.set({type_disabled:!1}):this.set({type_disabled:!0})})},delete:function(){this.set({type:null})},pickatype:function(){this.set({type:""})},typepicked:function(){this.get("type")&&this.get("field_name").trim()&&(this.parent.prepend_attribute(this.get("type"),this.get("index"),this.get("field_name")),this.set({type:null}))}}})},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),n(13);var o=b(n(14)),s=b(n(1)),l=b(n(2)),i=b(n(4)),d=b(n(5)),a=b(n(3)),r=b(n(6)),u=b(n(7)),c=b(n(8)),p=b(n(9)),v=b(n(10)),f=b(n(11));function b(t){return t&&t.__esModule?t:{default:t}}e.default=o.default.extend({template:'\n\n\t\t<div class="awspilot-dynamodb-json-editor jsoneditor theme-{{theme}}" style="{{style}}">\n\t\t\t<div class="jsoneditor-menu {{.[\'menu-class\']}}" style="{{.[\'menu-style\']}}">\n\t\t\t\t<select value=\'{{mode}}\' style="height: 20px;margin: 6px;">\n\t\t\t\t\t<option value=\'tree\'>Tree</option>\n\t\t\t\t\t<option value=\'code\'>Code</option>\n\t\t\t\t</select>\n\t\t\t</div>\n\t\t\t{{#if ((mode === \'tree\') && (navigationBar === true)) }}\n\t\t\t\t<div class="jsoneditor-navbar {{navbar-class}}" style={{.[\'navbar-style\']}}></div>\n\t\t\t{{/if}}\n\n\t\t\t<div class="jsoneditor-outer has-main-menu-bar {{#if ((mode === \'tree\') && (navigationBar === true)) }}has-nav-bar{{/if}}">\n\t\t\t\t{{#if mode === \'code\'}}\n\t\t\t\t\t<textarea style="width: 100%;height: 100%;border: 0px;margin: 0px;padding: 0px;">{{ JSON.stringify(item, null, "\\t") }}</textarea>\n\t\t\t\t{{else}}\n\t\t\t\t<div class="jsoneditor-tree">\n\t\t\t\t\t<div class="jsoneditor-tree-inner">\n\n\t\t\t\t\t\t<table border=0 class="jsoneditor-tree">\n\t\t\t\t\t\t\t<colgroup><col width="24px"><col width="24px"><col></colgroup>\n\t\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t\t<tr class=" jsoneditor-expandable">\n\t\t\t\t\t\t\t\t\t<td></td>\n\t\t\t\t\t\t\t\t\t<td><button type="button" class="jsoneditor-button jsoneditor-contextmenu"></button></td>\n\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t<table class="jsoneditor-values" style="border-collapse: collapse; margin-left: 0px;">\n\t\t\t\t\t\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<td class="jsoneditor-tree"><button type="button" class="jsoneditor-button {{#if open}}jsoneditor-expanded{{else}}jsoneditor-collapsed{{/if}}" on-click=\'@this.toggle(\'open\')\' ></button></td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<td class="jsoneditor-tree">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div contenteditable="false" class="jsoneditor-readonly">Item</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<td class="jsoneditor-tree"></td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<td class="jsoneditor-tree">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class="jsoneditor-value jsoneditor-object">{ {{ Object.keys(item).length }} }</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t</tbody>\n\t\t\t\t\t\t\t\t\t\t</table>\n\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t{{#if open}}\n\t\t\t\t\t\t\t\t\t<appender level={{0}} index={{null}}/>\n\t\t\t\t\t\t\t\t{{#each item }}\n\t\t\t\t\t\t\t\t\t{{#if .hasOwnProperty(\'S\')}}\n\t\t\t\t\t\t\t\t\t\t<S key={{@key}} value={{ .S }} level="1" />\n\t\t\t\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t\t\t\t{{#if .hasOwnProperty(\'N\')}}\n\t\t\t\t\t\t\t\t\t\t<N key={{@key}} value={{ .N }} level="1" />\n\t\t\t\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t\t\t\t{{#if .hasOwnProperty(\'BOOL\')}}\n\t\t\t\t\t\t\t\t\t\t<BOOL key={{@key}} value={{ .BOOL }} level="1" />\n\t\t\t\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t\t\t\t{{#if .hasOwnProperty(\'NULL\')}}\n\t\t\t\t\t\t\t\t\t\t<NULL key={{@key}} level="1" level="1" />\n\t\t\t\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t\t\t\t{{#if .hasOwnProperty(\'B\')}}\n\t\t\t\t\t\t\t\t\t\t<B key={{@key}} value={{ .B }} level="1" />\n\t\t\t\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t\t\t\t{{#if .hasOwnProperty(\'L\')}}\n\t\t\t\t\t\t\t\t\t\t<L key={{@key}} value={{ .L }} level="1" />\n\t\t\t\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t\t\t\t{{#if .hasOwnProperty(\'M\')}}\n\t\t\t\t\t\t\t\t\t\t<M key={{@key}} value={{ .M }} level="1" />\n\t\t\t\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t\t\t\t{{#if .hasOwnProperty(\'SS\')}}\n\t\t\t\t\t\t\t\t\t\t<SS key={{@key}} value={{ .SS }} level="1" />\n\t\t\t\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t\t\t\t{{#if .hasOwnProperty(\'NS\')}}\n\t\t\t\t\t\t\t\t\t\t<NS key={{@key}} value={{ .NS }} level="1" />\n\t\t\t\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t\t\t\t{{#if .hasOwnProperty(\'BS\')}}\n\t\t\t\t\t\t\t\t\t\t<BS key={{@key}} value={{ .BS }} level="1" />\n\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t\t<appender level={{0}} index={{@key}}/>\n\t\t\t\t\t\t\t\t{{/each}}\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</tbody>\n\t\t\t\t\t\t</table>\n\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t{{/if}}\n\n\n\t\t\t</div>\n\t\t</div>\n\n\t\t',components:{S:s.default,N:l.default,BOOL:i.default,NULL:d.default,B:a.default,SS:r.default,NS:u.default,BS:c.default,L:p.default,M:v.default,appender:f.default},data:function(){return{open:!0,mode:"tree",mainMenuBar:!0,navigationBar:!0,statusBar:!0}},prepend_attribute:function(t,e,n){console.log("prepend",t,e,n);var o,s=this.get("item");"S"===t&&(o={S:""}),"N"===t&&(o={N:""}),"BOOL"===t&&(o={BOOL:""}),"NULL"===t&&(o={NULL:!0}),"B"===t&&(o={B:Uint8Array.from(atob("InsertBase64Here"),function(t){return t.charCodeAt(0)})}),"SS"===t&&(o={SS:[]}),"NS"===t&&(o={NS:[]}),"BS"===t&&(o={BS:[]}),"L"===t&&(o={L:[]}),"M"===t&&(o={M:{}});var l={};null===e?(l[n]=o,Object.keys(s).map(function(t){l[t]=s[t]})):Object.keys(s).map(function(t){l[t]=s[t],t===e&&(l[n]=o)}),this.set({item:{}}),this.set({item:l})},delegate:!1,elToFocus:null,delete_key:function(t){var e=this.get("item");delete e[t],this.set({item:e})},on:{}})},function(t,e,n){},function(t,e){t.exports=n},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var o=n(0);e.default=Ractive.extend({components:{"icon-trash":o.IconTrash},template:"\n\t{{#if type === null}}\n\t<tr class='jsoneditor-appender'>\n\t\t<td></td><td></td><td>\n\t\t\t\t<div style='margin-left: {{ 24 * level + 40 }}px;' on-click='pickatype'></div>\n\t\t</td><td></td>\n\t</tr>\n\t{{/if}}\n\n\t{{#if type !== null }}\n\t\t<tr>\n\t\t\t<td>\n\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-dragarea' ></button>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-contextmenu' ></button>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<table class='jsoneditor-values' style='border-collapse: collapse; margin-left: {{ (level+1) * 24 }}px;'>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t\t<button type='button' class='jsoneditor-button jsoneditor-invisible' ></button>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree'>\n\t\t\t\t\t\t\t\t<div contenteditable='false' spellcheck='false' class='jsoneditor-field'>*</div>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td class='jsoneditor-separator'>:</td>\n\t\t\t\t\t\t\t<td class='jsoneditor-tree' style='width: 100%;'>\n\t\t\t\t\t\t\t\t<select value={{type}} on-change='typepicked' style='margin-top: 3px;'>\n\t\t\t\t\t\t\t\t\t<option value=''>Select Data Type</option>\n\t\t\t\t\t\t\t\t\t<option value='S'>String</option>\n\t\t\t\t\t\t\t\t\t<option value='N'>Number</option>\n\t\t\t\t\t\t\t\t\t<option value='BOOL'>Boolean</option>\n\t\t\t\t\t\t\t\t\t<option value='NULL'>Null</option>\n\t\t\t\t\t\t\t\t\t<option value='B'>Binary</option>\n\t\t\t\t\t\t\t\t\t<option value='SS'>StringSet</option>\n\t\t\t\t\t\t\t\t\t<option value='NS'>NumberSet</option>\n\t\t\t\t\t\t\t\t\t<option value='BS'>BinarySet</option>\n\t\t\t\t\t\t\t\t\t<option value='L'>List</option>\n\t\t\t\t\t\t\t\t\t<option value='M'>Map</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t</td>\n\t\t\t<td>\n\t\t\t\t<button class='jsoneditor-button btn-delete-attribute' on-click='delete' >\n\t\t\t\t\t<icon-trash />\n\t\t\t\t</button>\n\t\t\t</td>\n\t\t</tr>\n\t{{/if}}\n\t",data:function(){return{type:null}},on:{delete:function(){this.set({type:null})},pickatype:function(){this.set({type:""})},typepicked:function(){this.get("type")&&(this.parent.prepend_attribute(this.get("type"),this.get("index")),this.set({type:null}))}}})}],s.c=l,s.d=function(t,e,n){s.o(t,e)||Object.defineProperty(t,e,{enumerable:!0,get:n})},s.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},s.t=function(e,t){if(1&t&&(e=s(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var n=Object.create(null);if(s.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var o in e)s.d(n,o,function(t){return e[t]}.bind(null,o));return n},s.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return s.d(e,"a",e),e},s.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},s.p="",s(s.s=12)).default;function s(t){if(l[t])return l[t].exports;var e=l[t]={i:t,l:!1,exports:{}};return o[t].call(e.exports,e,e.exports,s),e.l=!0,e.exports}var o,l});
 
 /***/ }),
 /* 4 */
-/***/ (function(module, exports) {
-
-module.exports = __WEBPACK_EXTERNAL_MODULE__4__;
-
-/***/ }),
-/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -392,21 +386,126 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-__webpack_require__(6);
+var _ractiveDynamodbJsonEditor = __webpack_require__(3);
+
+var _ractiveDynamodbJsonEditor2 = _interopRequireDefault(_ractiveDynamodbJsonEditor);
+
+var _utils = __webpack_require__(1);
+
+var _utils2 = _interopRequireDefault(_utils);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//var jsoneditor = require('@awspilot/ractive-dynamodb-json-editor');
+exports.default = Ractive.extend({
+	isolated: true,
+	components: {
+		jsoneditor: _ractiveDynamodbJsonEditor2.default
+	},
+	template: '\n\t\t<jsoneditor\n\t\t\ttheme={{theme}}\n\t\t\titem={{itemtoedit}}\n\t\t\tnavigationBar={{false}}\n\t\t\tstyle="position: absolute;top: -1px;left: -1px;right: -1px;bottom: 50px;width: auto;height: auto;"\n\t\t\tmenu-style=""\n\t\t/>\n\t\t<div style="position: absolute;left: 10px;right:10px;bottom:10px;height: 30px;box-sizing: border-box;">\n\t\t\t<span style="color: red;line-height: 30px;">{{errorMessage}}</span>\n\t\t\t<a class="btn btn-sm btn-primary pull-right" style="color: #fff;background-color: #337ab7;border-color: #2e6da4;float: right;padding: 5px 10px; font-size: 12px; line-height: 1.5;border-radius: 3px;font-family: sans-serif;"  on-click="update-item">Save</a>\n\t\t</div>\n\t\t',
+	data: function data() {
+		return {
+			itemtoedit: {}
+		};
+	},
+	_hash_key_name: function _hash_key_name() {
+		return (this.get('describeTable').KeySchema.filter(function (k) {
+			return k.KeyType === 'HASH';
+		})[0] || {}).AttributeName;
+	},
+	_range_key_name: function _range_key_name() {
+		return (this.get('describeTable').KeySchema.filter(function (k) {
+			return k.KeyType === 'RANGE';
+		})[0] || {}).AttributeName;
+	},
+	oninit: function oninit() {
+		var ractive = this;
+
+		// we do not really need to clone new item
+		this.set({ itemtoedit: this.get('rawitem') });
+
+		this.observe('itemtoedit', function (n, o, kp) {
+			this.set({ errorMessage: '' });
+		});
+
+		//var rawitem = this.get('rawitem')
+		//this.set({itemtoedit: { ...rawitem }  })
+
+		//var debug = this.get('itemtoedit');
+
+		this.on('update-item', function () {
+			//console.log("table=","HASH=", this._hash_key_name(), " RANGE=", this._range_key_name() )
+
+			var originalitem = this.get('rawitem');
+			var updateditem = _utils2.default._clone_deep(this.get('itemtoedit'));
+
+			var updateItemCall = {
+				TableName: this.get('describeTable.TableName'),
+				Key: {},
+				AttributeUpdates: {}
+			};
+
+			if (!updateditem.hasOwnProperty(this._hash_key_name())) return alert('Missing PARTITION_KEY ' + this._hash_key_name());
+
+			if (this._range_key_name() && !updateditem.hasOwnProperty(this._range_key_name())) return alert('Missing SORT_KEY ' + this._range_key_name());
+
+			updateItemCall.Key[this._hash_key_name()] = updateditem[this._hash_key_name()];
+			delete updateditem[this._hash_key_name()];
+
+			if (this._range_key_name()) {
+				updateItemCall.Key[this._range_key_name()] = updateditem[this._range_key_name()];
+				delete updateditem[this._range_key_name()];
+			}
+
+			Object.keys(updateditem).map(function (k) {
+				updateItemCall.AttributeUpdates[k] = {
+					Action: 'PUT', //
+					Value: updateditem[k]
+				};
+			});
+
+			DynamoDB.client.updateItem(updateItemCall, function (err, data) {
+				if (err) return ractive.set('errorMessage', err.message);
+
+				ractive.get('window').close();
+			});
+		});
+	}
+
+});
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE__5__;
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+__webpack_require__(7);
 
 var _ractive = __webpack_require__(2);
 
 var _ractive2 = _interopRequireDefault(_ractive);
 
-var _minitablelist = __webpack_require__(7);
+var _minitablelist = __webpack_require__(8);
 
 var _minitablelist2 = _interopRequireDefault(_minitablelist);
 
-var _ractiveWindow = __webpack_require__(9);
+var _ractiveWindow = __webpack_require__(10);
 
 var _ractiveWindow2 = _interopRequireDefault(_ractiveWindow);
 
-var _tabs = __webpack_require__(10);
+var _tabs = __webpack_require__(11);
 
 var _tabs2 = _interopRequireDefault(_tabs);
 
@@ -415,9 +514,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var ddb;
 //import RactiveWindow from './ractive-window.min.js'
 
-var DynamodbFactory = __webpack_require__(27);
+var DynamodbFactory = __webpack_require__(28);
 
-var AWS = __webpack_require__(4);
+var AWS = __webpack_require__(5);
 AWS.config.update({ maxRetries: 1 });
 
 var hsplit = _ractive2.default.extend({
@@ -429,7 +528,7 @@ var hsplit = _ractive2.default.extend({
 });
 
 exports.default = _ractive2.default.extend({
-	template: '\n\t\t\t<div class=\'ractive-dynamodb-ui theme-{{theme}}\'>\n\t\t\t\t<WindowContainer theme={{theme}} />\n\t\t\t</div>\n\t\t\t<hsplit style=\'\' class=\'ractive-dynamodb-ui theme-{{theme}}\'>\n\t\t\t\t<left>\n\t\t\t\t\t<minitablelist />\n\t\t\t\t</left>\n\t\t\t\t<split />\n\t\t\t\t<content>\n\t\t\t\t\t<tabs active_id=\'tables\' />\n\t\t\t\t</content>\n\t\t\t</hsplit>\n\t\t',
+	template: '\n\t\t\t<div class=\'ractive-dynamodb-ui theme-{{theme}}\'>\n\t\t\t\t<WindowContainer theme={{theme}} />\n\t\t\t</div>\n\t\t\t<hsplit style=\'\' class=\'ractive-dynamodb-ui theme-{{theme}}\'>\n\t\t\t\t<left>\n\t\t\t\t\t<minitablelist />\n\t\t\t\t</left>\n\t\t\t\t<split />\n\t\t\t\t<content>\n\t\t\t\t\t<tabs\n\t\t\t\t\t\tactive_id=\'tables\'\n\t\t\t\t\t\ttheme={{theme}}\n\t\t\t\t\t/>\n\t\t\t\t</content>\n\t\t\t</hsplit>\n\t\t',
 	components: {
 		hsplit: hsplit,
 		minitablelist: _minitablelist2.default,
@@ -445,7 +544,7 @@ exports.default = _ractive2.default.extend({
 	elToFocus: null,
 	on: {
 		init: function init() {
-
+			var ractive = this;
 			this.on('open-table', function (e, table) {
 				this.findComponent('tabs').newtab('tabletab', table);
 			});
@@ -478,18 +577,25 @@ exports.default = _ractive2.default.extend({
 					secretAccessKey: this.get('secretAccessKey')
 				}
 			});
+
+			this.observe('theme', function () {
+
+				this.findAllComponents('WindowContainer')[0].findAllComponents('Window').map(function (w) {
+					console.log("window", w.get('_editor').set({ theme: ractive.get('theme') }));
+				});
+			});
 		}
 	}
 });
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -499,7 +605,7 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _svgicons = __webpack_require__(8);
+var _svgicons = __webpack_require__(9);
 
 var _svgicons2 = _interopRequireDefault(_svgicons);
 
@@ -537,7 +643,7 @@ exports.default = Ractive.extend({
 });
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -582,13 +688,13 @@ Ractive.components['icon-filter'] = Ractive.extend({
 });
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 !function(t,e){ true?module.exports=e():undefined}(this,(function(){return function(t){var e={};function n(i){if(e[i])return e[i].exports;var o=e[i]={i:i,l:!1,exports:{}};return t[i].call(o.exports,o,o.exports,n),o.l=!0,o.exports}return n.m=t,n.c=e,n.d=function(t,e,i){n.o(t,e)||Object.defineProperty(t,e,{enumerable:!0,get:i})},n.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},n.t=function(t,e){if(1&e&&(t=n(t)),8&e)return t;if(4&e&&"object"==typeof t&&t&&t.__esModule)return t;var i=Object.create(null);if(n.r(i),Object.defineProperty(i,"default",{enumerable:!0,value:t}),2&e&&"string"!=typeof t)for(var o in t)n.d(i,o,function(e){return t[e]}.bind(null,o));return i},n.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return n.d(e,"a",e),e},n.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},n.p="",n(n.s=1)}([function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var i,o=n(3),s=(i=o)&&i.__esModule?i:{default:i};var r=Ractive.extend({components:{"icon-x":s.default.x,"icon-minimize":s.default.minimize,"icon-maximize":s.default.maximize},template:"\n\t\t\t{{#_wnd_rendered}}\n\t\t\t\t<div\n\t\t\t\t\tid='ractive-window-{{.id}}'\n\t\t\t\t\tclass='theme-{{theme}} ractive-window{{#(.buttons.length > 0)}} with-buttons{{/}}{{#.resizable}} resizable{{else}} fixed{{/}}{{#.geometry.state === 2}} maximized{{/}}{{#.class.window}} {{.class.window}}{{/}}{{#.active}} active{{/}}'\n\t\t\t\t\ton-click='_raise'\n\t\t\t\t\tstyle='{{#.hidden}}display: none;{{/}}top: {{.geometry.top}}px; left: {{.geometry.left}}px; {{#(.resizable || .geometry.state === 2)}}width: {{.geometry.width}}{{.geometry.dwunit}}; height: {{.geometry.height}}{{.geometry.dhunit}}; {{/}}z-index: {{.geometry.index}};{{#.style.window}} {{.style.window}}{{/}}'\n\t\t\t\t>\n\t\t\t\t\t<div class='rw-modal' on-mousedown='_moveStart' style='{{^.blocked}}display: none;{{/}}'></div>\n\t\t\t\t\t<div class='rw-interior'>\n\t\t\t\t\t\t<div class='rw-controls'>{{>controls}}</div>\n\t\t\t\t\t\t<div class='rw-title' on-touchstart-mousedown='_moveStart' on-dblclick='_restore'>{{>title}}</div>\n\t\t\t\t\t\t{{#if dialog}}<div class='rw-dialog-cover'></div><div class='rw-dialog' style='width: {{dialog.width}}px; {{#if dialog.height}}height: {{dialog.height}}px; {{/if}}'>{{> ~/makePartial('sharedialog', dialog.raw) }}</div>{{/if}}\n\t\t\t\t\t\t<div class='rw-body{{#.class.body}} {{.class.body}}{{/}}' {{#.style.body}}style='{{.style.body}}'{{/}}>{{>body}}</div>\n\t\t\t\t\t\t{{#(.buttons.length > 0)}}<div class='rw-buttons'>{{>buttons}}</div>{{/}}\n\t\t\t\t\t\t<div class='rw-resize-handle' on-touchstart-mousedown='_resizeStart'></div>\n\t\t\t\t\t\t<div class='rw-foot'>{{>foot}}</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t{{/}}\n\t\t",prompt:function(t,e){this.dialog({content:t,raw:"{{dialog.content}}<br><input class='form-control' value='{{dialog.reply}}' /> <div style='position: absolute;bottom: 10px;right: 10px;'><button class='btn btn-xs btn-default' on-click='@this.set(\"dialog\", false )'>Cancel</button> <button class='btn btn-xs btn-primary' on-click='dialog.callback.prompt'>OK</button></div>",width:300,cb:e})},confirm:function(t,e){this.dialog({content:t,raw:"{{dialog.content}} <div style='position: absolute;bottom: 10px;right: 10px;'><button class='btn btn-xs btn-default' on-click='@this.set(\"dialog\", false )'>Cancel</button> <button class='btn btn-xs btn-primary' on-click='dialog.callback.ok'>OK</button></div>",width:300,cb:e})},dialog:function(t){this.set("dialog",{content:t.content,params:t.params,raw:t.raw,width:t.width,height:t.height,cb:t.cb})},onconstruct:function(t){var e,n,i,o,s=this;i=function(t){var o,r;t.preventDefault(),t.type.indexOf("touch")>=0?(o=+t.changedTouches[0].clientX,r=+t.changedTouches[0].clientY):(o=+(t.x||t.clientX),r=+(t.y||t.clientY)),s.move(+s.get("geometry.left")+o-+e,+s.get("geometry.top")+r-+n),e=o,n=r,"mouseup"!==t.type&&"touchend"!==t.type||(document.removeEventListener("mousemove",i,!1),document.removeEventListener("mouseup",i,!1),document.removeEventListener("touchmove",i,!1),document.removeEventListener("touchend",i,!1))},s.on("_moveStart",(function(t){("mousedown"===t.original.type&&0===t.original.button||"touchstart"===t.original.type)&&(s.restore(),t.original.type.indexOf("touch")>=0?(e=+t.original.changedTouches[0].clientX,n=+t.original.changedTouches[0].clientY):(e=+(t.original.x||t.original.clientX),n=+(t.original.y||t.original.clientY)),document.addEventListener("mousemove",i),document.addEventListener("mouseup",i),document.addEventListener("touchmove",i),document.addEventListener("touchend",i),t.original.preventDefault()),s.element&&s.element.getElementsByTagName("iframe").length&&s.element.getElementsByTagName("iframe")[0].focus()})),o=function(t){var i,r;t.preventDefault(),t.type.indexOf("touch")>=0?(i=t.changedTouches[0].clientX,r=t.changedTouches[0].clientY):(i=+(t.x||t.clientX),r=+(t.y||t.clientY));var l=+s.get("geometry.width")+(i-+e),a=+s.get("geometry.height")+(r-+n);s.resize(l,a),e=i,n=r,"mouseup"!==t.type&&"touchend"!==t.type||(document.removeEventListener("mousemove",o,!1),document.removeEventListener("mouseup",o,!1),document.removeEventListener("touchmove",o,!1),document.removeEventListener("touchend",o,!1))},s.on("_resizeStart",(function(t){("mousedown"==t.original.type&&0===t.original.button||"touchstart"===t.original.type)&&(s.restore(),t.original.type.indexOf("touch")>=0?(e=t.original.changedTouches[0].clientX,n=t.original.changedTouches[0].clientY):(e=t.original.x||t.original.clientX,n=t.original.y||t.original.clientY),document.addEventListener("mousemove",o),document.addEventListener("mouseup",o),document.addEventListener("touchmove",o),document.addEventListener("touchend",o))}));var r=function(t,e){switch(t){case"min":s.minimize();break;case"max":s.maximize();break;case"normal":s.restore()}};s.on("dialog.callback.ok",(function(t){var e=this.get("dialog");this.set("dialog",!1);try{e.cb()}catch(t){}})),s.on("dialog.callback.prompt",(function(t){var e=this.get("dialog");try{e.cb(e.reply)}catch(t){}this.set("dialog",!1)})),s.on("_minimize",(function(t){r("min")})),s.on("_restore",(function(t){switch(s.get("geometry.state")){case 0:r("max");break;case 1:case 2:r("normal")}})),s.on("_raise",(function(t){s.raise()})),s.on("_close",(function(t){s.close()})),s.on("_dialog-button",(function(t){var e=t.context.action;e&&"function"==typeof e&&e.call(this)})),s.result=null,s.waitForClose=s.afterClose=new Promise((function(t,e){var n=function(t){return function(e){s.completeAfterClose=null,s.rejectAfterClose=null,t(e)}};s.completeAfterClose=n(t),s.rejectAfterClose=n(e)}))},onrender:function(){var t=this;!this.get("buttonClass")&&this.parent.get("buttonClass")&&this.set("buttonClass",this.parent.get("buttonClass")),this.watchers=this.observe({title:function(e,n){t.fire("retitle",e,t)},"geometry.state":function(e,n){switch(e){case 0:t.fire("restore",e,t);break;case 1:t.fire("minimize",e,t);break;case 2:t.fire("maximize",e,t)}}})},onunrender:function(){this.watchers&&"function"==typeof this.watchers.cancel&&this.watchers.cancel()},activated:function(){},data:function(){return{dialog:!1,_wnd_rendered:!1,blocked:!1,resizable:!0,geometry:{top:-9999,left:-9999,width:200,height:200,state:0,dwunit:"px",dhunit:"px",index:1e3,minimum:{x:0,y:0,width:70,height:50}},style:{},class:{},makePartial:function(t,e){return this._makePartial_templates||(this._makePartial_templates={}),this._makePartial_templates[t]!=e&&(this.resetPartial(t,e),this._makePartial_templates[t]=e),t}}},partials:{title:"{{> ~/makePartial('titleTpl', .title) }}",body:"",foot:"",buttons:"{{#.buttons:i}}<button on-click='_dialog-button' class='{{.position || ''}}{{#.buttonClass}} {{.buttonClass}}{{/}}{{#../../class.button}} {{../../class.button}}{{/}}' disabled='{{!.enabled}}'>{{> ~/makePartial('button' + i + 'Tpl', .label) }}</button>{{/}}",controls:"{{#controls:i}}\t{{#if .raw}}{{>  ~/makePartial('custom_control_template'+i, .raw) }}{{/if}}{{/controls}}{{#if minimizable === false}}{{else}}{{>minimizeControl}}{{/if}}{{>restoreControl}}{{>closeControl}}",minimizeControl:"<button on-click='_minimize' class='btn btn-sm rw-minimize'> <icon-minimize /> </button>",restoreControl:"<button on-click='_restore'  class='btn btn-sm rw-restore'> <icon-maximize /> </button>",closeControl:"<button on-click='_close'    class='btn btn-sm rw-close'> <icon-x /> </button>"},rerender:function(){return this.get("_wnd_rendered")?(this.set("_wnd_rendered",!1),this.set("_wnd_rendered",!0)):Promise.resolve("ok")},title:function(t){this.set("title",t)},move:function(t,e){if("string"==typeof t){switch(t){case"center":case"centerScreen":return this.set({"geometry.top":(this.parent.el.clientHeight-this.element.clientHeight)/2,"geometry.left":(this.parent.el.clientWidth-this.element.clientWidth)/2});case"cascade":return this.set({"geometry.top":this.parentNumber%10*20+10,"geometry.left":this.parentNumber%50*20+10})}return Promise.resolve(!1)}e=+e,t=+t;var n=this.get("geometry.minimum"),i=this.get("geometry.maximum"),o=+this.get("geometry.width"),s=+this.get("geometry.height");return i&&(t+o>+i.x&&(t=+i.x-t),e+s>+i.y&&(e=+i.y-e)),n&&(t<+n.x&&(t=+n.x),e<+n.y&&(e=+n.y)),this.set({"geometry.top":e,"geometry.left":t})},resize:function(t,e){t=a.call(this,"width",t),e=a.call(this,"height",e);var n=this.get("geometry.minimum"),i=this.get("geometry.maximum");i&&(t>i.width&&(t=i.width),t>i.height&&(t=i.height)),n&&(t<n.width&&(t=n.width),e<n.height&&(e=n.height)),this.set({"geometry.width":t,"geometry.height":e}),this.element&&this.element.getElementsByTagName("iframe").length&&this.element.getElementsByTagName("iframe")[0].focus()},resizable:function(t){this.set("resizable",t)},minimize:function(){1!==this.get("geometry.state")&&(this.set({hidden:!0,"geometry.state":1}),this.fire("minimized",{window:this}))},maximize:function(){2!==this.get("geometry.state")&&(this.normalGeometry={top:this.get("geometry.top"),left:this.get("geometry.left"),width:this.get("geometry.width"),height:this.get("geometry.height")},this.set({hidden:!1,"geometry.left":0,"geometry.top":0,"geometry.width":100,"geometry.height":100,"geometry.dwunit":"%","geometry.dhunit":"%","geometry.state":2}),this.fire("maximized",{window:this}))},restore:function(){switch(this.get("geometry.state")){case 1:this.set({hidden:!1,"geometry.state":0});break;case 2:var t=this.normalGeometry||{};this.normalGeometry=null,(t.top<0||t.left<0)&&(t.top=0,t.left=0),this.set({hidden:!1,"geometry.left":t.left,"geometry.top":t.top,"geometry.width":t.width,"geometry.height":t.height,"geometry.dwunit":"px","geometry.dhunit":"px","geometry.state":0})}this.raise()},raise:function(){this.parent&&this.parent.raiseWindow(this)},kill:function(){this.fire("close",this),this.parent?this.parent.killWindow(this):this.teardown(),this.completeAfterClose&&this.completeAfterClose(this.result)},content:function(t){return this.resetPartial("body",t)},buttons:function(){var t,e=[];if(this.set("buttons",e),1===arguments.length&&"number"==typeof arguments[0].length)e=arguments[0];else for(t=0;t<arguments.length;t++)e.push(arguments[t]);var n=[],i=[],o=[];for(t=0;t<e.length;t++){var s=e[t];s.position?"left"===s.position?n.push(s):"right"===s.position?i.push(s):"middle"===s.position?o.push(s):"center"===s.position?o.push(s):(i.push(s),s.position="right"):(i.push(s),s.position="right"),s.hasOwnProperty("enabled")||(s.enabled=!0)}for(e=[],t=0;t<n.length;t++)e.push(n[t]);for(t=i.length-1;t>=0;t--)e.push(i[t]);for(t=0;t<o.length;t++)e.push(o[t]);this.set("buttons",e)},button:function(t,e){var n,i,o=this.get("buttons");if("number"==typeof t)n=o[t],i=t;else for(i=0;i<o.length;i++)if(o[i].label===t){n=o[i];break}n&&(e(n),this.set("buttons."+i,n))},controls:function(){var t,e=[],n="";if(1===arguments.length&&"string"!=typeof arguments[0])e=arguments[0];else for(t=0;t<arguments.length;t++)e.push(arguments[t]);for(t=0;t<e.length;t++)n+="{{>"+e[t]+"Control}}";return this.partials.controls=n,this.rerender()},onClose:function(){this.kill()},close:function(t){if(t||(t=this.onClose),0===t.length)t.call(this);else{var e=this;t.call(this,(function(t){t&&e.kill()}))}}}),l=/([\d\.]+)(.*)/;function a(t,e){var n=function(t,e){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t)){for(var n,i=[],o=t[Symbol.iterator]();!(n=o.next()).done&&(i.push(n.value),!e||i.length!==e););return i}throw new TypeError("Invalid attempt to destructure non-iterable instance")}(l.exec(e.toString()),3),i=(n[0],n[1]),o=n[2];o=o||"px";var s="width"===t?"dwunit":"dhunit",r=this.find("div");if("px"===o)return i;if(r){var a={};a["geometry."+t]=i,a["geometry."+s]=o,this.set(a);var c=this.find("div")["client"+t[0].toUpperCase()+t.substring(1)];return a["geometry."+t]=c,a["geometry."+s]="px",this.set(a),c}}e.default=r},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),n(2);var i=s(n(0)),o=s(n(4));function s(t){return t&&t.__esModule?t:{default:t}}e.default={Window:i.default,Container:o.default}},function(t,e,n){},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var i=Ractive.extend({template:'\n\t\t<svg class="icon" style={{style}} version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\n\t\t\t viewBox="0 0 512.001 512.001" xml:space="preserve">\n\n\t\t\t<g>\n\t\t\t\t<path d="M294.111,256.001L504.109,46.003c10.523-10.524,10.523-27.586,0-38.109c-10.524-10.524-27.587-10.524-38.11,0L256,217.892\n\t\t\t\t\tL46.002,7.894c-10.524-10.524-27.586-10.524-38.109,0s-10.524,27.586,0,38.109l209.998,209.998L7.893,465.999\n\t\t\t\t\tc-10.524,10.524-10.524,27.586,0,38.109c10.524,10.524,27.586,10.523,38.109,0L256,294.11l209.997,209.998\n\t\t\t\t\tc10.524,10.524,27.587,10.523,38.11,0c10.523-10.524,10.523-27.586,0-38.109L294.111,256.001z"/>\n\t\t\t</g>\n\n\t\t</svg>\n'}),o=Ractive.extend({template:'\n\t\t<svg class="icon" style={{style}} version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\n\t\t\t viewBox="0 0 489.3 489.3" xml:space="preserve">\n\n\t\t\t<g>\n\t\t\t\t<path d="M0.05,12.3v222.8c0,6.8,5.5,12.3,12.3,12.3s12.3-5.5,12.3-12.3V24.5h440.2v440.2h-211.9c-6.8,0-12.3,5.5-12.3,12.3\n\t\t\t\t\ts5.5,12.3,12.3,12.3h224c6.8,0,12.3-5.5,12.3-12.3V12.3c0-6.8-5.5-12.3-12.3-12.3H12.35C5.55,0,0.05,5.5,0.05,12.3z"/>\n\t\t\t\t<path d="M0.05,476.9c0,6.8,5.5,12.3,12.3,12.3h170.3c6.8,0,12.3-5.5,12.3-12.3V306.6c0-6.8-5.5-12.3-12.3-12.3H12.35\n\t\t\t\t\tc-6.8,0-12.3,5.5-12.3,12.3C0.05,306.6,0.05,476.9,0.05,476.9z M24.55,318.8h145.9v145.9H24.55V318.8z"/>\n\t\t\t\t<path d="M231.55,135.9c-6.8,0-12.3,5.5-12.3,12.3v109.5c0,6.8,5.5,12.3,12.3,12.3h109.5c6.8,0,12.3-5.5,12.3-12.3\n\t\t\t\t\ts-5.5-12.3-12.3-12.3h-79.9l138.7-138.7c4.8-4.8,4.8-12.5,0-17.3s-12.5-4.8-17.3,0l-138.7,138.7v-79.9\n\t\t\t\t\tC243.85,141.4,238.35,135.9,231.55,135.9z"/>\n\t\t\t</g>\n\n\t\t</svg>\n'}),s=Ractive.extend({template:'\n\t\t<svg class="icon" style={{style}} version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\n\t\t\t viewBox="0 0 53 53" xml:space="preserve">\n\n\t\t\t<path d="M52.923,0.618c-0.101-0.244-0.296-0.439-0.541-0.541C52.26,0.027,52.13,0,52,0H40c-0.552,0-1,0.448-1,1s0.448,1,1,1h9.586\n\t\t\t\tL33.293,18.293c-0.391,0.391-0.391,1.023,0,1.414C33.488,19.902,33.744,20,34,20s0.512-0.098,0.707-0.293L51,3.414V13\n\t\t\t\tc0,0.552,0.448,1,1,1s1-0.448,1-1V1C53,0.87,52.973,0.74,52.923,0.618z"/>\n\t\t\t<path d="M18.293,33.293L2,49.586V40c0-0.552-0.448-1-1-1s-1,0.448-1,1v12c0,0.13,0.027,0.26,0.077,0.382\n\t\t\t\tc0.101,0.244,0.296,0.439,0.541,0.541C0.74,52.973,0.87,53,1,53h12c0.552,0,1-0.448,1-1s-0.448-1-1-1H3.414l16.293-16.293\n\t\t\t\tc0.391-0.391,0.391-1.023,0-1.414S18.684,32.902,18.293,33.293z"/>\n\t\t\t<path d="M1,14c0.552,0,1-0.448,1-1V3.414l16.292,16.292c0.195,0.195,0.451,0.293,0.707,0.293s0.512-0.098,0.707-0.293\n\t\t\t\tc0.391-0.391,0.391-1.023,0-1.414L3.414,2H13c0.552,0,1-0.448,1-1s-0.448-1-1-1H1C0.87,0,0.74,0.027,0.618,0.077\n\t\t\t\tC0.373,0.179,0.179,0.373,0.077,0.618C0.027,0.74,0,0.87,0,1v12C0,13.552,0.448,14,1,14z"/>\n\t\t\t<path d="M52,39c-0.552,0-1,0.448-1,1v9.586L34.707,33.292c-0.391-0.391-1.023-0.391-1.414,0s-0.391,1.023,0,1.414L49.586,51H40\n\t\t\t\tc-0.552,0-1,0.448-1,1s0.448,1,1,1h12c0.13,0,0.26-0.027,0.382-0.077c0.244-0.101,0.439-0.296,0.541-0.541\n\t\t\t\tC52.973,52.26,53,52.13,53,52V40C53,39.448,52.552,39,52,39z"/>\n\n\t\t</svg>\n'});e.default={x:i,minimize:o,maximize:s}},function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var i,o=n(0),s=(i=o)&&i.__esModule?i:{default:i};var r=0,l=Ractive.extend({isolated:!0,defaults:{control:{label:function(t,e){s.default.partials[t+"ControlLabel"]=e}},controls:function(){for(var t="",e=0;e<arguments.length;e++)t+="{{>"+arguments[e]+"Control}}";s.default.partials.controls=t}},components:{Window:s.default},data:function(){return{_windows_list:[],windows:{}}},template:"\n\t\t\t<div class='host-content'>{{yield}}</div>\n\t\t\t{{#_windows_list}}\n\t\t\t\t<Window theme={{theme}} />\n\t\t\t{{/_windows_list}}\n\t\t",newWindow:function(t,e){var n=r;r+=1;var i=this;return i.push("_windows_list",n).then((function(){var o,s=i.findAllComponents("Window"),r=s[s.length-1];i.set("windows."+n,r),r.parentNumber=n,r.set({"geometry.index":1e3+s.length,"geometry.left":-9999,"geometry.top":-9999,id:n});var l=function(){var t;return r.raise(),r.set("_wnd_rendered",!0).then((function(){r.element=r.find(".ractive-window");try{if((t=r.activated())&&"function"==typeof t.then)return t}catch(t){console.log(t)}}))},a=function(){return-9999===r.get("geometry.left")?r.move("cascade").then((function(){return r})):r};return o=(o=(o=function(){var n;if(e&&"function"==typeof e)try{if((n=e(r))&&"function"==typeof n.then)return n}catch(t){console.log(t)}else if("function"==typeof t)try{(n=t(r))&&"function"==typeof n.then&&(o=n)}catch(t){console.log(t)}}())?o.then(l):l())?o.then(a):a()}))},killWindow:function(t){var e,n,i=this.get("windows"),o=-1;if(i){for(var s in i)i[s]===t?delete i[s]:(n=i[s].get("geometry.index"))>o&&(o=n,e=i[s]);e&&!e.get("active")&&(e.set("active",!0),e.element&&e.element.getElementsByTagName("iframe").length&&e.element.getElementsByTagName("iframe")[0].focus())}var r=this.get("_windows_list");r&&this.splice("_windows_list",r.indexOf(t.parentNumber),1)},raiseWindow:function(t){var e,n=this.get("windows"),i=(this.get("_windows_list"),[]),o=[];for(var s in o.push(t),n)o.indexOf(n[s])<0&&i.push(n[s]);for(e in i.sort((function(t,e){var n=t.get("geometry.index"),i=e.get("geometry.index");return n<i?-1:n>i?1:0})),t&&(i=i.concat(o)),i)i[e].set("geometry.index",+e+1e3),i[e]!==t&&i[e].set("active",!1);t.get("active")||(t.set("active",!0),setTimeout((function(){t.element&&t.element.getElementsByTagName("iframe").length&&t.element.getElementsByTagName("iframe")[0].focus()}),300))}});e.default=l}]).default}));
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -598,15 +704,15 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _tablelistfull = __webpack_require__(11);
+var _tablelistfull = __webpack_require__(12);
 
 var _tablelistfull2 = _interopRequireDefault(_tablelistfull);
 
-var _create = __webpack_require__(12);
+var _create = __webpack_require__(13);
 
 var _create2 = _interopRequireDefault(_create);
 
-var _tabletab = __webpack_require__(13);
+var _tabletab = __webpack_require__(14);
 
 var _tabletab2 = _interopRequireDefault(_tabletab);
 
@@ -619,7 +725,7 @@ exports.default = Ractive.extend({
 		tablecreate: _create2.default,
 		tabletab: _tabletab2.default
 	},
-	template: '\n\t\t<tabhead>\n\t\t\t<tab class=\'{{#if active_id === "tables" }}active{{/if}}\' on-click=\'@this.fire("activetab", "tables")\'>\n\t\t\t\t<icon-database style="width: 15px;height: 15px;" />\n\t\t\t</tab>\n\t\t{{#tabs}}\n\t\t\t{{#if .closed !== true}}\n\t\t\t<tab class=\'{{#if .id === active_id }}active{{/if}}\' on-click=\'@this.fire("activetab",.id)\'>\n\t\t\t\t{{.name}}\n\t\t\t\t<i class=\'\' on-click=\'closetab\'><icon-x style="width: 8px;height: 8px;line-height: 15px;" /></i>\n\t\t\t</tab>\n\t\t\t{{/if}}\n\t\t{{/tabs}}\n\t\t</tabhead>\n\t\t<tabcontent>\n\t\t\t{{#if active_id === "tables" }}\n\t\t\t\t<tablelistfull />\n\t\t\t{{else}}\n\t\t\t\t{{#tabs}}\n\t\t\t\t\t{{#if .closed === true}}\n\t\t\t\t\t\t<div class=\'closedtab\'></div>\n\t\t\t\t\t{{else}}\n\t\t\t\t\t\t{{#if .type === \'tablecreate\' }}\n\t\t\t\t\t\t\t<tablecreate active={{ .id === active_id  }} id={{id}} />\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t{{#if .type === \'tabletab\' }}\n\t\t\t\t\t\t\t<tabletab table={{.}} active={{ .id === active_id  }} />\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t{{/if}}\n\t\t\t\t{{/tabs}}\n\t\t\t{{/if}}\n\t\t</tabcontent>\n\t\t',
+	template: '\n\t\t<tabhead>\n\t\t\t<tab class=\'{{#if active_id === "tables" }}active{{/if}}\' on-click=\'@this.fire("activetab", "tables")\'>\n\t\t\t\t<icon-database style="width: 15px;height: 15px;" />\n\t\t\t</tab>\n\t\t{{#tabs}}\n\t\t\t{{#if .closed !== true}}\n\t\t\t<tab class=\'{{#if .id === active_id }}active{{/if}}\' on-click=\'@this.fire("activetab",.id)\'>\n\t\t\t\t{{.name}}\n\t\t\t\t<i class=\'\' on-click=\'closetab\'><icon-x style="width: 8px;height: 8px;line-height: 15px;" /></i>\n\t\t\t</tab>\n\t\t\t{{/if}}\n\t\t{{/tabs}}\n\t\t</tabhead>\n\t\t<tabcontent>\n\t\t\t{{#if active_id === "tables" }}\n\t\t\t\t<tablelistfull />\n\t\t\t{{else}}\n\t\t\t\t{{#tabs}}\n\t\t\t\t\t{{#if .closed === true}}\n\t\t\t\t\t\t<div class=\'closedtab\'></div>\n\t\t\t\t\t{{else}}\n\t\t\t\t\t\t{{#if .type === \'tablecreate\' }}\n\t\t\t\t\t\t\t<tablecreate active={{ .id === active_id  }} id={{id}} />\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t{{#if .type === \'tabletab\' }}\n\t\t\t\t\t\t\t<tabletab\n\t\t\t\t\t\t\t\ttable={{.}}\n\t\t\t\t\t\t\t\tactive={{ .id === active_id  }}\n\t\t\t\t\t\t\t\ttheme={{~/theme}}\n\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t{{/if}}\n\t\t\t\t{{/tabs}}\n\t\t\t{{/if}}\n\t\t</tabcontent>\n\t\t',
 	data: function data() {
 		return {};
 	},
@@ -689,7 +795,7 @@ exports.default = Ractive.extend({
 });
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -825,7 +931,7 @@ exports.default = Ractive.extend({
 });
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1020,7 +1126,7 @@ exports.default = Ractive.extend({
 });
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1030,39 +1136,39 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _info = __webpack_require__(14);
+var _info = __webpack_require__(15);
 
 var _info2 = _interopRequireDefault(_info);
 
-var _alarms = __webpack_require__(15);
+var _alarms = __webpack_require__(16);
 
 var _alarms2 = _interopRequireDefault(_alarms);
 
-var _capacity = __webpack_require__(16);
+var _capacity = __webpack_require__(17);
 
 var _capacity2 = _interopRequireDefault(_capacity);
 
-var _indexes = __webpack_require__(17);
+var _indexes = __webpack_require__(18);
 
 var _indexes2 = _interopRequireDefault(_indexes);
 
-var _tableglobal = __webpack_require__(18);
+var _tableglobal = __webpack_require__(19);
 
 var _tableglobal2 = _interopRequireDefault(_tableglobal);
 
-var _backup = __webpack_require__(19);
+var _backup = __webpack_require__(20);
 
 var _backup2 = _interopRequireDefault(_backup);
 
-var _tabletriggers = __webpack_require__(20);
+var _tabletriggers = __webpack_require__(21);
 
 var _tabletriggers2 = _interopRequireDefault(_tabletriggers);
 
-var _metrics = __webpack_require__(21);
+var _metrics = __webpack_require__(22);
 
 var _metrics2 = _interopRequireDefault(_metrics);
 
-var _items = __webpack_require__(22);
+var _items = __webpack_require__(23);
 
 var _items2 = _interopRequireDefault(_items);
 
@@ -1081,7 +1187,7 @@ exports.default = Ractive.extend({
 		tablemetrics: _metrics2.default,
 		tableitems: _items2.default
 	},
-	template: '\n\t\t<div class=\'tableview {{#if active}}active{{/if}}\'>\n\t\t\t<div class=\'tableview-table-tabs noselect\'>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'info\'}}active{{/if}}\'         on-click=\'@this.set(\'tab\',\'info\')\'><!-- <i class=\'zmdi zmdi-info\'></i>--> Overview </a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'data\'}}active{{/if}}\'         on-click=\'@this.set(\'tab\',\'data\')\'><!--<i class=\'zmdi zmdi-format-list-bulleted\'></i>--> Items</a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'metrics\'}}active{{/if}}\'      on-click=\'@this.set(\'tab\',\'metrics\')\'><!--<i class=\'zmdi zmdi-chart\'></i>--> Metrics</a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'alarms\'}}active{{/if}}\'       on-click=\'@this.set(\'tab\',\'alarms\')\'><!--<i class=\'zmdi zmdi-notifications\'></i>--> Alarms</a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'capacity\'}}active{{/if}}\'     on-click=\'@this.set(\'tab\',\'capacity\')\'><!--<i class=\'zmdi zmdi-memory\'></i>--> Capacity</a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'indexes\'}}active{{/if}}\'      on-click=\'@this.set(\'tab\',\'indexes\')\'><!--<i class=\'zmdi zmdi-format-line-spacing\'></i>--> Indexes</a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'globaltables\'}}active{{/if}}\' on-click=\'@this.set(\'tab\',\'globaltables\')\'><!--<i class=\'zmdi zmdi-globe\'></i>--> Global Tables</a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'backups\'}}active{{/if}}\'      on-click=\'@this.set(\'tab\',\'backups\')\'><!--<i class=\'zmdi zmdi-card-sd\'></i>--> Backups</a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'triggers\'}}active{{/if}}\'     on-click=\'@this.set(\'tab\',\'triggers\')\'><!--<i class=\'zmdi zmdi-portable-wifi\'></i>--> Triggers</a>\n\t\t\t</div>\n\t\t\t<div style=\'position: absolute;top: 40px;left: 30px;right: 30px;bottom: 2px;\'>\n\t\t\t\t{{#if err}}\n\t\t\t\t\t<br> {{ err.errorMessage || err.message }}\n\t\t\t\t{{else}}\n\t\t\t\t\t{{#if describeTable === null }}\n\t\t\t\t\t\t<br>Loading...\n\t\t\t\t\t{{else}}\n\n\t\t\t\t\t\t{{#if tab === \'info\'}}\n\t\t\t\t\t\t\t<tableinfo table=\'{{.table}}\' describeTable=\'{{describeTable}}\' />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'data\'}}\n\t\t\t\t\t\t\t<tableitems table=\'{{.table}}\' describeTable=\'{{describeTable}}\' type=\'{{.type}}\' scan=\'{{.scan}}\' query=\'{{.query}}\' sql=\'{{.sql}}\' />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'metrics\'}}\n\t\t\t\t\t\t\t<tablemetrics table=\'{{.table}}\' describeTable=\'{{describeTable}}\' />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'alarms\'}}\n\t\t\t\t\t\t\t<tablealarms table=\'{{.table}}\' describeTable=\'{{describeTable}}\' />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'capacity\'}}\n\t\t\t\t\t\t\t<tablecapacity table=\'{{.table}}\' describeTable=\'{{describeTable}}\' />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'indexes\'}}\n\t\t\t\t\t\t\t<tableindexes table=\'{{.table}}\' describeTable=\'{{describeTable}}\' />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'globaltables\'}}\n\t\t\t\t\t\t\t<tableglobal table=\'{{.table}}\' describeTable=\'{{describeTable}}\' />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'backups\'}}\n\t\t\t\t\t\t\t<tablebackup table=\'{{.table}}\' describeTable=\'{{describeTable}}\' />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'triggers\'}}\n\t\t\t\t\t\t\t<tabletriggers table=\'{{.table}}\' describeTable=\'{{describeTable}}\' />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t{{/if}}\n\t\t\t\t{{/if}}\n\n\t\t\t</div>\n\t\t</div>\n\t',
+	template: '\n\t\t<div class=\'tableview {{#if active}}active{{/if}}\'>\n\t\t\t<div class=\'tableview-table-tabs noselect\'>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'info\'}}active{{/if}}\'         on-click=\'@this.set(\'tab\',\'info\')\'><!-- <i class=\'zmdi zmdi-info\'></i>--> Overview </a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'data\'}}active{{/if}}\'         on-click=\'@this.set(\'tab\',\'data\')\'><!--<i class=\'zmdi zmdi-format-list-bulleted\'></i>--> Items</a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'metrics\'}}active{{/if}}\'      on-click=\'@this.set(\'tab\',\'metrics\')\'><!--<i class=\'zmdi zmdi-chart\'></i>--> Metrics</a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'alarms\'}}active{{/if}}\'       on-click=\'@this.set(\'tab\',\'alarms\')\'><!--<i class=\'zmdi zmdi-notifications\'></i>--> Alarms</a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'capacity\'}}active{{/if}}\'     on-click=\'@this.set(\'tab\',\'capacity\')\'><!--<i class=\'zmdi zmdi-memory\'></i>--> Capacity</a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'indexes\'}}active{{/if}}\'      on-click=\'@this.set(\'tab\',\'indexes\')\'><!--<i class=\'zmdi zmdi-format-line-spacing\'></i>--> Indexes</a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'globaltables\'}}active{{/if}}\' on-click=\'@this.set(\'tab\',\'globaltables\')\'><!--<i class=\'zmdi zmdi-globe\'></i>--> Global Tables</a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'backups\'}}active{{/if}}\'      on-click=\'@this.set(\'tab\',\'backups\')\'><!--<i class=\'zmdi zmdi-card-sd\'></i>--> Backups</a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'triggers\'}}active{{/if}}\'     on-click=\'@this.set(\'tab\',\'triggers\')\'><!--<i class=\'zmdi zmdi-portable-wifi\'></i>--> Triggers</a>\n\t\t\t</div>\n\t\t\t<div style=\'position: absolute;top: 40px;left: 30px;right: 30px;bottom: 2px;\'>\n\t\t\t\t{{#if err}}\n\t\t\t\t\t<br> {{ err.errorMessage || err.message }}\n\t\t\t\t{{else}}\n\t\t\t\t\t{{#if describeTable === null }}\n\t\t\t\t\t\t<br>Loading...\n\t\t\t\t\t{{else}}\n\n\t\t\t\t\t\t{{#if tab === \'info\'}}\n\t\t\t\t\t\t\t<tableinfo table=\'{{.table}}\' describeTable=\'{{describeTable}}\' />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'data\'}}\n\t\t\t\t\t\t\t<tableitems\n\t\t\t\t\t\t\t\ttable={{.table}}\n\t\t\t\t\t\t\t\tdescribeTable={{describeTable}}\n\t\t\t\t\t\t\t\ttype={{.type}}\n\t\t\t\t\t\t\t\tscan={{.scan}}\n\t\t\t\t\t\t\t\tquery={{.query}}\n\t\t\t\t\t\t\t\tsql={{.sql}}\n\t\t\t\t\t\t\t\ttheme={{~/theme}}\n\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'metrics\'}}\n\t\t\t\t\t\t\t<tablemetrics table=\'{{.table}}\' describeTable=\'{{describeTable}}\' />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'alarms\'}}\n\t\t\t\t\t\t\t<tablealarms table=\'{{.table}}\' describeTable=\'{{describeTable}}\' />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'capacity\'}}\n\t\t\t\t\t\t\t<tablecapacity table=\'{{.table}}\' describeTable=\'{{describeTable}}\' />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'indexes\'}}\n\t\t\t\t\t\t\t<tableindexes table=\'{{.table}}\' describeTable=\'{{describeTable}}\' />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'globaltables\'}}\n\t\t\t\t\t\t\t<tableglobal table=\'{{.table}}\' describeTable=\'{{describeTable}}\' />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'backups\'}}\n\t\t\t\t\t\t\t<tablebackup table=\'{{.table}}\' describeTable=\'{{describeTable}}\' />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'triggers\'}}\n\t\t\t\t\t\t\t<tabletriggers table=\'{{.table}}\' describeTable=\'{{describeTable}}\' />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t{{/if}}\n\t\t\t\t{{/if}}\n\n\t\t\t</div>\n\t\t</div>\n\t',
 	data: function data() {
 		return {
 			tab: 'info',
@@ -1110,7 +1216,7 @@ exports.default = Ractive.extend({
 });
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1242,7 +1348,7 @@ exports.default = Ractive.extend({
 });
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1256,7 +1362,7 @@ exports.default = Ractive.extend({
 });
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1373,7 +1479,7 @@ exports.default = Ractive.extend({
 });
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1602,7 +1708,7 @@ exports.default = Ractive.extend({
 });
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1620,7 +1726,7 @@ exports.default = Ractive.extend({
 });
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1763,7 +1869,7 @@ exports.default = Ractive.extend({
 });
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1781,7 +1887,7 @@ exports.default = Ractive.extend({
 });
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1896,7 +2002,7 @@ exports.default = Ractive.extend({
 });
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1912,15 +2018,15 @@ var _utils = __webpack_require__(1);
 
 var _utils2 = _interopRequireDefault(_utils);
 
-var _open_item2 = __webpack_require__(23);
+var _open_item2 = __webpack_require__(24);
 
 var _open_item3 = _interopRequireDefault(_open_item2);
 
-var _create_item2 = __webpack_require__(25);
+var _create_item2 = __webpack_require__(26);
 
 var _create_item3 = _interopRequireDefault(_create_item2);
 
-var _duplicate_item2 = __webpack_require__(33);
+var _duplicate_item2 = __webpack_require__(27);
 
 var _duplicate_item3 = _interopRequireDefault(_duplicate_item2);
 
@@ -2467,7 +2573,7 @@ exports.default = Ractive.extend({
 });
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2494,31 +2600,35 @@ exports.default = function (e, col, item, rawitem) {
 
 		var vid = "window" + (Math.random() * 0xFFFFFF << 0).toString(16);
 		$window.content('<div id="' + vid + '"/>').then(function () {
-			new Ractive({
+			var r = new Ractive({
 				components: {
 					itemedit: _edit2.default
 				},
 				el: vid,
-				template: '<itemedit describeTable="{{describeTable}}" item="{{item}}" rawitem="{{rawitem}}" window={{window}} />',
+				template: '\n\t\t\t\t\t<itemedit\n\t\t\t\t\t\ttheme={{theme}}\n\t\t\t\t\t\tdescribeTable={{describeTable}}\n\t\t\t\t\t\titem={{item}}\n\t\t\t\t\t\trawitem={{rawitem}}\n\t\t\t\t\t\twindow={{window}}\n\t\t\t\t\t/>\n\t\t\t\t',
 				data: {
 					describeTable: describeTable,
 					//item: item,
 					rawitem: rawitem,
-					window: $window
+					window: $window,
+					theme: $window.parent.get('theme')
 				}
+			});
+			$window.set({
+				_editor: r
 			});
 		});
 	});
 };
 
-var _edit = __webpack_require__(24);
+var _edit = __webpack_require__(25);
 
 var _edit2 = _interopRequireDefault(_edit);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2554,7 +2664,7 @@ exports.default = Ractive.extend({
 	components: {
 		jsoneditor: _ractiveDynamodbJsonEditor2.default
 	},
-	template: '\n\t\t<jsoneditor item={{itemtoedit}} navigationBar="{{false}}"  style="position: absolute;top: -1px;left: -1px;right: -1px;bottom: 50px;width: auto;height: auto;border: 1px solid #dadada" menu-style="background-color: #d5ddf6;border-bottom: 1px solid #97b0f8;color: #444;" />\n\t\t<div style="position: absolute;left: 10px;right:10px;bottom:10px;height: 30px;box-sizing: border-box;">\n\t\t\t<span style="color: red;line-height: 30px;">{{errorMessage}}</span>\n\t\t\t<a class="btn btn-sm btn-primary pull-right" style="color: #fff;background-color: #337ab7;border-color: #2e6da4;float: right;padding: 5px 10px; font-size: 12px; line-height: 1.5;border-radius: 3px;font-family: sans-serif;" on-click="update-item">Save</a>\n\t\t</div>\n\t\t',
+	template: '\n\t\t<jsoneditor\n\t\t\ttheme={{theme}}\n\t\t\titem={{itemtoedit}}\n\t\t\tnavigationBar={{false}}\n\t\t\tstyle="position: absolute;top: -1px;left: -1px;right: -1px;bottom: 50px;width: auto;height: auto;"\n\t\t\tmenu-style=""\n\t\t/>\n\t\t<div style="position: absolute;left: 10px;right:10px;bottom:10px;height: 30px;box-sizing: border-box;">\n\t\t\t<span style="color: red;line-height: 30px;">{{errorMessage}}</span>\n\t\t\t<a class="btn btn-sm btn-primary pull-right" style="color: #fff;background-color: #337ab7;border-color: #2e6da4;float: right;padding: 5px 10px; font-size: 12px; line-height: 1.5;border-radius: 3px;font-family: sans-serif;" on-click="update-item">Save</a>\n\t\t</div>\n\t\t',
 	data: function data() {
 		return {
 			itemtoedit: {}
@@ -2660,7 +2770,7 @@ exports.default = Ractive.extend({
 });
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2720,33 +2830,38 @@ exports.default = function () {
 
 		var vid = "window" + (Math.random() * 0xFFFFFF << 0).toString(16);
 		$window.content('<div id="' + vid + '"/>').then(function () {
-			new Ractive({
+			var r = new Ractive({
 				components: {
 					itemadd: _add2.default
 				},
 				el: vid,
-				template: '<itemadd describeTable="{{describeTable}}" item="{{item}}" rawitem="{{rawitem}}" window={{window}} />',
+				template: '\n\t\t\t\t\t<itemadd\n\t\t\t\t\t\ttheme={{theme}}\n\t\t\t\t\t\tdescribeTable={{describeTable}}\n\t\t\t\t\t\titem={{item}}\n\t\t\t\t\t\trawitem={{rawitem}}\n\t\t\t\t\t\twindow={{window}}\n\t\t\t\t\t/>\n\t\t\t\t',
 				data: {
 					describeTable: describeTable,
 					// item: {
 					//
 					// },
 					rawitem: rawitem,
-					window: $window
+					window: $window,
+					theme: $window.parent.get('theme')
 				}
+			});
+
+			$window.set({
+				_editor: r
 			});
 		});
 	});
 };
 
-var _add = __webpack_require__(26);
+var _add = __webpack_require__(4);
 
 var _add2 = _interopRequireDefault(_add);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2756,101 +2871,61 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _ractiveDynamodbJsonEditor = __webpack_require__(3);
+exports.default = function (raw) {
+	var ractive = this;
 
-var _ractiveDynamodbJsonEditor2 = _interopRequireDefault(_ractiveDynamodbJsonEditor);
+	var describeTable = this.get('describeTable');
 
-var _utils = __webpack_require__(1);
+	var rawitem = raw;
 
-var _utils2 = _interopRequireDefault(_utils);
+	ractive.root.findComponent('WindowContainer').newWindow(function ($window) {
+		$window.set({
+			title: 'Duplicate Item',
+			'geometry.width': window.innerWidth * .6,
+			'geometry.height': window.innerHeight * .6,
+			'geometry.left': window.innerWidth * .2,
+			'geometry.top': window.innerHeight * .2
+		});
+
+		var vid = "window" + (Math.random() * 0xFFFFFF << 0).toString(16);
+		$window.content('<div id="' + vid + '"/>').then(function () {
+			var r = new Ractive({
+				components: {
+					itemadd: _add2.default
+				},
+				el: vid,
+				template: '\n\t\t\t\t\t<itemadd\n\t\t\t\t\t\ttheme={{theme}}\n\t\t\t\t\t\tdescribeTable={{describeTable}}\n\t\t\t\t\t\titem={{item}}\n\t\t\t\t\t\trawitem={{rawitem}}\n\t\t\t\t\t\twindow={{window}}\n\t\t\t\t\t/>',
+				data: {
+					describeTable: describeTable,
+					// item: {
+					//
+					// },
+					rawitem: rawitem,
+					window: $window,
+					theme: $window.parent.get('theme')
+				}
+			});
+			$window.set({
+				_editor: r
+				//_window:
+			});
+		});
+	});
+};
+
+var _add = __webpack_require__(4);
+
+var _add2 = _interopRequireDefault(_add);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//var jsoneditor = require('@awspilot/ractive-dynamodb-json-editor');
-exports.default = Ractive.extend({
-	isolated: true,
-	components: {
-		jsoneditor: _ractiveDynamodbJsonEditor2.default
-	},
-	template: '\n\t\t<jsoneditor item={{itemtoedit}} navigationBar="{{false}}"  style="position: absolute;top: -1px;left: -1px;right: -1px;bottom: 50px;width: auto;height: auto;border: 1px solid #dadada" menu-style="background-color: #d5ddf6;border-bottom: 1px solid #97b0f8;color: #444;" />\n\t\t<div style="position: absolute;left: 10px;right:10px;bottom:10px;height: 30px;box-sizing: border-box;">\n\t\t\t<span style="color: red;line-height: 30px;">{{errorMessage}}</span>\n\t\t\t<a class="btn btn-sm btn-primary pull-right" style="color: #fff;background-color: #337ab7;border-color: #2e6da4;float: right;padding: 5px 10px; font-size: 12px; line-height: 1.5;border-radius: 3px;font-family: sans-serif;"  on-click="update-item">Save</a>\n\t\t</div>\n\t\t',
-	data: function data() {
-		return {
-			itemtoedit: {}
-		};
-	},
-	_hash_key_name: function _hash_key_name() {
-		return (this.get('describeTable').KeySchema.filter(function (k) {
-			return k.KeyType === 'HASH';
-		})[0] || {}).AttributeName;
-	},
-	_range_key_name: function _range_key_name() {
-		return (this.get('describeTable').KeySchema.filter(function (k) {
-			return k.KeyType === 'RANGE';
-		})[0] || {}).AttributeName;
-	},
-	oninit: function oninit() {
-		var ractive = this;
-
-		// we do not really need to clone new item
-		this.set({ itemtoedit: this.get('rawitem') });
-
-		this.observe('itemtoedit', function (n, o, kp) {
-			this.set({ errorMessage: '' });
-		});
-
-		//var rawitem = this.get('rawitem')
-		//this.set({itemtoedit: { ...rawitem }  })
-
-		//var debug = this.get('itemtoedit');
-
-		this.on('update-item', function () {
-			//console.log("table=","HASH=", this._hash_key_name(), " RANGE=", this._range_key_name() )
-
-			var originalitem = this.get('rawitem');
-			var updateditem = _utils2.default._clone_deep(this.get('itemtoedit'));
-
-			var updateItemCall = {
-				TableName: this.get('describeTable.TableName'),
-				Key: {},
-				AttributeUpdates: {}
-			};
-
-			if (!updateditem.hasOwnProperty(this._hash_key_name())) return alert('Missing PARTITION_KEY ' + this._hash_key_name());
-
-			if (this._range_key_name() && !updateditem.hasOwnProperty(this._range_key_name())) return alert('Missing SORT_KEY ' + this._range_key_name());
-
-			updateItemCall.Key[this._hash_key_name()] = updateditem[this._hash_key_name()];
-			delete updateditem[this._hash_key_name()];
-
-			if (this._range_key_name()) {
-				updateItemCall.Key[this._range_key_name()] = updateditem[this._range_key_name()];
-				delete updateditem[this._range_key_name()];
-			}
-
-			Object.keys(updateditem).map(function (k) {
-				updateItemCall.AttributeUpdates[k] = {
-					Action: 'PUT', //
-					Value: updateditem[k]
-				};
-			});
-
-			DynamoDB.client.updateItem(updateItemCall, function (err, data) {
-				if (err) return ractive.set('errorMessage', err.message);
-
-				ractive.get('window').close();
-			});
-		});
-	}
-
-});
-
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {(function webpackUniversalModuleDefinition(root, factory) {
 	if(true)
-		module.exports = factory(__webpack_require__(4));
+		module.exports = factory(__webpack_require__(5));
 	else {}
 })(this, function(__WEBPACK_EXTERNAL_MODULE__30__) {
 return /******/ (function(modules) { // webpackBootstrap
@@ -16083,10 +16158,10 @@ module.exports = __webpack_require__(10).PassThrough
 /***/ })
 /******/ ]);
 });
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(28).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(29).Buffer))
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16100,9 +16175,9 @@ module.exports = __webpack_require__(10).PassThrough
 
 
 
-var base64 = __webpack_require__(30)
-var ieee754 = __webpack_require__(31)
-var isArray = __webpack_require__(32)
+var base64 = __webpack_require__(31)
+var ieee754 = __webpack_require__(32)
+var isArray = __webpack_require__(33)
 
 exports.Buffer = Buffer
 exports.SlowBuffer = SlowBuffer
@@ -17880,10 +17955,10 @@ function isnan (val) {
   return val !== val // eslint-disable-line no-self-compare
 }
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(29)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(30)))
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports) {
 
 var g;
@@ -17909,7 +17984,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18068,7 +18143,7 @@ function fromByteArray (uint8) {
 
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports) {
 
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
@@ -18158,7 +18233,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
 
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports) {
 
 var toString = {}.toString;
@@ -18167,99 +18242,6 @@ module.exports = Array.isArray || function (arr) {
   return toString.call(arr) == '[object Array]';
 };
 
-
-/***/ }),
-/* 33 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-exports.default = function (raw) {
-	var ractive = this;
-
-	var describeTable = this.get('describeTable');
-
-	var rawitem = raw;
-
-	//
-	// /* add partition */
-	// var htype = this._hash_key_type()
-	//
-	// var to_add = null;
-	// if (htype === "S")
-	// 	to_add = {S: ""}
-	//
-	// if (htype === "N")
-	// 	to_add = {N: ""}
-	//
-	// if (htype === "B")
-	// 	to_add = {B: Uint8Array.from(atob("InsertBase64Here"), function (c) { return c.charCodeAt(0) } ) }
-	//
-	// rawitem[this._hash_key_name()] = to_add;
-	//
-	//
-	//
-	// /* add sort */
-	// if ( this._range_key_name() ) {
-	// 	var rtype = this._range_key_type()
-	// 	var to_add = null;
-	// 	if (rtype === "S")
-	// 		to_add = {S: ""}
-	//
-	// 	if (rtype === "N")
-	// 		to_add = {N: ""}
-	//
-	// 	if (rtype === "B")
-	// 		to_add = {B: Uint8Array.from(atob("InsertBase64Here"), function (c) { return c.charCodeAt(0) } ) }
-	//
-	//
-	// 	rawitem[this._range_key_name()] = to_add;
-	// }
-
-
-	//console.log(rawitem)
-
-
-	ractive.root.findComponent('WindowContainer').newWindow(function ($window) {
-		$window.set({
-			title: 'Duplicate Item',
-			'geometry.width': window.innerWidth * .6,
-			'geometry.height': window.innerHeight * .6,
-			'geometry.left': window.innerWidth * .2,
-			'geometry.top': window.innerHeight * .2
-		});
-
-		var vid = "window" + (Math.random() * 0xFFFFFF << 0).toString(16);
-		$window.content('<div id="' + vid + '"/>').then(function () {
-			new Ractive({
-				components: {
-					itemadd: _add2.default
-				},
-				el: vid,
-				template: '<itemadd describeTable="{{describeTable}}" item="{{item}}" rawitem="{{rawitem}}" window={{window}} />',
-				data: {
-					describeTable: describeTable,
-					// item: {
-					//
-					// },
-					rawitem: rawitem,
-					window: $window
-				}
-			});
-		});
-	});
-};
-
-var _add = __webpack_require__(26);
-
-var _add2 = _interopRequireDefault(_add);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ })
 /******/ ])["default"];
