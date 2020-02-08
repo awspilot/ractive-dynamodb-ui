@@ -11,45 +11,6 @@ export default function( raw ) {
 
 	var rawitem = raw
 
-	//
-	// /* add partition */
-	// var htype = this._hash_key_type()
-	//
-	// var to_add = null;
-	// if (htype === "S")
-	// 	to_add = {S: ""}
-	//
-	// if (htype === "N")
-	// 	to_add = {N: ""}
-	//
-	// if (htype === "B")
-	// 	to_add = {B: Uint8Array.from(atob("InsertBase64Here"), function (c) { return c.charCodeAt(0) } ) }
-	//
-	// rawitem[this._hash_key_name()] = to_add;
-	//
-	//
-	//
-	// /* add sort */
-	// if ( this._range_key_name() ) {
-	// 	var rtype = this._range_key_type()
-	// 	var to_add = null;
-	// 	if (rtype === "S")
-	// 		to_add = {S: ""}
-	//
-	// 	if (rtype === "N")
-	// 		to_add = {N: ""}
-	//
-	// 	if (rtype === "B")
-	// 		to_add = {B: Uint8Array.from(atob("InsertBase64Here"), function (c) { return c.charCodeAt(0) } ) }
-	//
-	//
-	// 	rawitem[this._range_key_name()] = to_add;
-	// }
-
-
-	//console.log(rawitem)
-
-
 	ractive.root.findComponent('WindowContainer').newWindow(function($window) {
 		$window.set({
 			title: 'Duplicate Item',
@@ -61,12 +22,18 @@ export default function( raw ) {
 
 		var vid = "window"+(Math.random()*0xFFFFFF<<0).toString(16)
 		$window.content('<div id="' + vid + '"/>').then(function() {
-			new Ractive({
+			var r = new Ractive({
 				components: {
 					itemadd:  itemadd,
 				},
 				el: vid,
-				template: '<itemadd describeTable="{{describeTable}}" item="{{item}}" rawitem="{{rawitem}}" window={{window}} />',
+				template: `
+					<itemadd
+						describeTable="{{describeTable}}"
+						item="{{item}}"
+						rawitem="{{rawitem}}"
+						window={{window}}
+					/>`,
 				data: {
 					describeTable: describeTable,
 					// item: {
