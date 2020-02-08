@@ -68,6 +68,7 @@ export default function() {
 				el: vid,
 				template: `
 					<itemadd
+						theme={{theme}}
 						describeTable={{describeTable}}
 						item={{item}}
 						rawitem={{rawitem}}
@@ -81,8 +82,14 @@ export default function() {
 					// },
 					rawitem: rawitem,
 					window: $window,
+					theme: $window.parent.get('theme'),
 				}
 			})
+
+			$window.set({
+				_editor: r,
+			})
+
 		})
 	})
 

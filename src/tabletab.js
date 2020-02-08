@@ -48,7 +48,15 @@ export default Ractive.extend({
 						{{/if}}
 
 						{{#if tab === 'data'}}
-							<tableitems table='{{.table}}' describeTable='{{describeTable}}' type='{{.type}}' scan='{{.scan}}' query='{{.query}}' sql='{{.sql}}' />
+							<tableitems
+								table={{.table}}
+								describeTable={{describeTable}}
+								type={{.type}}
+								scan={{.scan}}
+								query={{.query}}
+								sql={{.sql}}
+								theme={{~/theme}}
+							/>
 						{{/if}}
 
 						{{#if tab === 'metrics'}}

@@ -25,6 +25,7 @@ export default function( e, col, item, rawitem ) {
 				el: vid,
 				template: `
 					<itemedit
+						theme={{theme}}
 						describeTable={{describeTable}}
 						item={{item}}
 						rawitem={{rawitem}}
@@ -36,7 +37,11 @@ export default function( e, col, item, rawitem ) {
 					//item: item,
 					rawitem: rawitem,
 					window: $window,
+					theme: $window.parent.get('theme'),
 				}
+			})
+			$window.set({
+				_editor: r,
 			})
 		})
 

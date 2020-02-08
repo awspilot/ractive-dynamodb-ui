@@ -41,7 +41,10 @@
 				</left>
 				<split />
 				<content>
-					<tabs active_id='tables' />
+					<tabs
+						active_id='tables'
+						theme={{theme}}
+					/>
 				</content>
 			</hsplit>
 		`,
@@ -60,7 +63,7 @@
 		elToFocus: null,
 		on: {
 			init: function() {
-
+				var ractive=this;
 				this.on('open-table', function(e, table ) {
 					this.findComponent('tabs').newtab('tabletab', table )
 				})
@@ -95,6 +98,13 @@
 					}
 				})
 
+				this.observe('theme', function() {
+
+					this.findAllComponents('WindowContainer')[0].findAllComponents('Window').map(function(w) {
+						console.log("window", w.get('_editor').set({theme: ractive.get('theme') }) )
+					})
+
+				})
 
 			}
 		},

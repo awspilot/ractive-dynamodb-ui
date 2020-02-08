@@ -37,7 +37,11 @@ export default Ractive.extend({
 							<tablecreate active={{ .id === active_id  }} id={{id}} />
 						{{/if}}
 						{{#if .type === 'tabletab' }}
-							<tabletab table={{.}} active={{ .id === active_id  }} />
+							<tabletab
+								table={{.}}
+								active={{ .id === active_id  }}
+								theme={{~/theme}}
+							/>
 						{{/if}}
 					{{/if}}
 				{{/tabs}}
