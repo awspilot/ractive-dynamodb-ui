@@ -18,12 +18,19 @@ export default function( e, col, item, rawitem ) {
 
 		var vid = "window"+(Math.random()*0xFFFFFF<<0).toString(16)
 		$window.content('<div id="' + vid + '"/>').then(function() {
-			new Ractive({
+			var r = new Ractive({
 				components: {
 					itemedit: itemedit,
 				},
 				el: vid,
-				template: '<itemedit describeTable="{{describeTable}}" item="{{item}}" rawitem="{{rawitem}}" window={{window}} />',
+				template: `
+					<itemedit
+						describeTable={{describeTable}}
+						item={{item}}
+						rawitem={{rawitem}}
+						window={{window}}
+					/>
+				`,
 				data: {
 					describeTable: describeTable,
 					//item: item,
