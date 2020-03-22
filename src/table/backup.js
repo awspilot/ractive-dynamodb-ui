@@ -1,5 +1,7 @@
 import tabledata from '../tabledata';
 
+
+
 export default Ractive.extend({
 	components: {
 		tabledata: tabledata,
@@ -18,7 +20,7 @@ export default Ractive.extend({
 				<br>
 				<div>
 					<a class='btn btn-sm btn-primary ' on-click='create-window'>Create backup</a>
-					<a class='btn btn-sm btn-default disabled' on-click='restore'>Restore backup</a>
+					<a class='btn btn-sm btn-default {{#if selection_size !== 1}}disabled{{/if}}' on-click='restore'>Restore backup</a>
 					<a class='btn btn-sm btn-default {{#if selection_size !== 1}}disabled{{/if}}' on-click='delete'>Delete backup</a>
 
 					<a class='btn btn-sm btn-default pull-right' on-click='refresh'><icon-refresh /></a>
@@ -46,6 +48,7 @@ export default Ractive.extend({
 					{ S: b.BackupName },
 					{ S: b.BackupStatus },
 					{ S: b.BackupCreationDateTime.toISOString().split('T').join(' ') },
+					//{ N: b.items }, // this is custom, not available in AWS
 					{ S: Math.ceil((b.BackupSizeBytes)/1024) + 'K' },
 					{ S: b.BackupType },
 					{ S: '' },
@@ -57,6 +60,104 @@ export default Ractive.extend({
 			}))
 
 		});
+	},
+	on: {
+		restore() {
+			var ractive=this;
+			var selected = ractive.get('rows').filter(function(r) { return r[0].selected === true } );
+
+			if ( selected.length === 0 )
+				return alert('Please select a backup to restore')
+
+			if ( selected.length > 1 )
+				return alert('Please select one backup at a time')
+
+			var backup = ractive.get('rows').filter(function(r) { return r[0].selected === true } )[0];
+			var tablename = ractive.get('describeTable.TableName')
+
+			backup = backup[0].item;
+
+			console.log("backup", backup )
+
+			ractive.root.findComponent('WindowContainer').newWindow(function($window) {
+				$window.set({
+					title: 'Restore Backup',
+					'geometry.width': window.innerWidth * .4,
+					'geometry.height': 250,
+					'geometry.left': window.innerWidth * .3,
+					'geometry.top': window.innerHeight * .2,
+				});
+
+				var vid = "window"+(Math.random()*0xFFFFFF<<0).toString(16)
+				$window.content('<div id="' + vid + '"/>').then(function() {
+					new Ractive({
+						components: {
+
+						},
+						el: vid,
+						template: `
+							<table cellspacing="10" style="width: 100%">
+								<tr>
+									<td colspan=2 style="height: 40px;">
+										{{#if errorMessage}}
+											<span style="color:red">{{errorMessage}}</span>
+										{{else}}
+											<span>&nbsp;</span>
+										{{/if}}
+									</td>
+								</tr>
+								<tr>
+									<td width=150>Backup Name</td>
+									<td>
+										<select class="input-select" value={{backup_name}} style="width: 100%" disabled>
+											<option value={{backup_name}}>{{backup_name}}</option>
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<td width=150>Table</td>
+									<td>
+										<input type="text" class="input-text" style="width: 100%" value={{table_name}} placeholder="New table name" />
+									</td>
+								</tr>
+
+								<tr>
+									<td width=150></td>
+									<td align="right">
+										<a class="btn btn-sm btn-primary" on-click="restore" >Restore</a>
+									</td>
+								</tr>
+							</table>
+						`,
+						data: {
+							backup_name: backup.BackupName,
+							table_name: '',
+						},
+						on: {
+							restore: function() {
+								var r = this;
+								r.set('errorMessage')
+								var params = {
+									BackupArn: backup.BackupArn,
+									TargetTableName: r.get('table_name')
+								};
+								DynamoDB.client.restoreTableFromBackup(params, function(err, data) {
+									if (err) {
+										r.set('errorMessage', err.errorMessage || err.message || 'Restore Failed')
+										return;
+									}
+
+									$window.close()
+
+								});
+							}
+						}
+					})
+				})
+			})
+
+
+		},
 	},
 	oninit: function() {
 		var ractive=this;
@@ -191,7 +292,17 @@ export default Ractive.extend({
 	},
 	data: function() {
 		return {
-			columns: [ null, 'Backup name', 'Status', 'Creation time', 'Size', 'Backup type', 'Expiration date', 'Backup ARN' ],
+			columns: [
+				null,
+				'Backup name',
+				'Status',
+				'Creation time',
+				//'Items', // aws-sdk wont let me passtrough this as result
+				'Size',
+				'Backup type',
+				'Expiration date',
+				'Backup ARN'
+			],
 			rows: null,
 			err: null,
 			//newindex:
