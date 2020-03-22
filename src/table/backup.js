@@ -1,10 +1,12 @@
-import tabledata from '../tabledata';
+//import tabledata from '../tabledata';
 
+var datatable = require( '@databank/ractive-datatable' );
 
 
 export default Ractive.extend({
 	components: {
-		tabledata: tabledata,
+		//tabledata: tabledata,
+		datatable: datatable,
 	},
 	template: `
 			<div>
@@ -20,43 +22,49 @@ export default Ractive.extend({
 				<br>
 				<div>
 					<a class='btn btn-sm btn-primary ' on-click='create-window'>Create backup</a>
-					<a class='btn btn-sm btn-default {{#if selection_size !== 1}}disabled{{/if}}' on-click='restore'>Restore backup</a>
-					<a class='btn btn-sm btn-default {{#if selection_size !== 1}}disabled{{/if}}' on-click='delete'>Delete backup</a>
+					<a class='btn btn-sm btn-default {{#if selection.length !== 1}}disabled{{/if}}' on-click='restore'>Restore backup</a>
+					<a class='btn btn-sm btn-default {{#if selection.length !== 1}}disabled{{/if}}' on-click='delete'>Delete backup</a>
 
 					<a class='btn btn-sm btn-default pull-right' on-click='refresh'><icon-refresh /></a>
 				</div>
 
-				<tabledata columns='{{columns}}' rows='{{rows}}' style='top: 180px' err={{err}} />
 
 
+				<datatable
+					style="position: absolute;top: 180px;left:0px;right:0px;bottom: 0px;"
+					theme={{theme}}
+					columns={{columns}}
+					rows={{rows}}
+					checkboxes={{ true }}
+					multiselect={{ false }}
+					err={{err}}
+				/>
 
 			</div>
 
 	`,
 	list_backups: function() {
 		var ractive=this;
-		ractive.set('rows',null);
-		ractive.set('err',null);
+
+		this.set('rows',null);
+		this.set('err',null);
+		this.findComponent('datatable').select_none()
+
 
 		DynamoDB.client.listBackups( { TableName: this.get('describeTable.TableName'),} , function(err, data) {
 			if (err)
 				return ractive.set({rows: false, err: {errorMessage: 'Failed getting backup list'}})
 
 			ractive.set('rows', data.BackupSummaries.map(function(b) {
-				return [
-					{ KEY: true, item: b },
-					{ S: b.BackupName },
-					{ S: b.BackupStatus },
-					{ S: b.BackupCreationDateTime.toISOString().split('T').join(' ') },
-					//{ N: b.items }, // this is custom, not available in AWS
-					{ S: Math.ceil((b.BackupSizeBytes)/1024) + 'K' },
-					{ S: b.BackupType },
-					{ S: '' },
-					{ S: b.BackupArn },
-					// { N: index.IndexSizeBytes.toString() },
-					// { N: index.ItemCount.toString() },
-
-				]
+				return {
+					BackupName: { S: b.BackupName },
+					BackupStatus: { S: b.BackupStatus },
+					BackupCreationDateTime: { S: b.BackupCreationDateTime.toISOString().split('T').join(' ') },
+					BackupSizeBytes: { S: Math.ceil((b.BackupSizeBytes)/1024) + 'K' },
+					BackupType: { S: b.BackupType },
+					Expire: { S: '' },
+					BackupArn: { S: b.BackupArn },
+				}
 			}))
 
 		});
@@ -64,18 +72,16 @@ export default Ractive.extend({
 	on: {
 		restore() {
 			var ractive=this;
-			var selected = ractive.get('rows').filter(function(r) { return r[0].selected === true } );
+			var selection = ractive.get('selection')
 
-			if ( selected.length === 0 )
+			if ( selection.length === 0 )
 				return alert('Please select a backup to restore')
 
-			if ( selected.length > 1 )
+			if ( selection.length > 1 )
 				return alert('Please select one backup at a time')
 
-			var backup = ractive.get('rows').filter(function(r) { return r[0].selected === true } )[0];
-			var tablename = ractive.get('describeTable.TableName')
-
-			backup = backup[0].item;
+			var backup = selection[0];
+			var tablename = this.get('describeTable.TableName')
 
 			console.log("backup", backup )
 
@@ -130,7 +136,7 @@ export default Ractive.extend({
 							</table>
 						`,
 						data: {
-							backup_name: backup.BackupName,
+							backup_name: backup.BackupName.S,
 							table_name: '',
 						},
 						on: {
@@ -138,7 +144,7 @@ export default Ractive.extend({
 								var r = this;
 								r.set('errorMessage')
 								var params = {
-									BackupArn: backup.BackupArn,
+									BackupArn: backup.BackupArn.S,
 									TargetTableName: r.get('table_name')
 								};
 								DynamoDB.client.restoreTableFromBackup(params, function(err, data) {
@@ -155,8 +161,44 @@ export default Ractive.extend({
 					})
 				})
 			})
+		},
+
+		delete() {
+			var ractive=this;
+			var selection = this.get('selection')
+
+			if ( selection.length === 0 )
+				return alert('Please select a backup to delete')
+
+			if ( selection.length > 1 )
+				return alert('Please select one backup at a time')
+
+			var backup = this.get('selection.0')
+
+			var tablename = this.get('describeTable.TableName')
+
+			var backupname = backup.BackupName.S;
+
+			if (confirm('Are you sure you want to delete backup ' + backupname + ' of table ' + tablename )) {
+
+				var params = {
+					BackupArn: backup.BackupArn.S
+				};
+
+				DynamoDB.client.deleteBackup(params, function(err, data) {
+					if (err)
+						return alert( err.message );
+
+					ractive.list_backups()
+				});
+
+			}
+		},
 
 
+
+		'datatable.select': function( e, selection ) {
+			this.set('selection', selection )
 		},
 	},
 	oninit: function() {
@@ -168,36 +210,6 @@ export default Ractive.extend({
 			ractive.set('selection_size', ractive.get('rows').filter(function(r) { return r[0].selected === true } ).length )
 		})
 
-		ractive.on('delete', function() {
-			var selected = ractive.get('rows').filter(function(r) { return r[0].selected === true } );
-
-			if ( selected.length === 0 )
-				return alert('Please select a backup to delete')
-
-			if ( selected.length > 1 )
-				return alert('Please select one backup at a time')
-
-			var backup = ractive.get('rows').filter(function(r) { return r[0].selected === true } )[0];
-			var tablename = ractive.get('describeTable.TableName')
-
-			var backupname = backup[0].item.BackupName;
-
-			if (confirm('Are you sure you want to delete backup ' + backupname + ' of table ' + tablename )) {
-
-				var params = {
-					BackupArn: backup[0].item.BackupArn
-				};
-
-				DynamoDB.client.deleteBackup(params, function(err, data) {
-					if (err)
-						return alert( err.message );
-
-					ractive.list_backups()
-				});
-
-			}
-
-		})
 
 		ractive.on('create-window', function() {
 			ractive.root.findComponent('WindowContainer').newWindow(function($window) {
@@ -293,19 +305,21 @@ export default Ractive.extend({
 	data: function() {
 		return {
 			columns: [
-				null,
-				'Backup name',
-				'Status',
-				'Creation time',
-				//'Items', // aws-sdk wont let me passtrough this as result
-				'Size',
-				'Backup type',
-				'Expiration date',
-				'Backup ARN'
+				{ field: 'BackupName',             display: "Backup name",     hide: false,  },
+				{ field: 'BackupStatus',           display: "Status",          hide: false,  },
+				{ field: 'BackupCreationDateTime', display: "Creation time",   hide: false,  },
+				{ field: 'ItemCount',              display: "Items",           hide: false,  },
+				{ field: 'BackupSizeBytes',        display: "Size",            hide: false,  },
+				{ field: 'BackupType',             display: "Backup type",     hide: false,  },
+				{ field: 'Expire',                 display: "Expiration date", hide: false,  },
+				{ field: 'BackupArn',              display: "Backup ARN",      hide: false,  },
+				//{ field: 'link',    display: "Link",      hide: false, },
 			],
+
 			rows: null,
 			err: null,
-			//newindex:
+			selection: [],
+
 		}
 	}
 })
