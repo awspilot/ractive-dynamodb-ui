@@ -80,7 +80,7 @@ export default Ractive.extend({
 						{{/if}}
 
 						{{#if tab === 'backups'}}
-							<tablebackup table='{{.table}}' describeTable='{{describeTable}}' />
+							<tablebackup table='{{.table}}' describeTable='{{describeTable}}' theme={{theme}} />
 						{{/if}}
 
 						{{#if tab === 'triggers'}}
