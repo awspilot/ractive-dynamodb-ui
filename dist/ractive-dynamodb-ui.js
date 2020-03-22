@@ -514,7 +514,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var ddb;
 //import RactiveWindow from './ractive-window.min.js'
 
-var DynamodbFactory = __webpack_require__(28);
+var DynamodbFactory = __webpack_require__(29);
 
 var AWS = __webpack_require__(5);
 AWS.config.update({ maxRetries: 1 });
@@ -1160,15 +1160,15 @@ var _backup = __webpack_require__(20);
 
 var _backup2 = _interopRequireDefault(_backup);
 
-var _tabletriggers = __webpack_require__(21);
+var _tabletriggers = __webpack_require__(22);
 
 var _tabletriggers2 = _interopRequireDefault(_tabletriggers);
 
-var _metrics = __webpack_require__(22);
+var _metrics = __webpack_require__(23);
 
 var _metrics2 = _interopRequireDefault(_metrics);
 
-var _items = __webpack_require__(23);
+var _items = __webpack_require__(24);
 
 var _items2 = _interopRequireDefault(_items);
 
@@ -1187,7 +1187,7 @@ exports.default = Ractive.extend({
 		tablemetrics: _metrics2.default,
 		tableitems: _items2.default
 	},
-	template: '\n\t\t<div class=\'tableview {{#if active}}active{{/if}}\'>\n\t\t\t<div class=\'tableview-table-tabs noselect\'>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'info\'}}active{{/if}}\'         on-click=\'@this.set(\'tab\',\'info\')\'><!-- <i class=\'zmdi zmdi-info\'></i>--> Overview </a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'data\'}}active{{/if}}\'         on-click=\'@this.set(\'tab\',\'data\')\'><!--<i class=\'zmdi zmdi-format-list-bulleted\'></i>--> Items</a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'metrics\'}}active{{/if}}\'      on-click=\'@this.set(\'tab\',\'metrics\')\'><!--<i class=\'zmdi zmdi-chart\'></i>--> Metrics</a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'alarms\'}}active{{/if}}\'       on-click=\'@this.set(\'tab\',\'alarms\')\'><!--<i class=\'zmdi zmdi-notifications\'></i>--> Alarms</a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'capacity\'}}active{{/if}}\'     on-click=\'@this.set(\'tab\',\'capacity\')\'><!--<i class=\'zmdi zmdi-memory\'></i>--> Capacity</a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'indexes\'}}active{{/if}}\'      on-click=\'@this.set(\'tab\',\'indexes\')\'><!--<i class=\'zmdi zmdi-format-line-spacing\'></i>--> Indexes</a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'globaltables\'}}active{{/if}}\' on-click=\'@this.set(\'tab\',\'globaltables\')\'><!--<i class=\'zmdi zmdi-globe\'></i>--> Global Tables</a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'backups\'}}active{{/if}}\'      on-click=\'@this.set(\'tab\',\'backups\')\'><!--<i class=\'zmdi zmdi-card-sd\'></i>--> Backups</a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'triggers\'}}active{{/if}}\'     on-click=\'@this.set(\'tab\',\'triggers\')\'><!--<i class=\'zmdi zmdi-portable-wifi\'></i>--> Triggers</a>\n\t\t\t</div>\n\t\t\t<div style=\'position: absolute;top: 40px;left: 30px;right: 30px;bottom: 2px;\'>\n\t\t\t\t{{#if err}}\n\t\t\t\t\t<br> {{ err.errorMessage || err.message }}\n\t\t\t\t{{else}}\n\t\t\t\t\t{{#if describeTable === null }}\n\t\t\t\t\t\t<br>Loading...\n\t\t\t\t\t{{else}}\n\n\t\t\t\t\t\t{{#if tab === \'info\'}}\n\t\t\t\t\t\t\t<tableinfo table=\'{{.table}}\' describeTable=\'{{describeTable}}\' />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'data\'}}\n\t\t\t\t\t\t\t<tableitems\n\t\t\t\t\t\t\t\ttable={{.table}}\n\t\t\t\t\t\t\t\tdescribeTable={{describeTable}}\n\t\t\t\t\t\t\t\ttype={{.type}}\n\t\t\t\t\t\t\t\tscan={{.scan}}\n\t\t\t\t\t\t\t\tquery={{.query}}\n\t\t\t\t\t\t\t\tsql={{.sql}}\n\t\t\t\t\t\t\t\ttheme={{~/theme}}\n\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'metrics\'}}\n\t\t\t\t\t\t\t<tablemetrics table=\'{{.table}}\' describeTable=\'{{describeTable}}\' />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'alarms\'}}\n\t\t\t\t\t\t\t<tablealarms table=\'{{.table}}\' describeTable=\'{{describeTable}}\' />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'capacity\'}}\n\t\t\t\t\t\t\t<tablecapacity table=\'{{.table}}\' describeTable=\'{{describeTable}}\' />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'indexes\'}}\n\t\t\t\t\t\t\t<tableindexes table=\'{{.table}}\' describeTable=\'{{describeTable}}\' />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'globaltables\'}}\n\t\t\t\t\t\t\t<tableglobal table=\'{{.table}}\' describeTable=\'{{describeTable}}\' />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'backups\'}}\n\t\t\t\t\t\t\t<tablebackup table=\'{{.table}}\' describeTable=\'{{describeTable}}\' />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'triggers\'}}\n\t\t\t\t\t\t\t<tabletriggers table=\'{{.table}}\' describeTable=\'{{describeTable}}\' />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t{{/if}}\n\t\t\t\t{{/if}}\n\n\t\t\t</div>\n\t\t</div>\n\t',
+	template: '\n\t\t<div class=\'tableview {{#if active}}active{{/if}}\'>\n\t\t\t<div class=\'tableview-table-tabs noselect\'>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'info\'}}active{{/if}}\'         on-click=\'@this.set(\'tab\',\'info\')\'><!-- <i class=\'zmdi zmdi-info\'></i>--> Overview </a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'data\'}}active{{/if}}\'         on-click=\'@this.set(\'tab\',\'data\')\'><!--<i class=\'zmdi zmdi-format-list-bulleted\'></i>--> Items</a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'metrics\'}}active{{/if}}\'      on-click=\'@this.set(\'tab\',\'metrics\')\'><!--<i class=\'zmdi zmdi-chart\'></i>--> Metrics</a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'alarms\'}}active{{/if}}\'       on-click=\'@this.set(\'tab\',\'alarms\')\'><!--<i class=\'zmdi zmdi-notifications\'></i>--> Alarms</a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'capacity\'}}active{{/if}}\'     on-click=\'@this.set(\'tab\',\'capacity\')\'><!--<i class=\'zmdi zmdi-memory\'></i>--> Capacity</a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'indexes\'}}active{{/if}}\'      on-click=\'@this.set(\'tab\',\'indexes\')\'><!--<i class=\'zmdi zmdi-format-line-spacing\'></i>--> Indexes</a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'globaltables\'}}active{{/if}}\' on-click=\'@this.set(\'tab\',\'globaltables\')\'><!--<i class=\'zmdi zmdi-globe\'></i>--> Global Tables</a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'backups\'}}active{{/if}}\'      on-click=\'@this.set(\'tab\',\'backups\')\'><!--<i class=\'zmdi zmdi-card-sd\'></i>--> Backups</a>\n\t\t\t\t<a class=\'btn-tableview-tab {{#if tab === \'triggers\'}}active{{/if}}\'     on-click=\'@this.set(\'tab\',\'triggers\')\'><!--<i class=\'zmdi zmdi-portable-wifi\'></i>--> Triggers</a>\n\t\t\t</div>\n\t\t\t<div style=\'position: absolute;top: 40px;left: 30px;right: 30px;bottom: 2px;\'>\n\t\t\t\t{{#if err}}\n\t\t\t\t\t<br> {{ err.errorMessage || err.message }}\n\t\t\t\t{{else}}\n\t\t\t\t\t{{#if describeTable === null }}\n\t\t\t\t\t\t<br>Loading...\n\t\t\t\t\t{{else}}\n\n\t\t\t\t\t\t{{#if tab === \'info\'}}\n\t\t\t\t\t\t\t<tableinfo table=\'{{.table}}\' describeTable=\'{{describeTable}}\' />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'data\'}}\n\t\t\t\t\t\t\t<tableitems\n\t\t\t\t\t\t\t\ttable={{.table}}\n\t\t\t\t\t\t\t\tdescribeTable={{describeTable}}\n\t\t\t\t\t\t\t\ttype={{.type}}\n\t\t\t\t\t\t\t\tscan={{.scan}}\n\t\t\t\t\t\t\t\tquery={{.query}}\n\t\t\t\t\t\t\t\tsql={{.sql}}\n\t\t\t\t\t\t\t\ttheme={{~/theme}}\n\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'metrics\'}}\n\t\t\t\t\t\t\t<tablemetrics table=\'{{.table}}\' describeTable=\'{{describeTable}}\' />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'alarms\'}}\n\t\t\t\t\t\t\t<tablealarms table=\'{{.table}}\' describeTable=\'{{describeTable}}\' />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'capacity\'}}\n\t\t\t\t\t\t\t<tablecapacity table=\'{{.table}}\' describeTable=\'{{describeTable}}\' />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'indexes\'}}\n\t\t\t\t\t\t\t<tableindexes table=\'{{.table}}\' describeTable=\'{{describeTable}}\' />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'globaltables\'}}\n\t\t\t\t\t\t\t<tableglobal table=\'{{.table}}\' describeTable=\'{{describeTable}}\' />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'backups\'}}\n\t\t\t\t\t\t\t<tablebackup table=\'{{.table}}\' describeTable=\'{{describeTable}}\' theme={{theme}} />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t{{#if tab === \'triggers\'}}\n\t\t\t\t\t\t\t<tabletriggers table=\'{{.table}}\' describeTable=\'{{describeTable}}\' />\n\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t{{/if}}\n\t\t\t\t{{/if}}\n\n\t\t\t</div>\n\t\t</div>\n\t',
 	data: function data() {
 		return {
 			tab: 'info',
@@ -1735,34 +1735,126 @@ exports.default = Ractive.extend({
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
+//import tabledata from '../tabledata';
 
-var _tabledata = __webpack_require__(0);
-
-var _tabledata2 = _interopRequireDefault(_tabledata);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var datatable = __webpack_require__(21);
 
 exports.default = Ractive.extend({
 	components: {
-		tabledata: _tabledata2.default
+		//tabledata: tabledata,
+		datatable: datatable
 	},
-	template: '\n\t\t\t<div>\n\n\t\t\t\t<br>\n\t\t\t\t<br>\n\t\t\t\t<h4>On-Demand Backup and Restore</h4>\n\t\t\t\t<hr />\n\t\t\t\t<div>You can create and restore a complete backup of your DynamoDB table data and its settings at any time.\n\t\t\t\t<a target=\'_blank\' href=\'http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/BackupRestore.html\'>Learn more</a>\n\t\t\t\t</div>\n\n\t\t\t\t<br>\n\t\t\t\t<div>\n\t\t\t\t\t<a class=\'btn btn-sm btn-primary \' on-click=\'create-window\'>Create backup</a>\n\t\t\t\t\t<a class=\'btn btn-sm btn-default disabled\' on-click=\'restore\'>Restore backup</a>\n\t\t\t\t\t<a class=\'btn btn-sm btn-default {{#if selection_size !== 1}}disabled{{/if}}\' on-click=\'delete\'>Delete backup</a>\n\n\t\t\t\t\t<a class=\'btn btn-sm btn-default pull-right\' on-click=\'refresh\'><icon-refresh /></a>\n\t\t\t\t</div>\n\n\t\t\t\t<tabledata columns=\'{{columns}}\' rows=\'{{rows}}\' style=\'top: 180px\' err={{err}} />\n\n\n\n\t\t\t</div>\n\n\t',
+	template: '\n\t\t\t<div>\n\n\t\t\t\t<br>\n\t\t\t\t<br>\n\t\t\t\t<h4>On-Demand Backup and Restore</h4>\n\t\t\t\t<hr />\n\t\t\t\t<div>You can create and restore a complete backup of your DynamoDB table data and its settings at any time.\n\t\t\t\t<a target=\'_blank\' href=\'http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/BackupRestore.html\'>Learn more</a>\n\t\t\t\t</div>\n\n\t\t\t\t<br>\n\t\t\t\t<div>\n\t\t\t\t\t<a class=\'btn btn-sm btn-primary \' on-click=\'create-window\'>Create backup</a>\n\t\t\t\t\t<a class=\'btn btn-sm btn-default {{#if selection.length !== 1}}disabled{{/if}}\' on-click=\'restore\'>Restore backup</a>\n\t\t\t\t\t<a class=\'btn btn-sm btn-default {{#if selection.length !== 1}}disabled{{/if}}\' on-click=\'delete\'>Delete backup</a>\n\n\t\t\t\t\t<a class=\'btn btn-sm btn-default pull-right\' on-click=\'refresh\'><icon-refresh /></a>\n\t\t\t\t</div>\n\n\n\n\t\t\t\t<datatable\n\t\t\t\t\tstyle="position: absolute;top: 180px;left:0px;right:0px;bottom: 0px;"\n\t\t\t\t\ttheme={{theme}}\n\t\t\t\t\tcolumns={{columns}}\n\t\t\t\t\trows={{rows}}\n\t\t\t\t\tcheckboxes={{ true }}\n\t\t\t\t\tmultiselect={{ false }}\n\t\t\t\t\terr={{err}}\n\t\t\t\t/>\n\n\t\t\t</div>\n\n\t',
 	list_backups: function list_backups() {
 		var ractive = this;
-		ractive.set('rows', null);
-		ractive.set('err', null);
+
+		this.set('rows', null);
+		this.set('err', null);
+		this.findComponent('datatable').select_none();
 
 		DynamoDB.client.listBackups({ TableName: this.get('describeTable.TableName') }, function (err, data) {
 			if (err) return ractive.set({ rows: false, err: { errorMessage: 'Failed getting backup list' } });
 
 			ractive.set('rows', data.BackupSummaries.map(function (b) {
-				return [{ KEY: true, item: b }, { S: b.BackupName }, { S: b.BackupStatus }, { S: b.BackupCreationDateTime.toISOString().split('T').join(' ') }, { S: Math.ceil(b.BackupSizeBytes / 1024) + 'K' }, { S: b.BackupType }, { S: '' }, { S: b.BackupArn }];
-			}
-			// { N: index.IndexSizeBytes.toString() },
-			// { N: index.ItemCount.toString() },
-
-			));
+				return {
+					BackupName: { S: b.BackupName },
+					BackupStatus: { S: b.BackupStatus },
+					BackupCreationDateTime: { S: b.BackupCreationDateTime.toISOString().split('T').join(' ') },
+					BackupSizeBytes: { S: Math.ceil(b.BackupSizeBytes / 1024) + 'K' },
+					BackupType: { S: b.BackupType },
+					Expire: { S: '' },
+					BackupArn: { S: b.BackupArn }
+				};
+			}));
 		});
+	},
+	on: {
+		restore: function restore() {
+			var ractive = this;
+			var selection = ractive.get('selection');
+
+			if (selection.length === 0) return alert('Please select a backup to restore');
+
+			if (selection.length > 1) return alert('Please select one backup at a time');
+
+			var backup = selection[0];
+			var tablename = this.get('describeTable.TableName');
+
+			console.log("backup", backup);
+
+			ractive.root.findComponent('WindowContainer').newWindow(function ($window) {
+				$window.set({
+					title: 'Restore Backup',
+					'geometry.width': window.innerWidth * .4,
+					'geometry.height': 250,
+					'geometry.left': window.innerWidth * .3,
+					'geometry.top': window.innerHeight * .2
+				});
+
+				var vid = "window" + (Math.random() * 0xFFFFFF << 0).toString(16);
+				$window.content('<div id="' + vid + '"/>').then(function () {
+					new Ractive({
+						components: {},
+						el: vid,
+						template: '\n\t\t\t\t\t\t\t<table cellspacing="10" style="width: 100%">\n\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t<td colspan=2 style="height: 40px;">\n\t\t\t\t\t\t\t\t\t\t{{#if errorMessage}}\n\t\t\t\t\t\t\t\t\t\t\t<span style="color:red">{{errorMessage}}</span>\n\t\t\t\t\t\t\t\t\t\t{{else}}\n\t\t\t\t\t\t\t\t\t\t\t<span>&nbsp;</span>\n\t\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t<td width=150>Backup Name</td>\n\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t<select class="input-select" value={{backup_name}} style="width: 100%" disabled>\n\t\t\t\t\t\t\t\t\t\t\t<option value={{backup_name}}>{{backup_name}}</option>\n\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t<td width=150>Table</td>\n\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t<input type="text" class="input-text" style="width: 100%" value={{table_name}} placeholder="New table name" />\n\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t</tr>\n\n\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t<td width=150></td>\n\t\t\t\t\t\t\t\t\t<td align="right">\n\t\t\t\t\t\t\t\t\t\t<a class="btn btn-sm btn-primary" on-click="restore" >Restore</a>\n\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t</table>\n\t\t\t\t\t\t',
+						data: {
+							backup_name: backup.BackupName.S,
+							table_name: ''
+						},
+						on: {
+							restore: function restore() {
+								var r = this;
+								r.set('errorMessage');
+								var params = {
+									BackupArn: backup.BackupArn.S,
+									TargetTableName: r.get('table_name')
+								};
+								DynamoDB.client.restoreTableFromBackup(params, function (err, data) {
+									if (err) {
+										r.set('errorMessage', err.errorMessage || err.message || 'Restore Failed');
+										return;
+									}
+
+									$window.close();
+								});
+							}
+						}
+					});
+				});
+			});
+		},
+		delete: function _delete() {
+			var ractive = this;
+			var selection = this.get('selection');
+
+			if (selection.length === 0) return alert('Please select a backup to delete');
+
+			if (selection.length > 1) return alert('Please select one backup at a time');
+
+			var backup = this.get('selection.0');
+
+			var tablename = this.get('describeTable.TableName');
+
+			var backupname = backup.BackupName.S;
+
+			if (confirm('Are you sure you want to delete backup ' + backupname + ' of table ' + tablename)) {
+
+				var params = {
+					BackupArn: backup.BackupArn.S
+				};
+
+				DynamoDB.client.deleteBackup(params, function (err, data) {
+					if (err) return alert(err.message);
+
+					ractive.list_backups();
+				});
+			}
+		},
+
+
+		'datatable.select': function datatableSelect(e, selection) {
+			this.set('selection', selection);
+		}
 	},
 	oninit: function oninit() {
 		var ractive = this;
@@ -1773,36 +1865,6 @@ exports.default = Ractive.extend({
 			ractive.set('selection_size', ractive.get('rows').filter(function (r) {
 				return r[0].selected === true;
 			}).length);
-		});
-
-		ractive.on('delete', function () {
-			var selected = ractive.get('rows').filter(function (r) {
-				return r[0].selected === true;
-			});
-
-			if (selected.length === 0) return alert('Please select a backup to delete');
-
-			if (selected.length > 1) return alert('Please select one backup at a time');
-
-			var backup = ractive.get('rows').filter(function (r) {
-				return r[0].selected === true;
-			})[0];
-			var tablename = ractive.get('describeTable.TableName');
-
-			var backupname = backup[0].item.BackupName;
-
-			if (confirm('Are you sure you want to delete backup ' + backupname + ' of table ' + tablename)) {
-
-				var params = {
-					BackupArn: backup[0].item.BackupArn
-				};
-
-				DynamoDB.client.deleteBackup(params, function (err, data) {
-					if (err) return alert(err.message);
-
-					ractive.list_backups();
-				});
-			}
 		});
 
 		ractive.on('create-window', function () {
@@ -1860,16 +1922,24 @@ exports.default = Ractive.extend({
 	},
 	data: function data() {
 		return {
-			columns: [null, 'Backup name', 'Status', 'Creation time', 'Size', 'Backup type', 'Expiration date', 'Backup ARN'],
+			columns: [{ field: 'BackupName', display: "Backup name", hide: false }, { field: 'BackupStatus', display: "Status", hide: false }, { field: 'BackupCreationDateTime', display: "Creation time", hide: false }, { field: 'ItemCount', display: "Items", hide: false }, { field: 'BackupSizeBytes', display: "Size", hide: false }, { field: 'BackupType', display: "Backup type", hide: false }, { field: 'Expire', display: "Expiration date", hide: false }, { field: 'BackupArn', display: "Backup ARN", hide: false }],
+
 			rows: null,
-			err: null
-			//newindex:
+			err: null,
+			selection: []
+
 		};
 	}
 });
 
 /***/ }),
 /* 21 */
+/***/ (function(module, exports, __webpack_require__) {
+
+!function(t,e){ true?module.exports=e():undefined}(this,(function(){return function(t){var e={};function i(n){if(e[n])return e[n].exports;var o=e[n]={i:n,l:!1,exports:{}};return t[n].call(o.exports,o,o.exports,i),o.l=!0,o.exports}return i.m=t,i.c=e,i.d=function(t,e,n){i.o(t,e)||Object.defineProperty(t,e,{enumerable:!0,get:n})},i.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},i.t=function(t,e){if(1&e&&(t=i(t)),8&e)return t;if(4&e&&"object"==typeof t&&t&&t.__esModule)return t;var n=Object.create(null);if(i.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:t}),2&e&&"string"!=typeof t)for(var o in t)i.d(n,o,function(e){return t[e]}.bind(null,o));return n},i.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return i.d(e,"a",e),e},i.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},i.p="",i(i.s=0)}([function(t,e,i){"use strict";i.r(e);i(1);e.default=Ractive.extend({columns_length(){return this.get("columns").filter((function(t){return"string"==typeof t||"object"==typeof t&&!0!==t.hide})).length},template:"\n\t\t<div class='databank-datatable theme-{{theme}}' style='{{style}}'>\n\t\t\t<div class='tabledatahead'>\n\t\t\t\t{{#if checkboxes}}\n\t\t\t\t\t<div style='width: {{checkbox_width}}px'>\n\t\t\t\t\t\t{{#if multiselect}}\n\t\t\t\t\t\t<input class='input-checkbox' type='checkbox' checked={{selectall}} >\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t</div>\n\t\t\t\t{{/if}}\n\n\t\t\t\t{{#columns:i}}\n\t\t\t\t\t{{#if (typeof . === \"object\") && (.hide === true) }}\n\t\t\t\t\t{{else}}\n\t\t\t\t\t\t<div style='width:{{#if checkboxes }}calc( 100%/{{ @this.columns_length() }} - {{ Math.ceil( ~/checkbox_width / @this.columns_length() ) }}px ){{else}}{{Math.floor(100/ @this.columns_length()  )}}%{{/if}}'>\n\t\t\t\t\t\t\t{{#if typeof . === \"object\"}}\n\t\t\t\t\t\t\t\t{{.display}}\n\t\t\t\t\t\t\t{{else}}\n\t\t\t\t\t\t\t{{.}}\n\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t</div>\n\t\t\t\t\t{{/if}}\n\t\t\t\t{{/columns}}\n\t\t\t</div>\n\t\t\t<div class='tabledatacontent'>\n\n\t\t\t\t{{#if rows.length === 0}}\n\t\t\t\t\t<br><small>Empty</small>\n\t\t\t\t{{/if}}\n\t\t\t\t{{#if rows === null }}\n\t\t\t\t\t<br><small>Loading...</small>\n\t\t\t\t{{/if}}\n\n\t\t\t\t{{#if err.errorMessage }}\n\t\t\t\t\t<br><small style=\"color:red\">{{err.errorMessage}}</small>\n\t\t\t\t{{/if}}\n\n\t\t\t\t{{#rows:row}}\n\n\n\t\t\t\t<div class='tabledatarow {{#if ~/selection[row].selected}}selected{{/if}}' on-click='selectrow'>\n\t\t\t\t\t{{#if checkboxes}}\n\t\t\t\t\t\t<div class='tabledatacell check' style=\"width: {{checkbox_width}}px;\" on-click=\"selectcell\">\n\t\t\t\t\t\t\t<input class='input-checkbox' type='checkbox' checked={{~/selection[row].selected}} >\n\t\t\t\t\t\t</div>\n\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t{{#columns:i}}\n\t\t\t\t\t\t{{#if (typeof . === \"object\") && (.hide === true) }}\n\t\t\t\t\t\t{{else}}\n\t\t\t\t\t\t\t<div\n\t\t\t\t\t\t\t\tstyle='width:{{#if checkboxes }}calc( 100%/{{ @this.columns_length() }} - {{ Math.ceil( ~/checkbox_width / @this.columns_length() ) }}px ){{else}}{{Math.floor(100/ @this.columns_length() )}}%{{/if}}'\n\t\t\t\t\t\t\t\tclass='tabledatacell\n\n\t\t\t\t\t\t\t\t{{#if .editable === true }}e{{/if}}\n\t\t\t\t\t\t\t\t{{#if ~/selection[row].cols[i].editing }}editing{{/if}}\n\n\t\t\t\t\t\t\t\t{{#if ~/rows[row][.field].hasOwnProperty('KEY')  }}t-K{{/if}}\n\t\t\t\t\t\t\t\t{{#if ~/rows[row][.field].hasOwnProperty('HREF') }}t-HASH{{/if}}\n\t\t\t\t\t\t\t\t{{#if ~/rows[row][.field].hasOwnProperty('S')    }}t-S{{/if}}\n\t\t\t\t\t\t\t\t{{#if ~/rows[row][.field].hasOwnProperty('N')    }}t-N{{/if}}\n\t\t\t\t\t\t\t\t{{#if ~/rows[row][.field].hasOwnProperty('BOOL') }}t-BOOL{{/if}}\n\t\t\t\t\t\t\t\t{{#if ~/rows[row][.field].hasOwnProperty('B')    }}t-B{{/if}}\n\t\t\t\t\t\t\t\t{{#if ~/rows[row][.field].hasOwnProperty('NULL') }}t-NULL{{/if}}\n\t\t\t\t\t\t\t\t{{#if ~/rows[row][.field].hasOwnProperty('L')    }}t-L{{/if}}\n\t\t\t\t\t\t\t\t{{#if ~/rows[row][.field].hasOwnProperty('M')    }}t-M{{/if}}\n\t\t\t\t\t\t\t\t{{#if ~/rows[row][.field].hasOwnProperty('SS')   }}t-SS{{/if}}\n\t\t\t\t\t\t\t\t{{#if ~/rows[row][.field].hasOwnProperty('NS')   }}t-NS{{/if}}\n\t\t\t\t\t\t\t\t{{#if ~/rows[row][.field].hasOwnProperty('BS')   }}t-BS{{/if}}\n\t\t\t\t\t\t\t\t{{#if .U}}t-U{{/if}}\n\t\t\t\t\t\t\t\t'\n\t\t\t\t\t\t\t\t{{#if ~/rows[row][.field].hasOwnProperty('HREF') }}on-click='@this.hrefclick( ~/rows[row], . )'{{/if}}\n\n\t\t\t\t\t\t\t\t{{#if (.editable === true) && ~/rows[row][.field].hasOwnProperty('S')    }}on-dblclick='@this.clicktoedit( row, i )'{{/if}}\n\t\t\t\t\t\t\t\t{{#if (.editable === true) && ~/rows[row][.field].hasOwnProperty('N')    }}on-dblclick='@this.clicktoedit( row, i )'{{/if}}\n\t\t\t\t\t\t\t\t{{#if (.editable === true) && ~/rows[row][.field].hasOwnProperty('BOOL') }}on-dblclick='@this.clicktoedit( row, i )'{{/if}}\n\n\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t{{#if typeof . === \"object\"}}\n\t\t\t\t\t\t\t\t\t{{#if ~/rows[row][.field].hasOwnProperty('HREF') }}<a>{{~/rows[row][.field].display || ~/rows[row][.field].HREF}}</a>{{/if}}\n\t\t\t\t\t\t\t\t\t{{#if ~/rows[row][.field].hasOwnProperty('S')    }}\n\t\t\t\t\t\t\t\t\t\t{{#if ~/selection[row].cols[i].editing }}\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" value={{~/rows[row][.field].S}} on-blur='@this.editfocusout( row, i )' />\n\t\t\t\t\t\t\t\t\t\t{{else}}\n\t\t\t\t\t\t\t\t\t\t\t{{ ~/rows[row][.field].S    }}\n\t\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t\t{{#if ~/rows[row][.field].hasOwnProperty('N')    }}\n\t\t\t\t\t\t\t\t\t\t{{#if ~/selection[row].cols[i].editing }}\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"number\" value={{~/rows[row][.field].N}} on-blur='@this.editfocusout( row, i )' />\n\t\t\t\t\t\t\t\t\t\t{{else}}\n\t\t\t\t\t\t\t\t\t\t\t{{ ~/rows[row][.field].N    }}\n\t\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t\t{{/if}}\n\n\t\t\t\t\t\t\t\t\t{{#if ~/rows[row][.field].hasOwnProperty('BOOL') }}\n\t\t\t\t\t\t\t\t\t\t{{#if ~/selection[row].cols[i].editing }}\n\t\t\t\t\t\t\t\t\t\t\t<select value={{ ~/rows[row][.field].BOOL }} on-blur='@this.editfocusout( row, i )' >\n\t\t\t\t\t\t\t\t\t\t\t\t<option value=\"true\">true</option>\n\t\t\t\t\t\t\t\t\t\t\t\t<option value=\"false\">false</option>\n\t\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t\t{{else}}\n\t\t\t\t\t\t\t\t\t\t\t{{ ~/rows[row][.field].BOOL }}\n\t\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t\t\t{{#if ~/rows[row][.field].hasOwnProperty('B')    }}binary{{/if}}\n\t\t\t\t\t\t\t\t\t{{#if ~/rows[row][.field].hasOwnProperty('NULL') }}NULL{{/if}}\n\t\t\t\t\t\t\t\t\t{{#if ~/rows[row][.field].hasOwnProperty('L')    }}[...]{{/if}}\n\t\t\t\t\t\t\t\t\t{{#if ~/rows[row][.field].hasOwnProperty('M')    }}{...}{{/if}}\n\t\t\t\t\t\t\t\t\t{{#if ~/rows[row][.field].hasOwnProperty('SS')   }}StringSet{{/if}}\n\t\t\t\t\t\t\t\t\t{{#if ~/rows[row][.field].hasOwnProperty('NS')   }}NumberSet{{/if}}\n\t\t\t\t\t\t\t\t\t{{#if ~/rows[row][.field].hasOwnProperty('BS')   }}BinarySet{{/if}}\n\t\t\t\t\t\t\t\t{{else}}\n\t\t\t\t\t\t\t\t\t{{.}}\n\t\t\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t{{/if}}\n\t\t\t\t\t{{/columns}}\n\n\t\t\t\t</div>\n\n\n\n\t\t\t\t{{/rows}}\n\t\t\t</div>\n\t\t</div>\n\t\t",data:function(){return{selectall:!1,checkbox_width:28,selection:[]}},hrefclick(t,e){this.fire("href",this,t,e)},clicktoedit(t,e){this.set("selection.*.cols.*.editing",!1),this.set("selection."+t+".cols."+e+".editing",!0);try{this.el.getElementsByTagName("select")&&this.el.getElementsByTagName("select")[0].focus()}catch(t){}try{this.el.querySelectorAll("input[type=number]")&&this.el.querySelectorAll("input[type=number]")[0].focus()}catch(t){}try{this.el.querySelectorAll("input[type=text]")&&this.el.querySelectorAll("input[type=text]")[0].focus()}catch(t){}},editfocusout(t,e){this.set("selection."+t+".cols."+e+".editing",!1)},select_event(){var t=this,e=[];this.get("selection").map((function(i,n,o){!0===i.selected&&e.push(t.get("rows."+n))}));this.fire("select",e)},select_all(){this.set("selection",this.get("selection").map((function(t){return{selected:!0}}))),this.select_event()},select_none(){this.set("selection.*.selected",!1),this.select_event()},on:{init(){this.observe("selectall",(function(t,e,i){if(t)return this.set("selection",this.get("selection").map((function(t){return{selected:!0}}))),void this.select_event();this.set("selection.*.selected",!1),this.select_event()}),{init:!1})},selectcell(t){var e=t.resolve().split("rows").join("selection"),i=this.get(e+".selected");!1!==this.get("multiselect")||this.set("selection.*.selected",!1),i?this.set(e+".selected",!1):this.set(e+".selected",!0),this.select_event()}}})},function(t,e,i){}]).default}));
+
+/***/ }),
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1887,7 +1957,7 @@ exports.default = Ractive.extend({
 });
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2002,7 +2072,7 @@ exports.default = Ractive.extend({
 });
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2018,15 +2088,15 @@ var _utils = __webpack_require__(1);
 
 var _utils2 = _interopRequireDefault(_utils);
 
-var _open_item2 = __webpack_require__(24);
+var _open_item2 = __webpack_require__(25);
 
 var _open_item3 = _interopRequireDefault(_open_item2);
 
-var _create_item2 = __webpack_require__(26);
+var _create_item2 = __webpack_require__(27);
 
 var _create_item3 = _interopRequireDefault(_create_item2);
 
-var _duplicate_item2 = __webpack_require__(27);
+var _duplicate_item2 = __webpack_require__(28);
 
 var _duplicate_item3 = _interopRequireDefault(_duplicate_item2);
 
@@ -2573,7 +2643,7 @@ exports.default = Ractive.extend({
 });
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2621,14 +2691,14 @@ exports.default = function (e, col, item, rawitem) {
 	});
 };
 
-var _edit = __webpack_require__(25);
+var _edit = __webpack_require__(26);
 
 var _edit2 = _interopRequireDefault(_edit);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2770,7 +2840,7 @@ exports.default = Ractive.extend({
 });
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2861,7 +2931,7 @@ var _add2 = _interopRequireDefault(_add);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2920,7 +2990,7 @@ var _add2 = _interopRequireDefault(_add);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {(function webpackUniversalModuleDefinition(root, factory) {
@@ -16158,10 +16228,10 @@ module.exports = __webpack_require__(10).PassThrough
 /***/ })
 /******/ ]);
 });
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(29).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(30).Buffer))
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16175,9 +16245,9 @@ module.exports = __webpack_require__(10).PassThrough
 
 
 
-var base64 = __webpack_require__(31)
-var ieee754 = __webpack_require__(32)
-var isArray = __webpack_require__(33)
+var base64 = __webpack_require__(32)
+var ieee754 = __webpack_require__(33)
+var isArray = __webpack_require__(34)
 
 exports.Buffer = Buffer
 exports.SlowBuffer = SlowBuffer
@@ -17955,10 +18025,10 @@ function isnan (val) {
   return val !== val // eslint-disable-line no-self-compare
 }
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(30)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(31)))
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports) {
 
 var g;
@@ -17984,7 +18054,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18143,7 +18213,7 @@ function fromByteArray (uint8) {
 
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports) {
 
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
@@ -18233,7 +18303,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
 
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports) {
 
 var toString = {}.toString;
