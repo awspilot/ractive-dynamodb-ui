@@ -24,6 +24,7 @@
 		"@awspilot/dynamodb": "2.0.0-beta.10",
 		"@awspilot/ractive-dynamodb-json-editor": "^1.1.1",
 		"@databank/ractive-window": "^0.2.2",
+		"@databank/ractive-datatable": "0.0.1",
 
 		"babel-core": "^6.26.3",
 		"babel-loader": "^7.1.5",
